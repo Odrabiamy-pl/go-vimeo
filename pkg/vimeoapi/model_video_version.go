@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoVersion type satisfies the MappedNullable interface at compile time
@@ -23,7 +21,6 @@ var _ MappedNullable = &VideoVersion{}
 type VideoVersion struct {
 	// Whether the video version is currently active.
 	Active bool `json:"active"`
-	// The API app associated with the video version.
 	App ApiApp `json:"app"`
 	// Whether the version can be restored.
 	CanRestoreCreate bool `json:"can_restore_create"`
@@ -48,7 +45,6 @@ type VideoVersion struct {
 	ModifiedTime string `json:"modified_time"`
 	// Whether the video has unified resolution. If the value of this field is `false`, the video requires transcoding.
 	OriginVariableFrameResolution bool `json:"origin_variable_frame_resolution"`
-	// The `Play` representation.
 	Play *Play `json:"play,omitempty"`
 	Transcode NullableVideoVersionTranscode `json:"transcode"`
 	Upload NullableVideoVersionUpload `json:"upload"`
@@ -58,8 +54,6 @@ type VideoVersion struct {
 	Uri string `json:"uri"`
 	User NullableVideoVersionUser `json:"user"`
 }
-
-type _VideoVersion VideoVersion
 
 // NewVideoVersion instantiates a new VideoVersion object
 // This constructor will assign default values to properties that have it defined,
@@ -639,60 +633,6 @@ func (o VideoVersion) ToMap() (map[string]interface{}, error) {
 	toSerialize["uri"] = o.Uri
 	toSerialize["user"] = o.User.Get()
 	return toSerialize, nil
-}
-
-func (o *VideoVersion) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"active",
-		"app",
-		"can_restore_create",
-		"create_storyboard_id",
-		"created_time",
-		"download_config",
-		"duration",
-		"filename",
-		"filesize",
-		"has_interactive",
-		"metadata",
-		"modified_time",
-		"origin_variable_frame_resolution",
-		"transcode",
-		"upload",
-		"upload_date",
-		"uri",
-		"user",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoVersion := _VideoVersion{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoVersion)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoVersion(varVideoVersion)
-
-	return err
 }
 
 type NullableVideoVersion struct {

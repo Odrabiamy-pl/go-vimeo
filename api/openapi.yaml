@@ -1035,7 +1035,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 273576296
                         }
                     }
@@ -2071,7 +2071,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -2114,7 +2114,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -2177,7 +2177,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -2436,7 +2436,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -2499,7 +2499,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -3332,7 +3332,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -3395,7 +3395,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -3448,7 +3448,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -3513,7 +3513,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -3594,7 +3594,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -3697,7 +3697,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -3801,7 +3801,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -3905,7 +3905,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -4001,7 +4001,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -4068,7 +4068,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -4143,7 +4143,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -4220,7 +4220,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -4276,7 +4276,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -4353,7 +4353,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -4467,7 +4467,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -5422,7 +5422,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -5475,7 +5475,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -5528,7 +5528,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -7991,7 +7991,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -9000,7 +9000,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     }
@@ -9064,7 +9064,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     },
@@ -9128,7 +9128,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     }
@@ -9194,7 +9194,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     }
@@ -9294,7 +9294,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     }
@@ -11143,7 +11143,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -11187,7 +11187,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -11224,7 +11224,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -14005,7 +14005,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -15343,7 +15343,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -15397,7 +15397,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -15441,7 +15441,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -16877,7 +16877,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -16951,7 +16951,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -17703,7 +17703,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -17749,7 +17749,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -17823,7 +17823,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -17987,7 +17987,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -18139,7 +18139,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -18296,7 +18296,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -18330,7 +18330,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -18381,7 +18381,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -22491,7 +22491,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -22544,7 +22544,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -22587,7 +22587,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -23285,7 +23285,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -23321,7 +23321,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -23474,7 +23474,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -23582,7 +23582,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -23635,7 +23635,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -23808,7 +23808,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -23874,7 +23874,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -23930,7 +23930,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24122,7 +24122,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -24208,7 +24208,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24290,7 +24290,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24363,7 +24363,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24436,7 +24436,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24525,7 +24525,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -24601,7 +24601,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24683,7 +24683,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24756,7 +24756,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24829,7 +24829,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -24918,7 +24918,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -25093,7 +25093,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -25181,7 +25181,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -25191,7 +25191,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     }
@@ -25257,7 +25257,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -25267,7 +25267,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     },
@@ -25333,7 +25333,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -25343,7 +25343,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     }
@@ -25411,7 +25411,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -25421,7 +25421,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     }
@@ -25523,7 +25523,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -25533,7 +25533,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 196367152
                         }
                     }
@@ -25598,7 +25598,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 123456
                         }
                     },
@@ -25834,7 +25834,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -25958,7 +25958,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -26074,7 +26074,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26120,7 +26120,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26166,7 +26166,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26204,7 +26204,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -26329,7 +26329,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26385,7 +26385,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26434,7 +26434,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26482,7 +26482,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26531,7 +26531,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26596,7 +26596,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26652,7 +26652,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26700,7 +26700,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -26758,7 +26758,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -26859,7 +26859,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -26957,7 +26957,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -27065,7 +27065,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -27185,7 +27185,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -27231,7 +27231,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -27280,7 +27280,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -27328,7 +27328,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -27450,7 +27450,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -27506,7 +27506,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -27562,7 +27562,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -27603,7 +27603,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -27713,7 +27713,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -27723,7 +27723,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -27769,7 +27769,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -27779,7 +27779,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -27818,7 +27818,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -27828,7 +27828,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -27886,7 +27886,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -27942,7 +27942,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -28071,7 +28071,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -28504,7 +28504,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -28601,7 +28601,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -28951,7 +28951,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -29095,7 +29095,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -29221,7 +29221,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -29318,7 +29318,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -29495,7 +29495,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     },
@@ -29616,7 +29616,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -29711,7 +29711,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -29833,7 +29833,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -29928,7 +29928,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30011,7 +30011,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30103,7 +30103,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30173,7 +30173,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30280,7 +30280,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30361,7 +30361,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30448,7 +30448,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30545,7 +30545,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30645,7 +30645,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30757,7 +30757,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -30869,7 +30869,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -31054,7 +31054,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -31168,7 +31168,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -31178,7 +31178,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -31257,7 +31257,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -31371,7 +31371,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -31743,7 +31743,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -31874,7 +31874,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -31933,7 +31933,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -31988,7 +31988,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -32034,7 +32034,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -32080,7 +32080,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -32142,7 +32142,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -32250,7 +32250,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -32298,7 +32298,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -32419,7 +32419,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -32429,7 +32429,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -32485,7 +32485,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -32495,7 +32495,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -32541,7 +32541,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -32551,7 +32551,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -32599,7 +32599,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -32658,7 +32658,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -32927,7 +32927,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -32973,7 +32973,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -33060,7 +33060,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -33121,7 +33121,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -33237,7 +33237,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -33347,7 +33347,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -33433,7 +33433,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -33499,7 +33499,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -33614,7 +33614,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -33712,7 +33712,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -33808,7 +33808,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -33987,7 +33987,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -34075,7 +34075,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -34085,7 +34085,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -34161,7 +34161,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -34171,7 +34171,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -34219,7 +34219,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -34285,7 +34285,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -34378,7 +34378,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -34420,7 +34420,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -34496,7 +34496,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -34719,7 +34719,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -35164,7 +35164,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -35174,7 +35174,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -35222,7 +35222,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -35232,7 +35232,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -35308,7 +35308,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -35318,7 +35318,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -35484,7 +35484,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -35494,7 +35494,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 12345
                         }
                     }
@@ -35562,7 +35562,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -35696,7 +35696,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -35706,7 +35706,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -35742,7 +35742,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -35752,7 +35752,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -35805,7 +35805,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -35815,7 +35815,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -35853,7 +35853,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     }
@@ -36123,7 +36123,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -36180,7 +36180,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -36461,7 +36461,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -36527,7 +36527,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -36711,7 +36711,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -36841,7 +36841,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -36952,7 +36952,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -37048,7 +37048,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -37305,7 +37305,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -37348,7 +37348,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -37391,7 +37391,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -37886,7 +37886,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -37952,7 +37952,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38038,7 +38038,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -38104,7 +38104,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38211,7 +38211,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38264,7 +38264,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38319,7 +38319,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38364,7 +38364,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -38432,7 +38432,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38490,7 +38490,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -38556,7 +38556,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38640,7 +38640,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -38706,7 +38706,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38794,7 +38794,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38863,7 +38863,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -38928,7 +38928,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -38981,7 +38981,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -39034,7 +39034,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -39135,7 +39135,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -39195,7 +39195,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -39264,7 +39264,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -39337,7 +39337,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -39400,7 +39400,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -39479,7 +39479,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -39552,7 +39552,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -39657,7 +39657,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -39720,7 +39720,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -39773,7 +39773,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -39865,7 +39865,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -39941,7 +39941,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40023,7 +40023,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -40119,7 +40119,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40215,7 +40215,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -40320,7 +40320,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40373,7 +40373,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40426,7 +40426,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40510,7 +40510,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 699033361
                         }
                     }
@@ -40536,7 +40536,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 699033361
                         }
                     }
@@ -40569,7 +40569,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 699033361
                         }
                     }
@@ -40597,7 +40597,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -40685,7 +40685,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -40744,7 +40744,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40821,7 +40821,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40864,7 +40864,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40907,7 +40907,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -40976,7 +40976,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41029,7 +41029,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41075,7 +41075,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41110,7 +41110,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -41188,7 +41188,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41251,7 +41251,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41296,7 +41296,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -41365,7 +41365,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41413,7 +41413,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -41423,7 +41423,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41476,7 +41476,7 @@
                         "name": "user_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 152184
                         }
                     },
@@ -41486,7 +41486,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41541,7 +41541,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -41576,7 +41576,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -41632,7 +41632,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -41717,7 +41717,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -41770,7 +41770,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -41833,7 +41833,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -41905,7 +41905,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -41974,7 +41974,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42090,7 +42090,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42153,7 +42153,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42216,7 +42216,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42316,7 +42316,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42388,7 +42388,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42443,7 +42443,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42491,7 +42491,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42544,7 +42544,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42621,7 +42621,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -42700,7 +42700,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42828,7 +42828,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42881,7 +42881,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -42934,7 +42934,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     }
@@ -43018,7 +43018,7 @@
                         "name": "video_id",
                         "required": true,
                         "schema": {
-                            "type": "number",
+                            "type": "integer",
                             "example": 258684937
                         }
                     },
@@ -48117,7 +48117,7 @@
                     "user_id": {
                         "description": "The ID of the destination's owner.",
                         "example": 123456,
-                        "type": "number"
+                        "type": "integer"
                     }
                 },
                 "required": [

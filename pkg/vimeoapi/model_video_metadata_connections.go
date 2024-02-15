@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoMetadataConnections type satisfies the MappedNullable interface at compile time
@@ -39,8 +37,6 @@ type VideoMetadataConnections struct {
 	UsersWithAccess VideoMetadataConnectionsUsersWithAccess `json:"users_with_access"`
 	Versions VideoMetadataConnectionsVersions `json:"versions"`
 }
-
-type _VideoMetadataConnections VideoMetadataConnections
 
 // NewVideoMetadataConnections instantiates a new VideoMetadataConnections object
 // This constructor will assign default values to properties that have it defined,
@@ -492,58 +488,6 @@ func (o VideoMetadataConnections) ToMap() (map[string]interface{}, error) {
 	toSerialize["users_with_access"] = o.UsersWithAccess
 	toSerialize["versions"] = o.Versions
 	return toSerialize, nil
-}
-
-func (o *VideoMetadataConnections) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"ancestor_path",
-		"available_channels",
-		"comments",
-		"credits",
-		"likes",
-		"ondemand",
-		"pictures",
-		"recommendations",
-		"related",
-		"resource_creator_team_user",
-		"season",
-		"team_permissions",
-		"texttracks",
-		"trailer",
-		"users_with_access",
-		"versions",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoMetadataConnections := _VideoMetadataConnections{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoMetadataConnections)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoMetadataConnections(varVideoMetadataConnections)
-
-	return err
 }
 
 type NullableVideoMetadataConnections struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WebinarEmailSettingsEmailEventReminder24Hrs type satisfies the MappedNullable interface at compile time
@@ -22,11 +20,8 @@ var _ MappedNullable = &WebinarEmailSettingsEmailEventReminder24Hrs{}
 // WebinarEmailSettingsEmailEventReminder24Hrs The email customization details for the webinar reminder email, which goes out 24 hours before the event.
 type WebinarEmailSettingsEmailEventReminder24Hrs struct {
 	Custom NullableWebinarEmailSettingsEmailEventReminder24HrsCustom `json:"custom"`
-	// The email default details for the webinar reminder email, which goes out 24 hours before the event.
 	Default WebinarEmailContent `json:"default"`
 }
-
-type _WebinarEmailSettingsEmailEventReminder24Hrs WebinarEmailSettingsEmailEventReminder24Hrs
 
 // NewWebinarEmailSettingsEmailEventReminder24Hrs instantiates a new WebinarEmailSettingsEmailEventReminder24Hrs object
 // This constructor will assign default values to properties that have it defined,
@@ -110,44 +105,6 @@ func (o WebinarEmailSettingsEmailEventReminder24Hrs) ToMap() (map[string]interfa
 	toSerialize["custom"] = o.Custom.Get()
 	toSerialize["default"] = o.Default
 	return toSerialize, nil
-}
-
-func (o *WebinarEmailSettingsEmailEventReminder24Hrs) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"custom",
-		"default",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWebinarEmailSettingsEmailEventReminder24Hrs := _WebinarEmailSettingsEmailEventReminder24Hrs{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebinarEmailSettingsEmailEventReminder24Hrs)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WebinarEmailSettingsEmailEventReminder24Hrs(varWebinarEmailSettingsEmailEventReminder24Hrs)
-
-	return err
 }
 
 type NullableWebinarEmailSettingsEmailEventReminder24Hrs struct {

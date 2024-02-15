@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventSessionStatus type satisfies the MappedNullable interface at compile time
@@ -33,8 +31,6 @@ type LiveEventSessionStatus struct {
 	// The stream mode of the event.  Option descriptions:  * `live` - The stream is live playback.  * `record` - The stream is in record mode.  * `simulive` - The stream is scheduled media playback. 
 	StreamMode string `json:"stream_mode"`
 }
-
-type _LiveEventSessionStatus LiveEventSessionStatus
 
 // NewLiveEventSessionStatus instantiates a new LiveEventSessionStatus object
 // This constructor will assign default values to properties that have it defined,
@@ -248,49 +244,6 @@ func (o LiveEventSessionStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status.Get()
 	toSerialize["stream_mode"] = o.StreamMode
 	return toSerialize, nil
-}
-
-func (o *LiveEventSessionStatus) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"archive",
-		"can_manage",
-		"id",
-		"ingest",
-		"metering",
-		"status",
-		"stream_mode",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventSessionStatus := _LiveEventSessionStatus{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventSessionStatus)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventSessionStatus(varLiveEventSessionStatus)
-
-	return err
 }
 
 type NullableLiveEventSessionStatus struct {

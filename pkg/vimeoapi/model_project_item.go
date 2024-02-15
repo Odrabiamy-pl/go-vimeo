@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ProjectItem type satisfies the MappedNullable interface at compile time
@@ -21,17 +19,12 @@ var _ MappedNullable = &ProjectItem{}
 
 // ProjectItem struct for ProjectItem
 type ProjectItem struct {
-	// The project item folder.
 	Folder *Project `json:"folder,omitempty"`
-	// The project item live event.
 	LiveEvent *LiveEventRecurring `json:"live_event,omitempty"`
 	// The project item type.  Option descriptions:  * `folder` - The project item is a folder.  * `live_event` - The project item is a live event.  * `video` - The project item is a video. 
 	Type string `json:"type"`
-	// The project item video.
 	Video *Video `json:"video,omitempty"`
 }
-
-type _ProjectItem ProjectItem
 
 // NewProjectItem instantiates a new ProjectItem object
 // This constructor will assign default values to properties that have it defined,
@@ -192,43 +185,6 @@ func (o ProjectItem) ToMap() (map[string]interface{}, error) {
 		toSerialize["video"] = o.Video
 	}
 	return toSerialize, nil
-}
-
-func (o *ProjectItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"type",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varProjectItem := _ProjectItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProjectItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ProjectItem(varProjectItem)
-
-	return err
 }
 
 type NullableProjectItem struct {

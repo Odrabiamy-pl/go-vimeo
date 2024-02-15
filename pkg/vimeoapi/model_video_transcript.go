@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoTranscript type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type VideoTranscript struct {
 	// The video transcript's availability status. This data requires a bearer token with the `private` scope.  Option descriptions:  * `completed` - Transcription is completed. The transcript is available.  * `failed` - There was a transcription error. The transcript isn't available.  * `in_progress` - Transcription is currently underway. The transcript isn't available yet.  * `language_not_supported` - We currently don't support transcribing audio for this video's language.  * `no_speech` - Transcription was completed, but there were no words in the audio to transcribe.  * `not_started` - The transcript job hasn't started.  * `unknown` - There isn't a record of this video's transcription job. 
 	Status *string `json:"status,omitempty"`
 }
-
-type _VideoTranscript VideoTranscript
 
 // NewVideoTranscript instantiates a new VideoTranscript object
 // This constructor will assign default values to properties that have it defined,
@@ -120,43 +116,6 @@ func (o VideoTranscript) ToMap() (map[string]interface{}, error) {
 		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil
-}
-
-func (o *VideoTranscript) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"language",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoTranscript := _VideoTranscript{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoTranscript)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoTranscript(varVideoTranscript)
-
-	return err
 }
 
 type NullableVideoTranscript struct {

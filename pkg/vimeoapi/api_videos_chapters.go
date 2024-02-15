@@ -31,7 +31,7 @@ type VideosChaptersAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateChapterRequest
 	*/
-	CreateChapter(ctx context.Context, videoId float32) ApiCreateChapterRequest
+	CreateChapter(ctx context.Context, videoId int32) ApiCreateChapterRequest
 
 	// CreateChapterExecute executes the request
 	//  @return Chapter
@@ -47,7 +47,7 @@ type VideosChaptersAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateChapterThumbnailOrUploadLinkRequest
 	*/
-	CreateChapterThumbnailOrUploadLink(ctx context.Context, chapterId float32, videoId float32) ApiCreateChapterThumbnailOrUploadLinkRequest
+	CreateChapterThumbnailOrUploadLink(ctx context.Context, chapterId float32, videoId int32) ApiCreateChapterThumbnailOrUploadLinkRequest
 
 	// CreateChapterThumbnailOrUploadLinkExecute executes the request
 	//  @return Picture
@@ -62,7 +62,7 @@ type VideosChaptersAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
 	*/
-	CreateUnsavedChapterThumbnailOrUploadLink(ctx context.Context, videoId float32) ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
+	CreateUnsavedChapterThumbnailOrUploadLink(ctx context.Context, videoId int32) ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
 
 	// CreateUnsavedChapterThumbnailOrUploadLinkExecute executes the request
 	//  @return Picture
@@ -78,7 +78,7 @@ type VideosChaptersAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteChapterRequest
 	*/
-	DeleteChapter(ctx context.Context, chapterId float32, videoId float32) ApiDeleteChapterRequest
+	DeleteChapter(ctx context.Context, chapterId float32, videoId int32) ApiDeleteChapterRequest
 
 	// DeleteChapterExecute executes the request
 	DeleteChapterExecute(r ApiDeleteChapterRequest) (*http.Response, error)
@@ -97,7 +97,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	@param uid The unique ID of the thumbnail.
 	@return ApiDeleteChapterThumbnailRequest
 	*/
-	DeleteChapterThumbnail(ctx context.Context, videoId float32, chapterId float32, uid string) ApiDeleteChapterThumbnailRequest
+	DeleteChapterThumbnail(ctx context.Context, videoId int32, chapterId float32, uid string) ApiDeleteChapterThumbnailRequest
 
 	// DeleteChapterThumbnailExecute executes the request
 	DeleteChapterThumbnailExecute(r ApiDeleteChapterThumbnailRequest) (*http.Response, error)
@@ -112,7 +112,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	@param videoId The ID of the video.
 	@return ApiEditChapterRequest
 	*/
-	EditChapter(ctx context.Context, chapterId float32, videoId float32) ApiEditChapterRequest
+	EditChapter(ctx context.Context, chapterId float32, videoId int32) ApiEditChapterRequest
 
 	// EditChapterExecute executes the request
 	//  @return Chapter
@@ -128,7 +128,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	@param videoId The ID of the video.
 	@return ApiGetChapterRequest
 	*/
-	GetChapter(ctx context.Context, chapterId float32, videoId float32) ApiGetChapterRequest
+	GetChapter(ctx context.Context, chapterId float32, videoId int32) ApiGetChapterRequest
 
 	// GetChapterExecute executes the request
 	//  @return Chapter
@@ -145,7 +145,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	@param uid The unique ID of the thumbnail.
 	@return ApiGetChapterThumbnailRequest
 	*/
-	GetChapterThumbnail(ctx context.Context, chapterId float32, videoId float32, uid string) ApiGetChapterThumbnailRequest
+	GetChapterThumbnail(ctx context.Context, chapterId float32, videoId int32, uid string) ApiGetChapterThumbnailRequest
 
 	// GetChapterThumbnailExecute executes the request
 	//  @return Picture
@@ -161,7 +161,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	@param videoId The ID of the video.
 	@return ApiGetChapterThumbnailsRequest
 	*/
-	GetChapterThumbnails(ctx context.Context, chapterId float32, videoId float32) ApiGetChapterThumbnailsRequest
+	GetChapterThumbnails(ctx context.Context, chapterId float32, videoId int32) ApiGetChapterThumbnailsRequest
 
 	// GetChapterThumbnailsExecute executes the request
 	//  @return Picture
@@ -176,7 +176,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	@param videoId The ID of the video.
 	@return ApiGetChaptersRequest
 	*/
-	GetChapters(ctx context.Context, videoId float32) ApiGetChaptersRequest
+	GetChapters(ctx context.Context, videoId int32) ApiGetChaptersRequest
 
 	// GetChaptersExecute executes the request
 	//  @return []Chapter
@@ -192,7 +192,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	@param uid The unique ID of the thumbnail.
 	@return ApiGetUnsavedChapterThumbnailRequest
 	*/
-	GetUnsavedChapterThumbnail(ctx context.Context, videoId float32, uid string) ApiGetUnsavedChapterThumbnailRequest
+	GetUnsavedChapterThumbnail(ctx context.Context, videoId int32, uid string) ApiGetUnsavedChapterThumbnailRequest
 
 	// GetUnsavedChapterThumbnailExecute executes the request
 	//  @return Picture
@@ -209,7 +209,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	@param uid The unique ID of the thumbnail.
 	@return ApiSetChapterThumbnailActiveRequest
 	*/
-	SetChapterThumbnailActive(ctx context.Context, chapterId float32, videoId float32, uid string) ApiSetChapterThumbnailActiveRequest
+	SetChapterThumbnailActive(ctx context.Context, chapterId float32, videoId int32, uid string) ApiSetChapterThumbnailActiveRequest
 
 	// SetChapterThumbnailActiveExecute executes the request
 	//  @return Picture
@@ -222,7 +222,7 @@ type VideosChaptersAPIService service
 type ApiCreateChapterRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
-	videoId float32
+	videoId int32
 	createChapterRequest *CreateChapterRequest
 }
 
@@ -244,7 +244,7 @@ This method adds a chapter to the specified video.
  @param videoId The ID of the video.
  @return ApiCreateChapterRequest
 */
-func (a *VideosChaptersAPIService) CreateChapter(ctx context.Context, videoId float32) ApiCreateChapterRequest {
+func (a *VideosChaptersAPIService) CreateChapter(ctx context.Context, videoId int32) ApiCreateChapterRequest {
 	return ApiCreateChapterRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -344,7 +344,7 @@ type ApiCreateChapterThumbnailOrUploadLinkRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
 	chapterId float32
-	videoId float32
+	videoId int32
 	createUnsavedChapterThumbnailOrUploadLinkRequest *CreateUnsavedChapterThumbnailOrUploadLinkRequest
 }
 
@@ -367,7 +367,7 @@ This method generates either an upload link or a timecode-based thumbnail for th
  @param videoId The ID of the video.
  @return ApiCreateChapterThumbnailOrUploadLinkRequest
 */
-func (a *VideosChaptersAPIService) CreateChapterThumbnailOrUploadLink(ctx context.Context, chapterId float32, videoId float32) ApiCreateChapterThumbnailOrUploadLinkRequest {
+func (a *VideosChaptersAPIService) CreateChapterThumbnailOrUploadLink(ctx context.Context, chapterId float32, videoId int32) ApiCreateChapterThumbnailOrUploadLinkRequest {
 	return ApiCreateChapterThumbnailOrUploadLinkRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -468,7 +468,7 @@ func (a *VideosChaptersAPIService) CreateChapterThumbnailOrUploadLinkExecute(r A
 type ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
-	videoId float32
+	videoId int32
 	createUnsavedChapterThumbnailOrUploadLinkRequest *CreateUnsavedChapterThumbnailOrUploadLinkRequest
 }
 
@@ -490,7 +490,7 @@ This method generates either an upload link or a timecode-based thumbnail for an
  @param videoId The ID of the video.
  @return ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
 */
-func (a *VideosChaptersAPIService) CreateUnsavedChapterThumbnailOrUploadLink(ctx context.Context, videoId float32) ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest {
+func (a *VideosChaptersAPIService) CreateUnsavedChapterThumbnailOrUploadLink(ctx context.Context, videoId int32) ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest {
 	return ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -590,7 +590,7 @@ type ApiDeleteChapterRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
 	chapterId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteChapterRequest) Execute() (*http.Response, error) {
@@ -607,7 +607,7 @@ This method deletes the specified chapter from a video. The authenticated user m
  @param videoId The ID of the video.
  @return ApiDeleteChapterRequest
 */
-func (a *VideosChaptersAPIService) DeleteChapter(ctx context.Context, chapterId float32, videoId float32) ApiDeleteChapterRequest {
+func (a *VideosChaptersAPIService) DeleteChapter(ctx context.Context, chapterId float32, videoId int32) ApiDeleteChapterRequest {
 	return ApiDeleteChapterRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -695,7 +695,7 @@ func (a *VideosChaptersAPIService) DeleteChapterExecute(r ApiDeleteChapterReques
 type ApiDeleteChapterThumbnailRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
-	videoId float32
+	videoId int32
 	chapterId float32
 	uid string
 }
@@ -718,7 +718,7 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
  @param uid The unique ID of the thumbnail.
  @return ApiDeleteChapterThumbnailRequest
 */
-func (a *VideosChaptersAPIService) DeleteChapterThumbnail(ctx context.Context, videoId float32, chapterId float32, uid string) ApiDeleteChapterThumbnailRequest {
+func (a *VideosChaptersAPIService) DeleteChapterThumbnail(ctx context.Context, videoId int32, chapterId float32, uid string) ApiDeleteChapterThumbnailRequest {
 	return ApiDeleteChapterThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -809,7 +809,7 @@ type ApiEditChapterRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
 	chapterId float32
-	videoId float32
+	videoId int32
 	editChapterRequest *EditChapterRequest
 }
 
@@ -832,7 +832,7 @@ This method edits the specified chapter of a video. The authenticated user must 
  @param videoId The ID of the video.
  @return ApiEditChapterRequest
 */
-func (a *VideosChaptersAPIService) EditChapter(ctx context.Context, chapterId float32, videoId float32) ApiEditChapterRequest {
+func (a *VideosChaptersAPIService) EditChapter(ctx context.Context, chapterId float32, videoId int32) ApiEditChapterRequest {
 	return ApiEditChapterRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -945,7 +945,7 @@ type ApiGetChapterRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
 	chapterId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetChapterRequest) Execute() (*Chapter, *http.Response, error) {
@@ -962,7 +962,7 @@ This method returns a single chapter of the specified video.
  @param videoId The ID of the video.
  @return ApiGetChapterRequest
 */
-func (a *VideosChaptersAPIService) GetChapter(ctx context.Context, chapterId float32, videoId float32) ApiGetChapterRequest {
+func (a *VideosChaptersAPIService) GetChapter(ctx context.Context, chapterId float32, videoId int32) ApiGetChapterRequest {
 	return ApiGetChapterRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1062,7 +1062,7 @@ type ApiGetChapterThumbnailRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
 	chapterId float32
-	videoId float32
+	videoId int32
 	uid string
 }
 
@@ -1081,7 +1081,7 @@ This method returns the specified thumbnail associated with a saved video chapte
  @param uid The unique ID of the thumbnail.
  @return ApiGetChapterThumbnailRequest
 */
-func (a *VideosChaptersAPIService) GetChapterThumbnail(ctx context.Context, chapterId float32, videoId float32, uid string) ApiGetChapterThumbnailRequest {
+func (a *VideosChaptersAPIService) GetChapterThumbnail(ctx context.Context, chapterId float32, videoId int32, uid string) ApiGetChapterThumbnailRequest {
 	return ApiGetChapterThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1183,7 +1183,7 @@ type ApiGetChapterThumbnailsRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
 	chapterId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetChapterThumbnailsRequest) Execute() (*Picture, *http.Response, error) {
@@ -1200,7 +1200,7 @@ This method returns every thumbnail associated with the specified saved video ch
  @param videoId The ID of the video.
  @return ApiGetChapterThumbnailsRequest
 */
-func (a *VideosChaptersAPIService) GetChapterThumbnails(ctx context.Context, chapterId float32, videoId float32) ApiGetChapterThumbnailsRequest {
+func (a *VideosChaptersAPIService) GetChapterThumbnails(ctx context.Context, chapterId float32, videoId int32) ApiGetChapterThumbnailsRequest {
 	return ApiGetChapterThumbnailsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1299,7 +1299,7 @@ func (a *VideosChaptersAPIService) GetChapterThumbnailsExecute(r ApiGetChapterTh
 type ApiGetChaptersRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -1329,7 +1329,7 @@ This method returns every chapter of the specified video.
  @param videoId The ID of the video.
  @return ApiGetChaptersRequest
 */
-func (a *VideosChaptersAPIService) GetChapters(ctx context.Context, videoId float32) ApiGetChaptersRequest {
+func (a *VideosChaptersAPIService) GetChapters(ctx context.Context, videoId int32) ApiGetChaptersRequest {
 	return ApiGetChaptersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1432,7 +1432,7 @@ func (a *VideosChaptersAPIService) GetChaptersExecute(r ApiGetChaptersRequest) (
 type ApiGetUnsavedChapterThumbnailRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
-	videoId float32
+	videoId int32
 	uid string
 }
 
@@ -1450,7 +1450,7 @@ This method returns the specified thumbnail associated with an unsaved video cha
  @param uid The unique ID of the thumbnail.
  @return ApiGetUnsavedChapterThumbnailRequest
 */
-func (a *VideosChaptersAPIService) GetUnsavedChapterThumbnail(ctx context.Context, videoId float32, uid string) ApiGetUnsavedChapterThumbnailRequest {
+func (a *VideosChaptersAPIService) GetUnsavedChapterThumbnail(ctx context.Context, videoId int32, uid string) ApiGetUnsavedChapterThumbnailRequest {
 	return ApiGetUnsavedChapterThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1550,7 +1550,7 @@ type ApiSetChapterThumbnailActiveRequest struct {
 	ctx context.Context
 	ApiService VideosChaptersAPI
 	chapterId float32
-	videoId float32
+	videoId int32
 	uid string
 	setChapterThumbnailActiveRequest *SetChapterThumbnailActiveRequest
 }
@@ -1575,7 +1575,7 @@ This method sets the specified chapter thumbnail for a video as active.
  @param uid The unique ID of the thumbnail.
  @return ApiSetChapterThumbnailActiveRequest
 */
-func (a *VideosChaptersAPIService) SetChapterThumbnailActive(ctx context.Context, chapterId float32, videoId float32, uid string) ApiSetChapterThumbnailActiveRequest {
+func (a *VideosChaptersAPIService) SetChapterThumbnailActive(ctx context.Context, chapterId float32, videoId int32, uid string) ApiSetChapterThumbnailActiveRequest {
 	return ApiSetChapterThumbnailActiveRequest{
 		ApiService: a,
 		ctx: ctx,

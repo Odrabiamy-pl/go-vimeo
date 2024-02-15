@@ -32,7 +32,7 @@ type UsersFollowersAPI interface {
 	@param userId The ID of the user.
 	@return ApiCheckIfUserIsFollowingRequest
 	*/
-	CheckIfUserIsFollowing(ctx context.Context, followUserId float32, userId float32) ApiCheckIfUserIsFollowingRequest
+	CheckIfUserIsFollowing(ctx context.Context, followUserId float32, userId int32) ApiCheckIfUserIsFollowingRequest
 
 	// CheckIfUserIsFollowingExecute executes the request
 	CheckIfUserIsFollowingExecute(r ApiCheckIfUserIsFollowingRequest) (*http.Response, error)
@@ -61,7 +61,7 @@ type UsersFollowersAPI interface {
 	@param userId The ID of the user.
 	@return ApiFollowUserRequest
 	*/
-	FollowUser(ctx context.Context, followUserId float32, userId float32) ApiFollowUserRequest
+	FollowUser(ctx context.Context, followUserId float32, userId int32) ApiFollowUserRequest
 
 	// FollowUserExecute executes the request
 	FollowUserExecute(r ApiFollowUserRequest) (*http.Response, error)
@@ -100,7 +100,7 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	@param userId The ID of the user.
 	@return ApiFollowUsersRequest
 	*/
-	FollowUsers(ctx context.Context, userId float32) ApiFollowUsersRequest
+	FollowUsers(ctx context.Context, userId int32) ApiFollowUsersRequest
 
 	// FollowUsersExecute executes the request
 	FollowUsersExecute(r ApiFollowUsersRequest) (*http.Response, error)
@@ -138,7 +138,7 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	@param userId The ID of the user.
 	@return ApiGetFollowersRequest
 	*/
-	GetFollowers(ctx context.Context, userId float32) ApiGetFollowersRequest
+	GetFollowers(ctx context.Context, userId int32) ApiGetFollowersRequest
 
 	// GetFollowersExecute executes the request
 	//  @return []User
@@ -167,7 +167,7 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	@param userId The ID of the user.
 	@return ApiGetUserFollowingRequest
 	*/
-	GetUserFollowing(ctx context.Context, userId float32) ApiGetUserFollowingRequest
+	GetUserFollowing(ctx context.Context, userId int32) ApiGetUserFollowingRequest
 
 	// GetUserFollowingExecute executes the request
 	//  @return []User
@@ -197,7 +197,7 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	@param userId The ID of the user.
 	@return ApiUnfollowUserRequest
 	*/
-	UnfollowUser(ctx context.Context, followUserId float32, userId float32) ApiUnfollowUserRequest
+	UnfollowUser(ctx context.Context, followUserId float32, userId int32) ApiUnfollowUserRequest
 
 	// UnfollowUserExecute executes the request
 	UnfollowUserExecute(r ApiUnfollowUserRequest) (*http.Response, error)
@@ -224,7 +224,7 @@ type ApiCheckIfUserIsFollowingRequest struct {
 	ctx context.Context
 	ApiService UsersFollowersAPI
 	followUserId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiCheckIfUserIsFollowingRequest) Execute() (*http.Response, error) {
@@ -241,7 +241,7 @@ This method determines whether the authenticated user is a follower of the speci
  @param userId The ID of the user.
  @return ApiCheckIfUserIsFollowingRequest
 */
-func (a *UsersFollowersAPIService) CheckIfUserIsFollowing(ctx context.Context, followUserId float32, userId float32) ApiCheckIfUserIsFollowingRequest {
+func (a *UsersFollowersAPIService) CheckIfUserIsFollowing(ctx context.Context, followUserId float32, userId int32) ApiCheckIfUserIsFollowingRequest {
 	return ApiCheckIfUserIsFollowingRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -432,7 +432,7 @@ type ApiFollowUserRequest struct {
 	ctx context.Context
 	ApiService UsersFollowersAPI
 	followUserId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiFollowUserRequest) Execute() (*http.Response, error) {
@@ -449,7 +449,7 @@ This method causes the authenticated user to become the follower of the specifie
  @param userId The ID of the user.
  @return ApiFollowUserRequest
 */
-func (a *UsersFollowersAPIService) FollowUser(ctx context.Context, followUserId float32, userId float32) ApiFollowUserRequest {
+func (a *UsersFollowersAPIService) FollowUser(ctx context.Context, followUserId float32, userId int32) ApiFollowUserRequest {
 	return ApiFollowUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -639,7 +639,7 @@ func (a *UsersFollowersAPIService) FollowUserAlt1Execute(r ApiFollowUserAlt1Requ
 type ApiFollowUsersRequest struct {
 	ctx context.Context
 	ApiService UsersFollowersAPI
-	userId float32
+	userId int32
 	followUsersAlt1Request *FollowUsersAlt1Request
 }
 
@@ -672,7 +672,7 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
  @param userId The ID of the user.
  @return ApiFollowUsersRequest
 */
-func (a *UsersFollowersAPIService) FollowUsers(ctx context.Context, userId float32) ApiFollowUsersRequest {
+func (a *UsersFollowersAPIService) FollowUsers(ctx context.Context, userId int32) ApiFollowUsersRequest {
 	return ApiFollowUsersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -971,7 +971,7 @@ func (a *UsersFollowersAPIService) FollowUsersAlt1Execute(r ApiFollowUsersAlt1Re
 type ApiGetFollowersRequest struct {
 	ctx context.Context
 	ApiService UsersFollowersAPI
-	userId float32
+	userId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -1022,7 +1022,7 @@ This method returns every follower of the authenticated user.
  @param userId The ID of the user.
  @return ApiGetFollowersRequest
 */
-func (a *UsersFollowersAPIService) GetFollowers(ctx context.Context, userId float32) ApiGetFollowersRequest {
+func (a *UsersFollowersAPIService) GetFollowers(ctx context.Context, userId int32) ApiGetFollowersRequest {
 	return ApiGetFollowersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1273,7 +1273,7 @@ func (a *UsersFollowersAPIService) GetFollowersAlt1Execute(r ApiGetFollowersAlt1
 type ApiGetUserFollowingRequest struct {
 	ctx context.Context
 	ApiService UsersFollowersAPI
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	page *float32
@@ -1331,7 +1331,7 @@ This method returns every user that the authenticated user is following.
  @param userId The ID of the user.
  @return ApiGetUserFollowingRequest
 */
-func (a *UsersFollowersAPIService) GetUserFollowing(ctx context.Context, userId float32) ApiGetUserFollowingRequest {
+func (a *UsersFollowersAPIService) GetUserFollowing(ctx context.Context, userId int32) ApiGetUserFollowingRequest {
 	return ApiGetUserFollowingRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1596,7 +1596,7 @@ type ApiUnfollowUserRequest struct {
 	ctx context.Context
 	ApiService UsersFollowersAPI
 	followUserId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiUnfollowUserRequest) Execute() (*http.Response, error) {
@@ -1613,7 +1613,7 @@ This method causes the authenticated user to stop following another user.
  @param userId The ID of the user.
  @return ApiUnfollowUserRequest
 */
-func (a *UsersFollowersAPIService) UnfollowUser(ctx context.Context, followUserId float32, userId float32) ApiUnfollowUserRequest {
+func (a *UsersFollowersAPIService) UnfollowUser(ctx context.Context, followUserId float32, userId int32) ApiUnfollowUserRequest {
 	return ApiUnfollowUserRequest{
 		ApiService: a,
 		ctx: ctx,

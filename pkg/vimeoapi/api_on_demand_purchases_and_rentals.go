@@ -46,7 +46,7 @@ type OnDemandPurchasesAndRentalsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetVodPurchasesRequest
 	*/
-	GetVodPurchases(ctx context.Context, userId float32) ApiGetVodPurchasesRequest
+	GetVodPurchases(ctx context.Context, userId int32) ApiGetVodPurchasesRequest
 
 	// GetVodPurchasesExecute executes the request
 	//  @return []OnDemandPage
@@ -197,7 +197,7 @@ func (a *OnDemandPurchasesAndRentalsAPIService) CheckIfVodWasPurchasedAlt1Execut
 type ApiGetVodPurchasesRequest struct {
 	ctx context.Context
 	ApiService OnDemandPurchasesAndRentalsAPI
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	page *float32
@@ -248,7 +248,7 @@ This method returns every purchase and rental that the authenticated user has ma
  @param userId The ID of the user.
  @return ApiGetVodPurchasesRequest
 */
-func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchases(ctx context.Context, userId float32) ApiGetVodPurchasesRequest {
+func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchases(ctx context.Context, userId int32) ApiGetVodPurchasesRequest {
 	return ApiGetVodPurchasesRequest{
 		ApiService: a,
 		ctx: ctx,

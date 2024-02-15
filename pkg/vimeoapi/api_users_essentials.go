@@ -31,7 +31,7 @@ type UsersEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiEditUserRequest
 	*/
-	EditUser(ctx context.Context, userId float32) ApiEditUserRequest
+	EditUser(ctx context.Context, userId int32) ApiEditUserRequest
 
 	// EditUserExecute executes the request
 	//  @return User
@@ -60,7 +60,7 @@ type UsersEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetUserRequest
 	*/
-	GetUser(ctx context.Context, userId float32) ApiGetUserRequest
+	GetUser(ctx context.Context, userId int32) ApiGetUserRequest
 
 	// GetUserExecute executes the request
 	//  @return User
@@ -87,7 +87,7 @@ type UsersEssentialsAPIService service
 type ApiEditUserRequest struct {
 	ctx context.Context
 	ApiService UsersEssentialsAPI
-	userId float32
+	userId int32
 	editUserAlt1Request *EditUserAlt1Request
 }
 
@@ -109,7 +109,7 @@ This method edits the Vimeo account of the authenticated user.
  @param userId The ID of the user.
  @return ApiEditUserRequest
 */
-func (a *UsersEssentialsAPIService) EditUser(ctx context.Context, userId float32) ApiEditUserRequest {
+func (a *UsersEssentialsAPIService) EditUser(ctx context.Context, userId int32) ApiEditUserRequest {
 	return ApiEditUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -325,7 +325,7 @@ func (a *UsersEssentialsAPIService) EditUserAlt1Execute(r ApiEditUserAlt1Request
 type ApiGetUserRequest struct {
 	ctx context.Context
 	ApiService UsersEssentialsAPI
-	userId float32
+	userId int32
 }
 
 func (r ApiGetUserRequest) Execute() (*User, *http.Response, error) {
@@ -341,7 +341,7 @@ This method returns the authenticated user.
  @param userId The ID of the user.
  @return ApiGetUserRequest
 */
-func (a *UsersEssentialsAPIService) GetUser(ctx context.Context, userId float32) ApiGetUserRequest {
+func (a *UsersEssentialsAPIService) GetUser(ctx context.Context, userId int32) ApiGetUserRequest {
 	return ApiGetUserRequest{
 		ApiService: a,
 		ctx: ctx,

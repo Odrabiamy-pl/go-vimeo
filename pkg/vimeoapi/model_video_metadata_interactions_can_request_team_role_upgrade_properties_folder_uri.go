@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri struc
 	// The URI of the folder to which the team member should have access.
 	Value string `json:"value"`
 }
-
-type _VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri
 
 // NewVideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri instantiates a new VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri) T
 	toSerialize["required"] = o.Required
 	toSerialize["value"] = o.Value
 	return toSerialize, nil
-}
-
-func (o *VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"required",
-		"value",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri := _VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri(varVideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri)
-
-	return err
 }
 
 type NullableVideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri struct {

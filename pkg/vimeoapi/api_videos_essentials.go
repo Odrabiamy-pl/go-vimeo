@@ -33,7 +33,7 @@ type VideosEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCheckIfUserOwnsVideoRequest
 	*/
-	CheckIfUserOwnsVideo(ctx context.Context, userId float32, videoId float32) ApiCheckIfUserOwnsVideoRequest
+	CheckIfUserOwnsVideo(ctx context.Context, userId int32, videoId int32) ApiCheckIfUserOwnsVideoRequest
 
 	// CheckIfUserOwnsVideoExecute executes the request
 	//  @return Video
@@ -48,7 +48,7 @@ type VideosEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCheckIfUserOwnsVideoAlt1Request
 	*/
-	CheckIfUserOwnsVideoAlt1(ctx context.Context, videoId float32) ApiCheckIfUserOwnsVideoAlt1Request
+	CheckIfUserOwnsVideoAlt1(ctx context.Context, videoId int32) ApiCheckIfUserOwnsVideoAlt1Request
 
 	// CheckIfUserOwnsVideoAlt1Execute executes the request
 	//  @return Video
@@ -63,7 +63,7 @@ type VideosEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoRequest
 	*/
-	DeleteVideo(ctx context.Context, videoId float32) ApiDeleteVideoRequest
+	DeleteVideo(ctx context.Context, videoId int32) ApiDeleteVideoRequest
 
 	// DeleteVideoExecute executes the request
 	DeleteVideoExecute(r ApiDeleteVideoRequest) (*http.Response, error)
@@ -79,7 +79,7 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	@param userId The ID of the user.
 	@return ApiDeleteVideosRequest
 	*/
-	DeleteVideos(ctx context.Context, userId float32) ApiDeleteVideosRequest
+	DeleteVideos(ctx context.Context, userId int32) ApiDeleteVideosRequest
 
 	// DeleteVideosExecute executes the request
 	DeleteVideosExecute(r ApiDeleteVideosRequest) (*http.Response, error)
@@ -108,7 +108,7 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	@param videoId The ID of the video.
 	@return ApiEditVideoRequest
 	*/
-	EditVideo(ctx context.Context, videoId float32) ApiEditVideoRequest
+	EditVideo(ctx context.Context, videoId int32) ApiEditVideoRequest
 
 	// EditVideoExecute executes the request
 	//  @return Video
@@ -123,7 +123,7 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	@param userId The ID of the user.
 	@return ApiGetAppearancesRequest
 	*/
-	GetAppearances(ctx context.Context, userId float32) ApiGetAppearancesRequest
+	GetAppearances(ctx context.Context, userId int32) ApiGetAppearancesRequest
 
 	// GetAppearancesExecute executes the request
 	//  @return []Video
@@ -152,7 +152,7 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	@param videoId The ID of the video.
 	@return ApiGetVideoRequest
 	*/
-	GetVideo(ctx context.Context, videoId float32) ApiGetVideoRequest
+	GetVideo(ctx context.Context, videoId int32) ApiGetVideoRequest
 
 	// GetVideoExecute executes the request
 	//  @return Video
@@ -167,7 +167,7 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	@param userId The ID of the user.
 	@return ApiGetVideosRequest
 	*/
-	GetVideos(ctx context.Context, userId float32) ApiGetVideosRequest
+	GetVideos(ctx context.Context, userId int32) ApiGetVideosRequest
 
 	// GetVideosExecute executes the request
 	//  @return []Video
@@ -208,8 +208,8 @@ type VideosEssentialsAPIService service
 type ApiCheckIfUserOwnsVideoRequest struct {
 	ctx context.Context
 	ApiService VideosEssentialsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiCheckIfUserOwnsVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -226,7 +226,7 @@ This method determines whether the authenticated user is the owner of the specif
  @param videoId The ID of the video.
  @return ApiCheckIfUserOwnsVideoRequest
 */
-func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideo(ctx context.Context, userId float32, videoId float32) ApiCheckIfUserOwnsVideoRequest {
+func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideo(ctx context.Context, userId int32, videoId int32) ApiCheckIfUserOwnsVideoRequest {
 	return ApiCheckIfUserOwnsVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -325,7 +325,7 @@ func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoExecute(r ApiCheckIfUse
 type ApiCheckIfUserOwnsVideoAlt1Request struct {
 	ctx context.Context
 	ApiService VideosEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiCheckIfUserOwnsVideoAlt1Request) Execute() (*Video, *http.Response, error) {
@@ -341,7 +341,7 @@ This method determines whether the authenticated user is the owner of the specif
  @param videoId The ID of the video.
  @return ApiCheckIfUserOwnsVideoAlt1Request
 */
-func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoAlt1(ctx context.Context, videoId float32) ApiCheckIfUserOwnsVideoAlt1Request {
+func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoAlt1(ctx context.Context, videoId int32) ApiCheckIfUserOwnsVideoAlt1Request {
 	return ApiCheckIfUserOwnsVideoAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -438,7 +438,7 @@ func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoAlt1Execute(r ApiCheckI
 type ApiDeleteVideoRequest struct {
 	ctx context.Context
 	ApiService VideosEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoRequest) Execute() (*http.Response, error) {
@@ -454,7 +454,7 @@ This method deletes the specified video. The authenticated user must be the owne
  @param videoId The ID of the video.
  @return ApiDeleteVideoRequest
 */
-func (a *VideosEssentialsAPIService) DeleteVideo(ctx context.Context, videoId float32) ApiDeleteVideoRequest {
+func (a *VideosEssentialsAPIService) DeleteVideo(ctx context.Context, videoId int32) ApiDeleteVideoRequest {
 	return ApiDeleteVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -540,7 +540,7 @@ func (a *VideosEssentialsAPIService) DeleteVideoExecute(r ApiDeleteVideoRequest)
 type ApiDeleteVideosRequest struct {
 	ctx context.Context
 	ApiService VideosEssentialsAPI
-	userId float32
+	userId int32
 	uris *string
 }
 
@@ -565,7 +565,7 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
  @param userId The ID of the user.
  @return ApiDeleteVideosRequest
 */
-func (a *VideosEssentialsAPIService) DeleteVideos(ctx context.Context, userId float32) ApiDeleteVideosRequest {
+func (a *VideosEssentialsAPIService) DeleteVideos(ctx context.Context, userId int32) ApiDeleteVideosRequest {
 	return ApiDeleteVideosRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -810,7 +810,7 @@ func (a *VideosEssentialsAPIService) DeleteVideosAlt1Execute(r ApiDeleteVideosAl
 type ApiEditVideoRequest struct {
 	ctx context.Context
 	ApiService VideosEssentialsAPI
-	videoId float32
+	videoId int32
 	editVideoRequest *EditVideoRequest
 }
 
@@ -832,7 +832,7 @@ This method edits the specified video.
  @param videoId The ID of the video.
  @return ApiEditVideoRequest
 */
-func (a *VideosEssentialsAPIService) EditVideo(ctx context.Context, videoId float32) ApiEditVideoRequest {
+func (a *VideosEssentialsAPIService) EditVideo(ctx context.Context, videoId int32) ApiEditVideoRequest {
 	return ApiEditVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -945,7 +945,7 @@ func (a *VideosEssentialsAPIService) EditVideoExecute(r ApiEditVideoRequest) (*V
 type ApiGetAppearancesRequest struct {
 	ctx context.Context
 	ApiService VideosEssentialsAPI
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	filterEmbeddable *bool
@@ -1010,7 +1010,7 @@ This method returns all the videos in which the authenticated user has a credite
  @param userId The ID of the user.
  @return ApiGetAppearancesRequest
 */
-func (a *VideosEssentialsAPIService) GetAppearances(ctx context.Context, userId float32) ApiGetAppearancesRequest {
+func (a *VideosEssentialsAPIService) GetAppearances(ctx context.Context, userId int32) ApiGetAppearancesRequest {
 	return ApiGetAppearancesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1287,7 +1287,7 @@ func (a *VideosEssentialsAPIService) GetAppearancesAlt1Execute(r ApiGetAppearanc
 type ApiGetVideoRequest struct {
 	ctx context.Context
 	ApiService VideosEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -1303,7 +1303,7 @@ This method returns a single video.
  @param videoId The ID of the video.
  @return ApiGetVideoRequest
 */
-func (a *VideosEssentialsAPIService) GetVideo(ctx context.Context, videoId float32) ApiGetVideoRequest {
+func (a *VideosEssentialsAPIService) GetVideo(ctx context.Context, videoId int32) ApiGetVideoRequest {
 	return ApiGetVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1400,7 +1400,7 @@ func (a *VideosEssentialsAPIService) GetVideoExecute(r ApiGetVideoRequest) (*Vid
 type ApiGetVideosRequest struct {
 	ctx context.Context
 	ApiService VideosEssentialsAPI
-	userId float32
+	userId int32
 	containingUri *string
 	direction *string
 	filter *string
@@ -1521,7 +1521,7 @@ This method returns all the videos that the authenticated user has uploaded.
  @param userId The ID of the user.
  @return ApiGetVideosRequest
 */
-func (a *VideosEssentialsAPIService) GetVideos(ctx context.Context, userId float32) ApiGetVideosRequest {
+func (a *VideosEssentialsAPIService) GetVideos(ctx context.Context, userId int32) ApiGetVideosRequest {
 	return ApiGetVideosRequest{
 		ApiService: a,
 		ctx: ctx,

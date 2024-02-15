@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WebinarEmailSettings type satisfies the MappedNullable interface at compile time
@@ -53,8 +51,6 @@ type WebinarEmailSettings struct {
 	// Whether to include the URL of the sender's privacy policy in the footer of emails that are sent about the webinar.
 	UseSenderPolicyUrl bool `json:"use_sender_policy_url"`
 }
-
-type _WebinarEmailSettings WebinarEmailSettings
 
 // NewWebinarEmailSettings instantiates a new WebinarEmailSettings object
 // This constructor will assign default values to properties that have it defined,
@@ -566,60 +562,6 @@ func (o WebinarEmailSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize["use_sender_address"] = o.UseSenderAddress
 	toSerialize["use_sender_policy_url"] = o.UseSenderPolicyUrl
 	return toSerialize, nil
-}
-
-func (o *WebinarEmailSettings) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"accent_color",
-		"custom_link",
-		"email_event_reminder_24_hrs",
-		"email_post_event_thank_you",
-		"email_preferences",
-		"email_registration_confirmation",
-		"follow_up_send_on",
-		"follow_up_sender",
-		"from",
-		"logo_uri",
-		"pictures",
-		"reply_email",
-		"sender_address",
-		"sender_policy_url",
-		"use_custom_link",
-		"use_reply_email",
-		"use_sender_address",
-		"use_sender_policy_url",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWebinarEmailSettings := _WebinarEmailSettings{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebinarEmailSettings)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WebinarEmailSettings(varWebinarEmailSettings)
-
-	return err
 }
 
 type NullableWebinarEmailSettings struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the UserLocationDetails type satisfies the MappedNullable interface at compile time
@@ -42,8 +40,6 @@ type UserLocationDetails struct {
 	// The authenticated user's sub-locality.
 	SubLocality NullableString `json:"sub_locality"`
 }
-
-type _UserLocationDetails UserLocationDetails
 
 // NewUserLocationDetails instantiates a new UserLocationDetails object
 // This constructor will assign default values to properties that have it defined,
@@ -345,52 +341,6 @@ func (o UserLocationDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize["state_iso_code"] = o.StateIsoCode.Get()
 	toSerialize["sub_locality"] = o.SubLocality.Get()
 	return toSerialize, nil
-}
-
-func (o *UserLocationDetails) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"city",
-		"country",
-		"country_iso_code",
-		"formatted_address",
-		"latitude",
-		"longitude",
-		"neighborhood",
-		"state",
-		"state_iso_code",
-		"sub_locality",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varUserLocationDetails := _UserLocationDetails{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUserLocationDetails)
-
-	if err != nil {
-		return err
-	}
-
-	*o = UserLocationDetails(varUserLocationDetails)
-
-	return err
 }
 
 type NullableUserLocationDetails struct {

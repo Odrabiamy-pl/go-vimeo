@@ -32,7 +32,7 @@ type VideosTranscriptsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetTranscriptRequest
 	*/
-	GetTranscript(ctx context.Context, texttrackId float32, videoId float32) ApiGetTranscriptRequest
+	GetTranscript(ctx context.Context, texttrackId float32, videoId int32) ApiGetTranscriptRequest
 
 	// GetTranscriptExecute executes the request
 	//  @return []Segment
@@ -46,7 +46,7 @@ type ApiGetTranscriptRequest struct {
 	ctx context.Context
 	ApiService VideosTranscriptsAPI
 	texttrackId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetTranscriptRequest) Execute() ([]Segment, *http.Response, error) {
@@ -63,7 +63,7 @@ This method returns the transcript segments of the specified text track.
  @param videoId The ID of the video.
  @return ApiGetTranscriptRequest
 */
-func (a *VideosTranscriptsAPIService) GetTranscript(ctx context.Context, texttrackId float32, videoId float32) ApiGetTranscriptRequest {
+func (a *VideosTranscriptsAPIService) GetTranscript(ctx context.Context, texttrackId float32, videoId int32) ApiGetTranscriptRequest {
 	return ApiGetTranscriptRequest{
 		ApiService: a,
 		ctx: ctx,

@@ -32,7 +32,7 @@ type GroupsSubscriptionsAPI interface {
 	@param userId The ID of the user.
 	@return ApiJoinGroupRequest
 	*/
-	JoinGroup(ctx context.Context, groupId float32, userId float32) ApiJoinGroupRequest
+	JoinGroup(ctx context.Context, groupId float32, userId int32) ApiJoinGroupRequest
 
 	// JoinGroupExecute executes the request
 	JoinGroupExecute(r ApiJoinGroupRequest) (*http.Response, error)
@@ -61,7 +61,7 @@ type GroupsSubscriptionsAPI interface {
 	@param userId The ID of the user.
 	@return ApiLeaveGroupRequest
 	*/
-	LeaveGroup(ctx context.Context, groupId float32, userId float32) ApiLeaveGroupRequest
+	LeaveGroup(ctx context.Context, groupId float32, userId int32) ApiLeaveGroupRequest
 
 	// LeaveGroupExecute executes the request
 	LeaveGroupExecute(r ApiLeaveGroupRequest) (*http.Response, error)
@@ -88,7 +88,7 @@ type ApiJoinGroupRequest struct {
 	ctx context.Context
 	ApiService GroupsSubscriptionsAPI
 	groupId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiJoinGroupRequest) Execute() (*http.Response, error) {
@@ -105,7 +105,7 @@ This method adds the authenticated user to the specified group.
  @param userId The ID of the user.
  @return ApiJoinGroupRequest
 */
-func (a *GroupsSubscriptionsAPIService) JoinGroup(ctx context.Context, groupId float32, userId float32) ApiJoinGroupRequest {
+func (a *GroupsSubscriptionsAPIService) JoinGroup(ctx context.Context, groupId float32, userId int32) ApiJoinGroupRequest {
 	return ApiJoinGroupRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -296,7 +296,7 @@ type ApiLeaveGroupRequest struct {
 	ctx context.Context
 	ApiService GroupsSubscriptionsAPI
 	groupId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiLeaveGroupRequest) Execute() (*http.Response, error) {
@@ -313,7 +313,7 @@ This method removes the authenticated user from the specified group. The authent
  @param userId The ID of the user.
  @return ApiLeaveGroupRequest
 */
-func (a *GroupsSubscriptionsAPIService) LeaveGroup(ctx context.Context, groupId float32, userId float32) ApiLeaveGroupRequest {
+func (a *GroupsSubscriptionsAPIService) LeaveGroup(ctx context.Context, groupId float32, userId int32) ApiLeaveGroupRequest {
 	return ApiLeaveGroupRequest{
 		ApiService: a,
 		ctx: ctx,

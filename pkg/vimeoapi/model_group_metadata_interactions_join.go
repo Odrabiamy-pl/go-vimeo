@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the GroupMetadataInteractionsJoin type satisfies the MappedNullable interface at compile time
@@ -32,8 +30,6 @@ type GroupMetadataInteractionsJoin struct {
 	// The URI for following the group. PUT to this URI to follow the group, or DELETE to this URI to unfollow the group. This data requires a bearer token with the `private` scope.
 	Uri string `json:"uri"`
 }
-
-type _GroupMetadataInteractionsJoin GroupMetadataInteractionsJoin
 
 // NewGroupMetadataInteractionsJoin instantiates a new GroupMetadataInteractionsJoin object
 // This constructor will assign default values to properties that have it defined,
@@ -199,47 +195,6 @@ func (o GroupMetadataInteractionsJoin) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type.Get()
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *GroupMetadataInteractionsJoin) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"added",
-		"added_time",
-		"title",
-		"type",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGroupMetadataInteractionsJoin := _GroupMetadataInteractionsJoin{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGroupMetadataInteractionsJoin)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GroupMetadataInteractionsJoin(varGroupMetadataInteractionsJoin)
-
-	return err
 }
 
 type NullableGroupMetadataInteractionsJoin struct {

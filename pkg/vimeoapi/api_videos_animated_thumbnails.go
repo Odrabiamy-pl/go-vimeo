@@ -31,7 +31,7 @@ type VideosAnimatedThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateAnimatedThumbsetRequest
 	*/
-	CreateAnimatedThumbset(ctx context.Context, videoId float32) ApiCreateAnimatedThumbsetRequest
+	CreateAnimatedThumbset(ctx context.Context, videoId int32) ApiCreateAnimatedThumbsetRequest
 
 	// CreateAnimatedThumbsetExecute executes the request
 	//  @return AnimatedThumbset
@@ -47,7 +47,7 @@ type VideosAnimatedThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteAnimatedThumbsetRequest
 	*/
-	DeleteAnimatedThumbset(ctx context.Context, pictureId string, videoId float32) ApiDeleteAnimatedThumbsetRequest
+	DeleteAnimatedThumbset(ctx context.Context, pictureId string, videoId int32) ApiDeleteAnimatedThumbsetRequest
 
 	// DeleteAnimatedThumbsetExecute executes the request
 	DeleteAnimatedThumbsetExecute(r ApiDeleteAnimatedThumbsetRequest) (*http.Response, error)
@@ -61,7 +61,7 @@ type VideosAnimatedThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetAllAnimatedThumbsetRequest
 	*/
-	GetAllAnimatedThumbset(ctx context.Context, videoId float32) ApiGetAllAnimatedThumbsetRequest
+	GetAllAnimatedThumbset(ctx context.Context, videoId int32) ApiGetAllAnimatedThumbsetRequest
 
 	// GetAllAnimatedThumbsetExecute executes the request
 	//  @return []AnimatedThumbset
@@ -77,7 +77,7 @@ type VideosAnimatedThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetAnimatedThumbsetRequest
 	*/
-	GetAnimatedThumbset(ctx context.Context, pictureId string, videoId float32) ApiGetAnimatedThumbsetRequest
+	GetAnimatedThumbset(ctx context.Context, pictureId string, videoId int32) ApiGetAnimatedThumbsetRequest
 
 	// GetAnimatedThumbsetExecute executes the request
 	//  @return AnimatedThumbset
@@ -93,7 +93,7 @@ type VideosAnimatedThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetAnimatedThumbsetStatusRequest
 	*/
-	GetAnimatedThumbsetStatus(ctx context.Context, pictureId string, videoId float32) ApiGetAnimatedThumbsetStatusRequest
+	GetAnimatedThumbsetStatus(ctx context.Context, pictureId string, videoId int32) ApiGetAnimatedThumbsetStatusRequest
 
 	// GetAnimatedThumbsetStatusExecute executes the request
 	//  @return AnimatedThumbset
@@ -106,7 +106,7 @@ type VideosAnimatedThumbnailsAPIService service
 type ApiCreateAnimatedThumbsetRequest struct {
 	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
-	videoId float32
+	videoId int32
 	createAnimatedThumbsetRequest *CreateAnimatedThumbsetRequest
 }
 
@@ -128,7 +128,7 @@ This method creates a set of animated thumbnails for the specified video. Please
  @param videoId The ID of the video.
  @return ApiCreateAnimatedThumbsetRequest
 */
-func (a *VideosAnimatedThumbnailsAPIService) CreateAnimatedThumbset(ctx context.Context, videoId float32) ApiCreateAnimatedThumbsetRequest {
+func (a *VideosAnimatedThumbnailsAPIService) CreateAnimatedThumbset(ctx context.Context, videoId int32) ApiCreateAnimatedThumbsetRequest {
 	return ApiCreateAnimatedThumbsetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -253,7 +253,7 @@ type ApiDeleteAnimatedThumbsetRequest struct {
 	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
 	pictureId string
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteAnimatedThumbsetRequest) Execute() (*http.Response, error) {
@@ -270,7 +270,7 @@ This method deletes a set of animated thumbnails for the specified video.
  @param videoId The ID of the video.
  @return ApiDeleteAnimatedThumbsetRequest
 */
-func (a *VideosAnimatedThumbnailsAPIService) DeleteAnimatedThumbset(ctx context.Context, pictureId string, videoId float32) ApiDeleteAnimatedThumbsetRequest {
+func (a *VideosAnimatedThumbnailsAPIService) DeleteAnimatedThumbset(ctx context.Context, pictureId string, videoId int32) ApiDeleteAnimatedThumbsetRequest {
 	return ApiDeleteAnimatedThumbsetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -358,7 +358,7 @@ func (a *VideosAnimatedThumbnailsAPIService) DeleteAnimatedThumbsetExecute(r Api
 type ApiGetAllAnimatedThumbsetRequest struct {
 	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -388,7 +388,7 @@ This method returns all the sets of animated thumbnails associated with the spec
  @param videoId The ID of the video.
  @return ApiGetAllAnimatedThumbsetRequest
 */
-func (a *VideosAnimatedThumbnailsAPIService) GetAllAnimatedThumbset(ctx context.Context, videoId float32) ApiGetAllAnimatedThumbsetRequest {
+func (a *VideosAnimatedThumbnailsAPIService) GetAllAnimatedThumbset(ctx context.Context, videoId int32) ApiGetAllAnimatedThumbsetRequest {
 	return ApiGetAllAnimatedThumbsetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -492,7 +492,7 @@ type ApiGetAnimatedThumbsetRequest struct {
 	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
 	pictureId string
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetAnimatedThumbsetRequest) Execute() (*AnimatedThumbset, *http.Response, error) {
@@ -509,7 +509,7 @@ This method returns a particular set of animated thumbnails associated with the 
  @param videoId The ID of the video.
  @return ApiGetAnimatedThumbsetRequest
 */
-func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbset(ctx context.Context, pictureId string, videoId float32) ApiGetAnimatedThumbsetRequest {
+func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbset(ctx context.Context, pictureId string, videoId int32) ApiGetAnimatedThumbsetRequest {
 	return ApiGetAnimatedThumbsetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -609,7 +609,7 @@ type ApiGetAnimatedThumbsetStatusRequest struct {
 	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
 	pictureId string
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetAnimatedThumbsetStatusRequest) Execute() (*AnimatedThumbset, *http.Response, error) {
@@ -626,7 +626,7 @@ This method returns the status of a particular set of animated thumbnails associ
  @param videoId The ID of the video.
  @return ApiGetAnimatedThumbsetStatusRequest
 */
-func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbsetStatus(ctx context.Context, pictureId string, videoId float32) ApiGetAnimatedThumbsetStatusRequest {
+func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbsetStatus(ctx context.Context, pictureId string, videoId int32) ApiGetAnimatedThumbsetStatusRequest {
 	return ApiGetAnimatedThumbsetStatusRequest{
 		ApiService: a,
 		ctx: ctx,

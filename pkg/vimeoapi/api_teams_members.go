@@ -46,7 +46,7 @@ type TeamsMembersAPI interface {
 	@param userId The ID of the team owner.
 	@return ApiGetTeamRoleInformationRequest
 	*/
-	GetTeamRoleInformation(ctx context.Context, userId float32) ApiGetTeamRoleInformationRequest
+	GetTeamRoleInformation(ctx context.Context, userId int32) ApiGetTeamRoleInformationRequest
 
 	// GetTeamRoleInformationExecute executes the request
 	GetTeamRoleInformationExecute(r ApiGetTeamRoleInformationRequest) (*http.Response, error)
@@ -168,7 +168,7 @@ func (a *TeamsMembersAPIService) GetTeamInformationExecute(r ApiGetTeamInformati
 type ApiGetTeamRoleInformationRequest struct {
 	ctx context.Context
 	ApiService TeamsMembersAPI
-	userId float32
+	userId int32
 }
 
 func (r ApiGetTeamRoleInformationRequest) Execute() (*http.Response, error) {
@@ -184,7 +184,7 @@ This method returns information about the authenticated user's role on the speci
  @param userId The ID of the team owner.
  @return ApiGetTeamRoleInformationRequest
 */
-func (a *TeamsMembersAPIService) GetTeamRoleInformation(ctx context.Context, userId float32) ApiGetTeamRoleInformationRequest {
+func (a *TeamsMembersAPIService) GetTeamRoleInformation(ctx context.Context, userId int32) ApiGetTeamRoleInformationRequest {
 	return ApiGetTeamRoleInformationRequest{
 		ApiService: a,
 		ctx: ctx,

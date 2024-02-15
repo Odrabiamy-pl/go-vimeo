@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the PresetSettingsOutro type satisfies the MappedNullable interface at compile time
@@ -31,8 +29,6 @@ type PresetSettingsOutro struct {
 	// A comma-separated list of video URIs. This field appears only when **type** is `no idea`.
 	Videos NullableString `json:"videos,omitempty"`
 }
-
-type _PresetSettingsOutro PresetSettingsOutro
 
 // NewPresetSettingsOutro instantiates a new PresetSettingsOutro object
 // This constructor will assign default values to properties that have it defined,
@@ -268,43 +264,6 @@ func (o PresetSettingsOutro) ToMap() (map[string]interface{}, error) {
 		toSerialize["videos"] = o.Videos.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *PresetSettingsOutro) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"type",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPresetSettingsOutro := _PresetSettingsOutro{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPresetSettingsOutro)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PresetSettingsOutro(varPresetSettingsOutro)
-
-	return err
 }
 
 type NullablePresetSettingsOutro struct {

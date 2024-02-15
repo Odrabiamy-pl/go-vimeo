@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventAutomatedClosedCaptions type satisfies the MappedNullable interface at compile time
@@ -36,8 +34,6 @@ type LiveEventAutomatedClosedCaptions struct {
 	// The ID of the event.
 	EventId float32 `json:"event_id"`
 }
-
-type _LiveEventAutomatedClosedCaptions LiveEventAutomatedClosedCaptions
 
 // NewLiveEventAutomatedClosedCaptions instantiates a new LiveEventAutomatedClosedCaptions object
 // This constructor will assign default values to properties that have it defined,
@@ -251,49 +247,6 @@ func (o LiveEventAutomatedClosedCaptions) ToMap() (map[string]interface{}, error
 	toSerialize["auto_cc_remaining"] = o.AutoCcRemaining
 	toSerialize["event_id"] = o.EventId
 	return toSerialize, nil
-}
-
-func (o *LiveEventAutomatedClosedCaptions) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"auto_cc_can_be_enabled",
-		"auto_cc_enabled",
-		"auto_cc_is_unlimited",
-		"auto_cc_keywords",
-		"auto_cc_language",
-		"auto_cc_remaining",
-		"event_id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventAutomatedClosedCaptions := _LiveEventAutomatedClosedCaptions{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventAutomatedClosedCaptions)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventAutomatedClosedCaptions(varLiveEventAutomatedClosedCaptions)
-
-	return err
 }
 
 type NullableLiveEventAutomatedClosedCaptions struct {

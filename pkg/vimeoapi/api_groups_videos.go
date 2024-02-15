@@ -32,7 +32,7 @@ type GroupsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToGroupRequest
 	*/
-	AddVideoToGroup(ctx context.Context, groupId float32, videoId float32) ApiAddVideoToGroupRequest
+	AddVideoToGroup(ctx context.Context, groupId float32, videoId int32) ApiAddVideoToGroupRequest
 
 	// AddVideoToGroupExecute executes the request
 	//  @return Video
@@ -48,7 +48,7 @@ type GroupsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoFromGroupRequest
 	*/
-	DeleteVideoFromGroup(ctx context.Context, groupId float32, videoId float32) ApiDeleteVideoFromGroupRequest
+	DeleteVideoFromGroup(ctx context.Context, groupId float32, videoId int32) ApiDeleteVideoFromGroupRequest
 
 	// DeleteVideoFromGroupExecute executes the request
 	DeleteVideoFromGroupExecute(r ApiDeleteVideoFromGroupRequest) (*http.Response, error)
@@ -63,7 +63,7 @@ type GroupsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetGroupVideoRequest
 	*/
-	GetGroupVideo(ctx context.Context, groupId float32, videoId float32) ApiGetGroupVideoRequest
+	GetGroupVideo(ctx context.Context, groupId float32, videoId int32) ApiGetGroupVideoRequest
 
 	// GetGroupVideoExecute executes the request
 	//  @return Video
@@ -92,7 +92,7 @@ type ApiAddVideoToGroupRequest struct {
 	ctx context.Context
 	ApiService GroupsVideosAPI
 	groupId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoToGroupRequest) Execute() (*Video, *http.Response, error) {
@@ -109,7 +109,7 @@ This method adds a video to the specified group. The authenticated user must be 
  @param videoId The ID of the video.
  @return ApiAddVideoToGroupRequest
 */
-func (a *GroupsVideosAPIService) AddVideoToGroup(ctx context.Context, groupId float32, videoId float32) ApiAddVideoToGroupRequest {
+func (a *GroupsVideosAPIService) AddVideoToGroup(ctx context.Context, groupId float32, videoId int32) ApiAddVideoToGroupRequest {
 	return ApiAddVideoToGroupRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -209,7 +209,7 @@ type ApiDeleteVideoFromGroupRequest struct {
 	ctx context.Context
 	ApiService GroupsVideosAPI
 	groupId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoFromGroupRequest) Execute() (*http.Response, error) {
@@ -226,7 +226,7 @@ This method removes a video from the specified group. The authenticated user mus
  @param videoId The ID of the video.
  @return ApiDeleteVideoFromGroupRequest
 */
-func (a *GroupsVideosAPIService) DeleteVideoFromGroup(ctx context.Context, groupId float32, videoId float32) ApiDeleteVideoFromGroupRequest {
+func (a *GroupsVideosAPIService) DeleteVideoFromGroup(ctx context.Context, groupId float32, videoId int32) ApiDeleteVideoFromGroupRequest {
 	return ApiDeleteVideoFromGroupRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -315,7 +315,7 @@ type ApiGetGroupVideoRequest struct {
 	ctx context.Context
 	ApiService GroupsVideosAPI
 	groupId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetGroupVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -332,7 +332,7 @@ This method returns a single video from the specified group. You can use this me
  @param videoId The ID of the video.
  @return ApiGetGroupVideoRequest
 */
-func (a *GroupsVideosAPIService) GetGroupVideo(ctx context.Context, groupId float32, videoId float32) ApiGetGroupVideoRequest {
+func (a *GroupsVideosAPIService) GetGroupVideo(ctx context.Context, groupId float32, videoId int32) ApiGetGroupVideoRequest {
 	return ApiGetGroupVideoRequest{
 		ApiService: a,
 		ctx: ctx,

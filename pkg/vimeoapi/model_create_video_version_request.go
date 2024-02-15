@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the CreateVideoVersionRequest type satisfies the MappedNullable interface at compile time
@@ -25,8 +23,6 @@ type CreateVideoVersionRequest struct {
 	FileName string `json:"file_name"`
 	Upload CreateVideoVersionRequestUpload `json:"upload"`
 }
-
-type _CreateVideoVersionRequest CreateVideoVersionRequest
 
 // NewCreateVideoVersionRequest instantiates a new CreateVideoVersionRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -108,44 +104,6 @@ func (o CreateVideoVersionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["file_name"] = o.FileName
 	toSerialize["upload"] = o.Upload
 	return toSerialize, nil
-}
-
-func (o *CreateVideoVersionRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"file_name",
-		"upload",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCreateVideoVersionRequest := _CreateVideoVersionRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateVideoVersionRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CreateVideoVersionRequest(varCreateVideoVersionRequest)
-
-	return err
 }
 
 type NullableCreateVideoVersionRequest struct {

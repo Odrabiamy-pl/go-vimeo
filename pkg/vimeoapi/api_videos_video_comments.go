@@ -31,7 +31,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateCommentRequest
 	*/
-	CreateComment(ctx context.Context, videoId float32) ApiCreateCommentRequest
+	CreateComment(ctx context.Context, videoId int32) ApiCreateCommentRequest
 
 	// CreateCommentExecute executes the request
 	//  @return Comment
@@ -47,7 +47,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateCommentAlt1Request
 	*/
-	CreateCommentAlt1(ctx context.Context, channelId float32, videoId float32) ApiCreateCommentAlt1Request
+	CreateCommentAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateCommentAlt1Request
 
 	// CreateCommentAlt1Execute executes the request
 	//  @return Comment
@@ -63,7 +63,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateCommentReplyRequest
 	*/
-	CreateCommentReply(ctx context.Context, commentId float32, videoId float32) ApiCreateCommentReplyRequest
+	CreateCommentReply(ctx context.Context, commentId float32, videoId int32) ApiCreateCommentReplyRequest
 
 	// CreateCommentReplyExecute executes the request
 	//  @return Comment
@@ -79,7 +79,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteCommentRequest
 	*/
-	DeleteComment(ctx context.Context, commentId float32, videoId float32) ApiDeleteCommentRequest
+	DeleteComment(ctx context.Context, commentId float32, videoId int32) ApiDeleteCommentRequest
 
 	// DeleteCommentExecute executes the request
 	DeleteCommentExecute(r ApiDeleteCommentRequest) (*http.Response, error)
@@ -94,7 +94,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiEditCommentRequest
 	*/
-	EditComment(ctx context.Context, commentId float32, videoId float32) ApiEditCommentRequest
+	EditComment(ctx context.Context, commentId float32, videoId int32) ApiEditCommentRequest
 
 	// EditCommentExecute executes the request
 	//  @return Comment
@@ -110,7 +110,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetCommentRequest
 	*/
-	GetComment(ctx context.Context, commentId float32, videoId float32) ApiGetCommentRequest
+	GetComment(ctx context.Context, commentId float32, videoId int32) ApiGetCommentRequest
 
 	// GetCommentExecute executes the request
 	//  @return Comment
@@ -126,7 +126,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetCommentRepliesRequest
 	*/
-	GetCommentReplies(ctx context.Context, commentId float32, videoId float32) ApiGetCommentRepliesRequest
+	GetCommentReplies(ctx context.Context, commentId float32, videoId int32) ApiGetCommentRepliesRequest
 
 	// GetCommentRepliesExecute executes the request
 	//  @return []Comment
@@ -141,7 +141,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetCommentsRequest
 	*/
-	GetComments(ctx context.Context, videoId float32) ApiGetCommentsRequest
+	GetComments(ctx context.Context, videoId int32) ApiGetCommentsRequest
 
 	// GetCommentsExecute executes the request
 	//  @return []Comment
@@ -157,7 +157,7 @@ type VideosVideoCommentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetCommentsAlt1Request
 	*/
-	GetCommentsAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetCommentsAlt1Request
+	GetCommentsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetCommentsAlt1Request
 
 	// GetCommentsAlt1Execute executes the request
 	//  @return []Comment
@@ -170,7 +170,7 @@ type VideosVideoCommentsAPIService service
 type ApiCreateCommentRequest struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
-	videoId float32
+	videoId int32
 	createCommentAlt1Request *CreateCommentAlt1Request
 }
 
@@ -192,7 +192,7 @@ This method adds a video comment to the specified video.
  @param videoId The ID of the video.
  @return ApiCreateCommentRequest
 */
-func (a *VideosVideoCommentsAPIService) CreateComment(ctx context.Context, videoId float32) ApiCreateCommentRequest {
+func (a *VideosVideoCommentsAPIService) CreateComment(ctx context.Context, videoId int32) ApiCreateCommentRequest {
 	return ApiCreateCommentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -317,7 +317,7 @@ type ApiCreateCommentAlt1Request struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	createCommentAlt1Request *CreateCommentAlt1Request
 }
 
@@ -340,7 +340,7 @@ This method adds a video comment to the specified video.
  @param videoId The ID of the video.
  @return ApiCreateCommentAlt1Request
 */
-func (a *VideosVideoCommentsAPIService) CreateCommentAlt1(ctx context.Context, channelId float32, videoId float32) ApiCreateCommentAlt1Request {
+func (a *VideosVideoCommentsAPIService) CreateCommentAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateCommentAlt1Request {
 	return ApiCreateCommentAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -467,7 +467,7 @@ type ApiCreateCommentReplyRequest struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
 	commentId float32
-	videoId float32
+	videoId int32
 	createCommentReplyRequest *CreateCommentReplyRequest
 }
 
@@ -490,7 +490,7 @@ This method adds a reply to the specified video comment.
  @param videoId The ID of the video.
  @return ApiCreateCommentReplyRequest
 */
-func (a *VideosVideoCommentsAPIService) CreateCommentReply(ctx context.Context, commentId float32, videoId float32) ApiCreateCommentReplyRequest {
+func (a *VideosVideoCommentsAPIService) CreateCommentReply(ctx context.Context, commentId float32, videoId int32) ApiCreateCommentReplyRequest {
 	return ApiCreateCommentReplyRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -606,7 +606,7 @@ type ApiDeleteCommentRequest struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
 	commentId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteCommentRequest) Execute() (*http.Response, error) {
@@ -623,7 +623,7 @@ This method deletes the specified video comment. The authenticated user must be 
  @param videoId The ID of the video.
  @return ApiDeleteCommentRequest
 */
-func (a *VideosVideoCommentsAPIService) DeleteComment(ctx context.Context, commentId float32, videoId float32) ApiDeleteCommentRequest {
+func (a *VideosVideoCommentsAPIService) DeleteComment(ctx context.Context, commentId float32, videoId int32) ApiDeleteCommentRequest {
 	return ApiDeleteCommentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -723,7 +723,7 @@ type ApiEditCommentRequest struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
 	commentId float32
-	videoId float32
+	videoId int32
 	editCommentRequest *EditCommentRequest
 }
 
@@ -746,7 +746,7 @@ This method edits the specified video comment. The authenticated user must be th
  @param videoId The ID of the video.
  @return ApiEditCommentRequest
 */
-func (a *VideosVideoCommentsAPIService) EditComment(ctx context.Context, commentId float32, videoId float32) ApiEditCommentRequest {
+func (a *VideosVideoCommentsAPIService) EditComment(ctx context.Context, commentId float32, videoId int32) ApiEditCommentRequest {
 	return ApiEditCommentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -862,7 +862,7 @@ type ApiGetCommentRequest struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
 	commentId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetCommentRequest) Execute() (*Comment, *http.Response, error) {
@@ -879,7 +879,7 @@ This method returns the specified video comment.
  @param videoId The ID of the video.
  @return ApiGetCommentRequest
 */
-func (a *VideosVideoCommentsAPIService) GetComment(ctx context.Context, commentId float32, videoId float32) ApiGetCommentRequest {
+func (a *VideosVideoCommentsAPIService) GetComment(ctx context.Context, commentId float32, videoId int32) ApiGetCommentRequest {
 	return ApiGetCommentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -979,7 +979,7 @@ type ApiGetCommentRepliesRequest struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
 	commentId float32
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -1010,7 +1010,7 @@ This method returns every reply to the specified video comment.
  @param videoId The ID of the video.
  @return ApiGetCommentRepliesRequest
 */
-func (a *VideosVideoCommentsAPIService) GetCommentReplies(ctx context.Context, commentId float32, videoId float32) ApiGetCommentRepliesRequest {
+func (a *VideosVideoCommentsAPIService) GetCommentReplies(ctx context.Context, commentId float32, videoId int32) ApiGetCommentRepliesRequest {
 	return ApiGetCommentRepliesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1115,7 +1115,7 @@ func (a *VideosVideoCommentsAPIService) GetCommentRepliesExecute(r ApiGetComment
 type ApiGetCommentsRequest struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
-	videoId float32
+	videoId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -1152,7 +1152,7 @@ This method returns every video comment on the specified video.
  @param videoId The ID of the video.
  @return ApiGetCommentsRequest
 */
-func (a *VideosVideoCommentsAPIService) GetComments(ctx context.Context, videoId float32) ApiGetCommentsRequest {
+func (a *VideosVideoCommentsAPIService) GetComments(ctx context.Context, videoId int32) ApiGetCommentsRequest {
 	return ApiGetCommentsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1249,7 +1249,7 @@ type ApiGetCommentsAlt1Request struct {
 	ctx context.Context
 	ApiService VideosVideoCommentsAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -1287,7 +1287,7 @@ This method returns every video comment on the specified video.
  @param videoId The ID of the video.
  @return ApiGetCommentsAlt1Request
 */
-func (a *VideosVideoCommentsAPIService) GetCommentsAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetCommentsAlt1Request {
+func (a *VideosVideoCommentsAPIService) GetCommentsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetCommentsAlt1Request {
 	return ApiGetCommentsAlt1Request{
 		ApiService: a,
 		ctx: ctx,

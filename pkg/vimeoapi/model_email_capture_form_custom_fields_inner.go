@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EmailCaptureFormCustomFieldsInner type satisfies the MappedNullable interface at compile time
@@ -35,8 +33,6 @@ type EmailCaptureFormCustomFieldsInner struct {
 	// Whether the field's **required** and **field_name** properties are both uneditable. If the value is `true`, the field can't be deleted.
 	StaticField bool `json:"static_field"`
 }
-
-type _EmailCaptureFormCustomFieldsInner EmailCaptureFormCustomFieldsInner
 
 // NewEmailCaptureFormCustomFieldsInner instantiates a new EmailCaptureFormCustomFieldsInner object
 // This constructor will assign default values to properties that have it defined,
@@ -248,49 +244,6 @@ func (o EmailCaptureFormCustomFieldsInner) ToMap() (map[string]interface{}, erro
 	toSerialize["required"] = o.Required
 	toSerialize["static_field"] = o.StaticField
 	return toSerialize, nil
-}
-
-func (o *EmailCaptureFormCustomFieldsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"connected_fields",
-		"field_metadata",
-		"field_name",
-		"field_type",
-		"locked",
-		"required",
-		"static_field",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEmailCaptureFormCustomFieldsInner := _EmailCaptureFormCustomFieldsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmailCaptureFormCustomFieldsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EmailCaptureFormCustomFieldsInner(varEmailCaptureFormCustomFieldsInner)
-
-	return err
 }
 
 type NullableEmailCaptureFormCustomFieldsInner struct {

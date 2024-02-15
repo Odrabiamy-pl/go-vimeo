@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the TeamMembershipApplicablePermissionPolicies type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type TeamMembershipApplicablePermissionPolicies struct {
 	// An array of video permission policies that can apply to the team member.
 	Video []PermissionPolicy `json:"video"`
 }
-
-type _TeamMembershipApplicablePermissionPolicies TeamMembershipApplicablePermissionPolicies
 
 // NewTeamMembershipApplicablePermissionPolicies instantiates a new TeamMembershipApplicablePermissionPolicies object
 // This constructor will assign default values to properties that have it defined,
@@ -137,45 +133,6 @@ func (o TeamMembershipApplicablePermissionPolicies) ToMap() (map[string]interfac
 	toSerialize["regional_delivery"] = o.RegionalDelivery
 	toSerialize["video"] = o.Video
 	return toSerialize, nil
-}
-
-func (o *TeamMembershipApplicablePermissionPolicies) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"folder",
-		"regional_delivery",
-		"video",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTeamMembershipApplicablePermissionPolicies := _TeamMembershipApplicablePermissionPolicies{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTeamMembershipApplicablePermissionPolicies)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TeamMembershipApplicablePermissionPolicies(varTeamMembershipApplicablePermissionPolicies)
-
-	return err
 }
 
 type NullableTeamMembershipApplicablePermissionPolicies struct {

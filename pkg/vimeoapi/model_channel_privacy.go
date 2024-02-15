@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ChannelPrivacy type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type ChannelPrivacy struct {
 	// The privacy setting of the channel.  Option descriptions:  * `anybody` - Anyone can access the channel. This privacy setting appears as `Public` on the Vimeo front end.  * `moderators` - Only moderators can access the channel.  * `users` - Only registered users can access the channel. _This field is deprecated._ 
 	View string `json:"view"`
 }
-
-type _ChannelPrivacy ChannelPrivacy
 
 // NewChannelPrivacy instantiates a new ChannelPrivacy object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o ChannelPrivacy) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["view"] = o.View
 	return toSerialize, nil
-}
-
-func (o *ChannelPrivacy) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"view",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varChannelPrivacy := _ChannelPrivacy{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChannelPrivacy)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ChannelPrivacy(varChannelPrivacy)
-
-	return err
 }
 
 type NullableChannelPrivacy struct {

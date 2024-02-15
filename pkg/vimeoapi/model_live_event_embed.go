@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventEmbed type satisfies the MappedNullable interface at compile time
@@ -81,8 +79,6 @@ type LiveEventEmbed struct {
 	// Whether the embedded RLE player should include the volume controls.
 	Volume bool `json:"volume"`
 }
-
-type _LiveEventEmbed LiveEventEmbed
 
 // NewLiveEventEmbed instantiates a new LiveEventEmbed object
 // This constructor will assign default values to properties that have it defined,
@@ -928,73 +924,6 @@ func (o LiveEventEmbed) ToMap() (map[string]interface{}, error) {
 	toSerialize["use_color"] = o.UseColor
 	toSerialize["volume"] = o.Volume
 	return toSerialize, nil
-}
-
-func (o *LiveEventEmbed) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"airplay",
-		"autoplay",
-		"available_player_logos",
-		"byline",
-		"chat_embed_source",
-		"chromecast",
-		"closed_captions",
-		"color",
-		"colors",
-		"embed_chat",
-		"embed_properties",
-		"event_schedule",
-		"fullscreen_button",
-		"hide_live_label",
-		"hide_viewer_count",
-		"html",
-		"like_button",
-		"logos",
-		"loop",
-		"pip",
-		"play_button_position",
-		"playbar",
-		"playlist",
-		"portrait",
-		"responsive_html",
-		"schedule",
-		"show_latest_archived_clip",
-		"show_timezone",
-		"title",
-		"use_color",
-		"volume",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventEmbed := _LiveEventEmbed{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventEmbed)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventEmbed(varLiveEventEmbed)
-
-	return err
 }
 
 type NullableLiveEventEmbed struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoStats type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type VideoStats struct {
 	// The current total number of times that the video has been played.
 	Plays NullableFloat32 `json:"plays"`
 }
-
-type _VideoStats VideoStats
 
 // NewVideoStats instantiates a new VideoStats object
 // This constructor will assign default values to properties that have it defined,
@@ -83,43 +79,6 @@ func (o VideoStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["plays"] = o.Plays.Get()
 	return toSerialize, nil
-}
-
-func (o *VideoStats) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"plays",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoStats := _VideoStats{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoStats)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoStats(varVideoStats)
-
-	return err
 }
 
 type NullableVideoStats struct {

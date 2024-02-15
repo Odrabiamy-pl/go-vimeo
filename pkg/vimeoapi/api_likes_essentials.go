@@ -32,7 +32,7 @@ type LikesEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCheckIfUserLikedVideoRequest
 	*/
-	CheckIfUserLikedVideo(ctx context.Context, userId float32, videoId float32) ApiCheckIfUserLikedVideoRequest
+	CheckIfUserLikedVideo(ctx context.Context, userId int32, videoId int32) ApiCheckIfUserLikedVideoRequest
 
 	// CheckIfUserLikedVideoExecute executes the request
 	CheckIfUserLikedVideoExecute(r ApiCheckIfUserLikedVideoRequest) (*http.Response, error)
@@ -46,7 +46,7 @@ type LikesEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCheckIfUserLikedVideoAlt1Request
 	*/
-	CheckIfUserLikedVideoAlt1(ctx context.Context, videoId float32) ApiCheckIfUserLikedVideoAlt1Request
+	CheckIfUserLikedVideoAlt1(ctx context.Context, videoId int32) ApiCheckIfUserLikedVideoAlt1Request
 
 	// CheckIfUserLikedVideoAlt1Execute executes the request
 	CheckIfUserLikedVideoAlt1Execute(r ApiCheckIfUserLikedVideoAlt1Request) (*http.Response, error)
@@ -60,7 +60,7 @@ type LikesEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLikesRequest
 	*/
-	GetLikes(ctx context.Context, userId float32) ApiGetLikesRequest
+	GetLikes(ctx context.Context, userId int32) ApiGetLikesRequest
 
 	// GetLikesExecute executes the request
 	//  @return []Video
@@ -89,7 +89,7 @@ type LikesEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoLikesRequest
 	*/
-	GetVideoLikes(ctx context.Context, videoId float32) ApiGetVideoLikesRequest
+	GetVideoLikes(ctx context.Context, videoId int32) ApiGetVideoLikesRequest
 
 	// GetVideoLikesExecute executes the request
 	//  @return []User
@@ -105,7 +105,7 @@ type LikesEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoLikesAlt1Request
 	*/
-	GetVideoLikesAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoLikesAlt1Request
+	GetVideoLikesAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoLikesAlt1Request
 
 	// GetVideoLikesAlt1Execute executes the request
 	//  @return []User
@@ -136,7 +136,7 @@ type LikesEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiLikeVideoRequest
 	*/
-	LikeVideo(ctx context.Context, userId float32, videoId float32) ApiLikeVideoRequest
+	LikeVideo(ctx context.Context, userId int32, videoId int32) ApiLikeVideoRequest
 
 	// LikeVideoExecute executes the request
 	LikeVideoExecute(r ApiLikeVideoRequest) (*http.Response, error)
@@ -150,7 +150,7 @@ type LikesEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiLikeVideoAlt1Request
 	*/
-	LikeVideoAlt1(ctx context.Context, videoId float32) ApiLikeVideoAlt1Request
+	LikeVideoAlt1(ctx context.Context, videoId int32) ApiLikeVideoAlt1Request
 
 	// LikeVideoAlt1Execute executes the request
 	LikeVideoAlt1Execute(r ApiLikeVideoAlt1Request) (*http.Response, error)
@@ -165,7 +165,7 @@ type LikesEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiUnlikeVideoRequest
 	*/
-	UnlikeVideo(ctx context.Context, userId float32, videoId float32) ApiUnlikeVideoRequest
+	UnlikeVideo(ctx context.Context, userId int32, videoId int32) ApiUnlikeVideoRequest
 
 	// UnlikeVideoExecute executes the request
 	UnlikeVideoExecute(r ApiUnlikeVideoRequest) (*http.Response, error)
@@ -179,7 +179,7 @@ type LikesEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiUnlikeVideoAlt1Request
 	*/
-	UnlikeVideoAlt1(ctx context.Context, videoId float32) ApiUnlikeVideoAlt1Request
+	UnlikeVideoAlt1(ctx context.Context, videoId int32) ApiUnlikeVideoAlt1Request
 
 	// UnlikeVideoAlt1Execute executes the request
 	UnlikeVideoAlt1Execute(r ApiUnlikeVideoAlt1Request) (*http.Response, error)
@@ -191,8 +191,8 @@ type LikesEssentialsAPIService service
 type ApiCheckIfUserLikedVideoRequest struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiCheckIfUserLikedVideoRequest) Execute() (*http.Response, error) {
@@ -209,7 +209,7 @@ This method checks if the authenticated user has liked the specified video.
  @param videoId The ID of the video.
  @return ApiCheckIfUserLikedVideoRequest
 */
-func (a *LikesEssentialsAPIService) CheckIfUserLikedVideo(ctx context.Context, userId float32, videoId float32) ApiCheckIfUserLikedVideoRequest {
+func (a *LikesEssentialsAPIService) CheckIfUserLikedVideo(ctx context.Context, userId int32, videoId int32) ApiCheckIfUserLikedVideoRequest {
 	return ApiCheckIfUserLikedVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -297,7 +297,7 @@ func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoExecute(r ApiCheckIfUse
 type ApiCheckIfUserLikedVideoAlt1Request struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiCheckIfUserLikedVideoAlt1Request) Execute() (*http.Response, error) {
@@ -313,7 +313,7 @@ This method checks if the authenticated user has liked the specified video.
  @param videoId The ID of the video.
  @return ApiCheckIfUserLikedVideoAlt1Request
 */
-func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoAlt1(ctx context.Context, videoId float32) ApiCheckIfUserLikedVideoAlt1Request {
+func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoAlt1(ctx context.Context, videoId int32) ApiCheckIfUserLikedVideoAlt1Request {
 	return ApiCheckIfUserLikedVideoAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -399,7 +399,7 @@ func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoAlt1Execute(r ApiCheckI
 type ApiGetLikesRequest struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
-	userId float32
+	userId int32
 	filter *string
 	filterEmbeddable *bool
 	page *float32
@@ -457,7 +457,7 @@ This method returns every video that the authenticated user has liked.
  @param userId The ID of the user.
  @return ApiGetLikesRequest
 */
-func (a *LikesEssentialsAPIService) GetLikes(ctx context.Context, userId float32) ApiGetLikesRequest {
+func (a *LikesEssentialsAPIService) GetLikes(ctx context.Context, userId int32) ApiGetLikesRequest {
 	return ApiGetLikesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -721,7 +721,7 @@ func (a *LikesEssentialsAPIService) GetLikesAlt1Execute(r ApiGetLikesAlt1Request
 type ApiGetVideoLikesRequest struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
-	videoId float32
+	videoId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -765,7 +765,7 @@ This method returns every user who has liked the specified video.
  @param videoId The ID of the video.
  @return ApiGetVideoLikesRequest
 */
-func (a *LikesEssentialsAPIService) GetVideoLikes(ctx context.Context, videoId float32) ApiGetVideoLikesRequest {
+func (a *LikesEssentialsAPIService) GetVideoLikes(ctx context.Context, videoId int32) ApiGetVideoLikesRequest {
 	return ApiGetVideoLikesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -865,7 +865,7 @@ type ApiGetVideoLikesAlt1Request struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -910,7 +910,7 @@ This method returns every user who has liked the specified video.
  @param videoId The ID of the video.
  @return ApiGetVideoLikesAlt1Request
 */
-func (a *LikesEssentialsAPIService) GetVideoLikesAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoLikesAlt1Request {
+func (a *LikesEssentialsAPIService) GetVideoLikesAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoLikesAlt1Request {
 	return ApiGetVideoLikesAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1164,8 +1164,8 @@ func (a *LikesEssentialsAPIService) GetVodLikesExecute(r ApiGetVodLikesRequest) 
 type ApiLikeVideoRequest struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiLikeVideoRequest) Execute() (*http.Response, error) {
@@ -1182,7 +1182,7 @@ This method causes the authenticated user to like the specified video. The user 
  @param videoId The ID of the video.
  @return ApiLikeVideoRequest
 */
-func (a *LikesEssentialsAPIService) LikeVideo(ctx context.Context, userId float32, videoId float32) ApiLikeVideoRequest {
+func (a *LikesEssentialsAPIService) LikeVideo(ctx context.Context, userId int32, videoId int32) ApiLikeVideoRequest {
 	return ApiLikeVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1281,7 +1281,7 @@ func (a *LikesEssentialsAPIService) LikeVideoExecute(r ApiLikeVideoRequest) (*ht
 type ApiLikeVideoAlt1Request struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiLikeVideoAlt1Request) Execute() (*http.Response, error) {
@@ -1297,7 +1297,7 @@ This method causes the authenticated user to like the specified video. The user 
  @param videoId The ID of the video.
  @return ApiLikeVideoAlt1Request
 */
-func (a *LikesEssentialsAPIService) LikeVideoAlt1(ctx context.Context, videoId float32) ApiLikeVideoAlt1Request {
+func (a *LikesEssentialsAPIService) LikeVideoAlt1(ctx context.Context, videoId int32) ApiLikeVideoAlt1Request {
 	return ApiLikeVideoAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1394,8 +1394,8 @@ func (a *LikesEssentialsAPIService) LikeVideoAlt1Execute(r ApiLikeVideoAlt1Reque
 type ApiUnlikeVideoRequest struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiUnlikeVideoRequest) Execute() (*http.Response, error) {
@@ -1412,7 +1412,7 @@ This method causes the authenticated user to unlike the specified video.
  @param videoId The ID of the video.
  @return ApiUnlikeVideoRequest
 */
-func (a *LikesEssentialsAPIService) UnlikeVideo(ctx context.Context, userId float32, videoId float32) ApiUnlikeVideoRequest {
+func (a *LikesEssentialsAPIService) UnlikeVideo(ctx context.Context, userId int32, videoId int32) ApiUnlikeVideoRequest {
 	return ApiUnlikeVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1500,7 +1500,7 @@ func (a *LikesEssentialsAPIService) UnlikeVideoExecute(r ApiUnlikeVideoRequest) 
 type ApiUnlikeVideoAlt1Request struct {
 	ctx context.Context
 	ApiService LikesEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiUnlikeVideoAlt1Request) Execute() (*http.Response, error) {
@@ -1516,7 +1516,7 @@ This method causes the authenticated user to unlike the specified video.
  @param videoId The ID of the video.
  @return ApiUnlikeVideoAlt1Request
 */
-func (a *LikesEssentialsAPIService) UnlikeVideoAlt1(ctx context.Context, videoId float32) ApiUnlikeVideoAlt1Request {
+func (a *LikesEssentialsAPIService) UnlikeVideoAlt1(ctx context.Context, videoId int32) ApiUnlikeVideoAlt1Request {
 	return ApiUnlikeVideoAlt1Request{
 		ApiService: a,
 		ctx: ctx,

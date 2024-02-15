@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the SubscriptionPlansMetadataPurchasedProduct type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type SubscriptionPlansMetadataPurchasedProduct struct {
 	// Whether the purchased product is billed as a monthly subscription.
 	IsMonthly bool `json:"is_monthly"`
 }
-
-type _SubscriptionPlansMetadataPurchasedProduct SubscriptionPlansMetadataPurchasedProduct
 
 // NewSubscriptionPlansMetadataPurchasedProduct instantiates a new SubscriptionPlansMetadataPurchasedProduct object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o SubscriptionPlansMetadataPurchasedProduct) ToMap() (map[string]interface
 	toSerialize["display_price"] = o.DisplayPrice
 	toSerialize["is_monthly"] = o.IsMonthly
 	return toSerialize, nil
-}
-
-func (o *SubscriptionPlansMetadataPurchasedProduct) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"display_price",
-		"is_monthly",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSubscriptionPlansMetadataPurchasedProduct := _SubscriptionPlansMetadataPurchasedProduct{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSubscriptionPlansMetadataPurchasedProduct)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SubscriptionPlansMetadataPurchasedProduct(varSubscriptionPlansMetadataPurchasedProduct)
-
-	return err
 }
 
 type NullableSubscriptionPlansMetadataPurchasedProduct struct {

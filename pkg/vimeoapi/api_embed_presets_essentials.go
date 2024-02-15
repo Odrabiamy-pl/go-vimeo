@@ -31,7 +31,7 @@ type EmbedPresetsEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateEmbedPresetsRequest
 	*/
-	CreateEmbedPresets(ctx context.Context, userId float32) ApiCreateEmbedPresetsRequest
+	CreateEmbedPresets(ctx context.Context, userId int32) ApiCreateEmbedPresetsRequest
 
 	// CreateEmbedPresetsExecute executes the request
 	//  @return Preset
@@ -61,7 +61,7 @@ type EmbedPresetsEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiEditEmbedPresetRequest
 	*/
-	EditEmbedPreset(ctx context.Context, presetId float32, userId float32) ApiEditEmbedPresetRequest
+	EditEmbedPreset(ctx context.Context, presetId float32, userId int32) ApiEditEmbedPresetRequest
 
 	// EditEmbedPresetExecute executes the request
 	//  @return Preset
@@ -92,7 +92,7 @@ type EmbedPresetsEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetEmbedPresetRequest
 	*/
-	GetEmbedPreset(ctx context.Context, presetId float32, userId float32) ApiGetEmbedPresetRequest
+	GetEmbedPreset(ctx context.Context, presetId float32, userId int32) ApiGetEmbedPresetRequest
 
 	// GetEmbedPresetExecute executes the request
 	//  @return Preset
@@ -122,7 +122,7 @@ type EmbedPresetsEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetEmbedPresetsRequest
 	*/
-	GetEmbedPresets(ctx context.Context, userId float32) ApiGetEmbedPresetsRequest
+	GetEmbedPresets(ctx context.Context, userId int32) ApiGetEmbedPresetsRequest
 
 	// GetEmbedPresetsExecute executes the request
 	//  @return []Preset
@@ -149,7 +149,7 @@ type EmbedPresetsEssentialsAPIService service
 type ApiCreateEmbedPresetsRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsEssentialsAPI
-	userId float32
+	userId int32
 	createEmbedPresetsAlt1Request *CreateEmbedPresetsAlt1Request
 }
 
@@ -171,7 +171,7 @@ This method creates an embed preset.
  @param userId The ID of the user.
  @return ApiCreateEmbedPresetsRequest
 */
-func (a *EmbedPresetsEssentialsAPIService) CreateEmbedPresets(ctx context.Context, userId float32) ApiCreateEmbedPresetsRequest {
+func (a *EmbedPresetsEssentialsAPIService) CreateEmbedPresets(ctx context.Context, userId int32) ApiCreateEmbedPresetsRequest {
 	return ApiCreateEmbedPresetsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -368,7 +368,7 @@ type ApiEditEmbedPresetRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsEssentialsAPI
 	presetId float32
-	userId float32
+	userId int32
 	editEmbedPresetAlt1Request *EditEmbedPresetAlt1Request
 }
 
@@ -391,7 +391,7 @@ This method edits the specified embed preset. The authenticated user must be the
  @param userId The ID of the user.
  @return ApiEditEmbedPresetRequest
 */
-func (a *EmbedPresetsEssentialsAPIService) EditEmbedPreset(ctx context.Context, presetId float32, userId float32) ApiEditEmbedPresetRequest {
+func (a *EmbedPresetsEssentialsAPIService) EditEmbedPreset(ctx context.Context, presetId float32, userId int32) ApiEditEmbedPresetRequest {
 	return ApiEditEmbedPresetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -636,7 +636,7 @@ type ApiGetEmbedPresetRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsEssentialsAPI
 	presetId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetEmbedPresetRequest) Execute() (*Preset, *http.Response, error) {
@@ -653,7 +653,7 @@ This method returns a single embed preset. The authenticated user must be the ow
  @param userId The ID of the user.
  @return ApiGetEmbedPresetRequest
 */
-func (a *EmbedPresetsEssentialsAPIService) GetEmbedPreset(ctx context.Context, presetId float32, userId float32) ApiGetEmbedPresetRequest {
+func (a *EmbedPresetsEssentialsAPIService) GetEmbedPreset(ctx context.Context, presetId float32, userId int32) ApiGetEmbedPresetRequest {
 	return ApiGetEmbedPresetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -845,7 +845,7 @@ func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetAlt1Execute(r ApiGetEmb
 type ApiGetEmbedPresetsRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsEssentialsAPI
-	userId float32
+	userId int32
 	page *float32
 	perPage *float32
 }
@@ -875,7 +875,7 @@ This method returns every embed preset that belongs to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetEmbedPresetsRequest
 */
-func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresets(ctx context.Context, userId float32) ApiGetEmbedPresetsRequest {
+func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresets(ctx context.Context, userId int32) ApiGetEmbedPresetsRequest {
 	return ApiGetEmbedPresetsRequest{
 		ApiService: a,
 		ctx: ctx,

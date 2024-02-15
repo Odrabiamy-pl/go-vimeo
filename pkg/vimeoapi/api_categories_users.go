@@ -32,7 +32,7 @@ type CategoriesUsersAPI interface {
 	@param userId The ID of the user.
 	@return ApiCheckIfUserSubscribedToCategoryRequest
 	*/
-	CheckIfUserSubscribedToCategory(ctx context.Context, category string, userId float32) ApiCheckIfUserSubscribedToCategoryRequest
+	CheckIfUserSubscribedToCategory(ctx context.Context, category string, userId int32) ApiCheckIfUserSubscribedToCategoryRequest
 
 	// CheckIfUserSubscribedToCategoryExecute executes the request
 	CheckIfUserSubscribedToCategoryExecute(r ApiCheckIfUserSubscribedToCategoryRequest) (*http.Response, error)
@@ -60,7 +60,7 @@ type CategoriesUsersAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetCategorySubscriptionsRequest
 	*/
-	GetCategorySubscriptions(ctx context.Context, userId float32) ApiGetCategorySubscriptionsRequest
+	GetCategorySubscriptions(ctx context.Context, userId int32) ApiGetCategorySubscriptionsRequest
 
 	// GetCategorySubscriptionsExecute executes the request
 	//  @return []Category
@@ -90,7 +90,7 @@ type CategoriesUsersAPI interface {
 	@param userId The ID of the user.
 	@return ApiSubscribeToCategoryRequest
 	*/
-	SubscribeToCategory(ctx context.Context, category float32, userId float32) ApiSubscribeToCategoryRequest
+	SubscribeToCategory(ctx context.Context, category float32, userId int32) ApiSubscribeToCategoryRequest
 
 	// SubscribeToCategoryExecute executes the request
 	SubscribeToCategoryExecute(r ApiSubscribeToCategoryRequest) (*http.Response, error)
@@ -119,7 +119,7 @@ type CategoriesUsersAPI interface {
 	@param userId The ID of the user.
 	@return ApiUnsubscribeFromCategoryRequest
 	*/
-	UnsubscribeFromCategory(ctx context.Context, category string, userId float32) ApiUnsubscribeFromCategoryRequest
+	UnsubscribeFromCategory(ctx context.Context, category string, userId int32) ApiUnsubscribeFromCategoryRequest
 
 	// UnsubscribeFromCategoryExecute executes the request
 	UnsubscribeFromCategoryExecute(r ApiUnsubscribeFromCategoryRequest) (*http.Response, error)
@@ -146,7 +146,7 @@ type ApiCheckIfUserSubscribedToCategoryRequest struct {
 	ctx context.Context
 	ApiService CategoriesUsersAPI
 	category string
-	userId float32
+	userId int32
 }
 
 func (r ApiCheckIfUserSubscribedToCategoryRequest) Execute() (*http.Response, error) {
@@ -163,7 +163,7 @@ This method determines whether the authenticated user follows the specified cate
  @param userId The ID of the user.
  @return ApiCheckIfUserSubscribedToCategoryRequest
 */
-func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategory(ctx context.Context, category string, userId float32) ApiCheckIfUserSubscribedToCategoryRequest {
+func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategory(ctx context.Context, category string, userId int32) ApiCheckIfUserSubscribedToCategoryRequest {
 	return ApiCheckIfUserSubscribedToCategoryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -333,7 +333,7 @@ func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategoryAlt1Execute(r
 type ApiGetCategorySubscriptionsRequest struct {
 	ctx context.Context
 	ApiService CategoriesUsersAPI
-	userId float32
+	userId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -377,7 +377,7 @@ This method returns every category that the authenticated user follows.
  @param userId The ID of the user.
  @return ApiGetCategorySubscriptionsRequest
 */
-func (a *CategoriesUsersAPIService) GetCategorySubscriptions(ctx context.Context, userId float32) ApiGetCategorySubscriptionsRequest {
+func (a *CategoriesUsersAPIService) GetCategorySubscriptions(ctx context.Context, userId int32) ApiGetCategorySubscriptionsRequest {
 	return ApiGetCategorySubscriptionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -636,7 +636,7 @@ type ApiSubscribeToCategoryRequest struct {
 	ctx context.Context
 	ApiService CategoriesUsersAPI
 	category float32
-	userId float32
+	userId int32
 }
 
 func (r ApiSubscribeToCategoryRequest) Execute() (*http.Response, error) {
@@ -653,7 +653,7 @@ This method causes the authenticated user to follow the specified category.
  @param userId The ID of the user.
  @return ApiSubscribeToCategoryRequest
 */
-func (a *CategoriesUsersAPIService) SubscribeToCategory(ctx context.Context, category float32, userId float32) ApiSubscribeToCategoryRequest {
+func (a *CategoriesUsersAPIService) SubscribeToCategory(ctx context.Context, category float32, userId int32) ApiSubscribeToCategoryRequest {
 	return ApiSubscribeToCategoryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -824,7 +824,7 @@ type ApiUnsubscribeFromCategoryRequest struct {
 	ctx context.Context
 	ApiService CategoriesUsersAPI
 	category string
-	userId float32
+	userId int32
 }
 
 func (r ApiUnsubscribeFromCategoryRequest) Execute() (*http.Response, error) {
@@ -841,7 +841,7 @@ This method causes the authenticated user to stop following the specified catego
  @param userId The ID of the user.
  @return ApiUnsubscribeFromCategoryRequest
 */
-func (a *CategoriesUsersAPIService) UnsubscribeFromCategory(ctx context.Context, category string, userId float32) ApiUnsubscribeFromCategoryRequest {
+func (a *CategoriesUsersAPIService) UnsubscribeFromCategory(ctx context.Context, category string, userId int32) ApiUnsubscribeFromCategoryRequest {
 	return ApiUnsubscribeFromCategoryRequest{
 		ApiService: a,
 		ctx: ctx,

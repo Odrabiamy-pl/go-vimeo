@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AuthError type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type AuthError struct {
 	// The description of the error.
 	ErrorDescription string `json:"error_description"`
 }
-
-type _AuthError AuthError
 
 // NewAuthError instantiates a new AuthError object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o AuthError) ToMap() (map[string]interface{}, error) {
 	toSerialize["error"] = o.Error
 	toSerialize["error_description"] = o.ErrorDescription
 	return toSerialize, nil
-}
-
-func (o *AuthError) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"error",
-		"error_description",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAuthError := _AuthError{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAuthError)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AuthError(varAuthError)
-
-	return err
 }
 
 type NullableAuthError struct {

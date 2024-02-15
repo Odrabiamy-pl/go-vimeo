@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the SubscriptionPlansPrice type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type SubscriptionPlansPrice struct {
 	// The monthly price, charged monthly.
 	Monthly *float32 `json:"monthly,omitempty"`
 }
-
-type _SubscriptionPlansPrice SubscriptionPlansPrice
 
 // NewSubscriptionPlansPrice instantiates a new SubscriptionPlansPrice object
 // This constructor will assign default values to properties that have it defined,
@@ -146,44 +142,6 @@ func (o SubscriptionPlansPrice) ToMap() (map[string]interface{}, error) {
 		toSerialize["monthly"] = o.Monthly
 	}
 	return toSerialize, nil
-}
-
-func (o *SubscriptionPlansPrice) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"annual",
-		"annual_monthly",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSubscriptionPlansPrice := _SubscriptionPlansPrice{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSubscriptionPlansPrice)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SubscriptionPlansPrice(varSubscriptionPlansPrice)
-
-	return err
 }
 
 type NullableSubscriptionPlansPrice struct {

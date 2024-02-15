@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventRecurring type satisfies the MappedNullable interface at compile time
@@ -73,7 +71,6 @@ type LiveEventRecurring struct {
 	// The date in ISO 8601 format on which the next occurrence of the event is expected to be live.
 	NextOccurrenceTime NullableString `json:"next_occurrence_time"`
 	ParentFolder NullableLiveEventParentFolder `json:"parent_folder"`
-	// The active thumbnail image of the event.
 	Pictures Picture `json:"pictures"`
 	// The order in which the videos inside the event appear in the playlist.  Option descriptions:  * `added_first` - The videos appear according to when they were added to the event, with the most recently added first.  * `added_last` - The videos appear according to when they were added to the event, with the most recently added last.  * `alphabetical` - The videos appear alphabetically by their title.  * `arranged` - The videos appear as arranged by the owner of the event.  * `comments` - The videos appear according to their number of comments.  * `duration` - The videos appear in order of duration.  * `likes` - The videos appear according to their number of likes.  * `newest` - The videos appear in chronological order, with the newest first.  * `oldest` - The videos appear in chronological order, with the oldest first.  * `plays` - The videos appear according to their number of plays. 
 	PlaylistSort string `json:"playlist_sort"`
@@ -85,7 +82,6 @@ type LiveEventRecurring struct {
 	RtmpPreview bool `json:"rtmp_preview"`
 	// The upstream RTMPS link. Send your live content to this link to create a live video on the event.
 	RtmpsLink NullableString `json:"rtmps_link"`
-	// The description of the time or times that the event is expected to be live.
 	Schedule LiveEventSchedule `json:"schedule"`
 	// Whether the scheduled playback feature is enabled.
 	ScheduledPlayback bool `json:"scheduled_playback"`
@@ -114,15 +110,12 @@ type LiveEventRecurring struct {
 	UnlimitedDuration bool `json:"unlimited_duration"`
 	// The event's canonical relative URI.
 	Uri string `json:"uri"`
-	// The owner of the event.
 	User User `json:"user"`
 	// The URI to access the event on Vimeo with or without an unlisted hash.
 	ViewLink string `json:"view_link"`
 	// Information about the associated webinar.
 	Webinar []string `json:"webinar"`
 }
-
-type _LiveEventRecurring LiveEventRecurring
 
 // NewLiveEventRecurring instantiates a new LiveEventRecurring object
 // This constructor will assign default values to properties that have it defined,
@@ -1563,93 +1556,6 @@ func (o LiveEventRecurring) ToMap() (map[string]interface{}, error) {
 		toSerialize["webinar"] = o.Webinar
 	}
 	return toSerialize, nil
-}
-
-func (o *LiveEventRecurring) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"album",
-		"allow_share_link",
-		"allowed_privacies",
-		"auto_cc_enabled",
-		"auto_cc_keywords",
-		"auto_cc_language",
-		"auto_cc_remaining",
-		"automatically_title_stream",
-		"chat_enabled",
-		"completed_on",
-		"content_rating",
-		"created_time",
-		"dvr",
-		"email_quota",
-		"embed",
-		"from_showcase",
-		"head_clip",
-		"interaction_tools_settings",
-		"latency",
-		"lead_uuid",
-		"link",
-		"live_clips",
-		"live_destinations",
-		"low_latency",
-		"metadata",
-		"next_occurrence_time",
-		"parent_folder",
-		"pictures",
-		"playlist_sort",
-		"preferred_stream_method",
-		"rtmp_link",
-		"rtmp_preview",
-		"rtmps_link",
-		"schedule",
-		"scheduled_playback",
-		"status",
-		"stream_description",
-		"stream_key",
-		"stream_mode",
-		"stream_password",
-		"stream_privacy",
-		"stream_title",
-		"streamable_clip",
-		"time_zone",
-		"title",
-		"unlimited_auto_cc",
-		"unlimited_duration",
-		"uri",
-		"user",
-		"view_link",
-		"webinar",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventRecurring := _LiveEventRecurring{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventRecurring)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventRecurring(varLiveEventRecurring)
-
-	return err
 }
 
 type NullableLiveEventRecurring struct {

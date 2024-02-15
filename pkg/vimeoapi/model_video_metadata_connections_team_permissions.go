@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoMetadataConnectionsTeamPermissions type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type VideoMetadataConnectionsTeamPermissions struct {
 	// An array of HTTP methods permitted on this URI. This data requires a bearer token with the `private` scope.
 	Options []string `json:"options"`
 }
-
-type _VideoMetadataConnectionsTeamPermissions VideoMetadataConnectionsTeamPermissions
 
 // NewVideoMetadataConnectionsTeamPermissions instantiates a new VideoMetadataConnectionsTeamPermissions object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o VideoMetadataConnectionsTeamPermissions) ToMap() (map[string]interface{}
 	toSerialize := map[string]interface{}{}
 	toSerialize["options"] = o.Options
 	return toSerialize, nil
-}
-
-func (o *VideoMetadataConnectionsTeamPermissions) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"options",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoMetadataConnectionsTeamPermissions := _VideoMetadataConnectionsTeamPermissions{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoMetadataConnectionsTeamPermissions)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoMetadataConnectionsTeamPermissions(varVideoMetadataConnectionsTeamPermissions)
-
-	return err
 }
 
 type NullableVideoMetadataConnectionsTeamPermissions struct {

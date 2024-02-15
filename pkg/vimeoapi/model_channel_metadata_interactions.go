@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ChannelMetadataInteractions type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type ChannelMetadataInteractions struct {
 	Follow ChannelMetadataInteractionsFollow `json:"follow"`
 	ModerateVideos ChannelMetadataInteractionsModerateVideos `json:"moderate_videos"`
 }
-
-type _ChannelMetadataInteractions ChannelMetadataInteractions
 
 // NewChannelMetadataInteractions instantiates a new ChannelMetadataInteractions object
 // This constructor will assign default values to properties that have it defined,
@@ -163,46 +159,6 @@ func (o ChannelMetadataInteractions) ToMap() (map[string]interface{}, error) {
 	toSerialize["follow"] = o.Follow
 	toSerialize["moderate_videos"] = o.ModerateVideos
 	return toSerialize, nil
-}
-
-func (o *ChannelMetadataInteractions) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"add_moderators",
-		"add_to",
-		"follow",
-		"moderate_videos",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varChannelMetadataInteractions := _ChannelMetadataInteractions{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChannelMetadataInteractions)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ChannelMetadataInteractions(varChannelMetadataInteractions)
-
-	return err
 }
 
 type NullableChannelMetadataInteractions struct {

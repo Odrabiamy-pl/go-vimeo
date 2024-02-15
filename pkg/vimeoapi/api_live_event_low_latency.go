@@ -32,7 +32,7 @@ type LiveEventLowLatencyAPI interface {
 	@param userId The ID of the user.
 	@return ApiToggleRleLowLatencyRequest
 	*/
-	ToggleRleLowLatency(ctx context.Context, liveEventId float32, userId float32) ApiToggleRleLowLatencyRequest
+	ToggleRleLowLatency(ctx context.Context, liveEventId float32, userId int32) ApiToggleRleLowLatencyRequest
 
 	// ToggleRleLowLatencyExecute executes the request
 	//  @return RecurringLiveEventLowLatency
@@ -76,7 +76,7 @@ type ApiToggleRleLowLatencyRequest struct {
 	ctx context.Context
 	ApiService LiveEventLowLatencyAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	toggleRleLowLatencyAlt1Request *ToggleRleLowLatencyAlt1Request
 }
 
@@ -99,7 +99,7 @@ This method toggles the low-latency option of the specified event.
  @param userId The ID of the user.
  @return ApiToggleRleLowLatencyRequest
 */
-func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatency(ctx context.Context, liveEventId float32, userId float32) ApiToggleRleLowLatencyRequest {
+func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatency(ctx context.Context, liveEventId float32, userId int32) ApiToggleRleLowLatencyRequest {
 	return ApiToggleRleLowLatencyRequest{
 		ApiService: a,
 		ctx: ctx,

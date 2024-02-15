@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the OnDemandPageColors type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type OnDemandPageColors struct {
 	// The hexadecimal color code for the On Demand page's second color.
 	Secondary string `json:"secondary"`
 }
-
-type _OnDemandPageColors OnDemandPageColors
 
 // NewOnDemandPageColors instantiates a new OnDemandPageColors object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o OnDemandPageColors) ToMap() (map[string]interface{}, error) {
 	toSerialize["primary"] = o.Primary
 	toSerialize["secondary"] = o.Secondary
 	return toSerialize, nil
-}
-
-func (o *OnDemandPageColors) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"primary",
-		"secondary",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOnDemandPageColors := _OnDemandPageColors{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnDemandPageColors)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OnDemandPageColors(varOnDemandPageColors)
-
-	return err
 }
 
 type NullableOnDemandPageColors struct {

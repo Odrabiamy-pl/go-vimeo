@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the OnDemandPage type satisfies the MappedNullable interface at compile time
@@ -32,7 +30,6 @@ type OnDemandPage struct {
 	// The link to the On Demand page on its own domain.
 	DomainLink NullableString `json:"domain_link"`
 	Episodes OnDemandPageEpisodes `json:"episodes"`
-	// The On Demand page's film, if the page is for a film.
 	Film *Video `json:"film,omitempty"`
 	// An array of the genres assigned to the On Demand page.
 	Genres []OnDemandGenre `json:"genres"`
@@ -63,8 +60,6 @@ type OnDemandPage struct {
 	Uri string `json:"uri"`
 	User NullableOnDemandPageUser `json:"user"`
 }
-
-type _OnDemandPage OnDemandPage
 
 // NewOnDemandPage instantiates a new OnDemandPage object
 // This constructor will assign default values to properties that have it defined,
@@ -834,64 +829,6 @@ func (o OnDemandPage) ToMap() (map[string]interface{}, error) {
 	toSerialize["uri"] = o.Uri
 	toSerialize["user"] = o.User.Get()
 	return toSerialize, nil
-}
-
-func (o *OnDemandPage) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"background",
-		"colors",
-		"content_rating",
-		"description",
-		"domain_link",
-		"episodes",
-		"genres",
-		"link",
-		"metadata",
-		"name",
-		"pictures",
-		"preorder",
-		"published",
-		"rating",
-		"resource_key",
-		"subscription",
-		"theme",
-		"thumbnail",
-		"trailer",
-		"type",
-		"uri",
-		"user",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOnDemandPage := _OnDemandPage{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnDemandPage)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OnDemandPage(varOnDemandPage)
-
-	return err
 }
 
 type NullableOnDemandPage struct {

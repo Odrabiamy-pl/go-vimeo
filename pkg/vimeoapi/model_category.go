@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Category type satisfies the MappedNullable interface at compile time
@@ -21,7 +19,6 @@ var _ MappedNullable = &Category{}
 
 // Category struct for Category
 type Category struct {
-	// The active icon for the category.
 	Icon *Picture `json:"icon,omitempty"`
 	// Whether the category is deprecated and should not be used for new categorization.
 	IsDeprecated bool `json:"is_deprecated"`
@@ -33,7 +30,6 @@ type Category struct {
 	// The display name that identifies the category.
 	Name string `json:"name"`
 	Parent NullableCategoryParent `json:"parent"`
-	// The active picture for this category. The default shows vertical color bars.
 	Pictures Picture `json:"pictures"`
 	// The resource key of the category.
 	ResourceKey string `json:"resource_key"`
@@ -44,8 +40,6 @@ type Category struct {
 	// The unique identifier to access the category resource.
 	Uri string `json:"uri"`
 }
-
-type _Category Category
 
 // NewCategory instantiates a new Category object
 // This constructor will assign default values to properties that have it defined,
@@ -407,52 +401,6 @@ func (o Category) ToMap() (map[string]interface{}, error) {
 	toSerialize["top_level"] = o.TopLevel
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *Category) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"is_deprecated",
-		"last_video_featured_time",
-		"link",
-		"metadata",
-		"name",
-		"parent",
-		"pictures",
-		"resource_key",
-		"top_level",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCategory := _Category{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCategory)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Category(varCategory)
-
-	return err
 }
 
 type NullableCategory struct {

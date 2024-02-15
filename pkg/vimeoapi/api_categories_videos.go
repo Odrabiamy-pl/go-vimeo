@@ -32,7 +32,7 @@ type CategoriesVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCheckCategoryForVideoRequest
 	*/
-	CheckCategoryForVideo(ctx context.Context, category string, videoId float32) ApiCheckCategoryForVideoRequest
+	CheckCategoryForVideo(ctx context.Context, category string, videoId int32) ApiCheckCategoryForVideoRequest
 
 	// CheckCategoryForVideoExecute executes the request
 	//  @return Video
@@ -62,7 +62,7 @@ type CategoriesVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoCategoriesRequest
 	*/
-	GetVideoCategories(ctx context.Context, videoId float32) ApiGetVideoCategoriesRequest
+	GetVideoCategories(ctx context.Context, videoId int32) ApiGetVideoCategoriesRequest
 
 	// GetVideoCategoriesExecute executes the request
 	//  @return []Category
@@ -77,7 +77,7 @@ type CategoriesVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiSuggestVideoCategoryRequest
 	*/
-	SuggestVideoCategory(ctx context.Context, videoId float32) ApiSuggestVideoCategoryRequest
+	SuggestVideoCategory(ctx context.Context, videoId int32) ApiSuggestVideoCategoryRequest
 
 	// SuggestVideoCategoryExecute executes the request
 	//  @return Category
@@ -91,7 +91,7 @@ type ApiCheckCategoryForVideoRequest struct {
 	ctx context.Context
 	ApiService CategoriesVideosAPI
 	category string
-	videoId float32
+	videoId int32
 }
 
 func (r ApiCheckCategoryForVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -108,7 +108,7 @@ This method returns a single video in the specified category. You can use this m
  @param videoId The ID of the video.
  @return ApiCheckCategoryForVideoRequest
 */
-func (a *CategoriesVideosAPIService) CheckCategoryForVideo(ctx context.Context, category string, videoId float32) ApiCheckCategoryForVideoRequest {
+func (a *CategoriesVideosAPIService) CheckCategoryForVideo(ctx context.Context, category string, videoId int32) ApiCheckCategoryForVideoRequest {
 	return ApiCheckCategoryForVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -390,7 +390,7 @@ func (a *CategoriesVideosAPIService) GetCategoryVideosExecute(r ApiGetCategoryVi
 type ApiGetVideoCategoriesRequest struct {
 	ctx context.Context
 	ApiService CategoriesVideosAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -420,7 +420,7 @@ This method returns every category that contains the specified video.
  @param videoId The ID of the video.
  @return ApiGetVideoCategoriesRequest
 */
-func (a *CategoriesVideosAPIService) GetVideoCategories(ctx context.Context, videoId float32) ApiGetVideoCategoriesRequest {
+func (a *CategoriesVideosAPIService) GetVideoCategories(ctx context.Context, videoId int32) ApiGetVideoCategoriesRequest {
 	return ApiGetVideoCategoriesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -523,7 +523,7 @@ func (a *CategoriesVideosAPIService) GetVideoCategoriesExecute(r ApiGetVideoCate
 type ApiSuggestVideoCategoryRequest struct {
 	ctx context.Context
 	ApiService CategoriesVideosAPI
-	videoId float32
+	videoId int32
 	suggestVideoCategoryRequest *SuggestVideoCategoryRequest
 }
 
@@ -545,7 +545,7 @@ This method sets multiple categories and subcategories for the specified video. 
  @param videoId The ID of the video.
  @return ApiSuggestVideoCategoryRequest
 */
-func (a *CategoriesVideosAPIService) SuggestVideoCategory(ctx context.Context, videoId float32) ApiSuggestVideoCategoryRequest {
+func (a *CategoriesVideosAPIService) SuggestVideoCategory(ctx context.Context, videoId int32) ApiSuggestVideoCategoryRequest {
 	return ApiSuggestVideoCategoryRequest{
 		ApiService: a,
 		ctx: ctx,

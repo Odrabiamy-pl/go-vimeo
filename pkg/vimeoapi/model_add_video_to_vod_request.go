@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AddVideoToVodRequest type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type AddVideoToVodRequest struct {
 	// The type of the video.  Option descriptions:  * `extra` - The video type is extra footage.  * `main` - The video type is the main video.  * `trailer` - The video type is a trailer. 
 	Type string `json:"type"`
 }
-
-type _AddVideoToVodRequest AddVideoToVodRequest
 
 // NewAddVideoToVodRequest instantiates a new AddVideoToVodRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -227,43 +223,6 @@ func (o AddVideoToVodRequest) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["type"] = o.Type
 	return toSerialize, nil
-}
-
-func (o *AddVideoToVodRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"type",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAddVideoToVodRequest := _AddVideoToVodRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddVideoToVodRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AddVideoToVodRequest(varAddVideoToVodRequest)
-
-	return err
 }
 
 type NullableAddVideoToVodRequest struct {

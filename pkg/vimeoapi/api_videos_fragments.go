@@ -31,7 +31,7 @@ type VideosFragmentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteFragmentsRequest
 	*/
-	DeleteFragments(ctx context.Context, videoId float32) ApiDeleteFragmentsRequest
+	DeleteFragments(ctx context.Context, videoId int32) ApiDeleteFragmentsRequest
 
 	// DeleteFragmentsExecute executes the request
 	DeleteFragmentsExecute(r ApiDeleteFragmentsRequest) (*http.Response, error)
@@ -45,7 +45,7 @@ type VideosFragmentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetFragmentsRequest
 	*/
-	GetFragments(ctx context.Context, videoId float32) ApiGetFragmentsRequest
+	GetFragments(ctx context.Context, videoId int32) ApiGetFragmentsRequest
 
 	// GetFragmentsExecute executes the request
 	//  @return Fragments
@@ -60,7 +60,7 @@ type VideosFragmentsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiPutFragmentsRequest
 	*/
-	PutFragments(ctx context.Context, videoId float32) ApiPutFragmentsRequest
+	PutFragments(ctx context.Context, videoId int32) ApiPutFragmentsRequest
 
 	// PutFragmentsExecute executes the request
 	PutFragmentsExecute(r ApiPutFragmentsRequest) (*http.Response, error)
@@ -72,7 +72,7 @@ type VideosFragmentsAPIService service
 type ApiDeleteFragmentsRequest struct {
 	ctx context.Context
 	ApiService VideosFragmentsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteFragmentsRequest) Execute() (*http.Response, error) {
@@ -88,7 +88,7 @@ This method deletes all fragments for the specified video.
  @param videoId The ID of the video.
  @return ApiDeleteFragmentsRequest
 */
-func (a *VideosFragmentsAPIService) DeleteFragments(ctx context.Context, videoId float32) ApiDeleteFragmentsRequest {
+func (a *VideosFragmentsAPIService) DeleteFragments(ctx context.Context, videoId int32) ApiDeleteFragmentsRequest {
 	return ApiDeleteFragmentsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -164,7 +164,7 @@ func (a *VideosFragmentsAPIService) DeleteFragmentsExecute(r ApiDeleteFragmentsR
 type ApiGetFragmentsRequest struct {
 	ctx context.Context
 	ApiService VideosFragmentsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetFragmentsRequest) Execute() (*Fragments, *http.Response, error) {
@@ -180,7 +180,7 @@ This method returns all of the fragments associated with the specified video.
  @param videoId The ID of the video.
  @return ApiGetFragmentsRequest
 */
-func (a *VideosFragmentsAPIService) GetFragments(ctx context.Context, videoId float32) ApiGetFragmentsRequest {
+func (a *VideosFragmentsAPIService) GetFragments(ctx context.Context, videoId int32) ApiGetFragmentsRequest {
 	return ApiGetFragmentsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -267,7 +267,7 @@ func (a *VideosFragmentsAPIService) GetFragmentsExecute(r ApiGetFragmentsRequest
 type ApiPutFragmentsRequest struct {
 	ctx context.Context
 	ApiService VideosFragmentsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiPutFragmentsRequest) Execute() (*http.Response, error) {
@@ -283,7 +283,7 @@ This method updates the specified video with new fragments.
  @param videoId The ID of the video.
  @return ApiPutFragmentsRequest
 */
-func (a *VideosFragmentsAPIService) PutFragments(ctx context.Context, videoId float32) ApiPutFragmentsRequest {
+func (a *VideosFragmentsAPIService) PutFragments(ctx context.Context, videoId int32) ApiPutFragmentsRequest {
 	return ApiPutFragmentsRequest{
 		ApiService: a,
 		ctx: ctx,

@@ -32,7 +32,7 @@ type PortfoliosEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetPortfolioRequest
 	*/
-	GetPortfolio(ctx context.Context, portfolioId float32, userId float32) ApiGetPortfolioRequest
+	GetPortfolio(ctx context.Context, portfolioId float32, userId int32) ApiGetPortfolioRequest
 
 	// GetPortfolioExecute executes the request
 	//  @return Portfolio
@@ -62,7 +62,7 @@ type PortfoliosEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetPortfoliosRequest
 	*/
-	GetPortfolios(ctx context.Context, userId float32) ApiGetPortfoliosRequest
+	GetPortfolios(ctx context.Context, userId int32) ApiGetPortfoliosRequest
 
 	// GetPortfoliosExecute executes the request
 	//  @return []Portfolio
@@ -90,7 +90,7 @@ type ApiGetPortfolioRequest struct {
 	ctx context.Context
 	ApiService PortfoliosEssentialsAPI
 	portfolioId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetPortfolioRequest) Execute() (*Portfolio, *http.Response, error) {
@@ -107,7 +107,7 @@ This method returns a single portfolio belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetPortfolioRequest
 */
-func (a *PortfoliosEssentialsAPIService) GetPortfolio(ctx context.Context, portfolioId float32, userId float32) ApiGetPortfolioRequest {
+func (a *PortfoliosEssentialsAPIService) GetPortfolio(ctx context.Context, portfolioId float32, userId int32) ApiGetPortfolioRequest {
 	return ApiGetPortfolioRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -299,7 +299,7 @@ func (a *PortfoliosEssentialsAPIService) GetPortfolioAlt1Execute(r ApiGetPortfol
 type ApiGetPortfoliosRequest struct {
 	ctx context.Context
 	ApiService PortfoliosEssentialsAPI
-	userId float32
+	userId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -350,7 +350,7 @@ This method returns every portfolio belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetPortfoliosRequest
 */
-func (a *PortfoliosEssentialsAPIService) GetPortfolios(ctx context.Context, userId float32) ApiGetPortfoliosRequest {
+func (a *PortfoliosEssentialsAPIService) GetPortfolios(ctx context.Context, userId int32) ApiGetPortfoliosRequest {
 	return ApiGetPortfoliosRequest{
 		ApiService: a,
 		ctx: ctx,

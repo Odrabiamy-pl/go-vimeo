@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoSpatial type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type VideoSpatial struct {
 	// The video's 360 stereo format.  Option descriptions:  * `left-right` - The stereo format is left-right.  * `mono` - The audio is monaural.  * `top-bottom` - The stereo format is top-bottom. 
 	StereoFormat NullableString `json:"stereo_format"`
 }
-
-type _VideoSpatial VideoSpatial
 
 // NewVideoSpatial instantiates a new VideoSpatial object
 // This constructor will assign default values to properties that have it defined,
@@ -171,46 +167,6 @@ func (o VideoSpatial) ToMap() (map[string]interface{}, error) {
 	toSerialize["projection"] = o.Projection.Get()
 	toSerialize["stereo_format"] = o.StereoFormat.Get()
 	return toSerialize, nil
-}
-
-func (o *VideoSpatial) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"director_timeline",
-		"field_of_view",
-		"projection",
-		"stereo_format",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoSpatial := _VideoSpatial{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoSpatial)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoSpatial(varVideoSpatial)
-
-	return err
 }
 
 type NullableVideoSpatial struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Chapter type satisfies the MappedNullable interface at compile time
@@ -32,8 +30,6 @@ type Chapter struct {
 	// The relative URI of the chapter.
 	Uri string `json:"uri"`
 }
-
-type _Chapter Chapter
 
 // NewChapter instantiates a new Chapter object
 // This constructor will assign default values to properties that have it defined,
@@ -206,46 +202,6 @@ func (o Chapter) ToMap() (map[string]interface{}, error) {
 	toSerialize["title"] = o.Title.Get()
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *Chapter) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"thumbnails",
-		"timecode",
-		"title",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varChapter := _Chapter{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChapter)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Chapter(varChapter)
-
-	return err
 }
 
 type NullableChapter struct {

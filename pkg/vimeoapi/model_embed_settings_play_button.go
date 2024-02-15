@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EmbedSettingsPlayButton type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type EmbedSettingsPlayButton struct {
 	// The position of the play button within the embeddable player.  Option descriptions:  * `auto` - Use Vimeo's default positioning for the play button.  * `bottom` - The play button is positioned at the bottom of the player, except when in tiny mode.  * `center` - The play button is positioned in the center of the player. 
 	Position string `json:"position"`
 }
-
-type _EmbedSettingsPlayButton EmbedSettingsPlayButton
 
 // NewEmbedSettingsPlayButton instantiates a new EmbedSettingsPlayButton object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o EmbedSettingsPlayButton) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["position"] = o.Position
 	return toSerialize, nil
-}
-
-func (o *EmbedSettingsPlayButton) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"position",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEmbedSettingsPlayButton := _EmbedSettingsPlayButton{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmbedSettingsPlayButton)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EmbedSettingsPlayButton(varEmbedSettingsPlayButton)
-
-	return err
 }
 
 type NullableEmbedSettingsPlayButton struct {

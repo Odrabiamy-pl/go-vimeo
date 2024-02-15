@@ -31,7 +31,7 @@ type WebinarEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateWebinarRequest
 	*/
-	CreateWebinar(ctx context.Context, userId float32) ApiCreateWebinarRequest
+	CreateWebinar(ctx context.Context, userId int32) ApiCreateWebinarRequest
 
 	// CreateWebinarExecute executes the request
 	//  @return Webinar
@@ -61,7 +61,7 @@ type WebinarEssentialsAPI interface {
 	@param webinarId The ID of the webinar.
 	@return ApiGetWebinarRequest
 	*/
-	GetWebinar(ctx context.Context, userId float32, webinarId string) ApiGetWebinarRequest
+	GetWebinar(ctx context.Context, userId int32, webinarId string) ApiGetWebinarRequest
 
 	// GetWebinarExecute executes the request
 	//  @return Webinar
@@ -107,7 +107,7 @@ type WebinarEssentialsAPI interface {
 	@param webinarId The ID of the webinar.
 	@return ApiUpdateWebinarRequest
 	*/
-	UpdateWebinar(ctx context.Context, userId float32, webinarId string) ApiUpdateWebinarRequest
+	UpdateWebinar(ctx context.Context, userId int32, webinarId string) ApiUpdateWebinarRequest
 
 	// UpdateWebinarExecute executes the request
 	//  @return Webinar
@@ -135,7 +135,7 @@ type WebinarEssentialsAPIService service
 type ApiCreateWebinarRequest struct {
 	ctx context.Context
 	ApiService WebinarEssentialsAPI
-	userId float32
+	userId int32
 	createWebinarAlt1Request *CreateWebinarAlt1Request
 }
 
@@ -157,7 +157,7 @@ This method creates a new webinar for the authenticated user.
  @param userId The ID of the user.
  @return ApiCreateWebinarRequest
 */
-func (a *WebinarEssentialsAPIService) CreateWebinar(ctx context.Context, userId float32) ApiCreateWebinarRequest {
+func (a *WebinarEssentialsAPIService) CreateWebinar(ctx context.Context, userId int32) ApiCreateWebinarRequest {
 	return ApiCreateWebinarRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -423,7 +423,7 @@ func (a *WebinarEssentialsAPIService) CreateWebinarAlt1Execute(r ApiCreateWebina
 type ApiGetWebinarRequest struct {
 	ctx context.Context
 	ApiService WebinarEssentialsAPI
-	userId float32
+	userId int32
 	webinarId string
 }
 
@@ -441,7 +441,7 @@ This method returns a single webinar belonging to the authenticated user.
  @param webinarId The ID of the webinar.
  @return ApiGetWebinarRequest
 */
-func (a *WebinarEssentialsAPIService) GetWebinar(ctx context.Context, userId float32, webinarId string) ApiGetWebinarRequest {
+func (a *WebinarEssentialsAPIService) GetWebinar(ctx context.Context, userId int32, webinarId string) ApiGetWebinarRequest {
 	return ApiGetWebinarRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -766,7 +766,7 @@ func (a *WebinarEssentialsAPIService) GetWebinarAlt2Execute(r ApiGetWebinarAlt2R
 type ApiUpdateWebinarRequest struct {
 	ctx context.Context
 	ApiService WebinarEssentialsAPI
-	userId float32
+	userId int32
 	webinarId string
 	updateWebinarAlt1Request *UpdateWebinarAlt1Request
 }
@@ -790,7 +790,7 @@ This method updates a webinar belonging to the authenticated user.
  @param webinarId The ID of the webinar.
  @return ApiUpdateWebinarRequest
 */
-func (a *WebinarEssentialsAPIService) UpdateWebinar(ctx context.Context, userId float32, webinarId string) ApiUpdateWebinarRequest {
+func (a *WebinarEssentialsAPIService) UpdateWebinar(ctx context.Context, userId int32, webinarId string) ApiUpdateWebinarRequest {
 	return ApiUpdateWebinarRequest{
 		ApiService: a,
 		ctx: ctx,

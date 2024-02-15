@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the CreateVideoVersionRequestUpload type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type CreateVideoVersionRequestUpload struct {
 	// The upload size of the version.
 	Size *string `json:"size,omitempty"`
 }
-
-type _CreateVideoVersionRequestUpload CreateVideoVersionRequestUpload
 
 // NewCreateVideoVersionRequestUpload instantiates a new CreateVideoVersionRequestUpload object
 // This constructor will assign default values to properties that have it defined,
@@ -192,43 +188,6 @@ func (o CreateVideoVersionRequestUpload) ToMap() (map[string]interface{}, error)
 		toSerialize["size"] = o.Size
 	}
 	return toSerialize, nil
-}
-
-func (o *CreateVideoVersionRequestUpload) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"approach",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCreateVideoVersionRequestUpload := _CreateVideoVersionRequestUpload{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateVideoVersionRequestUpload)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CreateVideoVersionRequestUpload(varCreateVideoVersionRequestUpload)
-
-	return err
 }
 
 type NullableCreateVideoVersionRequestUpload struct {

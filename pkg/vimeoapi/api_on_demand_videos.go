@@ -32,7 +32,7 @@ type OnDemandVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToVodRequest
 	*/
-	AddVideoToVod(ctx context.Context, ondemandId float32, videoId float32) ApiAddVideoToVodRequest
+	AddVideoToVod(ctx context.Context, ondemandId float32, videoId int32) ApiAddVideoToVodRequest
 
 	// AddVideoToVodExecute executes the request
 	//  @return OnDemandVideo
@@ -48,7 +48,7 @@ type OnDemandVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoFromVodRequest
 	*/
-	DeleteVideoFromVod(ctx context.Context, ondemandId float32, videoId float32) ApiDeleteVideoFromVodRequest
+	DeleteVideoFromVod(ctx context.Context, ondemandId float32, videoId int32) ApiDeleteVideoFromVodRequest
 
 	// DeleteVideoFromVodExecute executes the request
 	DeleteVideoFromVodExecute(r ApiDeleteVideoFromVodRequest) (*http.Response, error)
@@ -63,7 +63,7 @@ type OnDemandVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVodVideoRequest
 	*/
-	GetVodVideo(ctx context.Context, ondemandId float32, videoId float32) ApiGetVodVideoRequest
+	GetVodVideo(ctx context.Context, ondemandId float32, videoId int32) ApiGetVodVideoRequest
 
 	// GetVodVideoExecute executes the request
 	//  @return Video
@@ -92,7 +92,7 @@ type ApiAddVideoToVodRequest struct {
 	ctx context.Context
 	ApiService OnDemandVideosAPI
 	ondemandId float32
-	videoId float32
+	videoId int32
 	addVideoToVodRequest *AddVideoToVodRequest
 }
 
@@ -115,7 +115,7 @@ This method adds a video to the specified On Demand page. The authenticated user
  @param videoId The ID of the video.
  @return ApiAddVideoToVodRequest
 */
-func (a *OnDemandVideosAPIService) AddVideoToVod(ctx context.Context, ondemandId float32, videoId float32) ApiAddVideoToVodRequest {
+func (a *OnDemandVideosAPIService) AddVideoToVod(ctx context.Context, ondemandId float32, videoId int32) ApiAddVideoToVodRequest {
 	return ApiAddVideoToVodRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -231,7 +231,7 @@ type ApiDeleteVideoFromVodRequest struct {
 	ctx context.Context
 	ApiService OnDemandVideosAPI
 	ondemandId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoFromVodRequest) Execute() (*http.Response, error) {
@@ -248,7 +248,7 @@ This method removes a video from the specified On Demand page. The authenticated
  @param videoId The ID of the video.
  @return ApiDeleteVideoFromVodRequest
 */
-func (a *OnDemandVideosAPIService) DeleteVideoFromVod(ctx context.Context, ondemandId float32, videoId float32) ApiDeleteVideoFromVodRequest {
+func (a *OnDemandVideosAPIService) DeleteVideoFromVod(ctx context.Context, ondemandId float32, videoId int32) ApiDeleteVideoFromVodRequest {
 	return ApiDeleteVideoFromVodRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -337,7 +337,7 @@ type ApiGetVodVideoRequest struct {
 	ctx context.Context
 	ApiService OnDemandVideosAPI
 	ondemandId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetVodVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -354,7 +354,7 @@ This method returns a single video on the specified On Demand page. Use this met
  @param videoId The ID of the video.
  @return ApiGetVodVideoRequest
 */
-func (a *OnDemandVideosAPIService) GetVodVideo(ctx context.Context, ondemandId float32, videoId float32) ApiGetVodVideoRequest {
+func (a *OnDemandVideosAPIService) GetVodVideo(ctx context.Context, ondemandId float32, videoId int32) ApiGetVodVideoRequest {
 	return ApiGetVodVideoRequest{
 		ApiService: a,
 		ctx: ctx,

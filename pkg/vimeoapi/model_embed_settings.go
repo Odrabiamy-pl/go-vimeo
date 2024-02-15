@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EmbedSettings type satisfies the MappedNullable interface at compile time
@@ -40,7 +38,6 @@ type EmbedSettings struct {
 	// The first player color, which controls the color of the progress bar, buttons, and more.
 	Color string `json:"color"`
 	Colors EmbedSettingsColors `json:"colors"`
-	// The email capture form settings associated with the video.
 	EmailCaptureForm EmailCaptureForm `json:"email_capture_form"`
 	EndScreen EmbedSettingsEndScreen `json:"end_screen"`
 	// Whether the embedded player should display the event schedule.
@@ -73,8 +70,6 @@ type EmbedSettings struct {
 	// Whether the volume controls appear in the embeddable player.
 	Volume bool `json:"volume"`
 }
-
-type _EmbedSettings EmbedSettings
 
 // NewEmbedSettings instantiates a new EmbedSettings object
 // This constructor will assign default values to properties that have it defined,
@@ -876,69 +871,6 @@ func (o EmbedSettings) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["volume"] = o.Volume
 	return toSerialize, nil
-}
-
-func (o *EmbedSettings) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"airplay",
-		"audio_tracks",
-		"autopip",
-		"badges",
-		"buttons",
-		"cards",
-		"chapters",
-		"chromecast",
-		"closed_captions",
-		"color",
-		"colors",
-		"email_capture_form",
-		"end_screen",
-		"event_schedule",
-		"has_cards",
-		"interactive",
-		"logos",
-		"outro_type",
-		"pip",
-		"play_button",
-		"playbar",
-		"quality_selector",
-		"show_timezone",
-		"speed",
-		"title",
-		"transcript",
-		"volume",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEmbedSettings := _EmbedSettings{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmbedSettings)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EmbedSettings(varEmbedSettings)
-
-	return err
 }
 
 type NullableEmbedSettings struct {

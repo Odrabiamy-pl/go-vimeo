@@ -32,7 +32,7 @@ type LiveEventActivationAPI interface {
 	@param userId The ID of the user.
 	@return ApiActivateLiveEventRequest
 	*/
-	ActivateLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiActivateLiveEventRequest
+	ActivateLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiActivateLiveEventRequest
 
 	// ActivateLiveEventExecute executes the request
 	//  @return Video
@@ -76,7 +76,7 @@ type ApiActivateLiveEventRequest struct {
 	ctx context.Context
 	ApiService LiveEventActivationAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	activateLiveEventAlt1Request *ActivateLiveEventAlt1Request
 }
 
@@ -99,7 +99,7 @@ This method creates the necessary RTMP links for the specified event. Begin stre
  @param userId The ID of the user.
  @return ApiActivateLiveEventRequest
 */
-func (a *LiveEventActivationAPIService) ActivateLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiActivateLiveEventRequest {
+func (a *LiveEventActivationAPIService) ActivateLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiActivateLiveEventRequest {
 	return ApiActivateLiveEventRequest{
 		ApiService: a,
 		ctx: ctx,

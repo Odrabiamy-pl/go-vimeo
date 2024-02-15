@@ -31,7 +31,7 @@ type VideosShowcasesAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddOrRemoveMultipleAlbumsRequest
 	*/
-	AddOrRemoveMultipleAlbums(ctx context.Context, videoId float32) ApiAddOrRemoveMultipleAlbumsRequest
+	AddOrRemoveMultipleAlbums(ctx context.Context, videoId int32) ApiAddOrRemoveMultipleAlbumsRequest
 
 	// AddOrRemoveMultipleAlbumsExecute executes the request
 	//  @return []Album
@@ -46,7 +46,7 @@ type VideosShowcasesAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoAlbumsRequest
 	*/
-	GetVideoAlbums(ctx context.Context, videoId float32) ApiGetVideoAlbumsRequest
+	GetVideoAlbums(ctx context.Context, videoId int32) ApiGetVideoAlbumsRequest
 
 	// GetVideoAlbumsExecute executes the request
 	//  @return []Album
@@ -59,7 +59,7 @@ type VideosShowcasesAPIService service
 type ApiAddOrRemoveMultipleAlbumsRequest struct {
 	ctx context.Context
 	ApiService VideosShowcasesAPI
-	videoId float32
+	videoId int32
 	addOrRemoveMultipleAlbumsRequest *AddOrRemoveMultipleAlbumsRequest
 }
 
@@ -81,7 +81,7 @@ This method adds or removes the specified video to or from multiple showcases.
  @param videoId The ID of the video.
  @return ApiAddOrRemoveMultipleAlbumsRequest
 */
-func (a *VideosShowcasesAPIService) AddOrRemoveMultipleAlbums(ctx context.Context, videoId float32) ApiAddOrRemoveMultipleAlbumsRequest {
+func (a *VideosShowcasesAPIService) AddOrRemoveMultipleAlbums(ctx context.Context, videoId int32) ApiAddOrRemoveMultipleAlbumsRequest {
 	return ApiAddOrRemoveMultipleAlbumsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -180,7 +180,7 @@ func (a *VideosShowcasesAPIService) AddOrRemoveMultipleAlbumsExecute(r ApiAddOrR
 type ApiGetVideoAlbumsRequest struct {
 	ctx context.Context
 	ApiService VideosShowcasesAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -210,7 +210,7 @@ This method returns all the showcases that contain the specified video.
  @param videoId The ID of the video.
  @return ApiGetVideoAlbumsRequest
 */
-func (a *VideosShowcasesAPIService) GetVideoAlbums(ctx context.Context, videoId float32) ApiGetVideoAlbumsRequest {
+func (a *VideosShowcasesAPIService) GetVideoAlbums(ctx context.Context, videoId int32) ApiGetVideoAlbumsRequest {
 	return ApiGetVideoAlbumsRequest{
 		ApiService: a,
 		ctx: ctx,

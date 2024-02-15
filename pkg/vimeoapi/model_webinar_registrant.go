@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WebinarRegistrant type satisfies the MappedNullable interface at compile time
@@ -45,8 +43,6 @@ type WebinarRegistrant struct {
 	// The API URL to return the webinar registrant's account.
 	Uri string `json:"uri"`
 }
-
-type _WebinarRegistrant WebinarRegistrant
 
 // NewWebinarRegistrant instantiates a new WebinarRegistrant object
 // This constructor will assign default values to properties that have it defined,
@@ -404,54 +400,6 @@ func (o WebinarRegistrant) ToMap() (map[string]interface{}, error) {
 	toSerialize["source_type"] = o.SourceType.Get()
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *WebinarRegistrant) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"analytics",
-		"created_on",
-		"data",
-		"email",
-		"first_name",
-		"has_attended",
-		"is_blocked",
-		"last_name",
-		"referrer",
-		"source_details",
-		"source_type",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWebinarRegistrant := _WebinarRegistrant{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebinarRegistrant)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WebinarRegistrant(varWebinarRegistrant)
-
-	return err
 }
 
 type NullableWebinarRegistrant struct {

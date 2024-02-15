@@ -31,7 +31,7 @@ type LiveEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateLiveEventRequest
 	*/
-	CreateLiveEvent(ctx context.Context, userId float32) ApiCreateLiveEventRequest
+	CreateLiveEvent(ctx context.Context, userId int32) ApiCreateLiveEventRequest
 
 	// CreateLiveEventExecute executes the request
 	//  @return LiveEventRecurring
@@ -117,7 +117,7 @@ type LiveEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiDeleteLiveEventsRequest
 	*/
-	DeleteLiveEvents(ctx context.Context, userId float32) ApiDeleteLiveEventsRequest
+	DeleteLiveEvents(ctx context.Context, userId int32) ApiDeleteLiveEventsRequest
 
 	// DeleteLiveEventsExecute executes the request
 	DeleteLiveEventsExecute(r ApiDeleteLiveEventsRequest) (*http.Response, error)
@@ -158,7 +158,7 @@ type LiveEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLiveEventRequest
 	*/
-	GetLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventRequest
+	GetLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventRequest
 
 	// GetLiveEventExecute executes the request
 	//  @return LiveEventRecurring
@@ -203,7 +203,7 @@ type LiveEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLiveEventsRequest
 	*/
-	GetLiveEvents(ctx context.Context, userId float32) ApiGetLiveEventsRequest
+	GetLiveEvents(ctx context.Context, userId int32) ApiGetLiveEventsRequest
 
 	// GetLiveEventsExecute executes the request
 	//  @return []LiveEvent
@@ -247,7 +247,7 @@ type LiveEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiUpdateLiveEventRequest
 	*/
-	UpdateLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiUpdateLiveEventRequest
+	UpdateLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiUpdateLiveEventRequest
 
 	// UpdateLiveEventExecute executes the request
 	//  @return LiveEventRecurring
@@ -290,7 +290,7 @@ type LiveEssentialsAPIService service
 type ApiCreateLiveEventRequest struct {
 	ctx context.Context
 	ApiService LiveEssentialsAPI
-	userId float32
+	userId int32
 	createLiveEventAlt1Request *CreateLiveEventAlt1Request
 }
 
@@ -312,7 +312,7 @@ This method creates a new event for the authenticated user.
  @param userId The ID of the user.
  @return ApiCreateLiveEventRequest
 */
-func (a *LiveEssentialsAPIService) CreateLiveEvent(ctx context.Context, userId float32) ApiCreateLiveEventRequest {
+func (a *LiveEssentialsAPIService) CreateLiveEvent(ctx context.Context, userId int32) ApiCreateLiveEventRequest {
 	return ApiCreateLiveEventRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1063,7 +1063,7 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt2Execute(r ApiDeleteLiveEve
 type ApiDeleteLiveEventsRequest struct {
 	ctx context.Context
 	ApiService LiveEssentialsAPI
-	userId float32
+	userId int32
 	deleteLiveEventsAlt1Request *DeleteLiveEventsAlt1Request
 }
 
@@ -1085,7 +1085,7 @@ This method deletes multiple events belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiDeleteLiveEventsRequest
 */
-func (a *LiveEssentialsAPIService) DeleteLiveEvents(ctx context.Context, userId float32) ApiDeleteLiveEventsRequest {
+func (a *LiveEssentialsAPIService) DeleteLiveEvents(ctx context.Context, userId int32) ApiDeleteLiveEventsRequest {
 	return ApiDeleteLiveEventsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1365,7 +1365,7 @@ type ApiGetLiveEventRequest struct {
 	ctx context.Context
 	ApiService LiveEssentialsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	password *string
 }
 
@@ -1389,7 +1389,7 @@ This method returns a single event belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetLiveEventRequest
 */
-func (a *LiveEssentialsAPIService) GetLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventRequest {
+func (a *LiveEssentialsAPIService) GetLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventRequest {
 	return ApiGetLiveEventRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1803,7 +1803,7 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt2Execute(r ApiGetLiveEventAlt2
 type ApiGetLiveEventsRequest struct {
 	ctx context.Context
 	ApiService LiveEssentialsAPI
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	page *float32
@@ -1868,7 +1868,7 @@ The method returns every event belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetLiveEventsRequest
 */
-func (a *LiveEssentialsAPIService) GetLiveEvents(ctx context.Context, userId float32) ApiGetLiveEventsRequest {
+func (a *LiveEssentialsAPIService) GetLiveEvents(ctx context.Context, userId int32) ApiGetLiveEventsRequest {
 	return ApiGetLiveEventsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2315,7 +2315,7 @@ type ApiUpdateLiveEventRequest struct {
 	ctx context.Context
 	ApiService LiveEssentialsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	updateLiveEventAlt1Request *UpdateLiveEventAlt1Request
 }
 
@@ -2338,7 +2338,7 @@ This method updates an event belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiUpdateLiveEventRequest
 */
-func (a *LiveEssentialsAPIService) UpdateLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiUpdateLiveEventRequest {
+func (a *LiveEssentialsAPIService) UpdateLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiUpdateLiveEventRequest {
 	return ApiUpdateLiveEventRequest{
 		ApiService: a,
 		ctx: ctx,

@@ -31,7 +31,7 @@ type UsersFeedsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetFeedRequest
 	*/
-	GetFeed(ctx context.Context, userId float32) ApiGetFeedRequest
+	GetFeed(ctx context.Context, userId int32) ApiGetFeedRequest
 
 	// GetFeedExecute executes the request
 	//  @return []Activity31
@@ -58,7 +58,7 @@ type UsersFeedsAPIService service
 type ApiGetFeedRequest struct {
 	ctx context.Context
 	ApiService UsersFeedsAPI
-	userId float32
+	userId int32
 	offset *string
 	page *float32
 	perPage *float32
@@ -102,7 +102,7 @@ This method returns every video in the authenticated user's feed.
  @param userId The ID of the user.
  @return ApiGetFeedRequest
 */
-func (a *UsersFeedsAPIService) GetFeed(ctx context.Context, userId float32) ApiGetFeedRequest {
+func (a *UsersFeedsAPIService) GetFeed(ctx context.Context, userId int32) ApiGetFeedRequest {
 	return ApiGetFeedRequest{
 		ApiService: a,
 		ctx: ctx,

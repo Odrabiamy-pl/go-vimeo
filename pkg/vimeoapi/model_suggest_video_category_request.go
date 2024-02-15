@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the SuggestVideoCategoryRequest type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type SuggestVideoCategoryRequest struct {
 	// An array of the names of the desired categories.
 	Category []string `json:"category"`
 }
-
-type _SuggestVideoCategoryRequest SuggestVideoCategoryRequest
 
 // NewSuggestVideoCategoryRequest instantiates a new SuggestVideoCategoryRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o SuggestVideoCategoryRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["category"] = o.Category
 	return toSerialize, nil
-}
-
-func (o *SuggestVideoCategoryRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"category",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSuggestVideoCategoryRequest := _SuggestVideoCategoryRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSuggestVideoCategoryRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SuggestVideoCategoryRequest(varSuggestVideoCategoryRequest)
-
-	return err
 }
 
 type NullableSuggestVideoCategoryRequest struct {

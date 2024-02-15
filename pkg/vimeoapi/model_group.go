@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Group type satisfies the MappedNullable interface at compile time
@@ -32,7 +30,6 @@ type Group struct {
 	ModifiedTime string `json:"modified_time"`
 	// The group's display name.
 	Name string `json:"name"`
-	// The active picture for the group.
 	Pictures Picture `json:"pictures"`
 	Privacy GroupPrivacy `json:"privacy"`
 	// The resource key of the group.
@@ -41,8 +38,6 @@ type Group struct {
 	Uri string `json:"uri"`
 	User NullableGroupUser `json:"user,omitempty"`
 }
-
-type _Group Group
 
 // NewGroup instantiates a new Group object
 // This constructor will assign default values to properties that have it defined,
@@ -379,52 +374,6 @@ func (o Group) ToMap() (map[string]interface{}, error) {
 		toSerialize["user"] = o.User.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *Group) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"created_time",
-		"description",
-		"link",
-		"metadata",
-		"modified_time",
-		"name",
-		"pictures",
-		"privacy",
-		"resource_key",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGroup := _Group{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGroup)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Group(varGroup)
-
-	return err
 }
 
 type NullableGroup struct {

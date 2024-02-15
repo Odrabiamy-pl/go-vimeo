@@ -32,7 +32,7 @@ type LiveEventVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiAddVideosToLiveEventRequest
 	*/
-	AddVideosToLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiAddVideosToLiveEventRequest
+	AddVideosToLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiAddVideosToLiveEventRequest
 
 	// AddVideosToLiveEventExecute executes the request
 	AddVideosToLiveEventExecute(r ApiAddVideosToLiveEventRequest) (*http.Response, error)
@@ -76,7 +76,7 @@ type LiveEventVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetLiveEventVideoRequest
 	*/
-	GetLiveEventVideo(ctx context.Context, liveEventId float32, userId float32, videoId float32) ApiGetLiveEventVideoRequest
+	GetLiveEventVideo(ctx context.Context, liveEventId float32, userId int32, videoId int32) ApiGetLiveEventVideoRequest
 
 	// GetLiveEventVideoExecute executes the request
 	//  @return Video
@@ -92,7 +92,7 @@ type LiveEventVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetLiveEventVideoAlt1Request
 	*/
-	GetLiveEventVideoAlt1(ctx context.Context, liveEventId float32, videoId float32) ApiGetLiveEventVideoAlt1Request
+	GetLiveEventVideoAlt1(ctx context.Context, liveEventId float32, videoId int32) ApiGetLiveEventVideoAlt1Request
 
 	// GetLiveEventVideoAlt1Execute executes the request
 	//  @return Video
@@ -108,7 +108,7 @@ type LiveEventVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetLiveEventVideoAlt2Request
 	*/
-	GetLiveEventVideoAlt2(ctx context.Context, liveEventId float32, videoId float32) ApiGetLiveEventVideoAlt2Request
+	GetLiveEventVideoAlt2(ctx context.Context, liveEventId float32, videoId int32) ApiGetLiveEventVideoAlt2Request
 
 	// GetLiveEventVideoAlt2Execute executes the request
 	//  @return Video
@@ -124,7 +124,7 @@ type LiveEventVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLiveEventVideosRequest
 	*/
-	GetLiveEventVideos(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventVideosRequest
+	GetLiveEventVideos(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventVideosRequest
 
 	// GetLiveEventVideosExecute executes the request
 	//  @return []Video
@@ -170,7 +170,7 @@ type LiveEventVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiRemoveVideosFromLiveEventRequest
 	*/
-	RemoveVideosFromLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiRemoveVideosFromLiveEventRequest
+	RemoveVideosFromLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiRemoveVideosFromLiveEventRequest
 
 	// RemoveVideosFromLiveEventExecute executes the request
 	RemoveVideosFromLiveEventExecute(r ApiRemoveVideosFromLiveEventRequest) (*http.Response, error)
@@ -211,7 +211,7 @@ type ApiAddVideosToLiveEventRequest struct {
 	ctx context.Context
 	ApiService LiveEventVideosAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	addVideosToLiveEventAlt1Request *AddVideosToLiveEventAlt1Request
 }
 
@@ -234,7 +234,7 @@ This method adds multiple videos to the specified event.
  @param userId The ID of the user.
  @return ApiAddVideosToLiveEventRequest
 */
-func (a *LiveEventVideosAPIService) AddVideosToLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiAddVideosToLiveEventRequest {
+func (a *LiveEventVideosAPIService) AddVideosToLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiAddVideosToLiveEventRequest {
 	return ApiAddVideosToLiveEventRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -611,8 +611,8 @@ type ApiGetLiveEventVideoRequest struct {
 	ctx context.Context
 	ApiService LiveEventVideosAPI
 	liveEventId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiGetLiveEventVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -630,7 +630,7 @@ This method returns a single video in the specified event.
  @param videoId The ID of the video.
  @return ApiGetLiveEventVideoRequest
 */
-func (a *LiveEventVideosAPIService) GetLiveEventVideo(ctx context.Context, liveEventId float32, userId float32, videoId float32) ApiGetLiveEventVideoRequest {
+func (a *LiveEventVideosAPIService) GetLiveEventVideo(ctx context.Context, liveEventId float32, userId int32, videoId int32) ApiGetLiveEventVideoRequest {
 	return ApiGetLiveEventVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -754,7 +754,7 @@ type ApiGetLiveEventVideoAlt1Request struct {
 	ctx context.Context
 	ApiService LiveEventVideosAPI
 	liveEventId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetLiveEventVideoAlt1Request) Execute() (*Video, *http.Response, error) {
@@ -771,7 +771,7 @@ This method returns a single video in the specified event.
  @param videoId The ID of the video.
  @return ApiGetLiveEventVideoAlt1Request
 */
-func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt1(ctx context.Context, liveEventId float32, videoId float32) ApiGetLiveEventVideoAlt1Request {
+func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt1(ctx context.Context, liveEventId float32, videoId int32) ApiGetLiveEventVideoAlt1Request {
 	return ApiGetLiveEventVideoAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -893,7 +893,7 @@ type ApiGetLiveEventVideoAlt2Request struct {
 	ctx context.Context
 	ApiService LiveEventVideosAPI
 	liveEventId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetLiveEventVideoAlt2Request) Execute() (*Video, *http.Response, error) {
@@ -910,7 +910,7 @@ This method returns a single video in the specified event.
  @param videoId The ID of the video.
  @return ApiGetLiveEventVideoAlt2Request
 */
-func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt2(ctx context.Context, liveEventId float32, videoId float32) ApiGetLiveEventVideoAlt2Request {
+func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt2(ctx context.Context, liveEventId float32, videoId int32) ApiGetLiveEventVideoAlt2Request {
 	return ApiGetLiveEventVideoAlt2Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1032,7 +1032,7 @@ type ApiGetLiveEventVideosRequest struct {
 	ctx context.Context
 	ApiService LiveEventVideosAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	containingUri *string
 	direction *string
 	filter *string
@@ -1105,7 +1105,7 @@ This method returns every video in the specified event.
  @param userId The ID of the user.
  @return ApiGetLiveEventVideosRequest
 */
-func (a *LiveEventVideosAPIService) GetLiveEventVideos(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventVideosRequest {
+func (a *LiveEventVideosAPIService) GetLiveEventVideos(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventVideosRequest {
 	return ApiGetLiveEventVideosRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1681,7 +1681,7 @@ type ApiRemoveVideosFromLiveEventRequest struct {
 	ctx context.Context
 	ApiService LiveEventVideosAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	removeVideosFromLiveEventAlt1Request *RemoveVideosFromLiveEventAlt1Request
 }
 
@@ -1704,7 +1704,7 @@ This method removes multiple videos from the specified event.
  @param userId The ID of the user.
  @return ApiRemoveVideosFromLiveEventRequest
 */
-func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiRemoveVideosFromLiveEventRequest {
+func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiRemoveVideosFromLiveEventRequest {
 	return ApiRemoveVideosFromLiveEventRequest{
 		ApiService: a,
 		ctx: ctx,

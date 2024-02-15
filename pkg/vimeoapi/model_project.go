@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Project type satisfies the MappedNullable interface at compile time
@@ -52,11 +50,8 @@ type Project struct {
 	Settings ProjectSettings `json:"settings"`
 	// The URI of the folder.
 	Uri string `json:"uri"`
-	// The owner of the folder.
 	User User `json:"user"`
 }
-
-type _Project Project
 
 // NewProject instantiates a new Project object
 // This constructor will assign default values to properties that have it defined,
@@ -558,60 +553,6 @@ func (o Project) ToMap() (map[string]interface{}, error) {
 	toSerialize["uri"] = o.Uri
 	toSerialize["user"] = o.User
 	return toSerialize, nil
-}
-
-func (o *Project) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"access_grant",
-		"created_time",
-		"creator_uri",
-		"has_subfolder",
-		"is_pinned",
-		"is_private_to_user",
-		"last_user_action_event_date",
-		"link",
-		"manage_link",
-		"metadata",
-		"modified_time",
-		"name",
-		"pinned_on",
-		"privacy",
-		"resource_key",
-		"settings",
-		"uri",
-		"user",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varProject := _Project{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProject)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Project(varProject)
-
-	return err
 }
 
 type NullableProject struct {

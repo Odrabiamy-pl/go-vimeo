@@ -34,7 +34,7 @@ For information on how to upload the logo, see our [Working with Thumbnail Uploa
 	@param userId The ID of the user.
 	@return ApiCreateShowcaseLogoRequest
 	*/
-	CreateShowcaseLogo(ctx context.Context, albumId float32, userId float32) ApiCreateShowcaseLogoRequest
+	CreateShowcaseLogo(ctx context.Context, albumId float32, userId int32) ApiCreateShowcaseLogoRequest
 
 	// CreateShowcaseLogoExecute executes the request
 	//  @return Picture
@@ -51,7 +51,7 @@ For information on how to upload the logo, see our [Working with Thumbnail Uploa
 	@param userId The ID of the user.
 	@return ApiDeleteShowcaseLogoRequest
 	*/
-	DeleteShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId float32) ApiDeleteShowcaseLogoRequest
+	DeleteShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiDeleteShowcaseLogoRequest
 
 	// DeleteShowcaseLogoExecute executes the request
 	DeleteShowcaseLogoExecute(r ApiDeleteShowcaseLogoRequest) (*http.Response, error)
@@ -67,7 +67,7 @@ For information on how to upload the logo, see our [Working with Thumbnail Uploa
 	@param userId The ID of the user.
 	@return ApiGetShowcaseLogoRequest
 	*/
-	GetShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId float32) ApiGetShowcaseLogoRequest
+	GetShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiGetShowcaseLogoRequest
 
 	// GetShowcaseLogoExecute executes the request
 	//  @return Picture
@@ -83,7 +83,7 @@ For information on how to upload the logo, see our [Working with Thumbnail Uploa
 	@param userId The ID of the user.
 	@return ApiGetShowcaseLogosRequest
 	*/
-	GetShowcaseLogos(ctx context.Context, albumId float32, userId float32) ApiGetShowcaseLogosRequest
+	GetShowcaseLogos(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseLogosRequest
 
 	// GetShowcaseLogosExecute executes the request
 	//  @return []Picture
@@ -102,7 +102,7 @@ For information on how to upload the logo, see our [Working with Thumbnail Uploa
 	@param userId The ID of the user.
 	@return ApiReplaceShowcaseLogoRequest
 	*/
-	ReplaceShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId float32) ApiReplaceShowcaseLogoRequest
+	ReplaceShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiReplaceShowcaseLogoRequest
 
 	// ReplaceShowcaseLogoExecute executes the request
 	//  @return Picture
@@ -116,7 +116,7 @@ type ApiCreateShowcaseLogoRequest struct {
 	ctx context.Context
 	ApiService ShowcasesCustomShowcaseLogosAPI
 	albumId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiCreateShowcaseLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -135,7 +135,7 @@ For information on how to upload the logo, see our [Working with Thumbnail Uploa
  @param userId The ID of the user.
  @return ApiCreateShowcaseLogoRequest
 */
-func (a *ShowcasesCustomShowcaseLogosAPIService) CreateShowcaseLogo(ctx context.Context, albumId float32, userId float32) ApiCreateShowcaseLogoRequest {
+func (a *ShowcasesCustomShowcaseLogosAPIService) CreateShowcaseLogo(ctx context.Context, albumId float32, userId int32) ApiCreateShowcaseLogoRequest {
 	return ApiCreateShowcaseLogoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -247,7 +247,7 @@ type ApiDeleteShowcaseLogoRequest struct {
 	ApiService ShowcasesCustomShowcaseLogosAPI
 	albumId float32
 	logoId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiDeleteShowcaseLogoRequest) Execute() (*http.Response, error) {
@@ -265,7 +265,7 @@ This method deletes the specified custom logo from its showcase. The authenticat
  @param userId The ID of the user.
  @return ApiDeleteShowcaseLogoRequest
 */
-func (a *ShowcasesCustomShowcaseLogosAPIService) DeleteShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId float32) ApiDeleteShowcaseLogoRequest {
+func (a *ShowcasesCustomShowcaseLogosAPIService) DeleteShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiDeleteShowcaseLogoRequest {
 	return ApiDeleteShowcaseLogoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -368,7 +368,7 @@ type ApiGetShowcaseLogoRequest struct {
 	ApiService ShowcasesCustomShowcaseLogosAPI
 	albumId float32
 	logoId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetShowcaseLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -386,7 +386,7 @@ This method returns a single custom logo of the specified showcase. The authenti
  @param userId The ID of the user.
  @return ApiGetShowcaseLogoRequest
 */
-func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId float32) ApiGetShowcaseLogoRequest {
+func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiGetShowcaseLogoRequest {
 	return ApiGetShowcaseLogoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -499,7 +499,7 @@ type ApiGetShowcaseLogosRequest struct {
 	ctx context.Context
 	ApiService ShowcasesCustomShowcaseLogosAPI
 	albumId float32
-	userId float32
+	userId int32
 	page *float32
 	perPage *float32
 }
@@ -530,7 +530,7 @@ This method returns every custom logo of the specified showcase. The authenticat
  @param userId The ID of the user.
  @return ApiGetShowcaseLogosRequest
 */
-func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogos(ctx context.Context, albumId float32, userId float32) ApiGetShowcaseLogosRequest {
+func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogos(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseLogosRequest {
 	return ApiGetShowcaseLogosRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -637,7 +637,7 @@ type ApiReplaceShowcaseLogoRequest struct {
 	ApiService ShowcasesCustomShowcaseLogosAPI
 	albumId float32
 	logoId float32
-	userId float32
+	userId int32
 	replaceShowcaseLogoRequest *ReplaceShowcaseLogoRequest
 }
 
@@ -663,7 +663,7 @@ For information on how to upload the logo, see our [Working with Thumbnail Uploa
  @param userId The ID of the user.
  @return ApiReplaceShowcaseLogoRequest
 */
-func (a *ShowcasesCustomShowcaseLogosAPIService) ReplaceShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId float32) ApiReplaceShowcaseLogoRequest {
+func (a *ShowcasesCustomShowcaseLogosAPIService) ReplaceShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiReplaceShowcaseLogoRequest {
 	return ApiReplaceShowcaseLogoRequest{
 		ApiService: a,
 		ctx: ctx,

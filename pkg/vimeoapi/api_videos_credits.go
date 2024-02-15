@@ -31,7 +31,7 @@ type VideosCreditsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoCreditRequest
 	*/
-	AddVideoCredit(ctx context.Context, videoId float32) ApiAddVideoCreditRequest
+	AddVideoCredit(ctx context.Context, videoId int32) ApiAddVideoCreditRequest
 
 	// AddVideoCreditExecute executes the request
 	//  @return Credit
@@ -47,7 +47,7 @@ type VideosCreditsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoCreditAlt1Request
 	*/
-	AddVideoCreditAlt1(ctx context.Context, channelId float32, videoId float32) ApiAddVideoCreditAlt1Request
+	AddVideoCreditAlt1(ctx context.Context, channelId float32, videoId int32) ApiAddVideoCreditAlt1Request
 
 	// AddVideoCreditAlt1Execute executes the request
 	//  @return Credit
@@ -62,7 +62,7 @@ type VideosCreditsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAvailableUsersRequest
 	*/
-	AvailableUsers(ctx context.Context, videoId float32) ApiAvailableUsersRequest
+	AvailableUsers(ctx context.Context, videoId int32) ApiAvailableUsersRequest
 
 	// AvailableUsersExecute executes the request
 	//  @return []User
@@ -78,7 +78,7 @@ type VideosCreditsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoCreditRequest
 	*/
-	DeleteVideoCredit(ctx context.Context, creditId float32, videoId float32) ApiDeleteVideoCreditRequest
+	DeleteVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiDeleteVideoCreditRequest
 
 	// DeleteVideoCreditExecute executes the request
 	DeleteVideoCreditExecute(r ApiDeleteVideoCreditRequest) (*http.Response, error)
@@ -93,7 +93,7 @@ type VideosCreditsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiEditVideoCreditRequest
 	*/
-	EditVideoCredit(ctx context.Context, creditId float32, videoId float32) ApiEditVideoCreditRequest
+	EditVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiEditVideoCreditRequest
 
 	// EditVideoCreditExecute executes the request
 	//  @return Credit
@@ -109,7 +109,7 @@ type VideosCreditsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoCreditRequest
 	*/
-	GetVideoCredit(ctx context.Context, creditId float32, videoId float32) ApiGetVideoCreditRequest
+	GetVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiGetVideoCreditRequest
 
 	// GetVideoCreditExecute executes the request
 	//  @return Credit
@@ -124,7 +124,7 @@ type VideosCreditsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoCreditsRequest
 	*/
-	GetVideoCredits(ctx context.Context, videoId float32) ApiGetVideoCreditsRequest
+	GetVideoCredits(ctx context.Context, videoId int32) ApiGetVideoCreditsRequest
 
 	// GetVideoCreditsExecute executes the request
 	//  @return []Credit
@@ -140,7 +140,7 @@ type VideosCreditsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoCreditsAlt1Request
 	*/
-	GetVideoCreditsAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoCreditsAlt1Request
+	GetVideoCreditsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoCreditsAlt1Request
 
 	// GetVideoCreditsAlt1Execute executes the request
 	//  @return []Credit
@@ -153,7 +153,7 @@ type VideosCreditsAPIService service
 type ApiAddVideoCreditRequest struct {
 	ctx context.Context
 	ApiService VideosCreditsAPI
-	videoId float32
+	videoId int32
 	addVideoCreditAlt1Request *AddVideoCreditAlt1Request
 }
 
@@ -175,7 +175,7 @@ This method adds a user credit to the specified video.
  @param videoId The ID of the video.
  @return ApiAddVideoCreditRequest
 */
-func (a *VideosCreditsAPIService) AddVideoCredit(ctx context.Context, videoId float32) ApiAddVideoCreditRequest {
+func (a *VideosCreditsAPIService) AddVideoCredit(ctx context.Context, videoId int32) ApiAddVideoCreditRequest {
 	return ApiAddVideoCreditRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -289,7 +289,7 @@ type ApiAddVideoCreditAlt1Request struct {
 	ctx context.Context
 	ApiService VideosCreditsAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	addVideoCreditAlt1Request *AddVideoCreditAlt1Request
 }
 
@@ -312,7 +312,7 @@ This method adds a user credit to the specified video.
  @param videoId The ID of the video.
  @return ApiAddVideoCreditAlt1Request
 */
-func (a *VideosCreditsAPIService) AddVideoCreditAlt1(ctx context.Context, channelId float32, videoId float32) ApiAddVideoCreditAlt1Request {
+func (a *VideosCreditsAPIService) AddVideoCreditAlt1(ctx context.Context, channelId float32, videoId int32) ApiAddVideoCreditAlt1Request {
 	return ApiAddVideoCreditAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -427,7 +427,7 @@ func (a *VideosCreditsAPIService) AddVideoCreditAlt1Execute(r ApiAddVideoCreditA
 type ApiAvailableUsersRequest struct {
 	ctx context.Context
 	ApiService VideosCreditsAPI
-	videoId float32
+	videoId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -478,7 +478,7 @@ This method returns the users who can be credited on the specified video.
  @param videoId The ID of the video.
  @return ApiAvailableUsersRequest
 */
-func (a *VideosCreditsAPIService) AvailableUsers(ctx context.Context, videoId float32) ApiAvailableUsersRequest {
+func (a *VideosCreditsAPIService) AvailableUsers(ctx context.Context, videoId int32) ApiAvailableUsersRequest {
 	return ApiAvailableUsersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -581,7 +581,7 @@ type ApiDeleteVideoCreditRequest struct {
 	ctx context.Context
 	ApiService VideosCreditsAPI
 	creditId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoCreditRequest) Execute() (*http.Response, error) {
@@ -598,7 +598,7 @@ This method deletes the specified user credit from a video. The authenticated us
  @param videoId The ID of the video.
  @return ApiDeleteVideoCreditRequest
 */
-func (a *VideosCreditsAPIService) DeleteVideoCredit(ctx context.Context, creditId float32, videoId float32) ApiDeleteVideoCreditRequest {
+func (a *VideosCreditsAPIService) DeleteVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiDeleteVideoCreditRequest {
 	return ApiDeleteVideoCreditRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -687,7 +687,7 @@ type ApiEditVideoCreditRequest struct {
 	ctx context.Context
 	ApiService VideosCreditsAPI
 	creditId float32
-	videoId float32
+	videoId int32
 	editVideoCreditRequest *EditVideoCreditRequest
 }
 
@@ -710,7 +710,7 @@ This method edits the specified user credit in a video.
  @param videoId The ID of the video.
  @return ApiEditVideoCreditRequest
 */
-func (a *VideosCreditsAPIService) EditVideoCredit(ctx context.Context, creditId float32, videoId float32) ApiEditVideoCreditRequest {
+func (a *VideosCreditsAPIService) EditVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiEditVideoCreditRequest {
 	return ApiEditVideoCreditRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -823,7 +823,7 @@ type ApiGetVideoCreditRequest struct {
 	ctx context.Context
 	ApiService VideosCreditsAPI
 	creditId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetVideoCreditRequest) Execute() (*Credit, *http.Response, error) {
@@ -840,7 +840,7 @@ This method returns a single credited user in a video.
  @param videoId The ID of the video.
  @return ApiGetVideoCreditRequest
 */
-func (a *VideosCreditsAPIService) GetVideoCredit(ctx context.Context, creditId float32, videoId float32) ApiGetVideoCreditRequest {
+func (a *VideosCreditsAPIService) GetVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiGetVideoCreditRequest {
 	return ApiGetVideoCreditRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -939,7 +939,7 @@ func (a *VideosCreditsAPIService) GetVideoCreditExecute(r ApiGetVideoCreditReque
 type ApiGetVideoCreditsRequest struct {
 	ctx context.Context
 	ApiService VideosCreditsAPI
-	videoId float32
+	videoId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -990,7 +990,7 @@ This method returns every credited user in a video.
  @param videoId The ID of the video.
  @return ApiGetVideoCreditsRequest
 */
-func (a *VideosCreditsAPIService) GetVideoCredits(ctx context.Context, videoId float32) ApiGetVideoCreditsRequest {
+func (a *VideosCreditsAPIService) GetVideoCredits(ctx context.Context, videoId int32) ApiGetVideoCreditsRequest {
 	return ApiGetVideoCreditsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1093,7 +1093,7 @@ type ApiGetVideoCreditsAlt1Request struct {
 	ctx context.Context
 	ApiService VideosCreditsAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -1145,7 +1145,7 @@ This method returns every credited user in a video.
  @param videoId The ID of the video.
  @return ApiGetVideoCreditsAlt1Request
 */
-func (a *VideosCreditsAPIService) GetVideoCreditsAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoCreditsAlt1Request {
+func (a *VideosCreditsAPIService) GetVideoCreditsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoCreditsAlt1Request {
 	return ApiGetVideoCreditsAlt1Request{
 		ApiService: a,
 		ctx: ctx,

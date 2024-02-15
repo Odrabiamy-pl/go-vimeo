@@ -32,7 +32,7 @@ type EmbedPresetsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoEmbedPresetRequest
 	*/
-	AddVideoEmbedPreset(ctx context.Context, presetId float32, videoId float32) ApiAddVideoEmbedPresetRequest
+	AddVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiAddVideoEmbedPresetRequest
 
 	// AddVideoEmbedPresetExecute executes the request
 	AddVideoEmbedPresetExecute(r ApiAddVideoEmbedPresetRequest) (*http.Response, error)
@@ -47,7 +47,7 @@ type EmbedPresetsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoEmbedPresetRequest
 	*/
-	DeleteVideoEmbedPreset(ctx context.Context, presetId float32, videoId float32) ApiDeleteVideoEmbedPresetRequest
+	DeleteVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiDeleteVideoEmbedPresetRequest
 
 	// DeleteVideoEmbedPresetExecute executes the request
 	DeleteVideoEmbedPresetExecute(r ApiDeleteVideoEmbedPresetRequest) (*http.Response, error)
@@ -62,7 +62,7 @@ type EmbedPresetsVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetEmbedPresetVideosRequest
 	*/
-	GetEmbedPresetVideos(ctx context.Context, presetId float32, userId float32) ApiGetEmbedPresetVideosRequest
+	GetEmbedPresetVideos(ctx context.Context, presetId float32, userId int32) ApiGetEmbedPresetVideosRequest
 
 	// GetEmbedPresetVideosExecute executes the request
 	//  @return []Video
@@ -93,7 +93,7 @@ type EmbedPresetsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoEmbedPresetRequest
 	*/
-	GetVideoEmbedPreset(ctx context.Context, presetId float32, videoId float32) ApiGetVideoEmbedPresetRequest
+	GetVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiGetVideoEmbedPresetRequest
 
 	// GetVideoEmbedPresetExecute executes the request
 	GetVideoEmbedPresetExecute(r ApiGetVideoEmbedPresetRequest) (*http.Response, error)
@@ -106,7 +106,7 @@ type ApiAddVideoEmbedPresetRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
 	presetId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoEmbedPresetRequest) Execute() (*http.Response, error) {
@@ -123,7 +123,7 @@ This method adds an embed preset to the specified video. The authenticated user 
  @param videoId The ID of the video.
  @return ApiAddVideoEmbedPresetRequest
 */
-func (a *EmbedPresetsVideosAPIService) AddVideoEmbedPreset(ctx context.Context, presetId float32, videoId float32) ApiAddVideoEmbedPresetRequest {
+func (a *EmbedPresetsVideosAPIService) AddVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiAddVideoEmbedPresetRequest {
 	return ApiAddVideoEmbedPresetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -202,7 +202,7 @@ type ApiDeleteVideoEmbedPresetRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
 	presetId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoEmbedPresetRequest) Execute() (*http.Response, error) {
@@ -219,7 +219,7 @@ This method removes the specified embed preset from a video. The authenticated u
  @param videoId The ID of the video.
  @return ApiDeleteVideoEmbedPresetRequest
 */
-func (a *EmbedPresetsVideosAPIService) DeleteVideoEmbedPreset(ctx context.Context, presetId float32, videoId float32) ApiDeleteVideoEmbedPresetRequest {
+func (a *EmbedPresetsVideosAPIService) DeleteVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiDeleteVideoEmbedPresetRequest {
 	return ApiDeleteVideoEmbedPresetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -308,7 +308,7 @@ type ApiGetEmbedPresetVideosRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
 	presetId float32
-	userId float32
+	userId int32
 	page *float32
 	perPage *float32
 }
@@ -339,7 +339,7 @@ This method returns every video to which the specified embed preset has been add
  @param userId The ID of the user.
  @return ApiGetEmbedPresetVideosRequest
 */
-func (a *EmbedPresetsVideosAPIService) GetEmbedPresetVideos(ctx context.Context, presetId float32, userId float32) ApiGetEmbedPresetVideosRequest {
+func (a *EmbedPresetsVideosAPIService) GetEmbedPresetVideos(ctx context.Context, presetId float32, userId int32) ApiGetEmbedPresetVideosRequest {
 	return ApiGetEmbedPresetVideosRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -558,7 +558,7 @@ type ApiGetVideoEmbedPresetRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
 	presetId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetVideoEmbedPresetRequest) Execute() (*http.Response, error) {
@@ -575,7 +575,7 @@ This method determines whether a video has the specified embed preset.
  @param videoId The ID of the video.
  @return ApiGetVideoEmbedPresetRequest
 */
-func (a *EmbedPresetsVideosAPIService) GetVideoEmbedPreset(ctx context.Context, presetId float32, videoId float32) ApiGetVideoEmbedPresetRequest {
+func (a *EmbedPresetsVideosAPIService) GetVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiGetVideoEmbedPresetRequest {
 	return ApiGetVideoEmbedPresetRequest{
 		ApiService: a,
 		ctx: ctx,

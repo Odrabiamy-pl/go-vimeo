@@ -32,7 +32,7 @@ type VideosUploadsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCompleteStreamingUploadRequest
 	*/
-	CompleteStreamingUpload(ctx context.Context, uploadId float32, userId float32) ApiCompleteStreamingUploadRequest
+	CompleteStreamingUpload(ctx context.Context, uploadId float32, userId int32) ApiCompleteStreamingUploadRequest
 
 	// CompleteStreamingUploadExecute executes the request
 	CompleteStreamingUploadExecute(r ApiCompleteStreamingUploadRequest) (*http.Response, error)
@@ -47,7 +47,7 @@ type VideosUploadsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetUploadAttemptRequest
 	*/
-	GetUploadAttempt(ctx context.Context, uploadId float32, userId float32) ApiGetUploadAttemptRequest
+	GetUploadAttempt(ctx context.Context, uploadId float32, userId int32) ApiGetUploadAttemptRequest
 
 	// GetUploadAttemptExecute executes the request
 	//  @return UploadAttempt
@@ -62,7 +62,7 @@ type VideosUploadsAPI interface {
 	@param userId The ID of the user.
 	@return ApiUploadVideoRequest
 	*/
-	UploadVideo(ctx context.Context, userId float32) ApiUploadVideoRequest
+	UploadVideo(ctx context.Context, userId int32) ApiUploadVideoRequest
 
 	// UploadVideoExecute executes the request
 	//  @return Video
@@ -90,7 +90,7 @@ type ApiCompleteStreamingUploadRequest struct {
 	ctx context.Context
 	ApiService VideosUploadsAPI
 	uploadId float32
-	userId float32
+	userId int32
 	signature *string
 	videoFileId *float32
 }
@@ -121,7 +121,7 @@ This method completes the specified streaming upload of the authenticated user.
  @param userId The ID of the user.
  @return ApiCompleteStreamingUploadRequest
 */
-func (a *VideosUploadsAPIService) CompleteStreamingUpload(ctx context.Context, uploadId float32, userId float32) ApiCompleteStreamingUploadRequest {
+func (a *VideosUploadsAPIService) CompleteStreamingUpload(ctx context.Context, uploadId float32, userId int32) ApiCompleteStreamingUploadRequest {
 	return ApiCompleteStreamingUploadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -240,7 +240,7 @@ type ApiGetUploadAttemptRequest struct {
 	ctx context.Context
 	ApiService VideosUploadsAPI
 	uploadId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetUploadAttemptRequest) Execute() (*UploadAttempt, *http.Response, error) {
@@ -257,7 +257,7 @@ This method returns the specified upload attempt of the authenticated user. _Thi
  @param userId The ID of the user.
  @return ApiGetUploadAttemptRequest
 */
-func (a *VideosUploadsAPIService) GetUploadAttempt(ctx context.Context, uploadId float32, userId float32) ApiGetUploadAttemptRequest {
+func (a *VideosUploadsAPIService) GetUploadAttempt(ctx context.Context, uploadId float32, userId int32) ApiGetUploadAttemptRequest {
 	return ApiGetUploadAttemptRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -346,7 +346,7 @@ func (a *VideosUploadsAPIService) GetUploadAttemptExecute(r ApiGetUploadAttemptR
 type ApiUploadVideoRequest struct {
 	ctx context.Context
 	ApiService VideosUploadsAPI
-	userId float32
+	userId int32
 	uploadVideoAlt1Request *UploadVideoAlt1Request
 }
 
@@ -368,7 +368,7 @@ This method begins the video upload process for the authenticated user. For more
  @param userId The ID of the user.
  @return ApiUploadVideoRequest
 */
-func (a *VideosUploadsAPIService) UploadVideo(ctx context.Context, userId float32) ApiUploadVideoRequest {
+func (a *VideosUploadsAPIService) UploadVideo(ctx context.Context, userId int32) ApiUploadVideoRequest {
 	return ApiUploadVideoRequest{
 		ApiService: a,
 		ctx: ctx,

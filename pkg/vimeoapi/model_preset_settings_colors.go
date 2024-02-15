@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the PresetSettingsColors type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type PresetSettingsColors struct {
 	// The second player color, which controls the player accent color.
 	ColorTwo string `json:"color_two"`
 }
-
-type _PresetSettingsColors PresetSettingsColors
 
 // NewPresetSettingsColors instantiates a new PresetSettingsColors object
 // This constructor will assign default values to properties that have it defined,
@@ -165,46 +161,6 @@ func (o PresetSettingsColors) ToMap() (map[string]interface{}, error) {
 	toSerialize["color_three"] = o.ColorThree
 	toSerialize["color_two"] = o.ColorTwo
 	return toSerialize, nil
-}
-
-func (o *PresetSettingsColors) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"color_four",
-		"color_one",
-		"color_three",
-		"color_two",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPresetSettingsColors := _PresetSettingsColors{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPresetSettingsColors)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PresetSettingsColors(varPresetSettingsColors)
-
-	return err
 }
 
 type NullablePresetSettingsColors struct {

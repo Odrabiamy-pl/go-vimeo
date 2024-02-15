@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the RemoveVideosFromChannelRequest type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type RemoveVideosFromChannelRequest struct {
 	// The URI of a video to remove.
 	VideoUri string `json:"video_uri"`
 }
-
-type _RemoveVideosFromChannelRequest RemoveVideosFromChannelRequest
 
 // NewRemoveVideosFromChannelRequest instantiates a new RemoveVideosFromChannelRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o RemoveVideosFromChannelRequest) ToMap() (map[string]interface{}, error) 
 	toSerialize := map[string]interface{}{}
 	toSerialize["video_uri"] = o.VideoUri
 	return toSerialize, nil
-}
-
-func (o *RemoveVideosFromChannelRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"video_uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varRemoveVideosFromChannelRequest := _RemoveVideosFromChannelRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRemoveVideosFromChannelRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = RemoveVideosFromChannelRequest(varRemoveVideosFromChannelRequest)
-
-	return err
 }
 
 type NullableRemoveVideosFromChannelRequest struct {

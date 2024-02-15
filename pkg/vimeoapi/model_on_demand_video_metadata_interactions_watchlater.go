@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the OnDemandVideoMetadataInteractionsWatchlater type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type OnDemandVideoMetadataInteractionsWatchlater struct {
 	// The URI for the authenticated user to add the video to their Watch Later queue.
 	Uri string `json:"uri"`
 }
-
-type _OnDemandVideoMetadataInteractionsWatchlater OnDemandVideoMetadataInteractionsWatchlater
 
 // NewOnDemandVideoMetadataInteractionsWatchlater instantiates a new OnDemandVideoMetadataInteractionsWatchlater object
 // This constructor will assign default values to properties that have it defined,
@@ -137,45 +133,6 @@ func (o OnDemandVideoMetadataInteractionsWatchlater) ToMap() (map[string]interfa
 	toSerialize["added_time"] = o.AddedTime
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *OnDemandVideoMetadataInteractionsWatchlater) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"added",
-		"added_time",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOnDemandVideoMetadataInteractionsWatchlater := _OnDemandVideoMetadataInteractionsWatchlater{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnDemandVideoMetadataInteractionsWatchlater)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OnDemandVideoMetadataInteractionsWatchlater(varOnDemandVideoMetadataInteractionsWatchlater)
-
-	return err
 }
 
 type NullableOnDemandVideoMetadataInteractionsWatchlater struct {

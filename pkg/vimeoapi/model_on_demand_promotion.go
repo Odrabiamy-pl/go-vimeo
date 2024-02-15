@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the OnDemandPromotion type satisfies the MappedNullable interface at compile time
@@ -43,8 +41,6 @@ type OnDemandPromotion struct {
 	// The promotion's canonical relative URI.
 	Uri string `json:"uri"`
 }
-
-type _OnDemandPromotion OnDemandPromotion
 
 // NewOnDemandPromotion instantiates a new OnDemandPromotion object
 // This constructor will assign default values to properties that have it defined,
@@ -364,53 +360,6 @@ func (o OnDemandPromotion) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *OnDemandPromotion) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"access_type",
-		"discount_type",
-		"download",
-		"label",
-		"metadata",
-		"percent_off",
-		"product_type",
-		"stream_period",
-		"total",
-		"type",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOnDemandPromotion := _OnDemandPromotion{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnDemandPromotion)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OnDemandPromotion(varOnDemandPromotion)
-
-	return err
 }
 
 type NullableOnDemandPromotion struct {

@@ -33,7 +33,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToShowcaseRequest
 	*/
-	AddVideoToShowcase(ctx context.Context, albumId float32, userId float32, videoId float32) ApiAddVideoToShowcaseRequest
+	AddVideoToShowcase(ctx context.Context, albumId float32, userId int32, videoId int32) ApiAddVideoToShowcaseRequest
 
 	// AddVideoToShowcaseExecute executes the request
 	AddVideoToShowcaseExecute(r ApiAddVideoToShowcaseRequest) (*http.Response, error)
@@ -48,7 +48,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToShowcaseAlt2Request
 	*/
-	AddVideoToShowcaseAlt2(ctx context.Context, albumId float32, videoId float32) ApiAddVideoToShowcaseAlt2Request
+	AddVideoToShowcaseAlt2(ctx context.Context, albumId float32, videoId int32) ApiAddVideoToShowcaseAlt2Request
 
 	// AddVideoToShowcaseAlt2Execute executes the request
 	AddVideoToShowcaseAlt2Execute(r ApiAddVideoToShowcaseAlt2Request) (*http.Response, error)
@@ -77,7 +77,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetAvailableVideoShowcasesRequest
 	*/
-	GetAvailableVideoShowcases(ctx context.Context, videoId float32) ApiGetAvailableVideoShowcasesRequest
+	GetAvailableVideoShowcases(ctx context.Context, videoId int32) ApiGetAvailableVideoShowcasesRequest
 
 	// GetAvailableVideoShowcasesExecute executes the request
 	//  @return []Album
@@ -94,7 +94,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetShowcaseVideoRequest
 	*/
-	GetShowcaseVideo(ctx context.Context, albumId float32, userId float32, videoId float32) ApiGetShowcaseVideoRequest
+	GetShowcaseVideo(ctx context.Context, albumId float32, userId int32, videoId int32) ApiGetShowcaseVideoRequest
 
 	// GetShowcaseVideoExecute executes the request
 	//  @return Video
@@ -110,7 +110,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetShowcaseVideoAlt2Request
 	*/
-	GetShowcaseVideoAlt2(ctx context.Context, albumId float32, videoId float32) ApiGetShowcaseVideoAlt2Request
+	GetShowcaseVideoAlt2(ctx context.Context, albumId float32, videoId int32) ApiGetShowcaseVideoAlt2Request
 
 	// GetShowcaseVideoAlt2Execute executes the request
 	//  @return Video
@@ -126,7 +126,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetShowcaseVideosRequest
 	*/
-	GetShowcaseVideos(ctx context.Context, albumId float32, userId float32) ApiGetShowcaseVideosRequest
+	GetShowcaseVideos(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseVideosRequest
 
 	// GetShowcaseVideosExecute executes the request
 	//  @return []Video
@@ -158,7 +158,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiRemoveVideoFromShowcaseRequest
 	*/
-	RemoveVideoFromShowcase(ctx context.Context, albumId float32, userId float32, videoId float32) ApiRemoveVideoFromShowcaseRequest
+	RemoveVideoFromShowcase(ctx context.Context, albumId float32, userId int32, videoId int32) ApiRemoveVideoFromShowcaseRequest
 
 	// RemoveVideoFromShowcaseExecute executes the request
 	RemoveVideoFromShowcaseExecute(r ApiRemoveVideoFromShowcaseRequest) (*http.Response, error)
@@ -173,7 +173,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiRemoveVideoFromShowcaseAlt2Request
 	*/
-	RemoveVideoFromShowcaseAlt2(ctx context.Context, albumId float32, videoId float32) ApiRemoveVideoFromShowcaseAlt2Request
+	RemoveVideoFromShowcaseAlt2(ctx context.Context, albumId float32, videoId int32) ApiRemoveVideoFromShowcaseAlt2Request
 
 	// RemoveVideoFromShowcaseAlt2Execute executes the request
 	RemoveVideoFromShowcaseAlt2Execute(r ApiRemoveVideoFromShowcaseAlt2Request) (*http.Response, error)
@@ -188,7 +188,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiReplaceVideosInShowcaseRequest
 	*/
-	ReplaceVideosInShowcase(ctx context.Context, albumId float32, userId float32) ApiReplaceVideosInShowcaseRequest
+	ReplaceVideosInShowcase(ctx context.Context, albumId float32, userId int32) ApiReplaceVideosInShowcaseRequest
 
 	// ReplaceVideosInShowcaseExecute executes the request
 	ReplaceVideosInShowcaseExecute(r ApiReplaceVideosInShowcaseRequest) (*http.Response, error)
@@ -218,7 +218,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiSetVideoAsShowcaseFeaturedRequest
 	*/
-	SetVideoAsShowcaseFeatured(ctx context.Context, albumId float32, userId float32, videoId float32) ApiSetVideoAsShowcaseFeaturedRequest
+	SetVideoAsShowcaseFeatured(ctx context.Context, albumId float32, userId int32, videoId int32) ApiSetVideoAsShowcaseFeaturedRequest
 
 	// SetVideoAsShowcaseFeaturedExecute executes the request
 	//  @return Album
@@ -234,7 +234,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiSetVideoAsShowcaseFeaturedAlt2Request
 	*/
-	SetVideoAsShowcaseFeaturedAlt2(ctx context.Context, albumId float32, videoId float32) ApiSetVideoAsShowcaseFeaturedAlt2Request
+	SetVideoAsShowcaseFeaturedAlt2(ctx context.Context, albumId float32, videoId int32) ApiSetVideoAsShowcaseFeaturedAlt2Request
 
 	// SetVideoAsShowcaseFeaturedAlt2Execute executes the request
 	//  @return Album
@@ -251,7 +251,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiSetVideoAsShowcaseThumbnailRequest
 	*/
-	SetVideoAsShowcaseThumbnail(ctx context.Context, albumId float32, userId float32, videoId float32) ApiSetVideoAsShowcaseThumbnailRequest
+	SetVideoAsShowcaseThumbnail(ctx context.Context, albumId float32, userId int32, videoId int32) ApiSetVideoAsShowcaseThumbnailRequest
 
 	// SetVideoAsShowcaseThumbnailExecute executes the request
 	//  @return Album
@@ -267,7 +267,7 @@ type ShowcasesShowcaseVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiSetVideoAsShowcaseThumbnailAlt2Request
 	*/
-	SetVideoAsShowcaseThumbnailAlt2(ctx context.Context, albumId float32, videoId float32) ApiSetVideoAsShowcaseThumbnailAlt2Request
+	SetVideoAsShowcaseThumbnailAlt2(ctx context.Context, albumId float32, videoId int32) ApiSetVideoAsShowcaseThumbnailAlt2Request
 
 	// SetVideoAsShowcaseThumbnailAlt2Execute executes the request
 	//  @return Album
@@ -281,8 +281,8 @@ type ApiAddVideoToShowcaseRequest struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiAddVideoToShowcaseRequest) Execute() (*http.Response, error) {
@@ -300,7 +300,7 @@ This method adds a single video to the specified showcase. The authenticated use
  @param videoId The ID of the video.
  @return ApiAddVideoToShowcaseRequest
 */
-func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcase(ctx context.Context, albumId float32, userId float32, videoId float32) ApiAddVideoToShowcaseRequest {
+func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcase(ctx context.Context, albumId float32, userId int32, videoId int32) ApiAddVideoToShowcaseRequest {
 	return ApiAddVideoToShowcaseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -402,7 +402,7 @@ type ApiAddVideoToShowcaseAlt2Request struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoToShowcaseAlt2Request) Execute() (*http.Response, error) {
@@ -419,7 +419,7 @@ This method adds a single video to the specified showcase. The authenticated use
  @param videoId The ID of the video.
  @return ApiAddVideoToShowcaseAlt2Request
 */
-func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseAlt2(ctx context.Context, albumId float32, videoId float32) ApiAddVideoToShowcaseAlt2Request {
+func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseAlt2(ctx context.Context, albumId float32, videoId int32) ApiAddVideoToShowcaseAlt2Request {
 	return ApiAddVideoToShowcaseAlt2Request{
 		ApiService: a,
 		ctx: ctx,
@@ -682,7 +682,7 @@ func (a *ShowcasesShowcaseVideosAPIService) GetAvailableShowcaseVideosExecute(r 
 type ApiGetAvailableVideoShowcasesRequest struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -712,7 +712,7 @@ This endpoint returns every showcase to which the authenticated user can add or 
  @param videoId The ID of the video.
  @return ApiGetAvailableVideoShowcasesRequest
 */
-func (a *ShowcasesShowcaseVideosAPIService) GetAvailableVideoShowcases(ctx context.Context, videoId float32) ApiGetAvailableVideoShowcasesRequest {
+func (a *ShowcasesShowcaseVideosAPIService) GetAvailableVideoShowcases(ctx context.Context, videoId int32) ApiGetAvailableVideoShowcasesRequest {
 	return ApiGetAvailableVideoShowcasesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -816,8 +816,8 @@ type ApiGetShowcaseVideoRequest struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 	password *string
 }
 
@@ -842,7 +842,7 @@ This method returns a single video belonging to the specified showcase. The auth
  @param videoId The ID of the video.
  @return ApiGetShowcaseVideoRequest
 */
-func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideo(ctx context.Context, albumId float32, userId float32, videoId float32) ApiGetShowcaseVideoRequest {
+func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideo(ctx context.Context, albumId float32, userId int32, videoId int32) ApiGetShowcaseVideoRequest {
 	return ApiGetShowcaseVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -947,7 +947,7 @@ type ApiGetShowcaseVideoAlt2Request struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	videoId float32
+	videoId int32
 	password *string
 }
 
@@ -971,7 +971,7 @@ This method returns a single video belonging to the specified showcase. The auth
  @param videoId The ID of the video.
  @return ApiGetShowcaseVideoAlt2Request
 */
-func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoAlt2(ctx context.Context, albumId float32, videoId float32) ApiGetShowcaseVideoAlt2Request {
+func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoAlt2(ctx context.Context, albumId float32, videoId int32) ApiGetShowcaseVideoAlt2Request {
 	return ApiGetShowcaseVideoAlt2Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1074,7 +1074,7 @@ type ApiGetShowcaseVideosRequest struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	userId float32
+	userId int32
 	containingUri *string
 	direction *string
 	filter *string
@@ -1161,7 +1161,7 @@ This method returns every video in the specified showcase. The authenticated use
  @param userId The ID of the user.
  @return ApiGetShowcaseVideosRequest
 */
-func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideos(ctx context.Context, albumId float32, userId float32) ApiGetShowcaseVideosRequest {
+func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideos(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseVideosRequest {
 	return ApiGetShowcaseVideosRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1504,8 +1504,8 @@ type ApiRemoveVideoFromShowcaseRequest struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiRemoveVideoFromShowcaseRequest) Execute() (*http.Response, error) {
@@ -1523,7 +1523,7 @@ This method removes the specified video from its showcase. The authenticated use
  @param videoId The ID of the video.
  @return ApiRemoveVideoFromShowcaseRequest
 */
-func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcase(ctx context.Context, albumId float32, userId float32, videoId float32) ApiRemoveVideoFromShowcaseRequest {
+func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcase(ctx context.Context, albumId float32, userId int32, videoId int32) ApiRemoveVideoFromShowcaseRequest {
 	return ApiRemoveVideoFromShowcaseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1625,7 +1625,7 @@ type ApiRemoveVideoFromShowcaseAlt2Request struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiRemoveVideoFromShowcaseAlt2Request) Execute() (*http.Response, error) {
@@ -1642,7 +1642,7 @@ This method removes the specified video from its showcase. The authenticated use
  @param videoId The ID of the video.
  @return ApiRemoveVideoFromShowcaseAlt2Request
 */
-func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseAlt2(ctx context.Context, albumId float32, videoId float32) ApiRemoveVideoFromShowcaseAlt2Request {
+func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseAlt2(ctx context.Context, albumId float32, videoId int32) ApiRemoveVideoFromShowcaseAlt2Request {
 	return ApiRemoveVideoFromShowcaseAlt2Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1742,7 +1742,7 @@ type ApiReplaceVideosInShowcaseRequest struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	userId float32
+	userId int32
 	replaceVideosInShowcaseAlt2Request *ReplaceVideosInShowcaseAlt2Request
 }
 
@@ -1765,7 +1765,7 @@ This method replaces all the videos in the specified showcase with a new set of 
  @param userId The ID of the user.
  @return ApiReplaceVideosInShowcaseRequest
 */
-func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcase(ctx context.Context, albumId float32, userId float32) ApiReplaceVideosInShowcaseRequest {
+func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcase(ctx context.Context, albumId float32, userId int32) ApiReplaceVideosInShowcaseRequest {
 	return ApiReplaceVideosInShowcaseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1994,8 +1994,8 @@ type ApiSetVideoAsShowcaseFeaturedRequest struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiSetVideoAsShowcaseFeaturedRequest) Execute() (*Album, *http.Response, error) {
@@ -2013,7 +2013,7 @@ This method sets the featured video of the specified showcase. The authenticated
  @param videoId The ID of the video.
  @return ApiSetVideoAsShowcaseFeaturedRequest
 */
-func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeatured(ctx context.Context, albumId float32, userId float32, videoId float32) ApiSetVideoAsShowcaseFeaturedRequest {
+func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeatured(ctx context.Context, albumId float32, userId int32, videoId int32) ApiSetVideoAsShowcaseFeaturedRequest {
 	return ApiSetVideoAsShowcaseFeaturedRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2126,7 +2126,7 @@ type ApiSetVideoAsShowcaseFeaturedAlt2Request struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiSetVideoAsShowcaseFeaturedAlt2Request) Execute() (*Album, *http.Response, error) {
@@ -2143,7 +2143,7 @@ This method sets the featured video of the specified showcase. The authenticated
  @param videoId The ID of the video.
  @return ApiSetVideoAsShowcaseFeaturedAlt2Request
 */
-func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedAlt2(ctx context.Context, albumId float32, videoId float32) ApiSetVideoAsShowcaseFeaturedAlt2Request {
+func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedAlt2(ctx context.Context, albumId float32, videoId int32) ApiSetVideoAsShowcaseFeaturedAlt2Request {
 	return ApiSetVideoAsShowcaseFeaturedAlt2Request{
 		ApiService: a,
 		ctx: ctx,
@@ -2254,8 +2254,8 @@ type ApiSetVideoAsShowcaseThumbnailRequest struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 	setVideoAsShowcaseThumbnailAlt2Request *SetVideoAsShowcaseThumbnailAlt2Request
 }
 
@@ -2279,7 +2279,7 @@ This method creates a thumbnail image for a showcase from the specified frame of
  @param videoId The ID of the video.
  @return ApiSetVideoAsShowcaseThumbnailRequest
 */
-func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnail(ctx context.Context, albumId float32, userId float32, videoId float32) ApiSetVideoAsShowcaseThumbnailRequest {
+func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnail(ctx context.Context, albumId float32, userId int32, videoId int32) ApiSetVideoAsShowcaseThumbnailRequest {
 	return ApiSetVideoAsShowcaseThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2405,7 +2405,7 @@ type ApiSetVideoAsShowcaseThumbnailAlt2Request struct {
 	ctx context.Context
 	ApiService ShowcasesShowcaseVideosAPI
 	albumId float32
-	videoId float32
+	videoId int32
 	setVideoAsShowcaseThumbnailAlt2Request *SetVideoAsShowcaseThumbnailAlt2Request
 }
 
@@ -2428,7 +2428,7 @@ This method creates a thumbnail image for a showcase from the specified frame of
  @param videoId The ID of the video.
  @return ApiSetVideoAsShowcaseThumbnailAlt2Request
 */
-func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailAlt2(ctx context.Context, albumId float32, videoId float32) ApiSetVideoAsShowcaseThumbnailAlt2Request {
+func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailAlt2(ctx context.Context, albumId float32, videoId int32) ApiSetVideoAsShowcaseThumbnailAlt2Request {
 	return ApiSetVideoAsShowcaseThumbnailAlt2Request{
 		ApiService: a,
 		ctx: ctx,

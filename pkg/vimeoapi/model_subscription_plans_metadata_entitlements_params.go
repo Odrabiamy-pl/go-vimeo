@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the SubscriptionPlansMetadataEntitlementsParams type satisfies the MappedNullable interface at compile time
@@ -32,8 +30,6 @@ type SubscriptionPlansMetadataEntitlementsParams struct {
 	// The unit of the video storage for the user's periodic quota.  Option descriptions:  * `video_count` - The product has video storage based on video count.  * `video_size` - The product has video storage based on video size. 
 	VideoStorageQuotaUnit string `json:"video_storage_quota_unit"`
 }
-
-type _SubscriptionPlansMetadataEntitlementsParams SubscriptionPlansMetadataEntitlementsParams
 
 // NewSubscriptionPlansMetadataEntitlementsParams instantiates a new SubscriptionPlansMetadataEntitlementsParams object
 // This constructor will assign default values to properties that have it defined,
@@ -199,47 +195,6 @@ func (o SubscriptionPlansMetadataEntitlementsParams) ToMap() (map[string]interfa
 	toSerialize["video_storage_quota_period"] = o.VideoStorageQuotaPeriod
 	toSerialize["video_storage_quota_unit"] = o.VideoStorageQuotaUnit
 	return toSerialize, nil
-}
-
-func (o *SubscriptionPlansMetadataEntitlementsParams) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"team_seats",
-		"video_storage_periodic_quota",
-		"video_storage_quota_cap",
-		"video_storage_quota_period",
-		"video_storage_quota_unit",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSubscriptionPlansMetadataEntitlementsParams := _SubscriptionPlansMetadataEntitlementsParams{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSubscriptionPlansMetadataEntitlementsParams)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SubscriptionPlansMetadataEntitlementsParams(varSubscriptionPlansMetadataEntitlementsParams)
-
-	return err
 }
 
 type NullableSubscriptionPlansMetadataEntitlementsParams struct {

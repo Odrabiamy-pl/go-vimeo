@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoMetadataInteractions type satisfies the MappedNullable interface at compile time
@@ -48,8 +46,6 @@ type VideoMetadataInteractions struct {
 	Watched VideoMetadataInteractionsWatched `json:"watched"`
 	Watchlater VideoMetadataInteractionsWatchlater `json:"watchlater"`
 }
-
-type _VideoMetadataInteractions VideoMetadataInteractions
 
 // NewVideoMetadataInteractions instantiates a new VideoMetadataInteractions object
 // This constructor will assign default values to properties that have it defined,
@@ -812,67 +808,6 @@ func (o VideoMetadataInteractions) ToMap() (map[string]interface{}, error) {
 	toSerialize["watched"] = o.Watched
 	toSerialize["watchlater"] = o.Watchlater
 	return toSerialize, nil
-}
-
-func (o *VideoMetadataInteractions) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"album",
-		"ask_ai",
-		"buy",
-		"can_request_team_role_upgrade",
-		"can_update_privacy_to_public",
-		"channel",
-		"create_editor",
-		"delete",
-		"edit",
-		"edit_privacy",
-		"has_restricted_privacy_options",
-		"highlights",
-		"invite",
-		"legal_hold",
-		"like",
-		"rent",
-		"report",
-		"set_content_rating",
-		"summary",
-		"transcript_video_editor",
-		"trim",
-		"validate",
-		"view_team_members",
-		"watched",
-		"watchlater",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoMetadataInteractions := _VideoMetadataInteractions{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoMetadataInteractions)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoMetadataInteractions(varVideoMetadataInteractions)
-
-	return err
 }
 
 type NullableVideoMetadataInteractions struct {

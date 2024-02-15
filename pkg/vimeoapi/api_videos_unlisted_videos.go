@@ -32,7 +32,7 @@ type VideosUnlistedVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoPrivacyUserRequest
 	*/
-	AddVideoPrivacyUser(ctx context.Context, userId float32, videoId float32) ApiAddVideoPrivacyUserRequest
+	AddVideoPrivacyUser(ctx context.Context, userId int32, videoId int32) ApiAddVideoPrivacyUserRequest
 
 	// AddVideoPrivacyUserExecute executes the request
 	//  @return User
@@ -47,7 +47,7 @@ type VideosUnlistedVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoPrivacyUsersRequest
 	*/
-	AddVideoPrivacyUsers(ctx context.Context, videoId float32) ApiAddVideoPrivacyUsersRequest
+	AddVideoPrivacyUsers(ctx context.Context, videoId int32) ApiAddVideoPrivacyUsersRequest
 
 	// AddVideoPrivacyUsersExecute executes the request
 	//  @return []User
@@ -63,7 +63,7 @@ type VideosUnlistedVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoPrivacyUsersAlt1Request
 	*/
-	AddVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId float32) ApiAddVideoPrivacyUsersAlt1Request
+	AddVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId int32) ApiAddVideoPrivacyUsersAlt1Request
 
 	// AddVideoPrivacyUsersAlt1Execute executes the request
 	//  @return []User
@@ -79,7 +79,7 @@ type VideosUnlistedVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoPrivacyUserRequest
 	*/
-	DeleteVideoPrivacyUser(ctx context.Context, userId float32, videoId float32) ApiDeleteVideoPrivacyUserRequest
+	DeleteVideoPrivacyUser(ctx context.Context, userId int32, videoId int32) ApiDeleteVideoPrivacyUserRequest
 
 	// DeleteVideoPrivacyUserExecute executes the request
 	DeleteVideoPrivacyUserExecute(r ApiDeleteVideoPrivacyUserRequest) (*http.Response, error)
@@ -93,7 +93,7 @@ type VideosUnlistedVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoPrivacyUsersRequest
 	*/
-	GetVideoPrivacyUsers(ctx context.Context, videoId float32) ApiGetVideoPrivacyUsersRequest
+	GetVideoPrivacyUsers(ctx context.Context, videoId int32) ApiGetVideoPrivacyUsersRequest
 
 	// GetVideoPrivacyUsersExecute executes the request
 	//  @return []User
@@ -109,7 +109,7 @@ type VideosUnlistedVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoPrivacyUsersAlt1Request
 	*/
-	GetVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoPrivacyUsersAlt1Request
+	GetVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoPrivacyUsersAlt1Request
 
 	// GetVideoPrivacyUsersAlt1Execute executes the request
 	//  @return []User
@@ -122,8 +122,8 @@ type VideosUnlistedVideosAPIService service
 type ApiAddVideoPrivacyUserRequest struct {
 	ctx context.Context
 	ApiService VideosUnlistedVideosAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiAddVideoPrivacyUserRequest) Execute() (*User, *http.Response, error) {
@@ -140,7 +140,7 @@ This method gives a single user permission to access the specified unlisted vide
  @param videoId The ID of the video.
  @return ApiAddVideoPrivacyUserRequest
 */
-func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUser(ctx context.Context, userId float32, videoId float32) ApiAddVideoPrivacyUserRequest {
+func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUser(ctx context.Context, userId int32, videoId int32) ApiAddVideoPrivacyUserRequest {
 	return ApiAddVideoPrivacyUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -239,7 +239,7 @@ func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUserExecute(r ApiAddVide
 type ApiAddVideoPrivacyUsersRequest struct {
 	ctx context.Context
 	ApiService VideosUnlistedVideosAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoPrivacyUsersRequest) Execute() ([]User, *http.Response, error) {
@@ -255,7 +255,7 @@ This method gives multiple users permission to access the specified unlisted vid
  @param videoId The ID of the video.
  @return ApiAddVideoPrivacyUsersRequest
 */
-func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsers(ctx context.Context, videoId float32) ApiAddVideoPrivacyUsersRequest {
+func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsers(ctx context.Context, videoId int32) ApiAddVideoPrivacyUsersRequest {
 	return ApiAddVideoPrivacyUsersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -343,7 +343,7 @@ type ApiAddVideoPrivacyUsersAlt1Request struct {
 	ctx context.Context
 	ApiService VideosUnlistedVideosAPI
 	channelId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoPrivacyUsersAlt1Request) Execute() ([]User, *http.Response, error) {
@@ -360,7 +360,7 @@ This method gives multiple users permission to access the specified unlisted vid
  @param videoId The ID of the video.
  @return ApiAddVideoPrivacyUsersAlt1Request
 */
-func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId float32) ApiAddVideoPrivacyUsersAlt1Request {
+func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId int32) ApiAddVideoPrivacyUsersAlt1Request {
 	return ApiAddVideoPrivacyUsersAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -449,8 +449,8 @@ func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsersAlt1Execute(r ApiAd
 type ApiDeleteVideoPrivacyUserRequest struct {
 	ctx context.Context
 	ApiService VideosUnlistedVideosAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiDeleteVideoPrivacyUserRequest) Execute() (*http.Response, error) {
@@ -467,7 +467,7 @@ This method prevents a user from being able to view the specified unlisted video
  @param videoId The ID of the video.
  @return ApiDeleteVideoPrivacyUserRequest
 */
-func (a *VideosUnlistedVideosAPIService) DeleteVideoPrivacyUser(ctx context.Context, userId float32, videoId float32) ApiDeleteVideoPrivacyUserRequest {
+func (a *VideosUnlistedVideosAPIService) DeleteVideoPrivacyUser(ctx context.Context, userId int32, videoId int32) ApiDeleteVideoPrivacyUserRequest {
 	return ApiDeleteVideoPrivacyUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -566,7 +566,7 @@ func (a *VideosUnlistedVideosAPIService) DeleteVideoPrivacyUserExecute(r ApiDele
 type ApiGetVideoPrivacyUsersRequest struct {
 	ctx context.Context
 	ApiService VideosUnlistedVideosAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -596,7 +596,7 @@ This method returns every user who has access to the specified unlisted video.
  @param videoId The ID of the video.
  @return ApiGetVideoPrivacyUsersRequest
 */
-func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsers(ctx context.Context, videoId float32) ApiGetVideoPrivacyUsersRequest {
+func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsers(ctx context.Context, videoId int32) ApiGetVideoPrivacyUsersRequest {
 	return ApiGetVideoPrivacyUsersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -700,7 +700,7 @@ type ApiGetVideoPrivacyUsersAlt1Request struct {
 	ctx context.Context
 	ApiService VideosUnlistedVideosAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -731,7 +731,7 @@ This method returns every user who has access to the specified unlisted video.
  @param videoId The ID of the video.
  @return ApiGetVideoPrivacyUsersAlt1Request
 */
-func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoPrivacyUsersAlt1Request {
+func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoPrivacyUsersAlt1Request {
 	return ApiGetVideoPrivacyUsersAlt1Request{
 		ApiService: a,
 		ctx: ctx,

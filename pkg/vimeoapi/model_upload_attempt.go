@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the UploadAttempt type satisfies the MappedNullable interface at compile time
@@ -21,7 +19,6 @@ var _ MappedNullable = &UploadAttempt{}
 
 // UploadAttempt struct for UploadAttempt
 type UploadAttempt struct {
-	// The video to upload.
 	Clip *Video `json:"clip,omitempty"`
 	// The HTML upload form.
 	Form *string `json:"form,omitempty"`
@@ -31,11 +28,8 @@ type UploadAttempt struct {
 	UploadLink string `json:"upload_link"`
 	// The upload URI.
 	Uri string `json:"uri"`
-	// The owner of the uploaded video.
 	User User `json:"user"`
 }
-
-type _UploadAttempt UploadAttempt
 
 // NewUploadAttempt instantiates a new UploadAttempt object
 // This constructor will assign default values to properties that have it defined,
@@ -239,46 +233,6 @@ func (o UploadAttempt) ToMap() (map[string]interface{}, error) {
 	toSerialize["uri"] = o.Uri
 	toSerialize["user"] = o.User
 	return toSerialize, nil
-}
-
-func (o *UploadAttempt) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"ticket_id",
-		"upload_link",
-		"uri",
-		"user",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varUploadAttempt := _UploadAttempt{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUploadAttempt)
-
-	if err != nil {
-		return err
-	}
-
-	*o = UploadAttempt(varUploadAttempt)
-
-	return err
 }
 
 type NullableUploadAttempt struct {

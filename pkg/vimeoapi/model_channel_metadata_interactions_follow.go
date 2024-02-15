@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ChannelMetadataInteractionsFollow type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type ChannelMetadataInteractionsFollow struct {
 	// The URI for following or unfollowing this channel. PUT to this URI to follow the channel, or DELETE to this URI to unfollow the channel. This data requires a bearer token with the `private` scope.
 	Uri string `json:"uri"`
 }
-
-type _ChannelMetadataInteractionsFollow ChannelMetadataInteractionsFollow
 
 // NewChannelMetadataInteractionsFollow instantiates a new ChannelMetadataInteractionsFollow object
 // This constructor will assign default values to properties that have it defined,
@@ -169,46 +165,6 @@ func (o ChannelMetadataInteractionsFollow) ToMap() (map[string]interface{}, erro
 	toSerialize["type"] = o.Type.Get()
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *ChannelMetadataInteractionsFollow) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"added",
-		"added_time",
-		"type",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varChannelMetadataInteractionsFollow := _ChannelMetadataInteractionsFollow{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChannelMetadataInteractionsFollow)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ChannelMetadataInteractionsFollow(varChannelMetadataInteractionsFollow)
-
-	return err
 }
 
 type NullableChannelMetadataInteractionsFollow struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the DisabledVideoPropertiesDuplicateReasonsInner type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type DisabledVideoPropertiesDuplicateReasonsInner struct {
 	// A user-deliverable message of why duplication is disabled.
 	Message string `json:"message"`
 }
-
-type _DisabledVideoPropertiesDuplicateReasonsInner DisabledVideoPropertiesDuplicateReasonsInner
 
 // NewDisabledVideoPropertiesDuplicateReasonsInner instantiates a new DisabledVideoPropertiesDuplicateReasonsInner object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o DisabledVideoPropertiesDuplicateReasonsInner) ToMap() (map[string]interf
 	toSerialize["icon"] = o.Icon
 	toSerialize["message"] = o.Message
 	return toSerialize, nil
-}
-
-func (o *DisabledVideoPropertiesDuplicateReasonsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"icon",
-		"message",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varDisabledVideoPropertiesDuplicateReasonsInner := _DisabledVideoPropertiesDuplicateReasonsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDisabledVideoPropertiesDuplicateReasonsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = DisabledVideoPropertiesDuplicateReasonsInner(varDisabledVideoPropertiesDuplicateReasonsInner)
-
-	return err
 }
 
 type NullableDisabledVideoPropertiesDuplicateReasonsInner struct {

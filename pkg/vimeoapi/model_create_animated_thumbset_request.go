@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the CreateAnimatedThumbsetRequest type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type CreateAnimatedThumbsetRequest struct {
 	// The time in seconds corresponding to the start of the animation in the video. The default value is 0.
 	StartTime *float32 `json:"start_time,omitempty"`
 }
-
-type _CreateAnimatedThumbsetRequest CreateAnimatedThumbsetRequest
 
 // NewCreateAnimatedThumbsetRequest instantiates a new CreateAnimatedThumbsetRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -118,43 +114,6 @@ func (o CreateAnimatedThumbsetRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["start_time"] = o.StartTime
 	}
 	return toSerialize, nil
-}
-
-func (o *CreateAnimatedThumbsetRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"duration",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCreateAnimatedThumbsetRequest := _CreateAnimatedThumbsetRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateAnimatedThumbsetRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CreateAnimatedThumbsetRequest(varCreateAnimatedThumbsetRequest)
-
-	return err
 }
 
 type NullableCreateAnimatedThumbsetRequest struct {

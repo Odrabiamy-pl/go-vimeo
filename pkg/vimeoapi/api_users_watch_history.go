@@ -31,7 +31,7 @@ type UsersWatchHistoryAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteFromWatchHistoryRequest
 	*/
-	DeleteFromWatchHistory(ctx context.Context, videoId float32) ApiDeleteFromWatchHistoryRequest
+	DeleteFromWatchHistory(ctx context.Context, videoId int32) ApiDeleteFromWatchHistoryRequest
 
 	// DeleteFromWatchHistoryExecute executes the request
 	DeleteFromWatchHistoryExecute(r ApiDeleteFromWatchHistoryRequest) (*http.Response, error)
@@ -70,7 +70,7 @@ type UsersWatchHistoryAPIService service
 type ApiDeleteFromWatchHistoryRequest struct {
 	ctx context.Context
 	ApiService UsersWatchHistoryAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteFromWatchHistoryRequest) Execute() (*http.Response, error) {
@@ -86,7 +86,7 @@ This method deletes the specified video from the authenticated user's watch hist
  @param videoId The ID of the video.
  @return ApiDeleteFromWatchHistoryRequest
 */
-func (a *UsersWatchHistoryAPIService) DeleteFromWatchHistory(ctx context.Context, videoId float32) ApiDeleteFromWatchHistoryRequest {
+func (a *UsersWatchHistoryAPIService) DeleteFromWatchHistory(ctx context.Context, videoId int32) ApiDeleteFromWatchHistoryRequest {
 	return ApiDeleteFromWatchHistoryRequest{
 		ApiService: a,
 		ctx: ctx,

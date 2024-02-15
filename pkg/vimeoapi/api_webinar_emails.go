@@ -32,7 +32,7 @@ type WebinarEmailsAPI interface {
 	@param webinarId The ID of the webinar.
 	@return ApiGetWebinarEmailSettingsRequest
 	*/
-	GetWebinarEmailSettings(ctx context.Context, userId float32, webinarId string) ApiGetWebinarEmailSettingsRequest
+	GetWebinarEmailSettings(ctx context.Context, userId int32, webinarId string) ApiGetWebinarEmailSettingsRequest
 
 	// GetWebinarEmailSettingsExecute executes the request
 	//  @return WebinarEmailSettings
@@ -63,7 +63,7 @@ type WebinarEmailsAPI interface {
 	@param webinarId The ID of the webinar.
 	@return ApiUpdateWebinarEmailSettingsRequest
 	*/
-	UpdateWebinarEmailSettings(ctx context.Context, userId float32, webinarId string) ApiUpdateWebinarEmailSettingsRequest
+	UpdateWebinarEmailSettings(ctx context.Context, userId int32, webinarId string) ApiUpdateWebinarEmailSettingsRequest
 
 	// UpdateWebinarEmailSettingsExecute executes the request
 	//  @return WebinarEmailSettings
@@ -91,7 +91,7 @@ type WebinarEmailsAPIService service
 type ApiGetWebinarEmailSettingsRequest struct {
 	ctx context.Context
 	ApiService WebinarEmailsAPI
-	userId float32
+	userId int32
 	webinarId string
 }
 
@@ -109,7 +109,7 @@ This method returns customized email data for the specified webinar. The authent
  @param webinarId The ID of the webinar.
  @return ApiGetWebinarEmailSettingsRequest
 */
-func (a *WebinarEmailsAPIService) GetWebinarEmailSettings(ctx context.Context, userId float32, webinarId string) ApiGetWebinarEmailSettingsRequest {
+func (a *WebinarEmailsAPIService) GetWebinarEmailSettings(ctx context.Context, userId int32, webinarId string) ApiGetWebinarEmailSettingsRequest {
 	return ApiGetWebinarEmailSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -343,7 +343,7 @@ func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsAlt1Execute(r ApiGetWeb
 type ApiUpdateWebinarEmailSettingsRequest struct {
 	ctx context.Context
 	ApiService WebinarEmailsAPI
-	userId float32
+	userId int32
 	webinarId string
 	updateWebinarEmailSettingsAlt1Request *UpdateWebinarEmailSettingsAlt1Request
 }
@@ -367,7 +367,7 @@ This method causes the authenticated user to customize the email preferences of 
  @param webinarId The ID of the webinar.
  @return ApiUpdateWebinarEmailSettingsRequest
 */
-func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettings(ctx context.Context, userId float32, webinarId string) ApiUpdateWebinarEmailSettingsRequest {
+func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettings(ctx context.Context, userId int32, webinarId string) ApiUpdateWebinarEmailSettingsRequest {
 	return ApiUpdateWebinarEmailSettingsRequest{
 		ApiService: a,
 		ctx: ctx,

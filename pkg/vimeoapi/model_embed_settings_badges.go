@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EmbedSettingsBadges type satisfies the MappedNullable interface at compile time
@@ -36,8 +34,6 @@ type EmbedSettingsBadges struct {
 	// Whether the video is a Vimeo Weekend Challenge.
 	WeekendChallenge bool `json:"weekend_challenge"`
 }
-
-type _EmbedSettingsBadges EmbedSettingsBadges
 
 // NewEmbedSettingsBadges instantiates a new EmbedSettingsBadges object
 // This constructor will assign default values to properties that have it defined,
@@ -302,47 +298,6 @@ func (o EmbedSettingsBadges) ToMap() (map[string]interface{}, error) {
 	toSerialize["vod"] = o.Vod
 	toSerialize["weekend_challenge"] = o.WeekendChallenge
 	return toSerialize, nil
-}
-
-func (o *EmbedSettingsBadges) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"hdr",
-		"live",
-		"staff_pick",
-		"vod",
-		"weekend_challenge",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEmbedSettingsBadges := _EmbedSettingsBadges{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmbedSettingsBadges)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EmbedSettingsBadges(varEmbedSettingsBadges)
-
-	return err
 }
 
 type NullableEmbedSettingsBadges struct {

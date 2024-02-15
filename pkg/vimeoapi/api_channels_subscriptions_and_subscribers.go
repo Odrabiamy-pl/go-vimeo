@@ -32,7 +32,7 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	@param userId The ID of the user.
 	@return ApiCheckIfUserSubscribedToChannelRequest
 	*/
-	CheckIfUserSubscribedToChannel(ctx context.Context, channelId float32, userId float32) ApiCheckIfUserSubscribedToChannelRequest
+	CheckIfUserSubscribedToChannel(ctx context.Context, channelId float32, userId int32) ApiCheckIfUserSubscribedToChannelRequest
 
 	// CheckIfUserSubscribedToChannelExecute executes the request
 	CheckIfUserSubscribedToChannelExecute(r ApiCheckIfUserSubscribedToChannelRequest) (*http.Response, error)
@@ -76,7 +76,7 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	@param userId The ID of the user.
 	@return ApiSubscribeToChannelRequest
 	*/
-	SubscribeToChannel(ctx context.Context, channelId float32, userId float32) ApiSubscribeToChannelRequest
+	SubscribeToChannel(ctx context.Context, channelId float32, userId int32) ApiSubscribeToChannelRequest
 
 	// SubscribeToChannelExecute executes the request
 	SubscribeToChannelExecute(r ApiSubscribeToChannelRequest) (*http.Response, error)
@@ -105,7 +105,7 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	@param userId The ID of the user.
 	@return ApiUnsubscribeFromChannelRequest
 	*/
-	UnsubscribeFromChannel(ctx context.Context, channelId float32, userId float32) ApiUnsubscribeFromChannelRequest
+	UnsubscribeFromChannel(ctx context.Context, channelId float32, userId int32) ApiUnsubscribeFromChannelRequest
 
 	// UnsubscribeFromChannelExecute executes the request
 	UnsubscribeFromChannelExecute(r ApiUnsubscribeFromChannelRequest) (*http.Response, error)
@@ -132,7 +132,7 @@ type ApiCheckIfUserSubscribedToChannelRequest struct {
 	ctx context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
 	channelId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiCheckIfUserSubscribedToChannelRequest) Execute() (*http.Response, error) {
@@ -149,7 +149,7 @@ This method determines whether the specified user is a follower of a particular 
  @param userId The ID of the user.
  @return ApiCheckIfUserSubscribedToChannelRequest
 */
-func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToChannel(ctx context.Context, channelId float32, userId float32) ApiCheckIfUserSubscribedToChannelRequest {
+func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToChannel(ctx context.Context, channelId float32, userId int32) ApiCheckIfUserSubscribedToChannelRequest {
 	return ApiCheckIfUserSubscribedToChannelRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -514,7 +514,7 @@ type ApiSubscribeToChannelRequest struct {
 	ctx context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
 	channelId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiSubscribeToChannelRequest) Execute() (*http.Response, error) {
@@ -531,7 +531,7 @@ This method subscribes the authenticated user to the specified channel.
  @param userId The ID of the user.
  @return ApiSubscribeToChannelRequest
 */
-func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannel(ctx context.Context, channelId float32, userId float32) ApiSubscribeToChannelRequest {
+func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannel(ctx context.Context, channelId float32, userId int32) ApiSubscribeToChannelRequest {
 	return ApiSubscribeToChannelRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -722,7 +722,7 @@ type ApiUnsubscribeFromChannelRequest struct {
 	ctx context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
 	channelId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiUnsubscribeFromChannelRequest) Execute() (*http.Response, error) {
@@ -739,7 +739,7 @@ This method unsubscribes the authenticated user from the specified channel.
  @param userId The ID of the user.
  @return ApiUnsubscribeFromChannelRequest
 */
-func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannel(ctx context.Context, channelId float32, userId float32) ApiUnsubscribeFromChannelRequest {
+func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannel(ctx context.Context, channelId float32, userId int32) ApiUnsubscribeFromChannelRequest {
 	return ApiUnsubscribeFromChannelRequest{
 		ApiService: a,
 		ctx: ctx,

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventStreamPrivacy type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type LiveEventStreamPrivacy struct {
 	// The general privacy setting for generated videos and the embed privacy of the entire collection.  Option descriptions:  * `anybody` - Anyone can access the videos. This privacy setting appears as `Public` on the Vimeo front end.  * `embed_only` - The videos don't appear on Vimeo, but they can be embedded elsewhere.  * `nobody` - Only the event owner can access the videos. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Only those with the password can access the videos.  * `unlisted` - Only those with the private link can access the videos. 
 	View string `json:"view"`
 }
-
-type _LiveEventStreamPrivacy LiveEventStreamPrivacy
 
 // NewLiveEventStreamPrivacy instantiates a new LiveEventStreamPrivacy object
 // This constructor will assign default values to properties that have it defined,
@@ -139,45 +135,6 @@ func (o LiveEventStreamPrivacy) ToMap() (map[string]interface{}, error) {
 	toSerialize["unlisted_hash"] = o.UnlistedHash.Get()
 	toSerialize["view"] = o.View
 	return toSerialize, nil
-}
-
-func (o *LiveEventStreamPrivacy) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"embed",
-		"unlisted_hash",
-		"view",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventStreamPrivacy := _LiveEventStreamPrivacy{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventStreamPrivacy)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventStreamPrivacy(varLiveEventStreamPrivacy)
-
-	return err
 }
 
 type NullableLiveEventStreamPrivacy struct {

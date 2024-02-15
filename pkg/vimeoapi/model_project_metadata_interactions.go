@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ProjectMetadataInteractions type satisfies the MappedNullable interface at compile time
@@ -31,8 +29,6 @@ type ProjectMetadataInteractions struct {
 	UploadVideo ProjectMetadataInteractionsUploadVideo `json:"upload_video"`
 	View ProjectMetadataInteractionsView `json:"view"`
 }
-
-type _ProjectMetadataInteractions ProjectMetadataInteractions
 
 // NewProjectMetadataInteractions instantiates a new ProjectMetadataInteractions object
 // This constructor will assign default values to properties that have it defined,
@@ -296,51 +292,6 @@ func (o ProjectMetadataInteractions) ToMap() (map[string]interface{}, error) {
 	toSerialize["upload_video"] = o.UploadVideo
 	toSerialize["view"] = o.View
 	return toSerialize, nil
-}
-
-func (o *ProjectMetadataInteractions) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"add_subfolder",
-		"delete",
-		"delete_video",
-		"edit",
-		"edit_settings",
-		"invite",
-		"move_video",
-		"upload_video",
-		"view",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varProjectMetadataInteractions := _ProjectMetadataInteractions{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProjectMetadataInteractions)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ProjectMetadataInteractions(varProjectMetadataInteractions)
-
-	return err
 }
 
 type NullableProjectMetadataInteractions struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ProjectMetadataInteractionsDeleteVideo type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type ProjectMetadataInteractionsDeleteVideo struct {
 	// The API URI that resolves to the connection data.
 	Uri string `json:"uri"`
 }
-
-type _ProjectMetadataInteractionsDeleteVideo ProjectMetadataInteractionsDeleteVideo
 
 // NewProjectMetadataInteractionsDeleteVideo instantiates a new ProjectMetadataInteractionsDeleteVideo object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o ProjectMetadataInteractionsDeleteVideo) ToMap() (map[string]interface{},
 	toSerialize["options"] = o.Options
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *ProjectMetadataInteractionsDeleteVideo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"options",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varProjectMetadataInteractionsDeleteVideo := _ProjectMetadataInteractionsDeleteVideo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProjectMetadataInteractionsDeleteVideo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ProjectMetadataInteractionsDeleteVideo(varProjectMetadataInteractionsDeleteVideo)
-
-	return err
 }
 
 type NullableProjectMetadataInteractionsDeleteVideo struct {

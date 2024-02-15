@@ -47,7 +47,7 @@ type LiveEventDestinationsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateLiveEventDestinationAlt1Request
 	*/
-	CreateLiveEventDestinationAlt1(ctx context.Context, liveEventId float32, userId float32) ApiCreateLiveEventDestinationAlt1Request
+	CreateLiveEventDestinationAlt1(ctx context.Context, liveEventId float32, userId int32) ApiCreateLiveEventDestinationAlt1Request
 
 	// CreateLiveEventDestinationAlt1Execute executes the request
 	//  @return LiveEventDestination
@@ -63,7 +63,7 @@ type LiveEventDestinationsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateOneTimeEventDestinationRequest
 	*/
-	CreateOneTimeEventDestination(ctx context.Context, userId float32, videoId float32) ApiCreateOneTimeEventDestinationRequest
+	CreateOneTimeEventDestination(ctx context.Context, userId int32, videoId int32) ApiCreateOneTimeEventDestinationRequest
 
 	// CreateOneTimeEventDestinationExecute executes the request
 	CreateOneTimeEventDestinationExecute(r ApiCreateOneTimeEventDestinationRequest) (*http.Response, error)
@@ -77,7 +77,7 @@ type LiveEventDestinationsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateOneTimeEventDestinationAlt1Request
 	*/
-	CreateOneTimeEventDestinationAlt1(ctx context.Context, videoId float32) ApiCreateOneTimeEventDestinationAlt1Request
+	CreateOneTimeEventDestinationAlt1(ctx context.Context, videoId int32) ApiCreateOneTimeEventDestinationAlt1Request
 
 	// CreateOneTimeEventDestinationAlt1Execute executes the request
 	CreateOneTimeEventDestinationAlt1Execute(r ApiCreateOneTimeEventDestinationAlt1Request) (*http.Response, error)
@@ -92,7 +92,7 @@ type LiveEventDestinationsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateOttDestinationRequest
 	*/
-	CreateOttDestination(ctx context.Context, liveEventId float32, userId float32) ApiCreateOttDestinationRequest
+	CreateOttDestination(ctx context.Context, liveEventId float32, userId int32) ApiCreateOttDestinationRequest
 
 	// CreateOttDestinationExecute executes the request
 	//  @return OttDestination
@@ -123,7 +123,7 @@ type LiveEventDestinationsAPI interface {
 	@param destinationId The ID of the event destination.
 	@return ApiDeleteOttDestinationRequest
 	*/
-	DeleteOttDestination(ctx context.Context, liveEventId float32, userId float32, destinationId float32) ApiDeleteOttDestinationRequest
+	DeleteOttDestination(ctx context.Context, liveEventId float32, userId int32, destinationId float32) ApiDeleteOttDestinationRequest
 
 	// DeleteOttDestinationExecute executes the request
 	DeleteOttDestinationExecute(r ApiDeleteOttDestinationRequest) (*http.Response, error)
@@ -137,7 +137,7 @@ type LiveEventDestinationsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetAvailableDestinationsRequest
 	*/
-	GetAvailableDestinations(ctx context.Context, userId float32) ApiGetAvailableDestinationsRequest
+	GetAvailableDestinations(ctx context.Context, userId int32) ApiGetAvailableDestinationsRequest
 
 	// GetAvailableDestinationsExecute executes the request
 	GetAvailableDestinationsExecute(r ApiGetAvailableDestinationsRequest) (*http.Response, error)
@@ -195,7 +195,7 @@ type LiveEventDestinationsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLiveEventDestinationsAlt1Request
 	*/
-	GetLiveEventDestinationsAlt1(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventDestinationsAlt1Request
+	GetLiveEventDestinationsAlt1(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventDestinationsAlt1Request
 
 	// GetLiveEventDestinationsAlt1Execute executes the request
 	//  @return []LiveEventDestination
@@ -211,7 +211,7 @@ type LiveEventDestinationsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetOneTimeEventDestinationsRequest
 	*/
-	GetOneTimeEventDestinations(ctx context.Context, userId float32, videoId float32) ApiGetOneTimeEventDestinationsRequest
+	GetOneTimeEventDestinations(ctx context.Context, userId int32, videoId int32) ApiGetOneTimeEventDestinationsRequest
 
 	// GetOneTimeEventDestinationsExecute executes the request
 	//  @return []LiveEventDestination
@@ -226,7 +226,7 @@ type LiveEventDestinationsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetOneTimeEventDestinationsAlt1Request
 	*/
-	GetOneTimeEventDestinationsAlt1(ctx context.Context, videoId float32) ApiGetOneTimeEventDestinationsAlt1Request
+	GetOneTimeEventDestinationsAlt1(ctx context.Context, videoId int32) ApiGetOneTimeEventDestinationsAlt1Request
 
 	// GetOneTimeEventDestinationsAlt1Execute executes the request
 	//  @return []LiveEventDestination
@@ -242,7 +242,7 @@ type LiveEventDestinationsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetOttDestinationsRequest
 	*/
-	GetOttDestinations(ctx context.Context, liveEventId float32, userId float32) ApiGetOttDestinationsRequest
+	GetOttDestinations(ctx context.Context, liveEventId float32, userId int32) ApiGetOttDestinationsRequest
 
 	// GetOttDestinationsExecute executes the request
 	//  @return []OttDestination
@@ -428,7 +428,7 @@ type ApiCreateLiveEventDestinationAlt1Request struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	createLiveEventDestinationRequest *CreateLiveEventDestinationRequest
 }
 
@@ -451,7 +451,7 @@ This method creates a destination for the specified event. The authenticated use
  @param userId The ID of the user.
  @return ApiCreateLiveEventDestinationAlt1Request
 */
-func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1(ctx context.Context, liveEventId float32, userId float32) ApiCreateLiveEventDestinationAlt1Request {
+func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1(ctx context.Context, liveEventId float32, userId int32) ApiCreateLiveEventDestinationAlt1Request {
 	return ApiCreateLiveEventDestinationAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -588,8 +588,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1Execute(
 type ApiCreateOneTimeEventDestinationRequest struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 	createLiveEventDestinationRequest *CreateLiveEventDestinationRequest
 }
 
@@ -612,7 +612,7 @@ This method creates a destination for the specified event. The authenticated use
  @param videoId The ID of the video.
  @return ApiCreateOneTimeEventDestinationRequest
 */
-func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestination(ctx context.Context, userId float32, videoId float32) ApiCreateOneTimeEventDestinationRequest {
+func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestination(ctx context.Context, userId int32, videoId int32) ApiCreateOneTimeEventDestinationRequest {
 	return ApiCreateOneTimeEventDestinationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -738,7 +738,7 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationExecute(r
 type ApiCreateOneTimeEventDestinationAlt1Request struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
-	videoId float32
+	videoId int32
 	createLiveEventDestinationRequest *CreateLiveEventDestinationRequest
 }
 
@@ -760,7 +760,7 @@ This method creates a destination for the specified event. The authenticated use
  @param videoId The ID of the video.
  @return ApiCreateOneTimeEventDestinationAlt1Request
 */
-func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1(ctx context.Context, videoId float32) ApiCreateOneTimeEventDestinationAlt1Request {
+func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1(ctx context.Context, videoId int32) ApiCreateOneTimeEventDestinationAlt1Request {
 	return ApiCreateOneTimeEventDestinationAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -885,7 +885,7 @@ type ApiCreateOttDestinationRequest struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiCreateOttDestinationRequest) Execute() (*OttDestination, *http.Response, error) {
@@ -902,7 +902,7 @@ This method creates an OTT channel as the destination of the specified event. Th
  @param userId The ID of the user.
  @return ApiCreateOttDestinationRequest
 */
-func (a *LiveEventDestinationsAPIService) CreateOttDestination(ctx context.Context, liveEventId float32, userId float32) ApiCreateOttDestinationRequest {
+func (a *LiveEventDestinationsAPIService) CreateOttDestination(ctx context.Context, liveEventId float32, userId int32) ApiCreateOttDestinationRequest {
 	return ApiCreateOttDestinationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1159,7 +1159,7 @@ type ApiDeleteOttDestinationRequest struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	destinationId float32
 }
 
@@ -1178,7 +1178,7 @@ This method deletes an OTT channel as the destination of the specified event. Th
  @param destinationId The ID of the event destination.
  @return ApiDeleteOttDestinationRequest
 */
-func (a *LiveEventDestinationsAPIService) DeleteOttDestination(ctx context.Context, liveEventId float32, userId float32, destinationId float32) ApiDeleteOttDestinationRequest {
+func (a *LiveEventDestinationsAPIService) DeleteOttDestination(ctx context.Context, liveEventId float32, userId int32, destinationId float32) ApiDeleteOttDestinationRequest {
 	return ApiDeleteOttDestinationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1301,7 +1301,7 @@ func (a *LiveEventDestinationsAPIService) DeleteOttDestinationExecute(r ApiDelet
 type ApiGetAvailableDestinationsRequest struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
-	userId float32
+	userId int32
 }
 
 func (r ApiGetAvailableDestinationsRequest) Execute() (*http.Response, error) {
@@ -1317,7 +1317,7 @@ This method returns every available event destination for the authenticated user
  @param userId The ID of the user.
  @return ApiGetAvailableDestinationsRequest
 */
-func (a *LiveEventDestinationsAPIService) GetAvailableDestinations(ctx context.Context, userId float32) ApiGetAvailableDestinationsRequest {
+func (a *LiveEventDestinationsAPIService) GetAvailableDestinations(ctx context.Context, userId int32) ApiGetAvailableDestinationsRequest {
 	return ApiGetAvailableDestinationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1805,7 +1805,7 @@ type ApiGetLiveEventDestinationsAlt1Request struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetLiveEventDestinationsAlt1Request) Execute() ([]LiveEventDestination, *http.Response, error) {
@@ -1822,7 +1822,7 @@ This method returns every destination of the specified event. The authenticated 
  @param userId The ID of the user.
  @return ApiGetLiveEventDestinationsAlt1Request
 */
-func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventDestinationsAlt1Request {
+func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventDestinationsAlt1Request {
 	return ApiGetLiveEventDestinationsAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1954,8 +1954,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1Execute(r 
 type ApiGetOneTimeEventDestinationsRequest struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiGetOneTimeEventDestinationsRequest) Execute() ([]LiveEventDestination, *http.Response, error) {
@@ -1972,7 +1972,7 @@ This method returns every destination of the specified event. The authenticated 
  @param videoId The ID of the video.
  @return ApiGetOneTimeEventDestinationsRequest
 */
-func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinations(ctx context.Context, userId float32, videoId float32) ApiGetOneTimeEventDestinationsRequest {
+func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinations(ctx context.Context, userId int32, videoId int32) ApiGetOneTimeEventDestinationsRequest {
 	return ApiGetOneTimeEventDestinationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2093,7 +2093,7 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsExecute(r A
 type ApiGetOneTimeEventDestinationsAlt1Request struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetOneTimeEventDestinationsAlt1Request) Execute() ([]LiveEventDestination, *http.Response, error) {
@@ -2109,7 +2109,7 @@ This method returns every destination of the specified event. The authenticated 
  @param videoId The ID of the video.
  @return ApiGetOneTimeEventDestinationsAlt1Request
 */
-func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsAlt1(ctx context.Context, videoId float32) ApiGetOneTimeEventDestinationsAlt1Request {
+func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsAlt1(ctx context.Context, videoId int32) ApiGetOneTimeEventDestinationsAlt1Request {
 	return ApiGetOneTimeEventDestinationsAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -2229,7 +2229,7 @@ type ApiGetOttDestinationsRequest struct {
 	ctx context.Context
 	ApiService LiveEventDestinationsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetOttDestinationsRequest) Execute() ([]OttDestination, *http.Response, error) {
@@ -2246,7 +2246,7 @@ This method returns every OTT destination of the specified event. The authentica
  @param userId The ID of the user.
  @return ApiGetOttDestinationsRequest
 */
-func (a *LiveEventDestinationsAPIService) GetOttDestinations(ctx context.Context, liveEventId float32, userId float32) ApiGetOttDestinationsRequest {
+func (a *LiveEventDestinationsAPIService) GetOttDestinations(ctx context.Context, liveEventId float32, userId int32) ApiGetOttDestinationsRequest {
 	return ApiGetOttDestinationsRequest{
 		ApiService: a,
 		ctx: ctx,

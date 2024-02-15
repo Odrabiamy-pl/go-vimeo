@@ -31,7 +31,7 @@ type EmbedPresetsTimelineEventsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateVideoCustomLogoRequest
 	*/
-	CreateVideoCustomLogo(ctx context.Context, videoId float32) ApiCreateVideoCustomLogoRequest
+	CreateVideoCustomLogo(ctx context.Context, videoId int32) ApiCreateVideoCustomLogoRequest
 
 	// CreateVideoCustomLogoExecute executes the request
 	//  @return Picture
@@ -47,7 +47,7 @@ type EmbedPresetsTimelineEventsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoCustomLogoRequest
 	*/
-	GetVideoCustomLogo(ctx context.Context, thumbnailId float32, videoId float32) ApiGetVideoCustomLogoRequest
+	GetVideoCustomLogo(ctx context.Context, thumbnailId float32, videoId int32) ApiGetVideoCustomLogoRequest
 
 	// GetVideoCustomLogoExecute executes the request
 	//  @return Picture
@@ -60,7 +60,7 @@ type EmbedPresetsTimelineEventsAPIService service
 type ApiCreateVideoCustomLogoRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsTimelineEventsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiCreateVideoCustomLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -76,7 +76,7 @@ This method adds a timeline event thumbnail to the specified video. The authenti
  @param videoId The ID of the video.
  @return ApiCreateVideoCustomLogoRequest
 */
-func (a *EmbedPresetsTimelineEventsAPIService) CreateVideoCustomLogo(ctx context.Context, videoId float32) ApiCreateVideoCustomLogoRequest {
+func (a *EmbedPresetsTimelineEventsAPIService) CreateVideoCustomLogo(ctx context.Context, videoId int32) ApiCreateVideoCustomLogoRequest {
 	return ApiCreateVideoCustomLogoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -185,7 +185,7 @@ type ApiGetVideoCustomLogoRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsTimelineEventsAPI
 	thumbnailId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetVideoCustomLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -202,7 +202,7 @@ This method returns a single timeline event thumbnail that belongs to the specif
  @param videoId The ID of the video.
  @return ApiGetVideoCustomLogoRequest
 */
-func (a *EmbedPresetsTimelineEventsAPIService) GetVideoCustomLogo(ctx context.Context, thumbnailId float32, videoId float32) ApiGetVideoCustomLogoRequest {
+func (a *EmbedPresetsTimelineEventsAPIService) GetVideoCustomLogo(ctx context.Context, thumbnailId float32, videoId int32) ApiGetVideoCustomLogoRequest {
 	return ApiGetVideoCustomLogoRequest{
 		ApiService: a,
 		ctx: ctx,

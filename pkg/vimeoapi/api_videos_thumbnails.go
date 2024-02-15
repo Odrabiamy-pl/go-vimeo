@@ -31,7 +31,7 @@ type VideosThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateVideoThumbnailRequest
 	*/
-	CreateVideoThumbnail(ctx context.Context, videoId float32) ApiCreateVideoThumbnailRequest
+	CreateVideoThumbnail(ctx context.Context, videoId int32) ApiCreateVideoThumbnailRequest
 
 	// CreateVideoThumbnailExecute executes the request
 	//  @return Picture
@@ -47,7 +47,7 @@ type VideosThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateVideoThumbnailAlt1Request
 	*/
-	CreateVideoThumbnailAlt1(ctx context.Context, channelId float32, videoId float32) ApiCreateVideoThumbnailAlt1Request
+	CreateVideoThumbnailAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateVideoThumbnailAlt1Request
 
 	// CreateVideoThumbnailAlt1Execute executes the request
 	//  @return Picture
@@ -63,7 +63,7 @@ type VideosThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoThumbnailRequest
 	*/
-	DeleteVideoThumbnail(ctx context.Context, pictureId float32, videoId float32) ApiDeleteVideoThumbnailRequest
+	DeleteVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiDeleteVideoThumbnailRequest
 
 	// DeleteVideoThumbnailExecute executes the request
 	DeleteVideoThumbnailExecute(r ApiDeleteVideoThumbnailRequest) (*http.Response, error)
@@ -78,7 +78,7 @@ type VideosThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiEditVideoThumbnailRequest
 	*/
-	EditVideoThumbnail(ctx context.Context, pictureId float32, videoId float32) ApiEditVideoThumbnailRequest
+	EditVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiEditVideoThumbnailRequest
 
 	// EditVideoThumbnailExecute executes the request
 	//  @return Picture
@@ -94,7 +94,7 @@ type VideosThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoThumbnailRequest
 	*/
-	GetVideoThumbnail(ctx context.Context, pictureId float32, videoId float32) ApiGetVideoThumbnailRequest
+	GetVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiGetVideoThumbnailRequest
 
 	// GetVideoThumbnailExecute executes the request
 	//  @return Picture
@@ -109,7 +109,7 @@ type VideosThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoThumbnailsRequest
 	*/
-	GetVideoThumbnails(ctx context.Context, videoId float32) ApiGetVideoThumbnailsRequest
+	GetVideoThumbnails(ctx context.Context, videoId int32) ApiGetVideoThumbnailsRequest
 
 	// GetVideoThumbnailsExecute executes the request
 	//  @return []Picture
@@ -125,7 +125,7 @@ type VideosThumbnailsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoThumbnailsAlt1Request
 	*/
-	GetVideoThumbnailsAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoThumbnailsAlt1Request
+	GetVideoThumbnailsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoThumbnailsAlt1Request
 
 	// GetVideoThumbnailsAlt1Execute executes the request
 	//  @return []Picture
@@ -138,7 +138,7 @@ type VideosThumbnailsAPIService service
 type ApiCreateVideoThumbnailRequest struct {
 	ctx context.Context
 	ApiService VideosThumbnailsAPI
-	videoId float32
+	videoId int32
 	createVideoThumbnailAlt1Request *CreateVideoThumbnailAlt1Request
 }
 
@@ -160,7 +160,7 @@ This method adds a thumbnail image to the specified video. The authenticated use
  @param videoId The ID of the video.
  @return ApiCreateVideoThumbnailRequest
 */
-func (a *VideosThumbnailsAPIService) CreateVideoThumbnail(ctx context.Context, videoId float32) ApiCreateVideoThumbnailRequest {
+func (a *VideosThumbnailsAPIService) CreateVideoThumbnail(ctx context.Context, videoId int32) ApiCreateVideoThumbnailRequest {
 	return ApiCreateVideoThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -250,7 +250,7 @@ type ApiCreateVideoThumbnailAlt1Request struct {
 	ctx context.Context
 	ApiService VideosThumbnailsAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	createVideoThumbnailAlt1Request *CreateVideoThumbnailAlt1Request
 }
 
@@ -273,7 +273,7 @@ This method adds a thumbnail image to the specified video. The authenticated use
  @param videoId The ID of the video.
  @return ApiCreateVideoThumbnailAlt1Request
 */
-func (a *VideosThumbnailsAPIService) CreateVideoThumbnailAlt1(ctx context.Context, channelId float32, videoId float32) ApiCreateVideoThumbnailAlt1Request {
+func (a *VideosThumbnailsAPIService) CreateVideoThumbnailAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateVideoThumbnailAlt1Request {
 	return ApiCreateVideoThumbnailAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -365,7 +365,7 @@ type ApiDeleteVideoThumbnailRequest struct {
 	ctx context.Context
 	ApiService VideosThumbnailsAPI
 	pictureId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoThumbnailRequest) Execute() (*http.Response, error) {
@@ -382,7 +382,7 @@ This method deletes the specified thumbnail image from a video. The authenticate
  @param videoId The ID of the video.
  @return ApiDeleteVideoThumbnailRequest
 */
-func (a *VideosThumbnailsAPIService) DeleteVideoThumbnail(ctx context.Context, pictureId float32, videoId float32) ApiDeleteVideoThumbnailRequest {
+func (a *VideosThumbnailsAPIService) DeleteVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiDeleteVideoThumbnailRequest {
 	return ApiDeleteVideoThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -461,7 +461,7 @@ type ApiEditVideoThumbnailRequest struct {
 	ctx context.Context
 	ApiService VideosThumbnailsAPI
 	pictureId float32
-	videoId float32
+	videoId int32
 	editVideoThumbnailRequest *EditVideoThumbnailRequest
 }
 
@@ -484,7 +484,7 @@ This method edits the specified video thumbnail image. The authenticated user mu
  @param videoId The ID of the video.
  @return ApiEditVideoThumbnailRequest
 */
-func (a *VideosThumbnailsAPIService) EditVideoThumbnail(ctx context.Context, pictureId float32, videoId float32) ApiEditVideoThumbnailRequest {
+func (a *VideosThumbnailsAPIService) EditVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiEditVideoThumbnailRequest {
 	return ApiEditVideoThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -576,7 +576,7 @@ type ApiGetVideoThumbnailRequest struct {
 	ctx context.Context
 	ApiService VideosThumbnailsAPI
 	pictureId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetVideoThumbnailRequest) Execute() (*Picture, *http.Response, error) {
@@ -593,7 +593,7 @@ This method returns a single thumbnail image from the specified video. The authe
  @param videoId The ID of the video.
  @return ApiGetVideoThumbnailRequest
 */
-func (a *VideosThumbnailsAPIService) GetVideoThumbnail(ctx context.Context, pictureId float32, videoId float32) ApiGetVideoThumbnailRequest {
+func (a *VideosThumbnailsAPIService) GetVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiGetVideoThumbnailRequest {
 	return ApiGetVideoThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -682,7 +682,7 @@ func (a *VideosThumbnailsAPIService) GetVideoThumbnailExecute(r ApiGetVideoThumb
 type ApiGetVideoThumbnailsRequest struct {
 	ctx context.Context
 	ApiService VideosThumbnailsAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -712,7 +712,7 @@ This method returns all thumbnail images of the specified video. The authenticat
  @param videoId The ID of the video.
  @return ApiGetVideoThumbnailsRequest
 */
-func (a *VideosThumbnailsAPIService) GetVideoThumbnails(ctx context.Context, videoId float32) ApiGetVideoThumbnailsRequest {
+func (a *VideosThumbnailsAPIService) GetVideoThumbnails(ctx context.Context, videoId int32) ApiGetVideoThumbnailsRequest {
 	return ApiGetVideoThumbnailsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -806,7 +806,7 @@ type ApiGetVideoThumbnailsAlt1Request struct {
 	ctx context.Context
 	ApiService VideosThumbnailsAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -837,7 +837,7 @@ This method returns all thumbnail images of the specified video. The authenticat
  @param videoId The ID of the video.
  @return ApiGetVideoThumbnailsAlt1Request
 */
-func (a *VideosThumbnailsAPIService) GetVideoThumbnailsAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoThumbnailsAlt1Request {
+func (a *VideosThumbnailsAPIService) GetVideoThumbnailsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoThumbnailsAlt1Request {
 	return ApiGetVideoThumbnailsAlt1Request{
 		ApiService: a,
 		ctx: ctx,

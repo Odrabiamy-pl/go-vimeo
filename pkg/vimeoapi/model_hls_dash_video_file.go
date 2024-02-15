@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the HlsDashVideoFile type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type HlsDashVideoFile struct {
 	// The URL for logging events.
 	Log NullableString `json:"log,omitempty"`
 }
-
-type _HlsDashVideoFile HlsDashVideoFile
 
 // NewHlsDashVideoFile instantiates a new HlsDashVideoFile object
 // This constructor will assign default values to properties that have it defined,
@@ -158,44 +154,6 @@ func (o HlsDashVideoFile) ToMap() (map[string]interface{}, error) {
 		toSerialize["log"] = o.Log.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *HlsDashVideoFile) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"link",
-		"link_expiration_time",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varHlsDashVideoFile := _HlsDashVideoFile{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varHlsDashVideoFile)
-
-	if err != nil {
-		return err
-	}
-
-	*o = HlsDashVideoFile(varHlsDashVideoFile)
-
-	return err
 }
 
 type NullableHlsDashVideoFile struct {

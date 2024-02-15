@@ -31,7 +31,7 @@ type LiveEventSessionsAPI interface {
 	@param videoId The ID of the event.
 	@return ApiGetLiveIngestStatusRequest
 	*/
-	GetLiveIngestStatus(ctx context.Context, videoId float32) ApiGetLiveIngestStatusRequest
+	GetLiveIngestStatus(ctx context.Context, videoId int32) ApiGetLiveIngestStatusRequest
 
 	// GetLiveIngestStatusExecute executes the request
 	//  @return LiveEventSessionStatus
@@ -44,7 +44,7 @@ type LiveEventSessionsAPIService service
 type ApiGetLiveIngestStatusRequest struct {
 	ctx context.Context
 	ApiService LiveEventSessionsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetLiveIngestStatusRequest) Execute() (*LiveEventSessionStatus, *http.Response, error) {
@@ -60,7 +60,7 @@ This method returns the ingest status of the specified event.
  @param videoId The ID of the event.
  @return ApiGetLiveIngestStatusRequest
 */
-func (a *LiveEventSessionsAPIService) GetLiveIngestStatus(ctx context.Context, videoId float32) ApiGetLiveIngestStatusRequest {
+func (a *LiveEventSessionsAPIService) GetLiveIngestStatus(ctx context.Context, videoId int32) ApiGetLiveIngestStatusRequest {
 	return ApiGetLiveIngestStatusRequest{
 		ApiService: a,
 		ctx: ctx,

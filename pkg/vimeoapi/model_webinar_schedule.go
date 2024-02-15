@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WebinarSchedule type satisfies the MappedNullable interface at compile time
@@ -34,8 +32,6 @@ type WebinarSchedule struct {
 	// The weekdays in UTC on which the webinar is expected to be live when **schedule.time** is `weekly`. The value of this field ranges from `1` to `7`, where `1` is Monday and `7` is Sunday.
 	Weekdays []string `json:"weekdays"`
 }
-
-type _WebinarSchedule WebinarSchedule
 
 // NewWebinarSchedule instantiates a new WebinarSchedule object
 // This constructor will assign default values to properties that have it defined,
@@ -223,48 +219,6 @@ func (o WebinarSchedule) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["weekdays"] = o.Weekdays
 	return toSerialize, nil
-}
-
-func (o *WebinarSchedule) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"daily_time",
-		"end_time",
-		"scheduled_time",
-		"start_time",
-		"type",
-		"weekdays",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWebinarSchedule := _WebinarSchedule{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebinarSchedule)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WebinarSchedule(varWebinarSchedule)
-
-	return err
 }
 
 type NullableWebinarSchedule struct {

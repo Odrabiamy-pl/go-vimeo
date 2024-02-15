@@ -60,7 +60,7 @@ type FoldersItemsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetUserFolderItemsRequest
 	*/
-	GetUserFolderItems(ctx context.Context, projectId float32, userId float32) ApiGetUserFolderItemsRequest
+	GetUserFolderItems(ctx context.Context, projectId float32, userId int32) ApiGetUserFolderItemsRequest
 
 	// GetUserFolderItemsExecute executes the request
 	GetUserFolderItemsExecute(r ApiGetUserFolderItemsRequest) (*http.Response, error)
@@ -360,7 +360,7 @@ type ApiGetUserFolderItemsRequest struct {
 	ctx context.Context
 	ApiService FoldersItemsAPI
 	projectId float32
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	page *float32
@@ -412,7 +412,7 @@ This method returns every item that belongs to the specified folder.
  @param userId The ID of the user.
  @return ApiGetUserFolderItemsRequest
 */
-func (a *FoldersItemsAPIService) GetUserFolderItems(ctx context.Context, projectId float32, userId float32) ApiGetUserFolderItemsRequest {
+func (a *FoldersItemsAPIService) GetUserFolderItems(ctx context.Context, projectId float32, userId int32) ApiGetUserFolderItemsRequest {
 	return ApiGetUserFolderItemsRequest{
 		ApiService: a,
 		ctx: ctx,

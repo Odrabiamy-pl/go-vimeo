@@ -31,7 +31,7 @@ type VideosTextTracksAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateTextTrackRequest
 	*/
-	CreateTextTrack(ctx context.Context, videoId float32) ApiCreateTextTrackRequest
+	CreateTextTrack(ctx context.Context, videoId int32) ApiCreateTextTrackRequest
 
 	// CreateTextTrackExecute executes the request
 	//  @return TextTrack
@@ -47,7 +47,7 @@ type VideosTextTracksAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateTextTrackAlt1Request
 	*/
-	CreateTextTrackAlt1(ctx context.Context, channelId float32, videoId float32) ApiCreateTextTrackAlt1Request
+	CreateTextTrackAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateTextTrackAlt1Request
 
 	// CreateTextTrackAlt1Execute executes the request
 	//  @return TextTrack
@@ -63,7 +63,7 @@ type VideosTextTracksAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteTextTrackRequest
 	*/
-	DeleteTextTrack(ctx context.Context, texttrackId float32, videoId float32) ApiDeleteTextTrackRequest
+	DeleteTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiDeleteTextTrackRequest
 
 	// DeleteTextTrackExecute executes the request
 	DeleteTextTrackExecute(r ApiDeleteTextTrackRequest) (*http.Response, error)
@@ -78,7 +78,7 @@ type VideosTextTracksAPI interface {
 	@param videoId The ID of the video.
 	@return ApiEditTextTrackRequest
 	*/
-	EditTextTrack(ctx context.Context, texttrackId float32, videoId float32) ApiEditTextTrackRequest
+	EditTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiEditTextTrackRequest
 
 	// EditTextTrackExecute executes the request
 	//  @return TextTrack
@@ -94,7 +94,7 @@ type VideosTextTracksAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetTextTrackRequest
 	*/
-	GetTextTrack(ctx context.Context, texttrackId float32, videoId float32) ApiGetTextTrackRequest
+	GetTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiGetTextTrackRequest
 
 	// GetTextTrackExecute executes the request
 	//  @return TextTrack
@@ -109,7 +109,7 @@ type VideosTextTracksAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetTextTracksRequest
 	*/
-	GetTextTracks(ctx context.Context, videoId float32) ApiGetTextTracksRequest
+	GetTextTracks(ctx context.Context, videoId int32) ApiGetTextTracksRequest
 
 	// GetTextTracksExecute executes the request
 	//  @return []TextTrack
@@ -125,7 +125,7 @@ type VideosTextTracksAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetTextTracksAlt1Request
 	*/
-	GetTextTracksAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetTextTracksAlt1Request
+	GetTextTracksAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetTextTracksAlt1Request
 
 	// GetTextTracksAlt1Execute executes the request
 	//  @return []TextTrack
@@ -138,7 +138,7 @@ type VideosTextTracksAPIService service
 type ApiCreateTextTrackRequest struct {
 	ctx context.Context
 	ApiService VideosTextTracksAPI
-	videoId float32
+	videoId int32
 	createTextTrackAlt1Request *CreateTextTrackAlt1Request
 }
 
@@ -160,7 +160,7 @@ This method adds a text track to the specified video. For more information, see 
  @param videoId The ID of the video.
  @return ApiCreateTextTrackRequest
 */
-func (a *VideosTextTracksAPIService) CreateTextTrack(ctx context.Context, videoId float32) ApiCreateTextTrackRequest {
+func (a *VideosTextTracksAPIService) CreateTextTrack(ctx context.Context, videoId int32) ApiCreateTextTrackRequest {
 	return ApiCreateTextTrackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -263,7 +263,7 @@ type ApiCreateTextTrackAlt1Request struct {
 	ctx context.Context
 	ApiService VideosTextTracksAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	createTextTrackAlt1Request *CreateTextTrackAlt1Request
 }
 
@@ -286,7 +286,7 @@ This method adds a text track to the specified video. For more information, see 
  @param videoId The ID of the video.
  @return ApiCreateTextTrackAlt1Request
 */
-func (a *VideosTextTracksAPIService) CreateTextTrackAlt1(ctx context.Context, channelId float32, videoId float32) ApiCreateTextTrackAlt1Request {
+func (a *VideosTextTracksAPIService) CreateTextTrackAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateTextTrackAlt1Request {
 	return ApiCreateTextTrackAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -391,7 +391,7 @@ type ApiDeleteTextTrackRequest struct {
 	ctx context.Context
 	ApiService VideosTextTracksAPI
 	texttrackId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteTextTrackRequest) Execute() (*http.Response, error) {
@@ -408,7 +408,7 @@ This method deletes the specified text track from a video. The authenticated use
  @param videoId The ID of the video.
  @return ApiDeleteTextTrackRequest
 */
-func (a *VideosTextTracksAPIService) DeleteTextTrack(ctx context.Context, texttrackId float32, videoId float32) ApiDeleteTextTrackRequest {
+func (a *VideosTextTracksAPIService) DeleteTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiDeleteTextTrackRequest {
 	return ApiDeleteTextTrackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -508,7 +508,7 @@ type ApiEditTextTrackRequest struct {
 	ctx context.Context
 	ApiService VideosTextTracksAPI
 	texttrackId float32
-	videoId float32
+	videoId int32
 	editTextTrackRequest *EditTextTrackRequest
 }
 
@@ -531,7 +531,7 @@ This method edits the specified text track of a video. The authenticated user mu
  @param videoId The ID of the video.
  @return ApiEditTextTrackRequest
 */
-func (a *VideosTextTracksAPIService) EditTextTrack(ctx context.Context, texttrackId float32, videoId float32) ApiEditTextTrackRequest {
+func (a *VideosTextTracksAPIService) EditTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiEditTextTrackRequest {
 	return ApiEditTextTrackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -644,7 +644,7 @@ type ApiGetTextTrackRequest struct {
 	ctx context.Context
 	ApiService VideosTextTracksAPI
 	texttrackId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetTextTrackRequest) Execute() (*TextTrack, *http.Response, error) {
@@ -661,7 +661,7 @@ This method returns a single text track of the specified video. The authenticate
  @param videoId The ID of the video.
  @return ApiGetTextTrackRequest
 */
-func (a *VideosTextTracksAPIService) GetTextTrack(ctx context.Context, texttrackId float32, videoId float32) ApiGetTextTrackRequest {
+func (a *VideosTextTracksAPIService) GetTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiGetTextTrackRequest {
 	return ApiGetTextTrackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -771,7 +771,7 @@ func (a *VideosTextTracksAPIService) GetTextTrackExecute(r ApiGetTextTrackReques
 type ApiGetTextTracksRequest struct {
 	ctx context.Context
 	ApiService VideosTextTracksAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -801,7 +801,7 @@ This method returns every text track of the specified video. The authenticated u
  @param videoId The ID of the video.
  @return ApiGetTextTracksRequest
 */
-func (a *VideosTextTracksAPIService) GetTextTracks(ctx context.Context, videoId float32) ApiGetTextTracksRequest {
+func (a *VideosTextTracksAPIService) GetTextTracks(ctx context.Context, videoId int32) ApiGetTextTracksRequest {
 	return ApiGetTextTracksRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -905,7 +905,7 @@ type ApiGetTextTracksAlt1Request struct {
 	ctx context.Context
 	ApiService VideosTextTracksAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -936,7 +936,7 @@ This method returns every text track of the specified video. The authenticated u
  @param videoId The ID of the video.
  @return ApiGetTextTracksAlt1Request
 */
-func (a *VideosTextTracksAPIService) GetTextTracksAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetTextTracksAlt1Request {
+func (a *VideosTextTracksAPIService) GetTextTracksAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetTextTracksAlt1Request {
 	return ApiGetTextTracksAlt1Request{
 		ApiService: a,
 		ctx: ctx,

@@ -32,7 +32,7 @@ type GroupsUsersAPI interface {
 	@param userId The ID of the user.
 	@return ApiCheckIfUserJoinedGroupRequest
 	*/
-	CheckIfUserJoinedGroup(ctx context.Context, groupId float32, userId float32) ApiCheckIfUserJoinedGroupRequest
+	CheckIfUserJoinedGroup(ctx context.Context, groupId float32, userId int32) ApiCheckIfUserJoinedGroupRequest
 
 	// CheckIfUserJoinedGroupExecute executes the request
 	CheckIfUserJoinedGroupExecute(r ApiCheckIfUserJoinedGroupRequest) (*http.Response, error)
@@ -75,7 +75,7 @@ type GroupsUsersAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetUserGroupsRequest
 	*/
-	GetUserGroups(ctx context.Context, userId float32) ApiGetUserGroupsRequest
+	GetUserGroups(ctx context.Context, userId int32) ApiGetUserGroupsRequest
 
 	// GetUserGroupsExecute executes the request
 	//  @return []Group
@@ -103,7 +103,7 @@ type ApiCheckIfUserJoinedGroupRequest struct {
 	ctx context.Context
 	ApiService GroupsUsersAPI
 	groupId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiCheckIfUserJoinedGroupRequest) Execute() (*http.Response, error) {
@@ -120,7 +120,7 @@ This method determines whether the authenticated user belongs to the specified g
  @param userId The ID of the user.
  @return ApiCheckIfUserJoinedGroupRequest
 */
-func (a *GroupsUsersAPIService) CheckIfUserJoinedGroup(ctx context.Context, groupId float32, userId float32) ApiCheckIfUserJoinedGroupRequest {
+func (a *GroupsUsersAPIService) CheckIfUserJoinedGroup(ctx context.Context, groupId float32, userId int32) ApiCheckIfUserJoinedGroupRequest {
 	return ApiCheckIfUserJoinedGroupRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -483,7 +483,7 @@ func (a *GroupsUsersAPIService) GetGroupMembersExecute(r ApiGetGroupMembersReque
 type ApiGetUserGroupsRequest struct {
 	ctx context.Context
 	ApiService GroupsUsersAPI
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	page *float32
@@ -541,7 +541,7 @@ This method returns every group to which the authenticated user belongs.
  @param userId The ID of the user.
  @return ApiGetUserGroupsRequest
 */
-func (a *GroupsUsersAPIService) GetUserGroups(ctx context.Context, userId float32) ApiGetUserGroupsRequest {
+func (a *GroupsUsersAPIService) GetUserGroups(ctx context.Context, userId int32) ApiGetUserGroupsRequest {
 	return ApiGetUserGroupsRequest{
 		ApiService: a,
 		ctx: ctx,

@@ -32,7 +32,7 @@ type ChannelsModeratorsAPI interface {
 	@param userId The ID of the user.
 	@return ApiAddChannelModeratorRequest
 	*/
-	AddChannelModerator(ctx context.Context, channelId float32, userId float32) ApiAddChannelModeratorRequest
+	AddChannelModerator(ctx context.Context, channelId float32, userId int32) ApiAddChannelModeratorRequest
 
 	// AddChannelModeratorExecute executes the request
 	AddChannelModeratorExecute(r ApiAddChannelModeratorRequest) (*http.Response, error)
@@ -61,7 +61,7 @@ type ChannelsModeratorsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetChannelModeratorRequest
 	*/
-	GetChannelModerator(ctx context.Context, channelId float32, userId float32) ApiGetChannelModeratorRequest
+	GetChannelModerator(ctx context.Context, channelId float32, userId int32) ApiGetChannelModeratorRequest
 
 	// GetChannelModeratorExecute executes the request
 	//  @return User
@@ -92,7 +92,7 @@ type ChannelsModeratorsAPI interface {
 	@param userId The ID of the user.
 	@return ApiRemoveChannelModeratorRequest
 	*/
-	RemoveChannelModerator(ctx context.Context, channelId float32, userId float32) ApiRemoveChannelModeratorRequest
+	RemoveChannelModerator(ctx context.Context, channelId float32, userId int32) ApiRemoveChannelModeratorRequest
 
 	// RemoveChannelModeratorExecute executes the request
 	RemoveChannelModeratorExecute(r ApiRemoveChannelModeratorRequest) (*http.Response, error)
@@ -134,7 +134,7 @@ type ApiAddChannelModeratorRequest struct {
 	ctx context.Context
 	ApiService ChannelsModeratorsAPI
 	channelId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiAddChannelModeratorRequest) Execute() (*http.Response, error) {
@@ -151,7 +151,7 @@ This method adds a single user as a moderator to the specified channel. The auth
  @param userId The ID of the user.
  @return ApiAddChannelModeratorRequest
 */
-func (a *ChannelsModeratorsAPIService) AddChannelModerator(ctx context.Context, channelId float32, userId float32) ApiAddChannelModeratorRequest {
+func (a *ChannelsModeratorsAPIService) AddChannelModerator(ctx context.Context, channelId float32, userId int32) ApiAddChannelModeratorRequest {
 	return ApiAddChannelModeratorRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -375,7 +375,7 @@ type ApiGetChannelModeratorRequest struct {
 	ctx context.Context
 	ApiService ChannelsModeratorsAPI
 	channelId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetChannelModeratorRequest) Execute() (*User, *http.Response, error) {
@@ -392,7 +392,7 @@ This method returns a single moderator of the specified channel.
  @param userId The ID of the user.
  @return ApiGetChannelModeratorRequest
 */
-func (a *ChannelsModeratorsAPIService) GetChannelModerator(ctx context.Context, channelId float32, userId float32) ApiGetChannelModeratorRequest {
+func (a *ChannelsModeratorsAPIService) GetChannelModerator(ctx context.Context, channelId float32, userId int32) ApiGetChannelModeratorRequest {
 	return ApiGetChannelModeratorRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -635,7 +635,7 @@ type ApiRemoveChannelModeratorRequest struct {
 	ctx context.Context
 	ApiService ChannelsModeratorsAPI
 	channelId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiRemoveChannelModeratorRequest) Execute() (*http.Response, error) {
@@ -652,7 +652,7 @@ This method removes a single moderator from the specified channel. The authentic
  @param userId The ID of the user.
  @return ApiRemoveChannelModeratorRequest
 */
-func (a *ChannelsModeratorsAPIService) RemoveChannelModerator(ctx context.Context, channelId float32, userId float32) ApiRemoveChannelModeratorRequest {
+func (a *ChannelsModeratorsAPIService) RemoveChannelModerator(ctx context.Context, channelId float32, userId int32) ApiRemoveChannelModeratorRequest {
 	return ApiRemoveChannelModeratorRequest{
 		ApiService: a,
 		ctx: ctx,

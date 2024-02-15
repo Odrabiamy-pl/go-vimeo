@@ -32,7 +32,7 @@ type WebinarRegistrationsAPI interface {
 	@param webinarId The ID of the webinar.
 	@return ApiCaptureWebinarRegistrationListRequest
 	*/
-	CaptureWebinarRegistrationList(ctx context.Context, userId float32, webinarId string) ApiCaptureWebinarRegistrationListRequest
+	CaptureWebinarRegistrationList(ctx context.Context, userId int32, webinarId string) ApiCaptureWebinarRegistrationListRequest
 
 	// CaptureWebinarRegistrationListExecute executes the request
 	CaptureWebinarRegistrationListExecute(r ApiCaptureWebinarRegistrationListRequest) (*http.Response, error)
@@ -62,7 +62,7 @@ type WebinarRegistrationsAPI interface {
 	@param webinarId The ID of the webinar.
 	@return ApiDeleteWebinarRegistrantRequest
 	*/
-	DeleteWebinarRegistrant(ctx context.Context, registrantId string, userId float32, webinarId string) ApiDeleteWebinarRegistrantRequest
+	DeleteWebinarRegistrant(ctx context.Context, registrantId string, userId int32, webinarId string) ApiDeleteWebinarRegistrantRequest
 
 	// DeleteWebinarRegistrantExecute executes the request
 	DeleteWebinarRegistrantExecute(r ApiDeleteWebinarRegistrantRequest) (*http.Response, error)
@@ -92,7 +92,7 @@ type WebinarRegistrationsAPI interface {
 	@param webinarId The ID of the webinar.
 	@return ApiGetAllWebinarRegistrationsRequest
 	*/
-	GetAllWebinarRegistrations(ctx context.Context, userId float32, webinarId string) ApiGetAllWebinarRegistrationsRequest
+	GetAllWebinarRegistrations(ctx context.Context, userId int32, webinarId string) ApiGetAllWebinarRegistrationsRequest
 
 	// GetAllWebinarRegistrationsExecute executes the request
 	//  @return WebinarRegistrant
@@ -124,7 +124,7 @@ type WebinarRegistrationsAPI interface {
 	@param webinarId The ID of the webinar.
 	@return ApiUpdateWebinarRegistrationsRequest
 	*/
-	UpdateWebinarRegistrations(ctx context.Context, registrantId string, userId float32, webinarId string) ApiUpdateWebinarRegistrationsRequest
+	UpdateWebinarRegistrations(ctx context.Context, registrantId string, userId int32, webinarId string) ApiUpdateWebinarRegistrationsRequest
 
 	// UpdateWebinarRegistrationsExecute executes the request
 	//  @return WebinarRegistrant
@@ -153,7 +153,7 @@ type WebinarRegistrationsAPIService service
 type ApiCaptureWebinarRegistrationListRequest struct {
 	ctx context.Context
 	ApiService WebinarRegistrationsAPI
-	userId float32
+	userId int32
 	webinarId string
 	captureWebinarRegistrationListAlt1Request *CaptureWebinarRegistrationListAlt1Request
 }
@@ -177,7 +177,7 @@ This method captures the user registration list associated with the specified we
  @param webinarId The ID of the webinar.
  @return ApiCaptureWebinarRegistrationListRequest
 */
-func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationList(ctx context.Context, userId float32, webinarId string) ApiCaptureWebinarRegistrationListRequest {
+func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationList(ctx context.Context, userId int32, webinarId string) ApiCaptureWebinarRegistrationListRequest {
 	return ApiCaptureWebinarRegistrationListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -400,7 +400,7 @@ type ApiDeleteWebinarRegistrantRequest struct {
 	ctx context.Context
 	ApiService WebinarRegistrationsAPI
 	registrantId string
-	userId float32
+	userId int32
 	webinarId string
 }
 
@@ -419,7 +419,7 @@ This method deletes the specified registrant associated with a webinar and origi
  @param webinarId The ID of the webinar.
  @return ApiDeleteWebinarRegistrantRequest
 */
-func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrant(ctx context.Context, registrantId string, userId float32, webinarId string) ApiDeleteWebinarRegistrantRequest {
+func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrant(ctx context.Context, registrantId string, userId int32, webinarId string) ApiDeleteWebinarRegistrantRequest {
 	return ApiDeleteWebinarRegistrantRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -681,7 +681,7 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantAlt1Execute(r Ap
 type ApiGetAllWebinarRegistrationsRequest struct {
 	ctx context.Context
 	ApiService WebinarRegistrationsAPI
-	userId float32
+	userId int32
 	webinarId string
 	direction *string
 	page *float32
@@ -727,7 +727,7 @@ This method returns the list of user registrations that is associated with the s
  @param webinarId The ID of the webinar.
  @return ApiGetAllWebinarRegistrationsRequest
 */
-func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrations(ctx context.Context, userId float32, webinarId string) ApiGetAllWebinarRegistrationsRequest {
+func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrations(ctx context.Context, userId int32, webinarId string) ApiGetAllWebinarRegistrationsRequest {
 	return ApiGetAllWebinarRegistrationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1036,7 +1036,7 @@ type ApiUpdateWebinarRegistrationsRequest struct {
 	ctx context.Context
 	ApiService WebinarRegistrationsAPI
 	registrantId string
-	userId float32
+	userId int32
 	webinarId string
 	updateWebinarRegistrationsAlt1Request *UpdateWebinarRegistrationsAlt1Request
 }
@@ -1061,7 +1061,7 @@ This method updates the specified user registration data associated with a webin
  @param webinarId The ID of the webinar.
  @return ApiUpdateWebinarRegistrationsRequest
 */
-func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrations(ctx context.Context, registrantId string, userId float32, webinarId string) ApiUpdateWebinarRegistrationsRequest {
+func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrations(ctx context.Context, registrantId string, userId int32, webinarId string) ApiUpdateWebinarRegistrationsRequest {
 	return ApiUpdateWebinarRegistrationsRequest{
 		ApiService: a,
 		ctx: ctx,

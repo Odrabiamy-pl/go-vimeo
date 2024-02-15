@@ -32,7 +32,7 @@ type LiveEventThumbnailsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateLiveEventThumbnailRequest
 	*/
-	CreateLiveEventThumbnail(ctx context.Context, liveEventId float32, userId float32) ApiCreateLiveEventThumbnailRequest
+	CreateLiveEventThumbnail(ctx context.Context, liveEventId float32, userId int32) ApiCreateLiveEventThumbnailRequest
 
 	// CreateLiveEventThumbnailExecute executes the request
 	//  @return Picture
@@ -79,7 +79,7 @@ type LiveEventThumbnailsAPI interface {
 	@param userId The ID of the user.
 	@return ApiDeleteLiveEventThumbnailRequest
 	*/
-	DeleteLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId float32) ApiDeleteLiveEventThumbnailRequest
+	DeleteLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiDeleteLiveEventThumbnailRequest
 
 	// DeleteLiveEventThumbnailExecute executes the request
 	DeleteLiveEventThumbnailExecute(r ApiDeleteLiveEventThumbnailRequest) (*http.Response, error)
@@ -125,7 +125,7 @@ type LiveEventThumbnailsAPI interface {
 	@param userId The ID of the user.
 	@return ApiEditLiveEventThumbnailRequest
 	*/
-	EditLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId float32) ApiEditLiveEventThumbnailRequest
+	EditLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiEditLiveEventThumbnailRequest
 
 	// EditLiveEventThumbnailExecute executes the request
 	//  @return Picture
@@ -174,7 +174,7 @@ type LiveEventThumbnailsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLiveEventThumbnailRequest
 	*/
-	GetLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId float32) ApiGetLiveEventThumbnailRequest
+	GetLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiGetLiveEventThumbnailRequest
 
 	// GetLiveEventThumbnailExecute executes the request
 	//  @return Picture
@@ -222,7 +222,7 @@ type LiveEventThumbnailsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLiveEventThumbnailsRequest
 	*/
-	GetLiveEventThumbnails(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventThumbnailsRequest
+	GetLiveEventThumbnails(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventThumbnailsRequest
 
 	// GetLiveEventThumbnailsExecute executes the request
 	//  @return []Picture
@@ -266,7 +266,7 @@ type ApiCreateLiveEventThumbnailRequest struct {
 	ctx context.Context
 	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	createLiveEventThumbnailAlt1Request *CreateLiveEventThumbnailAlt1Request
 }
 
@@ -289,7 +289,7 @@ This method creates a thumbnail image for the specified event.
  @param userId The ID of the user.
  @return ApiCreateLiveEventThumbnailRequest
 */
-func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnail(ctx context.Context, liveEventId float32, userId float32) ApiCreateLiveEventThumbnailRequest {
+func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnail(ctx context.Context, liveEventId float32, userId int32) ApiCreateLiveEventThumbnailRequest {
 	return ApiCreateLiveEventThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -667,7 +667,7 @@ type ApiDeleteLiveEventThumbnailRequest struct {
 	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiDeleteLiveEventThumbnailRequest) Execute() (*http.Response, error) {
@@ -685,7 +685,7 @@ This method deletes a thumbnail image for the specified event.
  @param userId The ID of the user.
  @return ApiDeleteLiveEventThumbnailRequest
 */
-func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId float32) ApiDeleteLiveEventThumbnailRequest {
+func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiDeleteLiveEventThumbnailRequest {
 	return ApiDeleteLiveEventThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1022,7 +1022,7 @@ type ApiEditLiveEventThumbnailRequest struct {
 	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
-	userId float32
+	userId int32
 	createLiveEventThumbnailAlt1Request *CreateLiveEventThumbnailAlt1Request
 }
 
@@ -1046,7 +1046,7 @@ This method edits a thumbnail image for the specified event.
  @param userId The ID of the user.
  @return ApiEditLiveEventThumbnailRequest
 */
-func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId float32) ApiEditLiveEventThumbnailRequest {
+func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiEditLiveEventThumbnailRequest {
 	return ApiEditLiveEventThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1434,7 +1434,7 @@ type ApiGetLiveEventThumbnailRequest struct {
 	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetLiveEventThumbnailRequest) Execute() (*Picture, *http.Response, error) {
@@ -1452,7 +1452,7 @@ This method returns a single thumbnail image of the specified event.
  @param userId The ID of the user.
  @return ApiGetLiveEventThumbnailRequest
 */
-func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId float32) ApiGetLiveEventThumbnailRequest {
+func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiGetLiveEventThumbnailRequest {
 	return ApiGetLiveEventThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1821,7 +1821,7 @@ type ApiGetLiveEventThumbnailsRequest struct {
 	ctx context.Context
 	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetLiveEventThumbnailsRequest) Execute() ([]Picture, *http.Response, error) {
@@ -1838,7 +1838,7 @@ This method returns every thumbnail image of the specified event.
  @param userId The ID of the user.
  @return ApiGetLiveEventThumbnailsRequest
 */
-func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnails(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventThumbnailsRequest {
+func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnails(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventThumbnailsRequest {
 	return ApiGetLiveEventThumbnailsRequest{
 		ApiService: a,
 		ctx: ctx,

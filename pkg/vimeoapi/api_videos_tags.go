@@ -32,7 +32,7 @@ type VideosTagsAPI interface {
 	@param word The tag word.
 	@return ApiAddVideoTagRequest
 	*/
-	AddVideoTag(ctx context.Context, videoId float32, word string) ApiAddVideoTagRequest
+	AddVideoTag(ctx context.Context, videoId int32, word string) ApiAddVideoTagRequest
 
 	// AddVideoTagExecute executes the request
 	//  @return Tag
@@ -47,7 +47,7 @@ type VideosTagsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoTagsRequest
 	*/
-	AddVideoTags(ctx context.Context, videoId float32) ApiAddVideoTagsRequest
+	AddVideoTags(ctx context.Context, videoId int32) ApiAddVideoTagsRequest
 
 	// AddVideoTagsExecute executes the request
 	//  @return []Tag
@@ -63,7 +63,7 @@ type VideosTagsAPI interface {
 	@param word The tag word.
 	@return ApiCheckVideoForTagRequest
 	*/
-	CheckVideoForTag(ctx context.Context, videoId float32, word string) ApiCheckVideoForTagRequest
+	CheckVideoForTag(ctx context.Context, videoId int32, word string) ApiCheckVideoForTagRequest
 
 	// CheckVideoForTagExecute executes the request
 	//  @return Tag
@@ -79,7 +79,7 @@ type VideosTagsAPI interface {
 	@param word The tag word.
 	@return ApiDeleteVideoTagRequest
 	*/
-	DeleteVideoTag(ctx context.Context, videoId float32, word string) ApiDeleteVideoTagRequest
+	DeleteVideoTag(ctx context.Context, videoId int32, word string) ApiDeleteVideoTagRequest
 
 	// DeleteVideoTagExecute executes the request
 	DeleteVideoTagExecute(r ApiDeleteVideoTagRequest) (*http.Response, error)
@@ -93,7 +93,7 @@ type VideosTagsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoTagsRequest
 	*/
-	GetVideoTags(ctx context.Context, videoId float32) ApiGetVideoTagsRequest
+	GetVideoTags(ctx context.Context, videoId int32) ApiGetVideoTagsRequest
 
 	// GetVideoTagsExecute executes the request
 	//  @return []Tag
@@ -121,7 +121,7 @@ type VideosTagsAPIService service
 type ApiAddVideoTagRequest struct {
 	ctx context.Context
 	ApiService VideosTagsAPI
-	videoId float32
+	videoId int32
 	word string
 }
 
@@ -139,7 +139,7 @@ This method adds a single tag to the specified video. The authenticated user mus
  @param word The tag word.
  @return ApiAddVideoTagRequest
 */
-func (a *VideosTagsAPIService) AddVideoTag(ctx context.Context, videoId float32, word string) ApiAddVideoTagRequest {
+func (a *VideosTagsAPIService) AddVideoTag(ctx context.Context, videoId int32, word string) ApiAddVideoTagRequest {
 	return ApiAddVideoTagRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -249,7 +249,7 @@ func (a *VideosTagsAPIService) AddVideoTagExecute(r ApiAddVideoTagRequest) (*Tag
 type ApiAddVideoTagsRequest struct {
 	ctx context.Context
 	ApiService VideosTagsAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -279,7 +279,7 @@ This method adds multiple tags to the specified video. Include the tags as a JSO
  @param videoId The ID of the video.
  @return ApiAddVideoTagsRequest
 */
-func (a *VideosTagsAPIService) AddVideoTags(ctx context.Context, videoId float32) ApiAddVideoTagsRequest {
+func (a *VideosTagsAPIService) AddVideoTags(ctx context.Context, videoId int32) ApiAddVideoTagsRequest {
 	return ApiAddVideoTagsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -393,7 +393,7 @@ func (a *VideosTagsAPIService) AddVideoTagsExecute(r ApiAddVideoTagsRequest) ([]
 type ApiCheckVideoForTagRequest struct {
 	ctx context.Context
 	ApiService VideosTagsAPI
-	videoId float32
+	videoId int32
 	word string
 }
 
@@ -411,7 +411,7 @@ This method determines whether the specified tag has been added to a video. The 
  @param word The tag word.
  @return ApiCheckVideoForTagRequest
 */
-func (a *VideosTagsAPIService) CheckVideoForTag(ctx context.Context, videoId float32, word string) ApiCheckVideoForTagRequest {
+func (a *VideosTagsAPIService) CheckVideoForTag(ctx context.Context, videoId int32, word string) ApiCheckVideoForTagRequest {
 	return ApiCheckVideoForTagRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -521,7 +521,7 @@ func (a *VideosTagsAPIService) CheckVideoForTagExecute(r ApiCheckVideoForTagRequ
 type ApiDeleteVideoTagRequest struct {
 	ctx context.Context
 	ApiService VideosTagsAPI
-	videoId float32
+	videoId int32
 	word string
 }
 
@@ -539,7 +539,7 @@ This method removes the specified tag from a video. The authenticated user must 
  @param word The tag word.
  @return ApiDeleteVideoTagRequest
 */
-func (a *VideosTagsAPIService) DeleteVideoTag(ctx context.Context, videoId float32, word string) ApiDeleteVideoTagRequest {
+func (a *VideosTagsAPIService) DeleteVideoTag(ctx context.Context, videoId int32, word string) ApiDeleteVideoTagRequest {
 	return ApiDeleteVideoTagRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -627,7 +627,7 @@ func (a *VideosTagsAPIService) DeleteVideoTagExecute(r ApiDeleteVideoTagRequest)
 type ApiGetVideoTagsRequest struct {
 	ctx context.Context
 	ApiService VideosTagsAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -657,7 +657,7 @@ This method returns all the tags associated with the specified video. The authen
  @param videoId The ID of the video.
  @return ApiGetVideoTagsRequest
 */
-func (a *VideosTagsAPIService) GetVideoTags(ctx context.Context, videoId float32) ApiGetVideoTagsRequest {
+func (a *VideosTagsAPIService) GetVideoTags(ctx context.Context, videoId int32) ApiGetVideoTagsRequest {
 	return ApiGetVideoTagsRequest{
 		ApiService: a,
 		ctx: ctx,

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoVersionUpload type satisfies the MappedNullable interface at compile time
@@ -38,8 +36,6 @@ type VideoVersionUpload struct {
 	// The link for sending video file data.
 	UploadLink *string `json:"upload_link,omitempty"`
 }
-
-type _VideoVersionUpload VideoVersionUpload
 
 // NewVideoVersionUpload instantiates a new VideoVersionUpload object
 // This constructor will assign default values to properties that have it defined,
@@ -340,43 +336,6 @@ func (o VideoVersionUpload) ToMap() (map[string]interface{}, error) {
 		toSerialize["upload_link"] = o.UploadLink
 	}
 	return toSerialize, nil
-}
-
-func (o *VideoVersionUpload) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"status",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoVersionUpload := _VideoVersionUpload{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoVersionUpload)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoVersionUpload(varVideoVersionUpload)
-
-	return err
 }
 
 type NullableVideoVersionUpload struct {

@@ -31,7 +31,7 @@ type EmbedPresetsCustomLogosAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateCustomLogoRequest
 	*/
-	CreateCustomLogo(ctx context.Context, userId float32) ApiCreateCustomLogoRequest
+	CreateCustomLogo(ctx context.Context, userId int32) ApiCreateCustomLogoRequest
 
 	// CreateCustomLogoExecute executes the request
 	//  @return Picture
@@ -61,7 +61,7 @@ type EmbedPresetsCustomLogosAPI interface {
 	@param userId The ID of the user.
 	@return ApiDeleteCustomLogoRequest
 	*/
-	DeleteCustomLogo(ctx context.Context, logoId float32, userId float32) ApiDeleteCustomLogoRequest
+	DeleteCustomLogo(ctx context.Context, logoId float32, userId int32) ApiDeleteCustomLogoRequest
 
 	// DeleteCustomLogoExecute executes the request
 	DeleteCustomLogoExecute(r ApiDeleteCustomLogoRequest) (*http.Response, error)
@@ -90,7 +90,7 @@ type EmbedPresetsCustomLogosAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetCustomLogoRequest
 	*/
-	GetCustomLogo(ctx context.Context, logoId float32, userId float32) ApiGetCustomLogoRequest
+	GetCustomLogo(ctx context.Context, logoId float32, userId int32) ApiGetCustomLogoRequest
 
 	// GetCustomLogoExecute executes the request
 	//  @return Picture
@@ -120,7 +120,7 @@ type EmbedPresetsCustomLogosAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetCustomLogosRequest
 	*/
-	GetCustomLogos(ctx context.Context, userId float32) ApiGetCustomLogosRequest
+	GetCustomLogos(ctx context.Context, userId int32) ApiGetCustomLogosRequest
 
 	// GetCustomLogosExecute executes the request
 	//  @return []Picture
@@ -147,7 +147,7 @@ type EmbedPresetsCustomLogosAPIService service
 type ApiCreateCustomLogoRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
-	userId float32
+	userId int32
 }
 
 func (r ApiCreateCustomLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -163,7 +163,7 @@ This method adds a custom logo representing the authenticated user for display i
  @param userId The ID of the user.
  @return ApiCreateCustomLogoRequest
 */
-func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogo(ctx context.Context, userId float32) ApiCreateCustomLogoRequest {
+func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogo(ctx context.Context, userId int32) ApiCreateCustomLogoRequest {
 	return ApiCreateCustomLogoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -370,7 +370,7 @@ type ApiDeleteCustomLogoRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
 	logoId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiDeleteCustomLogoRequest) Execute() (*http.Response, error) {
@@ -387,7 +387,7 @@ This method deletes the specified custom logo belonging to the authenticated use
  @param userId The ID of the user.
  @return ApiDeleteCustomLogoRequest
 */
-func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogo(ctx context.Context, logoId float32, userId float32) ApiDeleteCustomLogoRequest {
+func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogo(ctx context.Context, logoId float32, userId int32) ApiDeleteCustomLogoRequest {
 	return ApiDeleteCustomLogoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -578,7 +578,7 @@ type ApiGetCustomLogoRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
 	logoId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetCustomLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -595,7 +595,7 @@ This method returns a single custom logo belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetCustomLogoRequest
 */
-func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogo(ctx context.Context, logoId float32, userId float32) ApiGetCustomLogoRequest {
+func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogo(ctx context.Context, logoId float32, userId int32) ApiGetCustomLogoRequest {
 	return ApiGetCustomLogoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -807,7 +807,7 @@ func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogoAlt1Execute(r ApiGetCus
 type ApiGetCustomLogosRequest struct {
 	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
-	userId float32
+	userId int32
 }
 
 func (r ApiGetCustomLogosRequest) Execute() ([]Picture, *http.Response, error) {
@@ -823,7 +823,7 @@ This method returns every custom logo that belongs to the authenticated user or 
  @param userId The ID of the user.
  @return ApiGetCustomLogosRequest
 */
-func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogos(ctx context.Context, userId float32) ApiGetCustomLogosRequest {
+func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogos(ctx context.Context, userId int32) ApiGetCustomLogosRequest {
 	return ApiGetCustomLogosRequest{
 		ApiService: a,
 		ctx: ctx,

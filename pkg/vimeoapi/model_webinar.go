@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Webinar type satisfies the MappedNullable interface at compile time
@@ -31,7 +29,6 @@ type Webinar struct {
 	// Information about the email provider list that is selected to import registrants.
 	EmailProviderList []WebinarEmailProviderListInner `json:"email_provider_list"`
 	EmailQuota WebinarEmailQuota `json:"email_quota"`
-	// The settings for emails that are sent about the webinar.
 	EmailSettings WebinarEmailSettings `json:"email_settings"`
 	Events NullableWebinarEvents `json:"events"`
 	// Whether polls are associated with the webinar.
@@ -45,7 +42,6 @@ type Webinar struct {
 	Password NullableString `json:"password"`
 	Privacy WebinarPrivacy `json:"privacy"`
 	RegistrationData WebinarRegistrationData `json:"registration_data"`
-	// The registration form settings associated with the webinar.
 	RegistrationForm EmailCaptureForm `json:"registration_form"`
 	Schedule NullableWebinarSchedule `json:"schedule"`
 	// The status of the webinar.  Option descriptions:  * `ended` - The webinar has ended.  * `started` - The webinar has started. 
@@ -56,11 +52,8 @@ type Webinar struct {
 	Title NullableString `json:"title"`
 	// The webinar's canonical relative URI.
 	Uri string `json:"uri"`
-	// The owner of the webinar.
 	User User `json:"user"`
 }
-
-type _Webinar Webinar
 
 // NewWebinar instantiates a new Webinar object
 // This constructor will assign default values to properties that have it defined,
@@ -678,64 +671,6 @@ func (o Webinar) ToMap() (map[string]interface{}, error) {
 	toSerialize["uri"] = o.Uri
 	toSerialize["user"] = o.User
 	return toSerialize, nil
-}
-
-func (o *Webinar) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"completed_on",
-		"created_time",
-		"description",
-		"edit",
-		"email_provider_list",
-		"email_quota",
-		"email_settings",
-		"events",
-		"has_polls",
-		"metadata",
-		"modified_on",
-		"next_occurrence_time",
-		"password",
-		"privacy",
-		"registration_data",
-		"registration_form",
-		"schedule",
-		"status",
-		"time_zone",
-		"title",
-		"uri",
-		"user",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWebinar := _Webinar{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebinar)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Webinar(varWebinar)
-
-	return err
 }
 
 type NullableWebinar struct {

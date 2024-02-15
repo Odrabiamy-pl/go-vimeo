@@ -31,7 +31,7 @@ type VideosNondestructiveTrimmingAPI interface {
 	@param videoId The ID of the video.
 	@return ApiClipTrimRequest
 	*/
-	ClipTrim(ctx context.Context, videoId float32) ApiClipTrimRequest
+	ClipTrim(ctx context.Context, videoId int32) ApiClipTrimRequest
 
 	// ClipTrimExecute executes the request
 	//  @return TrimmedVideo
@@ -46,7 +46,7 @@ type VideosNondestructiveTrimmingAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetClipTrimRequest
 	*/
-	GetClipTrim(ctx context.Context, videoId float32) ApiGetClipTrimRequest
+	GetClipTrim(ctx context.Context, videoId int32) ApiGetClipTrimRequest
 
 	// GetClipTrimExecute executes the request
 	//  @return TrimmedVideo
@@ -59,7 +59,7 @@ type VideosNondestructiveTrimmingAPIService service
 type ApiClipTrimRequest struct {
 	ctx context.Context
 	ApiService VideosNondestructiveTrimmingAPI
-	videoId float32
+	videoId int32
 	clipTrimRequest *ClipTrimRequest
 }
 
@@ -81,7 +81,7 @@ This method starts a trim operation for the specified video.
  @param videoId The ID of the video.
  @return ApiClipTrimRequest
 */
-func (a *VideosNondestructiveTrimmingAPIService) ClipTrim(ctx context.Context, videoId float32) ApiClipTrimRequest {
+func (a *VideosNondestructiveTrimmingAPIService) ClipTrim(ctx context.Context, videoId int32) ApiClipTrimRequest {
 	return ApiClipTrimRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -191,7 +191,7 @@ func (a *VideosNondestructiveTrimmingAPIService) ClipTrimExecute(r ApiClipTrimRe
 type ApiGetClipTrimRequest struct {
 	ctx context.Context
 	ApiService VideosNondestructiveTrimmingAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetClipTrimRequest) Execute() (*TrimmedVideo, *http.Response, error) {
@@ -207,7 +207,7 @@ This method returns the status of the trim operation for the specified video.
  @param videoId The ID of the video.
  @return ApiGetClipTrimRequest
 */
-func (a *VideosNondestructiveTrimmingAPIService) GetClipTrim(ctx context.Context, videoId float32) ApiGetClipTrimRequest {
+func (a *VideosNondestructiveTrimmingAPIService) GetClipTrim(ctx context.Context, videoId int32) ApiGetClipTrimRequest {
 	return ApiGetClipTrimRequest{
 		ApiService: a,
 		ctx: ctx,

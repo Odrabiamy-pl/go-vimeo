@@ -32,7 +32,7 @@ type WatchLaterQueueEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToWatchLaterRequest
 	*/
-	AddVideoToWatchLater(ctx context.Context, userId float32, videoId float32) ApiAddVideoToWatchLaterRequest
+	AddVideoToWatchLater(ctx context.Context, userId int32, videoId int32) ApiAddVideoToWatchLaterRequest
 
 	// AddVideoToWatchLaterExecute executes the request
 	AddVideoToWatchLaterExecute(r ApiAddVideoToWatchLaterRequest) (*http.Response, error)
@@ -46,7 +46,7 @@ type WatchLaterQueueEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToWatchLaterAlt1Request
 	*/
-	AddVideoToWatchLaterAlt1(ctx context.Context, videoId float32) ApiAddVideoToWatchLaterAlt1Request
+	AddVideoToWatchLaterAlt1(ctx context.Context, videoId int32) ApiAddVideoToWatchLaterAlt1Request
 
 	// AddVideoToWatchLaterAlt1Execute executes the request
 	AddVideoToWatchLaterAlt1Execute(r ApiAddVideoToWatchLaterAlt1Request) (*http.Response, error)
@@ -61,7 +61,7 @@ type WatchLaterQueueEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCheckWatchLaterQueueRequest
 	*/
-	CheckWatchLaterQueue(ctx context.Context, userId float32, videoId float32) ApiCheckWatchLaterQueueRequest
+	CheckWatchLaterQueue(ctx context.Context, userId int32, videoId int32) ApiCheckWatchLaterQueueRequest
 
 	// CheckWatchLaterQueueExecute executes the request
 	//  @return Video
@@ -76,7 +76,7 @@ type WatchLaterQueueEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCheckWatchLaterQueueAlt1Request
 	*/
-	CheckWatchLaterQueueAlt1(ctx context.Context, videoId float32) ApiCheckWatchLaterQueueAlt1Request
+	CheckWatchLaterQueueAlt1(ctx context.Context, videoId int32) ApiCheckWatchLaterQueueAlt1Request
 
 	// CheckWatchLaterQueueAlt1Execute executes the request
 	//  @return Video
@@ -92,7 +92,7 @@ type WatchLaterQueueEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoFromWatchLaterRequest
 	*/
-	DeleteVideoFromWatchLater(ctx context.Context, userId float32, videoId float32) ApiDeleteVideoFromWatchLaterRequest
+	DeleteVideoFromWatchLater(ctx context.Context, userId int32, videoId int32) ApiDeleteVideoFromWatchLaterRequest
 
 	// DeleteVideoFromWatchLaterExecute executes the request
 	DeleteVideoFromWatchLaterExecute(r ApiDeleteVideoFromWatchLaterRequest) (*http.Response, error)
@@ -106,7 +106,7 @@ type WatchLaterQueueEssentialsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoFromWatchLaterAlt1Request
 	*/
-	DeleteVideoFromWatchLaterAlt1(ctx context.Context, videoId float32) ApiDeleteVideoFromWatchLaterAlt1Request
+	DeleteVideoFromWatchLaterAlt1(ctx context.Context, videoId int32) ApiDeleteVideoFromWatchLaterAlt1Request
 
 	// DeleteVideoFromWatchLaterAlt1Execute executes the request
 	DeleteVideoFromWatchLaterAlt1Execute(r ApiDeleteVideoFromWatchLaterAlt1Request) (*http.Response, error)
@@ -120,7 +120,7 @@ type WatchLaterQueueEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetWatchLaterQueueRequest
 	*/
-	GetWatchLaterQueue(ctx context.Context, userId float32) ApiGetWatchLaterQueueRequest
+	GetWatchLaterQueue(ctx context.Context, userId int32) ApiGetWatchLaterQueueRequest
 
 	// GetWatchLaterQueueExecute executes the request
 	//  @return []Video
@@ -147,8 +147,8 @@ type WatchLaterQueueEssentialsAPIService service
 type ApiAddVideoToWatchLaterRequest struct {
 	ctx context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiAddVideoToWatchLaterRequest) Execute() (*http.Response, error) {
@@ -165,7 +165,7 @@ This method adds the specified video to the authenticated user's Watch Later que
  @param videoId The ID of the video.
  @return ApiAddVideoToWatchLaterRequest
 */
-func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLater(ctx context.Context, userId float32, videoId float32) ApiAddVideoToWatchLaterRequest {
+func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLater(ctx context.Context, userId int32, videoId int32) ApiAddVideoToWatchLaterRequest {
 	return ApiAddVideoToWatchLaterRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -243,7 +243,7 @@ func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterExecute(r ApiA
 type ApiAddVideoToWatchLaterAlt1Request struct {
 	ctx context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoToWatchLaterAlt1Request) Execute() (*http.Response, error) {
@@ -259,7 +259,7 @@ This method adds the specified video to the authenticated user's Watch Later que
  @param videoId The ID of the video.
  @return ApiAddVideoToWatchLaterAlt1Request
 */
-func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterAlt1(ctx context.Context, videoId float32) ApiAddVideoToWatchLaterAlt1Request {
+func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterAlt1(ctx context.Context, videoId int32) ApiAddVideoToWatchLaterAlt1Request {
 	return ApiAddVideoToWatchLaterAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -335,8 +335,8 @@ func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterAlt1Execute(r 
 type ApiCheckWatchLaterQueueRequest struct {
 	ctx context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiCheckWatchLaterQueueRequest) Execute() (*Video, *http.Response, error) {
@@ -353,7 +353,7 @@ This method checks the authenticated user's Watch Later queue for the specified 
  @param videoId The ID of the video.
  @return ApiCheckWatchLaterQueueRequest
 */
-func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueue(ctx context.Context, userId float32, videoId float32) ApiCheckWatchLaterQueueRequest {
+func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueue(ctx context.Context, userId int32, videoId int32) ApiCheckWatchLaterQueueRequest {
 	return ApiCheckWatchLaterQueueRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -452,7 +452,7 @@ func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueExecute(r ApiC
 type ApiCheckWatchLaterQueueAlt1Request struct {
 	ctx context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiCheckWatchLaterQueueAlt1Request) Execute() (*Video, *http.Response, error) {
@@ -468,7 +468,7 @@ This method checks the authenticated user's Watch Later queue for the specified 
  @param videoId The ID of the video.
  @return ApiCheckWatchLaterQueueAlt1Request
 */
-func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueAlt1(ctx context.Context, videoId float32) ApiCheckWatchLaterQueueAlt1Request {
+func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueAlt1(ctx context.Context, videoId int32) ApiCheckWatchLaterQueueAlt1Request {
 	return ApiCheckWatchLaterQueueAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -565,8 +565,8 @@ func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueAlt1Execute(r 
 type ApiDeleteVideoFromWatchLaterRequest struct {
 	ctx context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiDeleteVideoFromWatchLaterRequest) Execute() (*http.Response, error) {
@@ -583,7 +583,7 @@ This method removes the specified video from the authenticated user's Watch Late
  @param videoId The ID of the video.
  @return ApiDeleteVideoFromWatchLaterRequest
 */
-func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLater(ctx context.Context, userId float32, videoId float32) ApiDeleteVideoFromWatchLaterRequest {
+func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLater(ctx context.Context, userId int32, videoId int32) ApiDeleteVideoFromWatchLaterRequest {
 	return ApiDeleteVideoFromWatchLaterRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -661,7 +661,7 @@ func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterExecute(r
 type ApiDeleteVideoFromWatchLaterAlt1Request struct {
 	ctx context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoFromWatchLaterAlt1Request) Execute() (*http.Response, error) {
@@ -677,7 +677,7 @@ This method removes the specified video from the authenticated user's Watch Late
  @param videoId The ID of the video.
  @return ApiDeleteVideoFromWatchLaterAlt1Request
 */
-func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterAlt1(ctx context.Context, videoId float32) ApiDeleteVideoFromWatchLaterAlt1Request {
+func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterAlt1(ctx context.Context, videoId int32) ApiDeleteVideoFromWatchLaterAlt1Request {
 	return ApiDeleteVideoFromWatchLaterAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -753,7 +753,7 @@ func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterAlt1Execu
 type ApiGetWatchLaterQueueRequest struct {
 	ctx context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	filterEmbeddable *bool
@@ -818,7 +818,7 @@ This method returns every video from the authenticated user's Watch Later queue.
  @param userId The ID of the user.
  @return ApiGetWatchLaterQueueRequest
 */
-func (a *WatchLaterQueueEssentialsAPIService) GetWatchLaterQueue(ctx context.Context, userId float32) ApiGetWatchLaterQueueRequest {
+func (a *WatchLaterQueueEssentialsAPIService) GetWatchLaterQueue(ctx context.Context, userId int32) ApiGetWatchLaterQueueRequest {
 	return ApiGetWatchLaterQueueRequest{
 		ApiService: a,
 		ctx: ctx,

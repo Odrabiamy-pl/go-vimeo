@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventSessionStatusIngest type satisfies the MappedNullable interface at compile time
@@ -52,8 +50,6 @@ type LiveEventSessionStatusIngest struct {
 	// The width of the live video in pixels.
 	Width NullableFloat32 `json:"width"`
 }
-
-type _LiveEventSessionStatusIngest LiveEventSessionStatusIngest
 
 // NewLiveEventSessionStatusIngest instantiates a new LiveEventSessionStatusIngest object
 // This constructor will assign default values to properties that have it defined,
@@ -499,57 +495,6 @@ func (o LiveEventSessionStatusIngest) ToMap() (map[string]interface{}, error) {
 	toSerialize["stream_key"] = o.StreamKey.Get()
 	toSerialize["width"] = o.Width.Get()
 	return toSerialize, nil
-}
-
-func (o *LiveEventSessionStatusIngest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"encoder_type",
-		"end_time",
-		"height",
-		"is_rtmp_session",
-		"is_scheduled_playback",
-		"rtmp_expires_at",
-		"rtmp_link",
-		"rtmps_link",
-		"scheduled_start_time",
-		"session_id",
-		"start_time",
-		"status",
-		"stream_ended_reason",
-		"stream_key",
-		"width",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventSessionStatusIngest := _LiveEventSessionStatusIngest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventSessionStatusIngest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventSessionStatusIngest(varLiveEventSessionStatusIngest)
-
-	return err
 }
 
 type NullableLiveEventSessionStatusIngest struct {

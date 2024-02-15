@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AlbumMetadataInteractions type satisfies the MappedNullable interface at compile time
@@ -27,8 +25,6 @@ type AlbumMetadataInteractions struct {
 	AddTo NullableAlbumMetadataInteractionsAddTo `json:"add_to"`
 	AddVideos AlbumMetadataInteractionsAddVideos `json:"add_videos"`
 }
-
-type _AlbumMetadataInteractions AlbumMetadataInteractions
 
 // NewAlbumMetadataInteractions instantiates a new AlbumMetadataInteractions object
 // This constructor will assign default values to properties that have it defined,
@@ -190,47 +186,6 @@ func (o AlbumMetadataInteractions) ToMap() (map[string]interface{}, error) {
 	toSerialize["add_to"] = o.AddTo.Get()
 	toSerialize["add_videos"] = o.AddVideos
 	return toSerialize, nil
-}
-
-func (o *AlbumMetadataInteractions) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"add_custom_thumbnails",
-		"add_live_events",
-		"add_logos",
-		"add_to",
-		"add_videos",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAlbumMetadataInteractions := _AlbumMetadataInteractions{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAlbumMetadataInteractions)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AlbumMetadataInteractions(varAlbumMetadataInteractions)
-
-	return err
 }
 
 type NullableAlbumMetadataInteractions struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Tutorial type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type Tutorial struct {
 	// Whether the current access token is authenticated.
 	TokenIsAuthenticated bool `json:"token_is_authenticated"`
 }
-
-type _Tutorial Tutorial
 
 // NewTutorial instantiates a new Tutorial object
 // This constructor will assign default values to properties that have it defined,
@@ -137,45 +133,6 @@ func (o Tutorial) ToMap() (map[string]interface{}, error) {
 	toSerialize["next_steps_link"] = o.NextStepsLink
 	toSerialize["token_is_authenticated"] = o.TokenIsAuthenticated
 	return toSerialize, nil
-}
-
-func (o *Tutorial) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"message",
-		"next_steps_link",
-		"token_is_authenticated",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTutorial := _Tutorial{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTutorial)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Tutorial(varTutorial)
-
-	return err
 }
 
 type NullableTutorial struct {

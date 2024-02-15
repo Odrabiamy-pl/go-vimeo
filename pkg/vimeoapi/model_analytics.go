@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Analytics type satisfies the MappedNullable interface at compile time
@@ -48,8 +46,6 @@ type Analytics struct {
 	// The number of views of the corresponding Vimeo content.
 	Views float32 `json:"views"`
 }
-
-type _Analytics Analytics
 
 // NewAnalytics instantiates a new Analytics object
 // This constructor will assign default values to properties that have it defined,
@@ -443,56 +439,6 @@ func (o Analytics) ToMap() (map[string]interface{}, error) {
 	toSerialize["unique_viewers"] = o.UniqueViewers
 	toSerialize["views"] = o.Views
 	return toSerialize, nil
-}
-
-func (o *Analytics) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"average_percent_watched",
-		"average_time_watched",
-		"country",
-		"downloads",
-		"embed_domain",
-		"end_date",
-		"finishes",
-		"impressions",
-		"metadata",
-		"start_date",
-		"total_time_watched",
-		"unique_impressions",
-		"unique_viewers",
-		"views",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAnalytics := _Analytics{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAnalytics)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Analytics(varAnalytics)
-
-	return err
 }
 
 type NullableAnalytics struct {

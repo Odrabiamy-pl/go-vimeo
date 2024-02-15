@@ -31,7 +31,7 @@ type ShowcasesEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateShowcaseRequest
 	*/
-	CreateShowcase(ctx context.Context, userId float32) ApiCreateShowcaseRequest
+	CreateShowcase(ctx context.Context, userId int32) ApiCreateShowcaseRequest
 
 	// CreateShowcaseExecute executes the request
 	//  @return Album
@@ -61,7 +61,7 @@ type ShowcasesEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiDeleteShowcaseRequest
 	*/
-	DeleteShowcase(ctx context.Context, albumId float32, userId float32) ApiDeleteShowcaseRequest
+	DeleteShowcase(ctx context.Context, albumId float32, userId int32) ApiDeleteShowcaseRequest
 
 	// DeleteShowcaseExecute executes the request
 	DeleteShowcaseExecute(r ApiDeleteShowcaseRequest) (*http.Response, error)
@@ -90,7 +90,7 @@ type ShowcasesEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiEditShowcaseRequest
 	*/
-	EditShowcase(ctx context.Context, albumId float32, userId float32) ApiEditShowcaseRequest
+	EditShowcase(ctx context.Context, albumId float32, userId int32) ApiEditShowcaseRequest
 
 	// EditShowcaseExecute executes the request
 	//  @return Album
@@ -121,7 +121,7 @@ type ShowcasesEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetShowcaseRequest
 	*/
-	GetShowcase(ctx context.Context, albumId float32, userId float32) ApiGetShowcaseRequest
+	GetShowcase(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseRequest
 
 	// GetShowcaseExecute executes the request
 	//  @return Album
@@ -151,7 +151,7 @@ type ShowcasesEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetShowcasesRequest
 	*/
-	GetShowcases(ctx context.Context, userId float32) ApiGetShowcasesRequest
+	GetShowcases(ctx context.Context, userId int32) ApiGetShowcasesRequest
 
 	// GetShowcasesExecute executes the request
 	//  @return []Album
@@ -182,7 +182,7 @@ The present setup permits only one event per showcase.
 	@param userId The ID of the user.
 	@return ApiUpdateShowcasesRequest
 	*/
-	UpdateShowcases(ctx context.Context, userId float32) ApiUpdateShowcasesRequest
+	UpdateShowcases(ctx context.Context, userId int32) ApiUpdateShowcasesRequest
 
 	// UpdateShowcasesExecute executes the request
 	UpdateShowcasesExecute(r ApiUpdateShowcasesRequest) (*http.Response, error)
@@ -194,7 +194,7 @@ type ShowcasesEssentialsAPIService service
 type ApiCreateShowcaseRequest struct {
 	ctx context.Context
 	ApiService ShowcasesEssentialsAPI
-	userId float32
+	userId int32
 	createShowcaseAlt1Request *CreateShowcaseAlt1Request
 }
 
@@ -216,7 +216,7 @@ This method creates a new showcase for the specified user.
  @param userId The ID of the user.
  @return ApiCreateShowcaseRequest
 */
-func (a *ShowcasesEssentialsAPIService) CreateShowcase(ctx context.Context, userId float32) ApiCreateShowcaseRequest {
+func (a *ShowcasesEssentialsAPIService) CreateShowcase(ctx context.Context, userId int32) ApiCreateShowcaseRequest {
 	return ApiCreateShowcaseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -461,7 +461,7 @@ type ApiDeleteShowcaseRequest struct {
 	ctx context.Context
 	ApiService ShowcasesEssentialsAPI
 	albumId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiDeleteShowcaseRequest) Execute() (*http.Response, error) {
@@ -478,7 +478,7 @@ This method deletes the specified showcase. The authenticated user must be the o
  @param userId The ID of the user.
  @return ApiDeleteShowcaseRequest
 */
-func (a *ShowcasesEssentialsAPIService) DeleteShowcase(ctx context.Context, albumId float32, userId float32) ApiDeleteShowcaseRequest {
+func (a *ShowcasesEssentialsAPIService) DeleteShowcase(ctx context.Context, albumId float32, userId int32) ApiDeleteShowcaseRequest {
 	return ApiDeleteShowcaseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -691,7 +691,7 @@ type ApiEditShowcaseRequest struct {
 	ctx context.Context
 	ApiService ShowcasesEssentialsAPI
 	albumId float32
-	userId float32
+	userId int32
 	editShowcaseAlt2Request *EditShowcaseAlt2Request
 }
 
@@ -714,7 +714,7 @@ This method edits the specified showcase. The authenticated user must be the own
  @param userId The ID of the user.
  @return ApiEditShowcaseRequest
 */
-func (a *ShowcasesEssentialsAPIService) EditShowcase(ctx context.Context, albumId float32, userId float32) ApiEditShowcaseRequest {
+func (a *ShowcasesEssentialsAPIService) EditShowcase(ctx context.Context, albumId float32, userId int32) ApiEditShowcaseRequest {
 	return ApiEditShowcaseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -981,7 +981,7 @@ type ApiGetShowcaseRequest struct {
 	ctx context.Context
 	ApiService ShowcasesEssentialsAPI
 	albumId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetShowcaseRequest) Execute() (*Album, *http.Response, error) {
@@ -998,7 +998,7 @@ This method returns the specified showcase. The authenticated user must be the o
  @param userId The ID of the user.
  @return ApiGetShowcaseRequest
 */
-func (a *ShowcasesEssentialsAPIService) GetShowcase(ctx context.Context, albumId float32, userId float32) ApiGetShowcaseRequest {
+func (a *ShowcasesEssentialsAPIService) GetShowcase(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseRequest {
 	return ApiGetShowcaseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1210,7 +1210,7 @@ func (a *ShowcasesEssentialsAPIService) GetShowcaseAlt2Execute(r ApiGetShowcaseA
 type ApiGetShowcasesRequest struct {
 	ctx context.Context
 	ApiService ShowcasesEssentialsAPI
-	userId float32
+	userId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -1261,7 +1261,7 @@ This method returns every showcase belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetShowcasesRequest
 */
-func (a *ShowcasesEssentialsAPIService) GetShowcases(ctx context.Context, userId float32) ApiGetShowcasesRequest {
+func (a *ShowcasesEssentialsAPIService) GetShowcases(ctx context.Context, userId int32) ApiGetShowcasesRequest {
 	return ApiGetShowcasesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1532,7 +1532,7 @@ func (a *ShowcasesEssentialsAPIService) GetShowcasesAlt1Execute(r ApiGetShowcase
 type ApiUpdateShowcasesRequest struct {
 	ctx context.Context
 	ApiService ShowcasesEssentialsAPI
-	userId float32
+	userId int32
 	albumItemUris *string
 	albumUris *string
 }
@@ -1564,7 +1564,7 @@ The present setup permits only one event per showcase.
  @param userId The ID of the user.
  @return ApiUpdateShowcasesRequest
 */
-func (a *ShowcasesEssentialsAPIService) UpdateShowcases(ctx context.Context, userId float32) ApiUpdateShowcasesRequest {
+func (a *ShowcasesEssentialsAPIService) UpdateShowcases(ctx context.Context, userId int32) ApiUpdateShowcasesRequest {
 	return ApiUpdateShowcasesRequest{
 		ApiService: a,
 		ctx: ctx,

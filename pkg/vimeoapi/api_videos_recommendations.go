@@ -31,7 +31,7 @@ type VideosRecommendationsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetRelatedVideosRequest
 	*/
-	GetRelatedVideos(ctx context.Context, videoId float32) ApiGetRelatedVideosRequest
+	GetRelatedVideos(ctx context.Context, videoId int32) ApiGetRelatedVideosRequest
 
 	// GetRelatedVideosExecute executes the request
 	//  @return []Video
@@ -44,7 +44,7 @@ type VideosRecommendationsAPIService service
 type ApiGetRelatedVideosRequest struct {
 	ctx context.Context
 	ApiService VideosRecommendationsAPI
-	videoId float32
+	videoId int32
 	filter *string
 	page *float32
 	perPage *float32
@@ -81,7 +81,7 @@ This method returns every related video of the specified video.
  @param videoId The ID of the video.
  @return ApiGetRelatedVideosRequest
 */
-func (a *VideosRecommendationsAPIService) GetRelatedVideos(ctx context.Context, videoId float32) ApiGetRelatedVideosRequest {
+func (a *VideosRecommendationsAPIService) GetRelatedVideos(ctx context.Context, videoId int32) ApiGetRelatedVideosRequest {
 	return ApiGetRelatedVideosRequest{
 		ApiService: a,
 		ctx: ctx,

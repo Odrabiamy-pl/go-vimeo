@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Credit type satisfies the MappedNullable interface at compile time
@@ -27,13 +25,9 @@ type Credit struct {
 	Role string `json:"role"`
 	// The unique identifier to access the credit resource.
 	Uri string `json:"uri"`
-	// The Vimeo user associated with the credit.
 	User *User `json:"user,omitempty"`
-	// The video associated with the credit.
 	Video *Video `json:"video,omitempty"`
 }
-
-type _Credit Credit
 
 // NewCredit instantiates a new Credit object
 // This constructor will assign default values to properties that have it defined,
@@ -211,45 +205,6 @@ func (o Credit) ToMap() (map[string]interface{}, error) {
 		toSerialize["video"] = o.Video
 	}
 	return toSerialize, nil
-}
-
-func (o *Credit) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"name",
-		"role",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCredit := _Credit{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCredit)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Credit(varCredit)
-
-	return err
 }
 
 type NullableCredit struct {

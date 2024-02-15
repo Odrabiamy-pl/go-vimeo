@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventSchedule type satisfies the MappedNullable interface at compile time
@@ -38,8 +36,6 @@ type LiveEventSchedule struct {
 	// When **schedule.type** is `weekly`, the weekdays in UTC when the event is expected to be live. The value of this field ranges from `1` to `7`, where `1` is Monday and `7` is Sunday.
 	Weekdays []string `json:"weekdays,omitempty"`
 }
-
-type _LiveEventSchedule LiveEventSchedule
 
 // NewLiveEventSchedule instantiates a new LiveEventSchedule object
 // This constructor will assign default values to properties that have it defined,
@@ -340,43 +336,6 @@ func (o LiveEventSchedule) ToMap() (map[string]interface{}, error) {
 		toSerialize["weekdays"] = o.Weekdays
 	}
 	return toSerialize, nil
-}
-
-func (o *LiveEventSchedule) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"type",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventSchedule := _LiveEventSchedule{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventSchedule)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventSchedule(varLiveEventSchedule)
-
-	return err
 }
 
 type NullableLiveEventSchedule struct {

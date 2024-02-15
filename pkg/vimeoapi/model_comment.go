@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Comment type satisfies the MappedNullable interface at compile time
@@ -36,8 +34,6 @@ type Comment struct {
 	Uri string `json:"uri"`
 	User NullableCommentUser `json:"user"`
 }
-
-type _Comment Comment
 
 // NewComment instantiates a new Comment object
 // This constructor will assign default values to properties that have it defined,
@@ -277,50 +273,6 @@ func (o Comment) ToMap() (map[string]interface{}, error) {
 	toSerialize["uri"] = o.Uri
 	toSerialize["user"] = o.User.Get()
 	return toSerialize, nil
-}
-
-func (o *Comment) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"created_on",
-		"link",
-		"metadata",
-		"resource_key",
-		"text",
-		"type",
-		"uri",
-		"user",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varComment := _Comment{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varComment)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Comment(varComment)
-
-	return err
 }
 
 type NullableComment struct {

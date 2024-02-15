@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the PermissionPolicy type satisfies the MappedNullable interface at compile time
@@ -36,8 +34,6 @@ type PermissionPolicy struct {
 	// The URI of the permission policy.
 	Uri string `json:"uri"`
 }
-
-type _PermissionPolicy PermissionPolicy
 
 // NewPermissionPolicy instantiates a new PermissionPolicy object
 // This constructor will assign default values to properties that have it defined,
@@ -251,49 +247,6 @@ func (o PermissionPolicy) ToMap() (map[string]interface{}, error) {
 	toSerialize["permission_actions"] = o.PermissionActions
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *PermissionPolicy) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"created_on",
-		"display_description",
-		"display_name",
-		"modified_on",
-		"name",
-		"permission_actions",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPermissionPolicy := _PermissionPolicy{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPermissionPolicy)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PermissionPolicy(varPermissionPolicy)
-
-	return err
 }
 
 type NullablePermissionPolicy struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Album type satisfies the MappedNullable interface at compile time
@@ -68,7 +66,6 @@ type Album struct {
 	ModifiedTime string `json:"modified_time"`
 	// The display name of the showcase.
 	Name string `json:"name"`
-	// The active image of the showcase.
 	Pictures Picture `json:"pictures"`
 	Privacy AlbumPrivacy `json:"privacy"`
 	// The resource key of the showcase.
@@ -97,15 +94,12 @@ type Album struct {
 	Url NullableString `json:"url"`
 	// Whether the showcase uses a custom domain.
 	UseCustomDomain bool `json:"use_custom_domain"`
-	// The owner of the showcase.
 	User User `json:"user"`
 	// Whether to use the showcase's brand color in the web layout.
 	WebBrandColor bool `json:"web_brand_color"`
 	// Whether to use the showcase's custom logo in the web layout.
 	WebCustomLogo bool `json:"web_custom_logo"`
 }
-
-type _Album Album
 
 // NewAlbum instantiates a new Album object
 // This constructor will assign default values to properties that have it defined,
@@ -1273,85 +1267,6 @@ func (o Album) ToMap() (map[string]interface{}, error) {
 	toSerialize["web_brand_color"] = o.WebBrandColor
 	toSerialize["web_custom_logo"] = o.WebCustomLogo
 	return toSerialize, nil
-}
-
-func (o *Album) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"allow_continuous_play",
-		"allow_downloads",
-		"allow_share",
-		"autoplay",
-		"brand_color",
-		"created_time",
-		"custom_logo",
-		"description",
-		"domain",
-		"domain_certificate_state",
-		"duration",
-		"embed",
-		"embed_brand_color",
-		"embed_custom_logo",
-		"has_chosen_thumbnail",
-		"hide_from_vimeo",
-		"hide_nav",
-		"hide_upcoming",
-		"hide_vimeo_logo",
-		"layout",
-		"link",
-		"loop",
-		"metadata",
-		"modified_time",
-		"name",
-		"pictures",
-		"privacy",
-		"resource_key",
-		"review_mode",
-		"seo_allow_indexed",
-		"seo_description",
-		"seo_keywords",
-		"seo_title",
-		"share_link",
-		"sort",
-		"theme",
-		"unlisted_hash",
-		"uri",
-		"url",
-		"use_custom_domain",
-		"user",
-		"web_brand_color",
-		"web_custom_logo",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAlbum := _Album{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAlbum)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Album(varAlbum)
-
-	return err
 }
 
 type NullableAlbum struct {

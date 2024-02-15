@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EmailCaptureFormEmailListsInner type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type EmailCaptureFormEmailListsInner struct {
 	// A third-party email service provider.  Option descriptions:  * `1` - The provider is Mailchimp.  * `2` - The provider is Campaign Monitor.  * `3` - The provider is Constant Contact.  * `4` - The provider is Infusionsoft.  * `5` - The provider is HubSpot.  * `6` - The provider is Constant Contact V3.  * `7` - The provider is Marketo. 
 	ProviderId string `json:"provider_id"`
 }
-
-type _EmailCaptureFormEmailListsInner EmailCaptureFormEmailListsInner
 
 // NewEmailCaptureFormEmailListsInner instantiates a new EmailCaptureFormEmailListsInner object
 // This constructor will assign default values to properties that have it defined,
@@ -174,45 +170,6 @@ func (o EmailCaptureFormEmailListsInner) ToMap() (map[string]interface{}, error)
 	}
 	toSerialize["provider_id"] = o.ProviderId
 	return toSerialize, nil
-}
-
-func (o *EmailCaptureFormEmailListsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"form_id",
-		"list_id",
-		"provider_id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEmailCaptureFormEmailListsInner := _EmailCaptureFormEmailListsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmailCaptureFormEmailListsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EmailCaptureFormEmailListsInner(varEmailCaptureFormEmailListsInner)
-
-	return err
 }
 
 type NullableEmailCaptureFormEmailListsInner struct {

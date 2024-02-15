@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoPrivacy type satisfies the MappedNullable interface at compile time
@@ -34,8 +32,6 @@ type VideoPrivacy struct {
 	// The general privacy setting of the video.  Option descriptions:  * `anybody` - Anyone can access the video. This privacy setting appears as `Public` on the Vimeo front end.  * `contacts` - Only contacts can access the video. _This field is deprecated._  * `disable` - The video is hidden from Vimeo. This privacy setting appears as `Hide from Vimeo` on the Vimeo front end.  * `nobody` - No one besides the owner can access the video. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Anyone with the video's password can access the video.  * `ptv` - The Vimeo On Demand video is accessible and searchable from Vimeo. _This field is deprecated._  * `ptvhide` - The Vimeo On Demand video is hidden from Vimeo. _This field is deprecated._  * `stock` - The stock footage is accessible and searchable from Vimeo. _This field is deprecated._  * `stock_purchased` - The purchased stock footage is accessible and searchable from Vimeo. _This field is deprecated._  * `unlisted` - The video is accessible but not searchable from Vimeo.  * `users` - Only Vimeo members can access the video. _This field is deprecated._ 
 	View string `json:"view"`
 }
-
-type _VideoPrivacy VideoPrivacy
 
 // NewVideoPrivacy instantiates a new VideoPrivacy object
 // This constructor will assign default values to properties that have it defined,
@@ -221,48 +217,6 @@ func (o VideoPrivacy) ToMap() (map[string]interface{}, error) {
 	toSerialize["embed"] = o.Embed
 	toSerialize["view"] = o.View
 	return toSerialize, nil
-}
-
-func (o *VideoPrivacy) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"add",
-		"allow_share_link",
-		"comments",
-		"download",
-		"embed",
-		"view",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoPrivacy := _VideoPrivacy{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoPrivacy)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoPrivacy(varVideoPrivacy)
-
-	return err
 }
 
 type NullableVideoPrivacy struct {

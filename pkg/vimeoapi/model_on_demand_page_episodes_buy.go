@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the OnDemandPageEpisodesBuy type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type OnDemandPageEpisodesBuy struct {
 	// The default price to buy an episode.
 	Price NullableFloat32 `json:"price"`
 }
-
-type _OnDemandPageEpisodesBuy OnDemandPageEpisodesBuy
 
 // NewOnDemandPageEpisodesBuy instantiates a new OnDemandPageEpisodesBuy object
 // This constructor will assign default values to properties that have it defined,
@@ -111,44 +107,6 @@ func (o OnDemandPageEpisodesBuy) ToMap() (map[string]interface{}, error) {
 	toSerialize["active"] = o.Active
 	toSerialize["price"] = o.Price.Get()
 	return toSerialize, nil
-}
-
-func (o *OnDemandPageEpisodesBuy) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"active",
-		"price",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOnDemandPageEpisodesBuy := _OnDemandPageEpisodesBuy{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnDemandPageEpisodesBuy)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OnDemandPageEpisodesBuy(varOnDemandPageEpisodesBuy)
-
-	return err
 }
 
 type NullableOnDemandPageEpisodesBuy struct {

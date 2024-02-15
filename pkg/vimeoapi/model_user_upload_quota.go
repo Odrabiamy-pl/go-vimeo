@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the UserUploadQuota type satisfies the MappedNullable interface at compile time
@@ -25,8 +23,6 @@ type UserUploadQuota struct {
 	Periodic UserUploadQuotaPeriodic `json:"periodic"`
 	Space UserUploadQuotaSpace `json:"space"`
 }
-
-type _UserUploadQuota UserUploadQuota
 
 // NewUserUploadQuota instantiates a new UserUploadQuota object
 // This constructor will assign default values to properties that have it defined,
@@ -134,45 +130,6 @@ func (o UserUploadQuota) ToMap() (map[string]interface{}, error) {
 	toSerialize["periodic"] = o.Periodic
 	toSerialize["space"] = o.Space
 	return toSerialize, nil
-}
-
-func (o *UserUploadQuota) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"lifetime",
-		"periodic",
-		"space",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varUserUploadQuota := _UserUploadQuota{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUserUploadQuota)
-
-	if err != nil {
-		return err
-	}
-
-	*o = UserUploadQuota(varUserUploadQuota)
-
-	return err
 }
 
 type NullableUserUploadQuota struct {

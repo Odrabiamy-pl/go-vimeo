@@ -34,7 +34,7 @@ For information on how to upload the thumbnail, see our [Working with Thumbnail 
 	@param userId The ID of the user.
 	@return ApiCreateShowcaseCustomThumbRequest
 	*/
-	CreateShowcaseCustomThumb(ctx context.Context, albumId float32, userId float32) ApiCreateShowcaseCustomThumbRequest
+	CreateShowcaseCustomThumb(ctx context.Context, albumId float32, userId int32) ApiCreateShowcaseCustomThumbRequest
 
 	// CreateShowcaseCustomThumbExecute executes the request
 	//  @return Picture
@@ -51,7 +51,7 @@ For information on how to upload the thumbnail, see our [Working with Thumbnail 
 	@param userId The ID of the user.
 	@return ApiDeleteShowcaseCustomThumbnailRequest
 	*/
-	DeleteShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId float32) ApiDeleteShowcaseCustomThumbnailRequest
+	DeleteShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiDeleteShowcaseCustomThumbnailRequest
 
 	// DeleteShowcaseCustomThumbnailExecute executes the request
 	DeleteShowcaseCustomThumbnailExecute(r ApiDeleteShowcaseCustomThumbnailRequest) (*http.Response, error)
@@ -67,7 +67,7 @@ For information on how to upload the thumbnail, see our [Working with Thumbnail 
 	@param userId The ID of the user.
 	@return ApiGetShowcaseCustomThumbnailRequest
 	*/
-	GetShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId float32) ApiGetShowcaseCustomThumbnailRequest
+	GetShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiGetShowcaseCustomThumbnailRequest
 
 	// GetShowcaseCustomThumbnailExecute executes the request
 	//  @return Picture
@@ -83,7 +83,7 @@ For information on how to upload the thumbnail, see our [Working with Thumbnail 
 	@param userId The ID of the user.
 	@return ApiGetShowcaseCustomThumbsRequest
 	*/
-	GetShowcaseCustomThumbs(ctx context.Context, albumId float32, userId float32) ApiGetShowcaseCustomThumbsRequest
+	GetShowcaseCustomThumbs(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseCustomThumbsRequest
 
 	// GetShowcaseCustomThumbsExecute executes the request
 	//  @return []Picture
@@ -102,7 +102,7 @@ For information on how to upload the thumbnail, see our [Working with Thumbnail 
 	@param userId The ID of the user.
 	@return ApiReplaceShowcaseCustomThumbRequest
 	*/
-	ReplaceShowcaseCustomThumb(ctx context.Context, albumId float32, thumbnailId float32, userId float32) ApiReplaceShowcaseCustomThumbRequest
+	ReplaceShowcaseCustomThumb(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiReplaceShowcaseCustomThumbRequest
 
 	// ReplaceShowcaseCustomThumbExecute executes the request
 	//  @return Picture
@@ -116,7 +116,7 @@ type ApiCreateShowcaseCustomThumbRequest struct {
 	ctx context.Context
 	ApiService ShowcasesCustomShowcaseThumbnailsAPI
 	albumId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiCreateShowcaseCustomThumbRequest) Execute() (*Picture, *http.Response, error) {
@@ -135,7 +135,7 @@ For information on how to upload the thumbnail, see our [Working with Thumbnail 
  @param userId The ID of the user.
  @return ApiCreateShowcaseCustomThumbRequest
 */
-func (a *ShowcasesCustomShowcaseThumbnailsAPIService) CreateShowcaseCustomThumb(ctx context.Context, albumId float32, userId float32) ApiCreateShowcaseCustomThumbRequest {
+func (a *ShowcasesCustomShowcaseThumbnailsAPIService) CreateShowcaseCustomThumb(ctx context.Context, albumId float32, userId int32) ApiCreateShowcaseCustomThumbRequest {
 	return ApiCreateShowcaseCustomThumbRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -247,7 +247,7 @@ type ApiDeleteShowcaseCustomThumbnailRequest struct {
 	ApiService ShowcasesCustomShowcaseThumbnailsAPI
 	albumId float32
 	thumbnailId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiDeleteShowcaseCustomThumbnailRequest) Execute() (*http.Response, error) {
@@ -265,7 +265,7 @@ This method deletes the specified custom thumbnail from its showcase. The authen
  @param userId The ID of the user.
  @return ApiDeleteShowcaseCustomThumbnailRequest
 */
-func (a *ShowcasesCustomShowcaseThumbnailsAPIService) DeleteShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId float32) ApiDeleteShowcaseCustomThumbnailRequest {
+func (a *ShowcasesCustomShowcaseThumbnailsAPIService) DeleteShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiDeleteShowcaseCustomThumbnailRequest {
 	return ApiDeleteShowcaseCustomThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -368,7 +368,7 @@ type ApiGetShowcaseCustomThumbnailRequest struct {
 	ApiService ShowcasesCustomShowcaseThumbnailsAPI
 	albumId float32
 	thumbnailId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetShowcaseCustomThumbnailRequest) Execute() (*Picture, *http.Response, error) {
@@ -386,7 +386,7 @@ This method returns a single custom thumbnail of the specified showcase. The aut
  @param userId The ID of the user.
  @return ApiGetShowcaseCustomThumbnailRequest
 */
-func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId float32) ApiGetShowcaseCustomThumbnailRequest {
+func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiGetShowcaseCustomThumbnailRequest {
 	return ApiGetShowcaseCustomThumbnailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -499,7 +499,7 @@ type ApiGetShowcaseCustomThumbsRequest struct {
 	ctx context.Context
 	ApiService ShowcasesCustomShowcaseThumbnailsAPI
 	albumId float32
-	userId float32
+	userId int32
 	page *float32
 	perPage *float32
 }
@@ -530,7 +530,7 @@ This method returns every custom thumbnail of the specified showcase. The authen
  @param userId The ID of the user.
  @return ApiGetShowcaseCustomThumbsRequest
 */
-func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbs(ctx context.Context, albumId float32, userId float32) ApiGetShowcaseCustomThumbsRequest {
+func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbs(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseCustomThumbsRequest {
 	return ApiGetShowcaseCustomThumbsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -648,7 +648,7 @@ type ApiReplaceShowcaseCustomThumbRequest struct {
 	ApiService ShowcasesCustomShowcaseThumbnailsAPI
 	albumId float32
 	thumbnailId float32
-	userId float32
+	userId int32
 	replaceShowcaseCustomThumbRequest *ReplaceShowcaseCustomThumbRequest
 }
 
@@ -674,7 +674,7 @@ For information on how to upload the thumbnail, see our [Working with Thumbnail 
  @param userId The ID of the user.
  @return ApiReplaceShowcaseCustomThumbRequest
 */
-func (a *ShowcasesCustomShowcaseThumbnailsAPIService) ReplaceShowcaseCustomThumb(ctx context.Context, albumId float32, thumbnailId float32, userId float32) ApiReplaceShowcaseCustomThumbRequest {
+func (a *ShowcasesCustomShowcaseThumbnailsAPIService) ReplaceShowcaseCustomThumb(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiReplaceShowcaseCustomThumbRequest {
 	return ApiReplaceShowcaseCustomThumbRequest{
 		ApiService: a,
 		ctx: ctx,

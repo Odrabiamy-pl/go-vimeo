@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Activity31Metadata type satisfies the MappedNullable interface at compile time
@@ -23,8 +21,6 @@ var _ MappedNullable = &Activity31Metadata{}
 type Activity31Metadata struct {
 	Connections Activity31MetadataConnections `json:"connections"`
 }
-
-type _Activity31Metadata Activity31Metadata
 
 // NewActivity31Metadata instantiates a new Activity31Metadata object
 // This constructor will assign default values to properties that have it defined,
@@ -80,43 +76,6 @@ func (o Activity31Metadata) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["connections"] = o.Connections
 	return toSerialize, nil
-}
-
-func (o *Activity31Metadata) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"connections",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varActivity31Metadata := _Activity31Metadata{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varActivity31Metadata)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Activity31Metadata(varActivity31Metadata)
-
-	return err
 }
 
 type NullableActivity31Metadata struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WebinarEmailContent type satisfies the MappedNullable interface at compile time
@@ -40,8 +38,6 @@ type WebinarEmailContent struct {
 	// Whether to include a custom link in emails that are sent about the webinar.
 	UseCustomLink bool `json:"use_custom_link"`
 }
-
-type _WebinarEmailContent WebinarEmailContent
 
 // NewWebinarEmailContent instantiates a new WebinarEmailContent object
 // This constructor will assign default values to properties that have it defined,
@@ -305,51 +301,6 @@ func (o WebinarEmailContent) ToMap() (map[string]interface{}, error) {
 	toSerialize["use_calender"] = o.UseCalender
 	toSerialize["use_custom_link"] = o.UseCustomLink
 	return toSerialize, nil
-}
-
-func (o *WebinarEmailContent) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"body",
-		"button_link",
-		"button_text",
-		"header",
-		"modified_time",
-		"subject",
-		"type",
-		"use_calender",
-		"use_custom_link",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWebinarEmailContent := _WebinarEmailContent{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebinarEmailContent)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WebinarEmailContent(varWebinarEmailContent)
-
-	return err
 }
 
 type NullableWebinarEmailContent struct {

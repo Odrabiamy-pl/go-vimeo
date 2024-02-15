@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Channel type satisfies the MappedNullable interface at compile time
@@ -27,7 +25,6 @@ type Channel struct {
 	CreatedTime string `json:"created_time"`
 	// A brief explanation of the channel's content.
 	Description NullableString `json:"description"`
-	// The banner that appears by default at the top of the channel page.
 	Header Picture `json:"header"`
 	// The URL to access the channel in a browser.
 	Link string `json:"link"`
@@ -36,7 +33,6 @@ type Channel struct {
 	ModifiedTime string `json:"modified_time"`
 	// The display name that identifies the channel.
 	Name string `json:"name"`
-	// The active image for the channel. The default is the thumbnail of the last video added to the channel.
 	Pictures Picture `json:"pictures"`
 	Privacy ChannelPrivacy `json:"privacy"`
 	// The channel resource key.
@@ -45,11 +41,8 @@ type Channel struct {
 	Tags []Tag `json:"tags"`
 	// The unique identifier to access the channel resource.
 	Uri string `json:"uri"`
-	// The Vimeo user who owns the channel.
 	User User `json:"user"`
 }
-
-type _Channel Channel
 
 // NewChannel instantiates a new Channel object
 // This constructor will assign default values to properties that have it defined,
@@ -445,56 +438,6 @@ func (o Channel) ToMap() (map[string]interface{}, error) {
 	toSerialize["uri"] = o.Uri
 	toSerialize["user"] = o.User
 	return toSerialize, nil
-}
-
-func (o *Channel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"categories",
-		"created_time",
-		"description",
-		"header",
-		"link",
-		"metadata",
-		"modified_time",
-		"name",
-		"pictures",
-		"privacy",
-		"resource_key",
-		"tags",
-		"uri",
-		"user",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varChannel := _Channel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChannel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Channel(varChannel)
-
-	return err
 }
 
 type NullableChannel struct {

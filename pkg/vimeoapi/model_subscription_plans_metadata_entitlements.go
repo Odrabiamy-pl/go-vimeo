@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the SubscriptionPlansMetadataEntitlements type satisfies the MappedNullable interface at compile time
@@ -23,8 +21,6 @@ var _ MappedNullable = &SubscriptionPlansMetadataEntitlements{}
 type SubscriptionPlansMetadataEntitlements struct {
 	Params SubscriptionPlansMetadataEntitlementsParams `json:"params"`
 }
-
-type _SubscriptionPlansMetadataEntitlements SubscriptionPlansMetadataEntitlements
 
 // NewSubscriptionPlansMetadataEntitlements instantiates a new SubscriptionPlansMetadataEntitlements object
 // This constructor will assign default values to properties that have it defined,
@@ -80,43 +76,6 @@ func (o SubscriptionPlansMetadataEntitlements) ToMap() (map[string]interface{}, 
 	toSerialize := map[string]interface{}{}
 	toSerialize["params"] = o.Params
 	return toSerialize, nil
-}
-
-func (o *SubscriptionPlansMetadataEntitlements) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"params",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSubscriptionPlansMetadataEntitlements := _SubscriptionPlansMetadataEntitlements{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSubscriptionPlansMetadataEntitlements)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SubscriptionPlansMetadataEntitlements(varSubscriptionPlansMetadataEntitlements)
-
-	return err
 }
 
 type NullableSubscriptionPlansMetadataEntitlements struct {

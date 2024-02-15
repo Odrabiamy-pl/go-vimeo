@@ -32,7 +32,7 @@ type VideosEmbedPrivacyAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoPrivacyDomainRequest
 	*/
-	AddVideoPrivacyDomain(ctx context.Context, domain string, videoId float32) ApiAddVideoPrivacyDomainRequest
+	AddVideoPrivacyDomain(ctx context.Context, domain string, videoId int32) ApiAddVideoPrivacyDomainRequest
 
 	// AddVideoPrivacyDomainExecute executes the request
 	AddVideoPrivacyDomainExecute(r ApiAddVideoPrivacyDomainRequest) (*http.Response, error)
@@ -47,7 +47,7 @@ type VideosEmbedPrivacyAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoPrivacyDomainRequest
 	*/
-	DeleteVideoPrivacyDomain(ctx context.Context, domain string, videoId float32) ApiDeleteVideoPrivacyDomainRequest
+	DeleteVideoPrivacyDomain(ctx context.Context, domain string, videoId int32) ApiDeleteVideoPrivacyDomainRequest
 
 	// DeleteVideoPrivacyDomainExecute executes the request
 	DeleteVideoPrivacyDomainExecute(r ApiDeleteVideoPrivacyDomainRequest) (*http.Response, error)
@@ -61,7 +61,7 @@ type VideosEmbedPrivacyAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoPrivacyDomainsRequest
 	*/
-	GetVideoPrivacyDomains(ctx context.Context, videoId float32) ApiGetVideoPrivacyDomainsRequest
+	GetVideoPrivacyDomains(ctx context.Context, videoId int32) ApiGetVideoPrivacyDomainsRequest
 
 	// GetVideoPrivacyDomainsExecute executes the request
 	//  @return []Domain
@@ -75,7 +75,7 @@ type ApiAddVideoPrivacyDomainRequest struct {
 	ctx context.Context
 	ApiService VideosEmbedPrivacyAPI
 	domain string
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoPrivacyDomainRequest) Execute() (*http.Response, error) {
@@ -92,7 +92,7 @@ This method adds the specified domain to a video's whitelist.
  @param videoId The ID of the video.
  @return ApiAddVideoPrivacyDomainRequest
 */
-func (a *VideosEmbedPrivacyAPIService) AddVideoPrivacyDomain(ctx context.Context, domain string, videoId float32) ApiAddVideoPrivacyDomainRequest {
+func (a *VideosEmbedPrivacyAPIService) AddVideoPrivacyDomain(ctx context.Context, domain string, videoId int32) ApiAddVideoPrivacyDomainRequest {
 	return ApiAddVideoPrivacyDomainRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -181,7 +181,7 @@ type ApiDeleteVideoPrivacyDomainRequest struct {
 	ctx context.Context
 	ApiService VideosEmbedPrivacyAPI
 	domain string
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoPrivacyDomainRequest) Execute() (*http.Response, error) {
@@ -198,7 +198,7 @@ This method removes the specified domain from a video's whitelist.
  @param videoId The ID of the video.
  @return ApiDeleteVideoPrivacyDomainRequest
 */
-func (a *VideosEmbedPrivacyAPIService) DeleteVideoPrivacyDomain(ctx context.Context, domain string, videoId float32) ApiDeleteVideoPrivacyDomainRequest {
+func (a *VideosEmbedPrivacyAPIService) DeleteVideoPrivacyDomain(ctx context.Context, domain string, videoId int32) ApiDeleteVideoPrivacyDomainRequest {
 	return ApiDeleteVideoPrivacyDomainRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -297,7 +297,7 @@ func (a *VideosEmbedPrivacyAPIService) DeleteVideoPrivacyDomainExecute(r ApiDele
 type ApiGetVideoPrivacyDomainsRequest struct {
 	ctx context.Context
 	ApiService VideosEmbedPrivacyAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -327,7 +327,7 @@ This method returns every domain on the specified video's whitelist.
  @param videoId The ID of the video.
  @return ApiGetVideoPrivacyDomainsRequest
 */
-func (a *VideosEmbedPrivacyAPIService) GetVideoPrivacyDomains(ctx context.Context, videoId float32) ApiGetVideoPrivacyDomainsRequest {
+func (a *VideosEmbedPrivacyAPIService) GetVideoPrivacyDomains(ctx context.Context, videoId int32) ApiGetVideoPrivacyDomainsRequest {
 	return ApiGetVideoPrivacyDomainsRequest{
 		ApiService: a,
 		ctx: ctx,

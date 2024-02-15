@@ -32,7 +32,7 @@ type LiveEventM3U8PlaybackAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLiveEventM3u8PlaybackRequest
 	*/
-	GetLiveEventM3u8Playback(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventM3u8PlaybackRequest
+	GetLiveEventM3u8Playback(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventM3u8PlaybackRequest
 
 	// GetLiveEventM3u8PlaybackExecute executes the request
 	GetLiveEventM3u8PlaybackExecute(r ApiGetLiveEventM3u8PlaybackRequest) (*http.Response, error)
@@ -59,7 +59,7 @@ type ApiGetLiveEventM3u8PlaybackRequest struct {
 	ctx context.Context
 	ApiService LiveEventM3U8PlaybackAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	maxFpsFhd *float32
 }
 
@@ -83,7 +83,7 @@ This method returns an M3U8 playback URL for the specified event stream. You sho
  @param userId The ID of the user.
  @return ApiGetLiveEventM3u8PlaybackRequest
 */
-func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8Playback(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventM3u8PlaybackRequest {
+func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8Playback(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventM3u8PlaybackRequest {
 	return ApiGetLiveEventM3u8PlaybackRequest{
 		ApiService: a,
 		ctx: ctx,

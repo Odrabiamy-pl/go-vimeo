@@ -32,7 +32,7 @@ type ChannelsPrivateChannelMembersAPI interface {
 	@param userId The ID of the user.
 	@return ApiDeleteChannelPrivacyUserRequest
 	*/
-	DeleteChannelPrivacyUser(ctx context.Context, channelId float32, userId float32) ApiDeleteChannelPrivacyUserRequest
+	DeleteChannelPrivacyUser(ctx context.Context, channelId float32, userId int32) ApiDeleteChannelPrivacyUserRequest
 
 	// DeleteChannelPrivacyUserExecute executes the request
 	DeleteChannelPrivacyUserExecute(r ApiDeleteChannelPrivacyUserRequest) (*http.Response, error)
@@ -62,7 +62,7 @@ type ChannelsPrivateChannelMembersAPI interface {
 	@param userId The ID of the user.
 	@return ApiSetChannelPrivacyUserRequest
 	*/
-	SetChannelPrivacyUser(ctx context.Context, channelId float32, userId float32) ApiSetChannelPrivacyUserRequest
+	SetChannelPrivacyUser(ctx context.Context, channelId float32, userId int32) ApiSetChannelPrivacyUserRequest
 
 	// SetChannelPrivacyUserExecute executes the request
 	SetChannelPrivacyUserExecute(r ApiSetChannelPrivacyUserRequest) (*http.Response, error)
@@ -90,7 +90,7 @@ type ApiDeleteChannelPrivacyUserRequest struct {
 	ctx context.Context
 	ApiService ChannelsPrivateChannelMembersAPI
 	channelId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiDeleteChannelPrivacyUserRequest) Execute() (*http.Response, error) {
@@ -107,7 +107,7 @@ This method prevents a single user from being able to access the specified priva
  @param userId The ID of the user.
  @return ApiDeleteChannelPrivacyUserRequest
 */
-func (a *ChannelsPrivateChannelMembersAPIService) DeleteChannelPrivacyUser(ctx context.Context, channelId float32, userId float32) ApiDeleteChannelPrivacyUserRequest {
+func (a *ChannelsPrivateChannelMembersAPIService) DeleteChannelPrivacyUser(ctx context.Context, channelId float32, userId int32) ApiDeleteChannelPrivacyUserRequest {
 	return ApiDeleteChannelPrivacyUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -361,7 +361,7 @@ type ApiSetChannelPrivacyUserRequest struct {
 	ctx context.Context
 	ApiService ChannelsPrivateChannelMembersAPI
 	channelId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiSetChannelPrivacyUserRequest) Execute() (*http.Response, error) {
@@ -378,7 +378,7 @@ This method gives a single user access to the specified private channel. The aut
  @param userId The ID of the user.
  @return ApiSetChannelPrivacyUserRequest
 */
-func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUser(ctx context.Context, channelId float32, userId float32) ApiSetChannelPrivacyUserRequest {
+func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUser(ctx context.Context, channelId float32, userId int32) ApiSetChannelPrivacyUserRequest {
 	return ApiSetChannelPrivacyUserRequest{
 		ApiService: a,
 		ctx: ctx,

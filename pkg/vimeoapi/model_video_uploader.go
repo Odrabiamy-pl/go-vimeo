@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoUploader type satisfies the MappedNullable interface at compile time
@@ -25,11 +23,8 @@ type VideoUploader struct {
 	Link string `json:"link"`
 	// The display name of the user who uploaded the video.
 	Name string `json:"name"`
-	// The active portrait of the user who uploaded the video.
 	Pictures Picture `json:"pictures"`
 }
-
-type _VideoUploader VideoUploader
 
 // NewVideoUploader instantiates a new VideoUploader object
 // This constructor will assign default values to properties that have it defined,
@@ -137,45 +132,6 @@ func (o VideoUploader) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["pictures"] = o.Pictures
 	return toSerialize, nil
-}
-
-func (o *VideoUploader) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"link",
-		"name",
-		"pictures",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoUploader := _VideoUploader{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoUploader)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoUploader(varVideoUploader)
-
-	return err
 }
 
 type NullableVideoUploader struct {

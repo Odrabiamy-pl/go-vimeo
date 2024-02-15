@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ProjectPrivacy type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type ProjectPrivacy struct {
 	// The privacy setting for accessing the folder.  Option descriptions:  * `anybody` - Anyone with the link can access the contents of the folder. This privacy setting appears as `Public` on the Vimeo front end.  * `nobody` - Only the owner and those team members that the owner has explicitly invited can access the contents of the folder. This privacy setting appears as `Private` on the Vimeo front end.  * `team` - Only those team members with the link can access the contents of the folder. 
 	View string `json:"view"`
 }
-
-type _ProjectPrivacy ProjectPrivacy
 
 // NewProjectPrivacy instantiates a new ProjectPrivacy object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o ProjectPrivacy) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["view"] = o.View
 	return toSerialize, nil
-}
-
-func (o *ProjectPrivacy) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"view",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varProjectPrivacy := _ProjectPrivacy{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProjectPrivacy)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ProjectPrivacy(varProjectPrivacy)
-
-	return err
 }
 
 type NullableProjectPrivacy struct {

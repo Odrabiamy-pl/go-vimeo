@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner struct {
 	// The position of the option in the dropdown relative to the others.
 	OptionPosition float32 `json:"option_position"`
 }
-
-type _EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner
 
 // NewEmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner instantiates a new EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner) ToMap() (map
 	toSerialize["option_label"] = o.OptionLabel
 	toSerialize["option_position"] = o.OptionPosition
 	return toSerialize, nil
-}
-
-func (o *EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"option_label",
-		"option_position",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner := _EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner(varEmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner)
-
-	return err
 }
 
 type NullableEmailCaptureFormCustomFieldsInnerFieldMetadataOptionsInner struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Video type satisfies the MappedNullable interface at compile time
@@ -23,7 +21,6 @@ var _ MappedNullable = &Video{}
 type Video struct {
 	// An array of privacy settings supported for this video and the requesting user.
 	AllowedPrivacies []string `json:"allowed_privacies"`
-	// The API application associated with the video owner's token.
 	App ApiApp `json:"app"`
 	// Whether the video can be moved to a folder. This data requires a bearer token with the `private` scope.
 	CanMoveToProject NullableBool `json:"can_move_to_project"`
@@ -44,15 +41,12 @@ type Video struct {
 	DescriptionHtml NullableString `json:"description_html"`
 	// A JSON representation of the description.
 	DescriptionRich *string `json:"description_rich,omitempty"`
-	// Information about what features may be disabled on the video.
 	DisabledProperties *DisabledVideoProperties `json:"disabled_properties,omitempty"`
 	// The list of downloadable files for the video. This data requires a bearer token with the `private` scope.
 	Download []VideoFile `json:"download"`
 	// The video's duration in seconds. A value of `0` indicates the duration hasn't been calculated yet.
 	Duration float32 `json:"duration"`
-	// Information about the video's Vimeo Create editing session. This data requires a bearer token with the `private` scope.
 	EditSession *EditingSession `json:"edit_session,omitempty"`
-	// Information about embedding the video.
 	Embed EmbedSettings `json:"embed"`
 	// The list of files for the video. This data requires a bearer token with the `private` scope.
 	Files []VideoFile `json:"files"`
@@ -94,9 +88,7 @@ type Video struct {
 	ParentFolder NullableVideoParentFolder `json:"parent_folder,omitempty"`
 	// The privacy-enabled password to watch the video. Only the video's owner and team members with permission can access the video's password. This data requires a bearer token with the `private` scope.
 	Password *string `json:"password,omitempty"`
-	// The video's active picture.
 	Pictures Picture `json:"pictures"`
-	// The `Play` representation.
 	Play *Play `json:"play,omitempty"`
 	// The video's player embed URL.
 	PlayerEmbedUrl string `json:"player_embed_url"`
@@ -128,14 +120,11 @@ type Video struct {
 	// The video's canonical relative URI.
 	Uri string `json:"uri"`
 	User NullableVideoUser `json:"user"`
-	// Detailed transcode status information for the current version of the video upload.
 	VersionTranscodeStatus VersionTranscodeStatus `json:"version_transcode_status"`
 	Vod NullableVideoVod `json:"vod"`
 	// The video's width in pixels.
 	Width float32 `json:"width"`
 }
-
-type _Video Video
 
 // NewVideo instantiates a new Video object
 // This constructor will assign default values to properties that have it defined,
@@ -1906,95 +1895,6 @@ func (o Video) ToMap() (map[string]interface{}, error) {
 	toSerialize["vod"] = o.Vod.Get()
 	toSerialize["width"] = o.Width
 	return toSerialize, nil
-}
-
-func (o *Video) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"allowed_privacies",
-		"app",
-		"can_move_to_project",
-		"categories",
-		"content_rating",
-		"content_rating_class",
-		"context",
-		"created_time",
-		"custom_url",
-		"description",
-		"description_html",
-		"download",
-		"duration",
-		"embed",
-		"files",
-		"has_audio",
-		"has_audio_tracks",
-		"has_chapters",
-		"has_interactive",
-		"has_text_tracks",
-		"height",
-		"is_copyright_restricted",
-		"is_playable",
-		"language",
-		"license",
-		"link",
-		"metadata",
-		"modified_time",
-		"name",
-		"origin_variable_frame_resolution",
-		"pictures",
-		"player_embed_url",
-		"privacy",
-		"rating_mod_locked",
-		"release_time",
-		"resource_key",
-		"show_review_page",
-		"show_svv_footer_banner",
-		"show_svv_timecoded_comments",
-		"spatial",
-		"stats",
-		"status",
-		"tags",
-		"transcode",
-		"transcript",
-		"type",
-		"upload",
-		"uploader",
-		"uri",
-		"user",
-		"version_transcode_status",
-		"vod",
-		"width",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideo := _Video{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Video(varVideo)
-
-	return err
 }
 
 type NullableVideo struct {

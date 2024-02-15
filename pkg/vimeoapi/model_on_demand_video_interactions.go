@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the OnDemandVideoInteractions type satisfies the MappedNullable interface at compile time
@@ -23,8 +21,6 @@ var _ MappedNullable = &OnDemandVideoInteractions{}
 type OnDemandVideoInteractions struct {
 	Page OnDemandVideoInteractionsPage `json:"page"`
 }
-
-type _OnDemandVideoInteractions OnDemandVideoInteractions
 
 // NewOnDemandVideoInteractions instantiates a new OnDemandVideoInteractions object
 // This constructor will assign default values to properties that have it defined,
@@ -80,43 +76,6 @@ func (o OnDemandVideoInteractions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["page"] = o.Page
 	return toSerialize, nil
-}
-
-func (o *OnDemandVideoInteractions) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"page",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOnDemandVideoInteractions := _OnDemandVideoInteractions{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnDemandVideoInteractions)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OnDemandVideoInteractions(varOnDemandVideoInteractions)
-
-	return err
 }
 
 type NullableOnDemandVideoInteractions struct {

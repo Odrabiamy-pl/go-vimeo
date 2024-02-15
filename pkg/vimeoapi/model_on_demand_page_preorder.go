@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the OnDemandPagePreorder type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type OnDemandPagePreorder struct {
 	// The time in ISO 8601 format when the preorder started.
 	Time string `json:"time"`
 }
-
-type _OnDemandPagePreorder OnDemandPagePreorder
 
 // NewOnDemandPagePreorder instantiates a new OnDemandPagePreorder object
 // This constructor will assign default values to properties that have it defined,
@@ -165,46 +161,6 @@ func (o OnDemandPagePreorder) ToMap() (map[string]interface{}, error) {
 	toSerialize["publish_time"] = o.PublishTime
 	toSerialize["time"] = o.Time
 	return toSerialize, nil
-}
-
-func (o *OnDemandPagePreorder) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"active",
-		"cancel_time",
-		"publish_time",
-		"time",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOnDemandPagePreorder := _OnDemandPagePreorder{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnDemandPagePreorder)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OnDemandPagePreorder(varOnDemandPagePreorder)
-
-	return err
 }
 
 type NullableOnDemandPagePreorder struct {

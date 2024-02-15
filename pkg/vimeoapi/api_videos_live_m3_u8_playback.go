@@ -32,7 +32,7 @@ type VideosLiveM3U8PlaybackAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetOneTimeEventM3u8PlaybackRequest
 	*/
-	GetOneTimeEventM3u8Playback(ctx context.Context, userId float32, videoId float32) ApiGetOneTimeEventM3u8PlaybackRequest
+	GetOneTimeEventM3u8Playback(ctx context.Context, userId int32, videoId int32) ApiGetOneTimeEventM3u8PlaybackRequest
 
 	// GetOneTimeEventM3u8PlaybackExecute executes the request
 	GetOneTimeEventM3u8PlaybackExecute(r ApiGetOneTimeEventM3u8PlaybackRequest) (*http.Response, error)
@@ -46,7 +46,7 @@ type VideosLiveM3U8PlaybackAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetOneTimeEventM3u8PlaybackAlt1Request
 	*/
-	GetOneTimeEventM3u8PlaybackAlt1(ctx context.Context, videoId float32) ApiGetOneTimeEventM3u8PlaybackAlt1Request
+	GetOneTimeEventM3u8PlaybackAlt1(ctx context.Context, videoId int32) ApiGetOneTimeEventM3u8PlaybackAlt1Request
 
 	// GetOneTimeEventM3u8PlaybackAlt1Execute executes the request
 	GetOneTimeEventM3u8PlaybackAlt1Execute(r ApiGetOneTimeEventM3u8PlaybackAlt1Request) (*http.Response, error)
@@ -58,8 +58,8 @@ type VideosLiveM3U8PlaybackAPIService service
 type ApiGetOneTimeEventM3u8PlaybackRequest struct {
 	ctx context.Context
 	ApiService VideosLiveM3U8PlaybackAPI
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiGetOneTimeEventM3u8PlaybackRequest) Execute() (*http.Response, error) {
@@ -76,7 +76,7 @@ This method returns an M3U8 playback URL for the specified event stream. You sho
  @param videoId The ID of the video.
  @return ApiGetOneTimeEventM3u8PlaybackRequest
 */
-func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8Playback(ctx context.Context, userId float32, videoId float32) ApiGetOneTimeEventM3u8PlaybackRequest {
+func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8Playback(ctx context.Context, userId int32, videoId int32) ApiGetOneTimeEventM3u8PlaybackRequest {
 	return ApiGetOneTimeEventM3u8PlaybackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -186,7 +186,7 @@ func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackExecute(r 
 type ApiGetOneTimeEventM3u8PlaybackAlt1Request struct {
 	ctx context.Context
 	ApiService VideosLiveM3U8PlaybackAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetOneTimeEventM3u8PlaybackAlt1Request) Execute() (*http.Response, error) {
@@ -202,7 +202,7 @@ This method returns an M3U8 playback URL for the specified event stream. You sho
  @param videoId The ID of the video.
  @return ApiGetOneTimeEventM3u8PlaybackAlt1Request
 */
-func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackAlt1(ctx context.Context, videoId float32) ApiGetOneTimeEventM3u8PlaybackAlt1Request {
+func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackAlt1(ctx context.Context, videoId int32) ApiGetOneTimeEventM3u8PlaybackAlt1Request {
 	return ApiGetOneTimeEventM3u8PlaybackAlt1Request{
 		ApiService: a,
 		ctx: ctx,

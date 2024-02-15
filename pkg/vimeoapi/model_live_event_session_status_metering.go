@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventSessionStatusMetering type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type LiveEventSessionStatusMetering struct {
 	// The number of seconds remaining.
 	SecondsRemaining float32 `json:"seconds_remaining"`
 }
-
-type _LiveEventSessionStatusMetering LiveEventSessionStatusMetering
 
 // NewLiveEventSessionStatusMetering instantiates a new LiveEventSessionStatusMetering object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o LiveEventSessionStatusMetering) ToMap() (map[string]interface{}, error) 
 	toSerialize["seconds_max"] = o.SecondsMax
 	toSerialize["seconds_remaining"] = o.SecondsRemaining
 	return toSerialize, nil
-}
-
-func (o *LiveEventSessionStatusMetering) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"seconds_max",
-		"seconds_remaining",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventSessionStatusMetering := _LiveEventSessionStatusMetering{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventSessionStatusMetering)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventSessionStatusMetering(varLiveEventSessionStatusMetering)
-
-	return err
 }
 
 type NullableLiveEventSessionStatusMetering struct {

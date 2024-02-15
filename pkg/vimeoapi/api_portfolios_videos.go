@@ -33,7 +33,7 @@ type PortfoliosVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToPortfolioRequest
 	*/
-	AddVideoToPortfolio(ctx context.Context, portfolioId float32, userId float32, videoId float32) ApiAddVideoToPortfolioRequest
+	AddVideoToPortfolio(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiAddVideoToPortfolioRequest
 
 	// AddVideoToPortfolioExecute executes the request
 	AddVideoToPortfolioExecute(r ApiAddVideoToPortfolioRequest) (*http.Response, error)
@@ -48,7 +48,7 @@ type PortfoliosVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToPortfolioAlt1Request
 	*/
-	AddVideoToPortfolioAlt1(ctx context.Context, portfolioId float32, videoId float32) ApiAddVideoToPortfolioAlt1Request
+	AddVideoToPortfolioAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiAddVideoToPortfolioAlt1Request
 
 	// AddVideoToPortfolioAlt1Execute executes the request
 	AddVideoToPortfolioAlt1Execute(r ApiAddVideoToPortfolioAlt1Request) (*http.Response, error)
@@ -64,7 +64,7 @@ type PortfoliosVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoFromPortfolioRequest
 	*/
-	DeleteVideoFromPortfolio(ctx context.Context, portfolioId float32, userId float32, videoId float32) ApiDeleteVideoFromPortfolioRequest
+	DeleteVideoFromPortfolio(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiDeleteVideoFromPortfolioRequest
 
 	// DeleteVideoFromPortfolioExecute executes the request
 	DeleteVideoFromPortfolioExecute(r ApiDeleteVideoFromPortfolioRequest) (*http.Response, error)
@@ -79,7 +79,7 @@ type PortfoliosVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoFromPortfolioAlt1Request
 	*/
-	DeleteVideoFromPortfolioAlt1(ctx context.Context, portfolioId float32, videoId float32) ApiDeleteVideoFromPortfolioAlt1Request
+	DeleteVideoFromPortfolioAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiDeleteVideoFromPortfolioAlt1Request
 
 	// DeleteVideoFromPortfolioAlt1Execute executes the request
 	DeleteVideoFromPortfolioAlt1Execute(r ApiDeleteVideoFromPortfolioAlt1Request) (*http.Response, error)
@@ -95,7 +95,7 @@ type PortfoliosVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetPortfolioVideoRequest
 	*/
-	GetPortfolioVideo(ctx context.Context, portfolioId float32, userId float32, videoId float32) ApiGetPortfolioVideoRequest
+	GetPortfolioVideo(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiGetPortfolioVideoRequest
 
 	// GetPortfolioVideoExecute executes the request
 	//  @return Video
@@ -111,7 +111,7 @@ type PortfoliosVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetPortfolioVideoAlt1Request
 	*/
-	GetPortfolioVideoAlt1(ctx context.Context, portfolioId float32, videoId float32) ApiGetPortfolioVideoAlt1Request
+	GetPortfolioVideoAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiGetPortfolioVideoAlt1Request
 
 	// GetPortfolioVideoAlt1Execute executes the request
 	//  @return Video
@@ -127,7 +127,7 @@ type PortfoliosVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetPortfolioVideosRequest
 	*/
-	GetPortfolioVideos(ctx context.Context, portfolioId float32, userId float32) ApiGetPortfolioVideosRequest
+	GetPortfolioVideos(ctx context.Context, portfolioId float32, userId int32) ApiGetPortfolioVideosRequest
 
 	// GetPortfolioVideosExecute executes the request
 	//  @return []Video
@@ -156,8 +156,8 @@ type ApiAddVideoToPortfolioRequest struct {
 	ctx context.Context
 	ApiService PortfoliosVideosAPI
 	portfolioId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiAddVideoToPortfolioRequest) Execute() (*http.Response, error) {
@@ -175,7 +175,7 @@ This method adds a video to the specified portfolio belonging to the authenticat
  @param videoId The ID of the video.
  @return ApiAddVideoToPortfolioRequest
 */
-func (a *PortfoliosVideosAPIService) AddVideoToPortfolio(ctx context.Context, portfolioId float32, userId float32, videoId float32) ApiAddVideoToPortfolioRequest {
+func (a *PortfoliosVideosAPIService) AddVideoToPortfolio(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiAddVideoToPortfolioRequest {
 	return ApiAddVideoToPortfolioRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -266,7 +266,7 @@ type ApiAddVideoToPortfolioAlt1Request struct {
 	ctx context.Context
 	ApiService PortfoliosVideosAPI
 	portfolioId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoToPortfolioAlt1Request) Execute() (*http.Response, error) {
@@ -283,7 +283,7 @@ This method adds a video to the specified portfolio belonging to the authenticat
  @param videoId The ID of the video.
  @return ApiAddVideoToPortfolioAlt1Request
 */
-func (a *PortfoliosVideosAPIService) AddVideoToPortfolioAlt1(ctx context.Context, portfolioId float32, videoId float32) ApiAddVideoToPortfolioAlt1Request {
+func (a *PortfoliosVideosAPIService) AddVideoToPortfolioAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiAddVideoToPortfolioAlt1Request {
 	return ApiAddVideoToPortfolioAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -372,8 +372,8 @@ type ApiDeleteVideoFromPortfolioRequest struct {
 	ctx context.Context
 	ApiService PortfoliosVideosAPI
 	portfolioId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiDeleteVideoFromPortfolioRequest) Execute() (*http.Response, error) {
@@ -391,7 +391,7 @@ This method removes a video from the specified portfolio belonging to the authen
  @param videoId The ID of the video.
  @return ApiDeleteVideoFromPortfolioRequest
 */
-func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolio(ctx context.Context, portfolioId float32, userId float32, videoId float32) ApiDeleteVideoFromPortfolioRequest {
+func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolio(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiDeleteVideoFromPortfolioRequest {
 	return ApiDeleteVideoFromPortfolioRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -482,7 +482,7 @@ type ApiDeleteVideoFromPortfolioAlt1Request struct {
 	ctx context.Context
 	ApiService PortfoliosVideosAPI
 	portfolioId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoFromPortfolioAlt1Request) Execute() (*http.Response, error) {
@@ -499,7 +499,7 @@ This method removes a video from the specified portfolio belonging to the authen
  @param videoId The ID of the video.
  @return ApiDeleteVideoFromPortfolioAlt1Request
 */
-func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioAlt1(ctx context.Context, portfolioId float32, videoId float32) ApiDeleteVideoFromPortfolioAlt1Request {
+func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiDeleteVideoFromPortfolioAlt1Request {
 	return ApiDeleteVideoFromPortfolioAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -588,8 +588,8 @@ type ApiGetPortfolioVideoRequest struct {
 	ctx context.Context
 	ApiService PortfoliosVideosAPI
 	portfolioId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiGetPortfolioVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -607,7 +607,7 @@ This method returns a single video from the specified portfolio belonging to the
  @param videoId The ID of the video.
  @return ApiGetPortfolioVideoRequest
 */
-func (a *PortfoliosVideosAPIService) GetPortfolioVideo(ctx context.Context, portfolioId float32, userId float32, videoId float32) ApiGetPortfolioVideoRequest {
+func (a *PortfoliosVideosAPIService) GetPortfolioVideo(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiGetPortfolioVideoRequest {
 	return ApiGetPortfolioVideoRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -699,7 +699,7 @@ type ApiGetPortfolioVideoAlt1Request struct {
 	ctx context.Context
 	ApiService PortfoliosVideosAPI
 	portfolioId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetPortfolioVideoAlt1Request) Execute() (*Video, *http.Response, error) {
@@ -716,7 +716,7 @@ This method returns a single video from the specified portfolio belonging to the
  @param videoId The ID of the video.
  @return ApiGetPortfolioVideoAlt1Request
 */
-func (a *PortfoliosVideosAPIService) GetPortfolioVideoAlt1(ctx context.Context, portfolioId float32, videoId float32) ApiGetPortfolioVideoAlt1Request {
+func (a *PortfoliosVideosAPIService) GetPortfolioVideoAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiGetPortfolioVideoAlt1Request {
 	return ApiGetPortfolioVideoAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -806,7 +806,7 @@ type ApiGetPortfolioVideosRequest struct {
 	ctx context.Context
 	ApiService PortfoliosVideosAPI
 	portfolioId float32
-	userId float32
+	userId int32
 	containingUri *string
 	filter *string
 	filterEmbeddable *bool
@@ -865,7 +865,7 @@ This method returns every video from the specified portfolio belonging to the au
  @param userId The ID of the user.
  @return ApiGetPortfolioVideosRequest
 */
-func (a *PortfoliosVideosAPIService) GetPortfolioVideos(ctx context.Context, portfolioId float32, userId float32) ApiGetPortfolioVideosRequest {
+func (a *PortfoliosVideosAPIService) GetPortfolioVideos(ctx context.Context, portfolioId float32, userId int32) ApiGetPortfolioVideosRequest {
 	return ApiGetPortfolioVideosRequest{
 		ApiService: a,
 		ctx: ctx,

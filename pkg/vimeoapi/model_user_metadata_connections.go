@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the UserMetadataConnections type satisfies the MappedNullable interface at compile time
@@ -44,8 +42,6 @@ type UserMetadataConnections struct {
 	WatchedVideos UserMetadataConnectionsWatchedVideos `json:"watched_videos"`
 	Watchlater UserMetadataConnectionsWatchlater `json:"watchlater"`
 }
-
-type _UserMetadataConnections UserMetadataConnections
 
 // NewUserMetadataConnections instantiates a new UserMetadataConnections object
 // This constructor will assign default values to properties that have it defined,
@@ -647,64 +643,6 @@ func (o UserMetadataConnections) ToMap() (map[string]interface{}, error) {
 	toSerialize["watched_videos"] = o.WatchedVideos
 	toSerialize["watchlater"] = o.Watchlater
 	return toSerialize, nil
-}
-
-func (o *UserMetadataConnections) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"albums",
-		"appearances",
-		"block",
-		"categories",
-		"channels",
-		"connected_apps",
-		"feed",
-		"folders",
-		"folders_root",
-		"followers",
-		"following",
-		"groups",
-		"likes",
-		"moderated_channels",
-		"pictures",
-		"portfolios",
-		"recommended_channels",
-		"recommended_users",
-		"shared",
-		"videos",
-		"watched_videos",
-		"watchlater",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varUserMetadataConnections := _UserMetadataConnections{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUserMetadataConnections)
-
-	if err != nil {
-		return err
-	}
-
-	*o = UserMetadataConnections(varUserMetadataConnections)
-
-	return err
 }
 
 type NullableUserMetadataConnections struct {

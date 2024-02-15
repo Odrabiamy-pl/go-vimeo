@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ProjectMetadataConnectionsAncestorPathInner type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type ProjectMetadataConnectionsAncestorPathInner struct {
 	// The URI of the ancestor folder.
 	Uri string `json:"uri"`
 }
-
-type _ProjectMetadataConnectionsAncestorPathInner ProjectMetadataConnectionsAncestorPathInner
 
 // NewProjectMetadataConnectionsAncestorPathInner instantiates a new ProjectMetadataConnectionsAncestorPathInner object
 // This constructor will assign default values to properties that have it defined,
@@ -137,45 +133,6 @@ func (o ProjectMetadataConnectionsAncestorPathInner) ToMap() (map[string]interfa
 	toSerialize["name"] = o.Name
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *ProjectMetadataConnectionsAncestorPathInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"can_upload",
-		"name",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varProjectMetadataConnectionsAncestorPathInner := _ProjectMetadataConnectionsAncestorPathInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProjectMetadataConnectionsAncestorPathInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ProjectMetadataConnectionsAncestorPathInner(varProjectMetadataConnectionsAncestorPathInner)
-
-	return err
 }
 
 type NullableProjectMetadataConnectionsAncestorPathInner struct {

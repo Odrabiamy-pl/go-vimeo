@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EmailCaptureForm type satisfies the MappedNullable interface at compile time
@@ -48,8 +46,6 @@ type EmailCaptureForm struct {
 	// The canonical relative URI of the video's email capture form.
 	Uri string `json:"uri"`
 }
-
-type _EmailCaptureForm EmailCaptureForm
 
 // NewEmailCaptureForm instantiates a new EmailCaptureForm object
 // This constructor will assign default values to properties that have it defined,
@@ -417,55 +413,6 @@ func (o EmailCaptureForm) ToMap() (map[string]interface{}, error) {
 	toSerialize["timecode"] = o.Timecode
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *EmailCaptureForm) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"clip_id",
-		"created_time",
-		"custom_fields",
-		"custom_logo",
-		"custom_message",
-		"email_lists",
-		"hidden_fields",
-		"id",
-		"position",
-		"privacy_policy",
-		"skippable",
-		"timecode",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEmailCaptureForm := _EmailCaptureForm{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmailCaptureForm)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EmailCaptureForm(varEmailCaptureForm)
-
-	return err
 }
 
 type NullableEmailCaptureForm struct {

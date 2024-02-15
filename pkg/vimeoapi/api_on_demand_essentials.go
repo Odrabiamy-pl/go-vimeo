@@ -31,7 +31,7 @@ type OnDemandEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateVodRequest
 	*/
-	CreateVod(ctx context.Context, userId float32) ApiCreateVodRequest
+	CreateVod(ctx context.Context, userId int32) ApiCreateVodRequest
 
 	// CreateVodExecute executes the request
 	//  @return OnDemandPage
@@ -89,7 +89,7 @@ type OnDemandEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetUserVodsRequest
 	*/
-	GetUserVods(ctx context.Context, userId float32) ApiGetUserVodsRequest
+	GetUserVods(ctx context.Context, userId int32) ApiGetUserVodsRequest
 
 	// GetUserVodsExecute executes the request
 	//  @return []OnDemandPage
@@ -131,7 +131,7 @@ type OnDemandEssentialsAPIService service
 type ApiCreateVodRequest struct {
 	ctx context.Context
 	ApiService OnDemandEssentialsAPI
-	userId float32
+	userId int32
 	createVodAlt1Request *CreateVodAlt1Request
 }
 
@@ -153,7 +153,7 @@ This method creates a new On Demand page for the specified user. To publish the 
  @param userId The ID of the user.
  @return ApiCreateVodRequest
 */
-func (a *OnDemandEssentialsAPIService) CreateVod(ctx context.Context, userId float32) ApiCreateVodRequest {
+func (a *OnDemandEssentialsAPIService) CreateVod(ctx context.Context, userId int32) ApiCreateVodRequest {
 	return ApiCreateVodRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -600,7 +600,7 @@ func (a *OnDemandEssentialsAPIService) EditVodExecute(r ApiEditVodRequest) (*OnD
 type ApiGetUserVodsRequest struct {
 	ctx context.Context
 	ApiService OnDemandEssentialsAPI
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	page *float32
@@ -651,7 +651,7 @@ This method returns every On Demand page belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetUserVodsRequest
 */
-func (a *OnDemandEssentialsAPIService) GetUserVods(ctx context.Context, userId float32) ApiGetUserVodsRequest {
+func (a *OnDemandEssentialsAPIService) GetUserVods(ctx context.Context, userId int32) ApiGetUserVodsRequest {
 	return ApiGetUserVodsRequest{
 		ApiService: a,
 		ctx: ctx,

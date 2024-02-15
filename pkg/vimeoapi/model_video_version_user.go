@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoVersionUser type satisfies the MappedNullable interface at compile time
@@ -51,7 +49,6 @@ type VideoVersionUser struct {
 	Metadata UserMetadata `json:"metadata"`
 	// The authenticated user's display name.
 	Name string `json:"name"`
-	// The active portrait of the authenticated user.
 	Pictures Picture `json:"pictures"`
 	Preferences UserPreferences `json:"preferences"`
 	// The authenticated user's resource key string.
@@ -66,8 +63,6 @@ type VideoVersionUser struct {
 	// The authenticated user's websites.
 	Websites []UserWebsitesInner `json:"websites"`
 }
-
-type _VideoVersionUser VideoVersionUser
 
 // NewVideoVersionUser instantiates a new VideoVersionUser object
 // This constructor will assign default values to properties that have it defined,
@@ -744,65 +739,6 @@ func (o VideoVersionUser) ToMap() (map[string]interface{}, error) {
 	toSerialize["uri"] = o.Uri
 	toSerialize["websites"] = o.Websites
 	return toSerialize, nil
-}
-
-func (o *VideoVersionUser) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"account",
-		"available_for_hire",
-		"bio",
-		"can_work_remotely",
-		"capabilities",
-		"clients",
-		"created_time",
-		"gender",
-		"has_invalid_email",
-		"is_expert",
-		"link",
-		"location",
-		"location_details",
-		"metadata",
-		"name",
-		"pictures",
-		"preferences",
-		"resource_key",
-		"short_bio",
-		"skills",
-		"upload_quota",
-		"uri",
-		"websites",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoVersionUser := _VideoVersionUser{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoVersionUser)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoVersionUser(varVideoVersionUser)
-
-	return err
 }
 
 type NullableVideoVersionUser struct {

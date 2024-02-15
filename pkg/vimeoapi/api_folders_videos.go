@@ -33,7 +33,7 @@ type FoldersVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToProjectRequest
 	*/
-	AddVideoToProject(ctx context.Context, projectId float32, userId float32, videoId float32) ApiAddVideoToProjectRequest
+	AddVideoToProject(ctx context.Context, projectId float32, userId int32, videoId int32) ApiAddVideoToProjectRequest
 
 	// AddVideoToProjectExecute executes the request
 	AddVideoToProjectExecute(r ApiAddVideoToProjectRequest) (*http.Response, error)
@@ -48,7 +48,7 @@ type FoldersVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToProjectAlt1Request
 	*/
-	AddVideoToProjectAlt1(ctx context.Context, projectId float32, videoId float32) ApiAddVideoToProjectAlt1Request
+	AddVideoToProjectAlt1(ctx context.Context, projectId float32, videoId int32) ApiAddVideoToProjectAlt1Request
 
 	// AddVideoToProjectAlt1Execute executes the request
 	AddVideoToProjectAlt1Execute(r ApiAddVideoToProjectAlt1Request) (*http.Response, error)
@@ -63,7 +63,7 @@ type FoldersVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiAddVideosToProjectRequest
 	*/
-	AddVideosToProject(ctx context.Context, projectId float32, userId float32) ApiAddVideosToProjectRequest
+	AddVideosToProject(ctx context.Context, projectId float32, userId int32) ApiAddVideosToProjectRequest
 
 	// AddVideosToProjectExecute executes the request
 	AddVideosToProjectExecute(r ApiAddVideosToProjectRequest) (*http.Response, error)
@@ -92,7 +92,7 @@ type FoldersVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetProjectVideosRequest
 	*/
-	GetProjectVideos(ctx context.Context, projectId float32, userId float32) ApiGetProjectVideosRequest
+	GetProjectVideos(ctx context.Context, projectId float32, userId int32) ApiGetProjectVideosRequest
 
 	// GetProjectVideosExecute executes the request
 	//  @return []Video
@@ -124,7 +124,7 @@ type FoldersVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiRemoveVideoFromProjectRequest
 	*/
-	RemoveVideoFromProject(ctx context.Context, projectId float32, userId float32, videoId float32) ApiRemoveVideoFromProjectRequest
+	RemoveVideoFromProject(ctx context.Context, projectId float32, userId int32, videoId int32) ApiRemoveVideoFromProjectRequest
 
 	// RemoveVideoFromProjectExecute executes the request
 	RemoveVideoFromProjectExecute(r ApiRemoveVideoFromProjectRequest) (*http.Response, error)
@@ -139,7 +139,7 @@ type FoldersVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiRemoveVideoFromProjectAlt1Request
 	*/
-	RemoveVideoFromProjectAlt1(ctx context.Context, projectId float32, videoId float32) ApiRemoveVideoFromProjectAlt1Request
+	RemoveVideoFromProjectAlt1(ctx context.Context, projectId float32, videoId int32) ApiRemoveVideoFromProjectAlt1Request
 
 	// RemoveVideoFromProjectAlt1Execute executes the request
 	RemoveVideoFromProjectAlt1Execute(r ApiRemoveVideoFromProjectAlt1Request) (*http.Response, error)
@@ -154,7 +154,7 @@ type FoldersVideosAPI interface {
 	@param userId The ID of the user.
 	@return ApiRemoveVideosFromProjectRequest
 	*/
-	RemoveVideosFromProject(ctx context.Context, projectId float32, userId float32) ApiRemoveVideosFromProjectRequest
+	RemoveVideosFromProject(ctx context.Context, projectId float32, userId int32) ApiRemoveVideosFromProjectRequest
 
 	// RemoveVideosFromProjectExecute executes the request
 	RemoveVideosFromProjectExecute(r ApiRemoveVideosFromProjectRequest) (*http.Response, error)
@@ -181,8 +181,8 @@ type ApiAddVideoToProjectRequest struct {
 	ctx context.Context
 	ApiService FoldersVideosAPI
 	projectId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiAddVideoToProjectRequest) Execute() (*http.Response, error) {
@@ -200,7 +200,7 @@ This method adds a single video to the specified folder. The authenticated user 
  @param videoId The ID of the video.
  @return ApiAddVideoToProjectRequest
 */
-func (a *FoldersVideosAPIService) AddVideoToProject(ctx context.Context, projectId float32, userId float32, videoId float32) ApiAddVideoToProjectRequest {
+func (a *FoldersVideosAPIService) AddVideoToProject(ctx context.Context, projectId float32, userId int32, videoId int32) ApiAddVideoToProjectRequest {
 	return ApiAddVideoToProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -291,7 +291,7 @@ type ApiAddVideoToProjectAlt1Request struct {
 	ctx context.Context
 	ApiService FoldersVideosAPI
 	projectId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoToProjectAlt1Request) Execute() (*http.Response, error) {
@@ -308,7 +308,7 @@ This method adds a single video to the specified folder. The authenticated user 
  @param videoId The ID of the video.
  @return ApiAddVideoToProjectAlt1Request
 */
-func (a *FoldersVideosAPIService) AddVideoToProjectAlt1(ctx context.Context, projectId float32, videoId float32) ApiAddVideoToProjectAlt1Request {
+func (a *FoldersVideosAPIService) AddVideoToProjectAlt1(ctx context.Context, projectId float32, videoId int32) ApiAddVideoToProjectAlt1Request {
 	return ApiAddVideoToProjectAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -397,7 +397,7 @@ type ApiAddVideosToProjectRequest struct {
 	ctx context.Context
 	ApiService FoldersVideosAPI
 	projectId float32
-	userId float32
+	userId int32
 	uris *string
 }
 
@@ -421,7 +421,7 @@ This method adds multiple videos to the specified folder. The authenticated user
  @param userId The ID of the user.
  @return ApiAddVideosToProjectRequest
 */
-func (a *FoldersVideosAPIService) AddVideosToProject(ctx context.Context, projectId float32, userId float32) ApiAddVideosToProjectRequest {
+func (a *FoldersVideosAPIService) AddVideosToProject(ctx context.Context, projectId float32, userId int32) ApiAddVideosToProjectRequest {
 	return ApiAddVideosToProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -671,7 +671,7 @@ type ApiGetProjectVideosRequest struct {
 	ctx context.Context
 	ApiService FoldersVideosAPI
 	projectId float32
-	userId float32
+	userId int32
 	direction *string
 	filterTag *string
 	filterTagAllOf *string
@@ -758,7 +758,7 @@ This method returns all the videos that belong to the specified folder.
  @param userId The ID of the user.
  @return ApiGetProjectVideosRequest
 */
-func (a *FoldersVideosAPIService) GetProjectVideos(ctx context.Context, projectId float32, userId float32) ApiGetProjectVideosRequest {
+func (a *FoldersVideosAPIService) GetProjectVideos(ctx context.Context, projectId float32, userId int32) ApiGetProjectVideosRequest {
 	return ApiGetProjectVideosRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1123,8 +1123,8 @@ type ApiRemoveVideoFromProjectRequest struct {
 	ctx context.Context
 	ApiService FoldersVideosAPI
 	projectId float32
-	userId float32
-	videoId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiRemoveVideoFromProjectRequest) Execute() (*http.Response, error) {
@@ -1142,7 +1142,7 @@ This method removes a single video from the specified folder. Please note that t
  @param videoId The ID of the video.
  @return ApiRemoveVideoFromProjectRequest
 */
-func (a *FoldersVideosAPIService) RemoveVideoFromProject(ctx context.Context, projectId float32, userId float32, videoId float32) ApiRemoveVideoFromProjectRequest {
+func (a *FoldersVideosAPIService) RemoveVideoFromProject(ctx context.Context, projectId float32, userId int32, videoId int32) ApiRemoveVideoFromProjectRequest {
 	return ApiRemoveVideoFromProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1255,7 +1255,7 @@ type ApiRemoveVideoFromProjectAlt1Request struct {
 	ctx context.Context
 	ApiService FoldersVideosAPI
 	projectId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiRemoveVideoFromProjectAlt1Request) Execute() (*http.Response, error) {
@@ -1272,7 +1272,7 @@ This method removes a single video from the specified folder. Please note that t
  @param videoId The ID of the video.
  @return ApiRemoveVideoFromProjectAlt1Request
 */
-func (a *FoldersVideosAPIService) RemoveVideoFromProjectAlt1(ctx context.Context, projectId float32, videoId float32) ApiRemoveVideoFromProjectAlt1Request {
+func (a *FoldersVideosAPIService) RemoveVideoFromProjectAlt1(ctx context.Context, projectId float32, videoId int32) ApiRemoveVideoFromProjectAlt1Request {
 	return ApiRemoveVideoFromProjectAlt1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1383,7 +1383,7 @@ type ApiRemoveVideosFromProjectRequest struct {
 	ctx context.Context
 	ApiService FoldersVideosAPI
 	projectId float32
-	userId float32
+	userId int32
 	uris *string
 	shouldDeleteClips *bool
 }
@@ -1414,7 +1414,7 @@ This method removes multiple videos from the specified folder. The authenticated
  @param userId The ID of the user.
  @return ApiRemoveVideosFromProjectRequest
 */
-func (a *FoldersVideosAPIService) RemoveVideosFromProject(ctx context.Context, projectId float32, userId float32) ApiRemoveVideosFromProjectRequest {
+func (a *FoldersVideosAPIService) RemoveVideosFromProject(ctx context.Context, projectId float32, userId int32) ApiRemoveVideosFromProjectRequest {
 	return ApiRemoveVideosFromProjectRequest{
 		ApiService: a,
 		ctx: ctx,

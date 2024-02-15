@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventEmbedEmbedProperties type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type LiveEventEmbedEmbedProperties struct {
 	// The width used to generate the fixed HTML embed code.
 	Width string `json:"width"`
 }
-
-type _LiveEventEmbedEmbedProperties LiveEventEmbedEmbedProperties
 
 // NewLiveEventEmbedEmbedProperties instantiates a new LiveEventEmbedEmbedProperties object
 // This constructor will assign default values to properties that have it defined,
@@ -137,45 +133,6 @@ func (o LiveEventEmbedEmbedProperties) ToMap() (map[string]interface{}, error) {
 	toSerialize["source_url"] = o.SourceUrl
 	toSerialize["width"] = o.Width
 	return toSerialize, nil
-}
-
-func (o *LiveEventEmbedEmbedProperties) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"height",
-		"source_url",
-		"width",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventEmbedEmbedProperties := _LiveEventEmbedEmbedProperties{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventEmbedEmbedProperties)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventEmbedEmbedProperties(varLiveEventEmbedEmbedProperties)
-
-	return err
 }
 
 type NullableLiveEventEmbedEmbedProperties struct {

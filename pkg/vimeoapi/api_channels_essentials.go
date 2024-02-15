@@ -89,7 +89,7 @@ type ChannelsEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetChannelSubscriptionsRequest
 	*/
-	GetChannelSubscriptions(ctx context.Context, userId float32) ApiGetChannelSubscriptionsRequest
+	GetChannelSubscriptions(ctx context.Context, userId int32) ApiGetChannelSubscriptionsRequest
 
 	// GetChannelSubscriptionsExecute executes the request
 	//  @return []Channel
@@ -587,7 +587,7 @@ func (a *ChannelsEssentialsAPIService) GetChannelExecute(r ApiGetChannelRequest)
 type ApiGetChannelSubscriptionsRequest struct {
 	ctx context.Context
 	ApiService ChannelsEssentialsAPI
-	userId float32
+	userId int32
 	direction *string
 	filter *string
 	page *float32
@@ -645,7 +645,7 @@ This method returns all the channels to which the specified user subscribes.
  @param userId The ID of the user.
  @return ApiGetChannelSubscriptionsRequest
 */
-func (a *ChannelsEssentialsAPIService) GetChannelSubscriptions(ctx context.Context, userId float32) ApiGetChannelSubscriptionsRequest {
+func (a *ChannelsEssentialsAPIService) GetChannelSubscriptions(ctx context.Context, userId int32) ApiGetChannelSubscriptionsRequest {
 	return ApiGetChannelSubscriptionsRequest{
 		ApiService: a,
 		ctx: ctx,

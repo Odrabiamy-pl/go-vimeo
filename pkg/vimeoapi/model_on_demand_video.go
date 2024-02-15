@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the OnDemandVideo type satisfies the MappedNullable interface at compile time
@@ -36,7 +34,6 @@ type OnDemandVideo struct {
 	Name *string `json:"name,omitempty"`
 	// An array of HTTP methods permitted on this URI.
 	Options []string `json:"options,omitempty"`
-	// The active picture of the video.
 	Pictures *Picture `json:"pictures,omitempty"`
 	// The authenticated user's most recent play position in the video, in seconds.
 	PlayProgress float32 `json:"play_progress"`
@@ -51,11 +48,8 @@ type OnDemandVideo struct {
 	Type string `json:"type"`
 	// The video container's relative URI.
 	Uri string `json:"uri"`
-	// The owner of the video.
 	User *User `json:"user,omitempty"`
 }
-
-type _OnDemandVideo OnDemandVideo
 
 // NewOnDemandVideo instantiates a new OnDemandVideo object
 // This constructor will assign default values to properties that have it defined,
@@ -640,51 +634,6 @@ func (o OnDemandVideo) ToMap() (map[string]interface{}, error) {
 		toSerialize["user"] = o.User
 	}
 	return toSerialize, nil
-}
-
-func (o *OnDemandVideo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"buy",
-		"interactions",
-		"link",
-		"metadata",
-		"play_progress",
-		"release_year",
-		"rent",
-		"type",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOnDemandVideo := _OnDemandVideo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnDemandVideo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OnDemandVideo(varOnDemandVideo)
-
-	return err
 }
 
 type NullableOnDemandVideo struct {

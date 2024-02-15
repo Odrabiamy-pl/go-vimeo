@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AddVideosToChannelRequest type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type AddVideosToChannelRequest struct {
 	// A member of an array representing the URIs of the videos to add. For each member in the array, use the format `{\"video_uri\":\"x\"}` where **x** is a video URI. For more information on batch requests like this, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 	VideoUri string `json:"video_uri"`
 }
-
-type _AddVideosToChannelRequest AddVideosToChannelRequest
 
 // NewAddVideosToChannelRequest instantiates a new AddVideosToChannelRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o AddVideosToChannelRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["video_uri"] = o.VideoUri
 	return toSerialize, nil
-}
-
-func (o *AddVideosToChannelRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"video_uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAddVideosToChannelRequest := _AddVideosToChannelRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddVideosToChannelRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AddVideosToChannelRequest(varAddVideosToChannelRequest)
-
-	return err
 }
 
 type NullableAddVideosToChannelRequest struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AlbumCustomLogo type satisfies the MappedNullable interface at compile time
@@ -38,8 +36,6 @@ type AlbumCustomLogo struct {
 	// The URI of the picture.
 	Uri string `json:"uri"`
 }
-
-type _AlbumCustomLogo AlbumCustomLogo
 
 // NewAlbumCustomLogo instantiates a new AlbumCustomLogo object
 // This constructor will assign default values to properties that have it defined,
@@ -286,49 +282,6 @@ func (o AlbumCustomLogo) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *AlbumCustomLogo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"active",
-		"base_link",
-		"default_picture",
-		"resource_key",
-		"sizes",
-		"type",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAlbumCustomLogo := _AlbumCustomLogo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAlbumCustomLogo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AlbumCustomLogo(varAlbumCustomLogo)
-
-	return err
 }
 
 type NullableAlbumCustomLogo struct {

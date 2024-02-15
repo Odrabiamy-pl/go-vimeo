@@ -32,7 +32,7 @@ type LiveEventEndAPI interface {
 	@param liveEventId The ID of the event.
 	@return ApiEndLiveEventRequest
 	*/
-	EndLiveEvent(ctx context.Context, userId float32, liveEventId float32) ApiEndLiveEventRequest
+	EndLiveEvent(ctx context.Context, userId int32, liveEventId float32) ApiEndLiveEventRequest
 
 	// EndLiveEventExecute executes the request
 	//  @return Video
@@ -75,7 +75,7 @@ type LiveEventEndAPIService service
 type ApiEndLiveEventRequest struct {
 	ctx context.Context
 	ApiService LiveEventEndAPI
-	userId float32
+	userId int32
 	liveEventId float32
 	clipId *float32
 }
@@ -100,7 +100,7 @@ This method ends the specified event. The authenticated user must be the owner o
  @param liveEventId The ID of the event.
  @return ApiEndLiveEventRequest
 */
-func (a *LiveEventEndAPIService) EndLiveEvent(ctx context.Context, userId float32, liveEventId float32) ApiEndLiveEventRequest {
+func (a *LiveEventEndAPIService) EndLiveEvent(ctx context.Context, userId int32, liveEventId float32) ApiEndLiveEventRequest {
 	return ApiEndLiveEventRequest{
 		ApiService: a,
 		ctx: ctx,

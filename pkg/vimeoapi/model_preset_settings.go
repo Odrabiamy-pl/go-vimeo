@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the PresetSettings type satisfies the MappedNullable interface at compile time
@@ -57,8 +55,6 @@ type PresetSettings struct {
 	// Whether the volume controls appear in the embeddable player.
 	Volume bool `json:"volume"`
 }
-
-type _PresetSettings PresetSettings
 
 // NewPresetSettings instantiates a new PresetSettings object
 // This constructor will assign default values to properties that have it defined,
@@ -608,62 +604,6 @@ func (o PresetSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize["transcript"] = o.Transcript
 	toSerialize["volume"] = o.Volume
 	return toSerialize, nil
-}
-
-func (o *PresetSettings) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"airplay",
-		"audio_tracks",
-		"buttons",
-		"byline",
-		"chapters",
-		"chromecast",
-		"closed_captions",
-		"color",
-		"colors",
-		"logos",
-		"outro",
-		"pip",
-		"play_button",
-		"playbar",
-		"portrait",
-		"quality_selector",
-		"speed",
-		"title",
-		"transcript",
-		"volume",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPresetSettings := _PresetSettings{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPresetSettings)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PresetSettings(varPresetSettings)
-
-	return err
 }
 
 type NullablePresetSettings struct {

@@ -31,7 +31,7 @@ type VideosVersionsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiCreateVideoVersionRequest
 	*/
-	CreateVideoVersion(ctx context.Context, videoId float32) ApiCreateVideoVersionRequest
+	CreateVideoVersion(ctx context.Context, videoId int32) ApiCreateVideoVersionRequest
 
 	// CreateVideoVersionExecute executes the request
 	//  @return VideoVersion
@@ -47,7 +47,7 @@ type VideosVersionsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoVersionRequest
 	*/
-	DeleteVideoVersion(ctx context.Context, versionId float32, videoId float32) ApiDeleteVideoVersionRequest
+	DeleteVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiDeleteVideoVersionRequest
 
 	// DeleteVideoVersionExecute executes the request
 	DeleteVideoVersionExecute(r ApiDeleteVideoVersionRequest) (*http.Response, error)
@@ -62,7 +62,7 @@ type VideosVersionsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiEditVideoVersionRequest
 	*/
-	EditVideoVersion(ctx context.Context, versionId float32, videoId float32) ApiEditVideoVersionRequest
+	EditVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiEditVideoVersionRequest
 
 	// EditVideoVersionExecute executes the request
 	//  @return VideoVersion
@@ -78,7 +78,7 @@ type VideosVersionsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoVersionRequest
 	*/
-	GetVideoVersion(ctx context.Context, versionId float32, videoId float32) ApiGetVideoVersionRequest
+	GetVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiGetVideoVersionRequest
 
 	// GetVideoVersionExecute executes the request
 	//  @return VideoVersion
@@ -93,7 +93,7 @@ type VideosVersionsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoVersionsRequest
 	*/
-	GetVideoVersions(ctx context.Context, videoId float32) ApiGetVideoVersionsRequest
+	GetVideoVersions(ctx context.Context, videoId int32) ApiGetVideoVersionsRequest
 
 	// GetVideoVersionsExecute executes the request
 	//  @return []VideoVersion
@@ -109,7 +109,7 @@ type VideosVersionsAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetVideoVersionsAlt1Request
 	*/
-	GetVideoVersionsAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoVersionsAlt1Request
+	GetVideoVersionsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoVersionsAlt1Request
 
 	// GetVideoVersionsAlt1Execute executes the request
 	//  @return []VideoVersion
@@ -122,7 +122,7 @@ type VideosVersionsAPIService service
 type ApiCreateVideoVersionRequest struct {
 	ctx context.Context
 	ApiService VideosVersionsAPI
-	videoId float32
+	videoId int32
 	createVideoVersionRequest *CreateVideoVersionRequest
 }
 
@@ -144,7 +144,7 @@ This method adds a version to the specified video. The authenticated user must b
  @param videoId The ID of the video.
  @return ApiCreateVideoVersionRequest
 */
-func (a *VideosVersionsAPIService) CreateVideoVersion(ctx context.Context, videoId float32) ApiCreateVideoVersionRequest {
+func (a *VideosVersionsAPIService) CreateVideoVersion(ctx context.Context, videoId int32) ApiCreateVideoVersionRequest {
 	return ApiCreateVideoVersionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -269,7 +269,7 @@ type ApiDeleteVideoVersionRequest struct {
 	ctx context.Context
 	ApiService VideosVersionsAPI
 	versionId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoVersionRequest) Execute() (*http.Response, error) {
@@ -286,7 +286,7 @@ This method deletes the specified version from a video. The authenticated user m
  @param videoId The ID of the video.
  @return ApiDeleteVideoVersionRequest
 */
-func (a *VideosVersionsAPIService) DeleteVideoVersion(ctx context.Context, versionId float32, videoId float32) ApiDeleteVideoVersionRequest {
+func (a *VideosVersionsAPIService) DeleteVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiDeleteVideoVersionRequest {
 	return ApiDeleteVideoVersionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -375,7 +375,7 @@ type ApiEditVideoVersionRequest struct {
 	ctx context.Context
 	ApiService VideosVersionsAPI
 	versionId float32
-	videoId float32
+	videoId int32
 	editVideoVersionRequest *EditVideoVersionRequest
 }
 
@@ -398,7 +398,7 @@ This method edits the specified version of a video. The authenticated user must 
  @param videoId The ID of the video.
  @return ApiEditVideoVersionRequest
 */
-func (a *VideosVersionsAPIService) EditVideoVersion(ctx context.Context, versionId float32, videoId float32) ApiEditVideoVersionRequest {
+func (a *VideosVersionsAPIService) EditVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiEditVideoVersionRequest {
 	return ApiEditVideoVersionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -511,7 +511,7 @@ type ApiGetVideoVersionRequest struct {
 	ctx context.Context
 	ApiService VideosVersionsAPI
 	versionId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetVideoVersionRequest) Execute() (*VideoVersion, *http.Response, error) {
@@ -528,7 +528,7 @@ This method returns a single version of the specified video. The authenticated u
  @param videoId The ID of the video.
  @return ApiGetVideoVersionRequest
 */
-func (a *VideosVersionsAPIService) GetVideoVersion(ctx context.Context, versionId float32, videoId float32) ApiGetVideoVersionRequest {
+func (a *VideosVersionsAPIService) GetVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiGetVideoVersionRequest {
 	return ApiGetVideoVersionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -627,7 +627,7 @@ func (a *VideosVersionsAPIService) GetVideoVersionExecute(r ApiGetVideoVersionRe
 type ApiGetVideoVersionsRequest struct {
 	ctx context.Context
 	ApiService VideosVersionsAPI
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -657,7 +657,7 @@ This method returns every version of the specified video. The authenticated user
  @param videoId The ID of the video.
  @return ApiGetVideoVersionsRequest
 */
-func (a *VideosVersionsAPIService) GetVideoVersions(ctx context.Context, videoId float32) ApiGetVideoVersionsRequest {
+func (a *VideosVersionsAPIService) GetVideoVersions(ctx context.Context, videoId int32) ApiGetVideoVersionsRequest {
 	return ApiGetVideoVersionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -772,7 +772,7 @@ type ApiGetVideoVersionsAlt1Request struct {
 	ctx context.Context
 	ApiService VideosVersionsAPI
 	channelId float32
-	videoId float32
+	videoId int32
 	page *float32
 	perPage *float32
 }
@@ -803,7 +803,7 @@ This method returns every version of the specified video. The authenticated user
  @param videoId The ID of the video.
  @return ApiGetVideoVersionsAlt1Request
 */
-func (a *VideosVersionsAPIService) GetVideoVersionsAlt1(ctx context.Context, channelId float32, videoId float32) ApiGetVideoVersionsAlt1Request {
+func (a *VideosVersionsAPIService) GetVideoVersionsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoVersionsAlt1Request {
 	return ApiGetVideoVersionsAlt1Request{
 		ApiService: a,
 		ctx: ctx,

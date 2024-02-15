@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the CreateChannelRequest type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type CreateChannelRequest struct {
 	// The privacy level of the channel.  Option descriptions:  * `anybody` - Anyone can access the channel.  * `moderators` - Only moderators can access the channel.  * `user` - Only moderators and designated users can access the channel. 
 	Privacy string `json:"privacy"`
 }
-
-type _CreateChannelRequest CreateChannelRequest
 
 // NewCreateChannelRequest instantiates a new CreateChannelRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -183,44 +179,6 @@ func (o CreateChannelRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["privacy"] = o.Privacy
 	return toSerialize, nil
-}
-
-func (o *CreateChannelRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"name",
-		"privacy",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCreateChannelRequest := _CreateChannelRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateChannelRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CreateChannelRequest(varCreateChannelRequest)
-
-	return err
 }
 
 type NullableCreateChannelRequest struct {

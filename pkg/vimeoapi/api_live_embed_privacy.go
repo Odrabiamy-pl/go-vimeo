@@ -32,7 +32,7 @@ type LiveEmbedPrivacyAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetLiveEventWhitelistRequest
 	*/
-	GetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventWhitelistRequest
+	GetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventWhitelistRequest
 
 	// GetLiveEventWhitelistExecute executes the request
 	//  @return []Domain
@@ -78,7 +78,7 @@ type LiveEmbedPrivacyAPI interface {
 	@param userId The ID of the user.
 	@return ApiSetLiveEventWhitelistRequest
 	*/
-	SetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId float32) ApiSetLiveEventWhitelistRequest
+	SetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId int32) ApiSetLiveEventWhitelistRequest
 
 	// SetLiveEventWhitelistExecute executes the request
 	SetLiveEventWhitelistExecute(r ApiSetLiveEventWhitelistRequest) (*http.Response, error)
@@ -119,7 +119,7 @@ type ApiGetLiveEventWhitelistRequest struct {
 	ctx context.Context
 	ApiService LiveEmbedPrivacyAPI
 	liveEventId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetLiveEventWhitelistRequest) Execute() ([]Domain, *http.Response, error) {
@@ -136,7 +136,7 @@ This method returns every whitelisted domain for an event. The embed privacy set
  @param userId The ID of the user.
  @return ApiGetLiveEventWhitelistRequest
 */
-func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId float32) ApiGetLiveEventWhitelistRequest {
+func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventWhitelistRequest {
 	return ApiGetLiveEventWhitelistRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -561,7 +561,7 @@ type ApiSetLiveEventWhitelistRequest struct {
 	ctx context.Context
 	ApiService LiveEmbedPrivacyAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	setLiveEventWhitelistAlt1Request *SetLiveEventWhitelistAlt1Request
 }
 
@@ -584,7 +584,7 @@ This method embeds an event on the specified domains. The embed privacy setting 
  @param userId The ID of the user.
  @return ApiSetLiveEventWhitelistRequest
 */
-func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId float32) ApiSetLiveEventWhitelistRequest {
+func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId int32) ApiSetLiveEventWhitelistRequest {
 	return ApiSetLiveEventWhitelistRequest{
 		ApiService: a,
 		ctx: ctx,

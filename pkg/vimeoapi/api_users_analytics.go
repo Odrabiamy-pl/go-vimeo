@@ -32,7 +32,7 @@ type UsersAnalyticsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetUserAnalyticsRequest
 	*/
-	GetUserAnalytics(ctx context.Context, userId float32) ApiGetUserAnalyticsRequest
+	GetUserAnalytics(ctx context.Context, userId int32) ApiGetUserAnalyticsRequest
 
 	// GetUserAnalyticsExecute executes the request
 	//  @return []Analytics
@@ -59,7 +59,7 @@ type UsersAnalyticsAPIService service
 type ApiGetUserAnalyticsRequest struct {
 	ctx context.Context
 	ApiService UsersAnalyticsAPI
-	userId float32
+	userId int32
 	dimension *string
 	from *string
 	to *string
@@ -166,7 +166,7 @@ This method returns analytic metrics for the authenticated user.
  @param userId The ID of the user.
  @return ApiGetUserAnalyticsRequest
 */
-func (a *UsersAnalyticsAPIService) GetUserAnalytics(ctx context.Context, userId float32) ApiGetUserAnalyticsRequest {
+func (a *UsersAnalyticsAPIService) GetUserAnalytics(ctx context.Context, userId int32) ApiGetUserAnalyticsRequest {
 	return ApiGetUserAnalyticsRequest{
 		ApiService: a,
 		ctx: ctx,

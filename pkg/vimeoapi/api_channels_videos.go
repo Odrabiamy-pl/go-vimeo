@@ -32,7 +32,7 @@ type ChannelsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiAddVideoToChannelRequest
 	*/
-	AddVideoToChannel(ctx context.Context, channelId float32, videoId float32) ApiAddVideoToChannelRequest
+	AddVideoToChannel(ctx context.Context, channelId float32, videoId int32) ApiAddVideoToChannelRequest
 
 	// AddVideoToChannelExecute executes the request
 	AddVideoToChannelExecute(r ApiAddVideoToChannelRequest) (*http.Response, error)
@@ -61,7 +61,7 @@ type ChannelsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiDeleteVideoFromChannelRequest
 	*/
-	DeleteVideoFromChannel(ctx context.Context, channelId float32, videoId float32) ApiDeleteVideoFromChannelRequest
+	DeleteVideoFromChannel(ctx context.Context, channelId float32, videoId int32) ApiDeleteVideoFromChannelRequest
 
 	// DeleteVideoFromChannelExecute executes the request
 	DeleteVideoFromChannelExecute(r ApiDeleteVideoFromChannelRequest) (*http.Response, error)
@@ -75,7 +75,7 @@ type ChannelsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetAvailableVideoChannelsRequest
 	*/
-	GetAvailableVideoChannels(ctx context.Context, videoId float32) ApiGetAvailableVideoChannelsRequest
+	GetAvailableVideoChannels(ctx context.Context, videoId int32) ApiGetAvailableVideoChannelsRequest
 
 	// GetAvailableVideoChannelsExecute executes the request
 	//  @return []Channel
@@ -91,7 +91,7 @@ type ChannelsVideosAPI interface {
 	@param videoId The ID of the video.
 	@return ApiGetChannelVideoRequest
 	*/
-	GetChannelVideo(ctx context.Context, channelId float32, videoId float32) ApiGetChannelVideoRequest
+	GetChannelVideo(ctx context.Context, channelId float32, videoId int32) ApiGetChannelVideoRequest
 
 	// GetChannelVideoExecute executes the request
 	//  @return Video
@@ -134,7 +134,7 @@ type ApiAddVideoToChannelRequest struct {
 	ctx context.Context
 	ApiService ChannelsVideosAPI
 	channelId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiAddVideoToChannelRequest) Execute() (*http.Response, error) {
@@ -151,7 +151,7 @@ This method adds a single video to the specified channel. The authenticated user
  @param videoId The ID of the video.
  @return ApiAddVideoToChannelRequest
 */
-func (a *ChannelsVideosAPIService) AddVideoToChannel(ctx context.Context, channelId float32, videoId float32) ApiAddVideoToChannelRequest {
+func (a *ChannelsVideosAPIService) AddVideoToChannel(ctx context.Context, channelId float32, videoId int32) ApiAddVideoToChannelRequest {
 	return ApiAddVideoToChannelRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -375,7 +375,7 @@ type ApiDeleteVideoFromChannelRequest struct {
 	ctx context.Context
 	ApiService ChannelsVideosAPI
 	channelId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoFromChannelRequest) Execute() (*http.Response, error) {
@@ -392,7 +392,7 @@ This method removes a single video from the specified channel. The authenticated
  @param videoId The ID of the video.
  @return ApiDeleteVideoFromChannelRequest
 */
-func (a *ChannelsVideosAPIService) DeleteVideoFromChannel(ctx context.Context, channelId float32, videoId float32) ApiDeleteVideoFromChannelRequest {
+func (a *ChannelsVideosAPIService) DeleteVideoFromChannel(ctx context.Context, channelId float32, videoId int32) ApiDeleteVideoFromChannelRequest {
 	return ApiDeleteVideoFromChannelRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -491,7 +491,7 @@ func (a *ChannelsVideosAPIService) DeleteVideoFromChannelExecute(r ApiDeleteVide
 type ApiGetAvailableVideoChannelsRequest struct {
 	ctx context.Context
 	ApiService ChannelsVideosAPI
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetAvailableVideoChannelsRequest) Execute() ([]Channel, *http.Response, error) {
@@ -507,7 +507,7 @@ This method returns every channel to which the authenticated user can add or rem
  @param videoId The ID of the video.
  @return ApiGetAvailableVideoChannelsRequest
 */
-func (a *ChannelsVideosAPIService) GetAvailableVideoChannels(ctx context.Context, videoId float32) ApiGetAvailableVideoChannelsRequest {
+func (a *ChannelsVideosAPIService) GetAvailableVideoChannels(ctx context.Context, videoId int32) ApiGetAvailableVideoChannelsRequest {
 	return ApiGetAvailableVideoChannelsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -616,7 +616,7 @@ type ApiGetChannelVideoRequest struct {
 	ctx context.Context
 	ApiService ChannelsVideosAPI
 	channelId float32
-	videoId float32
+	videoId int32
 }
 
 func (r ApiGetChannelVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -633,7 +633,7 @@ This method returns a single video in the specified channel. You can use it to d
  @param videoId The ID of the video.
  @return ApiGetChannelVideoRequest
 */
-func (a *ChannelsVideosAPIService) GetChannelVideo(ctx context.Context, channelId float32, videoId float32) ApiGetChannelVideoRequest {
+func (a *ChannelsVideosAPIService) GetChannelVideo(ctx context.Context, channelId float32, videoId int32) ApiGetChannelVideoRequest {
 	return ApiGetChannelVideoRequest{
 		ApiService: a,
 		ctx: ctx,

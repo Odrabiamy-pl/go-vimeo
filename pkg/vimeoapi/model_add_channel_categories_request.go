@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AddChannelCategoriesRequest type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type AddChannelCategoriesRequest struct {
 	// The array of category URIs to add.
 	Channels []string `json:"channels"`
 }
-
-type _AddChannelCategoriesRequest AddChannelCategoriesRequest
 
 // NewAddChannelCategoriesRequest instantiates a new AddChannelCategoriesRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o AddChannelCategoriesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["channels"] = o.Channels
 	return toSerialize, nil
-}
-
-func (o *AddChannelCategoriesRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"channels",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAddChannelCategoriesRequest := _AddChannelCategoriesRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddChannelCategoriesRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AddChannelCategoriesRequest(varAddChannelCategoriesRequest)
-
-	return err
 }
 
 type NullableAddChannelCategoriesRequest struct {

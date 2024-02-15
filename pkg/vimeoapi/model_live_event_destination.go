@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LiveEventDestination type satisfies the MappedNullable interface at compile time
@@ -54,16 +52,14 @@ type LiveEventDestination struct {
 	// The type of the simulcast destination.  Option descriptions:  * `channel` - The destination is a YouTube channel.  * `custom` - The destination is custom.  * `organization` - The destination is a LinkedIn organization.  * `page` - The destination is a Facebook page.  * `profile` - The destination is a Facebook or LinkedIn profile. 
 	Type string `json:"type"`
 	// The ID of the destination's owner.
-	UserId float32 `json:"user_id"`
+	UserId int32 `json:"user_id"`
 }
-
-type _LiveEventDestination LiveEventDestination
 
 // NewLiveEventDestination instantiates a new LiveEventDestination object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLiveEventDestination(displayName string, id float32, isEnabled bool, liveClipId float32, privacy NullableString, providerBroadcastId NullableString, providerDestinationId NullableString, providerUserId NullableString, providerVideoId NullableString, scheduledAt NullableFloat32, serviceName string, state string, stateMessage NullableString, streamKey NullableString, streamUrl NullableString, type_ string, userId float32) *LiveEventDestination {
+func NewLiveEventDestination(displayName string, id float32, isEnabled bool, liveClipId float32, privacy NullableString, providerBroadcastId NullableString, providerDestinationId NullableString, providerUserId NullableString, providerVideoId NullableString, scheduledAt NullableFloat32, serviceName string, state string, stateMessage NullableString, streamKey NullableString, streamUrl NullableString, type_ string, userId int32) *LiveEventDestination {
 	this := LiveEventDestination{}
 	this.DisplayName = displayName
 	this.Id = id
@@ -496,9 +492,9 @@ func (o *LiveEventDestination) SetType(v string) {
 }
 
 // GetUserId returns the UserId field value
-func (o *LiveEventDestination) GetUserId() float32 {
+func (o *LiveEventDestination) GetUserId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -507,7 +503,7 @@ func (o *LiveEventDestination) GetUserId() float32 {
 
 // GetUserIdOk returns a tuple with the UserId field value
 // and a boolean to check if the value has been set.
-func (o *LiveEventDestination) GetUserIdOk() (*float32, bool) {
+func (o *LiveEventDestination) GetUserIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -515,7 +511,7 @@ func (o *LiveEventDestination) GetUserIdOk() (*float32, bool) {
 }
 
 // SetUserId sets field value
-func (o *LiveEventDestination) SetUserId(v float32) {
+func (o *LiveEventDestination) SetUserId(v int32) {
 	o.UserId = v
 }
 
@@ -547,59 +543,6 @@ func (o LiveEventDestination) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["user_id"] = o.UserId
 	return toSerialize, nil
-}
-
-func (o *LiveEventDestination) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"display_name",
-		"id",
-		"is_enabled",
-		"live_clip_id",
-		"privacy",
-		"provider_broadcast_id",
-		"provider_destination_id",
-		"provider_user_id",
-		"provider_video_id",
-		"scheduled_at",
-		"service_name",
-		"state",
-		"state_message",
-		"stream_key",
-		"stream_url",
-		"type",
-		"user_id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLiveEventDestination := _LiveEventDestination{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLiveEventDestination)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LiveEventDestination(varLiveEventDestination)
-
-	return err
 }
 
 type NullableLiveEventDestination struct {

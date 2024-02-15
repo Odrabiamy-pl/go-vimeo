@@ -32,7 +32,7 @@ type LiveEventAutomatedClosedCaptionsAPI interface {
 	@param userId The ID of the user.
 	@return ApiEditLiveEventAutoCcRequest
 	*/
-	EditLiveEventAutoCc(ctx context.Context, liveEventId float32, userId float32) ApiEditLiveEventAutoCcRequest
+	EditLiveEventAutoCc(ctx context.Context, liveEventId float32, userId int32) ApiEditLiveEventAutoCcRequest
 
 	// EditLiveEventAutoCcExecute executes the request
 	//  @return LiveEventAutomatedClosedCaptions
@@ -76,7 +76,7 @@ type ApiEditLiveEventAutoCcRequest struct {
 	ctx context.Context
 	ApiService LiveEventAutomatedClosedCaptionsAPI
 	liveEventId float32
-	userId float32
+	userId int32
 	editLiveEventAutoCcAlt1Request *EditLiveEventAutoCcAlt1Request
 }
 
@@ -99,7 +99,7 @@ This method edits the automated closed captions preference for the specified eve
  @param userId The ID of the user.
  @return ApiEditLiveEventAutoCcRequest
 */
-func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCc(ctx context.Context, liveEventId float32, userId float32) ApiEditLiveEventAutoCcRequest {
+func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCc(ctx context.Context, liveEventId float32, userId int32) ApiEditLiveEventAutoCcRequest {
 	return ApiEditLiveEventAutoCcRequest{
 		ApiService: a,
 		ctx: ctx,

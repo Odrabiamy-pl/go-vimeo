@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EmbedSettingsTitle type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type EmbedSettingsTitle struct {
 	// How the embeddable player handles the video owner's portrait.  Option descriptions:  * `hide` - The owner's portrait is hidden  * `show` - The owner's portrait is shown.  * `user` - The owner's portrait can be toggled to `show` or `hide` by the user. 
 	Portrait string `json:"portrait"`
 }
-
-type _EmbedSettingsTitle EmbedSettingsTitle
 
 // NewEmbedSettingsTitle instantiates a new EmbedSettingsTitle object
 // This constructor will assign default values to properties that have it defined,
@@ -137,45 +133,6 @@ func (o EmbedSettingsTitle) ToMap() (map[string]interface{}, error) {
 	toSerialize["owner"] = o.Owner
 	toSerialize["portrait"] = o.Portrait
 	return toSerialize, nil
-}
-
-func (o *EmbedSettingsTitle) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"name",
-		"owner",
-		"portrait",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEmbedSettingsTitle := _EmbedSettingsTitle{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmbedSettingsTitle)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EmbedSettingsTitle(varEmbedSettingsTitle)
-
-	return err
 }
 
 type NullableEmbedSettingsTitle struct {

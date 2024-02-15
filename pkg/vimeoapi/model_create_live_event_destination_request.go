@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the CreateLiveEventDestinationRequest type satisfies the MappedNullable interface at compile time
@@ -42,8 +40,6 @@ type CreateLiveEventDestinationRequest struct {
 	// The type of the simulcast destination.  Option descriptions:  * `channel` - The destination is a YouTube channel.  * `custom` - The destination is custom.  * `organization` - The destination is a LinkedIn organization.  * `page` - The destination is a Facebook page.  * `profile` - The destination is a Facebook or LinkedIn profile. 
 	Type string `json:"type"`
 }
-
-type _CreateLiveEventDestinationRequest CreateLiveEventDestinationRequest
 
 // NewCreateLiveEventDestinationRequest instantiates a new CreateLiveEventDestinationRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -406,45 +402,6 @@ func (o CreateLiveEventDestinationRequest) ToMap() (map[string]interface{}, erro
 	}
 	toSerialize["type"] = o.Type
 	return toSerialize, nil
-}
-
-func (o *CreateLiveEventDestinationRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"display_name",
-		"service_name",
-		"type",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCreateLiveEventDestinationRequest := _CreateLiveEventDestinationRequest{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateLiveEventDestinationRequest)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CreateLiveEventDestinationRequest(varCreateLiveEventDestinationRequest)
-
-	return err
 }
 
 type NullableCreateLiveEventDestinationRequest struct {

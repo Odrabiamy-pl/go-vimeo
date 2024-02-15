@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WebinarPrivacy type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type WebinarPrivacy struct {
 	// The general privacy setting for the webinar.  Option descriptions:  * `anybody` - Anyone can access the webinar. This privacy setting appears as `Public` on the Vimeo front end.  * `nobody` - Only the event owner can access the webinar. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Only those with the password can access the live event.  * `team` - Only members of the authenticated user's team can access the webinar. 
 	View string `json:"view"`
 }
-
-type _WebinarPrivacy WebinarPrivacy
 
 // NewWebinarPrivacy instantiates a new WebinarPrivacy object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o WebinarPrivacy) ToMap() (map[string]interface{}, error) {
 	toSerialize["embed"] = o.Embed
 	toSerialize["view"] = o.View
 	return toSerialize, nil
-}
-
-func (o *WebinarPrivacy) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"embed",
-		"view",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWebinarPrivacy := _WebinarPrivacy{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebinarPrivacy)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WebinarPrivacy(varWebinarPrivacy)
-
-	return err
 }
 
 type NullableWebinarPrivacy struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WebinarEmailProviderListInnerList type satisfies the MappedNullable interface at compile time
@@ -26,8 +24,6 @@ type WebinarEmailProviderListInnerList struct {
 	// The name of the connected list.
 	Name string `json:"name"`
 }
-
-type _WebinarEmailProviderListInnerList WebinarEmailProviderListInnerList
 
 // NewWebinarEmailProviderListInnerList instantiates a new WebinarEmailProviderListInnerList object
 // This constructor will assign default values to properties that have it defined,
@@ -109,44 +105,6 @@ func (o WebinarEmailProviderListInnerList) ToMap() (map[string]interface{}, erro
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
-}
-
-func (o *WebinarEmailProviderListInnerList) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"name",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWebinarEmailProviderListInnerList := _WebinarEmailProviderListInnerList{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebinarEmailProviderListInnerList)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WebinarEmailProviderListInnerList(varWebinarEmailProviderListInnerList)
-
-	return err
 }
 
 type NullableWebinarEmailProviderListInnerList struct {

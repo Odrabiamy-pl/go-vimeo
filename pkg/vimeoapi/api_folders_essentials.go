@@ -31,7 +31,7 @@ type FoldersEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiCreateProjectRequest
 	*/
-	CreateProject(ctx context.Context, userId float32) ApiCreateProjectRequest
+	CreateProject(ctx context.Context, userId int32) ApiCreateProjectRequest
 
 	// CreateProjectExecute executes the request
 	//  @return Project
@@ -61,7 +61,7 @@ type FoldersEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiDeleteProjectRequest
 	*/
-	DeleteProject(ctx context.Context, projectId float32, userId float32) ApiDeleteProjectRequest
+	DeleteProject(ctx context.Context, projectId float32, userId int32) ApiDeleteProjectRequest
 
 	// DeleteProjectExecute executes the request
 	DeleteProjectExecute(r ApiDeleteProjectRequest) (*http.Response, error)
@@ -90,7 +90,7 @@ type FoldersEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiEditProjectRequest
 	*/
-	EditProject(ctx context.Context, projectId float32, userId float32) ApiEditProjectRequest
+	EditProject(ctx context.Context, projectId float32, userId int32) ApiEditProjectRequest
 
 	// EditProjectExecute executes the request
 	//  @return Project
@@ -136,7 +136,7 @@ type FoldersEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetProjectRequest
 	*/
-	GetProject(ctx context.Context, projectId float32, userId float32) ApiGetProjectRequest
+	GetProject(ctx context.Context, projectId float32, userId int32) ApiGetProjectRequest
 
 	// GetProjectExecute executes the request
 	//  @return Project
@@ -166,7 +166,7 @@ type FoldersEssentialsAPI interface {
 	@param userId The ID of the user.
 	@return ApiGetProjectsRequest
 	*/
-	GetProjects(ctx context.Context, userId float32) ApiGetProjectsRequest
+	GetProjects(ctx context.Context, userId int32) ApiGetProjectsRequest
 
 	// GetProjectsExecute executes the request
 	//  @return []Project
@@ -193,7 +193,7 @@ type FoldersEssentialsAPIService service
 type ApiCreateProjectRequest struct {
 	ctx context.Context
 	ApiService FoldersEssentialsAPI
-	userId float32
+	userId int32
 	createProjectAlt1Request *CreateProjectAlt1Request
 }
 
@@ -215,7 +215,7 @@ This method creates a new folder for the authenticated user. By default, this me
  @param userId The ID of the user.
  @return ApiCreateProjectRequest
 */
-func (a *FoldersEssentialsAPIService) CreateProject(ctx context.Context, userId float32) ApiCreateProjectRequest {
+func (a *FoldersEssentialsAPIService) CreateProject(ctx context.Context, userId int32) ApiCreateProjectRequest {
 	return ApiCreateProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -482,7 +482,7 @@ type ApiDeleteProjectRequest struct {
 	ctx context.Context
 	ApiService FoldersEssentialsAPI
 	projectId float32
-	userId float32
+	userId int32
 	shouldDeleteClips *bool
 }
 
@@ -506,7 +506,7 @@ This method deletes the specified folder and optionally also the videos that it 
  @param userId The ID of the user.
  @return ApiDeleteProjectRequest
 */
-func (a *FoldersEssentialsAPIService) DeleteProject(ctx context.Context, projectId float32, userId float32) ApiDeleteProjectRequest {
+func (a *FoldersEssentialsAPIService) DeleteProject(ctx context.Context, projectId float32, userId int32) ApiDeleteProjectRequest {
 	return ApiDeleteProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -754,7 +754,7 @@ type ApiEditProjectRequest struct {
 	ctx context.Context
 	ApiService FoldersEssentialsAPI
 	projectId float32
-	userId float32
+	userId int32
 	editProjectAlt1Request *EditProjectAlt1Request
 }
 
@@ -777,7 +777,7 @@ This method edits the specified folder. The authenticated user must be the owner
  @param userId The ID of the user.
  @return ApiEditProjectRequest
 */
-func (a *FoldersEssentialsAPIService) EditProject(ctx context.Context, projectId float32, userId float32) ApiEditProjectRequest {
+func (a *FoldersEssentialsAPIService) EditProject(ctx context.Context, projectId float32, userId int32) ApiEditProjectRequest {
 	return ApiEditProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1196,7 +1196,7 @@ type ApiGetProjectRequest struct {
 	ctx context.Context
 	ApiService FoldersEssentialsAPI
 	projectId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetProjectRequest) Execute() (*Project, *http.Response, error) {
@@ -1213,7 +1213,7 @@ This method returns a single folder belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetProjectRequest
 */
-func (a *FoldersEssentialsAPIService) GetProject(ctx context.Context, projectId float32, userId float32) ApiGetProjectRequest {
+func (a *FoldersEssentialsAPIService) GetProject(ctx context.Context, projectId float32, userId int32) ApiGetProjectRequest {
 	return ApiGetProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1447,7 +1447,7 @@ func (a *FoldersEssentialsAPIService) GetProjectAlt1Execute(r ApiGetProjectAlt1R
 type ApiGetProjectsRequest struct {
 	ctx context.Context
 	ApiService FoldersEssentialsAPI
-	userId float32
+	userId int32
 	direction *string
 	page *float32
 	perPage *float32
@@ -1498,7 +1498,7 @@ This method returns all the folders belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetProjectsRequest
 */
-func (a *FoldersEssentialsAPIService) GetProjects(ctx context.Context, userId float32) ApiGetProjectsRequest {
+func (a *FoldersEssentialsAPIService) GetProjects(ctx context.Context, userId int32) ApiGetProjectsRequest {
 	return ApiGetProjectsRequest{
 		ApiService: a,
 		ctx: ctx,

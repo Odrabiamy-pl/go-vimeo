@@ -33,7 +33,7 @@ from the **link** field in the response. For step-by-step instructions, see
 	@param userId The ID of the user.
 	@return ApiCreatePictureRequest
 	*/
-	CreatePicture(ctx context.Context, userId float32) ApiCreatePictureRequest
+	CreatePicture(ctx context.Context, userId int32) ApiCreatePictureRequest
 
 	// CreatePictureExecute executes the request
 	//  @return Picture
@@ -65,7 +65,7 @@ from the **link** field in the response. For step-by-step instructions, see
 	@param userId The ID of the user.
 	@return ApiDeletePictureRequest
 	*/
-	DeletePicture(ctx context.Context, portraitsetId float32, userId float32) ApiDeletePictureRequest
+	DeletePicture(ctx context.Context, portraitsetId float32, userId int32) ApiDeletePictureRequest
 
 	// DeletePictureExecute executes the request
 	DeletePictureExecute(r ApiDeletePictureRequest) (*http.Response, error)
@@ -94,7 +94,7 @@ from the **link** field in the response. For step-by-step instructions, see
 	@param userId The ID of the user.
 	@return ApiEditPictureRequest
 	*/
-	EditPicture(ctx context.Context, portraitsetId float32, userId float32) ApiEditPictureRequest
+	EditPicture(ctx context.Context, portraitsetId float32, userId int32) ApiEditPictureRequest
 
 	// EditPictureExecute executes the request
 	//  @return Picture
@@ -125,7 +125,7 @@ from the **link** field in the response. For step-by-step instructions, see
 	@param userId The ID of the user.
 	@return ApiGetPictureRequest
 	*/
-	GetPicture(ctx context.Context, portraitsetId float32, userId float32) ApiGetPictureRequest
+	GetPicture(ctx context.Context, portraitsetId float32, userId int32) ApiGetPictureRequest
 
 	// GetPictureExecute executes the request
 	//  @return Picture
@@ -155,7 +155,7 @@ from the **link** field in the response. For step-by-step instructions, see
 	@param userId The ID of the user.
 	@return ApiGetPicturesRequest
 	*/
-	GetPictures(ctx context.Context, userId float32) ApiGetPicturesRequest
+	GetPictures(ctx context.Context, userId int32) ApiGetPicturesRequest
 
 	// GetPicturesExecute executes the request
 	//  @return []Picture
@@ -182,7 +182,7 @@ type UsersPicturesAPIService service
 type ApiCreatePictureRequest struct {
 	ctx context.Context
 	ApiService UsersPicturesAPI
-	userId float32
+	userId int32
 }
 
 func (r ApiCreatePictureRequest) Execute() (*Picture, *http.Response, error) {
@@ -200,7 +200,7 @@ from the **link** field in the response. For step-by-step instructions, see
  @param userId The ID of the user.
  @return ApiCreatePictureRequest
 */
-func (a *UsersPicturesAPIService) CreatePicture(ctx context.Context, userId float32) ApiCreatePictureRequest {
+func (a *UsersPicturesAPIService) CreatePicture(ctx context.Context, userId int32) ApiCreatePictureRequest {
 	return ApiCreatePictureRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -389,7 +389,7 @@ type ApiDeletePictureRequest struct {
 	ctx context.Context
 	ApiService UsersPicturesAPI
 	portraitsetId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiDeletePictureRequest) Execute() (*http.Response, error) {
@@ -406,7 +406,7 @@ This method removes the specified portrait image from the authenticated user's V
  @param userId The ID of the user.
  @return ApiDeletePictureRequest
 */
-func (a *UsersPicturesAPIService) DeletePicture(ctx context.Context, portraitsetId float32, userId float32) ApiDeletePictureRequest {
+func (a *UsersPicturesAPIService) DeletePicture(ctx context.Context, portraitsetId float32, userId int32) ApiDeletePictureRequest {
 	return ApiDeletePictureRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -577,7 +577,7 @@ type ApiEditPictureRequest struct {
 	ctx context.Context
 	ApiService UsersPicturesAPI
 	portraitsetId float32
-	userId float32
+	userId int32
 	editPictureAlt1Request *EditPictureAlt1Request
 }
 
@@ -600,7 +600,7 @@ This method edits the specified portrait image belonging to the authenticated us
  @param userId The ID of the user.
  @return ApiEditPictureRequest
 */
-func (a *UsersPicturesAPIService) EditPicture(ctx context.Context, portraitsetId float32, userId float32) ApiEditPictureRequest {
+func (a *UsersPicturesAPIService) EditPicture(ctx context.Context, portraitsetId float32, userId int32) ApiEditPictureRequest {
 	return ApiEditPictureRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -803,7 +803,7 @@ type ApiGetPictureRequest struct {
 	ctx context.Context
 	ApiService UsersPicturesAPI
 	portraitsetId float32
-	userId float32
+	userId int32
 }
 
 func (r ApiGetPictureRequest) Execute() (*Picture, *http.Response, error) {
@@ -820,7 +820,7 @@ This method returns a single portrait image belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetPictureRequest
 */
-func (a *UsersPicturesAPIService) GetPicture(ctx context.Context, portraitsetId float32, userId float32) ApiGetPictureRequest {
+func (a *UsersPicturesAPIService) GetPicture(ctx context.Context, portraitsetId float32, userId int32) ApiGetPictureRequest {
 	return ApiGetPictureRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1012,7 +1012,7 @@ func (a *UsersPicturesAPIService) GetPictureAlt1Execute(r ApiGetPictureAlt1Reque
 type ApiGetPicturesRequest struct {
 	ctx context.Context
 	ApiService UsersPicturesAPI
-	userId float32
+	userId int32
 	page *float32
 	perPage *float32
 }
@@ -1042,7 +1042,7 @@ This method returns every portrait image belonging to the authenticated user.
  @param userId The ID of the user.
  @return ApiGetPicturesRequest
 */
-func (a *UsersPicturesAPIService) GetPictures(ctx context.Context, userId float32) ApiGetPicturesRequest {
+func (a *UsersPicturesAPIService) GetPictures(ctx context.Context, userId int32) ApiGetPicturesRequest {
 	return ApiGetPicturesRequest{
 		ApiService: a,
 		ctx: ctx,

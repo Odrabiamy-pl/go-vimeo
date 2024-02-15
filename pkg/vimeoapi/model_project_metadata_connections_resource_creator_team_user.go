@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ProjectMetadataConnectionsResourceCreatorTeamUser type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type ProjectMetadataConnectionsResourceCreatorTeamUser struct {
 	// The URI for the team user who created the folder. This data requires a bearer token with the `private` scope.
 	Uri string `json:"uri"`
 }
-
-type _ProjectMetadataConnectionsResourceCreatorTeamUser ProjectMetadataConnectionsResourceCreatorTeamUser
 
 // NewProjectMetadataConnectionsResourceCreatorTeamUser instantiates a new ProjectMetadataConnectionsResourceCreatorTeamUser object
 // This constructor will assign default values to properties that have it defined,
@@ -81,43 +77,6 @@ func (o ProjectMetadataConnectionsResourceCreatorTeamUser) ToMap() (map[string]i
 	toSerialize := map[string]interface{}{}
 	toSerialize["uri"] = o.Uri
 	return toSerialize, nil
-}
-
-func (o *ProjectMetadataConnectionsResourceCreatorTeamUser) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varProjectMetadataConnectionsResourceCreatorTeamUser := _ProjectMetadataConnectionsResourceCreatorTeamUser{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProjectMetadataConnectionsResourceCreatorTeamUser)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ProjectMetadataConnectionsResourceCreatorTeamUser(varProjectMetadataConnectionsResourceCreatorTeamUser)
-
-	return err
 }
 
 type NullableProjectMetadataConnectionsResourceCreatorTeamUser struct {

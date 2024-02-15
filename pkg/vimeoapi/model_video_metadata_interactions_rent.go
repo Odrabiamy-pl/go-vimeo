@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the VideoMetadataInteractionsRent type satisfies the MappedNullable interface at compile time
@@ -40,8 +38,6 @@ type VideoMetadataInteractionsRent struct {
 	// The product URI to rent the On Demand video.
 	Uri NullableString `json:"uri"`
 }
-
-type _VideoMetadataInteractionsRent VideoMetadataInteractionsRent
 
 // NewVideoMetadataInteractionsRent instantiates a new VideoMetadataInteractionsRent object
 // This constructor will assign default values to properties that have it defined,
@@ -319,51 +315,6 @@ func (o VideoMetadataInteractionsRent) ToMap() (map[string]interface{}, error) {
 	toSerialize["stream"] = o.Stream
 	toSerialize["uri"] = o.Uri.Get()
 	return toSerialize, nil
-}
-
-func (o *VideoMetadataInteractionsRent) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"currency",
-		"display_price",
-		"drm",
-		"expires_time",
-		"link",
-		"price",
-		"purchase_time",
-		"stream",
-		"uri",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVideoMetadataInteractionsRent := _VideoMetadataInteractionsRent{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVideoMetadataInteractionsRent)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VideoMetadataInteractionsRent(varVideoMetadataInteractionsRent)
-
-	return err
 }
 
 type NullableVideoMetadataInteractionsRent struct {

@@ -12,8 +12,6 @@ package vimeoapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the Activity31 type satisfies the MappedNullable interface at compile time
@@ -21,26 +19,18 @@ var _ MappedNullable = &Activity31{}
 
 // Activity31 struct for Activity31
 type Activity31 struct {
-	// The category associated with the event. This field is present only when the activity type is `category`.
 	Category *Category `json:"category,omitempty"`
-	// The channel associated with the event. This field is present only when the activity type is `channel`.
 	Channel *Channel `json:"channel,omitempty"`
-	// The video associated with the activity.
 	Clip Video `json:"clip"`
-	// The group associated with the event. This field is present only when the activity type is `group`.
 	Group *Group `json:"group,omitempty"`
 	Metadata Activity31Metadata `json:"metadata"`
-	// The tag associated with the event. This field is present only when the activity type is `tag`.
 	Tag *Tag `json:"tag,omitempty"`
 	// The time that the event occurred.
 	Time string `json:"time"`
 	// The activity type.  Option descriptions:  * `appearance` - The activity is an appearance action.  * `category` - The activity is a category action.  * `channel` - The activity is a channel action.  * `facebook_feed` - The activity is a Facebook feed action.  * `group` - The activity is a group action.  * `like` - The activity is a like action.  * `ondemand` - The activity is a Vimeo On Demand action.  * `share` - The activity is a share action.  * `tag` - The activity is a tag action.  * `twitter_timeline` - The activity is a Twitter timeline action.  * `upload` - The activity is an upload action. 
 	Type string `json:"type"`
-	// The user associated with the event. This field is present only when the activity type is `like`, `appearance`, or `share`.
 	User *User `json:"user,omitempty"`
 }
-
-type _Activity31 Activity31
 
 // NewActivity31 instantiates a new Activity31 object
 // This constructor will assign default values to properties that have it defined,
@@ -349,46 +339,6 @@ func (o Activity31) ToMap() (map[string]interface{}, error) {
 		toSerialize["user"] = o.User
 	}
 	return toSerialize, nil
-}
-
-func (o *Activity31) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"clip",
-		"metadata",
-		"time",
-		"type",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varActivity31 := _Activity31{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varActivity31)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Activity31(varActivity31)
-
-	return err
 }
 
 type NullableActivity31 struct {
