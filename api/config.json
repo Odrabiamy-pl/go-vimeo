@@ -1,0 +1,7 @@
+{
+  "packageName": "vimeoapi",
+  "generateInterfaces": true,
+  "isGoSubmodule": true,
+  "useOneOfDiscriminatorLookup": true,
+  "enumClassPrefix": true
+}
