@@ -16,8 +16,12 @@ then just run
 make all
 ```
 
-...not so fast, now you need to fix broken API documentation and if you are ready run `make all`.
+...not so fast, now you need to fix broken API documentation and if you are ready - run `make all`.
+
+But it is better to add missing things manually rather than downloading new openapi schema and fixing everything again.
+
+![cry.jpg](cry.jpg)
 
 # Examples
 
-Go to ./test
+Go to `./test`

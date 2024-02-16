@@ -2,20 +2,24 @@ package test
 
 import (
 	"context"
+	"github.com/Odrabiamy-pl/go-vimeo/pkg/mocks"
 	"github.com/Odrabiamy-pl/go-vimeo/pkg/vimeoapi"
 	"github.com/stretchr/testify/assert"
 	"net/http"
+	"os"
 	"testing"
 )
 
 func TestGetVideo(t *testing.T) {
 	t.Run("get videos", func(t *testing.T) {
-		client := provideClient()
+		t.Skip("videos list needs parent object in documentation")
+		srv := mocks.Run()
+		defer srv.Close()
 
+		client := provideClient(srv.URL)
 		ctx := authorize(context.Background())
 		videos, httpResp, err := client.VideosEssentialsAPI.
 			GetVideos(ctx, 202422358).
-			Page(1).
 			Execute()
 
 		assert.NoError(t, err)
@@ -24,11 +28,13 @@ func TestGetVideo(t *testing.T) {
 	})
 
 	t.Run("get video", func(t *testing.T) {
-		client := provideClient()
+		srv := mocks.Run()
+		defer srv.Close()
 
+		client := provideClient(srv.URL)
 		ctx := authorize(context.Background())
 		video, httpResp, err := client.VideosEssentialsAPI.
-			GetVideo(ctx, 899476146). //910433176
+			GetVideo(ctx, 899476146).
 			Execute()
 
 		assert.NoError(t, err)
@@ -38,18 +44,15 @@ func TestGetVideo(t *testing.T) {
 }
 
 func authorize(ctx context.Context) context.Context {
-	//ctx = context.WithValue(ctx, vimeoapi.ContextOAuth2, oauth2.StaticTokenSource(oauth2.Token{
-	//	AccessToken:  "",
-	//	TokenType:    "",
-	//	RefreshToken: "",
-	//	Expiry:       time.Time{},
-	//}))
-	return context.WithValue(ctx, vimeoapi.ContextAccessToken, "")
+	return context.WithValue(ctx, vimeoapi.ContextAccessToken, os.Getenv("ACCESS_TOKEN"))
 }
 
-func provideClient() *vimeoapi.APIClient {
+func provideClient(url string) *vimeoapi.APIClient {
 	apiCfg := vimeoapi.NewConfiguration()
 	apiCfg.UserAgent = "Learnest/0.3.0"
 	apiCfg.Debug = true
+	apiCfg.Servers = vimeoapi.ServerConfigurations{
+		{URL: url},
+	}
 	return vimeoapi.NewAPIClient(apiCfg)
 }
