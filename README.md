@@ -4,17 +4,6 @@ Library with vimeo API client.
 
 # Install
 
-Before make sure you have configured `GOPRIVATE`, you can do it like this
-
-`go env -w GOPRIVATE='github.com/Odrabiamy-pl/*'`
-or
-`export GOPRIVATE=github.com/Odrabiamy-pl/*`
-
-and
-`git config --global url."git@github.com:".insteadOf "https://github.com/"`
-
-Now you are ready to go
-
 `go get github.com/Odrabiamy-pl/go-vimeo`
 
 # Regenerate
