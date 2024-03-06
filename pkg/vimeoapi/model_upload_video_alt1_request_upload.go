@@ -19,7 +19,7 @@ var _ MappedNullable = &UploadVideoAlt1RequestUpload{}
 
 // UploadVideoAlt1RequestUpload struct for UploadVideoAlt1RequestUpload
 type UploadVideoAlt1RequestUpload struct {
-	// The upload approach.  Option descriptions:  * `post` - Use the `post` approach.  * `pull` - Use the `pull` approach.  * `tus` - Use the `tus` approach. 
+	// The upload approach.  Option descriptions:  * `post` - Use the `post` approach.  * `pull` - Use the `pull` approach.  * `tus` - Use the `tus` approach.
 	Approach string `json:"approach"`
 	// The public URL at which the video is hosted. The URL must be valid for at least 24 hours. Use this parameter when **approach** is `pull`.
 	Link *string `json:"link,omitempty"`
@@ -168,7 +168,7 @@ func (o *UploadVideoAlt1RequestUpload) SetSize(v string) {
 }
 
 func (o UploadVideoAlt1RequestUpload) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -225,5 +225,3 @@ func (v *NullableUploadVideoAlt1RequestUpload) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

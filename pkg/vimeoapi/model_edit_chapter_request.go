@@ -108,6 +108,7 @@ func (o *EditChapterRequest) HasTimecode() bool {
 func (o *EditChapterRequest) SetTimecode(v float32) {
 	o.Timecode.Set(&v)
 }
+
 // SetTimecodeNil sets the value for Timecode to be an explicit nil
 func (o *EditChapterRequest) SetTimecodeNil() {
 	o.Timecode.Set(nil)
@@ -150,6 +151,7 @@ func (o *EditChapterRequest) HasTitle() bool {
 func (o *EditChapterRequest) SetTitle(v string) {
 	o.Title.Set(&v)
 }
+
 // SetTitleNil sets the value for Title to be an explicit nil
 func (o *EditChapterRequest) SetTitleNil() {
 	o.Title.Set(nil)
@@ -161,7 +163,7 @@ func (o *EditChapterRequest) UnsetTitle() {
 }
 
 func (o EditChapterRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -217,5 +219,3 @@ func (v *NullableEditChapterRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

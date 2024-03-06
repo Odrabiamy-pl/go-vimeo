@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type WebinarRegistrationsAPI interface {
 
 	/*
-	CaptureWebinarRegistrationList Capture the user registration list associated with a webinar
+		CaptureWebinarRegistrationList Capture the user registration list associated with a webinar
 
-	This method captures the user registration list associated with the specified webinar. A maximum of 50 registrants are permitted as part of the request.
+		This method captures the user registration list associated with the specified webinar. A maximum of 50 registrants are permitted as part of the request.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param webinarId The ID of the webinar.
-	@return ApiCaptureWebinarRegistrationListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param webinarId The ID of the webinar.
+		@return ApiCaptureWebinarRegistrationListRequest
 	*/
 	CaptureWebinarRegistrationList(ctx context.Context, userId int32, webinarId string) ApiCaptureWebinarRegistrationListRequest
 
@@ -38,13 +37,13 @@ type WebinarRegistrationsAPI interface {
 	CaptureWebinarRegistrationListExecute(r ApiCaptureWebinarRegistrationListRequest) (*http.Response, error)
 
 	/*
-	CaptureWebinarRegistrationListAlt1 Capture the user registration list associated with a webinar
+		CaptureWebinarRegistrationListAlt1 Capture the user registration list associated with a webinar
 
-	This method captures the user registration list associated with the specified webinar. A maximum of 50 registrants are permitted as part of the request.
+		This method captures the user registration list associated with the specified webinar. A maximum of 50 registrants are permitted as part of the request.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param webinarId The ID of the webinar.
-	@return ApiCaptureWebinarRegistrationListAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param webinarId The ID of the webinar.
+		@return ApiCaptureWebinarRegistrationListAlt1Request
 	*/
 	CaptureWebinarRegistrationListAlt1(ctx context.Context, webinarId string) ApiCaptureWebinarRegistrationListAlt1Request
 
@@ -52,15 +51,15 @@ type WebinarRegistrationsAPI interface {
 	CaptureWebinarRegistrationListAlt1Execute(r ApiCaptureWebinarRegistrationListAlt1Request) (*http.Response, error)
 
 	/*
-	DeleteWebinarRegistrant Delete a registrant record associated with a webinar
+		DeleteWebinarRegistrant Delete a registrant record associated with a webinar
 
-	This method deletes the specified registrant associated with a webinar and originally submitted through a webinar form.
+		This method deletes the specified registrant associated with a webinar and originally submitted through a webinar form.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param registrantId The ID of the webinar registrant.
-	@param userId The ID of the user.
-	@param webinarId The ID of the webinar.
-	@return ApiDeleteWebinarRegistrantRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param registrantId The ID of the webinar registrant.
+		@param userId The ID of the user.
+		@param webinarId The ID of the webinar.
+		@return ApiDeleteWebinarRegistrantRequest
 	*/
 	DeleteWebinarRegistrant(ctx context.Context, registrantId string, userId int32, webinarId string) ApiDeleteWebinarRegistrantRequest
 
@@ -68,14 +67,14 @@ type WebinarRegistrationsAPI interface {
 	DeleteWebinarRegistrantExecute(r ApiDeleteWebinarRegistrantRequest) (*http.Response, error)
 
 	/*
-	DeleteWebinarRegistrantAlt1 Delete a registrant record associated with a webinar
+		DeleteWebinarRegistrantAlt1 Delete a registrant record associated with a webinar
 
-	This method deletes the specified registrant associated with a webinar and originally submitted through a webinar form.
+		This method deletes the specified registrant associated with a webinar and originally submitted through a webinar form.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param registrantId The ID of the webinar registrant.
-	@param webinarId The ID of the webinar.
-	@return ApiDeleteWebinarRegistrantAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param registrantId The ID of the webinar registrant.
+		@param webinarId The ID of the webinar.
+		@return ApiDeleteWebinarRegistrantAlt1Request
 	*/
 	DeleteWebinarRegistrantAlt1(ctx context.Context, registrantId string, webinarId string) ApiDeleteWebinarRegistrantAlt1Request
 
@@ -83,14 +82,14 @@ type WebinarRegistrationsAPI interface {
 	DeleteWebinarRegistrantAlt1Execute(r ApiDeleteWebinarRegistrantAlt1Request) (*http.Response, error)
 
 	/*
-	GetAllWebinarRegistrations Get user registration data associated with a webinar
+		GetAllWebinarRegistrations Get user registration data associated with a webinar
 
-	This method returns the list of user registrations that is associated with the specified webinar and was originally submitted through a webinar form.
+		This method returns the list of user registrations that is associated with the specified webinar and was originally submitted through a webinar form.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param webinarId The ID of the webinar.
-	@return ApiGetAllWebinarRegistrationsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param webinarId The ID of the webinar.
+		@return ApiGetAllWebinarRegistrationsRequest
 	*/
 	GetAllWebinarRegistrations(ctx context.Context, userId int32, webinarId string) ApiGetAllWebinarRegistrationsRequest
 
@@ -99,13 +98,13 @@ type WebinarRegistrationsAPI interface {
 	GetAllWebinarRegistrationsExecute(r ApiGetAllWebinarRegistrationsRequest) (*WebinarRegistrant, *http.Response, error)
 
 	/*
-	GetAllWebinarRegistrationsAlt1 Get user registration data associated with a webinar
+		GetAllWebinarRegistrationsAlt1 Get user registration data associated with a webinar
 
-	This method returns the list of user registrations that is associated with the specified webinar and was originally submitted through a webinar form.
+		This method returns the list of user registrations that is associated with the specified webinar and was originally submitted through a webinar form.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param webinarId The ID of the webinar.
-	@return ApiGetAllWebinarRegistrationsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param webinarId The ID of the webinar.
+		@return ApiGetAllWebinarRegistrationsAlt1Request
 	*/
 	GetAllWebinarRegistrationsAlt1(ctx context.Context, webinarId string) ApiGetAllWebinarRegistrationsAlt1Request
 
@@ -114,15 +113,15 @@ type WebinarRegistrationsAPI interface {
 	GetAllWebinarRegistrationsAlt1Execute(r ApiGetAllWebinarRegistrationsAlt1Request) (*WebinarRegistrant, *http.Response, error)
 
 	/*
-	UpdateWebinarRegistrations Update user registration data associated with a webinar
+		UpdateWebinarRegistrations Update user registration data associated with a webinar
 
-	This method updates the specified user registration data associated with a webinar and originally submitted through a webinar form.
+		This method updates the specified user registration data associated with a webinar and originally submitted through a webinar form.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param registrantId The ID of the webinar registrant.
-	@param userId The ID of the user.
-	@param webinarId The ID of the webinar.
-	@return ApiUpdateWebinarRegistrationsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param registrantId The ID of the webinar registrant.
+		@param userId The ID of the user.
+		@param webinarId The ID of the webinar.
+		@return ApiUpdateWebinarRegistrationsRequest
 	*/
 	UpdateWebinarRegistrations(ctx context.Context, registrantId string, userId int32, webinarId string) ApiUpdateWebinarRegistrationsRequest
 
@@ -131,14 +130,14 @@ type WebinarRegistrationsAPI interface {
 	UpdateWebinarRegistrationsExecute(r ApiUpdateWebinarRegistrationsRequest) (*WebinarRegistrant, *http.Response, error)
 
 	/*
-	UpdateWebinarRegistrationsAlt1 Update user registration data associated with a webinar
+		UpdateWebinarRegistrationsAlt1 Update user registration data associated with a webinar
 
-	This method updates the specified user registration data associated with a webinar and originally submitted through a webinar form.
+		This method updates the specified user registration data associated with a webinar and originally submitted through a webinar form.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param registrantId The ID of the webinar registrant.
-	@param webinarId The ID of the webinar.
-	@return ApiUpdateWebinarRegistrationsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param registrantId The ID of the webinar registrant.
+		@param webinarId The ID of the webinar.
+		@return ApiUpdateWebinarRegistrationsAlt1Request
 	*/
 	UpdateWebinarRegistrationsAlt1(ctx context.Context, registrantId string, webinarId string) ApiUpdateWebinarRegistrationsAlt1Request
 
@@ -151,10 +150,10 @@ type WebinarRegistrationsAPI interface {
 type WebinarRegistrationsAPIService service
 
 type ApiCaptureWebinarRegistrationListRequest struct {
-	ctx context.Context
-	ApiService WebinarRegistrationsAPI
-	userId int32
-	webinarId string
+	ctx                                       context.Context
+	ApiService                                WebinarRegistrationsAPI
+	userId                                    int32
+	webinarId                                 string
 	captureWebinarRegistrationListAlt1Request *CaptureWebinarRegistrationListAlt1Request
 }
 
@@ -172,26 +171,26 @@ CaptureWebinarRegistrationList Capture the user registration list associated wit
 
 This method captures the user registration list associated with the specified webinar. A maximum of 50 registrants are permitted as part of the request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param webinarId The ID of the webinar.
- @return ApiCaptureWebinarRegistrationListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param webinarId The ID of the webinar.
+	@return ApiCaptureWebinarRegistrationListRequest
 */
 func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationList(ctx context.Context, userId int32, webinarId string) ApiCaptureWebinarRegistrationListRequest {
 	return ApiCaptureWebinarRegistrationListRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		webinarId: webinarId,
+		ctx:        ctx,
+		userId:     userId,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
 func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListExecute(r ApiCaptureWebinarRegistrationListRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarRegistrationsAPIService.CaptureWebinarRegistrationList")
@@ -255,8 +254,8 @@ func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -266,8 +265,8 @@ func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -276,9 +275,9 @@ func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListExecute(r
 }
 
 type ApiCaptureWebinarRegistrationListAlt1Request struct {
-	ctx context.Context
-	ApiService WebinarRegistrationsAPI
-	webinarId string
+	ctx                                       context.Context
+	ApiService                                WebinarRegistrationsAPI
+	webinarId                                 string
 	captureWebinarRegistrationListAlt1Request *CaptureWebinarRegistrationListAlt1Request
 }
 
@@ -296,24 +295,24 @@ CaptureWebinarRegistrationListAlt1 Capture the user registration list associated
 
 This method captures the user registration list associated with the specified webinar. A maximum of 50 registrants are permitted as part of the request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param webinarId The ID of the webinar.
- @return ApiCaptureWebinarRegistrationListAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param webinarId The ID of the webinar.
+	@return ApiCaptureWebinarRegistrationListAlt1Request
 */
 func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListAlt1(ctx context.Context, webinarId string) ApiCaptureWebinarRegistrationListAlt1Request {
 	return ApiCaptureWebinarRegistrationListAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		webinarId: webinarId,
+		ctx:        ctx,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
 func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListAlt1Execute(r ApiCaptureWebinarRegistrationListAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarRegistrationsAPIService.CaptureWebinarRegistrationListAlt1")
@@ -376,8 +375,8 @@ func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListAlt1Execu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -387,8 +386,8 @@ func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListAlt1Execu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -397,11 +396,11 @@ func (a *WebinarRegistrationsAPIService) CaptureWebinarRegistrationListAlt1Execu
 }
 
 type ApiDeleteWebinarRegistrantRequest struct {
-	ctx context.Context
-	ApiService WebinarRegistrationsAPI
+	ctx          context.Context
+	ApiService   WebinarRegistrationsAPI
 	registrantId string
-	userId int32
-	webinarId string
+	userId       int32
+	webinarId    string
 }
 
 func (r ApiDeleteWebinarRegistrantRequest) Execute() (*http.Response, error) {
@@ -413,28 +412,28 @@ DeleteWebinarRegistrant Delete a registrant record associated with a webinar
 
 This method deletes the specified registrant associated with a webinar and originally submitted through a webinar form.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param registrantId The ID of the webinar registrant.
- @param userId The ID of the user.
- @param webinarId The ID of the webinar.
- @return ApiDeleteWebinarRegistrantRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param registrantId The ID of the webinar registrant.
+	@param userId The ID of the user.
+	@param webinarId The ID of the webinar.
+	@return ApiDeleteWebinarRegistrantRequest
 */
 func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrant(ctx context.Context, registrantId string, userId int32, webinarId string) ApiDeleteWebinarRegistrantRequest {
 	return ApiDeleteWebinarRegistrantRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		registrantId: registrantId,
-		userId: userId,
-		webinarId: webinarId,
+		userId:       userId,
+		webinarId:    webinarId,
 	}
 }
 
 // Execute executes the request
 func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantExecute(r ApiDeleteWebinarRegistrantRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarRegistrationsAPIService.DeleteWebinarRegistrant")
@@ -497,8 +496,8 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantExecute(r ApiDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -508,8 +507,8 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantExecute(r ApiDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -519,8 +518,8 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantExecute(r ApiDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -530,8 +529,8 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantExecute(r ApiDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -540,10 +539,10 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantExecute(r ApiDel
 }
 
 type ApiDeleteWebinarRegistrantAlt1Request struct {
-	ctx context.Context
-	ApiService WebinarRegistrationsAPI
+	ctx          context.Context
+	ApiService   WebinarRegistrationsAPI
 	registrantId string
-	webinarId string
+	webinarId    string
 }
 
 func (r ApiDeleteWebinarRegistrantAlt1Request) Execute() (*http.Response, error) {
@@ -555,26 +554,26 @@ DeleteWebinarRegistrantAlt1 Delete a registrant record associated with a webinar
 
 This method deletes the specified registrant associated with a webinar and originally submitted through a webinar form.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param registrantId The ID of the webinar registrant.
- @param webinarId The ID of the webinar.
- @return ApiDeleteWebinarRegistrantAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param registrantId The ID of the webinar registrant.
+	@param webinarId The ID of the webinar.
+	@return ApiDeleteWebinarRegistrantAlt1Request
 */
 func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantAlt1(ctx context.Context, registrantId string, webinarId string) ApiDeleteWebinarRegistrantAlt1Request {
 	return ApiDeleteWebinarRegistrantAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		registrantId: registrantId,
-		webinarId: webinarId,
+		webinarId:    webinarId,
 	}
 }
 
 // Execute executes the request
 func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantAlt1Execute(r ApiDeleteWebinarRegistrantAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarRegistrationsAPIService.DeleteWebinarRegistrantAlt1")
@@ -636,8 +635,8 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantAlt1Execute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -647,8 +646,8 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantAlt1Execute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -658,8 +657,8 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantAlt1Execute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -669,8 +668,8 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantAlt1Execute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -679,17 +678,17 @@ func (a *WebinarRegistrationsAPIService) DeleteWebinarRegistrantAlt1Execute(r Ap
 }
 
 type ApiGetAllWebinarRegistrationsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WebinarRegistrationsAPI
-	userId int32
-	webinarId string
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	userId     int32
+	webinarId  string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetAllWebinarRegistrationsRequest) Direction(direction string) ApiGetAllWebinarRegistrationsRequest {
 	r.direction = &direction
 	return r
@@ -707,7 +706,7 @@ func (r ApiGetAllWebinarRegistrationsRequest) PerPage(perPage float32) ApiGetAll
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;registration_date&#x60; - Sort the results by registration date. 
+// The way to sort the results.  Option descriptions:  * &#x60;registration_date&#x60; - Sort the results by registration date.
 func (r ApiGetAllWebinarRegistrationsRequest) Sort(sort string) ApiGetAllWebinarRegistrationsRequest {
 	r.sort = &sort
 	return r
@@ -722,28 +721,29 @@ GetAllWebinarRegistrations Get user registration data associated with a webinar
 
 This method returns the list of user registrations that is associated with the specified webinar and was originally submitted through a webinar form.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param webinarId The ID of the webinar.
- @return ApiGetAllWebinarRegistrationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param webinarId The ID of the webinar.
+	@return ApiGetAllWebinarRegistrationsRequest
 */
 func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrations(ctx context.Context, userId int32, webinarId string) ApiGetAllWebinarRegistrationsRequest {
 	return ApiGetAllWebinarRegistrationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		webinarId: webinarId,
+		ctx:        ctx,
+		userId:     userId,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return WebinarRegistrant
+//
+//	@return WebinarRegistrant
 func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsExecute(r ApiGetAllWebinarRegistrationsRequest) (*WebinarRegistrant, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WebinarRegistrant
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WebinarRegistrant
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarRegistrationsAPIService.GetAllWebinarRegistrations")
@@ -817,8 +817,8 @@ func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -828,8 +828,8 @@ func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -839,8 +839,8 @@ func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -858,16 +858,16 @@ func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsExecute(r Api
 }
 
 type ApiGetAllWebinarRegistrationsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WebinarRegistrationsAPI
-	webinarId string
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	webinarId  string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetAllWebinarRegistrationsAlt1Request) Direction(direction string) ApiGetAllWebinarRegistrationsAlt1Request {
 	r.direction = &direction
 	return r
@@ -885,7 +885,7 @@ func (r ApiGetAllWebinarRegistrationsAlt1Request) PerPage(perPage float32) ApiGe
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;registration_date&#x60; - Sort the results by registration date. 
+// The way to sort the results.  Option descriptions:  * &#x60;registration_date&#x60; - Sort the results by registration date.
 func (r ApiGetAllWebinarRegistrationsAlt1Request) Sort(sort string) ApiGetAllWebinarRegistrationsAlt1Request {
 	r.sort = &sort
 	return r
@@ -900,26 +900,27 @@ GetAllWebinarRegistrationsAlt1 Get user registration data associated with a webi
 
 This method returns the list of user registrations that is associated with the specified webinar and was originally submitted through a webinar form.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param webinarId The ID of the webinar.
- @return ApiGetAllWebinarRegistrationsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param webinarId The ID of the webinar.
+	@return ApiGetAllWebinarRegistrationsAlt1Request
 */
 func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsAlt1(ctx context.Context, webinarId string) ApiGetAllWebinarRegistrationsAlt1Request {
 	return ApiGetAllWebinarRegistrationsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		webinarId: webinarId,
+		ctx:        ctx,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return WebinarRegistrant
+//
+//	@return WebinarRegistrant
 func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsAlt1Execute(r ApiGetAllWebinarRegistrationsAlt1Request) (*WebinarRegistrant, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WebinarRegistrant
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WebinarRegistrant
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarRegistrationsAPIService.GetAllWebinarRegistrationsAlt1")
@@ -992,8 +993,8 @@ func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsAlt1Execute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1003,8 +1004,8 @@ func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsAlt1Execute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1014,8 +1015,8 @@ func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsAlt1Execute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1033,11 +1034,11 @@ func (a *WebinarRegistrationsAPIService) GetAllWebinarRegistrationsAlt1Execute(r
 }
 
 type ApiUpdateWebinarRegistrationsRequest struct {
-	ctx context.Context
-	ApiService WebinarRegistrationsAPI
-	registrantId string
-	userId int32
-	webinarId string
+	ctx                                   context.Context
+	ApiService                            WebinarRegistrationsAPI
+	registrantId                          string
+	userId                                int32
+	webinarId                             string
 	updateWebinarRegistrationsAlt1Request *UpdateWebinarRegistrationsAlt1Request
 }
 
@@ -1055,30 +1056,31 @@ UpdateWebinarRegistrations Update user registration data associated with a webin
 
 This method updates the specified user registration data associated with a webinar and originally submitted through a webinar form.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param registrantId The ID of the webinar registrant.
- @param userId The ID of the user.
- @param webinarId The ID of the webinar.
- @return ApiUpdateWebinarRegistrationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param registrantId The ID of the webinar registrant.
+	@param userId The ID of the user.
+	@param webinarId The ID of the webinar.
+	@return ApiUpdateWebinarRegistrationsRequest
 */
 func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrations(ctx context.Context, registrantId string, userId int32, webinarId string) ApiUpdateWebinarRegistrationsRequest {
 	return ApiUpdateWebinarRegistrationsRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		registrantId: registrantId,
-		userId: userId,
-		webinarId: webinarId,
+		userId:       userId,
+		webinarId:    webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return WebinarRegistrant
+//
+//	@return WebinarRegistrant
 func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsExecute(r ApiUpdateWebinarRegistrationsRequest) (*WebinarRegistrant, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WebinarRegistrant
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WebinarRegistrant
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarRegistrationsAPIService.UpdateWebinarRegistrations")
@@ -1143,8 +1145,8 @@ func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1154,8 +1156,8 @@ func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1165,8 +1167,8 @@ func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1184,10 +1186,10 @@ func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsExecute(r Api
 }
 
 type ApiUpdateWebinarRegistrationsAlt1Request struct {
-	ctx context.Context
-	ApiService WebinarRegistrationsAPI
-	registrantId string
-	webinarId string
+	ctx                                   context.Context
+	ApiService                            WebinarRegistrationsAPI
+	registrantId                          string
+	webinarId                             string
 	updateWebinarRegistrationsAlt1Request *UpdateWebinarRegistrationsAlt1Request
 }
 
@@ -1205,28 +1207,29 @@ UpdateWebinarRegistrationsAlt1 Update user registration data associated with a w
 
 This method updates the specified user registration data associated with a webinar and originally submitted through a webinar form.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param registrantId The ID of the webinar registrant.
- @param webinarId The ID of the webinar.
- @return ApiUpdateWebinarRegistrationsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param registrantId The ID of the webinar registrant.
+	@param webinarId The ID of the webinar.
+	@return ApiUpdateWebinarRegistrationsAlt1Request
 */
 func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsAlt1(ctx context.Context, registrantId string, webinarId string) ApiUpdateWebinarRegistrationsAlt1Request {
 	return ApiUpdateWebinarRegistrationsAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		registrantId: registrantId,
-		webinarId: webinarId,
+		webinarId:    webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return WebinarRegistrant
+//
+//	@return WebinarRegistrant
 func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsAlt1Execute(r ApiUpdateWebinarRegistrationsAlt1Request) (*WebinarRegistrant, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WebinarRegistrant
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WebinarRegistrant
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarRegistrationsAPIService.UpdateWebinarRegistrationsAlt1")
@@ -1290,8 +1293,8 @@ func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsAlt1Execute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1301,8 +1304,8 @@ func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsAlt1Execute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1312,8 +1315,8 @@ func (a *WebinarRegistrationsAPIService) UpdateWebinarRegistrationsAlt1Execute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

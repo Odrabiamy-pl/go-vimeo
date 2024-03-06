@@ -107,7 +107,7 @@ func (o *AddOrRemoveMultipleAlbumsRequest) SetRemove(v []AddOrRemoveMultipleAlbu
 }
 
 func (o AddOrRemoveMultipleAlbumsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableAddOrRemoveMultipleAlbumsRequest) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

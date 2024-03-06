@@ -65,7 +65,7 @@ func (o *OnDemandPromotionMetadataConnections) SetCodes(v OnDemandPromotionMetad
 }
 
 func (o OnDemandPromotionMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -113,5 +113,3 @@ func (v *NullableOnDemandPromotionMetadataConnections) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,32 +19,32 @@ var _ MappedNullable = &VideoMetadataInteractions{}
 
 // VideoMetadataInteractions A list of resource URIs related to the video.
 type VideoMetadataInteractions struct {
-	Album NullableVideoMetadataInteractionsAlbum `json:"album"`
-	AskAi NullableVideoMetadataInteractionsAskAi `json:"ask_ai"`
-	Buy NullableVideoMetadataInteractionsBuy `json:"buy"`
-	CanRequestTeamRoleUpgrade NullableVideoMetadataInteractionsCanRequestTeamRoleUpgrade `json:"can_request_team_role_upgrade"`
-	CanUpdatePrivacyToPublic NullableVideoMetadataInteractionsCanUpdatePrivacyToPublic `json:"can_update_privacy_to_public"`
-	Channel NullableVideoMetadataInteractionsChannel `json:"channel"`
-	CreateEditor NullableVideoMetadataInteractionsCreateEditor `json:"create_editor"`
-	Delete NullableVideoMetadataInteractionsDelete `json:"delete"`
-	Edit NullableVideoMetadataInteractionsEdit `json:"edit"`
-	EditPrivacy NullableVideoMetadataInteractionsEditPrivacy `json:"edit_privacy"`
+	Album                       NullableVideoMetadataInteractionsAlbum                       `json:"album"`
+	AskAi                       NullableVideoMetadataInteractionsAskAi                       `json:"ask_ai"`
+	Buy                         NullableVideoMetadataInteractionsBuy                         `json:"buy"`
+	CanRequestTeamRoleUpgrade   NullableVideoMetadataInteractionsCanRequestTeamRoleUpgrade   `json:"can_request_team_role_upgrade"`
+	CanUpdatePrivacyToPublic    NullableVideoMetadataInteractionsCanUpdatePrivacyToPublic    `json:"can_update_privacy_to_public"`
+	Channel                     NullableVideoMetadataInteractionsChannel                     `json:"channel"`
+	CreateEditor                NullableVideoMetadataInteractionsCreateEditor                `json:"create_editor"`
+	Delete                      NullableVideoMetadataInteractionsDelete                      `json:"delete"`
+	Edit                        NullableVideoMetadataInteractionsEdit                        `json:"edit"`
+	EditPrivacy                 NullableVideoMetadataInteractionsEditPrivacy                 `json:"edit_privacy"`
 	HasRestrictedPrivacyOptions NullableVideoMetadataInteractionsHasRestrictedPrivacyOptions `json:"has_restricted_privacy_options"`
-	Highlights NullableVideoMetadataInteractionsHighlights `json:"highlights"`
-	Invite NullableVideoMetadataInteractionsInvite `json:"invite"`
-	LegalHold VideoMetadataInteractionsLegalHold `json:"legal_hold"`
-	Like VideoMetadataInteractionsLike `json:"like"`
-	Rent NullableVideoMetadataInteractionsRent `json:"rent"`
-	Report VideoMetadataInteractionsReport `json:"report"`
-	SetContentRating NullableVideoMetadataInteractionsSetContentRating `json:"set_content_rating"`
-	Subscribe NullableVideoMetadataInteractionsSubscribe `json:"subscribe,omitempty"`
-	Summary NullableVideoMetadataInteractionsSummary `json:"summary"`
-	TranscriptVideoEditor NullableVideoMetadataInteractionsTranscriptVideoEditor `json:"transcript_video_editor"`
-	Trim NullableVideoMetadataInteractionsTrim `json:"trim"`
-	Validate VideoMetadataInteractionsValidate `json:"validate"`
-	ViewTeamMembers NullableVideoMetadataInteractionsViewTeamMembers `json:"view_team_members"`
-	Watched VideoMetadataInteractionsWatched `json:"watched"`
-	Watchlater VideoMetadataInteractionsWatchlater `json:"watchlater"`
+	Highlights                  NullableVideoMetadataInteractionsHighlights                  `json:"highlights"`
+	Invite                      NullableVideoMetadataInteractionsInvite                      `json:"invite"`
+	LegalHold                   VideoMetadataInteractionsLegalHold                           `json:"legal_hold"`
+	Like                        VideoMetadataInteractionsLike                                `json:"like"`
+	Rent                        NullableVideoMetadataInteractionsRent                        `json:"rent"`
+	Report                      VideoMetadataInteractionsReport                              `json:"report"`
+	SetContentRating            NullableVideoMetadataInteractionsSetContentRating            `json:"set_content_rating"`
+	Subscribe                   NullableVideoMetadataInteractionsSubscribe                   `json:"subscribe,omitempty"`
+	Summary                     NullableVideoMetadataInteractionsSummary                     `json:"summary"`
+	TranscriptVideoEditor       NullableVideoMetadataInteractionsTranscriptVideoEditor       `json:"transcript_video_editor"`
+	Trim                        NullableVideoMetadataInteractionsTrim                        `json:"trim"`
+	Validate                    VideoMetadataInteractionsValidate                            `json:"validate"`
+	ViewTeamMembers             NullableVideoMetadataInteractionsViewTeamMembers             `json:"view_team_members"`
+	Watched                     VideoMetadataInteractionsWatched                             `json:"watched"`
+	Watchlater                  VideoMetadataInteractionsWatchlater                          `json:"watchlater"`
 }
 
 // NewVideoMetadataInteractions instantiates a new VideoMetadataInteractions object
@@ -583,6 +583,7 @@ func (o *VideoMetadataInteractions) HasSubscribe() bool {
 func (o *VideoMetadataInteractions) SetSubscribe(v VideoMetadataInteractionsSubscribe) {
 	o.Subscribe.Set(&v)
 }
+
 // SetSubscribeNil sets the value for Subscribe to be an explicit nil
 func (o *VideoMetadataInteractions) SetSubscribeNil() {
 	o.Subscribe.Set(nil)
@@ -770,7 +771,7 @@ func (o *VideoMetadataInteractions) SetWatchlater(v VideoMetadataInteractionsWat
 }
 
 func (o VideoMetadataInteractions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -845,5 +846,3 @@ func (v *NullableVideoMetadataInteractions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

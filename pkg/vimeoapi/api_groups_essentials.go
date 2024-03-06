@@ -19,16 +19,15 @@ import (
 	"strings"
 )
 
-
 type GroupsEssentialsAPI interface {
 
 	/*
-	CreateGroup Create a group
+		CreateGroup Create a group
 
-	This method creates a new group.
+		This method creates a new group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateGroupRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateGroupRequest
 	*/
 	CreateGroup(ctx context.Context) ApiCreateGroupRequest
 
@@ -37,13 +36,13 @@ type GroupsEssentialsAPI interface {
 	CreateGroupExecute(r ApiCreateGroupRequest) (*Group, *http.Response, error)
 
 	/*
-	DeleteGroup Delete a group
+		DeleteGroup Delete a group
 
-	This method deletes the specified group. The authenticated user must be the owner of the group.
+		This method deletes the specified group. The authenticated user must be the owner of the group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@return ApiDeleteGroupRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@return ApiDeleteGroupRequest
 	*/
 	DeleteGroup(ctx context.Context, groupId float32) ApiDeleteGroupRequest
 
@@ -51,13 +50,13 @@ type GroupsEssentialsAPI interface {
 	DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Response, error)
 
 	/*
-	GetGroup Get a specific group
+		GetGroup Get a specific group
 
-	This method returns the specified group.
+		This method returns the specified group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@return ApiGetGroupRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@return ApiGetGroupRequest
 	*/
 	GetGroup(ctx context.Context, groupId float32) ApiGetGroupRequest
 
@@ -66,12 +65,12 @@ type GroupsEssentialsAPI interface {
 	GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.Response, error)
 
 	/*
-	GetGroups Get all groups
+		GetGroups Get all groups
 
-	This method returns every available group.
+		This method returns every available group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetGroupsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetGroupsRequest
 	*/
 	GetGroups(ctx context.Context) ApiGetGroupsRequest
 
@@ -84,8 +83,8 @@ type GroupsEssentialsAPI interface {
 type GroupsEssentialsAPIService service
 
 type ApiCreateGroupRequest struct {
-	ctx context.Context
-	ApiService GroupsEssentialsAPI
+	ctx                context.Context
+	ApiService         GroupsEssentialsAPI
 	createGroupRequest *CreateGroupRequest
 }
 
@@ -103,24 +102,25 @@ CreateGroup Create a group
 
 This method creates a new group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateGroupRequest
 */
 func (a *GroupsEssentialsAPIService) CreateGroup(ctx context.Context) ApiCreateGroupRequest {
 	return ApiCreateGroupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Group
+//
+//	@return Group
 func (a *GroupsEssentialsAPIService) CreateGroupExecute(r ApiCreateGroupRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsEssentialsAPIService.CreateGroup")
@@ -178,17 +178,6 @@ func (a *GroupsEssentialsAPIService) CreateGroupExecute(r ApiCreateGroupRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -196,8 +185,19 @@ func (a *GroupsEssentialsAPIService) CreateGroupExecute(r ApiCreateGroupRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -215,9 +215,9 @@ func (a *GroupsEssentialsAPIService) CreateGroupExecute(r ApiCreateGroupRequest)
 }
 
 type ApiDeleteGroupRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsEssentialsAPI
-	groupId float32
+	groupId    float32
 }
 
 func (r ApiDeleteGroupRequest) Execute() (*http.Response, error) {
@@ -229,24 +229,24 @@ DeleteGroup Delete a group
 
 This method deletes the specified group. The authenticated user must be the owner of the group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @return ApiDeleteGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@return ApiDeleteGroupRequest
 */
 func (a *GroupsEssentialsAPIService) DeleteGroup(ctx context.Context, groupId float32) ApiDeleteGroupRequest {
 	return ApiDeleteGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupsEssentialsAPIService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsEssentialsAPIService.DeleteGroup")
@@ -307,8 +307,8 @@ func (a *GroupsEssentialsAPIService) DeleteGroupExecute(r ApiDeleteGroupRequest)
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -317,9 +317,9 @@ func (a *GroupsEssentialsAPIService) DeleteGroupExecute(r ApiDeleteGroupRequest)
 }
 
 type ApiGetGroupRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsEssentialsAPI
-	groupId float32
+	groupId    float32
 }
 
 func (r ApiGetGroupRequest) Execute() (*Group, *http.Response, error) {
@@ -331,26 +331,27 @@ GetGroup Get a specific group
 
 This method returns the specified group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @return ApiGetGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@return ApiGetGroupRequest
 */
 func (a *GroupsEssentialsAPIService) GetGroup(ctx context.Context, groupId float32) ApiGetGroupRequest {
 	return ApiGetGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 	}
 }
 
 // Execute executes the request
-//  @return Group
+//
+//	@return Group
 func (a *GroupsEssentialsAPIService) GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsEssentialsAPIService.GetGroup")
@@ -420,23 +421,23 @@ func (a *GroupsEssentialsAPIService) GetGroupExecute(r ApiGetGroupRequest) (*Gro
 }
 
 type ApiGetGroupsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsEssentialsAPI
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetGroupsRequest) Direction(direction string) ApiGetGroupsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;featured&#x60; - Return featured groups. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;featured&#x60; - Return featured groups.
 func (r ApiGetGroupsRequest) Filter(filter string) ApiGetGroupsRequest {
 	r.filter = &filter
 	return r
@@ -460,7 +461,7 @@ func (r ApiGetGroupsRequest) Query(query string) ApiGetGroupsRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;relevant&#x60; - Sort the results by relevance. This option is available for search queries only.  * &#x60;videos&#x60; - Sort the results by number of videos. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;relevant&#x60; - Sort the results by relevance. This option is available for search queries only.  * &#x60;videos&#x60; - Sort the results by number of videos.
 func (r ApiGetGroupsRequest) Sort(sort string) ApiGetGroupsRequest {
 	r.sort = &sort
 	return r
@@ -475,24 +476,25 @@ GetGroups Get all groups
 
 This method returns every available group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetGroupsRequest
 */
 func (a *GroupsEssentialsAPIService) GetGroups(ctx context.Context) ApiGetGroupsRequest {
 	return ApiGetGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Group
+//
+//	@return []Group
 func (a *GroupsEssentialsAPIService) GetGroupsExecute(r ApiGetGroupsRequest) ([]Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Group
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsEssentialsAPIService.GetGroups")

@@ -19,7 +19,7 @@ var _ MappedNullable = &ChannelPrivacy{}
 
 // ChannelPrivacy The privacy settings of the channel.
 type ChannelPrivacy struct {
-	// The privacy setting of the channel.  Option descriptions:  * `anybody` - Anyone can access the channel. This privacy setting appears as `Public` on the Vimeo front end.  * `moderators` - Only moderators can access the channel.  * `users` - Only registered users can access the channel. _This field is deprecated._ 
+	// The privacy setting of the channel.  Option descriptions:  * `anybody` - Anyone can access the channel. This privacy setting appears as `Public` on the Vimeo front end.  * `moderators` - Only moderators can access the channel.  * `users` - Only registered users can access the channel. _This field is deprecated._
 	View string `json:"view"`
 }
 
@@ -66,7 +66,7 @@ func (o *ChannelPrivacy) SetView(v string) {
 }
 
 func (o ChannelPrivacy) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,5 +114,3 @@ func (v *NullableChannelPrivacy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

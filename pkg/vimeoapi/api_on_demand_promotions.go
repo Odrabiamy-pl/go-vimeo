@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type OnDemandPromotionsAPI interface {
 
 	/*
-	CreateVodPromotion Add a promotion to an On Demand page
+		CreateVodPromotion Add a promotion to an On Demand page
 
-	This method adds a promotion to the specified On Demand page. The authenticated user must be the owner of the page.
+		This method adds a promotion to the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiCreateVodPromotionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@return ApiCreateVodPromotionRequest
 	*/
 	CreateVodPromotion(ctx context.Context, ondemandId float32) ApiCreateVodPromotionRequest
 
@@ -38,14 +37,14 @@ type OnDemandPromotionsAPI interface {
 	CreateVodPromotionExecute(r ApiCreateVodPromotionRequest) (*OnDemandPromotion, *http.Response, error)
 
 	/*
-	DeleteVodPromotion Delete a promotion on an On Demand page
+		DeleteVodPromotion Delete a promotion on an On Demand page
 
-	This method deletes a promotion on the specified On Demand page. The authenticated user must be the owner of the page.
+		This method deletes a promotion on the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param promotionId The ID of the promotion.
-	@return ApiDeleteVodPromotionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@param promotionId The ID of the promotion.
+		@return ApiDeleteVodPromotionRequest
 	*/
 	DeleteVodPromotion(ctx context.Context, ondemandId float32, promotionId float32) ApiDeleteVodPromotionRequest
 
@@ -53,14 +52,14 @@ type OnDemandPromotionsAPI interface {
 	DeleteVodPromotionExecute(r ApiDeleteVodPromotionRequest) (*http.Response, error)
 
 	/*
-	GetVodPromotion Get a specific promotion on an On Demand page
+		GetVodPromotion Get a specific promotion on an On Demand page
 
-	This method returns a single promotion on the specified On Demand page. The authenticated user must be the owner of the page.
+		This method returns a single promotion on the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param promotionId The ID of the promotion.
-	@return ApiGetVodPromotionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@param promotionId The ID of the promotion.
+		@return ApiGetVodPromotionRequest
 	*/
 	GetVodPromotion(ctx context.Context, ondemandId float32, promotionId float32) ApiGetVodPromotionRequest
 
@@ -69,14 +68,14 @@ type OnDemandPromotionsAPI interface {
 	GetVodPromotionExecute(r ApiGetVodPromotionRequest) (*OnDemandPromotion, *http.Response, error)
 
 	/*
-	GetVodPromotionCodes Get all the codes of a promotion on an On Demand page
+		GetVodPromotionCodes Get all the codes of a promotion on an On Demand page
 
-	This method returns every code of the specified promotion on an On Demand page. The authenticated user must be the owner of the page.
+		This method returns every code of the specified promotion on an On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param promotionId The ID of the promotion.
-	@return ApiGetVodPromotionCodesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@param promotionId The ID of the promotion.
+		@return ApiGetVodPromotionCodesRequest
 	*/
 	GetVodPromotionCodes(ctx context.Context, ondemandId float32, promotionId float32) ApiGetVodPromotionCodesRequest
 
@@ -85,13 +84,13 @@ type OnDemandPromotionsAPI interface {
 	GetVodPromotionCodesExecute(r ApiGetVodPromotionCodesRequest) (*OnDemandPromotionCode, *http.Response, error)
 
 	/*
-	GetVodPromotions Get all the promotions on an On Demand page
+		GetVodPromotions Get all the promotions on an On Demand page
 
-	This method returns every promotion on the specified On Demand page. The authenticated user must be the owner of the page.
+		This method returns every promotion on the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodPromotionsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@return ApiGetVodPromotionsRequest
 	*/
 	GetVodPromotions(ctx context.Context, ondemandId float32) ApiGetVodPromotionsRequest
 
@@ -104,9 +103,9 @@ type OnDemandPromotionsAPI interface {
 type OnDemandPromotionsAPIService service
 
 type ApiCreateVodPromotionRequest struct {
-	ctx context.Context
-	ApiService OnDemandPromotionsAPI
-	ondemandId float32
+	ctx                       context.Context
+	ApiService                OnDemandPromotionsAPI
+	ondemandId                float32
 	createVodPromotionRequest *CreateVodPromotionRequest
 }
 
@@ -124,26 +123,27 @@ CreateVodPromotion Add a promotion to an On Demand page
 
 This method adds a promotion to the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @return ApiCreateVodPromotionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiCreateVodPromotionRequest
 */
 func (a *OnDemandPromotionsAPIService) CreateVodPromotion(ctx context.Context, ondemandId float32) ApiCreateVodPromotionRequest {
 	return ApiCreateVodPromotionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandPromotion
+//
+//	@return OnDemandPromotion
 func (a *OnDemandPromotionsAPIService) CreateVodPromotionExecute(r ApiCreateVodPromotionRequest) (*OnDemandPromotion, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandPromotion
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandPromotion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPromotionsAPIService.CreateVodPromotion")
@@ -209,8 +209,8 @@ func (a *OnDemandPromotionsAPIService) CreateVodPromotionExecute(r ApiCreateVodP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -220,8 +220,8 @@ func (a *OnDemandPromotionsAPIService) CreateVodPromotionExecute(r ApiCreateVodP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -231,8 +231,8 @@ func (a *OnDemandPromotionsAPIService) CreateVodPromotionExecute(r ApiCreateVodP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -250,9 +250,9 @@ func (a *OnDemandPromotionsAPIService) CreateVodPromotionExecute(r ApiCreateVodP
 }
 
 type ApiDeleteVodPromotionRequest struct {
-	ctx context.Context
-	ApiService OnDemandPromotionsAPI
-	ondemandId float32
+	ctx         context.Context
+	ApiService  OnDemandPromotionsAPI
+	ondemandId  float32
 	promotionId float32
 }
 
@@ -265,16 +265,16 @@ DeleteVodPromotion Delete a promotion on an On Demand page
 
 This method deletes a promotion on the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @param promotionId The ID of the promotion.
- @return ApiDeleteVodPromotionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param promotionId The ID of the promotion.
+	@return ApiDeleteVodPromotionRequest
 */
 func (a *OnDemandPromotionsAPIService) DeleteVodPromotion(ctx context.Context, ondemandId float32, promotionId float32) ApiDeleteVodPromotionRequest {
 	return ApiDeleteVodPromotionRequest{
-		ApiService: a,
-		ctx: ctx,
-		ondemandId: ondemandId,
+		ApiService:  a,
+		ctx:         ctx,
+		ondemandId:  ondemandId,
 		promotionId: promotionId,
 	}
 }
@@ -282,9 +282,9 @@ func (a *OnDemandPromotionsAPIService) DeleteVodPromotion(ctx context.Context, o
 // Execute executes the request
 func (a *OnDemandPromotionsAPIService) DeleteVodPromotionExecute(r ApiDeleteVodPromotionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPromotionsAPIService.DeleteVodPromotion")
@@ -346,8 +346,8 @@ func (a *OnDemandPromotionsAPIService) DeleteVodPromotionExecute(r ApiDeleteVodP
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -357,8 +357,8 @@ func (a *OnDemandPromotionsAPIService) DeleteVodPromotionExecute(r ApiDeleteVodP
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -367,9 +367,9 @@ func (a *OnDemandPromotionsAPIService) DeleteVodPromotionExecute(r ApiDeleteVodP
 }
 
 type ApiGetVodPromotionRequest struct {
-	ctx context.Context
-	ApiService OnDemandPromotionsAPI
-	ondemandId float32
+	ctx         context.Context
+	ApiService  OnDemandPromotionsAPI
+	ondemandId  float32
 	promotionId float32
 }
 
@@ -382,28 +382,29 @@ GetVodPromotion Get a specific promotion on an On Demand page
 
 This method returns a single promotion on the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @param promotionId The ID of the promotion.
- @return ApiGetVodPromotionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param promotionId The ID of the promotion.
+	@return ApiGetVodPromotionRequest
 */
 func (a *OnDemandPromotionsAPIService) GetVodPromotion(ctx context.Context, ondemandId float32, promotionId float32) ApiGetVodPromotionRequest {
 	return ApiGetVodPromotionRequest{
-		ApiService: a,
-		ctx: ctx,
-		ondemandId: ondemandId,
+		ApiService:  a,
+		ctx:         ctx,
+		ondemandId:  ondemandId,
 		promotionId: promotionId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandPromotion
+//
+//	@return OnDemandPromotion
 func (a *OnDemandPromotionsAPIService) GetVodPromotionExecute(r ApiGetVodPromotionRequest) (*OnDemandPromotion, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandPromotion
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandPromotion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPromotionsAPIService.GetVodPromotion")
@@ -465,8 +466,8 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionExecute(r ApiGetVodPromoti
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -476,8 +477,8 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionExecute(r ApiGetVodPromoti
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -495,12 +496,12 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionExecute(r ApiGetVodPromoti
 }
 
 type ApiGetVodPromotionCodesRequest struct {
-	ctx context.Context
-	ApiService OnDemandPromotionsAPI
-	ondemandId float32
+	ctx         context.Context
+	ApiService  OnDemandPromotionsAPI
+	ondemandId  float32
 	promotionId float32
-	page *float32
-	perPage *float32
+	page        *float32
+	perPage     *float32
 }
 
 // The page number of the results to show.
@@ -524,28 +525,29 @@ GetVodPromotionCodes Get all the codes of a promotion on an On Demand page
 
 This method returns every code of the specified promotion on an On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @param promotionId The ID of the promotion.
- @return ApiGetVodPromotionCodesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param promotionId The ID of the promotion.
+	@return ApiGetVodPromotionCodesRequest
 */
 func (a *OnDemandPromotionsAPIService) GetVodPromotionCodes(ctx context.Context, ondemandId float32, promotionId float32) ApiGetVodPromotionCodesRequest {
 	return ApiGetVodPromotionCodesRequest{
-		ApiService: a,
-		ctx: ctx,
-		ondemandId: ondemandId,
+		ApiService:  a,
+		ctx:         ctx,
+		ondemandId:  ondemandId,
 		promotionId: promotionId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandPromotionCode
+//
+//	@return OnDemandPromotionCode
 func (a *OnDemandPromotionsAPIService) GetVodPromotionCodesExecute(r ApiGetVodPromotionCodesRequest) (*OnDemandPromotionCode, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandPromotionCode
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandPromotionCode
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPromotionsAPIService.GetVodPromotionCodes")
@@ -613,8 +615,8 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionCodesExecute(r ApiGetVodPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -624,8 +626,8 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionCodesExecute(r ApiGetVodPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -643,15 +645,15 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionCodesExecute(r ApiGetVodPr
 }
 
 type ApiGetVodPromotionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandPromotionsAPI
 	ondemandId float32
-	filter *string
-	page *float32
-	perPage *float32
+	filter     *string
+	page       *float32
+	perPage    *float32
 }
 
-// The type of filter to apply to the results.  Option descriptions:  * &#x60;batch&#x60; - Filter the results by the &#x60;batch&#x60; promotion.  * &#x60;default&#x60; - Filter the results by the default promotion.  * &#x60;single&#x60; - Filter the results by the &#x60;single&#x60; promotion.  * &#x60;vip&#x60; - Filter the results by the &#x60;vip&#x60; promotion. 
+// The type of filter to apply to the results.  Option descriptions:  * &#x60;batch&#x60; - Filter the results by the &#x60;batch&#x60; promotion.  * &#x60;default&#x60; - Filter the results by the default promotion.  * &#x60;single&#x60; - Filter the results by the &#x60;single&#x60; promotion.  * &#x60;vip&#x60; - Filter the results by the &#x60;vip&#x60; promotion.
 func (r ApiGetVodPromotionsRequest) Filter(filter string) ApiGetVodPromotionsRequest {
 	r.filter = &filter
 	return r
@@ -678,26 +680,27 @@ GetVodPromotions Get all the promotions on an On Demand page
 
 This method returns every promotion on the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @return ApiGetVodPromotionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodPromotionsRequest
 */
 func (a *OnDemandPromotionsAPIService) GetVodPromotions(ctx context.Context, ondemandId float32) ApiGetVodPromotionsRequest {
 	return ApiGetVodPromotionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandPromotion
+//
+//	@return OnDemandPromotion
 func (a *OnDemandPromotionsAPIService) GetVodPromotionsExecute(r ApiGetVodPromotionsRequest) (*OnDemandPromotion, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandPromotion
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandPromotion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPromotionsAPIService.GetVodPromotions")
@@ -768,8 +771,8 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionsExecute(r ApiGetVodPromot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -779,8 +782,8 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionsExecute(r ApiGetVodPromot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -790,8 +793,8 @@ func (a *OnDemandPromotionsAPIService) GetVodPromotionsExecute(r ApiGetVodPromot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

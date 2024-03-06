@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type VideosUnlistedVideosAPI interface {
 
 	/*
-	AddVideoPrivacyUser Permit a single user to access an unlisted video
+		AddVideoPrivacyUser Permit a single user to access an unlisted video
 
-	This method gives a single user permission to access the specified unlisted video. The authenticated user must be the owner of the video.
+		This method gives a single user permission to access the specified unlisted video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiAddVideoPrivacyUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiAddVideoPrivacyUserRequest
 	*/
 	AddVideoPrivacyUser(ctx context.Context, userId int32, videoId int32) ApiAddVideoPrivacyUserRequest
 
@@ -39,13 +38,13 @@ type VideosUnlistedVideosAPI interface {
 	AddVideoPrivacyUserExecute(r ApiAddVideoPrivacyUserRequest) (*User, *http.Response, error)
 
 	/*
-	AddVideoPrivacyUsers Permit a list of users to access an unlisted video
+		AddVideoPrivacyUsers Permit a list of users to access an unlisted video
 
-	This method gives multiple users permission to access the specified unlisted video. The authenticated user must be the owner of the video. The body of the request should follow our [batch request format](https://developer.vimeo.com/api/common-formats#working-with-batch-requests): each object must contain a single **uri** field whose value is the URI of the user who can access the video.
+		This method gives multiple users permission to access the specified unlisted video. The authenticated user must be the owner of the video. The body of the request should follow our [batch request format](https://developer.vimeo.com/api/common-formats#working-with-batch-requests): each object must contain a single **uri** field whose value is the URI of the user who can access the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiAddVideoPrivacyUsersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiAddVideoPrivacyUsersRequest
 	*/
 	AddVideoPrivacyUsers(ctx context.Context, videoId int32) ApiAddVideoPrivacyUsersRequest
 
@@ -54,14 +53,14 @@ type VideosUnlistedVideosAPI interface {
 	AddVideoPrivacyUsersExecute(r ApiAddVideoPrivacyUsersRequest) ([]User, *http.Response, error)
 
 	/*
-	AddVideoPrivacyUsersAlt1 Permit a list of users to access an unlisted video
+		AddVideoPrivacyUsersAlt1 Permit a list of users to access an unlisted video
 
-	This method gives multiple users permission to access the specified unlisted video. The authenticated user must be the owner of the video. The body of the request should follow our [batch request format](https://developer.vimeo.com/api/common-formats#working-with-batch-requests): each object must contain a single **uri** field whose value is the URI of the user who can access the video.
+		This method gives multiple users permission to access the specified unlisted video. The authenticated user must be the owner of the video. The body of the request should follow our [batch request format](https://developer.vimeo.com/api/common-formats#working-with-batch-requests): each object must contain a single **uri** field whose value is the URI of the user who can access the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiAddVideoPrivacyUsersAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiAddVideoPrivacyUsersAlt1Request
 	*/
 	AddVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId int32) ApiAddVideoPrivacyUsersAlt1Request
 
@@ -70,14 +69,14 @@ type VideosUnlistedVideosAPI interface {
 	AddVideoPrivacyUsersAlt1Execute(r ApiAddVideoPrivacyUsersAlt1Request) ([]User, *http.Response, error)
 
 	/*
-	DeleteVideoPrivacyUser Restrict a user from viewing an unlisted video
+		DeleteVideoPrivacyUser Restrict a user from viewing an unlisted video
 
-	This method prevents a user from being able to view the specified unlisted video. The authenticated user must be the owner of the video.
+		This method prevents a user from being able to view the specified unlisted video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoPrivacyUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoPrivacyUserRequest
 	*/
 	DeleteVideoPrivacyUser(ctx context.Context, userId int32, videoId int32) ApiDeleteVideoPrivacyUserRequest
 
@@ -85,13 +84,13 @@ type VideosUnlistedVideosAPI interface {
 	DeleteVideoPrivacyUserExecute(r ApiDeleteVideoPrivacyUserRequest) (*http.Response, error)
 
 	/*
-	GetVideoPrivacyUsers Get the users who can access an unlisted video
+		GetVideoPrivacyUsers Get the users who can access an unlisted video
 
-	This method returns every user who has access to the specified unlisted video.
+		This method returns every user who has access to the specified unlisted video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoPrivacyUsersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetVideoPrivacyUsersRequest
 	*/
 	GetVideoPrivacyUsers(ctx context.Context, videoId int32) ApiGetVideoPrivacyUsersRequest
 
@@ -100,14 +99,14 @@ type VideosUnlistedVideosAPI interface {
 	GetVideoPrivacyUsersExecute(r ApiGetVideoPrivacyUsersRequest) ([]User, *http.Response, error)
 
 	/*
-	GetVideoPrivacyUsersAlt1 Get the users who can access an unlisted video
+		GetVideoPrivacyUsersAlt1 Get the users who can access an unlisted video
 
-	This method returns every user who has access to the specified unlisted video.
+		This method returns every user who has access to the specified unlisted video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiGetVideoPrivacyUsersAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiGetVideoPrivacyUsersAlt1Request
 	*/
 	GetVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoPrivacyUsersAlt1Request
 
@@ -120,10 +119,10 @@ type VideosUnlistedVideosAPI interface {
 type VideosUnlistedVideosAPIService service
 
 type ApiAddVideoPrivacyUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosUnlistedVideosAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiAddVideoPrivacyUserRequest) Execute() (*User, *http.Response, error) {
@@ -135,28 +134,29 @@ AddVideoPrivacyUser Permit a single user to access an unlisted video
 
 This method gives a single user permission to access the specified unlisted video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiAddVideoPrivacyUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiAddVideoPrivacyUserRequest
 */
 func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUser(ctx context.Context, userId int32, videoId int32) ApiAddVideoPrivacyUserRequest {
 	return ApiAddVideoPrivacyUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return User
+//
+//	@return User
 func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUserExecute(r ApiAddVideoPrivacyUserRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUnlistedVideosAPIService.AddVideoPrivacyUser")
@@ -218,8 +218,8 @@ func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUserExecute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -237,9 +237,9 @@ func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUserExecute(r ApiAddVide
 }
 
 type ApiAddVideoPrivacyUsersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosUnlistedVideosAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiAddVideoPrivacyUsersRequest) Execute() ([]User, *http.Response, error) {
@@ -251,26 +251,27 @@ AddVideoPrivacyUsers Permit a list of users to access an unlisted video
 
 This method gives multiple users permission to access the specified unlisted video. The authenticated user must be the owner of the video. The body of the request should follow our [batch request format](https://developer.vimeo.com/api/common-formats#working-with-batch-requests): each object must contain a single **uri** field whose value is the URI of the user who can access the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiAddVideoPrivacyUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiAddVideoPrivacyUsersRequest
 */
 func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsers(ctx context.Context, videoId int32) ApiAddVideoPrivacyUsersRequest {
 	return ApiAddVideoPrivacyUsersRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsersExecute(r ApiAddVideoPrivacyUsersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUnlistedVideosAPIService.AddVideoPrivacyUsers")
@@ -340,10 +341,10 @@ func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsersExecute(r ApiAddVid
 }
 
 type ApiAddVideoPrivacyUsersAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosUnlistedVideosAPI
-	channelId float32
-	videoId int32
+	channelId  float32
+	videoId    int32
 }
 
 func (r ApiAddVideoPrivacyUsersAlt1Request) Execute() ([]User, *http.Response, error) {
@@ -355,28 +356,29 @@ AddVideoPrivacyUsersAlt1 Permit a list of users to access an unlisted video
 
 This method gives multiple users permission to access the specified unlisted video. The authenticated user must be the owner of the video. The body of the request should follow our [batch request format](https://developer.vimeo.com/api/common-formats#working-with-batch-requests): each object must contain a single **uri** field whose value is the URI of the user who can access the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiAddVideoPrivacyUsersAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiAddVideoPrivacyUsersAlt1Request
 */
 func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId int32) ApiAddVideoPrivacyUsersAlt1Request {
 	return ApiAddVideoPrivacyUsersAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsersAlt1Execute(r ApiAddVideoPrivacyUsersAlt1Request) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUnlistedVideosAPIService.AddVideoPrivacyUsersAlt1")
@@ -447,10 +449,10 @@ func (a *VideosUnlistedVideosAPIService) AddVideoPrivacyUsersAlt1Execute(r ApiAd
 }
 
 type ApiDeleteVideoPrivacyUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosUnlistedVideosAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiDeleteVideoPrivacyUserRequest) Execute() (*http.Response, error) {
@@ -462,26 +464,26 @@ DeleteVideoPrivacyUser Restrict a user from viewing an unlisted video
 
 This method prevents a user from being able to view the specified unlisted video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiDeleteVideoPrivacyUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoPrivacyUserRequest
 */
 func (a *VideosUnlistedVideosAPIService) DeleteVideoPrivacyUser(ctx context.Context, userId int32, videoId int32) ApiDeleteVideoPrivacyUserRequest {
 	return ApiDeleteVideoPrivacyUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosUnlistedVideosAPIService) DeleteVideoPrivacyUserExecute(r ApiDeleteVideoPrivacyUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUnlistedVideosAPIService.DeleteVideoPrivacyUser")
@@ -543,8 +545,8 @@ func (a *VideosUnlistedVideosAPIService) DeleteVideoPrivacyUserExecute(r ApiDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -554,8 +556,8 @@ func (a *VideosUnlistedVideosAPIService) DeleteVideoPrivacyUserExecute(r ApiDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -564,11 +566,11 @@ func (a *VideosUnlistedVideosAPIService) DeleteVideoPrivacyUserExecute(r ApiDele
 }
 
 type ApiGetVideoPrivacyUsersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosUnlistedVideosAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -592,26 +594,27 @@ GetVideoPrivacyUsers Get the users who can access an unlisted video
 
 This method returns every user who has access to the specified unlisted video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetVideoPrivacyUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoPrivacyUsersRequest
 */
 func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsers(ctx context.Context, videoId int32) ApiGetVideoPrivacyUsersRequest {
 	return ApiGetVideoPrivacyUsersRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsersExecute(r ApiGetVideoPrivacyUsersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUnlistedVideosAPIService.GetVideoPrivacyUsers")
@@ -678,8 +681,8 @@ func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsersExecute(r ApiGetVid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -697,12 +700,12 @@ func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsersExecute(r ApiGetVid
 }
 
 type ApiGetVideoPrivacyUsersAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosUnlistedVideosAPI
-	channelId float32
-	videoId int32
-	page *float32
-	perPage *float32
+	channelId  float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -726,28 +729,29 @@ GetVideoPrivacyUsersAlt1 Get the users who can access an unlisted video
 
 This method returns every user who has access to the specified unlisted video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiGetVideoPrivacyUsersAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiGetVideoPrivacyUsersAlt1Request
 */
 func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsersAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoPrivacyUsersAlt1Request {
 	return ApiGetVideoPrivacyUsersAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsersAlt1Execute(r ApiGetVideoPrivacyUsersAlt1Request) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUnlistedVideosAPIService.GetVideoPrivacyUsersAlt1")
@@ -815,8 +819,8 @@ func (a *VideosUnlistedVideosAPIService) GetVideoPrivacyUsersAlt1Execute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

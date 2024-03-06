@@ -175,7 +175,7 @@ func (o *CaptureWebinarRegistrationListAlt1RequestRegistrantsInner) SetLastName(
 }
 
 func (o CaptureWebinarRegistrationListAlt1RequestRegistrantsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableCaptureWebinarRegistrationListAlt1RequestRegistrantsInner) Unma
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

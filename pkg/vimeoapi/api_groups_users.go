@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type GroupsUsersAPI interface {
 
 	/*
-	CheckIfUserJoinedGroup Check if a user has joined a group
+		CheckIfUserJoinedGroup Check if a user has joined a group
 
-	This method determines whether the authenticated user belongs to the specified group.
+		This method determines whether the authenticated user belongs to the specified group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@param userId The ID of the user.
-	@return ApiCheckIfUserJoinedGroupRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@param userId The ID of the user.
+		@return ApiCheckIfUserJoinedGroupRequest
 	*/
 	CheckIfUserJoinedGroup(ctx context.Context, groupId float32, userId int32) ApiCheckIfUserJoinedGroupRequest
 
@@ -38,13 +37,13 @@ type GroupsUsersAPI interface {
 	CheckIfUserJoinedGroupExecute(r ApiCheckIfUserJoinedGroupRequest) (*http.Response, error)
 
 	/*
-	CheckIfUserJoinedGroupAlt1 Check if a user has joined a group
+		CheckIfUserJoinedGroupAlt1 Check if a user has joined a group
 
-	This method determines whether the authenticated user belongs to the specified group.
+		This method determines whether the authenticated user belongs to the specified group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@return ApiCheckIfUserJoinedGroupAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@return ApiCheckIfUserJoinedGroupAlt1Request
 	*/
 	CheckIfUserJoinedGroupAlt1(ctx context.Context, groupId float32) ApiCheckIfUserJoinedGroupAlt1Request
 
@@ -52,13 +51,13 @@ type GroupsUsersAPI interface {
 	CheckIfUserJoinedGroupAlt1Execute(r ApiCheckIfUserJoinedGroupAlt1Request) (*http.Response, error)
 
 	/*
-	GetGroupMembers Get all the members of a group
+		GetGroupMembers Get all the members of a group
 
-	This method returns every user who belongs to the specified group.
+		This method returns every user who belongs to the specified group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@return ApiGetGroupMembersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@return ApiGetGroupMembersRequest
 	*/
 	GetGroupMembers(ctx context.Context, groupId float32) ApiGetGroupMembersRequest
 
@@ -67,13 +66,13 @@ type GroupsUsersAPI interface {
 	GetGroupMembersExecute(r ApiGetGroupMembersRequest) ([]User, *http.Response, error)
 
 	/*
-	GetUserGroups Get all the groups that the user has joined
+		GetUserGroups Get all the groups that the user has joined
 
-	This method returns every group to which the authenticated user belongs.
+		This method returns every group to which the authenticated user belongs.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetUserGroupsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetUserGroupsRequest
 	*/
 	GetUserGroups(ctx context.Context, userId int32) ApiGetUserGroupsRequest
 
@@ -82,12 +81,12 @@ type GroupsUsersAPI interface {
 	GetUserGroupsExecute(r ApiGetUserGroupsRequest) ([]Group, *http.Response, error)
 
 	/*
-	GetUserGroupsAlt1 Get all the groups that the user has joined
+		GetUserGroupsAlt1 Get all the groups that the user has joined
 
-	This method returns every group to which the authenticated user belongs.
+		This method returns every group to which the authenticated user belongs.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserGroupsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetUserGroupsAlt1Request
 	*/
 	GetUserGroupsAlt1(ctx context.Context) ApiGetUserGroupsAlt1Request
 
@@ -100,10 +99,10 @@ type GroupsUsersAPI interface {
 type GroupsUsersAPIService service
 
 type ApiCheckIfUserJoinedGroupRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsUsersAPI
-	groupId float32
-	userId int32
+	groupId    float32
+	userId     int32
 }
 
 func (r ApiCheckIfUserJoinedGroupRequest) Execute() (*http.Response, error) {
@@ -115,26 +114,26 @@ CheckIfUserJoinedGroup Check if a user has joined a group
 
 This method determines whether the authenticated user belongs to the specified group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @param userId The ID of the user.
- @return ApiCheckIfUserJoinedGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@param userId The ID of the user.
+	@return ApiCheckIfUserJoinedGroupRequest
 */
 func (a *GroupsUsersAPIService) CheckIfUserJoinedGroup(ctx context.Context, groupId float32, userId int32) ApiCheckIfUserJoinedGroupRequest {
 	return ApiCheckIfUserJoinedGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
-		userId: userId,
+		ctx:        ctx,
+		groupId:    groupId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupsUsersAPIService) CheckIfUserJoinedGroupExecute(r ApiCheckIfUserJoinedGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersAPIService.CheckIfUserJoinedGroup")
@@ -196,8 +195,8 @@ func (a *GroupsUsersAPIService) CheckIfUserJoinedGroupExecute(r ApiCheckIfUserJo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -206,9 +205,9 @@ func (a *GroupsUsersAPIService) CheckIfUserJoinedGroupExecute(r ApiCheckIfUserJo
 }
 
 type ApiCheckIfUserJoinedGroupAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsUsersAPI
-	groupId float32
+	groupId    float32
 }
 
 func (r ApiCheckIfUserJoinedGroupAlt1Request) Execute() (*http.Response, error) {
@@ -220,24 +219,24 @@ CheckIfUserJoinedGroupAlt1 Check if a user has joined a group
 
 This method determines whether the authenticated user belongs to the specified group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @return ApiCheckIfUserJoinedGroupAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@return ApiCheckIfUserJoinedGroupAlt1Request
 */
 func (a *GroupsUsersAPIService) CheckIfUserJoinedGroupAlt1(ctx context.Context, groupId float32) ApiCheckIfUserJoinedGroupAlt1Request {
 	return ApiCheckIfUserJoinedGroupAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupsUsersAPIService) CheckIfUserJoinedGroupAlt1Execute(r ApiCheckIfUserJoinedGroupAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersAPIService.CheckIfUserJoinedGroupAlt1")
@@ -298,8 +297,8 @@ func (a *GroupsUsersAPIService) CheckIfUserJoinedGroupAlt1Execute(r ApiCheckIfUs
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -308,24 +307,24 @@ func (a *GroupsUsersAPIService) CheckIfUserJoinedGroupAlt1Execute(r ApiCheckIfUs
 }
 
 type ApiGetGroupMembersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsUsersAPI
-	groupId float32
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	groupId    float32
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetGroupMembersRequest) Direction(direction string) ApiGetGroupMembersRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderators&#x60; - Return group moderators. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderators&#x60; - Return group moderators.
 func (r ApiGetGroupMembersRequest) Filter(filter string) ApiGetGroupMembersRequest {
 	r.filter = &filter
 	return r
@@ -349,7 +348,7 @@ func (r ApiGetGroupMembersRequest) Query(query string) ApiGetGroupMembersRequest
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.
 func (r ApiGetGroupMembersRequest) Sort(sort string) ApiGetGroupMembersRequest {
 	r.sort = &sort
 	return r
@@ -364,26 +363,27 @@ GetGroupMembers Get all the members of a group
 
 This method returns every user who belongs to the specified group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @return ApiGetGroupMembersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@return ApiGetGroupMembersRequest
 */
 func (a *GroupsUsersAPIService) GetGroupMembers(ctx context.Context, groupId float32) ApiGetGroupMembersRequest {
 	return ApiGetGroupMembersRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *GroupsUsersAPIService) GetGroupMembersExecute(r ApiGetGroupMembersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersAPIService.GetGroupMembers")
@@ -462,8 +462,8 @@ func (a *GroupsUsersAPIService) GetGroupMembersExecute(r ApiGetGroupMembersReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -481,24 +481,24 @@ func (a *GroupsUsersAPIService) GetGroupMembersExecute(r ApiGetGroupMembersReque
 }
 
 type ApiGetUserGroupsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsUsersAPI
-	userId int32
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	userId     int32
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetUserGroupsRequest) Direction(direction string) ApiGetUserGroupsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderated&#x60; - Return moderated groups. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderated&#x60; - Return moderated groups.
 func (r ApiGetUserGroupsRequest) Filter(filter string) ApiGetUserGroupsRequest {
 	r.filter = &filter
 	return r
@@ -522,7 +522,7 @@ func (r ApiGetUserGroupsRequest) Query(query string) ApiGetUserGroupsRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;members&#x60; - Sort the results by number of members.  * &#x60;videos&#x60; - Sort the results by number of videos. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;members&#x60; - Sort the results by number of members.  * &#x60;videos&#x60; - Sort the results by number of videos.
 func (r ApiGetUserGroupsRequest) Sort(sort string) ApiGetUserGroupsRequest {
 	r.sort = &sort
 	return r
@@ -537,26 +537,27 @@ GetUserGroups Get all the groups that the user has joined
 
 This method returns every group to which the authenticated user belongs.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetUserGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetUserGroupsRequest
 */
 func (a *GroupsUsersAPIService) GetUserGroups(ctx context.Context, userId int32) ApiGetUserGroupsRequest {
 	return ApiGetUserGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Group
+//
+//	@return []Group
 func (a *GroupsUsersAPIService) GetUserGroupsExecute(r ApiGetUserGroupsRequest) ([]Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Group
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersAPIService.GetUserGroups")
@@ -644,23 +645,23 @@ func (a *GroupsUsersAPIService) GetUserGroupsExecute(r ApiGetUserGroupsRequest) 
 }
 
 type ApiGetUserGroupsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsUsersAPI
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetUserGroupsAlt1Request) Direction(direction string) ApiGetUserGroupsAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderated&#x60; - Return moderated groups. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderated&#x60; - Return moderated groups.
 func (r ApiGetUserGroupsAlt1Request) Filter(filter string) ApiGetUserGroupsAlt1Request {
 	r.filter = &filter
 	return r
@@ -684,7 +685,7 @@ func (r ApiGetUserGroupsAlt1Request) Query(query string) ApiGetUserGroupsAlt1Req
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;members&#x60; - Sort the results by number of members.  * &#x60;videos&#x60; - Sort the results by number of videos. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;members&#x60; - Sort the results by number of members.  * &#x60;videos&#x60; - Sort the results by number of videos.
 func (r ApiGetUserGroupsAlt1Request) Sort(sort string) ApiGetUserGroupsAlt1Request {
 	r.sort = &sort
 	return r
@@ -699,24 +700,25 @@ GetUserGroupsAlt1 Get all the groups that the user has joined
 
 This method returns every group to which the authenticated user belongs.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetUserGroupsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetUserGroupsAlt1Request
 */
 func (a *GroupsUsersAPIService) GetUserGroupsAlt1(ctx context.Context) ApiGetUserGroupsAlt1Request {
 	return ApiGetUserGroupsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Group
+//
+//	@return []Group
 func (a *GroupsUsersAPIService) GetUserGroupsAlt1Execute(r ApiGetUserGroupsAlt1Request) ([]Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Group
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersAPIService.GetUserGroupsAlt1")

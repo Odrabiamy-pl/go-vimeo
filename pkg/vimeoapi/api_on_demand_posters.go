@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type OnDemandPostersAPI interface {
 
 	/*
-	AddVodPoster Add a poster to an On Demand page
+		AddVodPoster Add a poster to an On Demand page
 
-	This method adds a poster image to the specified On Demand page. The authenticated user must be the owner of the page.
+		This method adds a poster image to the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiAddVodPosterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@return ApiAddVodPosterRequest
 	*/
 	AddVodPoster(ctx context.Context, ondemandId float32) ApiAddVodPosterRequest
 
@@ -38,14 +37,14 @@ type OnDemandPostersAPI interface {
 	AddVodPosterExecute(r ApiAddVodPosterRequest) (*Picture, *http.Response, error)
 
 	/*
-	EditVodPoster Edit a poster on an On Demand page
+		EditVodPoster Edit a poster on an On Demand page
 
-	This method edits a poster image on the specified On Demand page. The authenticated user must be the owner of the page.
+		This method edits a poster image on the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param posterId The ID of the poster.
-	@return ApiEditVodPosterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@param posterId The ID of the poster.
+		@return ApiEditVodPosterRequest
 	*/
 	EditVodPoster(ctx context.Context, ondemandId float32, posterId float32) ApiEditVodPosterRequest
 
@@ -54,14 +53,14 @@ type OnDemandPostersAPI interface {
 	EditVodPosterExecute(r ApiEditVodPosterRequest) (*Picture, *http.Response, error)
 
 	/*
-	GetVodPoster Get a specific poster on an On Demand page
+		GetVodPoster Get a specific poster on an On Demand page
 
-	This method returns a single poster on the specified On Demand page.
+		This method returns a single poster on the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param posterId The ID of the poster.
-	@return ApiGetVodPosterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@param posterId The ID of the poster.
+		@return ApiGetVodPosterRequest
 	*/
 	GetVodPoster(ctx context.Context, ondemandId float32, posterId float32) ApiGetVodPosterRequest
 
@@ -70,13 +69,13 @@ type OnDemandPostersAPI interface {
 	GetVodPosterExecute(r ApiGetVodPosterRequest) (*Picture, *http.Response, error)
 
 	/*
-	GetVodPosters Get all the posters on an On Demand page
+		GetVodPosters Get all the posters on an On Demand page
 
-	This method returns every poster on the specified On Demand page.
+		This method returns every poster on the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodPostersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@return ApiGetVodPostersRequest
 	*/
 	GetVodPosters(ctx context.Context, ondemandId float32) ApiGetVodPostersRequest
 
@@ -89,7 +88,7 @@ type OnDemandPostersAPI interface {
 type OnDemandPostersAPIService service
 
 type ApiAddVodPosterRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandPostersAPI
 	ondemandId float32
 }
@@ -103,26 +102,27 @@ AddVodPoster Add a poster to an On Demand page
 
 This method adds a poster image to the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @return ApiAddVodPosterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiAddVodPosterRequest
 */
 func (a *OnDemandPostersAPIService) AddVodPoster(ctx context.Context, ondemandId float32) ApiAddVodPosterRequest {
 	return ApiAddVodPosterRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *OnDemandPostersAPIService) AddVodPosterExecute(r ApiAddVodPosterRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPostersAPIService.AddVodPoster")
@@ -183,8 +183,8 @@ func (a *OnDemandPostersAPIService) AddVodPosterExecute(r ApiAddVodPosterRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -202,10 +202,10 @@ func (a *OnDemandPostersAPIService) AddVodPosterExecute(r ApiAddVodPosterRequest
 }
 
 type ApiEditVodPosterRequest struct {
-	ctx context.Context
-	ApiService OnDemandPostersAPI
-	ondemandId float32
-	posterId float32
+	ctx                  context.Context
+	ApiService           OnDemandPostersAPI
+	ondemandId           float32
+	posterId             float32
 	editVodPosterRequest *EditVodPosterRequest
 }
 
@@ -223,28 +223,29 @@ EditVodPoster Edit a poster on an On Demand page
 
 This method edits a poster image on the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @param posterId The ID of the poster.
- @return ApiEditVodPosterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param posterId The ID of the poster.
+	@return ApiEditVodPosterRequest
 */
 func (a *OnDemandPostersAPIService) EditVodPoster(ctx context.Context, ondemandId float32, posterId float32) ApiEditVodPosterRequest {
 	return ApiEditVodPosterRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
-		posterId: posterId,
+		posterId:   posterId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *OnDemandPostersAPIService) EditVodPosterExecute(r ApiEditVodPosterRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPostersAPIService.EditVodPoster")
@@ -317,10 +318,10 @@ func (a *OnDemandPostersAPIService) EditVodPosterExecute(r ApiEditVodPosterReque
 }
 
 type ApiGetVodPosterRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandPostersAPI
 	ondemandId float32
-	posterId float32
+	posterId   float32
 }
 
 func (r ApiGetVodPosterRequest) Execute() (*Picture, *http.Response, error) {
@@ -332,28 +333,29 @@ GetVodPoster Get a specific poster on an On Demand page
 
 This method returns a single poster on the specified On Demand page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @param posterId The ID of the poster.
- @return ApiGetVodPosterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param posterId The ID of the poster.
+	@return ApiGetVodPosterRequest
 */
 func (a *OnDemandPostersAPIService) GetVodPoster(ctx context.Context, ondemandId float32, posterId float32) ApiGetVodPosterRequest {
 	return ApiGetVodPosterRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
-		posterId: posterId,
+		posterId:   posterId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *OnDemandPostersAPIService) GetVodPosterExecute(r ApiGetVodPosterRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPostersAPIService.GetVodPoster")
@@ -424,11 +426,11 @@ func (a *OnDemandPostersAPIService) GetVodPosterExecute(r ApiGetVodPosterRequest
 }
 
 type ApiGetVodPostersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandPostersAPI
 	ondemandId float32
-	page *float32
-	perPage *float32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -452,26 +454,27 @@ GetVodPosters Get all the posters on an On Demand page
 
 This method returns every poster on the specified On Demand page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @return ApiGetVodPostersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodPostersRequest
 */
 func (a *OnDemandPostersAPIService) GetVodPosters(ctx context.Context, ondemandId float32) ApiGetVodPostersRequest {
 	return ApiGetVodPostersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return []Picture
+//
+//	@return []Picture
 func (a *OnDemandPostersAPIService) GetVodPostersExecute(r ApiGetVodPostersRequest) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Picture
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPostersAPIService.GetVodPosters")
@@ -538,8 +541,8 @@ func (a *OnDemandPostersAPIService) GetVodPostersExecute(r ApiGetVodPostersReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

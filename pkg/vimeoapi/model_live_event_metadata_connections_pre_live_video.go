@@ -21,7 +21,7 @@ var _ MappedNullable = &LiveEventMetadataConnectionsPreLiveVideo{}
 type LiveEventMetadataConnectionsPreLiveVideo struct {
 	// An array of the HTTP methods permitted on this URI.
 	Options []string `json:"options"`
-	// The status of the pre-live video's RTMP link.  Option descriptions:  * `pending` - Vimeo is working on setting up the connection.  * `ready` - Resources have been provisioned for the event.  * `streaming` - Live video is currently streaming to the RTMP link.  * `unavailable` - The connection is ready, but streaming to the RTMP link has not yet begun. 
+	// The status of the pre-live video's RTMP link.  Option descriptions:  * `pending` - Vimeo is working on setting up the connection.  * `ready` - Resources have been provisioned for the event.  * `streaming` - Live video is currently streaming to the RTMP link.  * `unavailable` - The connection is ready, but streaming to the RTMP link has not yet begun.
 	Status string `json:"status"`
 	// The API URI that resolves to the connection data.
 	Uri string `json:"uri"`
@@ -120,7 +120,7 @@ func (o *LiveEventMetadataConnectionsPreLiveVideo) SetUri(v string) {
 }
 
 func (o LiveEventMetadataConnectionsPreLiveVideo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableLiveEventMetadataConnectionsPreLiveVideo) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

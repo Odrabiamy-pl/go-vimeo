@@ -27,7 +27,7 @@ type PurchaseInteractionSubscribe struct {
 	Link NullableString `json:"link,omitempty"`
 	// The time in ISO 8601 format when the On Demand video was purchased.
 	PurchaseTime NullableString `json:"purchase_time,omitempty"`
-	// The user's streaming access to the On Demand subscription.  Option descriptions:  * `available` - The On Demand subscription is available for streaming.  * `purchased` - The On Demand subscription has been purchased.  * `restricted` - Streaming for the On Demand subscription is restricted.  * `unavailable` - The On Demand subscription is unavailable. 
+	// The user's streaming access to the On Demand subscription.  Option descriptions:  * `available` - The On Demand subscription is available for streaming.  * `purchased` - The On Demand subscription has been purchased.  * `restricted` - Streaming for the On Demand subscription is restricted.  * `unavailable` - The On Demand subscription is unavailable.
 	Stream *string `json:"stream,omitempty"`
 	// The On Demand subscription's product URI.
 	Uri NullableString `json:"uri,omitempty"`
@@ -114,6 +114,7 @@ func (o *PurchaseInteractionSubscribe) HasExpiresTime() bool {
 func (o *PurchaseInteractionSubscribe) SetExpiresTime(v string) {
 	o.ExpiresTime.Set(&v)
 }
+
 // SetExpiresTimeNil sets the value for ExpiresTime to be an explicit nil
 func (o *PurchaseInteractionSubscribe) SetExpiresTimeNil() {
 	o.ExpiresTime.Set(nil)
@@ -156,6 +157,7 @@ func (o *PurchaseInteractionSubscribe) HasLink() bool {
 func (o *PurchaseInteractionSubscribe) SetLink(v string) {
 	o.Link.Set(&v)
 }
+
 // SetLinkNil sets the value for Link to be an explicit nil
 func (o *PurchaseInteractionSubscribe) SetLinkNil() {
 	o.Link.Set(nil)
@@ -198,6 +200,7 @@ func (o *PurchaseInteractionSubscribe) HasPurchaseTime() bool {
 func (o *PurchaseInteractionSubscribe) SetPurchaseTime(v string) {
 	o.PurchaseTime.Set(&v)
 }
+
 // SetPurchaseTimeNil sets the value for PurchaseTime to be an explicit nil
 func (o *PurchaseInteractionSubscribe) SetPurchaseTimeNil() {
 	o.PurchaseTime.Set(nil)
@@ -272,6 +275,7 @@ func (o *PurchaseInteractionSubscribe) HasUri() bool {
 func (o *PurchaseInteractionSubscribe) SetUri(v string) {
 	o.Uri.Set(&v)
 }
+
 // SetUriNil sets the value for Uri to be an explicit nil
 func (o *PurchaseInteractionSubscribe) SetUriNil() {
 	o.Uri.Set(nil)
@@ -283,7 +287,7 @@ func (o *PurchaseInteractionSubscribe) UnsetUri() {
 }
 
 func (o PurchaseInteractionSubscribe) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -348,5 +352,3 @@ func (v *NullablePurchaseInteractionSubscribe) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

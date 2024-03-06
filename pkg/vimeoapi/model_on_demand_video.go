@@ -25,15 +25,15 @@ type OnDemandVideo struct {
 	// The duration of the video.
 	Duration *string `json:"duration,omitempty"`
 	// The episode number of the video.
-	Episode *float32 `json:"episode,omitempty"`
+	Episode      *float32                  `json:"episode,omitempty"`
 	Interactions OnDemandVideoInteractions `json:"interactions"`
 	// The link to the video on Vimeo.
-	Link string `json:"link"`
+	Link     string                `json:"link"`
 	Metadata OnDemandVideoMetadata `json:"metadata"`
 	// The title of the video.
 	Name *string `json:"name,omitempty"`
 	// An array of HTTP methods permitted on this URI.
-	Options []string `json:"options,omitempty"`
+	Options  []string `json:"options,omitempty"`
 	Pictures *Picture `json:"pictures,omitempty"`
 	// The authenticated user's most recent play position in the video, in seconds.
 	PlayProgress float32 `json:"play_progress"`
@@ -42,13 +42,13 @@ type OnDemandVideo struct {
 	// The time in ISO 8601 format when the video was created or published.
 	ReleaseDate *string `json:"release_date,omitempty"`
 	// The year that the video was released.
-	ReleaseYear NullableFloat32 `json:"release_year"`
-	Rent NullableOnDemandVideoRent `json:"rent"`
-	// The type of video.  Option descriptions:  * `extra` - The video is an extra feature.  * `main` - The video is a main feature.  * `trailer` - The video is a trailer. 
+	ReleaseYear NullableFloat32           `json:"release_year"`
+	Rent        NullableOnDemandVideoRent `json:"rent"`
+	// The type of video.  Option descriptions:  * `extra` - The video is an extra feature.  * `main` - The video is a main feature.  * `trailer` - The video is a trailer.
 	Type string `json:"type"`
 	// The video container's relative URI.
-	Uri string `json:"uri"`
-	User *User `json:"user,omitempty"`
+	Uri  string `json:"uri"`
+	User *User  `json:"user,omitempty"`
 }
 
 // NewOnDemandVideo instantiates a new OnDemandVideo object
@@ -588,7 +588,7 @@ func (o *OnDemandVideo) SetUser(v User) {
 }
 
 func (o OnDemandVideo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -671,5 +671,3 @@ func (v *NullableOnDemandVideo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

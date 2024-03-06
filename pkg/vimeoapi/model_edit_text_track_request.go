@@ -25,7 +25,7 @@ type EditTextTrackRequest struct {
 	Language *string `json:"language,omitempty"`
 	// The name of the text track.
 	Name *string `json:"name,omitempty"`
-	// The type of text track.  Option descriptions:  * `captions` - The text track is the captions type.  * `chapters` - The text track is the chapters type.  * `descriptions` - The text track is the descriptions type.  * `metadata` - The text track is the metadata type.  * `subtitles` - The text track is the subtitles type. 
+	// The type of text track.  Option descriptions:  * `captions` - The text track is the captions type.  * `chapters` - The text track is the chapters type.  * `descriptions` - The text track is the descriptions type.  * `metadata` - The text track is the metadata type.  * `subtitles` - The text track is the subtitles type.
 	Type *string `json:"type,omitempty"`
 }
 
@@ -175,7 +175,7 @@ func (o *EditTextTrackRequest) SetType(v string) {
 }
 
 func (o EditTextTrackRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableEditTextTrackRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

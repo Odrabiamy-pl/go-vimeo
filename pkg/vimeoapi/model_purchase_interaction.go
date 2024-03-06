@@ -22,7 +22,7 @@ type PurchaseInteraction struct {
 	// Information on purchasing the On Demand video.
 	Buy map[string]interface{} `json:"buy,omitempty"`
 	// Information on renting the On Demand video.
-	Rent map[string]interface{} `json:"rent,omitempty"`
+	Rent      map[string]interface{}               `json:"rent,omitempty"`
 	Subscribe NullablePurchaseInteractionSubscribe `json:"subscribe,omitempty"`
 }
 
@@ -141,6 +141,7 @@ func (o *PurchaseInteraction) HasSubscribe() bool {
 func (o *PurchaseInteraction) SetSubscribe(v PurchaseInteractionSubscribe) {
 	o.Subscribe.Set(&v)
 }
+
 // SetSubscribeNil sets the value for Subscribe to be an explicit nil
 func (o *PurchaseInteraction) SetSubscribeNil() {
 	o.Subscribe.Set(nil)
@@ -152,7 +153,7 @@ func (o *PurchaseInteraction) UnsetSubscribe() {
 }
 
 func (o PurchaseInteraction) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +209,3 @@ func (v *NullablePurchaseInteraction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

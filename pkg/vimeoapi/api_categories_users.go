@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type CategoriesUsersAPI interface {
 
 	/*
-	CheckIfUserSubscribedToCategory Check if the user follows a category
+		CheckIfUserSubscribedToCategory Check if the user follows a category
 
-	This method determines whether the authenticated user follows the specified category.
+		This method determines whether the authenticated user follows the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@param userId The ID of the user.
-	@return ApiCheckIfUserSubscribedToCategoryRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@param userId The ID of the user.
+		@return ApiCheckIfUserSubscribedToCategoryRequest
 	*/
 	CheckIfUserSubscribedToCategory(ctx context.Context, category string, userId int32) ApiCheckIfUserSubscribedToCategoryRequest
 
@@ -38,13 +37,13 @@ type CategoriesUsersAPI interface {
 	CheckIfUserSubscribedToCategoryExecute(r ApiCheckIfUserSubscribedToCategoryRequest) (*http.Response, error)
 
 	/*
-	CheckIfUserSubscribedToCategoryAlt1 Check if the user follows a category
+		CheckIfUserSubscribedToCategoryAlt1 Check if the user follows a category
 
-	This method determines whether the authenticated user follows the specified category.
+		This method determines whether the authenticated user follows the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@return ApiCheckIfUserSubscribedToCategoryAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@return ApiCheckIfUserSubscribedToCategoryAlt1Request
 	*/
 	CheckIfUserSubscribedToCategoryAlt1(ctx context.Context, category string) ApiCheckIfUserSubscribedToCategoryAlt1Request
 
@@ -52,13 +51,13 @@ type CategoriesUsersAPI interface {
 	CheckIfUserSubscribedToCategoryAlt1Execute(r ApiCheckIfUserSubscribedToCategoryAlt1Request) (*http.Response, error)
 
 	/*
-	GetCategorySubscriptions Get all the categories that the user follows
+		GetCategorySubscriptions Get all the categories that the user follows
 
-	This method returns every category that the authenticated user follows.
+		This method returns every category that the authenticated user follows.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetCategorySubscriptionsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetCategorySubscriptionsRequest
 	*/
 	GetCategorySubscriptions(ctx context.Context, userId int32) ApiGetCategorySubscriptionsRequest
 
@@ -67,12 +66,12 @@ type CategoriesUsersAPI interface {
 	GetCategorySubscriptionsExecute(r ApiGetCategorySubscriptionsRequest) ([]Category, *http.Response, error)
 
 	/*
-	GetCategorySubscriptionsAlt1 Get all the categories that the user follows
+		GetCategorySubscriptionsAlt1 Get all the categories that the user follows
 
-	This method returns every category that the authenticated user follows.
+		This method returns every category that the authenticated user follows.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCategorySubscriptionsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetCategorySubscriptionsAlt1Request
 	*/
 	GetCategorySubscriptionsAlt1(ctx context.Context) ApiGetCategorySubscriptionsAlt1Request
 
@@ -81,14 +80,14 @@ type CategoriesUsersAPI interface {
 	GetCategorySubscriptionsAlt1Execute(r ApiGetCategorySubscriptionsAlt1Request) ([]Category, *http.Response, error)
 
 	/*
-	SubscribeToCategory Cause the user to follow a specific category
+		SubscribeToCategory Cause the user to follow a specific category
 
-	This method causes the authenticated user to follow the specified category.
+		This method causes the authenticated user to follow the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@param userId The ID of the user.
-	@return ApiSubscribeToCategoryRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@param userId The ID of the user.
+		@return ApiSubscribeToCategoryRequest
 	*/
 	SubscribeToCategory(ctx context.Context, category float32, userId int32) ApiSubscribeToCategoryRequest
 
@@ -96,13 +95,13 @@ type CategoriesUsersAPI interface {
 	SubscribeToCategoryExecute(r ApiSubscribeToCategoryRequest) (*http.Response, error)
 
 	/*
-	SubscribeToCategoryAlt1 Cause the user to follow a specific category
+		SubscribeToCategoryAlt1 Cause the user to follow a specific category
 
-	This method causes the authenticated user to follow the specified category.
+		This method causes the authenticated user to follow the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@return ApiSubscribeToCategoryAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@return ApiSubscribeToCategoryAlt1Request
 	*/
 	SubscribeToCategoryAlt1(ctx context.Context, category float32) ApiSubscribeToCategoryAlt1Request
 
@@ -110,14 +109,14 @@ type CategoriesUsersAPI interface {
 	SubscribeToCategoryAlt1Execute(r ApiSubscribeToCategoryAlt1Request) (*http.Response, error)
 
 	/*
-	UnsubscribeFromCategory Cause the user to stop following a category
+		UnsubscribeFromCategory Cause the user to stop following a category
 
-	This method causes the authenticated user to stop following the specified category.
+		This method causes the authenticated user to stop following the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@param userId The ID of the user.
-	@return ApiUnsubscribeFromCategoryRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@param userId The ID of the user.
+		@return ApiUnsubscribeFromCategoryRequest
 	*/
 	UnsubscribeFromCategory(ctx context.Context, category string, userId int32) ApiUnsubscribeFromCategoryRequest
 
@@ -125,13 +124,13 @@ type CategoriesUsersAPI interface {
 	UnsubscribeFromCategoryExecute(r ApiUnsubscribeFromCategoryRequest) (*http.Response, error)
 
 	/*
-	UnsubscribeFromCategoryAlt1 Cause the user to stop following a category
+		UnsubscribeFromCategoryAlt1 Cause the user to stop following a category
 
-	This method causes the authenticated user to stop following the specified category.
+		This method causes the authenticated user to stop following the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@return ApiUnsubscribeFromCategoryAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@return ApiUnsubscribeFromCategoryAlt1Request
 	*/
 	UnsubscribeFromCategoryAlt1(ctx context.Context, category string) ApiUnsubscribeFromCategoryAlt1Request
 
@@ -143,10 +142,10 @@ type CategoriesUsersAPI interface {
 type CategoriesUsersAPIService service
 
 type ApiCheckIfUserSubscribedToCategoryRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesUsersAPI
-	category string
-	userId int32
+	category   string
+	userId     int32
 }
 
 func (r ApiCheckIfUserSubscribedToCategoryRequest) Execute() (*http.Response, error) {
@@ -158,26 +157,26 @@ CheckIfUserSubscribedToCategory Check if the user follows a category
 
 This method determines whether the authenticated user follows the specified category.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @param userId The ID of the user.
- @return ApiCheckIfUserSubscribedToCategoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@param userId The ID of the user.
+	@return ApiCheckIfUserSubscribedToCategoryRequest
 */
 func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategory(ctx context.Context, category string, userId int32) ApiCheckIfUserSubscribedToCategoryRequest {
 	return ApiCheckIfUserSubscribedToCategoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
-		userId: userId,
+		ctx:        ctx,
+		category:   category,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategoryExecute(r ApiCheckIfUserSubscribedToCategoryRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesUsersAPIService.CheckIfUserSubscribedToCategory")
@@ -239,9 +238,9 @@ func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategoryExecute(r Api
 }
 
 type ApiCheckIfUserSubscribedToCategoryAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesUsersAPI
-	category string
+	category   string
 }
 
 func (r ApiCheckIfUserSubscribedToCategoryAlt1Request) Execute() (*http.Response, error) {
@@ -253,24 +252,24 @@ CheckIfUserSubscribedToCategoryAlt1 Check if the user follows a category
 
 This method determines whether the authenticated user follows the specified category.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @return ApiCheckIfUserSubscribedToCategoryAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@return ApiCheckIfUserSubscribedToCategoryAlt1Request
 */
 func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategoryAlt1(ctx context.Context, category string) ApiCheckIfUserSubscribedToCategoryAlt1Request {
 	return ApiCheckIfUserSubscribedToCategoryAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
+		ctx:        ctx,
+		category:   category,
 	}
 }
 
 // Execute executes the request
 func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategoryAlt1Execute(r ApiCheckIfUserSubscribedToCategoryAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesUsersAPIService.CheckIfUserSubscribedToCategoryAlt1")
@@ -331,16 +330,16 @@ func (a *CategoriesUsersAPIService) CheckIfUserSubscribedToCategoryAlt1Execute(r
 }
 
 type ApiGetCategorySubscriptionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesUsersAPI
-	userId int32
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	userId     int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetCategorySubscriptionsRequest) Direction(direction string) ApiGetCategorySubscriptionsRequest {
 	r.direction = &direction
 	return r
@@ -358,7 +357,7 @@ func (r ApiGetCategorySubscriptionsRequest) PerPage(perPage float32) ApiGetCateg
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by name. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by name.
 func (r ApiGetCategorySubscriptionsRequest) Sort(sort string) ApiGetCategorySubscriptionsRequest {
 	r.sort = &sort
 	return r
@@ -373,26 +372,27 @@ GetCategorySubscriptions Get all the categories that the user follows
 
 This method returns every category that the authenticated user follows.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetCategorySubscriptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetCategorySubscriptionsRequest
 */
 func (a *CategoriesUsersAPIService) GetCategorySubscriptions(ctx context.Context, userId int32) ApiGetCategorySubscriptionsRequest {
 	return ApiGetCategorySubscriptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Category
+//
+//	@return []Category
 func (a *CategoriesUsersAPIService) GetCategorySubscriptionsExecute(r ApiGetCategorySubscriptionsRequest) ([]Category, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Category
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Category
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesUsersAPIService.GetCategorySubscriptions")
@@ -465,8 +465,8 @@ func (a *CategoriesUsersAPIService) GetCategorySubscriptionsExecute(r ApiGetCate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -484,15 +484,15 @@ func (a *CategoriesUsersAPIService) GetCategorySubscriptionsExecute(r ApiGetCate
 }
 
 type ApiGetCategorySubscriptionsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesUsersAPI
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetCategorySubscriptionsAlt1Request) Direction(direction string) ApiGetCategorySubscriptionsAlt1Request {
 	r.direction = &direction
 	return r
@@ -510,7 +510,7 @@ func (r ApiGetCategorySubscriptionsAlt1Request) PerPage(perPage float32) ApiGetC
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by name. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by name.
 func (r ApiGetCategorySubscriptionsAlt1Request) Sort(sort string) ApiGetCategorySubscriptionsAlt1Request {
 	r.sort = &sort
 	return r
@@ -525,24 +525,25 @@ GetCategorySubscriptionsAlt1 Get all the categories that the user follows
 
 This method returns every category that the authenticated user follows.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCategorySubscriptionsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetCategorySubscriptionsAlt1Request
 */
 func (a *CategoriesUsersAPIService) GetCategorySubscriptionsAlt1(ctx context.Context) ApiGetCategorySubscriptionsAlt1Request {
 	return ApiGetCategorySubscriptionsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Category
+//
+//	@return []Category
 func (a *CategoriesUsersAPIService) GetCategorySubscriptionsAlt1Execute(r ApiGetCategorySubscriptionsAlt1Request) ([]Category, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Category
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Category
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesUsersAPIService.GetCategorySubscriptionsAlt1")
@@ -614,8 +615,8 @@ func (a *CategoriesUsersAPIService) GetCategorySubscriptionsAlt1Execute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -633,10 +634,10 @@ func (a *CategoriesUsersAPIService) GetCategorySubscriptionsAlt1Execute(r ApiGet
 }
 
 type ApiSubscribeToCategoryRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesUsersAPI
-	category float32
-	userId int32
+	category   float32
+	userId     int32
 }
 
 func (r ApiSubscribeToCategoryRequest) Execute() (*http.Response, error) {
@@ -648,26 +649,26 @@ SubscribeToCategory Cause the user to follow a specific category
 
 This method causes the authenticated user to follow the specified category.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @param userId The ID of the user.
- @return ApiSubscribeToCategoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@param userId The ID of the user.
+	@return ApiSubscribeToCategoryRequest
 */
 func (a *CategoriesUsersAPIService) SubscribeToCategory(ctx context.Context, category float32, userId int32) ApiSubscribeToCategoryRequest {
 	return ApiSubscribeToCategoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
-		userId: userId,
+		ctx:        ctx,
+		category:   category,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *CategoriesUsersAPIService) SubscribeToCategoryExecute(r ApiSubscribeToCategoryRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesUsersAPIService.SubscribeToCategory")
@@ -729,9 +730,9 @@ func (a *CategoriesUsersAPIService) SubscribeToCategoryExecute(r ApiSubscribeToC
 }
 
 type ApiSubscribeToCategoryAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesUsersAPI
-	category float32
+	category   float32
 }
 
 func (r ApiSubscribeToCategoryAlt1Request) Execute() (*http.Response, error) {
@@ -743,24 +744,24 @@ SubscribeToCategoryAlt1 Cause the user to follow a specific category
 
 This method causes the authenticated user to follow the specified category.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @return ApiSubscribeToCategoryAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@return ApiSubscribeToCategoryAlt1Request
 */
 func (a *CategoriesUsersAPIService) SubscribeToCategoryAlt1(ctx context.Context, category float32) ApiSubscribeToCategoryAlt1Request {
 	return ApiSubscribeToCategoryAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
+		ctx:        ctx,
+		category:   category,
 	}
 }
 
 // Execute executes the request
 func (a *CategoriesUsersAPIService) SubscribeToCategoryAlt1Execute(r ApiSubscribeToCategoryAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesUsersAPIService.SubscribeToCategoryAlt1")
@@ -821,10 +822,10 @@ func (a *CategoriesUsersAPIService) SubscribeToCategoryAlt1Execute(r ApiSubscrib
 }
 
 type ApiUnsubscribeFromCategoryRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesUsersAPI
-	category string
-	userId int32
+	category   string
+	userId     int32
 }
 
 func (r ApiUnsubscribeFromCategoryRequest) Execute() (*http.Response, error) {
@@ -836,26 +837,26 @@ UnsubscribeFromCategory Cause the user to stop following a category
 
 This method causes the authenticated user to stop following the specified category.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @param userId The ID of the user.
- @return ApiUnsubscribeFromCategoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@param userId The ID of the user.
+	@return ApiUnsubscribeFromCategoryRequest
 */
 func (a *CategoriesUsersAPIService) UnsubscribeFromCategory(ctx context.Context, category string, userId int32) ApiUnsubscribeFromCategoryRequest {
 	return ApiUnsubscribeFromCategoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
-		userId: userId,
+		ctx:        ctx,
+		category:   category,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *CategoriesUsersAPIService) UnsubscribeFromCategoryExecute(r ApiUnsubscribeFromCategoryRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesUsersAPIService.UnsubscribeFromCategory")
@@ -917,9 +918,9 @@ func (a *CategoriesUsersAPIService) UnsubscribeFromCategoryExecute(r ApiUnsubscr
 }
 
 type ApiUnsubscribeFromCategoryAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesUsersAPI
-	category string
+	category   string
 }
 
 func (r ApiUnsubscribeFromCategoryAlt1Request) Execute() (*http.Response, error) {
@@ -931,24 +932,24 @@ UnsubscribeFromCategoryAlt1 Cause the user to stop following a category
 
 This method causes the authenticated user to stop following the specified category.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @return ApiUnsubscribeFromCategoryAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@return ApiUnsubscribeFromCategoryAlt1Request
 */
 func (a *CategoriesUsersAPIService) UnsubscribeFromCategoryAlt1(ctx context.Context, category string) ApiUnsubscribeFromCategoryAlt1Request {
 	return ApiUnsubscribeFromCategoryAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
+		ctx:        ctx,
+		category:   category,
 	}
 }
 
 // Execute executes the request
 func (a *CategoriesUsersAPIService) UnsubscribeFromCategoryAlt1Execute(r ApiUnsubscribeFromCategoryAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesUsersAPIService.UnsubscribeFromCategoryAlt1")

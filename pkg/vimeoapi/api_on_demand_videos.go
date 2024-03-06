@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type OnDemandVideosAPI interface {
 
 	/*
-	AddVideoToVod Add a video to an On Demand page
+		AddVideoToVod Add a video to an On Demand page
 
-	This method adds a video to the specified On Demand page. The authenticated user must be the owner of the page.
+		This method adds a video to the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToVodRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@param videoId The ID of the video.
+		@return ApiAddVideoToVodRequest
 	*/
 	AddVideoToVod(ctx context.Context, ondemandId float32, videoId int32) ApiAddVideoToVodRequest
 
@@ -39,14 +38,14 @@ type OnDemandVideosAPI interface {
 	AddVideoToVodExecute(r ApiAddVideoToVodRequest) (*OnDemandVideo, *http.Response, error)
 
 	/*
-	DeleteVideoFromVod Remove a video from an On Demand page
+		DeleteVideoFromVod Remove a video from an On Demand page
 
-	This method removes a video from the specified On Demand page. The authenticated user must be the owner of the page.
+		This method removes a video from the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoFromVodRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoFromVodRequest
 	*/
 	DeleteVideoFromVod(ctx context.Context, ondemandId float32, videoId int32) ApiDeleteVideoFromVodRequest
 
@@ -54,14 +53,14 @@ type OnDemandVideosAPI interface {
 	DeleteVideoFromVodExecute(r ApiDeleteVideoFromVodRequest) (*http.Response, error)
 
 	/*
-	GetVodVideo Get a specific video on an On Demand page
+		GetVodVideo Get a specific video on an On Demand page
 
-	This method returns a single video on the specified On Demand page. Use this method to determine whether the video is on the page.
+		This method returns a single video on the specified On Demand page. Use this method to determine whether the video is on the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param videoId The ID of the video.
-	@return ApiGetVodVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@param videoId The ID of the video.
+		@return ApiGetVodVideoRequest
 	*/
 	GetVodVideo(ctx context.Context, ondemandId float32, videoId int32) ApiGetVodVideoRequest
 
@@ -70,13 +69,13 @@ type OnDemandVideosAPI interface {
 	GetVodVideoExecute(r ApiGetVodVideoRequest) (*Video, *http.Response, error)
 
 	/*
-	GetVodVideos Get all the videos on an On Demand page
+		GetVodVideos Get all the videos on an On Demand page
 
-	This method returns every video on the specified On Demand page.
+		This method returns every video on the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodVideosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@return ApiGetVodVideosRequest
 	*/
 	GetVodVideos(ctx context.Context, ondemandId float32) ApiGetVodVideosRequest
 
@@ -89,10 +88,10 @@ type OnDemandVideosAPI interface {
 type OnDemandVideosAPIService service
 
 type ApiAddVideoToVodRequest struct {
-	ctx context.Context
-	ApiService OnDemandVideosAPI
-	ondemandId float32
-	videoId int32
+	ctx                  context.Context
+	ApiService           OnDemandVideosAPI
+	ondemandId           float32
+	videoId              int32
 	addVideoToVodRequest *AddVideoToVodRequest
 }
 
@@ -110,28 +109,29 @@ AddVideoToVod Add a video to an On Demand page
 
 This method adds a video to the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @param videoId The ID of the video.
- @return ApiAddVideoToVodRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToVodRequest
 */
 func (a *OnDemandVideosAPIService) AddVideoToVod(ctx context.Context, ondemandId float32, videoId int32) ApiAddVideoToVodRequest {
 	return ApiAddVideoToVodRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
-		videoId: videoId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandVideo
+//
+//	@return OnDemandVideo
 func (a *OnDemandVideosAPIService) AddVideoToVodExecute(r ApiAddVideoToVodRequest) (*OnDemandVideo, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandVideo
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandVideo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandVideosAPIService.AddVideoToVod")
@@ -198,8 +198,8 @@ func (a *OnDemandVideosAPIService) AddVideoToVodExecute(r ApiAddVideoToVodReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -209,8 +209,8 @@ func (a *OnDemandVideosAPIService) AddVideoToVodExecute(r ApiAddVideoToVodReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -228,10 +228,10 @@ func (a *OnDemandVideosAPIService) AddVideoToVodExecute(r ApiAddVideoToVodReques
 }
 
 type ApiDeleteVideoFromVodRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandVideosAPI
 	ondemandId float32
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiDeleteVideoFromVodRequest) Execute() (*http.Response, error) {
@@ -243,26 +243,26 @@ DeleteVideoFromVod Remove a video from an On Demand page
 
 This method removes a video from the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @param videoId The ID of the video.
- @return ApiDeleteVideoFromVodRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoFromVodRequest
 */
 func (a *OnDemandVideosAPIService) DeleteVideoFromVod(ctx context.Context, ondemandId float32, videoId int32) ApiDeleteVideoFromVodRequest {
 	return ApiDeleteVideoFromVodRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
-		videoId: videoId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *OnDemandVideosAPIService) DeleteVideoFromVodExecute(r ApiDeleteVideoFromVodRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandVideosAPIService.DeleteVideoFromVod")
@@ -324,8 +324,8 @@ func (a *OnDemandVideosAPIService) DeleteVideoFromVodExecute(r ApiDeleteVideoFro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -334,10 +334,10 @@ func (a *OnDemandVideosAPIService) DeleteVideoFromVodExecute(r ApiDeleteVideoFro
 }
 
 type ApiGetVodVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandVideosAPI
 	ondemandId float32
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiGetVodVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -349,28 +349,29 @@ GetVodVideo Get a specific video on an On Demand page
 
 This method returns a single video on the specified On Demand page. Use this method to determine whether the video is on the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @param videoId The ID of the video.
- @return ApiGetVodVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param videoId The ID of the video.
+	@return ApiGetVodVideoRequest
 */
 func (a *OnDemandVideosAPIService) GetVodVideo(ctx context.Context, ondemandId float32, videoId int32) ApiGetVodVideoRequest {
 	return ApiGetVodVideoRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
-		videoId: videoId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *OnDemandVideosAPIService) GetVodVideoExecute(r ApiGetVodVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandVideosAPIService.GetVodVideo")
@@ -441,23 +442,23 @@ func (a *OnDemandVideosAPIService) GetVodVideoExecute(r ApiGetVodVideoRequest) (
 }
 
 type ApiGetVodVideosRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandVideosAPI
 	ondemandId float32
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	sort *string
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVodVideosRequest) Direction(direction string) ApiGetVodVideosRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;all&#x60; - Filter for all videos.  * &#x60;buy&#x60; - Filter for purchased videos.  * &#x60;expiring_soon&#x60; - Filter for videos that expire soon.  * &#x60;extra&#x60; - Filter for extra footage videos.  * &#x60;main&#x60; - Filter for main videos.  * &#x60;main.viewable&#x60; - Filter for videos that are both the main video and are viewable.  * &#x60;rent&#x60; - Filter for rented videos.  * &#x60;trailer&#x60; - Filter for trailer videos.  * &#x60;unwatched&#x60; - Filter for unwatched videos.  * &#x60;viewable&#x60; - Filter for videos that are viewable.  * &#x60;watched&#x60; - Filter for watched videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;all&#x60; - Filter for all videos.  * &#x60;buy&#x60; - Filter for purchased videos.  * &#x60;expiring_soon&#x60; - Filter for videos that expire soon.  * &#x60;extra&#x60; - Filter for extra footage videos.  * &#x60;main&#x60; - Filter for main videos.  * &#x60;main.viewable&#x60; - Filter for videos that are both the main video and are viewable.  * &#x60;rent&#x60; - Filter for rented videos.  * &#x60;trailer&#x60; - Filter for trailer videos.  * &#x60;unwatched&#x60; - Filter for unwatched videos.  * &#x60;viewable&#x60; - Filter for videos that are viewable.  * &#x60;watched&#x60; - Filter for watched videos.
 func (r ApiGetVodVideosRequest) Filter(filter string) ApiGetVodVideosRequest {
 	r.filter = &filter
 	return r
@@ -475,7 +476,7 @@ func (r ApiGetVodVideosRequest) PerPage(perPage float32) ApiGetVodVideosRequest 
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;episode&#x60; - Sort the results by episode.  * &#x60;manual&#x60; - Sort the results manually.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;purchase_time&#x60; - Sort the results by time of purchase.  * &#x60;release_date&#x60; - Sort the results by release date. 
+// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;episode&#x60; - Sort the results by episode.  * &#x60;manual&#x60; - Sort the results manually.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;purchase_time&#x60; - Sort the results by time of purchase.  * &#x60;release_date&#x60; - Sort the results by release date.
 func (r ApiGetVodVideosRequest) Sort(sort string) ApiGetVodVideosRequest {
 	r.sort = &sort
 	return r
@@ -490,26 +491,27 @@ GetVodVideos Get all the videos on an On Demand page
 
 This method returns every video on the specified On Demand page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @return ApiGetVodVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodVideosRequest
 */
 func (a *OnDemandVideosAPIService) GetVodVideos(ctx context.Context, ondemandId float32) ApiGetVodVideosRequest {
 	return ApiGetVodVideosRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return []OnDemandVideo
+//
+//	@return []OnDemandVideo
 func (a *OnDemandVideosAPIService) GetVodVideosExecute(r ApiGetVodVideosRequest) ([]OnDemandVideo, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []OnDemandVideo
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []OnDemandVideo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandVideosAPIService.GetVodVideos")

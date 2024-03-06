@@ -20,10 +20,10 @@ var _ MappedNullable = &AlbumMetadataInteractions{}
 // AlbumMetadataInteractions A list of resource URIs related to the showcase.
 type AlbumMetadataInteractions struct {
 	AddCustomThumbnails AlbumMetadataInteractionsAddCustomThumbnails `json:"add_custom_thumbnails"`
-	AddLiveEvents AlbumMetadataInteractionsAddLiveEvents `json:"add_live_events"`
-	AddLogos AlbumMetadataInteractionsAddLogos `json:"add_logos"`
-	AddTo NullableAlbumMetadataInteractionsAddTo `json:"add_to"`
-	AddVideos AlbumMetadataInteractionsAddVideos `json:"add_videos"`
+	AddLiveEvents       AlbumMetadataInteractionsAddLiveEvents       `json:"add_live_events"`
+	AddLogos            AlbumMetadataInteractionsAddLogos            `json:"add_logos"`
+	AddTo               NullableAlbumMetadataInteractionsAddTo       `json:"add_to"`
+	AddVideos           AlbumMetadataInteractionsAddVideos           `json:"add_videos"`
 }
 
 // NewAlbumMetadataInteractions instantiates a new AlbumMetadataInteractions object
@@ -171,7 +171,7 @@ func (o *AlbumMetadataInteractions) SetAddVideos(v AlbumMetadataInteractionsAddV
 }
 
 func (o AlbumMetadataInteractions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -223,5 +223,3 @@ func (v *NullableAlbumMetadataInteractions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

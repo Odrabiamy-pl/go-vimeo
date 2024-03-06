@@ -20,10 +20,10 @@ var _ MappedNullable = &UserMetadataInteractions{}
 // UserMetadataInteractions struct for UserMetadataInteractions
 type UserMetadataInteractions struct {
 	AddPrivacyUser *UserMetadataInteractionsAddPrivacyUser `json:"add_privacy_user,omitempty"`
-	Block UserMetadataInteractionsBlock `json:"block"`
-	ConnectedApps UserMetadataInteractionsConnectedApps `json:"connected_apps"`
-	Follow UserMetadataInteractionsFollow `json:"follow"`
-	Report UserMetadataInteractionsReport `json:"report"`
+	Block          UserMetadataInteractionsBlock           `json:"block"`
+	ConnectedApps  UserMetadataInteractionsConnectedApps   `json:"connected_apps"`
+	Follow         UserMetadataInteractionsFollow          `json:"follow"`
+	Report         UserMetadataInteractionsReport          `json:"report"`
 }
 
 // NewUserMetadataInteractions instantiates a new UserMetadataInteractions object
@@ -176,7 +176,7 @@ func (o *UserMetadataInteractions) SetReport(v UserMetadataInteractionsReport) {
 }
 
 func (o UserMetadataInteractions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,5 +230,3 @@ func (v *NullableUserMetadataInteractions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,7 +19,7 @@ var _ MappedNullable = &CreateVideoVersionRequestUpload{}
 
 // CreateVideoVersionRequestUpload struct for CreateVideoVersionRequestUpload
 type CreateVideoVersionRequestUpload struct {
-	// The approach by which to upload the version.  Option descriptions:  * `post` - Use the `post` method.  * `pull` - Use the `pull` method.  * `tus` - Use the `tus` method. 
+	// The approach by which to upload the version.  Option descriptions:  * `post` - Use the `post` method.  * `pull` - Use the `pull` method.  * `tus` - Use the `tus` method.
 	Approach string `json:"approach"`
 	// The public URL from which to download the version when **upload.approach** is `pull`. This URL must be valid for at least 24 hours.
 	Link *string `json:"link,omitempty"`
@@ -168,7 +168,7 @@ func (o *CreateVideoVersionRequestUpload) SetSize(v string) {
 }
 
 func (o CreateVideoVersionRequestUpload) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -225,5 +225,3 @@ func (v *NullableCreateVideoVersionRequestUpload) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

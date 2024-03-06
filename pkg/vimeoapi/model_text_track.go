@@ -37,7 +37,7 @@ type TextTrack struct {
 	LinkExpiresTime string `json:"link_expires_time"`
 	// The descriptive name of the text track.
 	Name NullableString `json:"name"`
-	// The type of text track.  Option descriptions:  * `captions` - The text track is for captions.  * `subtitles` - The text track is for subtitles. 
+	// The type of text track.  Option descriptions:  * `captions` - The text track is for captions.  * `subtitles` - The text track is for subtitles.
 	Type NullableString `json:"type"`
 	// The relative URI of the text track.
 	Uri string `json:"uri"`
@@ -342,7 +342,7 @@ func (o *TextTrack) SetUri(v string) {
 }
 
 func (o TextTrack) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -400,5 +400,3 @@ func (v *NullableTextTrack) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

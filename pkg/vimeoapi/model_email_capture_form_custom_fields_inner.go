@@ -21,10 +21,10 @@ var _ MappedNullable = &EmailCaptureFormCustomFieldsInner{}
 type EmailCaptureFormCustomFieldsInner struct {
 	// The email provider fields associated with the field in the form.
 	ConnectedFields []EmailCaptureFormCustomFieldsInnerConnectedFieldsInner `json:"connected_fields"`
-	FieldMetadata EmailCaptureFormCustomFieldsInnerFieldMetadata `json:"field_metadata"`
+	FieldMetadata   EmailCaptureFormCustomFieldsInnerFieldMetadata          `json:"field_metadata"`
 	// The name of a field in the form.
 	FieldName string `json:"field_name"`
-	// The type of custom field.  Option descriptions:  * `dropdown` - The custom field used for dropdown item selection.  * `text` - The custom field used for text input. 
+	// The type of custom field.  Option descriptions:  * `dropdown` - The custom field used for dropdown item selection.  * `text` - The custom field used for text input.
 	FieldType string `json:"field_type"`
 	// Whether the field's **required** property is editable but **field_name** isn't. If the value is `true`, the field can't be deleted.
 	Locked bool `json:"locked"`
@@ -227,7 +227,7 @@ func (o *EmailCaptureFormCustomFieldsInner) SetStaticField(v bool) {
 }
 
 func (o EmailCaptureFormCustomFieldsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -281,5 +281,3 @@ func (v *NullableEmailCaptureFormCustomFieldsInner) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

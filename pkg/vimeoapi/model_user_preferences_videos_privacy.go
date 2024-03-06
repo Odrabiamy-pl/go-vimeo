@@ -21,15 +21,15 @@ var _ MappedNullable = &UserPreferencesVideosPrivacy{}
 type UserPreferencesVideosPrivacy struct {
 	// Whether other users can add the authenticated user's videos.
 	Add *bool `json:"add,omitempty"`
-	// The authenticated user's privacy preference for comments.  Option descriptions:  * `anybody` - Anyone can comment on the user's videos.  * `contacts` - Only contacts can comment on the user's videos.  * `nobody` - No one can comment on the user's videos. 
+	// The authenticated user's privacy preference for comments.  Option descriptions:  * `anybody` - Anyone can comment on the user's videos.  * `contacts` - Only contacts can comment on the user's videos.  * `nobody` - No one can comment on the user's videos.
 	Comments *string `json:"comments,omitempty"`
 	// Whether other users can download the authenticated user's videos.
 	Download *bool `json:"download,omitempty"`
-	// The authenticated user's privacy preference for embeds.  Option descriptions:  * `private` - Only the user can embed their own videos.  * `public` - Anyone can embed the user's videos.  * `whitelist` - Only those on the whitelist can embed the user's videos. 
+	// The authenticated user's privacy preference for embeds.  Option descriptions:  * `private` - Only the user can embed their own videos.  * `public` - Anyone can embed the user's videos.  * `whitelist` - Only those on the whitelist can embed the user's videos.
 	Embed *string `json:"embed,omitempty"`
 	// The default password for the video.
 	Password *string `json:"password,omitempty"`
-	// The authenticated user's privacy preference for views.  Option descriptions:  * `anybody` - Anyone can view the user's videos. This privacy setting appears as `Public` on the Vimeo front end.  * `contacts` - Only contacts can view the user's videos. _This field is deprecated._  * `disable` - Views are disabled for the user's videos. This privacy setting appears as `Hide from Vimeo` on the Vimeo front end.  * `nobody` - No one except the user can view the user's videos. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Only those with the password can view the user's videos.  * `unlisted` - Anybody can view the user's videos if they have a link.  * `users` - Only other Vimeo members can view the user's videos. _This field is deprecated._ 
+	// The authenticated user's privacy preference for views.  Option descriptions:  * `anybody` - Anyone can view the user's videos. This privacy setting appears as `Public` on the Vimeo front end.  * `contacts` - Only contacts can view the user's videos. _This field is deprecated._  * `disable` - Views are disabled for the user's videos. This privacy setting appears as `Hide from Vimeo` on the Vimeo front end.  * `nobody` - No one except the user can view the user's videos. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Only those with the password can view the user's videos.  * `unlisted` - Anybody can view the user's videos if they have a link.  * `users` - Only other Vimeo members can view the user's videos. _This field is deprecated._
 	View *string `json:"view,omitempty"`
 }
 
@@ -243,7 +243,7 @@ func (o *UserPreferencesVideosPrivacy) SetView(v string) {
 }
 
 func (o UserPreferencesVideosPrivacy) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +308,3 @@ func (v *NullableUserPreferencesVideosPrivacy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

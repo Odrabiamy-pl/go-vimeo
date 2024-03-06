@@ -24,8 +24,8 @@ type EditVideoRequest struct {
 	// The custom link of the video. This link doesn't include the base URL and the username or user ID of the video's owner.
 	CustomUrl *string `json:"custom_url,omitempty"`
 	// The description of the video. This field can hold a maximum of 5000 characters.
-	Description *string `json:"description,omitempty"`
-	Embed *EditVideoRequestEmbed `json:"embed,omitempty"`
+	Description *string                `json:"description,omitempty"`
+	Embed       *EditVideoRequestEmbed `json:"embed,omitempty"`
 	// The complete list of domains the video can be embedded on. This field overwrites existing domains and requires that **privacy_embed** have the value `whitelist`.
 	EmbedDomains []string `json:"embed_domains,omitempty"`
 	// A list of domains intended to be added to an existing set of domains. This field requires that **privacy_embed** have the value `whitelist`.
@@ -34,17 +34,17 @@ type EditVideoRequest struct {
 	EmbedDomainsDelete []string `json:"embed_domains_delete,omitempty"`
 	// Whether to hide the video from everyone except the video's owner. When the value is `true`, unlisted video links work only for the video's owner.
 	HideFromVimeo *bool `json:"hide_from_vimeo,omitempty"`
-	// The Creative Commons license under which the video is offered.  Option descriptions:  * `by` - The video is offered under CC BY, or the attibution-only license.  * `by-nc` - The video is offered under CC BY-NC, or the Attribution-NonCommercial license.  * `by-nc-nd` - The video is offered under CC BY-NC-ND, or the Attribution-NonCommercian-NoDerivs license.  * `by-nc-sa` - The video is offered under CC BY-NC-SA, or the Attribution-NonCommercial-ShareAlike licence.  * `by-nd` - The video is offered under CC BY-ND, or the Attribution-NoDerivs license.  * `by-sa` - The video is offered under CC BY-SA, or the Attribution-ShareAlike license.  * `cc0` - The video is offered under CC0, or public domain, videos. 
+	// The Creative Commons license under which the video is offered.  Option descriptions:  * `by` - The video is offered under CC BY, or the attibution-only license.  * `by-nc` - The video is offered under CC BY-NC, or the Attribution-NonCommercial license.  * `by-nc-nd` - The video is offered under CC BY-NC-ND, or the Attribution-NonCommercian-NoDerivs license.  * `by-nc-sa` - The video is offered under CC BY-NC-SA, or the Attribution-NonCommercial-ShareAlike licence.  * `by-nd` - The video is offered under CC BY-ND, or the Attribution-NoDerivs license.  * `by-sa` - The video is offered under CC BY-SA, or the Attribution-ShareAlike license.  * `cc0` - The video is offered under CC0, or public domain, videos.
 	License *string `json:"license,omitempty"`
 	// The video's default language. For a full list of supported languages, use the [`/languages?filter=texttracks`](https://developer.vimeo.com/api/reference/videos#get_languages) endpoint.
 	Locale *string `json:"locale,omitempty"`
 	// The title of the video. This field can hold a maximum of 128 characters.
 	Name *string `json:"name,omitempty"`
 	// The password. When you set **privacy.view** to `password`, you must provide the password as an additional parameter. This field can hold a maximum of 32 characters.
-	Password *string `json:"password,omitempty"`
-	Privacy *EditVideoRequestPrivacy `json:"privacy,omitempty"`
+	Password   *string                           `json:"password,omitempty"`
+	Privacy    *EditVideoRequestPrivacy          `json:"privacy,omitempty"`
 	ReviewPage *UploadVideoAlt1RequestReviewPage `json:"review_page,omitempty"`
-	Spatial *EditVideoRequestSpatial `json:"spatial,omitempty"`
+	Spatial    *EditVideoRequestSpatial          `json:"spatial,omitempty"`
 }
 
 // NewEditVideoRequest instantiates a new EditVideoRequest object
@@ -545,7 +545,7 @@ func (o *EditVideoRequest) SetSpatial(v EditVideoRequestSpatial) {
 }
 
 func (o EditVideoRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -637,5 +637,3 @@ func (v *NullableEditVideoRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

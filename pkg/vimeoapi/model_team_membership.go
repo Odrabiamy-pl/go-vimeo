@@ -22,7 +22,7 @@ type TeamMembership struct {
 	// Information about an access grant that applies to the team member on the folder. _This field is deprecated because grants are no longer exposed via API responses._
 	AccessGrant map[string]interface{} `json:"access_grant"`
 	// Whether the team membership is currently active.
-	Active bool `json:"active"`
+	Active                       bool                                       `json:"active"`
 	ApplicablePermissionPolicies TeamMembershipApplicablePermissionPolicies `json:"applicable_permission_policies"`
 	// The time in ISO 8601 format when the invite was sent.
 	CreatedTime string `json:"created_time"`
@@ -33,11 +33,11 @@ type TeamMembership struct {
 	// The URL for the invited user to join the team. The value of this field is null if the invited user has already joined.
 	InviteUrl NullableString `json:"invite_url"`
 	// The time in ISO 8601 format when the invite was accepted.
-	JoinedTime string `json:"joined_time"`
-	Metadata TeamMembershipMetadata `json:"metadata"`
+	JoinedTime string                 `json:"joined_time"`
+	Metadata   TeamMembershipMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the team membership was last modified.
 	ModifiedTime string `json:"modified_time"`
-	// The team member's permission level.  Option descriptions:  * `Admin` - The team member has admin permissions. They can upload and edit videos for the entire team and perform team administration tasks.  * `Contributor` - The team member has contributor permissions. They can upload and edit videos for the entire team but can't perform team administration tasks.  * `Contributor Plus` - The team member has contributor plus permissions. They can upload and edit videos for the entire team, and have additional sets of permissions, but can't perform team administration tasks.  * `Owner` - The team member has owner permissions.  * `Uploader` - The team member has uploader permissions. They can upload videos for the entire team but can't edit videos.  * `Viewer` - The team member has viewer permissions. They can access team videos and specific team folders but can't upload or edit videos. 
+	// The team member's permission level.  Option descriptions:  * `Admin` - The team member has admin permissions. They can upload and edit videos for the entire team and perform team administration tasks.  * `Contributor` - The team member has contributor permissions. They can upload and edit videos for the entire team but can't perform team administration tasks.  * `Contributor Plus` - The team member has contributor plus permissions. They can upload and edit videos for the entire team, and have additional sets of permissions, but can't perform team administration tasks.  * `Owner` - The team member has owner permissions.  * `Uploader` - The team member has uploader permissions. They can upload videos for the entire team but can't edit videos.  * `Viewer` - The team member has viewer permissions. They can access team videos and specific team folders but can't upload or edit videos.
 	PermissionLevel string `json:"permission_level"`
 	// Whether the team member has been reminded about the invite.
 	RecentlyReminded *bool `json:"recently_reminded,omitempty"`
@@ -45,10 +45,10 @@ type TeamMembership struct {
 	ResourceKey string `json:"resource_key"`
 	// The team member's role, translated.
 	Role string `json:"role"`
-	// The status of the team membership invite.  Option descriptions:  * `accepted` - Team membership has been accepted.  * `pending` - Team membership has been offered but not yet accepted. 
+	// The status of the team membership invite.  Option descriptions:  * `accepted` - Team membership has been accepted.  * `pending` - Team membership has been offered but not yet accepted.
 	Status string `json:"status"`
 	// The unique identifier to access the team membership resource.
-	Uri string `json:"uri"`
+	Uri  string                     `json:"uri"`
 	User NullableTeamMembershipUser `json:"user"`
 }
 
@@ -515,7 +515,7 @@ func (o *TeamMembership) SetUser(v TeamMembershipUser) {
 }
 
 func (o TeamMembership) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -585,5 +585,3 @@ func (v *NullableTeamMembership) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

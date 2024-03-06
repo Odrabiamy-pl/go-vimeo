@@ -19,19 +19,18 @@ import (
 	"strings"
 )
 
-
 type PortfoliosVideosAPI interface {
 
 	/*
-	AddVideoToPortfolio Add a video to a portfolio
+		AddVideoToPortfolio Add a video to a portfolio
 
-	This method adds a video to the specified portfolio belonging to the authenticated user.
+		This method adds a video to the specified portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToPortfolioRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiAddVideoToPortfolioRequest
 	*/
 	AddVideoToPortfolio(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiAddVideoToPortfolioRequest
 
@@ -39,14 +38,14 @@ type PortfoliosVideosAPI interface {
 	AddVideoToPortfolioExecute(r ApiAddVideoToPortfolioRequest) (*http.Response, error)
 
 	/*
-	AddVideoToPortfolioAlt1 Add a video to a portfolio
+		AddVideoToPortfolioAlt1 Add a video to a portfolio
 
-	This method adds a video to the specified portfolio belonging to the authenticated user.
+		This method adds a video to the specified portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToPortfolioAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@param videoId The ID of the video.
+		@return ApiAddVideoToPortfolioAlt1Request
 	*/
 	AddVideoToPortfolioAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiAddVideoToPortfolioAlt1Request
 
@@ -54,15 +53,15 @@ type PortfoliosVideosAPI interface {
 	AddVideoToPortfolioAlt1Execute(r ApiAddVideoToPortfolioAlt1Request) (*http.Response, error)
 
 	/*
-	DeleteVideoFromPortfolio Remove a video from a portfolio
+		DeleteVideoFromPortfolio Remove a video from a portfolio
 
-	This method removes a video from the specified portfolio belonging to the authenticated user.
+		This method removes a video from the specified portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoFromPortfolioRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoFromPortfolioRequest
 	*/
 	DeleteVideoFromPortfolio(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiDeleteVideoFromPortfolioRequest
 
@@ -70,14 +69,14 @@ type PortfoliosVideosAPI interface {
 	DeleteVideoFromPortfolioExecute(r ApiDeleteVideoFromPortfolioRequest) (*http.Response, error)
 
 	/*
-	DeleteVideoFromPortfolioAlt1 Remove a video from a portfolio
+		DeleteVideoFromPortfolioAlt1 Remove a video from a portfolio
 
-	This method removes a video from the specified portfolio belonging to the authenticated user.
+		This method removes a video from the specified portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoFromPortfolioAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoFromPortfolioAlt1Request
 	*/
 	DeleteVideoFromPortfolioAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiDeleteVideoFromPortfolioAlt1Request
 
@@ -85,15 +84,15 @@ type PortfoliosVideosAPI interface {
 	DeleteVideoFromPortfolioAlt1Execute(r ApiDeleteVideoFromPortfolioAlt1Request) (*http.Response, error)
 
 	/*
-	GetPortfolioVideo Get a specific video in a portfolio
+		GetPortfolioVideo Get a specific video in a portfolio
 
-	This method returns a single video from the specified portfolio belonging to the authenticated user.
+		This method returns a single video from the specified portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiGetPortfolioVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiGetPortfolioVideoRequest
 	*/
 	GetPortfolioVideo(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiGetPortfolioVideoRequest
 
@@ -102,14 +101,14 @@ type PortfoliosVideosAPI interface {
 	GetPortfolioVideoExecute(r ApiGetPortfolioVideoRequest) (*Video, *http.Response, error)
 
 	/*
-	GetPortfolioVideoAlt1 Get a specific video in a portfolio
+		GetPortfolioVideoAlt1 Get a specific video in a portfolio
 
-	This method returns a single video from the specified portfolio belonging to the authenticated user.
+		This method returns a single video from the specified portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@param videoId The ID of the video.
-	@return ApiGetPortfolioVideoAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@param videoId The ID of the video.
+		@return ApiGetPortfolioVideoAlt1Request
 	*/
 	GetPortfolioVideoAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiGetPortfolioVideoAlt1Request
 
@@ -118,14 +117,14 @@ type PortfoliosVideosAPI interface {
 	GetPortfolioVideoAlt1Execute(r ApiGetPortfolioVideoAlt1Request) (*Video, *http.Response, error)
 
 	/*
-	GetPortfolioVideos Get all the videos in a portfolio
+		GetPortfolioVideos Get all the videos in a portfolio
 
-	This method returns every video from the specified portfolio belonging to the authenticated user.
+		This method returns every video from the specified portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@param userId The ID of the user.
-	@return ApiGetPortfolioVideosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@param userId The ID of the user.
+		@return ApiGetPortfolioVideosRequest
 	*/
 	GetPortfolioVideos(ctx context.Context, portfolioId float32, userId int32) ApiGetPortfolioVideosRequest
 
@@ -134,13 +133,13 @@ type PortfoliosVideosAPI interface {
 	GetPortfolioVideosExecute(r ApiGetPortfolioVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-	GetPortfolioVideosAlt1 Get all the videos in a portfolio
+		GetPortfolioVideosAlt1 Get all the videos in a portfolio
 
-	This method returns every video from the specified portfolio belonging to the authenticated user.
+		This method returns every video from the specified portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@return ApiGetPortfolioVideosAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@return ApiGetPortfolioVideosAlt1Request
 	*/
 	GetPortfolioVideosAlt1(ctx context.Context, portfolioId float32) ApiGetPortfolioVideosAlt1Request
 
@@ -153,11 +152,11 @@ type PortfoliosVideosAPI interface {
 type PortfoliosVideosAPIService service
 
 type ApiAddVideoToPortfolioRequest struct {
-	ctx context.Context
-	ApiService PortfoliosVideosAPI
+	ctx         context.Context
+	ApiService  PortfoliosVideosAPI
 	portfolioId float32
-	userId int32
-	videoId int32
+	userId      int32
+	videoId     int32
 }
 
 func (r ApiAddVideoToPortfolioRequest) Execute() (*http.Response, error) {
@@ -169,28 +168,28 @@ AddVideoToPortfolio Add a video to a portfolio
 
 This method adds a video to the specified portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiAddVideoToPortfolioRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToPortfolioRequest
 */
 func (a *PortfoliosVideosAPIService) AddVideoToPortfolio(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiAddVideoToPortfolioRequest {
 	return ApiAddVideoToPortfolioRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
-		userId: userId,
-		videoId: videoId,
+		userId:      userId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
 func (a *PortfoliosVideosAPIService) AddVideoToPortfolioExecute(r ApiAddVideoToPortfolioRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosVideosAPIService.AddVideoToPortfolio")
@@ -253,8 +252,8 @@ func (a *PortfoliosVideosAPIService) AddVideoToPortfolioExecute(r ApiAddVideoToP
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -263,10 +262,10 @@ func (a *PortfoliosVideosAPIService) AddVideoToPortfolioExecute(r ApiAddVideoToP
 }
 
 type ApiAddVideoToPortfolioAlt1Request struct {
-	ctx context.Context
-	ApiService PortfoliosVideosAPI
+	ctx         context.Context
+	ApiService  PortfoliosVideosAPI
 	portfolioId float32
-	videoId int32
+	videoId     int32
 }
 
 func (r ApiAddVideoToPortfolioAlt1Request) Execute() (*http.Response, error) {
@@ -278,26 +277,26 @@ AddVideoToPortfolioAlt1 Add a video to a portfolio
 
 This method adds a video to the specified portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @param videoId The ID of the video.
- @return ApiAddVideoToPortfolioAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToPortfolioAlt1Request
 */
 func (a *PortfoliosVideosAPIService) AddVideoToPortfolioAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiAddVideoToPortfolioAlt1Request {
 	return ApiAddVideoToPortfolioAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
-		videoId: videoId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
 func (a *PortfoliosVideosAPIService) AddVideoToPortfolioAlt1Execute(r ApiAddVideoToPortfolioAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosVideosAPIService.AddVideoToPortfolioAlt1")
@@ -359,8 +358,8 @@ func (a *PortfoliosVideosAPIService) AddVideoToPortfolioAlt1Execute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -369,11 +368,11 @@ func (a *PortfoliosVideosAPIService) AddVideoToPortfolioAlt1Execute(r ApiAddVide
 }
 
 type ApiDeleteVideoFromPortfolioRequest struct {
-	ctx context.Context
-	ApiService PortfoliosVideosAPI
+	ctx         context.Context
+	ApiService  PortfoliosVideosAPI
 	portfolioId float32
-	userId int32
-	videoId int32
+	userId      int32
+	videoId     int32
 }
 
 func (r ApiDeleteVideoFromPortfolioRequest) Execute() (*http.Response, error) {
@@ -385,28 +384,28 @@ DeleteVideoFromPortfolio Remove a video from a portfolio
 
 This method removes a video from the specified portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiDeleteVideoFromPortfolioRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoFromPortfolioRequest
 */
 func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolio(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiDeleteVideoFromPortfolioRequest {
 	return ApiDeleteVideoFromPortfolioRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
-		userId: userId,
-		videoId: videoId,
+		userId:      userId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
 func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioExecute(r ApiDeleteVideoFromPortfolioRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosVideosAPIService.DeleteVideoFromPortfolio")
@@ -469,8 +468,8 @@ func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioExecute(r ApiDelete
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -479,10 +478,10 @@ func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioExecute(r ApiDelete
 }
 
 type ApiDeleteVideoFromPortfolioAlt1Request struct {
-	ctx context.Context
-	ApiService PortfoliosVideosAPI
+	ctx         context.Context
+	ApiService  PortfoliosVideosAPI
 	portfolioId float32
-	videoId int32
+	videoId     int32
 }
 
 func (r ApiDeleteVideoFromPortfolioAlt1Request) Execute() (*http.Response, error) {
@@ -494,26 +493,26 @@ DeleteVideoFromPortfolioAlt1 Remove a video from a portfolio
 
 This method removes a video from the specified portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @param videoId The ID of the video.
- @return ApiDeleteVideoFromPortfolioAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoFromPortfolioAlt1Request
 */
 func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiDeleteVideoFromPortfolioAlt1Request {
 	return ApiDeleteVideoFromPortfolioAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
-		videoId: videoId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
 func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioAlt1Execute(r ApiDeleteVideoFromPortfolioAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosVideosAPIService.DeleteVideoFromPortfolioAlt1")
@@ -575,8 +574,8 @@ func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioAlt1Execute(r ApiDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -585,11 +584,11 @@ func (a *PortfoliosVideosAPIService) DeleteVideoFromPortfolioAlt1Execute(r ApiDe
 }
 
 type ApiGetPortfolioVideoRequest struct {
-	ctx context.Context
-	ApiService PortfoliosVideosAPI
+	ctx         context.Context
+	ApiService  PortfoliosVideosAPI
 	portfolioId float32
-	userId int32
-	videoId int32
+	userId      int32
+	videoId     int32
 }
 
 func (r ApiGetPortfolioVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -601,30 +600,31 @@ GetPortfolioVideo Get a specific video in a portfolio
 
 This method returns a single video from the specified portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiGetPortfolioVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiGetPortfolioVideoRequest
 */
 func (a *PortfoliosVideosAPIService) GetPortfolioVideo(ctx context.Context, portfolioId float32, userId int32, videoId int32) ApiGetPortfolioVideoRequest {
 	return ApiGetPortfolioVideoRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
-		userId: userId,
-		videoId: videoId,
+		userId:      userId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *PortfoliosVideosAPIService) GetPortfolioVideoExecute(r ApiGetPortfolioVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosVideosAPIService.GetPortfolioVideo")
@@ -696,10 +696,10 @@ func (a *PortfoliosVideosAPIService) GetPortfolioVideoExecute(r ApiGetPortfolioV
 }
 
 type ApiGetPortfolioVideoAlt1Request struct {
-	ctx context.Context
-	ApiService PortfoliosVideosAPI
+	ctx         context.Context
+	ApiService  PortfoliosVideosAPI
 	portfolioId float32
-	videoId int32
+	videoId     int32
 }
 
 func (r ApiGetPortfolioVideoAlt1Request) Execute() (*Video, *http.Response, error) {
@@ -711,28 +711,29 @@ GetPortfolioVideoAlt1 Get a specific video in a portfolio
 
 This method returns a single video from the specified portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @param videoId The ID of the video.
- @return ApiGetPortfolioVideoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@param videoId The ID of the video.
+	@return ApiGetPortfolioVideoAlt1Request
 */
 func (a *PortfoliosVideosAPIService) GetPortfolioVideoAlt1(ctx context.Context, portfolioId float32, videoId int32) ApiGetPortfolioVideoAlt1Request {
 	return ApiGetPortfolioVideoAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
-		videoId: videoId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *PortfoliosVideosAPIService) GetPortfolioVideoAlt1Execute(r ApiGetPortfolioVideoAlt1Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosVideosAPIService.GetPortfolioVideoAlt1")
@@ -803,16 +804,16 @@ func (a *PortfoliosVideosAPIService) GetPortfolioVideoAlt1Execute(r ApiGetPortfo
 }
 
 type ApiGetPortfolioVideosRequest struct {
-	ctx context.Context
-	ApiService PortfoliosVideosAPI
-	portfolioId float32
-	userId int32
-	containingUri *string
-	filter *string
+	ctx              context.Context
+	ApiService       PortfoliosVideosAPI
+	portfolioId      float32
+	userId           int32
+	containingUri    *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	sort *string
+	page             *float32
+	perPage          *float32
+	sort             *string
 }
 
 // The page that contains the video URI.
@@ -821,7 +822,7 @@ func (r ApiGetPortfolioVideosRequest) ContainingUri(containingUri string) ApiGet
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetPortfolioVideosRequest) Filter(filter string) ApiGetPortfolioVideosRequest {
 	r.filter = &filter
 	return r
@@ -845,7 +846,7 @@ func (r ApiGetPortfolioVideosRequest) PerPage(perPage float32) ApiGetPortfolioVi
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results by their user-specified order.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results by their user-specified order.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetPortfolioVideosRequest) Sort(sort string) ApiGetPortfolioVideosRequest {
 	r.sort = &sort
 	return r
@@ -860,28 +861,29 @@ GetPortfolioVideos Get all the videos in a portfolio
 
 This method returns every video from the specified portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @param userId The ID of the user.
- @return ApiGetPortfolioVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@param userId The ID of the user.
+	@return ApiGetPortfolioVideosRequest
 */
 func (a *PortfoliosVideosAPIService) GetPortfolioVideos(ctx context.Context, portfolioId float32, userId int32) ApiGetPortfolioVideosRequest {
 	return ApiGetPortfolioVideosRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
-		userId: userId,
+		userId:      userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *PortfoliosVideosAPIService) GetPortfolioVideosExecute(r ApiGetPortfolioVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosVideosAPIService.GetPortfolioVideos")
@@ -970,15 +972,15 @@ func (a *PortfoliosVideosAPIService) GetPortfolioVideosExecute(r ApiGetPortfolio
 }
 
 type ApiGetPortfolioVideosAlt1Request struct {
-	ctx context.Context
-	ApiService PortfoliosVideosAPI
-	portfolioId float32
-	containingUri *string
-	filter *string
+	ctx              context.Context
+	ApiService       PortfoliosVideosAPI
+	portfolioId      float32
+	containingUri    *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	sort *string
+	page             *float32
+	perPage          *float32
+	sort             *string
 }
 
 // The page that contains the video URI.
@@ -987,7 +989,7 @@ func (r ApiGetPortfolioVideosAlt1Request) ContainingUri(containingUri string) Ap
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetPortfolioVideosAlt1Request) Filter(filter string) ApiGetPortfolioVideosAlt1Request {
 	r.filter = &filter
 	return r
@@ -1011,7 +1013,7 @@ func (r ApiGetPortfolioVideosAlt1Request) PerPage(perPage float32) ApiGetPortfol
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results by their user-specified order.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results by their user-specified order.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetPortfolioVideosAlt1Request) Sort(sort string) ApiGetPortfolioVideosAlt1Request {
 	r.sort = &sort
 	return r
@@ -1026,26 +1028,27 @@ GetPortfolioVideosAlt1 Get all the videos in a portfolio
 
 This method returns every video from the specified portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @return ApiGetPortfolioVideosAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@return ApiGetPortfolioVideosAlt1Request
 */
 func (a *PortfoliosVideosAPIService) GetPortfolioVideosAlt1(ctx context.Context, portfolioId float32) ApiGetPortfolioVideosAlt1Request {
 	return ApiGetPortfolioVideosAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *PortfoliosVideosAPIService) GetPortfolioVideosAlt1Execute(r ApiGetPortfolioVideosAlt1Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosVideosAPIService.GetPortfolioVideosAlt1")

@@ -120,7 +120,7 @@ func (o *VideoMetadataInteractionsEditPrivacyPropertiesInner) SetRequired(v bool
 }
 
 func (o VideoMetadataInteractionsEditPrivacyPropertiesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableVideoMetadataInteractionsEditPrivacyPropertiesInner) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

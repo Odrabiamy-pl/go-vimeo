@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type VideosTagsAPI interface {
 
 	/*
-	AddVideoTag Add a specific tag to a video
+		AddVideoTag Add a specific tag to a video
 
-	This method adds a single tag to the specified video. The authenticated user must be the owner of the video.
+		This method adds a single tag to the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@param word The tag word.
-	@return ApiAddVideoTagRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@param word The tag word.
+		@return ApiAddVideoTagRequest
 	*/
 	AddVideoTag(ctx context.Context, videoId int32, word string) ApiAddVideoTagRequest
 
@@ -39,13 +38,13 @@ type VideosTagsAPI interface {
 	AddVideoTagExecute(r ApiAddVideoTagRequest) (*Tag, *http.Response, error)
 
 	/*
-	AddVideoTags Add a list of tags to a video
+		AddVideoTags Add a list of tags to a video
 
-	This method adds multiple tags to the specified video. Include the tags as a JSON array  as the body of the request with the  **name** field, like this: `[{ "name": "funny"}, {"name": "concert" }]`. The authenticated user must have edit access to the video. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
+		This method adds multiple tags to the specified video. Include the tags as a JSON array  as the body of the request with the  **name** field, like this: `[{ "name": "funny"}, {"name": "concert" }]`. The authenticated user must have edit access to the video. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiAddVideoTagsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiAddVideoTagsRequest
 	*/
 	AddVideoTags(ctx context.Context, videoId int32) ApiAddVideoTagsRequest
 
@@ -54,14 +53,14 @@ type VideosTagsAPI interface {
 	AddVideoTagsExecute(r ApiAddVideoTagsRequest) ([]Tag, *http.Response, error)
 
 	/*
-	CheckVideoForTag Check if a tag has been added to a video
+		CheckVideoForTag Check if a tag has been added to a video
 
-	This method determines whether the specified tag has been added to a video. The authenticated user must be the owner of the video.
+		This method determines whether the specified tag has been added to a video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@param word The tag word.
-	@return ApiCheckVideoForTagRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@param word The tag word.
+		@return ApiCheckVideoForTagRequest
 	*/
 	CheckVideoForTag(ctx context.Context, videoId int32, word string) ApiCheckVideoForTagRequest
 
@@ -70,14 +69,14 @@ type VideosTagsAPI interface {
 	CheckVideoForTagExecute(r ApiCheckVideoForTagRequest) (*Tag, *http.Response, error)
 
 	/*
-	DeleteVideoTag Remove a tag from a video
+		DeleteVideoTag Remove a tag from a video
 
-	This method removes the specified tag from a video. The authenticated user must have edit access to the video.
+		This method removes the specified tag from a video. The authenticated user must have edit access to the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@param word The tag word.
-	@return ApiDeleteVideoTagRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@param word The tag word.
+		@return ApiDeleteVideoTagRequest
 	*/
 	DeleteVideoTag(ctx context.Context, videoId int32, word string) ApiDeleteVideoTagRequest
 
@@ -85,13 +84,13 @@ type VideosTagsAPI interface {
 	DeleteVideoTagExecute(r ApiDeleteVideoTagRequest) (*http.Response, error)
 
 	/*
-	GetVideoTags Get all the tags of a video
+		GetVideoTags Get all the tags of a video
 
-	This method returns all the tags associated with the specified video. The authenticated user must be the owner of the video.
+		This method returns all the tags associated with the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoTagsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetVideoTagsRequest
 	*/
 	GetVideoTags(ctx context.Context, videoId int32) ApiGetVideoTagsRequest
 
@@ -100,13 +99,13 @@ type VideosTagsAPI interface {
 	GetVideoTagsExecute(r ApiGetVideoTagsRequest) ([]Tag, *http.Response, error)
 
 	/*
-	GetVideosWithTag Get all the videos with a specific tag
+		GetVideosWithTag Get all the videos with a specific tag
 
-	This method returns all the public videos associated with the specified tag.
+		This method returns all the public videos associated with the specified tag.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param word The tag word.
-	@return ApiGetVideosWithTagRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param word The tag word.
+		@return ApiGetVideosWithTagRequest
 	*/
 	GetVideosWithTag(ctx context.Context, word string) ApiGetVideosWithTagRequest
 
@@ -119,10 +118,10 @@ type VideosTagsAPI interface {
 type VideosTagsAPIService service
 
 type ApiAddVideoTagRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosTagsAPI
-	videoId int32
-	word string
+	videoId    int32
+	word       string
 }
 
 func (r ApiAddVideoTagRequest) Execute() (*Tag, *http.Response, error) {
@@ -134,28 +133,29 @@ AddVideoTag Add a specific tag to a video
 
 This method adds a single tag to the specified video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @param word The tag word.
- @return ApiAddVideoTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@param word The tag word.
+	@return ApiAddVideoTagRequest
 */
 func (a *VideosTagsAPIService) AddVideoTag(ctx context.Context, videoId int32, word string) ApiAddVideoTagRequest {
 	return ApiAddVideoTagRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
-		word: word,
+		ctx:        ctx,
+		videoId:    videoId,
+		word:       word,
 	}
 }
 
 // Execute executes the request
-//  @return Tag
+//
+//	@return Tag
 func (a *VideosTagsAPIService) AddVideoTagExecute(r ApiAddVideoTagRequest) (*Tag, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Tag
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Tag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTagsAPIService.AddVideoTag")
@@ -217,8 +217,8 @@ func (a *VideosTagsAPIService) AddVideoTagExecute(r ApiAddVideoTagRequest) (*Tag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -228,8 +228,8 @@ func (a *VideosTagsAPIService) AddVideoTagExecute(r ApiAddVideoTagRequest) (*Tag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -247,11 +247,11 @@ func (a *VideosTagsAPIService) AddVideoTagExecute(r ApiAddVideoTagRequest) (*Tag
 }
 
 type ApiAddVideoTagsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosTagsAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -275,26 +275,27 @@ AddVideoTags Add a list of tags to a video
 
 This method adds multiple tags to the specified video. Include the tags as a JSON array  as the body of the request with the  **name** field, like this: `[{ "name": "funny"}, {"name": "concert" }]`. The authenticated user must have edit access to the video. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiAddVideoTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiAddVideoTagsRequest
 */
 func (a *VideosTagsAPIService) AddVideoTags(ctx context.Context, videoId int32) ApiAddVideoTagsRequest {
 	return ApiAddVideoTagsRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Tag
+//
+//	@return []Tag
 func (a *VideosTagsAPIService) AddVideoTagsExecute(r ApiAddVideoTagsRequest) ([]Tag, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Tag
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Tag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTagsAPIService.AddVideoTags")
@@ -361,8 +362,8 @@ func (a *VideosTagsAPIService) AddVideoTagsExecute(r ApiAddVideoTagsRequest) ([]
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -372,8 +373,8 @@ func (a *VideosTagsAPIService) AddVideoTagsExecute(r ApiAddVideoTagsRequest) ([]
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -391,10 +392,10 @@ func (a *VideosTagsAPIService) AddVideoTagsExecute(r ApiAddVideoTagsRequest) ([]
 }
 
 type ApiCheckVideoForTagRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosTagsAPI
-	videoId int32
-	word string
+	videoId    int32
+	word       string
 }
 
 func (r ApiCheckVideoForTagRequest) Execute() (*Tag, *http.Response, error) {
@@ -406,28 +407,29 @@ CheckVideoForTag Check if a tag has been added to a video
 
 This method determines whether the specified tag has been added to a video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @param word The tag word.
- @return ApiCheckVideoForTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@param word The tag word.
+	@return ApiCheckVideoForTagRequest
 */
 func (a *VideosTagsAPIService) CheckVideoForTag(ctx context.Context, videoId int32, word string) ApiCheckVideoForTagRequest {
 	return ApiCheckVideoForTagRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
-		word: word,
+		ctx:        ctx,
+		videoId:    videoId,
+		word:       word,
 	}
 }
 
 // Execute executes the request
-//  @return Tag
+//
+//	@return Tag
 func (a *VideosTagsAPIService) CheckVideoForTagExecute(r ApiCheckVideoForTagRequest) (*Tag, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Tag
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Tag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTagsAPIService.CheckVideoForTag")
@@ -489,8 +491,8 @@ func (a *VideosTagsAPIService) CheckVideoForTagExecute(r ApiCheckVideoForTagRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -500,8 +502,8 @@ func (a *VideosTagsAPIService) CheckVideoForTagExecute(r ApiCheckVideoForTagRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -519,10 +521,10 @@ func (a *VideosTagsAPIService) CheckVideoForTagExecute(r ApiCheckVideoForTagRequ
 }
 
 type ApiDeleteVideoTagRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosTagsAPI
-	videoId int32
-	word string
+	videoId    int32
+	word       string
 }
 
 func (r ApiDeleteVideoTagRequest) Execute() (*http.Response, error) {
@@ -534,26 +536,26 @@ DeleteVideoTag Remove a tag from a video
 
 This method removes the specified tag from a video. The authenticated user must have edit access to the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @param word The tag word.
- @return ApiDeleteVideoTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@param word The tag word.
+	@return ApiDeleteVideoTagRequest
 */
 func (a *VideosTagsAPIService) DeleteVideoTag(ctx context.Context, videoId int32, word string) ApiDeleteVideoTagRequest {
 	return ApiDeleteVideoTagRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
-		word: word,
+		ctx:        ctx,
+		videoId:    videoId,
+		word:       word,
 	}
 }
 
 // Execute executes the request
 func (a *VideosTagsAPIService) DeleteVideoTagExecute(r ApiDeleteVideoTagRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTagsAPIService.DeleteVideoTag")
@@ -615,8 +617,8 @@ func (a *VideosTagsAPIService) DeleteVideoTagExecute(r ApiDeleteVideoTagRequest)
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -625,11 +627,11 @@ func (a *VideosTagsAPIService) DeleteVideoTagExecute(r ApiDeleteVideoTagRequest)
 }
 
 type ApiGetVideoTagsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosTagsAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -653,26 +655,27 @@ GetVideoTags Get all the tags of a video
 
 This method returns all the tags associated with the specified video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetVideoTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoTagsRequest
 */
 func (a *VideosTagsAPIService) GetVideoTags(ctx context.Context, videoId int32) ApiGetVideoTagsRequest {
 	return ApiGetVideoTagsRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Tag
+//
+//	@return []Tag
 func (a *VideosTagsAPIService) GetVideoTagsExecute(r ApiGetVideoTagsRequest) ([]Tag, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Tag
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Tag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTagsAPIService.GetVideoTags")
@@ -748,16 +751,16 @@ func (a *VideosTagsAPIService) GetVideoTagsExecute(r ApiGetVideoTagsRequest) ([]
 }
 
 type ApiGetVideosWithTagRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosTagsAPI
-	word string
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	word       string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVideosWithTagRequest) Direction(direction string) ApiGetVideosWithTagRequest {
 	r.direction = &direction
 	return r
@@ -775,7 +778,7 @@ func (r ApiGetVideosWithTagRequest) PerPage(perPage float32) ApiGetVideosWithTag
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;created_time&#x60; - Sort the results by creation time.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;name&#x60; - Sort the results by name. 
+// The way to sort the results.  Option descriptions:  * &#x60;created_time&#x60; - Sort the results by creation time.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;name&#x60; - Sort the results by name.
 func (r ApiGetVideosWithTagRequest) Sort(sort string) ApiGetVideosWithTagRequest {
 	r.sort = &sort
 	return r
@@ -790,26 +793,27 @@ GetVideosWithTag Get all the videos with a specific tag
 
 This method returns all the public videos associated with the specified tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param word The tag word.
- @return ApiGetVideosWithTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param word The tag word.
+	@return ApiGetVideosWithTagRequest
 */
 func (a *VideosTagsAPIService) GetVideosWithTag(ctx context.Context, word string) ApiGetVideosWithTagRequest {
 	return ApiGetVideosWithTagRequest{
 		ApiService: a,
-		ctx: ctx,
-		word: word,
+		ctx:        ctx,
+		word:       word,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *VideosTagsAPIService) GetVideosWithTagExecute(r ApiGetVideosWithTagRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTagsAPIService.GetVideosWithTag")
@@ -882,8 +886,8 @@ func (a *VideosTagsAPIService) GetVideosWithTagExecute(r ApiGetVideosWithTagRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -22,8 +22,8 @@ type CreateEmbedPresetsAlt1RequestEmbed struct {
 	// Whether AirPlay is enabled in the embeddable player.
 	Airplay *bool `json:"airplay,omitempty"`
 	// Whether multiple audio tracks can appear in the embeddable player.
-	AudioTracks *bool `json:"audio_tracks,omitempty"`
-	Buttons *CreateEmbedPresetsAlt1RequestEmbedButtons `json:"buttons,omitempty"`
+	AudioTracks *bool                                      `json:"audio_tracks,omitempty"`
+	Buttons     *CreateEmbedPresetsAlt1RequestEmbedButtons `json:"buttons,omitempty"`
 	// Whether chapters are enabled in the embeddable player.
 	Chapters *bool `json:"chapters,omitempty"`
 	// Whether the Chromecast button appears in the embeddable player.
@@ -31,15 +31,15 @@ type CreateEmbedPresetsAlt1RequestEmbed struct {
 	// Whether closed captions are enabled in the embeddable player.
 	ClosedCaptions *bool `json:"closed_captions,omitempty"`
 	// The main color of the embeddable player.
-	Color *string `json:"color,omitempty"`
-	Colors *CreateEmbedPresetsAlt1RequestEmbedColors `json:"colors,omitempty"`
-	Logos *CreateEmbedPresetsAlt1RequestEmbedLogos `json:"logos,omitempty"`
+	Color      *string                                       `json:"color,omitempty"`
+	Colors     *CreateEmbedPresetsAlt1RequestEmbedColors     `json:"colors,omitempty"`
+	Logos      *CreateEmbedPresetsAlt1RequestEmbedLogos      `json:"logos,omitempty"`
 	PlayButton *CreateEmbedPresetsAlt1RequestEmbedPlayButton `json:"play_button,omitempty"`
 	// Whether to show the playbar on the embeddable player.
 	Playbar *bool `json:"playbar,omitempty"`
 	// Whether to show the quality selector in the embeddable player.
-	QualitySelector *bool `json:"quality_selector,omitempty"`
-	Title *CreateEmbedPresetsAlt1RequestEmbedTitle `json:"title,omitempty"`
+	QualitySelector *bool                                    `json:"quality_selector,omitempty"`
+	Title           *CreateEmbedPresetsAlt1RequestEmbedTitle `json:"title,omitempty"`
 	// Whether the transcript controls appear in the embeddable player.
 	Transcript *bool `json:"transcript,omitempty"`
 	// Whether to show the volume selector on the embeddable player.
@@ -544,7 +544,7 @@ func (o *CreateEmbedPresetsAlt1RequestEmbed) SetVolume(v bool) {
 }
 
 func (o CreateEmbedPresetsAlt1RequestEmbed) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -636,5 +636,3 @@ func (v *NullableCreateEmbedPresetsAlt1RequestEmbed) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

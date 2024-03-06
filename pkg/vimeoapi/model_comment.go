@@ -22,16 +22,16 @@ type Comment struct {
 	// The time in ISO 8601 format when the comment was posted.
 	CreatedOn string `json:"created_on"`
 	// The permalink to the comment.
-	Link string `json:"link"`
+	Link     string          `json:"link"`
 	Metadata CommentMetadata `json:"metadata"`
 	// The comment's resource key string.
 	ResourceKey string `json:"resource_key"`
 	// The content of the comment.
 	Text string `json:"text"`
-	// The Vimeo content to which the comment relates.  Option descriptions:  * `video` - The comment is about a video. 
+	// The Vimeo content to which the comment relates.  Option descriptions:  * `video` - The comment is about a video.
 	Type string `json:"type"`
 	// The unique identifier to access the comment resource.
-	Uri string `json:"uri"`
+	Uri  string              `json:"uri"`
 	User NullableCommentUser `json:"user"`
 }
 
@@ -255,7 +255,7 @@ func (o *Comment) SetUser(v CommentUser) {
 }
 
 func (o Comment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,5 +310,3 @@ func (v *NullableComment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

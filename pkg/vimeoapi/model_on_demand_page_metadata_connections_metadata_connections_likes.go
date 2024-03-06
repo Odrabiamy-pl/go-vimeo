@@ -120,7 +120,7 @@ func (o *OnDemandPageMetadataConnectionsMetadataConnectionsLikes) SetUri(v strin
 }
 
 func (o OnDemandPageMetadataConnectionsMetadataConnectionsLikes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableOnDemandPageMetadataConnectionsMetadataConnectionsLikes) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

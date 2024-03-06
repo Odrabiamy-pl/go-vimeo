@@ -19,8 +19,8 @@ var _ MappedNullable = &WebinarEmailSettingsEmailPostEventThankYou{}
 
 // WebinarEmailSettingsEmailPostEventThankYou The email customization details for the webinar post-event thank-you email.
 type WebinarEmailSettingsEmailPostEventThankYou struct {
-	Custom NullableWebinarEmailSettingsEmailPostEventThankYouCustom `json:"custom"`
-	Default WebinarEmailContent `json:"default"`
+	Custom  NullableWebinarEmailSettingsEmailPostEventThankYouCustom `json:"custom"`
+	Default WebinarEmailContent                                      `json:"default"`
 }
 
 // NewWebinarEmailSettingsEmailPostEventThankYou instantiates a new WebinarEmailSettingsEmailPostEventThankYou object
@@ -93,7 +93,7 @@ func (o *WebinarEmailSettingsEmailPostEventThankYou) SetDefault(v WebinarEmailCo
 }
 
 func (o WebinarEmailSettingsEmailPostEventThankYou) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,5 +142,3 @@ func (v *NullableWebinarEmailSettingsEmailPostEventThankYou) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

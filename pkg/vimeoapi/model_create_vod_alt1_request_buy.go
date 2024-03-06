@@ -22,8 +22,8 @@ type CreateVodAlt1RequestBuy struct {
 	// Whether the video can be purchased. This parameter is required when **rent.active** is `false`.
 	Active *bool `json:"active,omitempty"`
 	// Whether people who buy the video can download it. To use this parameter, **type** must be `film`.
-	Download *bool `json:"download,omitempty"`
-	Price *CreateVodAlt1RequestBuyPrice `json:"price,omitempty"`
+	Download *bool                         `json:"download,omitempty"`
+	Price    *CreateVodAlt1RequestBuyPrice `json:"price,omitempty"`
 }
 
 // NewCreateVodAlt1RequestBuy instantiates a new CreateVodAlt1RequestBuy object
@@ -140,7 +140,7 @@ func (o *CreateVodAlt1RequestBuy) SetPrice(v CreateVodAlt1RequestBuyPrice) {
 }
 
 func (o CreateVodAlt1RequestBuy) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableCreateVodAlt1RequestBuy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

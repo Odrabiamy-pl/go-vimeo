@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type ShowcasesEssentialsAPI interface {
 
 	/*
-	CreateShowcase Create a showcase
+		CreateShowcase Create a showcase
 
-	This method creates a new showcase for the specified user.
+		This method creates a new showcase for the specified user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiCreateShowcaseRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiCreateShowcaseRequest
 	*/
 	CreateShowcase(ctx context.Context, userId int32) ApiCreateShowcaseRequest
 
@@ -38,12 +37,12 @@ type ShowcasesEssentialsAPI interface {
 	CreateShowcaseExecute(r ApiCreateShowcaseRequest) (*Album, *http.Response, error)
 
 	/*
-	CreateShowcaseAlt1 Create a showcase
+		CreateShowcaseAlt1 Create a showcase
 
-	This method creates a new showcase for the specified user.
+		This method creates a new showcase for the specified user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateShowcaseAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateShowcaseAlt1Request
 	*/
 	CreateShowcaseAlt1(ctx context.Context) ApiCreateShowcaseAlt1Request
 
@@ -52,14 +51,14 @@ type ShowcasesEssentialsAPI interface {
 	CreateShowcaseAlt1Execute(r ApiCreateShowcaseAlt1Request) (*Album, *http.Response, error)
 
 	/*
-	DeleteShowcase Delete a showcase
+		DeleteShowcase Delete a showcase
 
-	This method deletes the specified showcase. The authenticated user must be the owner of the showcase.
+		This method deletes the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiDeleteShowcaseRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@return ApiDeleteShowcaseRequest
 	*/
 	DeleteShowcase(ctx context.Context, albumId float32, userId int32) ApiDeleteShowcaseRequest
 
@@ -67,13 +66,13 @@ type ShowcasesEssentialsAPI interface {
 	DeleteShowcaseExecute(r ApiDeleteShowcaseRequest) (*http.Response, error)
 
 	/*
-	DeleteShowcaseAlt2 Delete a showcase
+		DeleteShowcaseAlt2 Delete a showcase
 
-	This method deletes the specified showcase. The authenticated user must be the owner of the showcase.
+		This method deletes the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@return ApiDeleteShowcaseAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@return ApiDeleteShowcaseAlt2Request
 	*/
 	DeleteShowcaseAlt2(ctx context.Context, albumId float32) ApiDeleteShowcaseAlt2Request
 
@@ -81,14 +80,14 @@ type ShowcasesEssentialsAPI interface {
 	DeleteShowcaseAlt2Execute(r ApiDeleteShowcaseAlt2Request) (*http.Response, error)
 
 	/*
-	EditShowcase Edit a showcase
+		EditShowcase Edit a showcase
 
-	This method edits the specified showcase. The authenticated user must be the owner of the showcase.
+		This method edits the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiEditShowcaseRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@return ApiEditShowcaseRequest
 	*/
 	EditShowcase(ctx context.Context, albumId float32, userId int32) ApiEditShowcaseRequest
 
@@ -97,13 +96,13 @@ type ShowcasesEssentialsAPI interface {
 	EditShowcaseExecute(r ApiEditShowcaseRequest) (*Album, *http.Response, error)
 
 	/*
-	EditShowcaseAlt2 Edit a showcase
+		EditShowcaseAlt2 Edit a showcase
 
-	This method edits the specified showcase. The authenticated user must be the owner of the showcase.
+		This method edits the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@return ApiEditShowcaseAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@return ApiEditShowcaseAlt2Request
 	*/
 	EditShowcaseAlt2(ctx context.Context, albumId float32) ApiEditShowcaseAlt2Request
 
@@ -112,14 +111,14 @@ type ShowcasesEssentialsAPI interface {
 	EditShowcaseAlt2Execute(r ApiEditShowcaseAlt2Request) (*Album, *http.Response, error)
 
 	/*
-	GetShowcase Get a specific showcase
+		GetShowcase Get a specific showcase
 
-	This method returns the specified showcase. The authenticated user must be the owner of the showcase.
+		This method returns the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiGetShowcaseRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@return ApiGetShowcaseRequest
 	*/
 	GetShowcase(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseRequest
 
@@ -128,13 +127,13 @@ type ShowcasesEssentialsAPI interface {
 	GetShowcaseExecute(r ApiGetShowcaseRequest) (*Album, *http.Response, error)
 
 	/*
-	GetShowcaseAlt2 Get a specific showcase
+		GetShowcaseAlt2 Get a specific showcase
 
-	This method returns the specified showcase. The authenticated user must be the owner of the showcase.
+		This method returns the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@return ApiGetShowcaseAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@return ApiGetShowcaseAlt2Request
 	*/
 	GetShowcaseAlt2(ctx context.Context, albumId float32) ApiGetShowcaseAlt2Request
 
@@ -143,13 +142,13 @@ type ShowcasesEssentialsAPI interface {
 	GetShowcaseAlt2Execute(r ApiGetShowcaseAlt2Request) (*Album, *http.Response, error)
 
 	/*
-	GetShowcases Get all the showcases that belong to the user
+		GetShowcases Get all the showcases that belong to the user
 
-	This method returns every showcase belonging to the authenticated user.
+		This method returns every showcase belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetShowcasesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetShowcasesRequest
 	*/
 	GetShowcases(ctx context.Context, userId int32) ApiGetShowcasesRequest
 
@@ -158,12 +157,12 @@ type ShowcasesEssentialsAPI interface {
 	GetShowcasesExecute(r ApiGetShowcasesRequest) ([]Album, *http.Response, error)
 
 	/*
-	GetShowcasesAlt1 Get all the showcases that belong to the user
+		GetShowcasesAlt1 Get all the showcases that belong to the user
 
-	This method returns every showcase belonging to the authenticated user.
+		This method returns every showcase belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetShowcasesAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetShowcasesAlt1Request
 	*/
 	GetShowcasesAlt1(ctx context.Context) ApiGetShowcasesAlt1Request
 
@@ -172,15 +171,15 @@ type ShowcasesEssentialsAPI interface {
 	GetShowcasesAlt1Execute(r ApiGetShowcasesAlt1Request) ([]Album, *http.Response, error)
 
 	/*
-	UpdateShowcases Add videos and live events to showcases
+			UpdateShowcases Add videos and live events to showcases
 
-	This method adds videos and events to the specified showcases. The authenticated user must either be the owner of the showcase or have team permissions.
+			This method adds videos and events to the specified showcases. The authenticated user must either be the owner of the showcase or have team permissions.
 
-The present setup permits only one event per showcase.
+		The present setup permits only one event per showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiUpdateShowcasesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param userId The ID of the user.
+			@return ApiUpdateShowcasesRequest
 	*/
 	UpdateShowcases(ctx context.Context, userId int32) ApiUpdateShowcasesRequest
 
@@ -192,9 +191,9 @@ The present setup permits only one event per showcase.
 type ShowcasesEssentialsAPIService service
 
 type ApiCreateShowcaseRequest struct {
-	ctx context.Context
-	ApiService ShowcasesEssentialsAPI
-	userId int32
+	ctx                       context.Context
+	ApiService                ShowcasesEssentialsAPI
+	userId                    int32
 	createShowcaseAlt1Request *CreateShowcaseAlt1Request
 }
 
@@ -212,26 +211,27 @@ CreateShowcase Create a showcase
 
 This method creates a new showcase for the specified user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiCreateShowcaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiCreateShowcaseRequest
 */
 func (a *ShowcasesEssentialsAPIService) CreateShowcase(ctx context.Context, userId int32) ApiCreateShowcaseRequest {
 	return ApiCreateShowcaseRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesEssentialsAPIService) CreateShowcaseExecute(r ApiCreateShowcaseRequest) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.CreateShowcase")
@@ -297,8 +297,8 @@ func (a *ShowcasesEssentialsAPIService) CreateShowcaseExecute(r ApiCreateShowcas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -308,8 +308,8 @@ func (a *ShowcasesEssentialsAPIService) CreateShowcaseExecute(r ApiCreateShowcas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -327,8 +327,8 @@ func (a *ShowcasesEssentialsAPIService) CreateShowcaseExecute(r ApiCreateShowcas
 }
 
 type ApiCreateShowcaseAlt1Request struct {
-	ctx context.Context
-	ApiService ShowcasesEssentialsAPI
+	ctx                       context.Context
+	ApiService                ShowcasesEssentialsAPI
 	createShowcaseAlt1Request *CreateShowcaseAlt1Request
 }
 
@@ -346,24 +346,25 @@ CreateShowcaseAlt1 Create a showcase
 
 This method creates a new showcase for the specified user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateShowcaseAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateShowcaseAlt1Request
 */
 func (a *ShowcasesEssentialsAPIService) CreateShowcaseAlt1(ctx context.Context) ApiCreateShowcaseAlt1Request {
 	return ApiCreateShowcaseAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesEssentialsAPIService) CreateShowcaseAlt1Execute(r ApiCreateShowcaseAlt1Request) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.CreateShowcaseAlt1")
@@ -428,8 +429,8 @@ func (a *ShowcasesEssentialsAPIService) CreateShowcaseAlt1Execute(r ApiCreateSho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -439,8 +440,8 @@ func (a *ShowcasesEssentialsAPIService) CreateShowcaseAlt1Execute(r ApiCreateSho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -458,10 +459,10 @@ func (a *ShowcasesEssentialsAPIService) CreateShowcaseAlt1Execute(r ApiCreateSho
 }
 
 type ApiDeleteShowcaseRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesEssentialsAPI
-	albumId float32
-	userId int32
+	albumId    float32
+	userId     int32
 }
 
 func (r ApiDeleteShowcaseRequest) Execute() (*http.Response, error) {
@@ -473,26 +474,26 @@ DeleteShowcase Delete a showcase
 
 This method deletes the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @return ApiDeleteShowcaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiDeleteShowcaseRequest
 */
 func (a *ShowcasesEssentialsAPIService) DeleteShowcase(ctx context.Context, albumId float32, userId int32) ApiDeleteShowcaseRequest {
 	return ApiDeleteShowcaseRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesEssentialsAPIService) DeleteShowcaseExecute(r ApiDeleteShowcaseRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.DeleteShowcase")
@@ -554,8 +555,8 @@ func (a *ShowcasesEssentialsAPIService) DeleteShowcaseExecute(r ApiDeleteShowcas
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -565,8 +566,8 @@ func (a *ShowcasesEssentialsAPIService) DeleteShowcaseExecute(r ApiDeleteShowcas
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -575,9 +576,9 @@ func (a *ShowcasesEssentialsAPIService) DeleteShowcaseExecute(r ApiDeleteShowcas
 }
 
 type ApiDeleteShowcaseAlt2Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesEssentialsAPI
-	albumId float32
+	albumId    float32
 }
 
 func (r ApiDeleteShowcaseAlt2Request) Execute() (*http.Response, error) {
@@ -589,24 +590,24 @@ DeleteShowcaseAlt2 Delete a showcase
 
 This method deletes the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @return ApiDeleteShowcaseAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@return ApiDeleteShowcaseAlt2Request
 */
 func (a *ShowcasesEssentialsAPIService) DeleteShowcaseAlt2(ctx context.Context, albumId float32) ApiDeleteShowcaseAlt2Request {
 	return ApiDeleteShowcaseAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
+		ctx:        ctx,
+		albumId:    albumId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesEssentialsAPIService) DeleteShowcaseAlt2Execute(r ApiDeleteShowcaseAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.DeleteShowcaseAlt2")
@@ -667,8 +668,8 @@ func (a *ShowcasesEssentialsAPIService) DeleteShowcaseAlt2Execute(r ApiDeleteSho
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -678,8 +679,8 @@ func (a *ShowcasesEssentialsAPIService) DeleteShowcaseAlt2Execute(r ApiDeleteSho
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -688,10 +689,10 @@ func (a *ShowcasesEssentialsAPIService) DeleteShowcaseAlt2Execute(r ApiDeleteSho
 }
 
 type ApiEditShowcaseRequest struct {
-	ctx context.Context
-	ApiService ShowcasesEssentialsAPI
-	albumId float32
-	userId int32
+	ctx                     context.Context
+	ApiService              ShowcasesEssentialsAPI
+	albumId                 float32
+	userId                  int32
 	editShowcaseAlt2Request *EditShowcaseAlt2Request
 }
 
@@ -709,28 +710,29 @@ EditShowcase Edit a showcase
 
 This method edits the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @return ApiEditShowcaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiEditShowcaseRequest
 */
 func (a *ShowcasesEssentialsAPIService) EditShowcase(ctx context.Context, albumId float32, userId int32) ApiEditShowcaseRequest {
 	return ApiEditShowcaseRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesEssentialsAPIService) EditShowcaseExecute(r ApiEditShowcaseRequest) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.EditShowcase")
@@ -794,8 +796,8 @@ func (a *ShowcasesEssentialsAPIService) EditShowcaseExecute(r ApiEditShowcaseReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -805,8 +807,8 @@ func (a *ShowcasesEssentialsAPIService) EditShowcaseExecute(r ApiEditShowcaseReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -816,8 +818,8 @@ func (a *ShowcasesEssentialsAPIService) EditShowcaseExecute(r ApiEditShowcaseReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -835,9 +837,9 @@ func (a *ShowcasesEssentialsAPIService) EditShowcaseExecute(r ApiEditShowcaseReq
 }
 
 type ApiEditShowcaseAlt2Request struct {
-	ctx context.Context
-	ApiService ShowcasesEssentialsAPI
-	albumId float32
+	ctx                     context.Context
+	ApiService              ShowcasesEssentialsAPI
+	albumId                 float32
 	editShowcaseAlt2Request *EditShowcaseAlt2Request
 }
 
@@ -855,26 +857,27 @@ EditShowcaseAlt2 Edit a showcase
 
 This method edits the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @return ApiEditShowcaseAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@return ApiEditShowcaseAlt2Request
 */
 func (a *ShowcasesEssentialsAPIService) EditShowcaseAlt2(ctx context.Context, albumId float32) ApiEditShowcaseAlt2Request {
 	return ApiEditShowcaseAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
+		ctx:        ctx,
+		albumId:    albumId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesEssentialsAPIService) EditShowcaseAlt2Execute(r ApiEditShowcaseAlt2Request) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.EditShowcaseAlt2")
@@ -937,8 +940,8 @@ func (a *ShowcasesEssentialsAPIService) EditShowcaseAlt2Execute(r ApiEditShowcas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -948,8 +951,8 @@ func (a *ShowcasesEssentialsAPIService) EditShowcaseAlt2Execute(r ApiEditShowcas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -959,8 +962,8 @@ func (a *ShowcasesEssentialsAPIService) EditShowcaseAlt2Execute(r ApiEditShowcas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -978,10 +981,10 @@ func (a *ShowcasesEssentialsAPIService) EditShowcaseAlt2Execute(r ApiEditShowcas
 }
 
 type ApiGetShowcaseRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesEssentialsAPI
-	albumId float32
-	userId int32
+	albumId    float32
+	userId     int32
 }
 
 func (r ApiGetShowcaseRequest) Execute() (*Album, *http.Response, error) {
@@ -993,28 +996,29 @@ GetShowcase Get a specific showcase
 
 This method returns the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @return ApiGetShowcaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiGetShowcaseRequest
 */
 func (a *ShowcasesEssentialsAPIService) GetShowcase(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseRequest {
 	return ApiGetShowcaseRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesEssentialsAPIService) GetShowcaseExecute(r ApiGetShowcaseRequest) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.GetShowcase")
@@ -1076,8 +1080,8 @@ func (a *ShowcasesEssentialsAPIService) GetShowcaseExecute(r ApiGetShowcaseReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1095,9 +1099,9 @@ func (a *ShowcasesEssentialsAPIService) GetShowcaseExecute(r ApiGetShowcaseReque
 }
 
 type ApiGetShowcaseAlt2Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesEssentialsAPI
-	albumId float32
+	albumId    float32
 }
 
 func (r ApiGetShowcaseAlt2Request) Execute() (*Album, *http.Response, error) {
@@ -1109,26 +1113,27 @@ GetShowcaseAlt2 Get a specific showcase
 
 This method returns the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @return ApiGetShowcaseAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@return ApiGetShowcaseAlt2Request
 */
 func (a *ShowcasesEssentialsAPIService) GetShowcaseAlt2(ctx context.Context, albumId float32) ApiGetShowcaseAlt2Request {
 	return ApiGetShowcaseAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
+		ctx:        ctx,
+		albumId:    albumId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesEssentialsAPIService) GetShowcaseAlt2Execute(r ApiGetShowcaseAlt2Request) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.GetShowcaseAlt2")
@@ -1189,8 +1194,8 @@ func (a *ShowcasesEssentialsAPIService) GetShowcaseAlt2Execute(r ApiGetShowcaseA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1208,17 +1213,17 @@ func (a *ShowcasesEssentialsAPIService) GetShowcaseAlt2Execute(r ApiGetShowcaseA
 }
 
 type ApiGetShowcasesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesEssentialsAPI
-	userId int32
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	userId     int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetShowcasesRequest) Direction(direction string) ApiGetShowcasesRequest {
 	r.direction = &direction
 	return r
@@ -1242,7 +1247,7 @@ func (r ApiGetShowcasesRequest) Query(query string) ApiGetShowcasesRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date of creation.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;videos&#x60; - Sort the results by the number of videos. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date of creation.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;videos&#x60; - Sort the results by the number of videos.
 func (r ApiGetShowcasesRequest) Sort(sort string) ApiGetShowcasesRequest {
 	r.sort = &sort
 	return r
@@ -1257,26 +1262,27 @@ GetShowcases Get all the showcases that belong to the user
 
 This method returns every showcase belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetShowcasesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetShowcasesRequest
 */
 func (a *ShowcasesEssentialsAPIService) GetShowcases(ctx context.Context, userId int32) ApiGetShowcasesRequest {
 	return ApiGetShowcasesRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Album
+//
+//	@return []Album
 func (a *ShowcasesEssentialsAPIService) GetShowcasesExecute(r ApiGetShowcasesRequest) ([]Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Album
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.GetShowcases")
@@ -1352,8 +1358,8 @@ func (a *ShowcasesEssentialsAPIService) GetShowcasesExecute(r ApiGetShowcasesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1371,16 +1377,16 @@ func (a *ShowcasesEssentialsAPIService) GetShowcasesExecute(r ApiGetShowcasesReq
 }
 
 type ApiGetShowcasesAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesEssentialsAPI
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetShowcasesAlt1Request) Direction(direction string) ApiGetShowcasesAlt1Request {
 	r.direction = &direction
 	return r
@@ -1404,7 +1410,7 @@ func (r ApiGetShowcasesAlt1Request) Query(query string) ApiGetShowcasesAlt1Reque
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date of creation.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;videos&#x60; - Sort the results by the number of videos. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date of creation.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;videos&#x60; - Sort the results by the number of videos.
 func (r ApiGetShowcasesAlt1Request) Sort(sort string) ApiGetShowcasesAlt1Request {
 	r.sort = &sort
 	return r
@@ -1419,24 +1425,25 @@ GetShowcasesAlt1 Get all the showcases that belong to the user
 
 This method returns every showcase belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetShowcasesAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetShowcasesAlt1Request
 */
 func (a *ShowcasesEssentialsAPIService) GetShowcasesAlt1(ctx context.Context) ApiGetShowcasesAlt1Request {
 	return ApiGetShowcasesAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Album
+//
+//	@return []Album
 func (a *ShowcasesEssentialsAPIService) GetShowcasesAlt1Execute(r ApiGetShowcasesAlt1Request) ([]Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Album
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.GetShowcasesAlt1")
@@ -1511,8 +1518,8 @@ func (a *ShowcasesEssentialsAPIService) GetShowcasesAlt1Execute(r ApiGetShowcase
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1530,11 +1537,11 @@ func (a *ShowcasesEssentialsAPIService) GetShowcasesAlt1Execute(r ApiGetShowcase
 }
 
 type ApiUpdateShowcasesRequest struct {
-	ctx context.Context
-	ApiService ShowcasesEssentialsAPI
-	userId int32
+	ctx           context.Context
+	ApiService    ShowcasesEssentialsAPI
+	userId        int32
 	albumItemUris *string
-	albumUris *string
+	albumUris     *string
 }
 
 // A comma-separated list of video or event URIs.
@@ -1560,24 +1567,24 @@ This method adds videos and events to the specified showcases. The authenticated
 
 The present setup permits only one event per showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiUpdateShowcasesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiUpdateShowcasesRequest
 */
 func (a *ShowcasesEssentialsAPIService) UpdateShowcases(ctx context.Context, userId int32) ApiUpdateShowcasesRequest {
 	return ApiUpdateShowcasesRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesEssentialsAPIService) UpdateShowcasesExecute(r ApiUpdateShowcasesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesEssentialsAPIService.UpdateShowcases")

@@ -23,11 +23,11 @@ type UserUploadQuotaPeriodic struct {
 	Free NullableFloat32 `json:"free"`
 	// The total number of bytes or videos that the authenticated user can upload per period.
 	Max NullableFloat32 `json:"max"`
-	// The renewal frequency of the quota.  Option descriptions:  * `lifetime` - The user doesn't have a periodic quota.  * `month` - The quota renews monthly.  * `week` - The quota renews weekly.  * `year` - The quota renews yearly. 
+	// The renewal frequency of the quota.  Option descriptions:  * `lifetime` - The user doesn't have a periodic quota.  * `month` - The quota renews monthly.  * `week` - The quota renews weekly.  * `year` - The quota renews yearly.
 	Period NullableString `json:"period"`
 	// The time in ISO 8601 format when the authenticated user's upload quota resets.
 	ResetDate NullableString `json:"reset_date"`
-	// The unit that's used to compute quota.  Option descriptions:  * `video_count` - The quota is calculated using the count of the videos.  * `video_size` - The quota is calculated using the byte size of the videos. 
+	// The unit that's used to compute quota.  Option descriptions:  * `video_count` - The quota is calculated using the count of the videos.  * `video_size` - The quota is calculated using the byte size of the videos.
 	Unit NullableString `json:"unit"`
 	// The number of bytes or video count that the authenticated user has already uploaded against their quota in the current period.
 	Used NullableFloat32 `json:"used"`
@@ -213,7 +213,7 @@ func (o *UserUploadQuotaPeriodic) SetUsed(v float32) {
 }
 
 func (o UserUploadQuotaPeriodic) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,5 +266,3 @@ func (v *NullableUserUploadQuotaPeriodic) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

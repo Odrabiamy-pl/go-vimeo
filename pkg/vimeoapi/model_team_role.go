@@ -19,7 +19,7 @@ var _ MappedNullable = &TeamRole{}
 
 // TeamRole struct for TeamRole
 type TeamRole struct {
-	// The untranslated role of the user who made the request.  Option descriptions:  * `Admin` - The team member has admin permissions. They can upload and edit videos for the entire team and perform team administration tasks.  * `Contributor` - The team member has contributor permissions. They can upload and edit videos for the entire team but can’t perform team administration tasks.  * `Owner` - The team member has owner permissions.  * `Uploader` - The team member has uploader permissions. They can upload videos for the entire team but can’t edit videos.  * `Viewer` - The team member has viewer permissions. They can access team videos and specific team folders but can’t upload or edit videos. 
+	// The untranslated role of the user who made the request.  Option descriptions:  * `Admin` - The team member has admin permissions. They can upload and edit videos for the entire team and perform team administration tasks.  * `Contributor` - The team member has contributor permissions. They can upload and edit videos for the entire team but can’t perform team administration tasks.  * `Owner` - The team member has owner permissions.  * `Uploader` - The team member has uploader permissions. They can upload videos for the entire team but can’t edit videos.  * `Viewer` - The team member has viewer permissions. They can access team videos and specific team folders but can’t upload or edit videos.
 	Role NullableString `json:"role"`
 	// The unique identifier to access the team role.
 	Uri string `json:"uri"`
@@ -95,7 +95,7 @@ func (o *TeamRole) SetUri(v string) {
 }
 
 func (o TeamRole) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -144,5 +144,3 @@ func (v *NullableTeamRole) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

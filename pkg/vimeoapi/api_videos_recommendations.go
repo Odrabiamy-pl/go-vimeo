@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type VideosRecommendationsAPI interface {
 
 	/*
-	GetRelatedVideos Get all the related videos of a video
+		GetRelatedVideos Get all the related videos of a video
 
-	This method returns every related video of the specified video.
+		This method returns every related video of the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetRelatedVideosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetRelatedVideosRequest
 	*/
 	GetRelatedVideos(ctx context.Context, videoId int32) ApiGetRelatedVideosRequest
 
@@ -42,15 +41,15 @@ type VideosRecommendationsAPI interface {
 type VideosRecommendationsAPIService service
 
 type ApiGetRelatedVideosRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosRecommendationsAPI
-	videoId int32
-	filter *string
-	page *float32
-	perPage *float32
+	videoId    int32
+	filter     *string
+	page       *float32
+	perPage    *float32
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;related&#x60; - Return related videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;related&#x60; - Return related videos.
 func (r ApiGetRelatedVideosRequest) Filter(filter string) ApiGetRelatedVideosRequest {
 	r.filter = &filter
 	return r
@@ -77,26 +76,27 @@ GetRelatedVideos Get all the related videos of a video
 
 This method returns every related video of the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetRelatedVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetRelatedVideosRequest
 */
 func (a *VideosRecommendationsAPIService) GetRelatedVideos(ctx context.Context, videoId int32) ApiGetRelatedVideosRequest {
 	return ApiGetRelatedVideosRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *VideosRecommendationsAPIService) GetRelatedVideosExecute(r ApiGetRelatedVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosRecommendationsAPIService.GetRelatedVideos")
@@ -166,8 +166,8 @@ func (a *VideosRecommendationsAPIService) GetRelatedVideosExecute(r ApiGetRelate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

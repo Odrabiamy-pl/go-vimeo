@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 type VideosCreativeCommonsAPI interface {
 
 	/*
-	GetCcLicenses Get all Creative Commons licenses
+		GetCcLicenses Get all Creative Commons licenses
 
-	This method returns all available Creative Commons licenses.
+		This method returns all available Creative Commons licenses.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCcLicensesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetCcLicensesRequest
 	*/
 	GetCcLicenses(ctx context.Context) ApiGetCcLicensesRequest
 
@@ -40,10 +39,10 @@ type VideosCreativeCommonsAPI interface {
 type VideosCreativeCommonsAPIService service
 
 type ApiGetCcLicensesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosCreativeCommonsAPI
-	page *float32
-	perPage *float32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -67,24 +66,25 @@ GetCcLicenses Get all Creative Commons licenses
 
 This method returns all available Creative Commons licenses.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCcLicensesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetCcLicensesRequest
 */
 func (a *VideosCreativeCommonsAPIService) GetCcLicenses(ctx context.Context) ApiGetCcLicensesRequest {
 	return ApiGetCcLicensesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CreativeCommons
+//
+//	@return []CreativeCommons
 func (a *VideosCreativeCommonsAPIService) GetCcLicensesExecute(r ApiGetCcLicensesRequest) ([]CreativeCommons, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []CreativeCommons
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []CreativeCommons
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreativeCommonsAPIService.GetCcLicenses")

@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type PaymentsEssentialsAPI interface {
 
 	/*
-	GetPaymentMethodInfo Get information about a payments service payment method
+		GetPaymentMethodInfo Get information about a payments service payment method
 
-	This method returns information about the specified Vimeo payments service payment method.
+		This method returns information about the specified Vimeo payments service payment method.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param paymentMethodId The ID of the payment method.
-	@return ApiGetPaymentMethodInfoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param paymentMethodId The ID of the payment method.
+		@return ApiGetPaymentMethodInfoRequest
 	*/
 	GetPaymentMethodInfo(ctx context.Context, paymentMethodId string) ApiGetPaymentMethodInfoRequest
 
@@ -38,12 +37,12 @@ type PaymentsEssentialsAPI interface {
 	GetPaymentMethodInfoExecute(r ApiGetPaymentMethodInfoRequest) (*PaymentMethod, *http.Response, error)
 
 	/*
-	ListPaymentMethods Get a list of all payments service payment methods
+		ListPaymentMethods Get a list of all payments service payment methods
 
-	This method returns a list of all Vimeo payments service payment methods that are available to the authenticated user.
+		This method returns a list of all Vimeo payments service payment methods that are available to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListPaymentMethodsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiListPaymentMethodsRequest
 	*/
 	ListPaymentMethods(ctx context.Context) ApiListPaymentMethodsRequest
 
@@ -56,8 +55,8 @@ type PaymentsEssentialsAPI interface {
 type PaymentsEssentialsAPIService service
 
 type ApiGetPaymentMethodInfoRequest struct {
-	ctx context.Context
-	ApiService PaymentsEssentialsAPI
+	ctx             context.Context
+	ApiService      PaymentsEssentialsAPI
 	paymentMethodId string
 }
 
@@ -70,26 +69,27 @@ GetPaymentMethodInfo Get information about a payments service payment method
 
 This method returns information about the specified Vimeo payments service payment method.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param paymentMethodId The ID of the payment method.
- @return ApiGetPaymentMethodInfoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param paymentMethodId The ID of the payment method.
+	@return ApiGetPaymentMethodInfoRequest
 */
 func (a *PaymentsEssentialsAPIService) GetPaymentMethodInfo(ctx context.Context, paymentMethodId string) ApiGetPaymentMethodInfoRequest {
 	return ApiGetPaymentMethodInfoRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		paymentMethodId: paymentMethodId,
 	}
 }
 
 // Execute executes the request
-//  @return PaymentMethod
+//
+//	@return PaymentMethod
 func (a *PaymentsEssentialsAPIService) GetPaymentMethodInfoExecute(r ApiGetPaymentMethodInfoRequest) (*PaymentMethod, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaymentMethod
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaymentMethod
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PaymentsEssentialsAPIService.GetPaymentMethodInfo")
@@ -150,8 +150,8 @@ func (a *PaymentsEssentialsAPIService) GetPaymentMethodInfoExecute(r ApiGetPayme
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -169,13 +169,13 @@ func (a *PaymentsEssentialsAPIService) GetPaymentMethodInfoExecute(r ApiGetPayme
 }
 
 type ApiListPaymentMethodsRequest struct {
-	ctx context.Context
-	ApiService PaymentsEssentialsAPI
-	accountId *string
-	cardmemberName *string
-	page *float32
-	perPage *float32
-	showDisabled *bool
+	ctx                       context.Context
+	ApiService                PaymentsEssentialsAPI
+	accountId                 *string
+	cardmemberName            *string
+	page                      *float32
+	perPage                   *float32
+	showDisabled              *bool
 	listPaymentMethodsRequest *ListPaymentMethodsRequest
 }
 
@@ -223,24 +223,25 @@ ListPaymentMethods Get a list of all payments service payment methods
 
 This method returns a list of all Vimeo payments service payment methods that are available to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListPaymentMethodsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListPaymentMethodsRequest
 */
 func (a *PaymentsEssentialsAPIService) ListPaymentMethods(ctx context.Context) ApiListPaymentMethodsRequest {
 	return ApiListPaymentMethodsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []PaymentMethod
+//
+//	@return []PaymentMethod
 func (a *PaymentsEssentialsAPIService) ListPaymentMethodsExecute(r ApiListPaymentMethodsRequest) ([]PaymentMethod, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []PaymentMethod
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []PaymentMethod
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PaymentsEssentialsAPIService.ListPaymentMethods")
@@ -317,8 +318,8 @@ func (a *PaymentsEssentialsAPIService) ListPaymentMethodsExecute(r ApiListPaymen
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -328,8 +329,8 @@ func (a *PaymentsEssentialsAPIService) ListPaymentMethodsExecute(r ApiListPaymen
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -242,7 +242,7 @@ func (o *VideoMetadataConnectionsVersions) SetUri(v string) {
 }
 
 func (o VideoMetadataConnectionsVersions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -300,5 +300,3 @@ func (v *NullableVideoMetadataConnectionsVersions) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

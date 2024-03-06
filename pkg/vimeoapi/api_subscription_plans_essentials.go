@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type SubscriptionPlansEssentialsAPI interface {
 
 	/*
-	GetPlan Get a single subscription plan
+		GetPlan Get a single subscription plan
 
-	This method returns the specified subscription plan.
+		This method returns the specified subscription plan.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param tier The type of subscription plan.  Option descriptions:  * `advanced` - The plan type is Vimeo Advanced.  * `business` - The plan type is Vimeo Business.  * `free` - The plan type is Vimeo Free.  * `live_premium` - The plan type is Vimeo Premium.  * `plus` - The plan type is Vimeo Plus.  * `pro` - The plan type is Vimeo Pro.  * `pro_unlimited` - The plan type is Vimeo Pro Unlimited.  * `standard` - The plan type is Vimeo Standard.  * `starter` - The plan type is Vimeo Starter. 
-	@return ApiGetPlanRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tier The type of subscription plan.  Option descriptions:  * `advanced` - The plan type is Vimeo Advanced.  * `business` - The plan type is Vimeo Business.  * `free` - The plan type is Vimeo Free.  * `live_premium` - The plan type is Vimeo Premium.  * `plus` - The plan type is Vimeo Plus.  * `pro` - The plan type is Vimeo Pro.  * `pro_unlimited` - The plan type is Vimeo Pro Unlimited.  * `standard` - The plan type is Vimeo Standard.  * `starter` - The plan type is Vimeo Starter.
+		@return ApiGetPlanRequest
 	*/
 	GetPlan(ctx context.Context, tier string) ApiGetPlanRequest
 
@@ -41,9 +40,9 @@ type SubscriptionPlansEssentialsAPI interface {
 type SubscriptionPlansEssentialsAPIService service
 
 type ApiGetPlanRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService SubscriptionPlansEssentialsAPI
-	tier string
+	tier       string
 }
 
 func (r ApiGetPlanRequest) Execute() (*http.Response, error) {
@@ -55,24 +54,24 @@ GetPlan Get a single subscription plan
 
 This method returns the specified subscription plan.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tier The type of subscription plan.  Option descriptions:  * `advanced` - The plan type is Vimeo Advanced.  * `business` - The plan type is Vimeo Business.  * `free` - The plan type is Vimeo Free.  * `live_premium` - The plan type is Vimeo Premium.  * `plus` - The plan type is Vimeo Plus.  * `pro` - The plan type is Vimeo Pro.  * `pro_unlimited` - The plan type is Vimeo Pro Unlimited.  * `standard` - The plan type is Vimeo Standard.  * `starter` - The plan type is Vimeo Starter. 
- @return ApiGetPlanRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tier The type of subscription plan.  Option descriptions:  * `advanced` - The plan type is Vimeo Advanced.  * `business` - The plan type is Vimeo Business.  * `free` - The plan type is Vimeo Free.  * `live_premium` - The plan type is Vimeo Premium.  * `plus` - The plan type is Vimeo Plus.  * `pro` - The plan type is Vimeo Pro.  * `pro_unlimited` - The plan type is Vimeo Pro Unlimited.  * `standard` - The plan type is Vimeo Standard.  * `starter` - The plan type is Vimeo Starter.
+	@return ApiGetPlanRequest
 */
 func (a *SubscriptionPlansEssentialsAPIService) GetPlan(ctx context.Context, tier string) ApiGetPlanRequest {
 	return ApiGetPlanRequest{
 		ApiService: a,
-		ctx: ctx,
-		tier: tier,
+		ctx:        ctx,
+		tier:       tier,
 	}
 }
 
 // Execute executes the request
 func (a *SubscriptionPlansEssentialsAPIService) GetPlanExecute(r ApiGetPlanRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SubscriptionPlansEssentialsAPIService.GetPlan")

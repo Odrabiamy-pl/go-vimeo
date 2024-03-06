@@ -23,7 +23,7 @@ type VideoMetadataInteractionsBuy struct {
 	Currency NullableString `json:"currency"`
 	// The formatted display price for buying the On Demand video.
 	DisplayPrice NullableString `json:"display_price"`
-	// The user's download access to the On Demand video.  Option descriptions:  * `available` - The video is available for download.  * `purchased` - The user has purchased the video.  * `restricted` - The user isn't permitted to download the video.  * `unavailable` - The video isn't available for download. 
+	// The user's download access to the On Demand video.  Option descriptions:  * `available` - The video is available for download.  * `purchased` - The user has purchased the video.  * `restricted` - The user isn't permitted to download the video.  * `unavailable` - The video isn't available for download.
 	Download string `json:"download"`
 	// Whether the On Demand video has DRM.
 	Drm bool `json:"drm"`
@@ -33,7 +33,7 @@ type VideoMetadataInteractionsBuy struct {
 	Price NullableFloat32 `json:"price"`
 	// The time in ISO 8601 format when the On Demand video was purchased.
 	PurchaseTime NullableString `json:"purchase_time"`
-	// The user's streaming access to the On Demand video.  Option descriptions:  * `available` - The video is available for streaming.  * `purchased` - The user has purchased the video.  * `restricted` - The user isn't permitted to stream the video.  * `unavailable` - The video isn't available for streaming 
+	// The user's streaming access to the On Demand video.  Option descriptions:  * `available` - The video is available for streaming.  * `purchased` - The user has purchased the video.  * `restricted` - The user isn't permitted to stream the video.  * `unavailable` - The video isn't available for streaming
 	Stream string `json:"stream"`
 	// The product URI to purchase the On Demand video.
 	Uri NullableString `json:"uri"`
@@ -294,7 +294,7 @@ func (o *VideoMetadataInteractionsBuy) SetUri(v string) {
 }
 
 func (o VideoMetadataInteractionsBuy) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -350,5 +350,3 @@ func (v *NullableVideoMetadataInteractionsBuy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

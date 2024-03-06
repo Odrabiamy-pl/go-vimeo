@@ -19,7 +19,7 @@ var _ MappedNullable = &UserMetadata{}
 
 // UserMetadata The authenticated user's metadata.
 type UserMetadata struct {
-	Connections UserMetadataConnections `json:"connections"`
+	Connections  UserMetadataConnections  `json:"connections"`
 	Interactions UserMetadataInteractions `json:"interactions"`
 	PublicVideos UserMetadataPublicVideos `json:"public_videos"`
 }
@@ -117,7 +117,7 @@ func (o *UserMetadata) SetPublicVideos(v UserMetadataPublicVideos) {
 }
 
 func (o UserMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -167,5 +167,3 @@ func (v *NullableUserMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

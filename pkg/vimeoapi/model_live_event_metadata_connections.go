@@ -19,11 +19,11 @@ var _ MappedNullable = &LiveEventMetadataConnections{}
 
 // LiveEventMetadataConnections A collection of information that is connected to this resource.
 type LiveEventMetadataConnections struct {
-	LiveVideo NullableLiveEventMetadataConnectionsLiveVideo `json:"live_video"`
-	Pictures LiveEventMetadataConnectionsPictures `json:"pictures"`
+	LiveVideo    NullableLiveEventMetadataConnectionsLiveVideo    `json:"live_video"`
+	Pictures     LiveEventMetadataConnectionsPictures             `json:"pictures"`
 	PreLiveVideo NullableLiveEventMetadataConnectionsPreLiveVideo `json:"pre_live_video"`
-	TeamMember NullableLiveEventMetadataConnectionsTeamMember `json:"team_member"`
-	Videos LiveEventMetadataConnectionsVideos `json:"videos"`
+	TeamMember   NullableLiveEventMetadataConnectionsTeamMember   `json:"team_member"`
+	Videos       LiveEventMetadataConnectionsVideos               `json:"videos"`
 }
 
 // NewLiveEventMetadataConnections instantiates a new LiveEventMetadataConnections object
@@ -175,7 +175,7 @@ func (o *LiveEventMetadataConnections) SetVideos(v LiveEventMetadataConnectionsV
 }
 
 func (o LiveEventMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +227,3 @@ func (v *NullableLiveEventMetadataConnections) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

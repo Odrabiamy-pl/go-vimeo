@@ -25,7 +25,7 @@ type AnimatedThumbset struct {
 	CreatedOn string `json:"created_on"`
 	// An array of all the animated thumbnails in the set.
 	Sizes []AnimatedThumbnail `json:"sizes"`
-	// The availability of the animated thumbnail.  Option descriptions:  * `cancelled` - The animated thumbnail's creation has been cancelled.  * `completed` - The animated thumbnail has been created.  * `failed` - The animated thumbnail's creation has failed.  * `started` - The animated thumbnail's creation has started. 
+	// The availability of the animated thumbnail.  Option descriptions:  * `cancelled` - The animated thumbnail's creation has been cancelled.  * `completed` - The animated thumbnail has been created.  * `failed` - The animated thumbnail's creation has failed.  * `started` - The animated thumbnail's creation has started.
 	Status string `json:"status"`
 	// The URI of the set of animated thumbnails.
 	Uri string `json:"uri"`
@@ -174,7 +174,7 @@ func (o *AnimatedThumbset) SetUri(v string) {
 }
 
 func (o AnimatedThumbset) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -226,5 +226,3 @@ func (v *NullableAnimatedThumbset) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

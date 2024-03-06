@@ -34,10 +34,10 @@ type LiveEventEmbed struct {
 	// Whether closed captions are enabled in the embeddable player.
 	ClosedCaptions bool `json:"closed_captions"`
 	// The first player color, which controls the color of the progress bar, buttons, and more.
-	Color string `json:"color"`
+	Color  string              `json:"color"`
 	Colors EmbedSettingsColors `json:"colors"`
 	// The embed code for RLE chat.
-	EmbedChat NullableString `json:"embed_chat"`
+	EmbedChat       NullableString                        `json:"embed_chat"`
 	EmbedProperties NullableLiveEventEmbedEmbedProperties `json:"embed_properties"`
 	// Whether the embedded RLE player should display the event schedule.
 	EventSchedule bool `json:"event_schedule"`
@@ -50,8 +50,8 @@ type LiveEventEmbed struct {
 	// The fixed HTML code to embed the event's playlist on a website.
 	Html NullableString `json:"html"`
 	// Whether the embedded RLE player should include the `like` button.
-	LikeButton bool `json:"like_button"`
-	Logos LiveEventEmbedLogos `json:"logos"`
+	LikeButton bool                `json:"like_button"`
+	Logos      LiveEventEmbedLogos `json:"logos"`
 	// Whether the embedded RLE player should loop back to the first video once content is exhausted.
 	Loop bool `json:"loop"`
 	// Whether picture-in-picture is enabled and the button appears in the embeddable player.
@@ -883,7 +883,7 @@ func (o *LiveEventEmbed) SetVolume(v bool) {
 }
 
 func (o LiveEventEmbed) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -961,5 +961,3 @@ func (v *NullableLiveEventEmbed) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

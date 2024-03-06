@@ -24,18 +24,18 @@ type Group struct {
 	// The group's description.
 	Description NullableString `json:"description"`
 	// The link to the group.
-	Link string `json:"link"`
+	Link     string        `json:"link"`
 	Metadata GroupMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the group was last modified.
 	ModifiedTime string `json:"modified_time"`
 	// The group's display name.
-	Name string `json:"name"`
-	Pictures Picture `json:"pictures"`
-	Privacy GroupPrivacy `json:"privacy"`
+	Name     string       `json:"name"`
+	Pictures Picture      `json:"pictures"`
+	Privacy  GroupPrivacy `json:"privacy"`
 	// The resource key of the group.
 	ResourceKey string `json:"resource_key"`
 	// The canonical relative URI of the group.
-	Uri string `json:"uri"`
+	Uri  string            `json:"uri"`
 	User NullableGroupUser `json:"user,omitempty"`
 }
 
@@ -340,6 +340,7 @@ func (o *Group) HasUser() bool {
 func (o *Group) SetUser(v GroupUser) {
 	o.User.Set(&v)
 }
+
 // SetUserNil sets the value for User to be an explicit nil
 func (o *Group) SetUserNil() {
 	o.User.Set(nil)
@@ -351,7 +352,7 @@ func (o *Group) UnsetUser() {
 }
 
 func (o Group) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -411,5 +412,3 @@ func (v *NullableGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

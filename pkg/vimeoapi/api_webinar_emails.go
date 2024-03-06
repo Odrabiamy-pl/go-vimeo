@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type WebinarEmailsAPI interface {
 
 	/*
-	GetWebinarEmailSettings Get customization email data for a webinar
+		GetWebinarEmailSettings Get customization email data for a webinar
 
-	This method returns customized email data for the specified webinar. The authenticated user must have administrative access to the webinar.
+		This method returns customized email data for the specified webinar. The authenticated user must have administrative access to the webinar.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param webinarId The ID of the webinar.
-	@return ApiGetWebinarEmailSettingsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param webinarId The ID of the webinar.
+		@return ApiGetWebinarEmailSettingsRequest
 	*/
 	GetWebinarEmailSettings(ctx context.Context, userId int32, webinarId string) ApiGetWebinarEmailSettingsRequest
 
@@ -39,13 +38,13 @@ type WebinarEmailsAPI interface {
 	GetWebinarEmailSettingsExecute(r ApiGetWebinarEmailSettingsRequest) (*WebinarEmailSettings, *http.Response, error)
 
 	/*
-	GetWebinarEmailSettingsAlt1 Get customization email data for a webinar
+		GetWebinarEmailSettingsAlt1 Get customization email data for a webinar
 
-	This method returns customized email data for the specified webinar. The authenticated user must have administrative access to the webinar.
+		This method returns customized email data for the specified webinar. The authenticated user must have administrative access to the webinar.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param webinarId The ID of the webinar.
-	@return ApiGetWebinarEmailSettingsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param webinarId The ID of the webinar.
+		@return ApiGetWebinarEmailSettingsAlt1Request
 	*/
 	GetWebinarEmailSettingsAlt1(ctx context.Context, webinarId string) ApiGetWebinarEmailSettingsAlt1Request
 
@@ -54,14 +53,14 @@ type WebinarEmailsAPI interface {
 	GetWebinarEmailSettingsAlt1Execute(r ApiGetWebinarEmailSettingsAlt1Request) (*WebinarEmailSettings, *http.Response, error)
 
 	/*
-	UpdateWebinarEmailSettings Customize the email preferences of a webinar
+		UpdateWebinarEmailSettings Customize the email preferences of a webinar
 
-	This method causes the authenticated user to customize the email preferences of the specified webinar. The user must have administrative access to the webinar.
+		This method causes the authenticated user to customize the email preferences of the specified webinar. The user must have administrative access to the webinar.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param webinarId The ID of the webinar.
-	@return ApiUpdateWebinarEmailSettingsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param webinarId The ID of the webinar.
+		@return ApiUpdateWebinarEmailSettingsRequest
 	*/
 	UpdateWebinarEmailSettings(ctx context.Context, userId int32, webinarId string) ApiUpdateWebinarEmailSettingsRequest
 
@@ -70,13 +69,13 @@ type WebinarEmailsAPI interface {
 	UpdateWebinarEmailSettingsExecute(r ApiUpdateWebinarEmailSettingsRequest) (*WebinarEmailSettings, *http.Response, error)
 
 	/*
-	UpdateWebinarEmailSettingsAlt1 Customize the email preferences of a webinar
+		UpdateWebinarEmailSettingsAlt1 Customize the email preferences of a webinar
 
-	This method causes the authenticated user to customize the email preferences of the specified webinar. The user must have administrative access to the webinar.
+		This method causes the authenticated user to customize the email preferences of the specified webinar. The user must have administrative access to the webinar.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param webinarId The ID of the webinar.
-	@return ApiUpdateWebinarEmailSettingsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param webinarId The ID of the webinar.
+		@return ApiUpdateWebinarEmailSettingsAlt1Request
 	*/
 	UpdateWebinarEmailSettingsAlt1(ctx context.Context, webinarId string) ApiUpdateWebinarEmailSettingsAlt1Request
 
@@ -89,10 +88,10 @@ type WebinarEmailsAPI interface {
 type WebinarEmailsAPIService service
 
 type ApiGetWebinarEmailSettingsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WebinarEmailsAPI
-	userId int32
-	webinarId string
+	userId     int32
+	webinarId  string
 }
 
 func (r ApiGetWebinarEmailSettingsRequest) Execute() (*WebinarEmailSettings, *http.Response, error) {
@@ -104,28 +103,29 @@ GetWebinarEmailSettings Get customization email data for a webinar
 
 This method returns customized email data for the specified webinar. The authenticated user must have administrative access to the webinar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param webinarId The ID of the webinar.
- @return ApiGetWebinarEmailSettingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param webinarId The ID of the webinar.
+	@return ApiGetWebinarEmailSettingsRequest
 */
 func (a *WebinarEmailsAPIService) GetWebinarEmailSettings(ctx context.Context, userId int32, webinarId string) ApiGetWebinarEmailSettingsRequest {
 	return ApiGetWebinarEmailSettingsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		webinarId: webinarId,
+		ctx:        ctx,
+		userId:     userId,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return WebinarEmailSettings
+//
+//	@return WebinarEmailSettings
 func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsExecute(r ApiGetWebinarEmailSettingsRequest) (*WebinarEmailSettings, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WebinarEmailSettings
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WebinarEmailSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEmailsAPIService.GetWebinarEmailSettings")
@@ -187,8 +187,8 @@ func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsExecute(r ApiGetWebinar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -198,8 +198,8 @@ func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsExecute(r ApiGetWebinar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -217,9 +217,9 @@ func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsExecute(r ApiGetWebinar
 }
 
 type ApiGetWebinarEmailSettingsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WebinarEmailsAPI
-	webinarId string
+	webinarId  string
 }
 
 func (r ApiGetWebinarEmailSettingsAlt1Request) Execute() (*WebinarEmailSettings, *http.Response, error) {
@@ -231,26 +231,27 @@ GetWebinarEmailSettingsAlt1 Get customization email data for a webinar
 
 This method returns customized email data for the specified webinar. The authenticated user must have administrative access to the webinar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param webinarId The ID of the webinar.
- @return ApiGetWebinarEmailSettingsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param webinarId The ID of the webinar.
+	@return ApiGetWebinarEmailSettingsAlt1Request
 */
 func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsAlt1(ctx context.Context, webinarId string) ApiGetWebinarEmailSettingsAlt1Request {
 	return ApiGetWebinarEmailSettingsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		webinarId: webinarId,
+		ctx:        ctx,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return WebinarEmailSettings
+//
+//	@return WebinarEmailSettings
 func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsAlt1Execute(r ApiGetWebinarEmailSettingsAlt1Request) (*WebinarEmailSettings, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WebinarEmailSettings
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WebinarEmailSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEmailsAPIService.GetWebinarEmailSettingsAlt1")
@@ -311,8 +312,8 @@ func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsAlt1Execute(r ApiGetWeb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -322,8 +323,8 @@ func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsAlt1Execute(r ApiGetWeb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -341,10 +342,10 @@ func (a *WebinarEmailsAPIService) GetWebinarEmailSettingsAlt1Execute(r ApiGetWeb
 }
 
 type ApiUpdateWebinarEmailSettingsRequest struct {
-	ctx context.Context
-	ApiService WebinarEmailsAPI
-	userId int32
-	webinarId string
+	ctx                                   context.Context
+	ApiService                            WebinarEmailsAPI
+	userId                                int32
+	webinarId                             string
 	updateWebinarEmailSettingsAlt1Request *UpdateWebinarEmailSettingsAlt1Request
 }
 
@@ -362,28 +363,29 @@ UpdateWebinarEmailSettings Customize the email preferences of a webinar
 
 This method causes the authenticated user to customize the email preferences of the specified webinar. The user must have administrative access to the webinar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param webinarId The ID of the webinar.
- @return ApiUpdateWebinarEmailSettingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param webinarId The ID of the webinar.
+	@return ApiUpdateWebinarEmailSettingsRequest
 */
 func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettings(ctx context.Context, userId int32, webinarId string) ApiUpdateWebinarEmailSettingsRequest {
 	return ApiUpdateWebinarEmailSettingsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		webinarId: webinarId,
+		ctx:        ctx,
+		userId:     userId,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return WebinarEmailSettings
+//
+//	@return WebinarEmailSettings
 func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettingsExecute(r ApiUpdateWebinarEmailSettingsRequest) (*WebinarEmailSettings, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WebinarEmailSettings
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WebinarEmailSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEmailsAPIService.UpdateWebinarEmailSettings")
@@ -447,8 +449,8 @@ func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettingsExecute(r ApiUpdateW
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -458,8 +460,8 @@ func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettingsExecute(r ApiUpdateW
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -477,9 +479,9 @@ func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettingsExecute(r ApiUpdateW
 }
 
 type ApiUpdateWebinarEmailSettingsAlt1Request struct {
-	ctx context.Context
-	ApiService WebinarEmailsAPI
-	webinarId string
+	ctx                                   context.Context
+	ApiService                            WebinarEmailsAPI
+	webinarId                             string
 	updateWebinarEmailSettingsAlt1Request *UpdateWebinarEmailSettingsAlt1Request
 }
 
@@ -497,26 +499,27 @@ UpdateWebinarEmailSettingsAlt1 Customize the email preferences of a webinar
 
 This method causes the authenticated user to customize the email preferences of the specified webinar. The user must have administrative access to the webinar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param webinarId The ID of the webinar.
- @return ApiUpdateWebinarEmailSettingsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param webinarId The ID of the webinar.
+	@return ApiUpdateWebinarEmailSettingsAlt1Request
 */
 func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettingsAlt1(ctx context.Context, webinarId string) ApiUpdateWebinarEmailSettingsAlt1Request {
 	return ApiUpdateWebinarEmailSettingsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		webinarId: webinarId,
+		ctx:        ctx,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return WebinarEmailSettings
+//
+//	@return WebinarEmailSettings
 func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettingsAlt1Execute(r ApiUpdateWebinarEmailSettingsAlt1Request) (*WebinarEmailSettings, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WebinarEmailSettings
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WebinarEmailSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEmailsAPIService.UpdateWebinarEmailSettingsAlt1")
@@ -579,8 +582,8 @@ func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettingsAlt1Execute(r ApiUpd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -590,8 +593,8 @@ func (a *WebinarEmailsAPIService) UpdateWebinarEmailSettingsAlt1Execute(r ApiUpd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

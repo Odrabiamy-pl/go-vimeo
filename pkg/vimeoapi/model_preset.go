@@ -21,10 +21,10 @@ var _ MappedNullable = &Preset{}
 type Preset struct {
 	Metadata PresetMetadata `json:"metadata"`
 	// The display name of the preset group.
-	Name string `json:"name"`
+	Name     string         `json:"name"`
 	Settings PresetSettings `json:"settings"`
 	// The canonical relative URI of the preset object.
-	Uri string `json:"uri"`
+	Uri  string             `json:"uri"`
 	User NullablePresetUser `json:"user"`
 }
 
@@ -173,7 +173,7 @@ func (o *Preset) SetUser(v PresetUser) {
 }
 
 func (o Preset) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -225,5 +225,3 @@ func (v *NullablePreset) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

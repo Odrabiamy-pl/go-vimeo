@@ -23,7 +23,7 @@ type ChannelMetadataInteractionsFollow struct {
 	Added bool `json:"added"`
 	// The time in ISO 8601 format that the user followed this channel, or the null value if the user hasn't followed the channel. This data requires a bearer token with the `private` scope.
 	AddedTime NullableString `json:"added_time"`
-	// Whether the authenticated user is a moderator or subscriber. This data requires a bearer token with the `private` scope.  Option descriptions:  * `moderator` - The authenticated user is a moderator.  * `subscriber` - The authenticated user is a subscriber. 
+	// Whether the authenticated user is a moderator or subscriber. This data requires a bearer token with the `private` scope.  Option descriptions:  * `moderator` - The authenticated user is a moderator.  * `subscriber` - The authenticated user is a subscriber.
 	Type NullableString `json:"type"`
 	// The URI for following or unfollowing this channel. PUT to this URI to follow the channel, or DELETE to this URI to unfollow the channel. This data requires a bearer token with the `private` scope.
 	Uri string `json:"uri"`
@@ -151,7 +151,7 @@ func (o *ChannelMetadataInteractionsFollow) SetUri(v string) {
 }
 
 func (o ChannelMetadataInteractionsFollow) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -202,5 +202,3 @@ func (v *NullableChannelMetadataInteractionsFollow) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

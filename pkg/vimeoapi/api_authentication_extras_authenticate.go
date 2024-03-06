@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 type AuthenticationExtrasAuthenticateAPI interface {
 
 	/*
-	ClientAuth Authorize a client with OAuth
+		ClientAuth Authorize a client with OAuth
 
-	This method uses the OAuth protocol to authorize a client. For details on OAuth client authorization, see our [Working with Authentication](/api/authentication) guide or the [OAuth spec](https://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).
+		This method uses the OAuth protocol to authorize a client. For details on OAuth client authorization, see our [Working with Authentication](/api/authentication) guide or the [OAuth spec](https://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiClientAuthRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiClientAuthRequest
 	*/
 	ClientAuth(ctx context.Context) ApiClientAuthRequest
 
@@ -40,8 +39,8 @@ type AuthenticationExtrasAuthenticateAPI interface {
 type AuthenticationExtrasAuthenticateAPIService service
 
 type ApiClientAuthRequest struct {
-	ctx context.Context
-	ApiService AuthenticationExtrasAuthenticateAPI
+	ctx               context.Context
+	ApiService        AuthenticationExtrasAuthenticateAPI
 	clientAuthRequest *ClientAuthRequest
 }
 
@@ -59,24 +58,25 @@ ClientAuth Authorize a client with OAuth
 
 This method uses the OAuth protocol to authorize a client. For details on OAuth client authorization, see our [Working with Authentication](/api/authentication) guide or the [OAuth spec](https://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiClientAuthRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiClientAuthRequest
 */
 func (a *AuthenticationExtrasAuthenticateAPIService) ClientAuth(ctx context.Context) ApiClientAuthRequest {
 	return ApiClientAuthRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Auth
+//
+//	@return Auth
 func (a *AuthenticationExtrasAuthenticateAPIService) ClientAuthExecute(r ApiClientAuthRequest) (*Auth, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Auth
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Auth
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationExtrasAuthenticateAPIService.ClientAuth")
@@ -141,8 +141,8 @@ func (a *AuthenticationExtrasAuthenticateAPIService) ClientAuthExecute(r ApiClie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

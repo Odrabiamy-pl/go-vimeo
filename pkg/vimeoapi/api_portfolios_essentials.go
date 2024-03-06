@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type PortfoliosEssentialsAPI interface {
 
 	/*
-	GetPortfolio Get a specific portfolio
+		GetPortfolio Get a specific portfolio
 
-	This method returns a single portfolio belonging to the authenticated user.
+		This method returns a single portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@param userId The ID of the user.
-	@return ApiGetPortfolioRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@param userId The ID of the user.
+		@return ApiGetPortfolioRequest
 	*/
 	GetPortfolio(ctx context.Context, portfolioId float32, userId int32) ApiGetPortfolioRequest
 
@@ -39,13 +38,13 @@ type PortfoliosEssentialsAPI interface {
 	GetPortfolioExecute(r ApiGetPortfolioRequest) (*Portfolio, *http.Response, error)
 
 	/*
-	GetPortfolioAlt1 Get a specific portfolio
+		GetPortfolioAlt1 Get a specific portfolio
 
-	This method returns a single portfolio belonging to the authenticated user.
+		This method returns a single portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portfolioId The ID of the portfolio.
-	@return ApiGetPortfolioAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param portfolioId The ID of the portfolio.
+		@return ApiGetPortfolioAlt1Request
 	*/
 	GetPortfolioAlt1(ctx context.Context, portfolioId float32) ApiGetPortfolioAlt1Request
 
@@ -54,13 +53,13 @@ type PortfoliosEssentialsAPI interface {
 	GetPortfolioAlt1Execute(r ApiGetPortfolioAlt1Request) (*Portfolio, *http.Response, error)
 
 	/*
-	GetPortfolios Get all the portfolios that belong to the user
+		GetPortfolios Get all the portfolios that belong to the user
 
-	This method returns every portfolio belonging to the authenticated user.
+		This method returns every portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetPortfoliosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetPortfoliosRequest
 	*/
 	GetPortfolios(ctx context.Context, userId int32) ApiGetPortfoliosRequest
 
@@ -69,12 +68,12 @@ type PortfoliosEssentialsAPI interface {
 	GetPortfoliosExecute(r ApiGetPortfoliosRequest) ([]Portfolio, *http.Response, error)
 
 	/*
-	GetPortfoliosAlt1 Get all the portfolios that belong to the user
+		GetPortfoliosAlt1 Get all the portfolios that belong to the user
 
-	This method returns every portfolio belonging to the authenticated user.
+		This method returns every portfolio belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPortfoliosAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetPortfoliosAlt1Request
 	*/
 	GetPortfoliosAlt1(ctx context.Context) ApiGetPortfoliosAlt1Request
 
@@ -87,10 +86,10 @@ type PortfoliosEssentialsAPI interface {
 type PortfoliosEssentialsAPIService service
 
 type ApiGetPortfolioRequest struct {
-	ctx context.Context
-	ApiService PortfoliosEssentialsAPI
+	ctx         context.Context
+	ApiService  PortfoliosEssentialsAPI
 	portfolioId float32
-	userId int32
+	userId      int32
 }
 
 func (r ApiGetPortfolioRequest) Execute() (*Portfolio, *http.Response, error) {
@@ -102,28 +101,29 @@ GetPortfolio Get a specific portfolio
 
 This method returns a single portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @param userId The ID of the user.
- @return ApiGetPortfolioRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@param userId The ID of the user.
+	@return ApiGetPortfolioRequest
 */
 func (a *PortfoliosEssentialsAPIService) GetPortfolio(ctx context.Context, portfolioId float32, userId int32) ApiGetPortfolioRequest {
 	return ApiGetPortfolioRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
-		userId: userId,
+		userId:      userId,
 	}
 }
 
 // Execute executes the request
-//  @return Portfolio
+//
+//	@return Portfolio
 func (a *PortfoliosEssentialsAPIService) GetPortfolioExecute(r ApiGetPortfolioRequest) (*Portfolio, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Portfolio
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Portfolio
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosEssentialsAPIService.GetPortfolio")
@@ -194,8 +194,8 @@ func (a *PortfoliosEssentialsAPIService) GetPortfolioExecute(r ApiGetPortfolioRe
 }
 
 type ApiGetPortfolioAlt1Request struct {
-	ctx context.Context
-	ApiService PortfoliosEssentialsAPI
+	ctx         context.Context
+	ApiService  PortfoliosEssentialsAPI
 	portfolioId float32
 }
 
@@ -208,26 +208,27 @@ GetPortfolioAlt1 Get a specific portfolio
 
 This method returns a single portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param portfolioId The ID of the portfolio.
- @return ApiGetPortfolioAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portfolioId The ID of the portfolio.
+	@return ApiGetPortfolioAlt1Request
 */
 func (a *PortfoliosEssentialsAPIService) GetPortfolioAlt1(ctx context.Context, portfolioId float32) ApiGetPortfolioAlt1Request {
 	return ApiGetPortfolioAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		portfolioId: portfolioId,
 	}
 }
 
 // Execute executes the request
-//  @return Portfolio
+//
+//	@return Portfolio
 func (a *PortfoliosEssentialsAPIService) GetPortfolioAlt1Execute(r ApiGetPortfolioAlt1Request) (*Portfolio, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Portfolio
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Portfolio
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosEssentialsAPIService.GetPortfolioAlt1")
@@ -297,17 +298,17 @@ func (a *PortfoliosEssentialsAPIService) GetPortfolioAlt1Execute(r ApiGetPortfol
 }
 
 type ApiGetPortfoliosRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService PortfoliosEssentialsAPI
-	userId int32
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	userId     int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetPortfoliosRequest) Direction(direction string) ApiGetPortfoliosRequest {
 	r.direction = &direction
 	return r
@@ -331,7 +332,7 @@ func (r ApiGetPortfoliosRequest) Query(query string) ApiGetPortfoliosRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.
 func (r ApiGetPortfoliosRequest) Sort(sort string) ApiGetPortfoliosRequest {
 	r.sort = &sort
 	return r
@@ -346,26 +347,27 @@ GetPortfolios Get all the portfolios that belong to the user
 
 This method returns every portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetPortfoliosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetPortfoliosRequest
 */
 func (a *PortfoliosEssentialsAPIService) GetPortfolios(ctx context.Context, userId int32) ApiGetPortfoliosRequest {
 	return ApiGetPortfoliosRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Portfolio
+//
+//	@return []Portfolio
 func (a *PortfoliosEssentialsAPIService) GetPortfoliosExecute(r ApiGetPortfoliosRequest) ([]Portfolio, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Portfolio
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Portfolio
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosEssentialsAPIService.GetPortfolios")
@@ -450,16 +452,16 @@ func (a *PortfoliosEssentialsAPIService) GetPortfoliosExecute(r ApiGetPortfolios
 }
 
 type ApiGetPortfoliosAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService PortfoliosEssentialsAPI
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetPortfoliosAlt1Request) Direction(direction string) ApiGetPortfoliosAlt1Request {
 	r.direction = &direction
 	return r
@@ -483,7 +485,7 @@ func (r ApiGetPortfoliosAlt1Request) Query(query string) ApiGetPortfoliosAlt1Req
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.
 func (r ApiGetPortfoliosAlt1Request) Sort(sort string) ApiGetPortfoliosAlt1Request {
 	r.sort = &sort
 	return r
@@ -498,24 +500,25 @@ GetPortfoliosAlt1 Get all the portfolios that belong to the user
 
 This method returns every portfolio belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPortfoliosAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetPortfoliosAlt1Request
 */
 func (a *PortfoliosEssentialsAPIService) GetPortfoliosAlt1(ctx context.Context) ApiGetPortfoliosAlt1Request {
 	return ApiGetPortfoliosAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Portfolio
+//
+//	@return []Portfolio
 func (a *PortfoliosEssentialsAPIService) GetPortfoliosAlt1Execute(r ApiGetPortfoliosAlt1Request) ([]Portfolio, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Portfolio
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Portfolio
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfoliosEssentialsAPIService.GetPortfoliosAlt1")

@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type VideosTextTracksAPI interface {
 
 	/*
-	CreateTextTrack Add a text track to a video
+		CreateTextTrack Add a text track to a video
 
-	This method adds a text track to the specified video. For more information, see [Working with Text Track Uploads](https://developer.vimeo.com/api/upload/texttracks).
+		This method adds a text track to the specified video. For more information, see [Working with Text Track Uploads](https://developer.vimeo.com/api/upload/texttracks).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateTextTrackRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiCreateTextTrackRequest
 	*/
 	CreateTextTrack(ctx context.Context, videoId int32) ApiCreateTextTrackRequest
 
@@ -38,14 +37,14 @@ type VideosTextTracksAPI interface {
 	CreateTextTrackExecute(r ApiCreateTextTrackRequest) (*TextTrack, *http.Response, error)
 
 	/*
-	CreateTextTrackAlt1 Add a text track to a video
+		CreateTextTrackAlt1 Add a text track to a video
 
-	This method adds a text track to the specified video. For more information, see [Working with Text Track Uploads](https://developer.vimeo.com/api/upload/texttracks).
+		This method adds a text track to the specified video. For more information, see [Working with Text Track Uploads](https://developer.vimeo.com/api/upload/texttracks).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiCreateTextTrackAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiCreateTextTrackAlt1Request
 	*/
 	CreateTextTrackAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateTextTrackAlt1Request
 
@@ -54,14 +53,14 @@ type VideosTextTracksAPI interface {
 	CreateTextTrackAlt1Execute(r ApiCreateTextTrackAlt1Request) (*TextTrack, *http.Response, error)
 
 	/*
-	DeleteTextTrack Delete a text track
+		DeleteTextTrack Delete a text track
 
-	This method deletes the specified text track from a video. The authenticated user must be the owner of the video.
+		This method deletes the specified text track from a video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param texttrackId The ID of the text track.
-	@param videoId The ID of the video.
-	@return ApiDeleteTextTrackRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param texttrackId The ID of the text track.
+		@param videoId The ID of the video.
+		@return ApiDeleteTextTrackRequest
 	*/
 	DeleteTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiDeleteTextTrackRequest
 
@@ -69,14 +68,14 @@ type VideosTextTracksAPI interface {
 	DeleteTextTrackExecute(r ApiDeleteTextTrackRequest) (*http.Response, error)
 
 	/*
-	EditTextTrack Edit a text track
+		EditTextTrack Edit a text track
 
-	This method edits the specified text track of a video. The authenticated user must be the owner of the video.
+		This method edits the specified text track of a video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param texttrackId The ID of the text track.
-	@param videoId The ID of the video.
-	@return ApiEditTextTrackRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param texttrackId The ID of the text track.
+		@param videoId The ID of the video.
+		@return ApiEditTextTrackRequest
 	*/
 	EditTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiEditTextTrackRequest
 
@@ -85,14 +84,14 @@ type VideosTextTracksAPI interface {
 	EditTextTrackExecute(r ApiEditTextTrackRequest) (*TextTrack, *http.Response, error)
 
 	/*
-	GetTextTrack Get a specific text track
+		GetTextTrack Get a specific text track
 
-	This method returns a single text track of the specified video. The authenticated user must be the owner of the video.
+		This method returns a single text track of the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param texttrackId The ID of the text track.
-	@param videoId The ID of the video.
-	@return ApiGetTextTrackRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param texttrackId The ID of the text track.
+		@param videoId The ID of the video.
+		@return ApiGetTextTrackRequest
 	*/
 	GetTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiGetTextTrackRequest
 
@@ -101,13 +100,13 @@ type VideosTextTracksAPI interface {
 	GetTextTrackExecute(r ApiGetTextTrackRequest) (*TextTrack, *http.Response, error)
 
 	/*
-	GetTextTracks Get all the text tracks of a video
+		GetTextTracks Get all the text tracks of a video
 
-	This method returns every text track of the specified video. The authenticated user must be the owner of the video.
+		This method returns every text track of the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetTextTracksRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetTextTracksRequest
 	*/
 	GetTextTracks(ctx context.Context, videoId int32) ApiGetTextTracksRequest
 
@@ -116,14 +115,14 @@ type VideosTextTracksAPI interface {
 	GetTextTracksExecute(r ApiGetTextTracksRequest) ([]TextTrack, *http.Response, error)
 
 	/*
-	GetTextTracksAlt1 Get all the text tracks of a video
+		GetTextTracksAlt1 Get all the text tracks of a video
 
-	This method returns every text track of the specified video. The authenticated user must be the owner of the video.
+		This method returns every text track of the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiGetTextTracksAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiGetTextTracksAlt1Request
 	*/
 	GetTextTracksAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetTextTracksAlt1Request
 
@@ -136,9 +135,9 @@ type VideosTextTracksAPI interface {
 type VideosTextTracksAPIService service
 
 type ApiCreateTextTrackRequest struct {
-	ctx context.Context
-	ApiService VideosTextTracksAPI
-	videoId int32
+	ctx                        context.Context
+	ApiService                 VideosTextTracksAPI
+	videoId                    int32
 	createTextTrackAlt1Request *CreateTextTrackAlt1Request
 }
 
@@ -156,26 +155,27 @@ CreateTextTrack Add a text track to a video
 
 This method adds a text track to the specified video. For more information, see [Working with Text Track Uploads](https://developer.vimeo.com/api/upload/texttracks).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiCreateTextTrackRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateTextTrackRequest
 */
 func (a *VideosTextTracksAPIService) CreateTextTrack(ctx context.Context, videoId int32) ApiCreateTextTrackRequest {
 	return ApiCreateTextTrackRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return TextTrack
+//
+//	@return TextTrack
 func (a *VideosTextTracksAPIService) CreateTextTrackExecute(r ApiCreateTextTrackRequest) (*TextTrack, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TextTrack
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TextTrack
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTextTracksAPIService.CreateTextTrack")
@@ -241,8 +241,8 @@ func (a *VideosTextTracksAPIService) CreateTextTrackExecute(r ApiCreateTextTrack
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -260,10 +260,10 @@ func (a *VideosTextTracksAPIService) CreateTextTrackExecute(r ApiCreateTextTrack
 }
 
 type ApiCreateTextTrackAlt1Request struct {
-	ctx context.Context
-	ApiService VideosTextTracksAPI
-	channelId float32
-	videoId int32
+	ctx                        context.Context
+	ApiService                 VideosTextTracksAPI
+	channelId                  float32
+	videoId                    int32
 	createTextTrackAlt1Request *CreateTextTrackAlt1Request
 }
 
@@ -281,28 +281,29 @@ CreateTextTrackAlt1 Add a text track to a video
 
 This method adds a text track to the specified video. For more information, see [Working with Text Track Uploads](https://developer.vimeo.com/api/upload/texttracks).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiCreateTextTrackAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiCreateTextTrackAlt1Request
 */
 func (a *VideosTextTracksAPIService) CreateTextTrackAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateTextTrackAlt1Request {
 	return ApiCreateTextTrackAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return TextTrack
+//
+//	@return TextTrack
 func (a *VideosTextTracksAPIService) CreateTextTrackAlt1Execute(r ApiCreateTextTrackAlt1Request) (*TextTrack, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TextTrack
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TextTrack
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTextTracksAPIService.CreateTextTrackAlt1")
@@ -369,8 +370,8 @@ func (a *VideosTextTracksAPIService) CreateTextTrackAlt1Execute(r ApiCreateTextT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -388,10 +389,10 @@ func (a *VideosTextTracksAPIService) CreateTextTrackAlt1Execute(r ApiCreateTextT
 }
 
 type ApiDeleteTextTrackRequest struct {
-	ctx context.Context
-	ApiService VideosTextTracksAPI
+	ctx         context.Context
+	ApiService  VideosTextTracksAPI
 	texttrackId float32
-	videoId int32
+	videoId     int32
 }
 
 func (r ApiDeleteTextTrackRequest) Execute() (*http.Response, error) {
@@ -403,26 +404,26 @@ DeleteTextTrack Delete a text track
 
 This method deletes the specified text track from a video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param texttrackId The ID of the text track.
- @param videoId The ID of the video.
- @return ApiDeleteTextTrackRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param texttrackId The ID of the text track.
+	@param videoId The ID of the video.
+	@return ApiDeleteTextTrackRequest
 */
 func (a *VideosTextTracksAPIService) DeleteTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiDeleteTextTrackRequest {
 	return ApiDeleteTextTrackRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		texttrackId: texttrackId,
-		videoId: videoId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosTextTracksAPIService) DeleteTextTrackExecute(r ApiDeleteTextTrackRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTextTracksAPIService.DeleteTextTrack")
@@ -477,17 +478,6 @@ func (a *VideosTextTracksAPIService) DeleteTextTrackExecute(r ApiDeleteTextTrack
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -495,8 +485,19 @@ func (a *VideosTextTracksAPIService) DeleteTextTrackExecute(r ApiDeleteTextTrack
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -505,10 +506,10 @@ func (a *VideosTextTracksAPIService) DeleteTextTrackExecute(r ApiDeleteTextTrack
 }
 
 type ApiEditTextTrackRequest struct {
-	ctx context.Context
-	ApiService VideosTextTracksAPI
-	texttrackId float32
-	videoId int32
+	ctx                  context.Context
+	ApiService           VideosTextTracksAPI
+	texttrackId          float32
+	videoId              int32
 	editTextTrackRequest *EditTextTrackRequest
 }
 
@@ -526,28 +527,29 @@ EditTextTrack Edit a text track
 
 This method edits the specified text track of a video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param texttrackId The ID of the text track.
- @param videoId The ID of the video.
- @return ApiEditTextTrackRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param texttrackId The ID of the text track.
+	@param videoId The ID of the video.
+	@return ApiEditTextTrackRequest
 */
 func (a *VideosTextTracksAPIService) EditTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiEditTextTrackRequest {
 	return ApiEditTextTrackRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		texttrackId: texttrackId,
-		videoId: videoId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
-//  @return TextTrack
+//
+//	@return TextTrack
 func (a *VideosTextTracksAPIService) EditTextTrackExecute(r ApiEditTextTrackRequest) (*TextTrack, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TextTrack
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TextTrack
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTextTracksAPIService.EditTextTrack")
@@ -604,17 +606,6 @@ func (a *VideosTextTracksAPIService) EditTextTrackExecute(r ApiEditTextTrackRequ
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -622,8 +613,19 @@ func (a *VideosTextTracksAPIService) EditTextTrackExecute(r ApiEditTextTrackRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -641,10 +643,10 @@ func (a *VideosTextTracksAPIService) EditTextTrackExecute(r ApiEditTextTrackRequ
 }
 
 type ApiGetTextTrackRequest struct {
-	ctx context.Context
-	ApiService VideosTextTracksAPI
+	ctx         context.Context
+	ApiService  VideosTextTracksAPI
 	texttrackId float32
-	videoId int32
+	videoId     int32
 }
 
 func (r ApiGetTextTrackRequest) Execute() (*TextTrack, *http.Response, error) {
@@ -656,28 +658,29 @@ GetTextTrack Get a specific text track
 
 This method returns a single text track of the specified video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param texttrackId The ID of the text track.
- @param videoId The ID of the video.
- @return ApiGetTextTrackRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param texttrackId The ID of the text track.
+	@param videoId The ID of the video.
+	@return ApiGetTextTrackRequest
 */
 func (a *VideosTextTracksAPIService) GetTextTrack(ctx context.Context, texttrackId float32, videoId int32) ApiGetTextTrackRequest {
 	return ApiGetTextTrackRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		texttrackId: texttrackId,
-		videoId: videoId,
+		videoId:     videoId,
 	}
 }
 
 // Execute executes the request
-//  @return TextTrack
+//
+//	@return TextTrack
 func (a *VideosTextTracksAPIService) GetTextTrackExecute(r ApiGetTextTrackRequest) (*TextTrack, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TextTrack
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TextTrack
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTextTracksAPIService.GetTextTrack")
@@ -732,17 +735,6 @@ func (a *VideosTextTracksAPIService) GetTextTrackExecute(r ApiGetTextTrackReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -750,8 +742,19 @@ func (a *VideosTextTracksAPIService) GetTextTrackExecute(r ApiGetTextTrackReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -769,11 +772,11 @@ func (a *VideosTextTracksAPIService) GetTextTrackExecute(r ApiGetTextTrackReques
 }
 
 type ApiGetTextTracksRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosTextTracksAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -797,26 +800,27 @@ GetTextTracks Get all the text tracks of a video
 
 This method returns every text track of the specified video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetTextTracksRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetTextTracksRequest
 */
 func (a *VideosTextTracksAPIService) GetTextTracks(ctx context.Context, videoId int32) ApiGetTextTracksRequest {
 	return ApiGetTextTracksRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []TextTrack
+//
+//	@return []TextTrack
 func (a *VideosTextTracksAPIService) GetTextTracksExecute(r ApiGetTextTracksRequest) ([]TextTrack, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []TextTrack
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []TextTrack
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTextTracksAPIService.GetTextTracks")
@@ -883,8 +887,8 @@ func (a *VideosTextTracksAPIService) GetTextTracksExecute(r ApiGetTextTracksRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -902,12 +906,12 @@ func (a *VideosTextTracksAPIService) GetTextTracksExecute(r ApiGetTextTracksRequ
 }
 
 type ApiGetTextTracksAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosTextTracksAPI
-	channelId float32
-	videoId int32
-	page *float32
-	perPage *float32
+	channelId  float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -931,28 +935,29 @@ GetTextTracksAlt1 Get all the text tracks of a video
 
 This method returns every text track of the specified video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiGetTextTracksAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiGetTextTracksAlt1Request
 */
 func (a *VideosTextTracksAPIService) GetTextTracksAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetTextTracksAlt1Request {
 	return ApiGetTextTracksAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []TextTrack
+//
+//	@return []TextTrack
 func (a *VideosTextTracksAPIService) GetTextTracksAlt1Execute(r ApiGetTextTracksAlt1Request) ([]TextTrack, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []TextTrack
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []TextTrack
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTextTracksAPIService.GetTextTracksAlt1")
@@ -1020,8 +1025,8 @@ func (a *VideosTextTracksAPIService) GetTextTracksAlt1Execute(r ApiGetTextTracks
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

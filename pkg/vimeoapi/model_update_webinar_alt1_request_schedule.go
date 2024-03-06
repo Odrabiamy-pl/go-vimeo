@@ -25,7 +25,7 @@ type UpdateWebinarAlt1RequestSchedule struct {
 	EndTime *string `json:"end_time,omitempty"`
 	// The time in ISO 8601 format when the webinar is expected to be live, with support for different time offsets. This parameter is required when **schedule.type** is `single`.
 	StartTime *string `json:"start_time,omitempty"`
-	// How often the webinar is expected to be live.  Option descriptions:  * `single` - The webinar is live one time only.  * `weekly` - The webinar is live on a weekly basis. _This field is deprecated._ 
+	// How often the webinar is expected to be live.  Option descriptions:  * `single` - The webinar is live one time only.  * `weekly` - The webinar is live on a weekly basis. _This field is deprecated._
 	Type *string `json:"type,omitempty"`
 	// A non-empty array of weekdays on which the webinar is expected to be live. Weekdays can range from 1 to 7, where 1 is Monday and 7 is Sunday. This parameter is required when **schedule.type** is `weekly`. _This field is deprecated._
 	Weekdays []string `json:"weekdays,omitempty"`
@@ -209,7 +209,7 @@ func (o *UpdateWebinarAlt1RequestSchedule) SetWeekdays(v []string) {
 }
 
 func (o UpdateWebinarAlt1RequestSchedule) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableUpdateWebinarAlt1RequestSchedule) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

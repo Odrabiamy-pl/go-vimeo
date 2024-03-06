@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type UsersFollowersAPI interface {
 
 	/*
-	CheckIfUserIsFollowing Check if the user is following another user
+		CheckIfUserIsFollowing Check if the user is following another user
 
-	This method determines whether the authenticated user is a follower of the specified user.
+		This method determines whether the authenticated user is a follower of the specified user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param followUserId The ID of the user to follow.
-	@param userId The ID of the user.
-	@return ApiCheckIfUserIsFollowingRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param followUserId The ID of the user to follow.
+		@param userId The ID of the user.
+		@return ApiCheckIfUserIsFollowingRequest
 	*/
 	CheckIfUserIsFollowing(ctx context.Context, followUserId float32, userId int32) ApiCheckIfUserIsFollowingRequest
 
@@ -38,13 +37,13 @@ type UsersFollowersAPI interface {
 	CheckIfUserIsFollowingExecute(r ApiCheckIfUserIsFollowingRequest) (*http.Response, error)
 
 	/*
-	CheckIfUserIsFollowingAlt1 Check if the user is following another user
+		CheckIfUserIsFollowingAlt1 Check if the user is following another user
 
-	This method determines whether the authenticated user is a follower of the specified user.
+		This method determines whether the authenticated user is a follower of the specified user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param followUserId The ID of the user to follow.
-	@return ApiCheckIfUserIsFollowingAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param followUserId The ID of the user to follow.
+		@return ApiCheckIfUserIsFollowingAlt1Request
 	*/
 	CheckIfUserIsFollowingAlt1(ctx context.Context, followUserId float32) ApiCheckIfUserIsFollowingAlt1Request
 
@@ -52,14 +51,14 @@ type UsersFollowersAPI interface {
 	CheckIfUserIsFollowingAlt1Execute(r ApiCheckIfUserIsFollowingAlt1Request) (*http.Response, error)
 
 	/*
-	FollowUser Follow a specific user
+		FollowUser Follow a specific user
 
-	This method causes the authenticated user to become the follower of the specified user.
+		This method causes the authenticated user to become the follower of the specified user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param followUserId The ID of the user to follow.
-	@param userId The ID of the user.
-	@return ApiFollowUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param followUserId The ID of the user to follow.
+		@param userId The ID of the user.
+		@return ApiFollowUserRequest
 	*/
 	FollowUser(ctx context.Context, followUserId float32, userId int32) ApiFollowUserRequest
 
@@ -67,13 +66,13 @@ type UsersFollowersAPI interface {
 	FollowUserExecute(r ApiFollowUserRequest) (*http.Response, error)
 
 	/*
-	FollowUserAlt1 Follow a specific user
+		FollowUserAlt1 Follow a specific user
 
-	This method causes the authenticated user to become the follower of the specified user.
+		This method causes the authenticated user to become the follower of the specified user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param followUserId The ID of the user to follow.
-	@return ApiFollowUserAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param followUserId The ID of the user to follow.
+		@return ApiFollowUserAlt1Request
 	*/
 	FollowUserAlt1(ctx context.Context, followUserId float32) ApiFollowUserAlt1Request
 
@@ -81,24 +80,24 @@ type UsersFollowersAPI interface {
 	FollowUserAlt1Execute(r ApiFollowUserAlt1Request) (*http.Response, error)
 
 	/*
-	FollowUsers Follow a list of users
+			FollowUsers Follow a list of users
 
-	This method causes the authenticated user to become a follower of multiple users. In the body of the request, specify the list of users to follow as
-an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are the user IDs of the users in question:
+			This method causes the authenticated user to become a follower of multiple users. In the body of the request, specify the list of users to follow as
+		an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are the user IDs of the users in question:
 
-```
-{
- [
-     {"uri" : "/users/{user01_id}"},
-     {"uri" : "/users/{user02_id}"},
-     {"uri" : "/users/{user03_id}"}
- ]
-}
-```
+		```
+		{
+		 [
+		     {"uri" : "/users/{user01_id}"},
+		     {"uri" : "/users/{user02_id}"},
+		     {"uri" : "/users/{user03_id}"}
+		 ]
+		}
+		```
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiFollowUsersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param userId The ID of the user.
+			@return ApiFollowUsersRequest
 	*/
 	FollowUsers(ctx context.Context, userId int32) ApiFollowUsersRequest
 
@@ -106,23 +105,23 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	FollowUsersExecute(r ApiFollowUsersRequest) (*http.Response, error)
 
 	/*
-	FollowUsersAlt1 Follow a list of users
+			FollowUsersAlt1 Follow a list of users
 
-	This method causes the authenticated user to become a follower of multiple users. In the body of the request, specify the list of users to follow as
-an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are the user IDs of the users in question:
+			This method causes the authenticated user to become a follower of multiple users. In the body of the request, specify the list of users to follow as
+		an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are the user IDs of the users in question:
 
-```
-{
- [
-     {"uri" : "/users/{user01_id}"},
-     {"uri" : "/users/{user02_id}"},
-     {"uri" : "/users/{user03_id}"}
- ]
-}
-```
+		```
+		{
+		 [
+		     {"uri" : "/users/{user01_id}"},
+		     {"uri" : "/users/{user02_id}"},
+		     {"uri" : "/users/{user03_id}"}
+		 ]
+		}
+		```
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiFollowUsersAlt1Request
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiFollowUsersAlt1Request
 	*/
 	FollowUsersAlt1(ctx context.Context) ApiFollowUsersAlt1Request
 
@@ -130,13 +129,13 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	FollowUsersAlt1Execute(r ApiFollowUsersAlt1Request) (*http.Response, error)
 
 	/*
-	GetFollowers Get all the followers of the user
+		GetFollowers Get all the followers of the user
 
-	This method returns every follower of the authenticated user.
+		This method returns every follower of the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetFollowersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetFollowersRequest
 	*/
 	GetFollowers(ctx context.Context, userId int32) ApiGetFollowersRequest
 
@@ -145,12 +144,12 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	GetFollowersExecute(r ApiGetFollowersRequest) ([]User, *http.Response, error)
 
 	/*
-	GetFollowersAlt1 Get all the followers of the user
+		GetFollowersAlt1 Get all the followers of the user
 
-	This method returns every follower of the authenticated user.
+		This method returns every follower of the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetFollowersAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetFollowersAlt1Request
 	*/
 	GetFollowersAlt1(ctx context.Context) ApiGetFollowersAlt1Request
 
@@ -159,13 +158,13 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	GetFollowersAlt1Execute(r ApiGetFollowersAlt1Request) ([]User, *http.Response, error)
 
 	/*
-	GetUserFollowing Get all the users that the user is following
+		GetUserFollowing Get all the users that the user is following
 
-	This method returns every user that the authenticated user is following.
+		This method returns every user that the authenticated user is following.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetUserFollowingRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetUserFollowingRequest
 	*/
 	GetUserFollowing(ctx context.Context, userId int32) ApiGetUserFollowingRequest
 
@@ -174,12 +173,12 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	GetUserFollowingExecute(r ApiGetUserFollowingRequest) ([]User, *http.Response, error)
 
 	/*
-	GetUserFollowingAlt1 Get all the users that the user is following
+		GetUserFollowingAlt1 Get all the users that the user is following
 
-	This method returns every user that the authenticated user is following.
+		This method returns every user that the authenticated user is following.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserFollowingAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetUserFollowingAlt1Request
 	*/
 	GetUserFollowingAlt1(ctx context.Context) ApiGetUserFollowingAlt1Request
 
@@ -188,14 +187,14 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	GetUserFollowingAlt1Execute(r ApiGetUserFollowingAlt1Request) ([]User, *http.Response, error)
 
 	/*
-	UnfollowUser Unfollow a user
+		UnfollowUser Unfollow a user
 
-	This method causes the authenticated user to stop following another user.
+		This method causes the authenticated user to stop following another user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param followUserId The ID of the user to unfollow.
-	@param userId The ID of the user.
-	@return ApiUnfollowUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param followUserId The ID of the user to unfollow.
+		@param userId The ID of the user.
+		@return ApiUnfollowUserRequest
 	*/
 	UnfollowUser(ctx context.Context, followUserId float32, userId int32) ApiUnfollowUserRequest
 
@@ -203,13 +202,13 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 	UnfollowUserExecute(r ApiUnfollowUserRequest) (*http.Response, error)
 
 	/*
-	UnfollowUserAlt1 Unfollow a user
+		UnfollowUserAlt1 Unfollow a user
 
-	This method causes the authenticated user to stop following another user.
+		This method causes the authenticated user to stop following another user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param followUserId The ID of the user to unfollow.
-	@return ApiUnfollowUserAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param followUserId The ID of the user to unfollow.
+		@return ApiUnfollowUserAlt1Request
 	*/
 	UnfollowUserAlt1(ctx context.Context, followUserId float32) ApiUnfollowUserAlt1Request
 
@@ -221,10 +220,10 @@ an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are th
 type UsersFollowersAPIService service
 
 type ApiCheckIfUserIsFollowingRequest struct {
-	ctx context.Context
-	ApiService UsersFollowersAPI
+	ctx          context.Context
+	ApiService   UsersFollowersAPI
 	followUserId float32
-	userId int32
+	userId       int32
 }
 
 func (r ApiCheckIfUserIsFollowingRequest) Execute() (*http.Response, error) {
@@ -236,26 +235,26 @@ CheckIfUserIsFollowing Check if the user is following another user
 
 This method determines whether the authenticated user is a follower of the specified user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param followUserId The ID of the user to follow.
- @param userId The ID of the user.
- @return ApiCheckIfUserIsFollowingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param followUserId The ID of the user to follow.
+	@param userId The ID of the user.
+	@return ApiCheckIfUserIsFollowingRequest
 */
 func (a *UsersFollowersAPIService) CheckIfUserIsFollowing(ctx context.Context, followUserId float32, userId int32) ApiCheckIfUserIsFollowingRequest {
 	return ApiCheckIfUserIsFollowingRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		followUserId: followUserId,
-		userId: userId,
+		userId:       userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersFollowersAPIService) CheckIfUserIsFollowingExecute(r ApiCheckIfUserIsFollowingRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.CheckIfUserIsFollowing")
@@ -317,8 +316,8 @@ func (a *UsersFollowersAPIService) CheckIfUserIsFollowingExecute(r ApiCheckIfUse
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -327,8 +326,8 @@ func (a *UsersFollowersAPIService) CheckIfUserIsFollowingExecute(r ApiCheckIfUse
 }
 
 type ApiCheckIfUserIsFollowingAlt1Request struct {
-	ctx context.Context
-	ApiService UsersFollowersAPI
+	ctx          context.Context
+	ApiService   UsersFollowersAPI
 	followUserId float32
 }
 
@@ -341,14 +340,14 @@ CheckIfUserIsFollowingAlt1 Check if the user is following another user
 
 This method determines whether the authenticated user is a follower of the specified user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param followUserId The ID of the user to follow.
- @return ApiCheckIfUserIsFollowingAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param followUserId The ID of the user to follow.
+	@return ApiCheckIfUserIsFollowingAlt1Request
 */
 func (a *UsersFollowersAPIService) CheckIfUserIsFollowingAlt1(ctx context.Context, followUserId float32) ApiCheckIfUserIsFollowingAlt1Request {
 	return ApiCheckIfUserIsFollowingAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		followUserId: followUserId,
 	}
 }
@@ -356,9 +355,9 @@ func (a *UsersFollowersAPIService) CheckIfUserIsFollowingAlt1(ctx context.Contex
 // Execute executes the request
 func (a *UsersFollowersAPIService) CheckIfUserIsFollowingAlt1Execute(r ApiCheckIfUserIsFollowingAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.CheckIfUserIsFollowingAlt1")
@@ -419,8 +418,8 @@ func (a *UsersFollowersAPIService) CheckIfUserIsFollowingAlt1Execute(r ApiCheckI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -429,10 +428,10 @@ func (a *UsersFollowersAPIService) CheckIfUserIsFollowingAlt1Execute(r ApiCheckI
 }
 
 type ApiFollowUserRequest struct {
-	ctx context.Context
-	ApiService UsersFollowersAPI
+	ctx          context.Context
+	ApiService   UsersFollowersAPI
 	followUserId float32
-	userId int32
+	userId       int32
 }
 
 func (r ApiFollowUserRequest) Execute() (*http.Response, error) {
@@ -444,26 +443,26 @@ FollowUser Follow a specific user
 
 This method causes the authenticated user to become the follower of the specified user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param followUserId The ID of the user to follow.
- @param userId The ID of the user.
- @return ApiFollowUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param followUserId The ID of the user to follow.
+	@param userId The ID of the user.
+	@return ApiFollowUserRequest
 */
 func (a *UsersFollowersAPIService) FollowUser(ctx context.Context, followUserId float32, userId int32) ApiFollowUserRequest {
 	return ApiFollowUserRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		followUserId: followUserId,
-		userId: userId,
+		userId:       userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersFollowersAPIService) FollowUserExecute(r ApiFollowUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.FollowUser")
@@ -525,8 +524,8 @@ func (a *UsersFollowersAPIService) FollowUserExecute(r ApiFollowUserRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -535,8 +534,8 @@ func (a *UsersFollowersAPIService) FollowUserExecute(r ApiFollowUserRequest) (*h
 }
 
 type ApiFollowUserAlt1Request struct {
-	ctx context.Context
-	ApiService UsersFollowersAPI
+	ctx          context.Context
+	ApiService   UsersFollowersAPI
 	followUserId float32
 }
 
@@ -549,14 +548,14 @@ FollowUserAlt1 Follow a specific user
 
 This method causes the authenticated user to become the follower of the specified user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param followUserId The ID of the user to follow.
- @return ApiFollowUserAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param followUserId The ID of the user to follow.
+	@return ApiFollowUserAlt1Request
 */
 func (a *UsersFollowersAPIService) FollowUserAlt1(ctx context.Context, followUserId float32) ApiFollowUserAlt1Request {
 	return ApiFollowUserAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		followUserId: followUserId,
 	}
 }
@@ -564,9 +563,9 @@ func (a *UsersFollowersAPIService) FollowUserAlt1(ctx context.Context, followUse
 // Execute executes the request
 func (a *UsersFollowersAPIService) FollowUserAlt1Execute(r ApiFollowUserAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.FollowUserAlt1")
@@ -627,8 +626,8 @@ func (a *UsersFollowersAPIService) FollowUserAlt1Execute(r ApiFollowUserAlt1Requ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -637,9 +636,9 @@ func (a *UsersFollowersAPIService) FollowUserAlt1Execute(r ApiFollowUserAlt1Requ
 }
 
 type ApiFollowUsersRequest struct {
-	ctx context.Context
-	ApiService UsersFollowersAPI
-	userId int32
+	ctx                    context.Context
+	ApiService             UsersFollowersAPI
+	userId                 int32
 	followUsersAlt1Request *FollowUsersAlt1Request
 }
 
@@ -659,33 +658,35 @@ This method causes the authenticated user to become a follower of multiple users
 an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are the user IDs of the users in question:
 
 ```
-{
- [
-     {"uri" : "/users/{user01_id}"},
-     {"uri" : "/users/{user02_id}"},
-     {"uri" : "/users/{user03_id}"}
- ]
-}
+
+	{
+	 [
+	     {"uri" : "/users/{user01_id}"},
+	     {"uri" : "/users/{user02_id}"},
+	     {"uri" : "/users/{user03_id}"}
+	 ]
+	}
+
 ```
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiFollowUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiFollowUsersRequest
 */
 func (a *UsersFollowersAPIService) FollowUsers(ctx context.Context, userId int32) ApiFollowUsersRequest {
 	return ApiFollowUsersRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersFollowersAPIService) FollowUsersExecute(r ApiFollowUsersRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.FollowUsers")
@@ -744,6 +745,17 @@ func (a *UsersFollowersAPIService) FollowUsersExecute(r ApiFollowUsersRequest) (
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -751,8 +763,8 @@ func (a *UsersFollowersAPIService) FollowUsersExecute(r ApiFollowUsersRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -762,30 +774,8 @@ func (a *UsersFollowersAPIService) FollowUsersExecute(r ApiFollowUsersRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -795,8 +785,19 @@ func (a *UsersFollowersAPIService) FollowUsersExecute(r ApiFollowUsersRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -805,8 +806,8 @@ func (a *UsersFollowersAPIService) FollowUsersExecute(r ApiFollowUsersRequest) (
 }
 
 type ApiFollowUsersAlt1Request struct {
-	ctx context.Context
-	ApiService UsersFollowersAPI
+	ctx                    context.Context
+	ApiService             UsersFollowersAPI
 	followUsersAlt1Request *FollowUsersAlt1Request
 }
 
@@ -826,31 +827,33 @@ This method causes the authenticated user to become a follower of multiple users
 an array of URIs, where `user01_id`, `user02_id`, `user03_id`, and so on, are the user IDs of the users in question:
 
 ```
-{
- [
-     {"uri" : "/users/{user01_id}"},
-     {"uri" : "/users/{user02_id}"},
-     {"uri" : "/users/{user03_id}"}
- ]
-}
+
+	{
+	 [
+	     {"uri" : "/users/{user01_id}"},
+	     {"uri" : "/users/{user02_id}"},
+	     {"uri" : "/users/{user03_id}"}
+	 ]
+	}
+
 ```
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFollowUsersAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiFollowUsersAlt1Request
 */
 func (a *UsersFollowersAPIService) FollowUsersAlt1(ctx context.Context) ApiFollowUsersAlt1Request {
 	return ApiFollowUsersAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *UsersFollowersAPIService) FollowUsersAlt1Execute(r ApiFollowUsersAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.FollowUsersAlt1")
@@ -908,6 +911,17 @@ func (a *UsersFollowersAPIService) FollowUsersAlt1Execute(r ApiFollowUsersAlt1Re
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -915,8 +929,8 @@ func (a *UsersFollowersAPIService) FollowUsersAlt1Execute(r ApiFollowUsersAlt1Re
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -926,30 +940,8 @@ func (a *UsersFollowersAPIService) FollowUsersAlt1Execute(r ApiFollowUsersAlt1Re
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -959,8 +951,19 @@ func (a *UsersFollowersAPIService) FollowUsersAlt1Execute(r ApiFollowUsersAlt1Re
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -969,17 +972,17 @@ func (a *UsersFollowersAPIService) FollowUsersAlt1Execute(r ApiFollowUsersAlt1Re
 }
 
 type ApiGetFollowersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersFollowersAPI
-	userId int32
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	userId     int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetFollowersRequest) Direction(direction string) ApiGetFollowersRequest {
 	r.direction = &direction
 	return r
@@ -1003,7 +1006,7 @@ func (r ApiGetFollowersRequest) Query(query string) ApiGetFollowersRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed.
 func (r ApiGetFollowersRequest) Sort(sort string) ApiGetFollowersRequest {
 	r.sort = &sort
 	return r
@@ -1018,26 +1021,27 @@ GetFollowers Get all the followers of the user
 
 This method returns every follower of the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetFollowersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetFollowersRequest
 */
 func (a *UsersFollowersAPIService) GetFollowers(ctx context.Context, userId int32) ApiGetFollowersRequest {
 	return ApiGetFollowersRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *UsersFollowersAPIService) GetFollowersExecute(r ApiGetFollowersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.GetFollowers")
@@ -1122,16 +1126,16 @@ func (a *UsersFollowersAPIService) GetFollowersExecute(r ApiGetFollowersRequest)
 }
 
 type ApiGetFollowersAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersFollowersAPI
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetFollowersAlt1Request) Direction(direction string) ApiGetFollowersAlt1Request {
 	r.direction = &direction
 	return r
@@ -1155,7 +1159,7 @@ func (r ApiGetFollowersAlt1Request) Query(query string) ApiGetFollowersAlt1Reque
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed.
 func (r ApiGetFollowersAlt1Request) Sort(sort string) ApiGetFollowersAlt1Request {
 	r.sort = &sort
 	return r
@@ -1170,24 +1174,25 @@ GetFollowersAlt1 Get all the followers of the user
 
 This method returns every follower of the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFollowersAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFollowersAlt1Request
 */
 func (a *UsersFollowersAPIService) GetFollowersAlt1(ctx context.Context) ApiGetFollowersAlt1Request {
 	return ApiGetFollowersAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *UsersFollowersAPIService) GetFollowersAlt1Execute(r ApiGetFollowersAlt1Request) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.GetFollowersAlt1")
@@ -1271,24 +1276,24 @@ func (a *UsersFollowersAPIService) GetFollowersAlt1Execute(r ApiGetFollowersAlt1
 }
 
 type ApiGetUserFollowingRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersFollowersAPI
-	userId int32
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	userId     int32
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetUserFollowingRequest) Direction(direction string) ApiGetUserFollowingRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;online&#x60; - Return users who are currently online. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;online&#x60; - Return users who are currently online.
 func (r ApiGetUserFollowingRequest) Filter(filter string) ApiGetUserFollowingRequest {
 	r.filter = &filter
 	return r
@@ -1312,7 +1317,7 @@ func (r ApiGetUserFollowingRequest) Query(query string) ApiGetUserFollowingReque
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed.
 func (r ApiGetUserFollowingRequest) Sort(sort string) ApiGetUserFollowingRequest {
 	r.sort = &sort
 	return r
@@ -1327,26 +1332,27 @@ GetUserFollowing Get all the users that the user is following
 
 This method returns every user that the authenticated user is following.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetUserFollowingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetUserFollowingRequest
 */
 func (a *UsersFollowersAPIService) GetUserFollowing(ctx context.Context, userId int32) ApiGetUserFollowingRequest {
 	return ApiGetUserFollowingRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *UsersFollowersAPIService) GetUserFollowingExecute(r ApiGetUserFollowingRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.GetUserFollowing")
@@ -1434,23 +1440,23 @@ func (a *UsersFollowersAPIService) GetUserFollowingExecute(r ApiGetUserFollowing
 }
 
 type ApiGetUserFollowingAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersFollowersAPI
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetUserFollowingAlt1Request) Direction(direction string) ApiGetUserFollowingAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;online&#x60; - Return users who are currently online. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;online&#x60; - Return users who are currently online.
 func (r ApiGetUserFollowingAlt1Request) Filter(filter string) ApiGetUserFollowingAlt1Request {
 	r.filter = &filter
 	return r
@@ -1474,7 +1480,7 @@ func (r ApiGetUserFollowingAlt1Request) Query(query string) ApiGetUserFollowingA
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed.
 func (r ApiGetUserFollowingAlt1Request) Sort(sort string) ApiGetUserFollowingAlt1Request {
 	r.sort = &sort
 	return r
@@ -1489,24 +1495,25 @@ GetUserFollowingAlt1 Get all the users that the user is following
 
 This method returns every user that the authenticated user is following.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetUserFollowingAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetUserFollowingAlt1Request
 */
 func (a *UsersFollowersAPIService) GetUserFollowingAlt1(ctx context.Context) ApiGetUserFollowingAlt1Request {
 	return ApiGetUserFollowingAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *UsersFollowersAPIService) GetUserFollowingAlt1Execute(r ApiGetUserFollowingAlt1Request) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.GetUserFollowingAlt1")
@@ -1593,10 +1600,10 @@ func (a *UsersFollowersAPIService) GetUserFollowingAlt1Execute(r ApiGetUserFollo
 }
 
 type ApiUnfollowUserRequest struct {
-	ctx context.Context
-	ApiService UsersFollowersAPI
+	ctx          context.Context
+	ApiService   UsersFollowersAPI
 	followUserId float32
-	userId int32
+	userId       int32
 }
 
 func (r ApiUnfollowUserRequest) Execute() (*http.Response, error) {
@@ -1608,26 +1615,26 @@ UnfollowUser Unfollow a user
 
 This method causes the authenticated user to stop following another user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param followUserId The ID of the user to unfollow.
- @param userId The ID of the user.
- @return ApiUnfollowUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param followUserId The ID of the user to unfollow.
+	@param userId The ID of the user.
+	@return ApiUnfollowUserRequest
 */
 func (a *UsersFollowersAPIService) UnfollowUser(ctx context.Context, followUserId float32, userId int32) ApiUnfollowUserRequest {
 	return ApiUnfollowUserRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		followUserId: followUserId,
-		userId: userId,
+		userId:       userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersFollowersAPIService) UnfollowUserExecute(r ApiUnfollowUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.UnfollowUser")
@@ -1689,8 +1696,8 @@ func (a *UsersFollowersAPIService) UnfollowUserExecute(r ApiUnfollowUserRequest)
 }
 
 type ApiUnfollowUserAlt1Request struct {
-	ctx context.Context
-	ApiService UsersFollowersAPI
+	ctx          context.Context
+	ApiService   UsersFollowersAPI
 	followUserId float32
 }
 
@@ -1703,14 +1710,14 @@ UnfollowUserAlt1 Unfollow a user
 
 This method causes the authenticated user to stop following another user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param followUserId The ID of the user to unfollow.
- @return ApiUnfollowUserAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param followUserId The ID of the user to unfollow.
+	@return ApiUnfollowUserAlt1Request
 */
 func (a *UsersFollowersAPIService) UnfollowUserAlt1(ctx context.Context, followUserId float32) ApiUnfollowUserAlt1Request {
 	return ApiUnfollowUserAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		followUserId: followUserId,
 	}
 }
@@ -1718,9 +1725,9 @@ func (a *UsersFollowersAPIService) UnfollowUserAlt1(ctx context.Context, followU
 // Execute executes the request
 func (a *UsersFollowersAPIService) UnfollowUserAlt1Execute(r ApiUnfollowUserAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFollowersAPIService.UnfollowUserAlt1")

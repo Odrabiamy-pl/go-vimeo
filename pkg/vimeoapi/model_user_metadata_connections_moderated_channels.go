@@ -120,7 +120,7 @@ func (o *UserMetadataConnectionsModeratedChannels) SetUri(v string) {
 }
 
 func (o UserMetadataConnectionsModeratedChannels) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableUserMetadataConnectionsModeratedChannels) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

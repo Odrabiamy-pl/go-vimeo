@@ -19,7 +19,7 @@ var _ MappedNullable = &ListPaymentMethodsRequest{}
 
 // ListPaymentMethodsRequest struct for ListPaymentMethodsRequest
 type ListPaymentMethodsRequest struct {
-	// The type of payment method.  Option descriptions:  * `applepay` - The payment method is Apple Pay.  * `bank_account` - The payment method is a bank account.  * `card` - The payment method is a credit or debit card.  * `googlepay` - The payment method is Google Pay.  * `paypal` - The payment method is a PayPal account. 
+	// The type of payment method.  Option descriptions:  * `applepay` - The payment method is Apple Pay.  * `bank_account` - The payment method is a bank account.  * `card` - The payment method is a credit or debit card.  * `googlepay` - The payment method is Google Pay.  * `paypal` - The payment method is a PayPal account.
 	Type *string `json:"type,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *ListPaymentMethodsRequest) SetType(v string) {
 }
 
 func (o ListPaymentMethodsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableListPaymentMethodsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

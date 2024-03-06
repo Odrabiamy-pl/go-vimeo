@@ -21,7 +21,7 @@ var _ MappedNullable = &DisabledVideoPropertiesAddToCollection{}
 type DisabledVideoPropertiesAddToCollection struct {
 	// The relative link to upgrade to access adding to a collection.
 	EnableLink string `json:"enable_link"`
-	// The capability required to activate adding to a collection.  Option descriptions:  * `basic` - The user must have at least a Vimeo Basic account.  * `business` - The user must have at least a Vimeo Business account.  * `enterprise` - The user must have at least a Vimeo Enterprise account.  * `live_business` - The user must have at least a Vimeo Business Live account.  * `live_premium` - The user must have at least a Vimeo Premium account.  * `live_pro` - The user must have at least a Vimeo Pro Live account.  * `plus` - The user must have at least a Vimeo Plus account.  * `pro` - The user must have at least a Vimeo Pro account.  * `pro_unlimited` - The user must have at least a Vimeo Pro Unlimited account.  * `producer` - The user must have at least a Vimeo Producer account. 
+	// The capability required to activate adding to a collection.  Option descriptions:  * `basic` - The user must have at least a Vimeo Basic account.  * `business` - The user must have at least a Vimeo Business account.  * `enterprise` - The user must have at least a Vimeo Enterprise account.  * `live_business` - The user must have at least a Vimeo Business Live account.  * `live_premium` - The user must have at least a Vimeo Premium account.  * `live_pro` - The user must have at least a Vimeo Pro Live account.  * `plus` - The user must have at least a Vimeo Plus account.  * `pro` - The user must have at least a Vimeo Pro account.  * `pro_unlimited` - The user must have at least a Vimeo Pro Unlimited account.  * `producer` - The user must have at least a Vimeo Producer account.
 	MinTierForCapability string `json:"min_tier_for_capability"`
 	// The reasons why adding to a collection is disabled for the video.
 	Reasons []DisabledVideoPropertiesAddToCollectionReasonsInner `json:"reasons"`
@@ -120,7 +120,7 @@ func (o *DisabledVideoPropertiesAddToCollection) SetReasons(v []DisabledVideoPro
 }
 
 func (o DisabledVideoPropertiesAddToCollection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableDisabledVideoPropertiesAddToCollection) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

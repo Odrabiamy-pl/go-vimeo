@@ -19,7 +19,7 @@ var _ MappedNullable = &VideoUpload{}
 
 // VideoUpload The video's upload information.
 type VideoUpload struct {
-	// The approach for uploading the video.  Option descriptions:  * `post` - The video upload uses the POST approach.  * `pull` - The video upload uses the pull approach.  * `tus` - The video upload uses the tus approach. 
+	// The approach for uploading the video.  Option descriptions:  * `post` - The video upload uses the POST approach.  * `pull` - The video upload uses the pull approach.  * `tus` - The video upload uses the tus approach.
 	Approach *string `json:"approach,omitempty"`
 	// The HTML form for uploading a video through the POST approach.
 	Form *string `json:"form,omitempty"`
@@ -31,7 +31,7 @@ type VideoUpload struct {
 	RedirectUrl *string `json:"redirect_url,omitempty"`
 	// The file size in bytes of the uploaded video.
 	Size *float32 `json:"size,omitempty"`
-	// The status code for the availability of the uploaded video.  Option descriptions:  * `complete` - The upload is complete.  * `error` - The upload ended with an error.  * `in_progress` - The upload is underway. 
+	// The status code for the availability of the uploaded video.  Option descriptions:  * `complete` - The upload is complete.  * `error` - The upload ended with an error.  * `in_progress` - The upload is underway.
 	Status string `json:"status"`
 	// The link for sending video file data.
 	UploadLink *string `json:"upload_link,omitempty"`
@@ -304,7 +304,7 @@ func (o *VideoUpload) SetUploadLink(v string) {
 }
 
 func (o VideoUpload) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -373,5 +373,3 @@ func (v *NullableVideoUpload) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

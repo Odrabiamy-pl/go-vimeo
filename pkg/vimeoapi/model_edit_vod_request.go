@@ -20,9 +20,9 @@ var _ MappedNullable = &EditVodRequest{}
 // EditVodRequest struct for EditVodRequest
 type EditVodRequest struct {
 	// The custom string to use in the Vimeo URL of the On Demand page.
-	Link *string `json:"link,omitempty"`
+	Link     *string                 `json:"link,omitempty"`
 	Preorder *EditVodRequestPreorder `json:"preorder,omitempty"`
-	Publish *EditVodRequestPublish `json:"publish,omitempty"`
+	Publish  *EditVodRequestPublish  `json:"publish,omitempty"`
 	// Whether to publish the On Demand page automatically after all videos have finished transcoding.
 	PublishWhenReady *bool `json:"publish_when_ready,omitempty"`
 }
@@ -173,7 +173,7 @@ func (o *EditVodRequest) SetPublishWhenReady(v bool) {
 }
 
 func (o EditVodRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,5 +232,3 @@ func (v *NullableEditVodRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

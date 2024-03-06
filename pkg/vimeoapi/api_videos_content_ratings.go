@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 type VideosContentRatingsAPI interface {
 
 	/*
-	GetContentRatings Get all content ratings
+		GetContentRatings Get all content ratings
 
-	This method returns all available content ratings.
+		This method returns all available content ratings.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetContentRatingsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetContentRatingsRequest
 	*/
 	GetContentRatings(ctx context.Context) ApiGetContentRatingsRequest
 
@@ -40,7 +39,7 @@ type VideosContentRatingsAPI interface {
 type VideosContentRatingsAPIService service
 
 type ApiGetContentRatingsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosContentRatingsAPI
 }
 
@@ -53,24 +52,25 @@ GetContentRatings Get all content ratings
 
 This method returns all available content ratings.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetContentRatingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetContentRatingsRequest
 */
 func (a *VideosContentRatingsAPIService) GetContentRatings(ctx context.Context) ApiGetContentRatingsRequest {
 	return ApiGetContentRatingsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ContentRating
+//
+//	@return []ContentRating
 func (a *VideosContentRatingsAPIService) GetContentRatingsExecute(r ApiGetContentRatingsRequest) ([]ContentRating, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ContentRating
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ContentRating
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosContentRatingsAPIService.GetContentRatings")

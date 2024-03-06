@@ -20,8 +20,8 @@ var _ MappedNullable = &VideoVersion{}
 // VideoVersion struct for VideoVersion
 type VideoVersion struct {
 	// Whether the video version is currently active.
-	Active bool `json:"active"`
-	App ApiApp `json:"app"`
+	Active bool   `json:"active"`
+	App    ApiApp `json:"app"`
 	// Whether the version can be restored.
 	CanRestoreCreate bool `json:"can_restore_create"`
 	// The storyboard ID of the video version.
@@ -39,19 +39,19 @@ type VideoVersion struct {
 	// The size in byes of the video version file.
 	Filesize NullableFloat32 `json:"filesize"`
 	// Whether the video has interactive capability.
-	HasInteractive bool `json:"has_interactive"`
-	Metadata VideoVersionMetadata `json:"metadata"`
+	HasInteractive bool                 `json:"has_interactive"`
+	Metadata       VideoVersionMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the video version was last modified.
 	ModifiedTime string `json:"modified_time"`
 	// Whether the video has unified resolution. If the value of this field is `false`, the video requires transcoding.
-	OriginVariableFrameResolution bool `json:"origin_variable_frame_resolution"`
-	Play *Play `json:"play,omitempty"`
-	Transcode NullableVideoVersionTranscode `json:"transcode"`
-	Upload NullableVideoVersionUpload `json:"upload"`
+	OriginVariableFrameResolution bool                          `json:"origin_variable_frame_resolution"`
+	Play                          *Play                         `json:"play,omitempty"`
+	Transcode                     NullableVideoVersionTranscode `json:"transcode"`
+	Upload                        NullableVideoVersionUpload    `json:"upload"`
 	// The time in ISO 8601 format when the video version was uploaded.
 	UploadDate NullableString `json:"upload_date"`
 	// The version's canonical relative URI.
-	Uri string `json:"uri"`
+	Uri  string                   `json:"uri"`
 	User NullableVideoVersionUser `json:"user"`
 }
 
@@ -599,7 +599,7 @@ func (o *VideoVersion) SetUser(v VideoVersionUser) {
 }
 
 func (o VideoVersion) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -670,5 +670,3 @@ func (v *NullableVideoVersion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

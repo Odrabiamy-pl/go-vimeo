@@ -24,13 +24,13 @@ type Portfolio struct {
 	// The description of the portfolio.
 	Description NullableString `json:"description"`
 	// The link to the portfolio.
-	Link string `json:"link"`
+	Link     string            `json:"link"`
 	Metadata PortfolioMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the portfolio's data was last modified.
 	ModifiedTime string `json:"modified_time"`
 	// The display name of the portfolio.
 	Name string `json:"name"`
-	// The default video sort order of the portfolio.  Option descriptions:  * `alphabetical` - The default sort order is alphabetical by name.  * `clips` - The default sort order is video creation date.  * `modified` - The default sort order is the order in which the videos were modified.  * `recent` - The default sort order is the order in which the videos were added. 
+	// The default video sort order of the portfolio.  Option descriptions:  * `alphabetical` - The default sort order is alphabetical by name.  * `clips` - The default sort order is video creation date.  * `modified` - The default sort order is the order in which the videos were modified.  * `recent` - The default sort order is the order in which the videos were added.
 	Sort string `json:"sort"`
 	// The canonical relative URI of the portfolio.
 	Uri string `json:"uri"`
@@ -256,7 +256,7 @@ func (o *Portfolio) SetUri(v string) {
 }
 
 func (o Portfolio) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -311,5 +311,3 @@ func (v *NullablePortfolio) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type UsersEssentialsAPI interface {
 
 	/*
-	EditUser Edit the user
+		EditUser Edit the user
 
-	This method edits the Vimeo account of the authenticated user.
+		This method edits the Vimeo account of the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiEditUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiEditUserRequest
 	*/
 	EditUser(ctx context.Context, userId int32) ApiEditUserRequest
 
@@ -38,12 +37,12 @@ type UsersEssentialsAPI interface {
 	EditUserExecute(r ApiEditUserRequest) (*User, *http.Response, error)
 
 	/*
-	EditUserAlt1 Edit the user
+		EditUserAlt1 Edit the user
 
-	This method edits the Vimeo account of the authenticated user.
+		This method edits the Vimeo account of the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiEditUserAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiEditUserAlt1Request
 	*/
 	EditUserAlt1(ctx context.Context) ApiEditUserAlt1Request
 
@@ -52,13 +51,13 @@ type UsersEssentialsAPI interface {
 	EditUserAlt1Execute(r ApiEditUserAlt1Request) (*User, *http.Response, error)
 
 	/*
-	GetUser Get the user
+		GetUser Get the user
 
-	This method returns the authenticated user.
+		This method returns the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetUserRequest
 	*/
 	GetUser(ctx context.Context, userId int32) ApiGetUserRequest
 
@@ -67,12 +66,12 @@ type UsersEssentialsAPI interface {
 	GetUserExecute(r ApiGetUserRequest) (*User, *http.Response, error)
 
 	/*
-	GetUserAlt1 Get the user
+		GetUserAlt1 Get the user
 
-	This method returns the authenticated user.
+		This method returns the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetUserAlt1Request
 	*/
 	GetUserAlt1(ctx context.Context) ApiGetUserAlt1Request
 
@@ -85,9 +84,9 @@ type UsersEssentialsAPI interface {
 type UsersEssentialsAPIService service
 
 type ApiEditUserRequest struct {
-	ctx context.Context
-	ApiService UsersEssentialsAPI
-	userId int32
+	ctx                 context.Context
+	ApiService          UsersEssentialsAPI
+	userId              int32
 	editUserAlt1Request *EditUserAlt1Request
 }
 
@@ -105,26 +104,27 @@ EditUser Edit the user
 
 This method edits the Vimeo account of the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiEditUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiEditUserRequest
 */
 func (a *UsersEssentialsAPIService) EditUser(ctx context.Context, userId int32) ApiEditUserRequest {
 	return ApiEditUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return User
+//
+//	@return User
 func (a *UsersEssentialsAPIService) EditUserExecute(r ApiEditUserRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersEssentialsAPIService.EditUser")
@@ -187,8 +187,8 @@ func (a *UsersEssentialsAPIService) EditUserExecute(r ApiEditUserRequest) (*User
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -206,8 +206,8 @@ func (a *UsersEssentialsAPIService) EditUserExecute(r ApiEditUserRequest) (*User
 }
 
 type ApiEditUserAlt1Request struct {
-	ctx context.Context
-	ApiService UsersEssentialsAPI
+	ctx                 context.Context
+	ApiService          UsersEssentialsAPI
 	editUserAlt1Request *EditUserAlt1Request
 }
 
@@ -225,24 +225,25 @@ EditUserAlt1 Edit the user
 
 This method edits the Vimeo account of the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiEditUserAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiEditUserAlt1Request
 */
 func (a *UsersEssentialsAPIService) EditUserAlt1(ctx context.Context) ApiEditUserAlt1Request {
 	return ApiEditUserAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return User
+//
+//	@return User
 func (a *UsersEssentialsAPIService) EditUserAlt1Execute(r ApiEditUserAlt1Request) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersEssentialsAPIService.EditUserAlt1")
@@ -304,8 +305,8 @@ func (a *UsersEssentialsAPIService) EditUserAlt1Execute(r ApiEditUserAlt1Request
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -323,9 +324,9 @@ func (a *UsersEssentialsAPIService) EditUserAlt1Execute(r ApiEditUserAlt1Request
 }
 
 type ApiGetUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersEssentialsAPI
-	userId int32
+	userId     int32
 }
 
 func (r ApiGetUserRequest) Execute() (*User, *http.Response, error) {
@@ -337,26 +338,27 @@ GetUser Get the user
 
 This method returns the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetUserRequest
 */
 func (a *UsersEssentialsAPIService) GetUser(ctx context.Context, userId int32) ApiGetUserRequest {
 	return ApiGetUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return User
+//
+//	@return User
 func (a *UsersEssentialsAPIService) GetUserExecute(r ApiGetUserRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersEssentialsAPIService.GetUser")
@@ -426,7 +428,7 @@ func (a *UsersEssentialsAPIService) GetUserExecute(r ApiGetUserRequest) (*User, 
 }
 
 type ApiGetUserAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersEssentialsAPI
 }
 
@@ -439,24 +441,25 @@ GetUserAlt1 Get the user
 
 This method returns the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetUserAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetUserAlt1Request
 */
 func (a *UsersEssentialsAPIService) GetUserAlt1(ctx context.Context) ApiGetUserAlt1Request {
 	return ApiGetUserAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return User
+//
+//	@return User
 func (a *UsersEssentialsAPIService) GetUserAlt1Execute(r ApiGetUserAlt1Request) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersEssentialsAPIService.GetUserAlt1")

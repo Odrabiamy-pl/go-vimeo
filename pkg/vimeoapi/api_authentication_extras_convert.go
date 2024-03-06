@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 type AuthenticationExtrasConvertAPI interface {
 
 	/*
-	ConvertAccessToken Convert an OAuth 1 access token to an OAuth 2 access token
+		ConvertAccessToken Convert an OAuth 1 access token to an OAuth 2 access token
 
-	This method exchanges a legacy Advanced API OAuth 1 token for an API v3 OAuth 2 token.
+		This method exchanges a legacy Advanced API OAuth 1 token for an API v3 OAuth 2 token.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiConvertAccessTokenRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiConvertAccessTokenRequest
 	*/
 	ConvertAccessToken(ctx context.Context) ApiConvertAccessTokenRequest
 
@@ -40,8 +39,8 @@ type AuthenticationExtrasConvertAPI interface {
 type AuthenticationExtrasConvertAPIService service
 
 type ApiConvertAccessTokenRequest struct {
-	ctx context.Context
-	ApiService AuthenticationExtrasConvertAPI
+	ctx                       context.Context
+	ApiService                AuthenticationExtrasConvertAPI
 	convertAccessTokenRequest *ConvertAccessTokenRequest
 }
 
@@ -59,24 +58,25 @@ ConvertAccessToken Convert an OAuth 1 access token to an OAuth 2 access token
 
 This method exchanges a legacy Advanced API OAuth 1 token for an API v3 OAuth 2 token.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConvertAccessTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConvertAccessTokenRequest
 */
 func (a *AuthenticationExtrasConvertAPIService) ConvertAccessToken(ctx context.Context) ApiConvertAccessTokenRequest {
 	return ApiConvertAccessTokenRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Auth
+//
+//	@return Auth
 func (a *AuthenticationExtrasConvertAPIService) ConvertAccessTokenExecute(r ApiConvertAccessTokenRequest) (*Auth, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Auth
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Auth
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationExtrasConvertAPIService.ConvertAccessToken")
@@ -141,8 +141,8 @@ func (a *AuthenticationExtrasConvertAPIService) ConvertAccessTokenExecute(r ApiC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

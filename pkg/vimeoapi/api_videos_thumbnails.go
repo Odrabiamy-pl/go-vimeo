@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type VideosThumbnailsAPI interface {
 
 	/*
-	CreateVideoThumbnail Add a video thumbnail
+		CreateVideoThumbnail Add a video thumbnail
 
-	This method adds a thumbnail image to the specified video. The authenticated user must have team permissions for the video.
+		This method adds a thumbnail image to the specified video. The authenticated user must have team permissions for the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateVideoThumbnailRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiCreateVideoThumbnailRequest
 	*/
 	CreateVideoThumbnail(ctx context.Context, videoId int32) ApiCreateVideoThumbnailRequest
 
@@ -38,14 +37,14 @@ type VideosThumbnailsAPI interface {
 	CreateVideoThumbnailExecute(r ApiCreateVideoThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-	CreateVideoThumbnailAlt1 Add a video thumbnail
+		CreateVideoThumbnailAlt1 Add a video thumbnail
 
-	This method adds a thumbnail image to the specified video. The authenticated user must have team permissions for the video.
+		This method adds a thumbnail image to the specified video. The authenticated user must have team permissions for the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiCreateVideoThumbnailAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiCreateVideoThumbnailAlt1Request
 	*/
 	CreateVideoThumbnailAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateVideoThumbnailAlt1Request
 
@@ -54,14 +53,14 @@ type VideosThumbnailsAPI interface {
 	CreateVideoThumbnailAlt1Execute(r ApiCreateVideoThumbnailAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-	DeleteVideoThumbnail Delete a video thumbnail
+		DeleteVideoThumbnail Delete a video thumbnail
 
-	This method deletes the specified thumbnail image from a video. The authenticated user must have team permissions for the video.
+		This method deletes the specified thumbnail image from a video. The authenticated user must have team permissions for the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param pictureId The ID of the thumbnail.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoThumbnailRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pictureId The ID of the thumbnail.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoThumbnailRequest
 	*/
 	DeleteVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiDeleteVideoThumbnailRequest
 
@@ -69,14 +68,14 @@ type VideosThumbnailsAPI interface {
 	DeleteVideoThumbnailExecute(r ApiDeleteVideoThumbnailRequest) (*http.Response, error)
 
 	/*
-	EditVideoThumbnail Edit a video thumbnail
+		EditVideoThumbnail Edit a video thumbnail
 
-	This method edits the specified video thumbnail image. The authenticated user must be the owner of the thumbnail.
+		This method edits the specified video thumbnail image. The authenticated user must be the owner of the thumbnail.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param pictureId The ID of the thumbnail.
-	@param videoId The ID of the video.
-	@return ApiEditVideoThumbnailRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pictureId The ID of the thumbnail.
+		@param videoId The ID of the video.
+		@return ApiEditVideoThumbnailRequest
 	*/
 	EditVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiEditVideoThumbnailRequest
 
@@ -85,14 +84,14 @@ type VideosThumbnailsAPI interface {
 	EditVideoThumbnailExecute(r ApiEditVideoThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-	GetVideoThumbnail Get a specific video thumbnail
+		GetVideoThumbnail Get a specific video thumbnail
 
-	This method returns a single thumbnail image from the specified video. The authenticated user must have team permissions for the video.
+		This method returns a single thumbnail image from the specified video. The authenticated user must have team permissions for the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param pictureId The ID of the thumbnail.
-	@param videoId The ID of the video.
-	@return ApiGetVideoThumbnailRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pictureId The ID of the thumbnail.
+		@param videoId The ID of the video.
+		@return ApiGetVideoThumbnailRequest
 	*/
 	GetVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiGetVideoThumbnailRequest
 
@@ -101,13 +100,13 @@ type VideosThumbnailsAPI interface {
 	GetVideoThumbnailExecute(r ApiGetVideoThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-	GetVideoThumbnails Get all the thumbnails of a video
+		GetVideoThumbnails Get all the thumbnails of a video
 
-	This method returns all thumbnail images of the specified video. The authenticated user must have team permissions for the video.
+		This method returns all thumbnail images of the specified video. The authenticated user must have team permissions for the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoThumbnailsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetVideoThumbnailsRequest
 	*/
 	GetVideoThumbnails(ctx context.Context, videoId int32) ApiGetVideoThumbnailsRequest
 
@@ -116,14 +115,14 @@ type VideosThumbnailsAPI interface {
 	GetVideoThumbnailsExecute(r ApiGetVideoThumbnailsRequest) ([]Picture, *http.Response, error)
 
 	/*
-	GetVideoThumbnailsAlt1 Get all the thumbnails of a video
+		GetVideoThumbnailsAlt1 Get all the thumbnails of a video
 
-	This method returns all thumbnail images of the specified video. The authenticated user must have team permissions for the video.
+		This method returns all thumbnail images of the specified video. The authenticated user must have team permissions for the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiGetVideoThumbnailsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiGetVideoThumbnailsAlt1Request
 	*/
 	GetVideoThumbnailsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoThumbnailsAlt1Request
 
@@ -136,9 +135,9 @@ type VideosThumbnailsAPI interface {
 type VideosThumbnailsAPIService service
 
 type ApiCreateVideoThumbnailRequest struct {
-	ctx context.Context
-	ApiService VideosThumbnailsAPI
-	videoId int32
+	ctx                             context.Context
+	ApiService                      VideosThumbnailsAPI
+	videoId                         int32
 	createVideoThumbnailAlt1Request *CreateVideoThumbnailAlt1Request
 }
 
@@ -156,26 +155,27 @@ CreateVideoThumbnail Add a video thumbnail
 
 This method adds a thumbnail image to the specified video. The authenticated user must have team permissions for the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiCreateVideoThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateVideoThumbnailRequest
 */
 func (a *VideosThumbnailsAPIService) CreateVideoThumbnail(ctx context.Context, videoId int32) ApiCreateVideoThumbnailRequest {
 	return ApiCreateVideoThumbnailRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosThumbnailsAPIService) CreateVideoThumbnailExecute(r ApiCreateVideoThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosThumbnailsAPIService.CreateVideoThumbnail")
@@ -247,10 +247,10 @@ func (a *VideosThumbnailsAPIService) CreateVideoThumbnailExecute(r ApiCreateVide
 }
 
 type ApiCreateVideoThumbnailAlt1Request struct {
-	ctx context.Context
-	ApiService VideosThumbnailsAPI
-	channelId float32
-	videoId int32
+	ctx                             context.Context
+	ApiService                      VideosThumbnailsAPI
+	channelId                       float32
+	videoId                         int32
 	createVideoThumbnailAlt1Request *CreateVideoThumbnailAlt1Request
 }
 
@@ -268,28 +268,29 @@ CreateVideoThumbnailAlt1 Add a video thumbnail
 
 This method adds a thumbnail image to the specified video. The authenticated user must have team permissions for the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiCreateVideoThumbnailAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiCreateVideoThumbnailAlt1Request
 */
 func (a *VideosThumbnailsAPIService) CreateVideoThumbnailAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateVideoThumbnailAlt1Request {
 	return ApiCreateVideoThumbnailAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosThumbnailsAPIService) CreateVideoThumbnailAlt1Execute(r ApiCreateVideoThumbnailAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosThumbnailsAPIService.CreateVideoThumbnailAlt1")
@@ -362,10 +363,10 @@ func (a *VideosThumbnailsAPIService) CreateVideoThumbnailAlt1Execute(r ApiCreate
 }
 
 type ApiDeleteVideoThumbnailRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosThumbnailsAPI
-	pictureId float32
-	videoId int32
+	pictureId  float32
+	videoId    int32
 }
 
 func (r ApiDeleteVideoThumbnailRequest) Execute() (*http.Response, error) {
@@ -377,26 +378,26 @@ DeleteVideoThumbnail Delete a video thumbnail
 
 This method deletes the specified thumbnail image from a video. The authenticated user must have team permissions for the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pictureId The ID of the thumbnail.
- @param videoId The ID of the video.
- @return ApiDeleteVideoThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pictureId The ID of the thumbnail.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoThumbnailRequest
 */
 func (a *VideosThumbnailsAPIService) DeleteVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiDeleteVideoThumbnailRequest {
 	return ApiDeleteVideoThumbnailRequest{
 		ApiService: a,
-		ctx: ctx,
-		pictureId: pictureId,
-		videoId: videoId,
+		ctx:        ctx,
+		pictureId:  pictureId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosThumbnailsAPIService) DeleteVideoThumbnailExecute(r ApiDeleteVideoThumbnailRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosThumbnailsAPIService.DeleteVideoThumbnail")
@@ -458,10 +459,10 @@ func (a *VideosThumbnailsAPIService) DeleteVideoThumbnailExecute(r ApiDeleteVide
 }
 
 type ApiEditVideoThumbnailRequest struct {
-	ctx context.Context
-	ApiService VideosThumbnailsAPI
-	pictureId float32
-	videoId int32
+	ctx                       context.Context
+	ApiService                VideosThumbnailsAPI
+	pictureId                 float32
+	videoId                   int32
 	editVideoThumbnailRequest *EditVideoThumbnailRequest
 }
 
@@ -479,28 +480,29 @@ EditVideoThumbnail Edit a video thumbnail
 
 This method edits the specified video thumbnail image. The authenticated user must be the owner of the thumbnail.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pictureId The ID of the thumbnail.
- @param videoId The ID of the video.
- @return ApiEditVideoThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pictureId The ID of the thumbnail.
+	@param videoId The ID of the video.
+	@return ApiEditVideoThumbnailRequest
 */
 func (a *VideosThumbnailsAPIService) EditVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiEditVideoThumbnailRequest {
 	return ApiEditVideoThumbnailRequest{
 		ApiService: a,
-		ctx: ctx,
-		pictureId: pictureId,
-		videoId: videoId,
+		ctx:        ctx,
+		pictureId:  pictureId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosThumbnailsAPIService) EditVideoThumbnailExecute(r ApiEditVideoThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosThumbnailsAPIService.EditVideoThumbnail")
@@ -573,10 +575,10 @@ func (a *VideosThumbnailsAPIService) EditVideoThumbnailExecute(r ApiEditVideoThu
 }
 
 type ApiGetVideoThumbnailRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosThumbnailsAPI
-	pictureId float32
-	videoId int32
+	pictureId  float32
+	videoId    int32
 }
 
 func (r ApiGetVideoThumbnailRequest) Execute() (*Picture, *http.Response, error) {
@@ -588,28 +590,29 @@ GetVideoThumbnail Get a specific video thumbnail
 
 This method returns a single thumbnail image from the specified video. The authenticated user must have team permissions for the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pictureId The ID of the thumbnail.
- @param videoId The ID of the video.
- @return ApiGetVideoThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pictureId The ID of the thumbnail.
+	@param videoId The ID of the video.
+	@return ApiGetVideoThumbnailRequest
 */
 func (a *VideosThumbnailsAPIService) GetVideoThumbnail(ctx context.Context, pictureId float32, videoId int32) ApiGetVideoThumbnailRequest {
 	return ApiGetVideoThumbnailRequest{
 		ApiService: a,
-		ctx: ctx,
-		pictureId: pictureId,
-		videoId: videoId,
+		ctx:        ctx,
+		pictureId:  pictureId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosThumbnailsAPIService) GetVideoThumbnailExecute(r ApiGetVideoThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosThumbnailsAPIService.GetVideoThumbnail")
@@ -680,11 +683,11 @@ func (a *VideosThumbnailsAPIService) GetVideoThumbnailExecute(r ApiGetVideoThumb
 }
 
 type ApiGetVideoThumbnailsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosThumbnailsAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -708,26 +711,27 @@ GetVideoThumbnails Get all the thumbnails of a video
 
 This method returns all thumbnail images of the specified video. The authenticated user must have team permissions for the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetVideoThumbnailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoThumbnailsRequest
 */
 func (a *VideosThumbnailsAPIService) GetVideoThumbnails(ctx context.Context, videoId int32) ApiGetVideoThumbnailsRequest {
 	return ApiGetVideoThumbnailsRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Picture
+//
+//	@return []Picture
 func (a *VideosThumbnailsAPIService) GetVideoThumbnailsExecute(r ApiGetVideoThumbnailsRequest) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Picture
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosThumbnailsAPIService.GetVideoThumbnails")
@@ -803,12 +807,12 @@ func (a *VideosThumbnailsAPIService) GetVideoThumbnailsExecute(r ApiGetVideoThum
 }
 
 type ApiGetVideoThumbnailsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosThumbnailsAPI
-	channelId float32
-	videoId int32
-	page *float32
-	perPage *float32
+	channelId  float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -832,28 +836,29 @@ GetVideoThumbnailsAlt1 Get all the thumbnails of a video
 
 This method returns all thumbnail images of the specified video. The authenticated user must have team permissions for the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiGetVideoThumbnailsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiGetVideoThumbnailsAlt1Request
 */
 func (a *VideosThumbnailsAPIService) GetVideoThumbnailsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoThumbnailsAlt1Request {
 	return ApiGetVideoThumbnailsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Picture
+//
+//	@return []Picture
 func (a *VideosThumbnailsAPIService) GetVideoThumbnailsAlt1Execute(r ApiGetVideoThumbnailsAlt1Request) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Picture
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosThumbnailsAPIService.GetVideoThumbnailsAlt1")

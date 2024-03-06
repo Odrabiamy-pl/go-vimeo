@@ -19,16 +19,15 @@ import (
 	"strings"
 )
 
-
 type CategoriesEssentialsAPI interface {
 
 	/*
-	GetCategories Get all categories
+		GetCategories Get all categories
 
-	This method returns every available category.
+		This method returns every available category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCategoriesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetCategoriesRequest
 	*/
 	GetCategories(ctx context.Context) ApiGetCategoriesRequest
 
@@ -37,13 +36,13 @@ type CategoriesEssentialsAPI interface {
 	GetCategoriesExecute(r ApiGetCategoriesRequest) ([]Category, *http.Response, error)
 
 	/*
-	GetCategory Get a specific category
+		GetCategory Get a specific category
 
-	This method returns the specified category.
+		This method returns the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@return ApiGetCategoryRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@return ApiGetCategoryRequest
 	*/
 	GetCategory(ctx context.Context, category string) ApiGetCategoryRequest
 
@@ -56,15 +55,15 @@ type CategoriesEssentialsAPI interface {
 type CategoriesEssentialsAPIService service
 
 type ApiGetCategoriesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesEssentialsAPI
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetCategoriesRequest) Direction(direction string) ApiGetCategoriesRequest {
 	r.direction = &direction
 	return r
@@ -97,24 +96,25 @@ GetCategories Get all categories
 
 This method returns every available category.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCategoriesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetCategoriesRequest
 */
 func (a *CategoriesEssentialsAPIService) GetCategories(ctx context.Context) ApiGetCategoriesRequest {
 	return ApiGetCategoriesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Category
+//
+//	@return []Category
 func (a *CategoriesEssentialsAPIService) GetCategoriesExecute(r ApiGetCategoriesRequest) ([]Category, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Category
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Category
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesEssentialsAPIService.GetCategories")
@@ -195,9 +195,9 @@ func (a *CategoriesEssentialsAPIService) GetCategoriesExecute(r ApiGetCategories
 }
 
 type ApiGetCategoryRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CategoriesEssentialsAPI
-	category string
+	category   string
 }
 
 func (r ApiGetCategoryRequest) Execute() (*Category, *http.Response, error) {
@@ -209,26 +209,27 @@ GetCategory Get a specific category
 
 This method returns the specified category.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @return ApiGetCategoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@return ApiGetCategoryRequest
 */
 func (a *CategoriesEssentialsAPIService) GetCategory(ctx context.Context, category string) ApiGetCategoryRequest {
 	return ApiGetCategoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
+		ctx:        ctx,
+		category:   category,
 	}
 }
 
 // Execute executes the request
-//  @return Category
+//
+//	@return Category
 func (a *CategoriesEssentialsAPIService) GetCategoryExecute(r ApiGetCategoryRequest) (*Category, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Category
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Category
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesEssentialsAPIService.GetCategory")
@@ -289,8 +290,8 @@ func (a *CategoriesEssentialsAPIService) GetCategoryExecute(r ApiGetCategoryRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type VideosShowcasesAPI interface {
 
 	/*
-	AddOrRemoveMultipleAlbums Add or remove a video from a list of showcases
+		AddOrRemoveMultipleAlbums Add or remove a video from a list of showcases
 
-	This method adds or removes the specified video to or from multiple showcases.
+		This method adds or removes the specified video to or from multiple showcases.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiAddOrRemoveMultipleAlbumsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiAddOrRemoveMultipleAlbumsRequest
 	*/
 	AddOrRemoveMultipleAlbums(ctx context.Context, videoId int32) ApiAddOrRemoveMultipleAlbumsRequest
 
@@ -38,13 +37,13 @@ type VideosShowcasesAPI interface {
 	AddOrRemoveMultipleAlbumsExecute(r ApiAddOrRemoveMultipleAlbumsRequest) ([]Album, *http.Response, error)
 
 	/*
-	GetVideoAlbums Get all the showcases that contain a video
+		GetVideoAlbums Get all the showcases that contain a video
 
-	This method returns all the showcases that contain the specified video.
+		This method returns all the showcases that contain the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoAlbumsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetVideoAlbumsRequest
 	*/
 	GetVideoAlbums(ctx context.Context, videoId int32) ApiGetVideoAlbumsRequest
 
@@ -57,9 +56,9 @@ type VideosShowcasesAPI interface {
 type VideosShowcasesAPIService service
 
 type ApiAddOrRemoveMultipleAlbumsRequest struct {
-	ctx context.Context
-	ApiService VideosShowcasesAPI
-	videoId int32
+	ctx                              context.Context
+	ApiService                       VideosShowcasesAPI
+	videoId                          int32
 	addOrRemoveMultipleAlbumsRequest *AddOrRemoveMultipleAlbumsRequest
 }
 
@@ -77,26 +76,27 @@ AddOrRemoveMultipleAlbums Add or remove a video from a list of showcases
 
 This method adds or removes the specified video to or from multiple showcases.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiAddOrRemoveMultipleAlbumsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiAddOrRemoveMultipleAlbumsRequest
 */
 func (a *VideosShowcasesAPIService) AddOrRemoveMultipleAlbums(ctx context.Context, videoId int32) ApiAddOrRemoveMultipleAlbumsRequest {
 	return ApiAddOrRemoveMultipleAlbumsRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Album
+//
+//	@return []Album
 func (a *VideosShowcasesAPIService) AddOrRemoveMultipleAlbumsExecute(r ApiAddOrRemoveMultipleAlbumsRequest) ([]Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Album
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosShowcasesAPIService.AddOrRemoveMultipleAlbums")
@@ -159,8 +159,8 @@ func (a *VideosShowcasesAPIService) AddOrRemoveMultipleAlbumsExecute(r ApiAddOrR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -178,11 +178,11 @@ func (a *VideosShowcasesAPIService) AddOrRemoveMultipleAlbumsExecute(r ApiAddOrR
 }
 
 type ApiGetVideoAlbumsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosShowcasesAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -206,26 +206,27 @@ GetVideoAlbums Get all the showcases that contain a video
 
 This method returns all the showcases that contain the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetVideoAlbumsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoAlbumsRequest
 */
 func (a *VideosShowcasesAPIService) GetVideoAlbums(ctx context.Context, videoId int32) ApiGetVideoAlbumsRequest {
 	return ApiGetVideoAlbumsRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Album
+//
+//	@return []Album
 func (a *VideosShowcasesAPIService) GetVideoAlbumsExecute(r ApiGetVideoAlbumsRequest) ([]Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Album
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosShowcasesAPIService.GetVideoAlbums")
@@ -292,8 +293,8 @@ func (a *VideosShowcasesAPIService) GetVideoAlbumsExecute(r ApiGetVideoAlbumsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

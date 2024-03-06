@@ -26,8 +26,8 @@ type EmbedSettingsBadges struct {
 	// Whether the video was filmed using HDR10.
 	Hdr10 *bool `json:"hdr_10,omitempty"`
 	// Whether the video was filmed using HDR10 Plus.
-	Hdr10Plus *bool `json:"hdr_10_plus,omitempty"`
-	Live EmbedSettingsBadgesLive `json:"live"`
+	Hdr10Plus *bool                        `json:"hdr_10_plus,omitempty"`
+	Live      EmbedSettingsBadgesLive      `json:"live"`
 	StaffPick EmbedSettingsBadgesStaffPick `json:"staff_pick"`
 	// Whether the video is a Vimeo On Demand video.
 	Vod bool `json:"vod"`
@@ -274,7 +274,7 @@ func (o *EmbedSettingsBadges) SetWeekendChallenge(v bool) {
 }
 
 func (o EmbedSettingsBadges) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -335,5 +335,3 @@ func (v *NullableEmbedSettingsBadges) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

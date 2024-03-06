@@ -22,7 +22,7 @@ type UpdateLiveEventAlt1RequestEmbed struct {
 	// Whether playback starts automatically on load.
 	Autoplay *bool `json:"autoplay,omitempty"`
 	// The hexadecimal color code for the main color of the embed player.
-	Color *string `json:"color,omitempty"`
+	Color *string                               `json:"color,omitempty"`
 	Logos *CreateLiveEventAlt1RequestEmbedLogos `json:"logos,omitempty"`
 	// Whether the playlist should start from the beginning again after reaching the end of the last video.
 	Loop *bool `json:"loop,omitempty"`
@@ -276,7 +276,7 @@ func (o *UpdateLiveEventAlt1RequestEmbed) SetUseColor(v bool) {
 }
 
 func (o UpdateLiveEventAlt1RequestEmbed) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -344,5 +344,3 @@ func (v *NullableUpdateLiveEventAlt1RequestEmbed) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

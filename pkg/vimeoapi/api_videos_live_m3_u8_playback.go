@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type VideosLiveM3U8PlaybackAPI interface {
 
 	/*
-	GetOneTimeEventM3u8Playback Get an M3U8 playback URL for a one-time live event
+		GetOneTimeEventM3u8Playback Get an M3U8 playback URL for a one-time live event
 
-	This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
+		This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiGetOneTimeEventM3u8PlaybackRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiGetOneTimeEventM3u8PlaybackRequest
 	*/
 	GetOneTimeEventM3u8Playback(ctx context.Context, userId int32, videoId int32) ApiGetOneTimeEventM3u8PlaybackRequest
 
@@ -38,13 +37,13 @@ type VideosLiveM3U8PlaybackAPI interface {
 	GetOneTimeEventM3u8PlaybackExecute(r ApiGetOneTimeEventM3u8PlaybackRequest) (*http.Response, error)
 
 	/*
-	GetOneTimeEventM3u8PlaybackAlt1 Get an M3U8 playback URL for a one-time live event
+		GetOneTimeEventM3u8PlaybackAlt1 Get an M3U8 playback URL for a one-time live event
 
-	This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
+		This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetOneTimeEventM3u8PlaybackAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetOneTimeEventM3u8PlaybackAlt1Request
 	*/
 	GetOneTimeEventM3u8PlaybackAlt1(ctx context.Context, videoId int32) ApiGetOneTimeEventM3u8PlaybackAlt1Request
 
@@ -56,10 +55,10 @@ type VideosLiveM3U8PlaybackAPI interface {
 type VideosLiveM3U8PlaybackAPIService service
 
 type ApiGetOneTimeEventM3u8PlaybackRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosLiveM3U8PlaybackAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiGetOneTimeEventM3u8PlaybackRequest) Execute() (*http.Response, error) {
@@ -71,26 +70,26 @@ GetOneTimeEventM3u8Playback Get an M3U8 playback URL for a one-time live event
 
 This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiGetOneTimeEventM3u8PlaybackRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiGetOneTimeEventM3u8PlaybackRequest
 */
 func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8Playback(ctx context.Context, userId int32, videoId int32) ApiGetOneTimeEventM3u8PlaybackRequest {
 	return ApiGetOneTimeEventM3u8PlaybackRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackExecute(r ApiGetOneTimeEventM3u8PlaybackRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosLiveM3U8PlaybackAPIService.GetOneTimeEventM3u8Playback")
@@ -152,8 +151,8 @@ func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -163,8 +162,8 @@ func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -174,8 +173,8 @@ func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -184,9 +183,9 @@ func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackExecute(r 
 }
 
 type ApiGetOneTimeEventM3u8PlaybackAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosLiveM3U8PlaybackAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiGetOneTimeEventM3u8PlaybackAlt1Request) Execute() (*http.Response, error) {
@@ -198,24 +197,24 @@ GetOneTimeEventM3u8PlaybackAlt1 Get an M3U8 playback URL for a one-time live eve
 
 This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetOneTimeEventM3u8PlaybackAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetOneTimeEventM3u8PlaybackAlt1Request
 */
 func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackAlt1(ctx context.Context, videoId int32) ApiGetOneTimeEventM3u8PlaybackAlt1Request {
 	return ApiGetOneTimeEventM3u8PlaybackAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackAlt1Execute(r ApiGetOneTimeEventM3u8PlaybackAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosLiveM3U8PlaybackAPIService.GetOneTimeEventM3u8PlaybackAlt1")
@@ -276,8 +275,8 @@ func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackAlt1Execut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -287,8 +286,8 @@ func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackAlt1Execut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -298,8 +297,8 @@ func (a *VideosLiveM3U8PlaybackAPIService) GetOneTimeEventM3u8PlaybackAlt1Execut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

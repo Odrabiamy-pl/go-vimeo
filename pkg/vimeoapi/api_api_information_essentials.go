@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 type APIInformationEssentialsAPI interface {
 
 	/*
-	GetEndpoints Get the API specification
+		GetEndpoints Get the API specification
 
-	This method returns the full OpenAPI specification for the Vimeo API.
+		This method returns the full OpenAPI specification for the Vimeo API.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetEndpointsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetEndpointsRequest
 	*/
 	GetEndpoints(ctx context.Context) ApiGetEndpointsRequest
 
@@ -40,10 +39,10 @@ type APIInformationEssentialsAPI interface {
 type APIInformationEssentialsAPIService service
 
 type ApiGetEndpointsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService APIInformationEssentialsAPI
-	openapi *bool
-	version *string
+	openapi    *bool
+	version    *string
 }
 
 // Return an OpenAPI specification.
@@ -67,24 +66,25 @@ GetEndpoints Get the API specification
 
 This method returns the full OpenAPI specification for the Vimeo API.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetEndpointsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetEndpointsRequest
 */
 func (a *APIInformationEssentialsAPIService) GetEndpoints(ctx context.Context) ApiGetEndpointsRequest {
 	return ApiGetEndpointsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Endpoint
+//
+//	@return Endpoint
 func (a *APIInformationEssentialsAPIService) GetEndpointsExecute(r ApiGetEndpointsRequest) (*Endpoint, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Endpoint
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Endpoint
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "APIInformationEssentialsAPIService.GetEndpoints")

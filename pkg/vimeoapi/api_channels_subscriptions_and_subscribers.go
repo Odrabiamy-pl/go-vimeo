@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type ChannelsSubscriptionsAndSubscribersAPI interface {
 
 	/*
-	CheckIfUserSubscribedToChannel Check if a user follows a channel
+		CheckIfUserSubscribedToChannel Check if a user follows a channel
 
-	This method determines whether the specified user is a follower of a particular channel.
+		This method determines whether the specified user is a follower of a particular channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param userId The ID of the user.
-	@return ApiCheckIfUserSubscribedToChannelRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param userId The ID of the user.
+		@return ApiCheckIfUserSubscribedToChannelRequest
 	*/
 	CheckIfUserSubscribedToChannel(ctx context.Context, channelId float32, userId int32) ApiCheckIfUserSubscribedToChannelRequest
 
@@ -38,13 +37,13 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	CheckIfUserSubscribedToChannelExecute(r ApiCheckIfUserSubscribedToChannelRequest) (*http.Response, error)
 
 	/*
-	CheckIfUserSubscribedToChannelAlt1 Check if a user follows a channel
+		CheckIfUserSubscribedToChannelAlt1 Check if a user follows a channel
 
-	This method determines whether the specified user is a follower of a particular channel.
+		This method determines whether the specified user is a follower of a particular channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiCheckIfUserSubscribedToChannelAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiCheckIfUserSubscribedToChannelAlt1Request
 	*/
 	CheckIfUserSubscribedToChannelAlt1(ctx context.Context, channelId float32) ApiCheckIfUserSubscribedToChannelAlt1Request
 
@@ -52,13 +51,13 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	CheckIfUserSubscribedToChannelAlt1Execute(r ApiCheckIfUserSubscribedToChannelAlt1Request) (*http.Response, error)
 
 	/*
-	GetChannelSubscribers Get all the followers of a channel
+		GetChannelSubscribers Get all the followers of a channel
 
-	This method returns every follower of the specified channel.
+		This method returns every follower of the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiGetChannelSubscribersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiGetChannelSubscribersRequest
 	*/
 	GetChannelSubscribers(ctx context.Context, channelId float32) ApiGetChannelSubscribersRequest
 
@@ -67,14 +66,14 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	GetChannelSubscribersExecute(r ApiGetChannelSubscribersRequest) ([]User, *http.Response, error)
 
 	/*
-	SubscribeToChannel Subscribe the user to a specific channel
+		SubscribeToChannel Subscribe the user to a specific channel
 
-	This method subscribes the authenticated user to the specified channel.
+		This method subscribes the authenticated user to the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param userId The ID of the user.
-	@return ApiSubscribeToChannelRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param userId The ID of the user.
+		@return ApiSubscribeToChannelRequest
 	*/
 	SubscribeToChannel(ctx context.Context, channelId float32, userId int32) ApiSubscribeToChannelRequest
 
@@ -82,13 +81,13 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	SubscribeToChannelExecute(r ApiSubscribeToChannelRequest) (*http.Response, error)
 
 	/*
-	SubscribeToChannelAlt1 Subscribe the user to a specific channel
+		SubscribeToChannelAlt1 Subscribe the user to a specific channel
 
-	This method subscribes the authenticated user to the specified channel.
+		This method subscribes the authenticated user to the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiSubscribeToChannelAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiSubscribeToChannelAlt1Request
 	*/
 	SubscribeToChannelAlt1(ctx context.Context, channelId float32) ApiSubscribeToChannelAlt1Request
 
@@ -96,14 +95,14 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	SubscribeToChannelAlt1Execute(r ApiSubscribeToChannelAlt1Request) (*http.Response, error)
 
 	/*
-	UnsubscribeFromChannel Unsubscribe the user from a specific channel
+		UnsubscribeFromChannel Unsubscribe the user from a specific channel
 
-	This method unsubscribes the authenticated user from the specified channel.
+		This method unsubscribes the authenticated user from the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param userId The ID of the user.
-	@return ApiUnsubscribeFromChannelRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param userId The ID of the user.
+		@return ApiUnsubscribeFromChannelRequest
 	*/
 	UnsubscribeFromChannel(ctx context.Context, channelId float32, userId int32) ApiUnsubscribeFromChannelRequest
 
@@ -111,13 +110,13 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 	UnsubscribeFromChannelExecute(r ApiUnsubscribeFromChannelRequest) (*http.Response, error)
 
 	/*
-	UnsubscribeFromChannelAlt1 Unsubscribe the user from a specific channel
+		UnsubscribeFromChannelAlt1 Unsubscribe the user from a specific channel
 
-	This method unsubscribes the authenticated user from the specified channel.
+		This method unsubscribes the authenticated user from the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiUnsubscribeFromChannelAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiUnsubscribeFromChannelAlt1Request
 	*/
 	UnsubscribeFromChannelAlt1(ctx context.Context, channelId float32) ApiUnsubscribeFromChannelAlt1Request
 
@@ -129,10 +128,10 @@ type ChannelsSubscriptionsAndSubscribersAPI interface {
 type ChannelsSubscriptionsAndSubscribersAPIService service
 
 type ApiCheckIfUserSubscribedToChannelRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
-	channelId float32
-	userId int32
+	channelId  float32
+	userId     int32
 }
 
 func (r ApiCheckIfUserSubscribedToChannelRequest) Execute() (*http.Response, error) {
@@ -144,26 +143,26 @@ CheckIfUserSubscribedToChannel Check if a user follows a channel
 
 This method determines whether the specified user is a follower of a particular channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param userId The ID of the user.
- @return ApiCheckIfUserSubscribedToChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param userId The ID of the user.
+	@return ApiCheckIfUserSubscribedToChannelRequest
 */
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToChannel(ctx context.Context, channelId float32, userId int32) ApiCheckIfUserSubscribedToChannelRequest {
 	return ApiCheckIfUserSubscribedToChannelRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		userId: userId,
+		ctx:        ctx,
+		channelId:  channelId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToChannelExecute(r ApiCheckIfUserSubscribedToChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsSubscriptionsAndSubscribersAPIService.CheckIfUserSubscribedToChannel")
@@ -225,8 +224,8 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -235,9 +234,9 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToC
 }
 
 type ApiCheckIfUserSubscribedToChannelAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
-	channelId float32
+	channelId  float32
 }
 
 func (r ApiCheckIfUserSubscribedToChannelAlt1Request) Execute() (*http.Response, error) {
@@ -249,24 +248,24 @@ CheckIfUserSubscribedToChannelAlt1 Check if a user follows a channel
 
 This method determines whether the specified user is a follower of a particular channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiCheckIfUserSubscribedToChannelAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiCheckIfUserSubscribedToChannelAlt1Request
 */
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToChannelAlt1(ctx context.Context, channelId float32) ApiCheckIfUserSubscribedToChannelAlt1Request {
 	return ApiCheckIfUserSubscribedToChannelAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToChannelAlt1Execute(r ApiCheckIfUserSubscribedToChannelAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsSubscriptionsAndSubscribersAPIService.CheckIfUserSubscribedToChannelAlt1")
@@ -327,8 +326,8 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -337,24 +336,24 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) CheckIfUserSubscribedToC
 }
 
 type ApiGetChannelSubscribersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
-	channelId float32
-	filter *string
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	channelId  float32
+	filter     *string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderators&#x60; - Return moderators. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderators&#x60; - Return moderators.
 func (r ApiGetChannelSubscribersRequest) Filter(filter string) ApiGetChannelSubscribersRequest {
 	r.filter = &filter
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetChannelSubscribersRequest) Direction(direction string) ApiGetChannelSubscribersRequest {
 	r.direction = &direction
 	return r
@@ -378,7 +377,7 @@ func (r ApiGetChannelSubscribersRequest) Query(query string) ApiGetChannelSubscr
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by follow date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by follow date.
 func (r ApiGetChannelSubscribersRequest) Sort(sort string) ApiGetChannelSubscribersRequest {
 	r.sort = &sort
 	return r
@@ -393,26 +392,27 @@ GetChannelSubscribers Get all the followers of a channel
 
 This method returns every follower of the specified channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiGetChannelSubscribersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiGetChannelSubscribersRequest
 */
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) GetChannelSubscribers(ctx context.Context, channelId float32) ApiGetChannelSubscribersRequest {
 	return ApiGetChannelSubscribersRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) GetChannelSubscribersExecute(r ApiGetChannelSubscribersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsSubscriptionsAndSubscribersAPIService.GetChannelSubscribers")
@@ -492,8 +492,8 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) GetChannelSubscribersExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -511,10 +511,10 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) GetChannelSubscribersExe
 }
 
 type ApiSubscribeToChannelRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
-	channelId float32
-	userId int32
+	channelId  float32
+	userId     int32
 }
 
 func (r ApiSubscribeToChannelRequest) Execute() (*http.Response, error) {
@@ -526,26 +526,26 @@ SubscribeToChannel Subscribe the user to a specific channel
 
 This method subscribes the authenticated user to the specified channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param userId The ID of the user.
- @return ApiSubscribeToChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param userId The ID of the user.
+	@return ApiSubscribeToChannelRequest
 */
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannel(ctx context.Context, channelId float32, userId int32) ApiSubscribeToChannelRequest {
 	return ApiSubscribeToChannelRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		userId: userId,
+		ctx:        ctx,
+		channelId:  channelId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannelExecute(r ApiSubscribeToChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsSubscriptionsAndSubscribersAPIService.SubscribeToChannel")
@@ -607,8 +607,8 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannelExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -617,9 +617,9 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannelExecut
 }
 
 type ApiSubscribeToChannelAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
-	channelId float32
+	channelId  float32
 }
 
 func (r ApiSubscribeToChannelAlt1Request) Execute() (*http.Response, error) {
@@ -631,24 +631,24 @@ SubscribeToChannelAlt1 Subscribe the user to a specific channel
 
 This method subscribes the authenticated user to the specified channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiSubscribeToChannelAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiSubscribeToChannelAlt1Request
 */
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannelAlt1(ctx context.Context, channelId float32) ApiSubscribeToChannelAlt1Request {
 	return ApiSubscribeToChannelAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannelAlt1Execute(r ApiSubscribeToChannelAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsSubscriptionsAndSubscribersAPIService.SubscribeToChannelAlt1")
@@ -709,8 +709,8 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannelAlt1Ex
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -719,10 +719,10 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) SubscribeToChannelAlt1Ex
 }
 
 type ApiUnsubscribeFromChannelRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
-	channelId float32
-	userId int32
+	channelId  float32
+	userId     int32
 }
 
 func (r ApiUnsubscribeFromChannelRequest) Execute() (*http.Response, error) {
@@ -734,26 +734,26 @@ UnsubscribeFromChannel Unsubscribe the user from a specific channel
 
 This method unsubscribes the authenticated user from the specified channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param userId The ID of the user.
- @return ApiUnsubscribeFromChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param userId The ID of the user.
+	@return ApiUnsubscribeFromChannelRequest
 */
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannel(ctx context.Context, channelId float32, userId int32) ApiUnsubscribeFromChannelRequest {
 	return ApiUnsubscribeFromChannelRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		userId: userId,
+		ctx:        ctx,
+		channelId:  channelId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannelExecute(r ApiUnsubscribeFromChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsSubscriptionsAndSubscribersAPIService.UnsubscribeFromChannel")
@@ -815,8 +815,8 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannelEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -825,9 +825,9 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannelEx
 }
 
 type ApiUnsubscribeFromChannelAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsSubscriptionsAndSubscribersAPI
-	channelId float32
+	channelId  float32
 }
 
 func (r ApiUnsubscribeFromChannelAlt1Request) Execute() (*http.Response, error) {
@@ -839,24 +839,24 @@ UnsubscribeFromChannelAlt1 Unsubscribe the user from a specific channel
 
 This method unsubscribes the authenticated user from the specified channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiUnsubscribeFromChannelAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiUnsubscribeFromChannelAlt1Request
 */
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannelAlt1(ctx context.Context, channelId float32) ApiUnsubscribeFromChannelAlt1Request {
 	return ApiUnsubscribeFromChannelAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannelAlt1Execute(r ApiUnsubscribeFromChannelAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsSubscriptionsAndSubscribersAPIService.UnsubscribeFromChannelAlt1")
@@ -917,8 +917,8 @@ func (a *ChannelsSubscriptionsAndSubscribersAPIService) UnsubscribeFromChannelAl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

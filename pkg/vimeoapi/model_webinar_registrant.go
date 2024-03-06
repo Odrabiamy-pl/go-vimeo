@@ -28,7 +28,7 @@ type WebinarRegistrant struct {
 	Email string `json:"email"`
 	// The registrant's first name as submitted on the webinar registration form.
 	FirstName NullableString `json:"first_name"`
-	// The registrant's attended status for the webinar.  Option descriptions:  * `B` - The registrant has been blocked from attending the webinar.  * `N` - The registrant has not attended the webinar.  * `Y` - The registrant has attended the webinar. 
+	// The registrant's attended status for the webinar.  Option descriptions:  * `B` - The registrant has been blocked from attending the webinar.  * `N` - The registrant has not attended the webinar.  * `Y` - The registrant has attended the webinar.
 	HasAttended string `json:"has_attended"`
 	// Whether the registrant's viewing status for the webinar is blocked.
 	IsBlocked bool `json:"is_blocked"`
@@ -374,7 +374,7 @@ func (o *WebinarRegistrant) SetUri(v string) {
 }
 
 func (o WebinarRegistrant) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -437,5 +437,3 @@ func (v *NullableWebinarRegistrant) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

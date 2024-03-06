@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type VideosEmbedPrivacyAPI interface {
 
 	/*
-	AddVideoPrivacyDomain Add a domain to a video's whitelist
+		AddVideoPrivacyDomain Add a domain to a video's whitelist
 
-	This method adds the specified domain to a video's whitelist.
+		This method adds the specified domain to a video's whitelist.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param domain The domain name.
-	@param videoId The ID of the video.
-	@return ApiAddVideoPrivacyDomainRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param domain The domain name.
+		@param videoId The ID of the video.
+		@return ApiAddVideoPrivacyDomainRequest
 	*/
 	AddVideoPrivacyDomain(ctx context.Context, domain string, videoId int32) ApiAddVideoPrivacyDomainRequest
 
@@ -38,14 +37,14 @@ type VideosEmbedPrivacyAPI interface {
 	AddVideoPrivacyDomainExecute(r ApiAddVideoPrivacyDomainRequest) (*http.Response, error)
 
 	/*
-	DeleteVideoPrivacyDomain Remove a domain from a video's whitelist
+		DeleteVideoPrivacyDomain Remove a domain from a video's whitelist
 
-	This method removes the specified domain from a video's whitelist.
+		This method removes the specified domain from a video's whitelist.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param domain The domain name.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoPrivacyDomainRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param domain The domain name.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoPrivacyDomainRequest
 	*/
 	DeleteVideoPrivacyDomain(ctx context.Context, domain string, videoId int32) ApiDeleteVideoPrivacyDomainRequest
 
@@ -53,13 +52,13 @@ type VideosEmbedPrivacyAPI interface {
 	DeleteVideoPrivacyDomainExecute(r ApiDeleteVideoPrivacyDomainRequest) (*http.Response, error)
 
 	/*
-	GetVideoPrivacyDomains Get all the domains on a video's whitelist
+		GetVideoPrivacyDomains Get all the domains on a video's whitelist
 
-	This method returns every domain on the specified video's whitelist.
+		This method returns every domain on the specified video's whitelist.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoPrivacyDomainsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetVideoPrivacyDomainsRequest
 	*/
 	GetVideoPrivacyDomains(ctx context.Context, videoId int32) ApiGetVideoPrivacyDomainsRequest
 
@@ -72,10 +71,10 @@ type VideosEmbedPrivacyAPI interface {
 type VideosEmbedPrivacyAPIService service
 
 type ApiAddVideoPrivacyDomainRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEmbedPrivacyAPI
-	domain string
-	videoId int32
+	domain     string
+	videoId    int32
 }
 
 func (r ApiAddVideoPrivacyDomainRequest) Execute() (*http.Response, error) {
@@ -87,26 +86,26 @@ AddVideoPrivacyDomain Add a domain to a video's whitelist
 
 This method adds the specified domain to a video's whitelist.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param domain The domain name.
- @param videoId The ID of the video.
- @return ApiAddVideoPrivacyDomainRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param domain The domain name.
+	@param videoId The ID of the video.
+	@return ApiAddVideoPrivacyDomainRequest
 */
 func (a *VideosEmbedPrivacyAPIService) AddVideoPrivacyDomain(ctx context.Context, domain string, videoId int32) ApiAddVideoPrivacyDomainRequest {
 	return ApiAddVideoPrivacyDomainRequest{
 		ApiService: a,
-		ctx: ctx,
-		domain: domain,
-		videoId: videoId,
+		ctx:        ctx,
+		domain:     domain,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosEmbedPrivacyAPIService) AddVideoPrivacyDomainExecute(r ApiAddVideoPrivacyDomainRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEmbedPrivacyAPIService.AddVideoPrivacyDomain")
@@ -168,8 +167,8 @@ func (a *VideosEmbedPrivacyAPIService) AddVideoPrivacyDomainExecute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -178,10 +177,10 @@ func (a *VideosEmbedPrivacyAPIService) AddVideoPrivacyDomainExecute(r ApiAddVide
 }
 
 type ApiDeleteVideoPrivacyDomainRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEmbedPrivacyAPI
-	domain string
-	videoId int32
+	domain     string
+	videoId    int32
 }
 
 func (r ApiDeleteVideoPrivacyDomainRequest) Execute() (*http.Response, error) {
@@ -193,26 +192,26 @@ DeleteVideoPrivacyDomain Remove a domain from a video's whitelist
 
 This method removes the specified domain from a video's whitelist.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param domain The domain name.
- @param videoId The ID of the video.
- @return ApiDeleteVideoPrivacyDomainRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param domain The domain name.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoPrivacyDomainRequest
 */
 func (a *VideosEmbedPrivacyAPIService) DeleteVideoPrivacyDomain(ctx context.Context, domain string, videoId int32) ApiDeleteVideoPrivacyDomainRequest {
 	return ApiDeleteVideoPrivacyDomainRequest{
 		ApiService: a,
-		ctx: ctx,
-		domain: domain,
-		videoId: videoId,
+		ctx:        ctx,
+		domain:     domain,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosEmbedPrivacyAPIService) DeleteVideoPrivacyDomainExecute(r ApiDeleteVideoPrivacyDomainRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEmbedPrivacyAPIService.DeleteVideoPrivacyDomain")
@@ -274,8 +273,8 @@ func (a *VideosEmbedPrivacyAPIService) DeleteVideoPrivacyDomainExecute(r ApiDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -285,8 +284,8 @@ func (a *VideosEmbedPrivacyAPIService) DeleteVideoPrivacyDomainExecute(r ApiDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -295,11 +294,11 @@ func (a *VideosEmbedPrivacyAPIService) DeleteVideoPrivacyDomainExecute(r ApiDele
 }
 
 type ApiGetVideoPrivacyDomainsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEmbedPrivacyAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -323,26 +322,27 @@ GetVideoPrivacyDomains Get all the domains on a video's whitelist
 
 This method returns every domain on the specified video's whitelist.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetVideoPrivacyDomainsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoPrivacyDomainsRequest
 */
 func (a *VideosEmbedPrivacyAPIService) GetVideoPrivacyDomains(ctx context.Context, videoId int32) ApiGetVideoPrivacyDomainsRequest {
 	return ApiGetVideoPrivacyDomainsRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Domain
+//
+//	@return []Domain
 func (a *VideosEmbedPrivacyAPIService) GetVideoPrivacyDomainsExecute(r ApiGetVideoPrivacyDomainsRequest) ([]Domain, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Domain
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Domain
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEmbedPrivacyAPIService.GetVideoPrivacyDomains")
@@ -409,8 +409,8 @@ func (a *VideosEmbedPrivacyAPIService) GetVideoPrivacyDomainsExecute(r ApiGetVid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

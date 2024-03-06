@@ -23,7 +23,7 @@ type EditLiveEventAutoCcAlt1Request struct {
 	AutoCcEnabled bool `json:"auto_cc_enabled"`
 	// A comma-separated list of keywords that improve the quality of the automated closed captions.
 	AutoCcKeywords *string `json:"auto_cc_keywords,omitempty"`
-	// The language in which the automated closed captions appear.  Option descriptions:  * `de-DE` - The language is German.  * `en-US` - The language is English.  * `es-ES` - The language is Spanish.  * `fr-FR` - The language is French.  * `pt-BR` - The language is Portuguese. 
+	// The language in which the automated closed captions appear.  Option descriptions:  * `de-DE` - The language is German.  * `en-US` - The language is English.  * `es-ES` - The language is Spanish.  * `fr-FR` - The language is French.  * `pt-BR` - The language is Portuguese.
 	AutoCcLang *string `json:"auto_cc_lang,omitempty"`
 }
 
@@ -134,7 +134,7 @@ func (o *EditLiveEventAutoCcAlt1Request) SetAutoCcLang(v string) {
 }
 
 func (o EditLiveEventAutoCcAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableEditLiveEventAutoCcAlt1Request) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

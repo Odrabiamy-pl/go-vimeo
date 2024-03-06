@@ -27,7 +27,7 @@ type LiveEventDestination struct {
 	IsEnabled bool `json:"is_enabled"`
 	// The ID of the live video.
 	LiveClipId float32 `json:"live_clip_id"`
-	// The privacy setting of the destination.  Option descriptions:  * `CONNECTIONS` - The privacy setting is `CONNECTIONS` for LinkedIn.  * `PUBLIC` - The privacy setting is `PUBLIC` for LinkedIn.  * `all_friends` - The privacy setting is `all_friends` for Facebook.  * `everyone` - The privacy setting is `everyone` for Facebook.  * `private` - The privacy setting is `private` for YouTube.  * `public` - The privacy setting is `public` for YouTube.  * `self` - The privacy setting is `self` for Facebook.  * `unlisted` - The privacy setting is `unlisted` for YouTube. 
+	// The privacy setting of the destination.  Option descriptions:  * `CONNECTIONS` - The privacy setting is `CONNECTIONS` for LinkedIn.  * `PUBLIC` - The privacy setting is `PUBLIC` for LinkedIn.  * `all_friends` - The privacy setting is `all_friends` for Facebook.  * `everyone` - The privacy setting is `everyone` for Facebook.  * `private` - The privacy setting is `private` for YouTube.  * `public` - The privacy setting is `public` for YouTube.  * `self` - The privacy setting is `self` for Facebook.  * `unlisted` - The privacy setting is `unlisted` for YouTube.
 	Privacy NullableString `json:"privacy"`
 	// The destination ID of the destination service.
 	ProviderBroadcastId NullableString `json:"provider_broadcast_id"`
@@ -39,9 +39,9 @@ type LiveEventDestination struct {
 	ProviderVideoId NullableString `json:"provider_video_id"`
 	// The time in Unix timestamp format when live streaming is scheduled to start.
 	ScheduledAt NullableFloat32 `json:"scheduled_at"`
-	// The name of the destination service.  Option descriptions:  * `custom_rtmp` - The destination service is custom RTMP.  * `facebook` - The destination service is Facebook Live.  * `linkedin` - The destination service is LinkedIn Live.  * `youtube` - The destination service is YouTube Live. 
+	// The name of the destination service.  Option descriptions:  * `custom_rtmp` - The destination service is custom RTMP.  * `facebook` - The destination service is Facebook Live.  * `linkedin` - The destination service is LinkedIn Live.  * `youtube` - The destination service is YouTube Live.
 	ServiceName string `json:"service_name"`
-	// The status of the destination.  Option descriptions:  * `0` - The status is OK.  * `1` - An error occurred. Check the `state_message` field for details. 
+	// The status of the destination.  Option descriptions:  * `0` - The status is OK.  * `1` - An error occurred. Check the `state_message` field for details.
 	State string `json:"state"`
 	// The message that describes the state of the destination.
 	StateMessage NullableString `json:"state_message"`
@@ -49,7 +49,7 @@ type LiveEventDestination struct {
 	StreamKey NullableString `json:"stream_key"`
 	// The RTMP URL to stream to.
 	StreamUrl NullableString `json:"stream_url"`
-	// The type of the simulcast destination.  Option descriptions:  * `channel` - The destination is a YouTube channel.  * `custom` - The destination is custom.  * `organization` - The destination is a LinkedIn organization.  * `page` - The destination is a Facebook page.  * `profile` - The destination is a Facebook or LinkedIn profile. 
+	// The type of the simulcast destination.  Option descriptions:  * `channel` - The destination is a YouTube channel.  * `custom` - The destination is custom.  * `organization` - The destination is a LinkedIn organization.  * `page` - The destination is a Facebook page.  * `profile` - The destination is a Facebook or LinkedIn profile.
 	Type string `json:"type"`
 	// The ID of the destination's owner.
 	UserId int32 `json:"user_id"`
@@ -516,7 +516,7 @@ func (o *LiveEventDestination) SetUserId(v int32) {
 }
 
 func (o LiveEventDestination) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -580,5 +580,3 @@ func (v *NullableLiveEventDestination) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

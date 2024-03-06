@@ -25,7 +25,7 @@ type CreateChannelRequest struct {
 	Link *string `json:"link,omitempty"`
 	// The name of the channel.
 	Name string `json:"name"`
-	// The privacy level of the channel.  Option descriptions:  * `anybody` - Anyone can access the channel.  * `moderators` - Only moderators can access the channel.  * `user` - Only moderators and designated users can access the channel. 
+	// The privacy level of the channel.  Option descriptions:  * `anybody` - Anyone can access the channel.  * `moderators` - Only moderators can access the channel.  * `user` - Only moderators and designated users can access the channel.
 	Privacy string `json:"privacy"`
 }
 
@@ -161,7 +161,7 @@ func (o *CreateChannelRequest) SetPrivacy(v string) {
 }
 
 func (o CreateChannelRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -216,5 +216,3 @@ func (v *NullableCreateChannelRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

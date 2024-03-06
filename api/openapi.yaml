@@ -41288,7 +41288,7 @@ components:
                     properties:
                       description: Properties that can be added to the request body.
                       items:
-                        type: string
+                        type: object
                       type: array
                     subfolder_depth_limit_reached:
                       description: Whether the user has reached the maximum subfolder

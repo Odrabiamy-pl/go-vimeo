@@ -73,7 +73,7 @@ func (o *CreateUnsavedChapterThumbnailOrUploadLinkRequest) SetTimecode(v float32
 }
 
 func (o CreateUnsavedChapterThumbnailOrUploadLinkRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableCreateUnsavedChapterThumbnailOrUploadLinkRequest) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

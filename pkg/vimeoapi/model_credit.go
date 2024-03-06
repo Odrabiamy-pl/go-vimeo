@@ -24,8 +24,8 @@ type Credit struct {
 	// The character that the person portrayed, or the job that the person performed.
 	Role string `json:"role"`
 	// The unique identifier to access the credit resource.
-	Uri string `json:"uri"`
-	User *User `json:"user,omitempty"`
+	Uri   string `json:"uri"`
+	User  *User  `json:"user,omitempty"`
 	Video *Video `json:"video,omitempty"`
 }
 
@@ -186,7 +186,7 @@ func (o *Credit) SetVideo(v Video) {
 }
 
 func (o Credit) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -242,5 +242,3 @@ func (v *NullableCredit) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

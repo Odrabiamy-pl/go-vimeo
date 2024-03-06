@@ -19,17 +19,17 @@ var _ MappedNullable = &Activity31{}
 
 // Activity31 struct for Activity31
 type Activity31 struct {
-	Category *Category `json:"category,omitempty"`
-	Channel *Channel `json:"channel,omitempty"`
-	Clip Video `json:"clip"`
-	Group *Group `json:"group,omitempty"`
+	Category *Category          `json:"category,omitempty"`
+	Channel  *Channel           `json:"channel,omitempty"`
+	Clip     Video              `json:"clip"`
+	Group    *Group             `json:"group,omitempty"`
 	Metadata Activity31Metadata `json:"metadata"`
-	Tag *Tag `json:"tag,omitempty"`
+	Tag      *Tag               `json:"tag,omitempty"`
 	// The time that the event occurred.
 	Time string `json:"time"`
-	// The activity type.  Option descriptions:  * `appearance` - The activity is an appearance action.  * `category` - The activity is a category action.  * `channel` - The activity is a channel action.  * `facebook_feed` - The activity is a Facebook feed action.  * `group` - The activity is a group action.  * `like` - The activity is a like action.  * `ondemand` - The activity is a Vimeo On Demand action.  * `share` - The activity is a share action.  * `tag` - The activity is a tag action.  * `twitter_timeline` - The activity is a Twitter timeline action.  * `upload` - The activity is an upload action. 
+	// The activity type.  Option descriptions:  * `appearance` - The activity is an appearance action.  * `category` - The activity is a category action.  * `channel` - The activity is a channel action.  * `facebook_feed` - The activity is a Facebook feed action.  * `group` - The activity is a group action.  * `like` - The activity is a like action.  * `ondemand` - The activity is a Vimeo On Demand action.  * `share` - The activity is a share action.  * `tag` - The activity is a tag action.  * `twitter_timeline` - The activity is a Twitter timeline action.  * `upload` - The activity is an upload action.
 	Type string `json:"type"`
-	User *User `json:"user,omitempty"`
+	User *User  `json:"user,omitempty"`
 }
 
 // NewActivity31 instantiates a new Activity31 object
@@ -310,7 +310,7 @@ func (o *Activity31) SetUser(v User) {
 }
 
 func (o Activity31) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -376,5 +376,3 @@ func (v *NullableActivity31) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

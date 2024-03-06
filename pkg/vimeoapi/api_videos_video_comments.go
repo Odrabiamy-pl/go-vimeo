@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type VideosVideoCommentsAPI interface {
 
 	/*
-	CreateComment Add a video comment to a video
+		CreateComment Add a video comment to a video
 
-	This method adds a video comment to the specified video.
+		This method adds a video comment to the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateCommentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiCreateCommentRequest
 	*/
 	CreateComment(ctx context.Context, videoId int32) ApiCreateCommentRequest
 
@@ -38,14 +37,14 @@ type VideosVideoCommentsAPI interface {
 	CreateCommentExecute(r ApiCreateCommentRequest) (*Comment, *http.Response, error)
 
 	/*
-	CreateCommentAlt1 Add a video comment to a video
+		CreateCommentAlt1 Add a video comment to a video
 
-	This method adds a video comment to the specified video.
+		This method adds a video comment to the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiCreateCommentAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiCreateCommentAlt1Request
 	*/
 	CreateCommentAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateCommentAlt1Request
 
@@ -54,14 +53,14 @@ type VideosVideoCommentsAPI interface {
 	CreateCommentAlt1Execute(r ApiCreateCommentAlt1Request) (*Comment, *http.Response, error)
 
 	/*
-	CreateCommentReply Add a reply to a video comment
+		CreateCommentReply Add a reply to a video comment
 
-	This method adds a reply to the specified video comment.
+		This method adds a reply to the specified video comment.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param commentId The ID of the comment.
-	@param videoId The ID of the video.
-	@return ApiCreateCommentReplyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param commentId The ID of the comment.
+		@param videoId The ID of the video.
+		@return ApiCreateCommentReplyRequest
 	*/
 	CreateCommentReply(ctx context.Context, commentId float32, videoId int32) ApiCreateCommentReplyRequest
 
@@ -70,14 +69,14 @@ type VideosVideoCommentsAPI interface {
 	CreateCommentReplyExecute(r ApiCreateCommentReplyRequest) (*Comment, *http.Response, error)
 
 	/*
-	DeleteComment Delete a video comment
+		DeleteComment Delete a video comment
 
-	This method deletes the specified video comment. The authenticated user must be the owner of the comment.
+		This method deletes the specified video comment. The authenticated user must be the owner of the comment.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param commentId The ID of the comment.
-	@param videoId The ID of the video.
-	@return ApiDeleteCommentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param commentId The ID of the comment.
+		@param videoId The ID of the video.
+		@return ApiDeleteCommentRequest
 	*/
 	DeleteComment(ctx context.Context, commentId float32, videoId int32) ApiDeleteCommentRequest
 
@@ -85,14 +84,14 @@ type VideosVideoCommentsAPI interface {
 	DeleteCommentExecute(r ApiDeleteCommentRequest) (*http.Response, error)
 
 	/*
-	EditComment Edit a video comment
+		EditComment Edit a video comment
 
-	This method edits the specified video comment. The authenticated user must be the owner of the comment.
+		This method edits the specified video comment. The authenticated user must be the owner of the comment.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param commentId The ID of the comment.
-	@param videoId The ID of the video.
-	@return ApiEditCommentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param commentId The ID of the comment.
+		@param videoId The ID of the video.
+		@return ApiEditCommentRequest
 	*/
 	EditComment(ctx context.Context, commentId float32, videoId int32) ApiEditCommentRequest
 
@@ -101,14 +100,14 @@ type VideosVideoCommentsAPI interface {
 	EditCommentExecute(r ApiEditCommentRequest) (*Comment, *http.Response, error)
 
 	/*
-	GetComment Get a specific video comment
+		GetComment Get a specific video comment
 
-	This method returns the specified video comment.
+		This method returns the specified video comment.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param commentId The ID of the comment.
-	@param videoId The ID of the video.
-	@return ApiGetCommentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param commentId The ID of the comment.
+		@param videoId The ID of the video.
+		@return ApiGetCommentRequest
 	*/
 	GetComment(ctx context.Context, commentId float32, videoId int32) ApiGetCommentRequest
 
@@ -117,14 +116,14 @@ type VideosVideoCommentsAPI interface {
 	GetCommentExecute(r ApiGetCommentRequest) (*Comment, *http.Response, error)
 
 	/*
-	GetCommentReplies Get all the replies to a video comment
+		GetCommentReplies Get all the replies to a video comment
 
-	This method returns every reply to the specified video comment.
+		This method returns every reply to the specified video comment.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param commentId The ID of the comment.
-	@param videoId The ID of the video.
-	@return ApiGetCommentRepliesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param commentId The ID of the comment.
+		@param videoId The ID of the video.
+		@return ApiGetCommentRepliesRequest
 	*/
 	GetCommentReplies(ctx context.Context, commentId float32, videoId int32) ApiGetCommentRepliesRequest
 
@@ -133,13 +132,13 @@ type VideosVideoCommentsAPI interface {
 	GetCommentRepliesExecute(r ApiGetCommentRepliesRequest) ([]Comment, *http.Response, error)
 
 	/*
-	GetComments Get all the video comments on a video
+		GetComments Get all the video comments on a video
 
-	This method returns every video comment on the specified video.
+		This method returns every video comment on the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetCommentsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetCommentsRequest
 	*/
 	GetComments(ctx context.Context, videoId int32) ApiGetCommentsRequest
 
@@ -148,14 +147,14 @@ type VideosVideoCommentsAPI interface {
 	GetCommentsExecute(r ApiGetCommentsRequest) ([]Comment, *http.Response, error)
 
 	/*
-	GetCommentsAlt1 Get all the video comments on a video
+		GetCommentsAlt1 Get all the video comments on a video
 
-	This method returns every video comment on the specified video.
+		This method returns every video comment on the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiGetCommentsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiGetCommentsAlt1Request
 	*/
 	GetCommentsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetCommentsAlt1Request
 
@@ -168,9 +167,9 @@ type VideosVideoCommentsAPI interface {
 type VideosVideoCommentsAPIService service
 
 type ApiCreateCommentRequest struct {
-	ctx context.Context
-	ApiService VideosVideoCommentsAPI
-	videoId int32
+	ctx                      context.Context
+	ApiService               VideosVideoCommentsAPI
+	videoId                  int32
 	createCommentAlt1Request *CreateCommentAlt1Request
 }
 
@@ -188,26 +187,27 @@ CreateComment Add a video comment to a video
 
 This method adds a video comment to the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiCreateCommentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateCommentRequest
 */
 func (a *VideosVideoCommentsAPIService) CreateComment(ctx context.Context, videoId int32) ApiCreateCommentRequest {
 	return ApiCreateCommentRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Comment
+//
+//	@return Comment
 func (a *VideosVideoCommentsAPIService) CreateCommentExecute(r ApiCreateCommentRequest) (*Comment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Comment
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Comment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.CreateComment")
@@ -273,8 +273,8 @@ func (a *VideosVideoCommentsAPIService) CreateCommentExecute(r ApiCreateCommentR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -284,8 +284,8 @@ func (a *VideosVideoCommentsAPIService) CreateCommentExecute(r ApiCreateCommentR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -295,8 +295,8 @@ func (a *VideosVideoCommentsAPIService) CreateCommentExecute(r ApiCreateCommentR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -314,10 +314,10 @@ func (a *VideosVideoCommentsAPIService) CreateCommentExecute(r ApiCreateCommentR
 }
 
 type ApiCreateCommentAlt1Request struct {
-	ctx context.Context
-	ApiService VideosVideoCommentsAPI
-	channelId float32
-	videoId int32
+	ctx                      context.Context
+	ApiService               VideosVideoCommentsAPI
+	channelId                float32
+	videoId                  int32
 	createCommentAlt1Request *CreateCommentAlt1Request
 }
 
@@ -335,28 +335,29 @@ CreateCommentAlt1 Add a video comment to a video
 
 This method adds a video comment to the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiCreateCommentAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiCreateCommentAlt1Request
 */
 func (a *VideosVideoCommentsAPIService) CreateCommentAlt1(ctx context.Context, channelId float32, videoId int32) ApiCreateCommentAlt1Request {
 	return ApiCreateCommentAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Comment
+//
+//	@return Comment
 func (a *VideosVideoCommentsAPIService) CreateCommentAlt1Execute(r ApiCreateCommentAlt1Request) (*Comment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Comment
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Comment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.CreateCommentAlt1")
@@ -423,8 +424,8 @@ func (a *VideosVideoCommentsAPIService) CreateCommentAlt1Execute(r ApiCreateComm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -434,8 +435,8 @@ func (a *VideosVideoCommentsAPIService) CreateCommentAlt1Execute(r ApiCreateComm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -445,8 +446,8 @@ func (a *VideosVideoCommentsAPIService) CreateCommentAlt1Execute(r ApiCreateComm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -464,10 +465,10 @@ func (a *VideosVideoCommentsAPIService) CreateCommentAlt1Execute(r ApiCreateComm
 }
 
 type ApiCreateCommentReplyRequest struct {
-	ctx context.Context
-	ApiService VideosVideoCommentsAPI
-	commentId float32
-	videoId int32
+	ctx                       context.Context
+	ApiService                VideosVideoCommentsAPI
+	commentId                 float32
+	videoId                   int32
 	createCommentReplyRequest *CreateCommentReplyRequest
 }
 
@@ -485,28 +486,29 @@ CreateCommentReply Add a reply to a video comment
 
 This method adds a reply to the specified video comment.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param commentId The ID of the comment.
- @param videoId The ID of the video.
- @return ApiCreateCommentReplyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param commentId The ID of the comment.
+	@param videoId The ID of the video.
+	@return ApiCreateCommentReplyRequest
 */
 func (a *VideosVideoCommentsAPIService) CreateCommentReply(ctx context.Context, commentId float32, videoId int32) ApiCreateCommentReplyRequest {
 	return ApiCreateCommentReplyRequest{
 		ApiService: a,
-		ctx: ctx,
-		commentId: commentId,
-		videoId: videoId,
+		ctx:        ctx,
+		commentId:  commentId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Comment
+//
+//	@return Comment
 func (a *VideosVideoCommentsAPIService) CreateCommentReplyExecute(r ApiCreateCommentReplyRequest) (*Comment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Comment
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Comment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.CreateCommentReply")
@@ -573,8 +575,8 @@ func (a *VideosVideoCommentsAPIService) CreateCommentReplyExecute(r ApiCreateCom
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -584,8 +586,8 @@ func (a *VideosVideoCommentsAPIService) CreateCommentReplyExecute(r ApiCreateCom
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -603,10 +605,10 @@ func (a *VideosVideoCommentsAPIService) CreateCommentReplyExecute(r ApiCreateCom
 }
 
 type ApiDeleteCommentRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosVideoCommentsAPI
-	commentId float32
-	videoId int32
+	commentId  float32
+	videoId    int32
 }
 
 func (r ApiDeleteCommentRequest) Execute() (*http.Response, error) {
@@ -618,26 +620,26 @@ DeleteComment Delete a video comment
 
 This method deletes the specified video comment. The authenticated user must be the owner of the comment.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param commentId The ID of the comment.
- @param videoId The ID of the video.
- @return ApiDeleteCommentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param commentId The ID of the comment.
+	@param videoId The ID of the video.
+	@return ApiDeleteCommentRequest
 */
 func (a *VideosVideoCommentsAPIService) DeleteComment(ctx context.Context, commentId float32, videoId int32) ApiDeleteCommentRequest {
 	return ApiDeleteCommentRequest{
 		ApiService: a,
-		ctx: ctx,
-		commentId: commentId,
-		videoId: videoId,
+		ctx:        ctx,
+		commentId:  commentId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosVideoCommentsAPIService) DeleteCommentExecute(r ApiDeleteCommentRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.DeleteComment")
@@ -692,17 +694,6 @@ func (a *VideosVideoCommentsAPIService) DeleteCommentExecute(r ApiDeleteCommentR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -710,8 +701,19 @@ func (a *VideosVideoCommentsAPIService) DeleteCommentExecute(r ApiDeleteCommentR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -720,10 +722,10 @@ func (a *VideosVideoCommentsAPIService) DeleteCommentExecute(r ApiDeleteCommentR
 }
 
 type ApiEditCommentRequest struct {
-	ctx context.Context
-	ApiService VideosVideoCommentsAPI
-	commentId float32
-	videoId int32
+	ctx                context.Context
+	ApiService         VideosVideoCommentsAPI
+	commentId          float32
+	videoId            int32
 	editCommentRequest *EditCommentRequest
 }
 
@@ -741,28 +743,29 @@ EditComment Edit a video comment
 
 This method edits the specified video comment. The authenticated user must be the owner of the comment.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param commentId The ID of the comment.
- @param videoId The ID of the video.
- @return ApiEditCommentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param commentId The ID of the comment.
+	@param videoId The ID of the video.
+	@return ApiEditCommentRequest
 */
 func (a *VideosVideoCommentsAPIService) EditComment(ctx context.Context, commentId float32, videoId int32) ApiEditCommentRequest {
 	return ApiEditCommentRequest{
 		ApiService: a,
-		ctx: ctx,
-		commentId: commentId,
-		videoId: videoId,
+		ctx:        ctx,
+		commentId:  commentId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Comment
+//
+//	@return Comment
 func (a *VideosVideoCommentsAPIService) EditCommentExecute(r ApiEditCommentRequest) (*Comment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Comment
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Comment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.EditComment")
@@ -829,8 +832,8 @@ func (a *VideosVideoCommentsAPIService) EditCommentExecute(r ApiEditCommentReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -840,8 +843,8 @@ func (a *VideosVideoCommentsAPIService) EditCommentExecute(r ApiEditCommentReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -859,10 +862,10 @@ func (a *VideosVideoCommentsAPIService) EditCommentExecute(r ApiEditCommentReque
 }
 
 type ApiGetCommentRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosVideoCommentsAPI
-	commentId float32
-	videoId int32
+	commentId  float32
+	videoId    int32
 }
 
 func (r ApiGetCommentRequest) Execute() (*Comment, *http.Response, error) {
@@ -874,28 +877,29 @@ GetComment Get a specific video comment
 
 This method returns the specified video comment.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param commentId The ID of the comment.
- @param videoId The ID of the video.
- @return ApiGetCommentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param commentId The ID of the comment.
+	@param videoId The ID of the video.
+	@return ApiGetCommentRequest
 */
 func (a *VideosVideoCommentsAPIService) GetComment(ctx context.Context, commentId float32, videoId int32) ApiGetCommentRequest {
 	return ApiGetCommentRequest{
 		ApiService: a,
-		ctx: ctx,
-		commentId: commentId,
-		videoId: videoId,
+		ctx:        ctx,
+		commentId:  commentId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Comment
+//
+//	@return Comment
 func (a *VideosVideoCommentsAPIService) GetCommentExecute(r ApiGetCommentRequest) (*Comment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Comment
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Comment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.GetComment")
@@ -957,8 +961,8 @@ func (a *VideosVideoCommentsAPIService) GetCommentExecute(r ApiGetCommentRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -976,12 +980,12 @@ func (a *VideosVideoCommentsAPIService) GetCommentExecute(r ApiGetCommentRequest
 }
 
 type ApiGetCommentRepliesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosVideoCommentsAPI
-	commentId float32
-	videoId int32
-	page *float32
-	perPage *float32
+	commentId  float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -1005,28 +1009,29 @@ GetCommentReplies Get all the replies to a video comment
 
 This method returns every reply to the specified video comment.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param commentId The ID of the comment.
- @param videoId The ID of the video.
- @return ApiGetCommentRepliesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param commentId The ID of the comment.
+	@param videoId The ID of the video.
+	@return ApiGetCommentRepliesRequest
 */
 func (a *VideosVideoCommentsAPIService) GetCommentReplies(ctx context.Context, commentId float32, videoId int32) ApiGetCommentRepliesRequest {
 	return ApiGetCommentRepliesRequest{
 		ApiService: a,
-		ctx: ctx,
-		commentId: commentId,
-		videoId: videoId,
+		ctx:        ctx,
+		commentId:  commentId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Comment
+//
+//	@return []Comment
 func (a *VideosVideoCommentsAPIService) GetCommentRepliesExecute(r ApiGetCommentRepliesRequest) ([]Comment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Comment
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Comment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.GetCommentReplies")
@@ -1094,8 +1099,8 @@ func (a *VideosVideoCommentsAPIService) GetCommentRepliesExecute(r ApiGetComment
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1113,15 +1118,15 @@ func (a *VideosVideoCommentsAPIService) GetCommentRepliesExecute(r ApiGetComment
 }
 
 type ApiGetCommentsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosVideoCommentsAPI
-	videoId int32
-	direction *string
-	page *float32
-	perPage *float32
+	videoId    int32
+	direction  *string
+	page       *float32
+	perPage    *float32
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetCommentsRequest) Direction(direction string) ApiGetCommentsRequest {
 	r.direction = &direction
 	return r
@@ -1148,26 +1153,27 @@ GetComments Get all the video comments on a video
 
 This method returns every video comment on the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetCommentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetCommentsRequest
 */
 func (a *VideosVideoCommentsAPIService) GetComments(ctx context.Context, videoId int32) ApiGetCommentsRequest {
 	return ApiGetCommentsRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Comment
+//
+//	@return []Comment
 func (a *VideosVideoCommentsAPIService) GetCommentsExecute(r ApiGetCommentsRequest) ([]Comment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Comment
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Comment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.GetComments")
@@ -1246,16 +1252,16 @@ func (a *VideosVideoCommentsAPIService) GetCommentsExecute(r ApiGetCommentsReque
 }
 
 type ApiGetCommentsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosVideoCommentsAPI
-	channelId float32
-	videoId int32
-	direction *string
-	page *float32
-	perPage *float32
+	channelId  float32
+	videoId    int32
+	direction  *string
+	page       *float32
+	perPage    *float32
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetCommentsAlt1Request) Direction(direction string) ApiGetCommentsAlt1Request {
 	r.direction = &direction
 	return r
@@ -1282,28 +1288,29 @@ GetCommentsAlt1 Get all the video comments on a video
 
 This method returns every video comment on the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiGetCommentsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiGetCommentsAlt1Request
 */
 func (a *VideosVideoCommentsAPIService) GetCommentsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetCommentsAlt1Request {
 	return ApiGetCommentsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Comment
+//
+//	@return []Comment
 func (a *VideosVideoCommentsAPIService) GetCommentsAlt1Execute(r ApiGetCommentsAlt1Request) ([]Comment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Comment
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Comment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVideoCommentsAPIService.GetCommentsAlt1")

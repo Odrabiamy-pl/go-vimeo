@@ -107,7 +107,7 @@ func (o *CreateLiveEventAlt1RequestInteractionToolsSettings) SetIsQnaModerated(v
 }
 
 func (o CreateLiveEventAlt1RequestInteractionToolsSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableCreateLiveEventAlt1RequestInteractionToolsSettings) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,11 +20,11 @@ var _ MappedNullable = &DisabledVideoProperties{}
 // DisabledVideoProperties struct for DisabledVideoProperties
 type DisabledVideoProperties struct {
 	AddToCollection DisabledVideoPropertiesAddToCollection `json:"add_to_collection"`
-	Download DisabledVideoPropertiesDownload `json:"download"`
-	Duplicate DisabledVideoPropertiesDuplicate `json:"duplicate"`
-	EditPrivacy DisabledVideoPropertiesEditPrivacy `json:"edit_privacy"`
-	Embed DisabledVideoPropertiesEmbed `json:"embed"`
-	EmbedPresets DisabledVideoPropertiesEmbedPresets `json:"embed_presets"`
+	Download        DisabledVideoPropertiesDownload        `json:"download"`
+	Duplicate       DisabledVideoPropertiesDuplicate       `json:"duplicate"`
+	EditPrivacy     DisabledVideoPropertiesEditPrivacy     `json:"edit_privacy"`
+	Embed           DisabledVideoPropertiesEmbed           `json:"embed"`
+	EmbedPresets    DisabledVideoPropertiesEmbedPresets    `json:"embed_presets"`
 }
 
 // NewDisabledVideoProperties instantiates a new DisabledVideoProperties object
@@ -195,7 +195,7 @@ func (o *DisabledVideoProperties) SetEmbedPresets(v DisabledVideoPropertiesEmbed
 }
 
 func (o DisabledVideoProperties) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -248,5 +248,3 @@ func (v *NullableDisabledVideoProperties) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

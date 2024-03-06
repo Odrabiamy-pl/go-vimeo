@@ -19,10 +19,10 @@ var _ MappedNullable = &ProjectItem{}
 
 // ProjectItem struct for ProjectItem
 type ProjectItem struct {
-	Folder *Project `json:"folder,omitempty"`
+	Folder    *Project            `json:"folder,omitempty"`
 	LiveEvent *LiveEventRecurring `json:"live_event,omitempty"`
-	// The project item type.  Option descriptions:  * `folder` - The project item is a folder.  * `live_event` - The project item is a live event.  * `video` - The project item is a video. 
-	Type string `json:"type"`
+	// The project item type.  Option descriptions:  * `folder` - The project item is a folder.  * `live_event` - The project item is a live event.  * `video` - The project item is a video.
+	Type  string `json:"type"`
 	Video *Video `json:"video,omitempty"`
 }
 
@@ -165,7 +165,7 @@ func (o *ProjectItem) SetVideo(v Video) {
 }
 
 func (o ProjectItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -222,5 +222,3 @@ func (v *NullableProjectItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

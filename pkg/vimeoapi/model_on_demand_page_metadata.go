@@ -19,8 +19,8 @@ var _ MappedNullable = &OnDemandPageMetadata{}
 
 // OnDemandPageMetadata Metadata about the On Demand page.
 type OnDemandPageMetadata struct {
-	Connections OnDemandPageMetadataConnections `json:"connections"`
-	Interactions PurchaseInteraction `json:"interactions"`
+	Connections  OnDemandPageMetadataConnections `json:"connections"`
+	Interactions PurchaseInteraction             `json:"interactions"`
 }
 
 // NewOnDemandPageMetadata instantiates a new OnDemandPageMetadata object
@@ -91,7 +91,7 @@ func (o *OnDemandPageMetadata) SetInteractions(v PurchaseInteraction) {
 }
 
 func (o OnDemandPageMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableOnDemandPageMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,9 +21,9 @@ var _ MappedNullable = &CreateVodAlt1RequestRent{}
 type CreateVodAlt1RequestRent struct {
 	// Whether the video can be rented. This parameter is required when **episodes.rent.active** is `true`.
 	Active *bool `json:"active,omitempty"`
-	// The rental period of the video.  Option descriptions:  * `1 week` - The video can be rented for a maximum of 1 week.  * `1 year` - The video can be rented for a maximum of 1 year.  * `24 hour` - The video can be rented for a maximum of 24 hours.  * `3 month` - The video can be rented for a maximum of 3 months.  * `30 day` - The video can be rented for a maximum of 30 days.  * `48 hour` - The video can be rented for a maximum of 48 hours.  * `6 month` - The video can be rented for a maximum of 6 months.  * `72 hour` - The video can be rented for a maximum of 72 hours. 
-	Period *string `json:"period,omitempty"`
-	Price *CreateVodAlt1RequestRentPrice `json:"price,omitempty"`
+	// The rental period of the video.  Option descriptions:  * `1 week` - The video can be rented for a maximum of 1 week.  * `1 year` - The video can be rented for a maximum of 1 year.  * `24 hour` - The video can be rented for a maximum of 24 hours.  * `3 month` - The video can be rented for a maximum of 3 months.  * `30 day` - The video can be rented for a maximum of 30 days.  * `48 hour` - The video can be rented for a maximum of 48 hours.  * `6 month` - The video can be rented for a maximum of 6 months.  * `72 hour` - The video can be rented for a maximum of 72 hours.
+	Period *string                        `json:"period,omitempty"`
+	Price  *CreateVodAlt1RequestRentPrice `json:"price,omitempty"`
 }
 
 // NewCreateVodAlt1RequestRent instantiates a new CreateVodAlt1RequestRent object
@@ -140,7 +140,7 @@ func (o *CreateVodAlt1RequestRent) SetPrice(v CreateVodAlt1RequestRentPrice) {
 }
 
 func (o CreateVodAlt1RequestRent) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableCreateVodAlt1RequestRent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

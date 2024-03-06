@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type FoldersEssentialsAPI interface {
 
 	/*
-	CreateProject Create a folder
+		CreateProject Create a folder
 
-	This method creates a new folder for the authenticated user. By default, this method creates a top-level folder. To create a subfolder — that is, to place the new folder inside an existing folder — specify the parent folder by URI with the **parent_folder_uri** parameter in the body of the request.
+		This method creates a new folder for the authenticated user. By default, this method creates a top-level folder. To create a subfolder — that is, to place the new folder inside an existing folder — specify the parent folder by URI with the **parent_folder_uri** parameter in the body of the request.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiCreateProjectRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiCreateProjectRequest
 	*/
 	CreateProject(ctx context.Context, userId int32) ApiCreateProjectRequest
 
@@ -38,12 +37,12 @@ type FoldersEssentialsAPI interface {
 	CreateProjectExecute(r ApiCreateProjectRequest) (*Project, *http.Response, error)
 
 	/*
-	CreateProjectAlt1 Create a folder
+		CreateProjectAlt1 Create a folder
 
-	This method creates a new folder for the authenticated user. By default, this method creates a top-level folder. To create a subfolder — that is, to place the new folder inside an existing folder — specify the parent folder by URI with the **parent_folder_uri** parameter in the body of the request.
+		This method creates a new folder for the authenticated user. By default, this method creates a top-level folder. To create a subfolder — that is, to place the new folder inside an existing folder — specify the parent folder by URI with the **parent_folder_uri** parameter in the body of the request.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateProjectAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateProjectAlt1Request
 	*/
 	CreateProjectAlt1(ctx context.Context) ApiCreateProjectAlt1Request
 
@@ -52,14 +51,14 @@ type FoldersEssentialsAPI interface {
 	CreateProjectAlt1Execute(r ApiCreateProjectAlt1Request) (*Project, *http.Response, error)
 
 	/*
-	DeleteProject Delete a folder
+		DeleteProject Delete a folder
 
-	This method deletes the specified folder and optionally also the videos that it contains. The authenticated user must be the owner of the folder.
+		This method deletes the specified folder and optionally also the videos that it contains. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@return ApiDeleteProjectRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param projectId The ID of the folder.
+		@param userId The ID of the user.
+		@return ApiDeleteProjectRequest
 	*/
 	DeleteProject(ctx context.Context, projectId float32, userId int32) ApiDeleteProjectRequest
 
@@ -67,13 +66,13 @@ type FoldersEssentialsAPI interface {
 	DeleteProjectExecute(r ApiDeleteProjectRequest) (*http.Response, error)
 
 	/*
-	DeleteProjectAlt1 Delete a folder
+		DeleteProjectAlt1 Delete a folder
 
-	This method deletes the specified folder and optionally also the videos that it contains. The authenticated user must be the owner of the folder.
+		This method deletes the specified folder and optionally also the videos that it contains. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@return ApiDeleteProjectAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param projectId The ID of the folder.
+		@return ApiDeleteProjectAlt1Request
 	*/
 	DeleteProjectAlt1(ctx context.Context, projectId float32) ApiDeleteProjectAlt1Request
 
@@ -81,14 +80,14 @@ type FoldersEssentialsAPI interface {
 	DeleteProjectAlt1Execute(r ApiDeleteProjectAlt1Request) (*http.Response, error)
 
 	/*
-	EditProject Edit a folder
+		EditProject Edit a folder
 
-	This method edits the specified folder. The authenticated user must be the owner of the folder.
+		This method edits the specified folder. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@return ApiEditProjectRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param projectId The ID of the folder.
+		@param userId The ID of the user.
+		@return ApiEditProjectRequest
 	*/
 	EditProject(ctx context.Context, projectId float32, userId int32) ApiEditProjectRequest
 
@@ -97,13 +96,13 @@ type FoldersEssentialsAPI interface {
 	EditProjectExecute(r ApiEditProjectRequest) (*Project, *http.Response, error)
 
 	/*
-	EditProjectAlt1 Edit a folder
+		EditProjectAlt1 Edit a folder
 
-	This method edits the specified folder. The authenticated user must be the owner of the folder.
+		This method edits the specified folder. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@return ApiEditProjectAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param projectId The ID of the folder.
+		@return ApiEditProjectAlt1Request
 	*/
 	EditProjectAlt1(ctx context.Context, projectId float32) ApiEditProjectAlt1Request
 
@@ -112,13 +111,13 @@ type FoldersEssentialsAPI interface {
 	EditProjectAlt1Execute(r ApiEditProjectAlt1Request) (*Project, *http.Response, error)
 
 	/*
-	GetPrivateToMeFolder Get a user's private-to-me folder
+		GetPrivateToMeFolder Get a user's private-to-me folder
 
-	This method returns the specified private-to-me folder.
+		This method returns the specified private-to-me folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ownerId The ID of the owner.
-	@return ApiGetPrivateToMeFolderRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ownerId The ID of the owner.
+		@return ApiGetPrivateToMeFolderRequest
 	*/
 	GetPrivateToMeFolder(ctx context.Context, ownerId float32) ApiGetPrivateToMeFolderRequest
 
@@ -127,14 +126,14 @@ type FoldersEssentialsAPI interface {
 	GetPrivateToMeFolderExecute(r ApiGetPrivateToMeFolderRequest) (*Project, *http.Response, error)
 
 	/*
-	GetProject Get a specific folder
+		GetProject Get a specific folder
 
-	This method returns a single folder belonging to the authenticated user.
+		This method returns a single folder belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@return ApiGetProjectRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param projectId The ID of the folder.
+		@param userId The ID of the user.
+		@return ApiGetProjectRequest
 	*/
 	GetProject(ctx context.Context, projectId float32, userId int32) ApiGetProjectRequest
 
@@ -143,13 +142,13 @@ type FoldersEssentialsAPI interface {
 	GetProjectExecute(r ApiGetProjectRequest) (*Project, *http.Response, error)
 
 	/*
-	GetProjectAlt1 Get a specific folder
+		GetProjectAlt1 Get a specific folder
 
-	This method returns a single folder belonging to the authenticated user.
+		This method returns a single folder belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@return ApiGetProjectAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param projectId The ID of the folder.
+		@return ApiGetProjectAlt1Request
 	*/
 	GetProjectAlt1(ctx context.Context, projectId float32) ApiGetProjectAlt1Request
 
@@ -158,13 +157,13 @@ type FoldersEssentialsAPI interface {
 	GetProjectAlt1Execute(r ApiGetProjectAlt1Request) (*Project, *http.Response, error)
 
 	/*
-	GetProjects Get all the folders that belong to the user
+		GetProjects Get all the folders that belong to the user
 
-	This method returns all the folders belonging to the authenticated user.
+		This method returns all the folders belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetProjectsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetProjectsRequest
 	*/
 	GetProjects(ctx context.Context, userId int32) ApiGetProjectsRequest
 
@@ -173,12 +172,12 @@ type FoldersEssentialsAPI interface {
 	GetProjectsExecute(r ApiGetProjectsRequest) ([]Project, *http.Response, error)
 
 	/*
-	GetProjectsAlt1 Get all the folders that belong to the user
+		GetProjectsAlt1 Get all the folders that belong to the user
 
-	This method returns all the folders belonging to the authenticated user.
+		This method returns all the folders belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetProjectsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetProjectsAlt1Request
 	*/
 	GetProjectsAlt1(ctx context.Context) ApiGetProjectsAlt1Request
 
@@ -191,9 +190,9 @@ type FoldersEssentialsAPI interface {
 type FoldersEssentialsAPIService service
 
 type ApiCreateProjectRequest struct {
-	ctx context.Context
-	ApiService FoldersEssentialsAPI
-	userId int32
+	ctx                      context.Context
+	ApiService               FoldersEssentialsAPI
+	userId                   int32
 	createProjectAlt1Request *CreateProjectAlt1Request
 }
 
@@ -211,26 +210,27 @@ CreateProject Create a folder
 
 This method creates a new folder for the authenticated user. By default, this method creates a top-level folder. To create a subfolder — that is, to place the new folder inside an existing folder — specify the parent folder by URI with the **parent_folder_uri** parameter in the body of the request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiCreateProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiCreateProjectRequest
 */
 func (a *FoldersEssentialsAPIService) CreateProject(ctx context.Context, userId int32) ApiCreateProjectRequest {
 	return ApiCreateProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Project
+//
+//	@return Project
 func (a *FoldersEssentialsAPIService) CreateProjectExecute(r ApiCreateProjectRequest) (*Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Project
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.CreateProject")
@@ -289,17 +289,6 @@ func (a *FoldersEssentialsAPIService) CreateProjectExecute(r ApiCreateProjectReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -307,8 +296,19 @@ func (a *FoldersEssentialsAPIService) CreateProjectExecute(r ApiCreateProjectReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -318,8 +318,8 @@ func (a *FoldersEssentialsAPIService) CreateProjectExecute(r ApiCreateProjectReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -337,8 +337,8 @@ func (a *FoldersEssentialsAPIService) CreateProjectExecute(r ApiCreateProjectReq
 }
 
 type ApiCreateProjectAlt1Request struct {
-	ctx context.Context
-	ApiService FoldersEssentialsAPI
+	ctx                      context.Context
+	ApiService               FoldersEssentialsAPI
 	createProjectAlt1Request *CreateProjectAlt1Request
 }
 
@@ -356,24 +356,25 @@ CreateProjectAlt1 Create a folder
 
 This method creates a new folder for the authenticated user. By default, this method creates a top-level folder. To create a subfolder — that is, to place the new folder inside an existing folder — specify the parent folder by URI with the **parent_folder_uri** parameter in the body of the request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateProjectAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateProjectAlt1Request
 */
 func (a *FoldersEssentialsAPIService) CreateProjectAlt1(ctx context.Context) ApiCreateProjectAlt1Request {
 	return ApiCreateProjectAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Project
+//
+//	@return Project
 func (a *FoldersEssentialsAPIService) CreateProjectAlt1Execute(r ApiCreateProjectAlt1Request) (*Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Project
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.CreateProjectAlt1")
@@ -431,17 +432,6 @@ func (a *FoldersEssentialsAPIService) CreateProjectAlt1Execute(r ApiCreateProjec
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -449,8 +439,19 @@ func (a *FoldersEssentialsAPIService) CreateProjectAlt1Execute(r ApiCreateProjec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -460,8 +461,8 @@ func (a *FoldersEssentialsAPIService) CreateProjectAlt1Execute(r ApiCreateProjec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -479,10 +480,10 @@ func (a *FoldersEssentialsAPIService) CreateProjectAlt1Execute(r ApiCreateProjec
 }
 
 type ApiDeleteProjectRequest struct {
-	ctx context.Context
-	ApiService FoldersEssentialsAPI
-	projectId float32
-	userId int32
+	ctx               context.Context
+	ApiService        FoldersEssentialsAPI
+	projectId         float32
+	userId            int32
 	shouldDeleteClips *bool
 }
 
@@ -501,26 +502,26 @@ DeleteProject Delete a folder
 
 This method deletes the specified folder and optionally also the videos that it contains. The authenticated user must be the owner of the folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId The ID of the folder.
- @param userId The ID of the user.
- @return ApiDeleteProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@return ApiDeleteProjectRequest
 */
 func (a *FoldersEssentialsAPIService) DeleteProject(ctx context.Context, projectId float32, userId int32) ApiDeleteProjectRequest {
 	return ApiDeleteProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
-		userId: userId,
+		ctx:        ctx,
+		projectId:  projectId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersEssentialsAPIService) DeleteProjectExecute(r ApiDeleteProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.DeleteProject")
@@ -578,17 +579,6 @@ func (a *FoldersEssentialsAPIService) DeleteProjectExecute(r ApiDeleteProjectReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -596,8 +586,8 @@ func (a *FoldersEssentialsAPIService) DeleteProjectExecute(r ApiDeleteProjectReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -607,8 +597,19 @@ func (a *FoldersEssentialsAPIService) DeleteProjectExecute(r ApiDeleteProjectReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -617,9 +618,9 @@ func (a *FoldersEssentialsAPIService) DeleteProjectExecute(r ApiDeleteProjectReq
 }
 
 type ApiDeleteProjectAlt1Request struct {
-	ctx context.Context
-	ApiService FoldersEssentialsAPI
-	projectId float32
+	ctx               context.Context
+	ApiService        FoldersEssentialsAPI
+	projectId         float32
 	shouldDeleteClips *bool
 }
 
@@ -638,24 +639,24 @@ DeleteProjectAlt1 Delete a folder
 
 This method deletes the specified folder and optionally also the videos that it contains. The authenticated user must be the owner of the folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId The ID of the folder.
- @return ApiDeleteProjectAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@return ApiDeleteProjectAlt1Request
 */
 func (a *FoldersEssentialsAPIService) DeleteProjectAlt1(ctx context.Context, projectId float32) ApiDeleteProjectAlt1Request {
 	return ApiDeleteProjectAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
+		ctx:        ctx,
+		projectId:  projectId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersEssentialsAPIService) DeleteProjectAlt1Execute(r ApiDeleteProjectAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.DeleteProjectAlt1")
@@ -712,17 +713,6 @@ func (a *FoldersEssentialsAPIService) DeleteProjectAlt1Execute(r ApiDeleteProjec
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -730,8 +720,8 @@ func (a *FoldersEssentialsAPIService) DeleteProjectAlt1Execute(r ApiDeleteProjec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -741,8 +731,19 @@ func (a *FoldersEssentialsAPIService) DeleteProjectAlt1Execute(r ApiDeleteProjec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -751,10 +752,10 @@ func (a *FoldersEssentialsAPIService) DeleteProjectAlt1Execute(r ApiDeleteProjec
 }
 
 type ApiEditProjectRequest struct {
-	ctx context.Context
-	ApiService FoldersEssentialsAPI
-	projectId float32
-	userId int32
+	ctx                    context.Context
+	ApiService             FoldersEssentialsAPI
+	projectId              float32
+	userId                 int32
 	editProjectAlt1Request *EditProjectAlt1Request
 }
 
@@ -772,28 +773,29 @@ EditProject Edit a folder
 
 This method edits the specified folder. The authenticated user must be the owner of the folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId The ID of the folder.
- @param userId The ID of the user.
- @return ApiEditProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@return ApiEditProjectRequest
 */
 func (a *FoldersEssentialsAPIService) EditProject(ctx context.Context, projectId float32, userId int32) ApiEditProjectRequest {
 	return ApiEditProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
-		userId: userId,
+		ctx:        ctx,
+		projectId:  projectId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Project
+//
+//	@return Project
 func (a *FoldersEssentialsAPIService) EditProjectExecute(r ApiEditProjectRequest) (*Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Project
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.EditProject")
@@ -853,15 +855,15 @@ func (a *FoldersEssentialsAPIService) EditProjectExecute(r ApiEditProjectRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -871,19 +873,8 @@ func (a *FoldersEssentialsAPIService) EditProjectExecute(r ApiEditProjectRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -893,8 +884,19 @@ func (a *FoldersEssentialsAPIService) EditProjectExecute(r ApiEditProjectRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -912,9 +914,9 @@ func (a *FoldersEssentialsAPIService) EditProjectExecute(r ApiEditProjectRequest
 }
 
 type ApiEditProjectAlt1Request struct {
-	ctx context.Context
-	ApiService FoldersEssentialsAPI
-	projectId float32
+	ctx                    context.Context
+	ApiService             FoldersEssentialsAPI
+	projectId              float32
 	editProjectAlt1Request *EditProjectAlt1Request
 }
 
@@ -932,26 +934,27 @@ EditProjectAlt1 Edit a folder
 
 This method edits the specified folder. The authenticated user must be the owner of the folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId The ID of the folder.
- @return ApiEditProjectAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@return ApiEditProjectAlt1Request
 */
 func (a *FoldersEssentialsAPIService) EditProjectAlt1(ctx context.Context, projectId float32) ApiEditProjectAlt1Request {
 	return ApiEditProjectAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
+		ctx:        ctx,
+		projectId:  projectId,
 	}
 }
 
 // Execute executes the request
-//  @return Project
+//
+//	@return Project
 func (a *FoldersEssentialsAPIService) EditProjectAlt1Execute(r ApiEditProjectAlt1Request) (*Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Project
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.EditProjectAlt1")
@@ -1010,15 +1013,15 @@ func (a *FoldersEssentialsAPIService) EditProjectAlt1Execute(r ApiEditProjectAlt
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1028,19 +1031,8 @@ func (a *FoldersEssentialsAPIService) EditProjectAlt1Execute(r ApiEditProjectAlt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1050,8 +1042,19 @@ func (a *FoldersEssentialsAPIService) EditProjectAlt1Execute(r ApiEditProjectAlt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1069,9 +1072,9 @@ func (a *FoldersEssentialsAPIService) EditProjectAlt1Execute(r ApiEditProjectAlt
 }
 
 type ApiGetPrivateToMeFolderRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FoldersEssentialsAPI
-	ownerId float32
+	ownerId    float32
 }
 
 func (r ApiGetPrivateToMeFolderRequest) Execute() (*Project, *http.Response, error) {
@@ -1083,26 +1086,27 @@ GetPrivateToMeFolder Get a user's private-to-me folder
 
 This method returns the specified private-to-me folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ownerId The ID of the owner.
- @return ApiGetPrivateToMeFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ownerId The ID of the owner.
+	@return ApiGetPrivateToMeFolderRequest
 */
 func (a *FoldersEssentialsAPIService) GetPrivateToMeFolder(ctx context.Context, ownerId float32) ApiGetPrivateToMeFolderRequest {
 	return ApiGetPrivateToMeFolderRequest{
 		ApiService: a,
-		ctx: ctx,
-		ownerId: ownerId,
+		ctx:        ctx,
+		ownerId:    ownerId,
 	}
 }
 
 // Execute executes the request
-//  @return Project
+//
+//	@return Project
 func (a *FoldersEssentialsAPIService) GetPrivateToMeFolderExecute(r ApiGetPrivateToMeFolderRequest) (*Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Project
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.GetPrivateToMeFolder")
@@ -1156,17 +1160,6 @@ func (a *FoldersEssentialsAPIService) GetPrivateToMeFolderExecute(r ApiGetPrivat
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1174,8 +1167,19 @@ func (a *FoldersEssentialsAPIService) GetPrivateToMeFolderExecute(r ApiGetPrivat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1193,10 +1197,10 @@ func (a *FoldersEssentialsAPIService) GetPrivateToMeFolderExecute(r ApiGetPrivat
 }
 
 type ApiGetProjectRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FoldersEssentialsAPI
-	projectId float32
-	userId int32
+	projectId  float32
+	userId     int32
 }
 
 func (r ApiGetProjectRequest) Execute() (*Project, *http.Response, error) {
@@ -1208,28 +1212,29 @@ GetProject Get a specific folder
 
 This method returns a single folder belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId The ID of the folder.
- @param userId The ID of the user.
- @return ApiGetProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@return ApiGetProjectRequest
 */
 func (a *FoldersEssentialsAPIService) GetProject(ctx context.Context, projectId float32, userId int32) ApiGetProjectRequest {
 	return ApiGetProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
-		userId: userId,
+		ctx:        ctx,
+		projectId:  projectId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Project
+//
+//	@return Project
 func (a *FoldersEssentialsAPIService) GetProjectExecute(r ApiGetProjectRequest) (*Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Project
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.GetProject")
@@ -1284,17 +1289,6 @@ func (a *FoldersEssentialsAPIService) GetProjectExecute(r ApiGetProjectRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1302,8 +1296,19 @@ func (a *FoldersEssentialsAPIService) GetProjectExecute(r ApiGetProjectRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1321,9 +1326,9 @@ func (a *FoldersEssentialsAPIService) GetProjectExecute(r ApiGetProjectRequest) 
 }
 
 type ApiGetProjectAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FoldersEssentialsAPI
-	projectId float32
+	projectId  float32
 }
 
 func (r ApiGetProjectAlt1Request) Execute() (*Project, *http.Response, error) {
@@ -1335,26 +1340,27 @@ GetProjectAlt1 Get a specific folder
 
 This method returns a single folder belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId The ID of the folder.
- @return ApiGetProjectAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@return ApiGetProjectAlt1Request
 */
 func (a *FoldersEssentialsAPIService) GetProjectAlt1(ctx context.Context, projectId float32) ApiGetProjectAlt1Request {
 	return ApiGetProjectAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		projectId: projectId,
+		ctx:        ctx,
+		projectId:  projectId,
 	}
 }
 
 // Execute executes the request
-//  @return Project
+//
+//	@return Project
 func (a *FoldersEssentialsAPIService) GetProjectAlt1Execute(r ApiGetProjectAlt1Request) (*Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Project
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.GetProjectAlt1")
@@ -1408,17 +1414,6 @@ func (a *FoldersEssentialsAPIService) GetProjectAlt1Execute(r ApiGetProjectAlt1R
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1426,8 +1421,19 @@ func (a *FoldersEssentialsAPIService) GetProjectAlt1Execute(r ApiGetProjectAlt1R
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1445,17 +1451,17 @@ func (a *FoldersEssentialsAPIService) GetProjectAlt1Execute(r ApiGetProjectAlt1R
 }
 
 type ApiGetProjectsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FoldersEssentialsAPI
-	userId int32
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	userId     int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetProjectsRequest) Direction(direction string) ApiGetProjectsRequest {
 	r.direction = &direction
 	return r
@@ -1479,7 +1485,7 @@ func (r ApiGetProjectsRequest) Query(query string) ApiGetProjectsRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;pinned_on&#x60; - Sort the results by pinned timestamp. 
+// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;pinned_on&#x60; - Sort the results by pinned timestamp.
 func (r ApiGetProjectsRequest) Sort(sort string) ApiGetProjectsRequest {
 	r.sort = &sort
 	return r
@@ -1494,26 +1500,27 @@ GetProjects Get all the folders that belong to the user
 
 This method returns all the folders belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetProjectsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetProjectsRequest
 */
 func (a *FoldersEssentialsAPIService) GetProjects(ctx context.Context, userId int32) ApiGetProjectsRequest {
 	return ApiGetProjectsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Project
+//
+//	@return []Project
 func (a *FoldersEssentialsAPIService) GetProjectsExecute(r ApiGetProjectsRequest) ([]Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Project
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.GetProjects")
@@ -1589,8 +1596,8 @@ func (a *FoldersEssentialsAPIService) GetProjectsExecute(r ApiGetProjectsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1608,16 +1615,16 @@ func (a *FoldersEssentialsAPIService) GetProjectsExecute(r ApiGetProjectsRequest
 }
 
 type ApiGetProjectsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FoldersEssentialsAPI
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetProjectsAlt1Request) Direction(direction string) ApiGetProjectsAlt1Request {
 	r.direction = &direction
 	return r
@@ -1641,7 +1648,7 @@ func (r ApiGetProjectsAlt1Request) Query(query string) ApiGetProjectsAlt1Request
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;pinned_on&#x60; - Sort the results by pinned timestamp. 
+// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;pinned_on&#x60; - Sort the results by pinned timestamp.
 func (r ApiGetProjectsAlt1Request) Sort(sort string) ApiGetProjectsAlt1Request {
 	r.sort = &sort
 	return r
@@ -1656,24 +1663,25 @@ GetProjectsAlt1 Get all the folders that belong to the user
 
 This method returns all the folders belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProjectsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetProjectsAlt1Request
 */
 func (a *FoldersEssentialsAPIService) GetProjectsAlt1(ctx context.Context) ApiGetProjectsAlt1Request {
 	return ApiGetProjectsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Project
+//
+//	@return []Project
 func (a *FoldersEssentialsAPIService) GetProjectsAlt1Execute(r ApiGetProjectsAlt1Request) ([]Project, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Project
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Project
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersEssentialsAPIService.GetProjectsAlt1")
@@ -1748,8 +1756,8 @@ func (a *FoldersEssentialsAPIService) GetProjectsAlt1Execute(r ApiGetProjectsAlt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

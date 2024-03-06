@@ -24,8 +24,8 @@ type EmbedSettings struct {
 	// Whether multiple audio tracks can appear in the embeddable player.
 	AudioTracks bool `json:"audio_tracks"`
 	// Whether automatic picture-in-picture is enabled.
-	Autopip bool `json:"autopip"`
-	Badges EmbedSettingsBadges `json:"badges"`
+	Autopip bool                 `json:"autopip"`
+	Badges  EmbedSettingsBadges  `json:"badges"`
 	Buttons EmbedSettingsButtons `json:"buttons"`
 	// A collection of cards associated with the selected video.
 	Cards []EmbedSettingsCardsInner `json:"cards"`
@@ -36,10 +36,10 @@ type EmbedSettings struct {
 	// Whether closed captions are enabled in the embeddable player.
 	ClosedCaptions bool `json:"closed_captions"`
 	// The first player color, which controls the color of the progress bar, buttons, and more.
-	Color string `json:"color"`
-	Colors EmbedSettingsColors `json:"colors"`
-	EmailCaptureForm EmailCaptureForm `json:"email_capture_form"`
-	EndScreen EmbedSettingsEndScreen `json:"end_screen"`
+	Color            string                 `json:"color"`
+	Colors           EmbedSettingsColors    `json:"colors"`
+	EmailCaptureForm EmailCaptureForm       `json:"email_capture_form"`
+	EndScreen        EmbedSettingsEndScreen `json:"end_screen"`
 	// Whether the embedded player should display the event schedule.
 	EventSchedule bool `json:"event_schedule"`
 	// Whether the video has cards.
@@ -47,12 +47,12 @@ type EmbedSettings struct {
 	// The HTML code for embedding the video on a web page.
 	Html *string `json:"html,omitempty"`
 	// Whether the video is an interactive video.
-	Interactive bool `json:"interactive"`
-	Logos EmbedSettingsLogos `json:"logos"`
-	// The type of the video outro.  Option descriptions:  * `beginning` - The outro is a thumbnail.  * `custom` - The outro is custom.  * `email` - The outro is an email form.  * `image` - The outro is an image.  * `link` - The outro is a link.  * `loop` - The outro is a loop.  * `nothing` - There is no outro.  * `share` - The outro is a share button.  * `text` - The outro is text.  * `threevideos` - The outro is three video suggestions.  * `videos` - The outro is video suggestions. 
+	Interactive bool               `json:"interactive"`
+	Logos       EmbedSettingsLogos `json:"logos"`
+	// The type of the video outro.  Option descriptions:  * `beginning` - The outro is a thumbnail.  * `custom` - The outro is custom.  * `email` - The outro is an email form.  * `image` - The outro is an image.  * `link` - The outro is a link.  * `loop` - The outro is a loop.  * `nothing` - There is no outro.  * `share` - The outro is a share button.  * `text` - The outro is text.  * `threevideos` - The outro is three video suggestions.  * `videos` - The outro is video suggestions.
 	OutroType string `json:"outro_type"`
 	// Whether picture-in-picture is enabled and the button appears in the embeddable player.
-	Pip bool `json:"pip"`
+	Pip        bool                    `json:"pip"`
 	PlayButton EmbedSettingsPlayButton `json:"play_button"`
 	// Whether the playbar appears in the embeddable player.
 	Playbar bool `json:"playbar"`
@@ -61,7 +61,7 @@ type EmbedSettings struct {
 	// Whether the embedded player should display the schedule timezone.
 	ShowTimezone bool `json:"show_timezone"`
 	// Whether the speed controls appear in the embeddable player.
-	Speed bool `json:"speed"`
+	Speed bool               `json:"speed"`
 	Title EmbedSettingsTitle `json:"title"`
 	// Whether the transcript controls appear in the embeddable player.
 	Transcript bool `json:"transcript"`
@@ -828,7 +828,7 @@ func (o *EmbedSettings) SetVolume(v bool) {
 }
 
 func (o EmbedSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -908,5 +908,3 @@ func (v *NullableEmbedSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

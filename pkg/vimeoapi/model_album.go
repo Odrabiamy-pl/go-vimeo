@@ -30,17 +30,17 @@ type Album struct {
 	// The hexadecimal code for the color of the player buttons and showcase controls.
 	BrandColor NullableString `json:"brand_color"`
 	// The time in ISO 8601 format when the showcase was created.
-	CreatedTime string `json:"created_time"`
-	CustomLogo NullableAlbumCustomLogo `json:"custom_logo"`
+	CreatedTime string                  `json:"created_time"`
+	CustomLogo  NullableAlbumCustomLogo `json:"custom_logo"`
 	// A brief description of the showcase's content.
 	Description NullableString `json:"description"`
 	// The custom domain of the showcase.
 	Domain NullableString `json:"domain"`
-	// The state of the SSL certificate that is associated with the showcase's domain.  Option descriptions:  * `null` - There is no associated HTTPS domain with this showcase.  * `0` - The new certificate has yet to be processed.  * `1` - The new certificate is being processed in the queue.  * `2` - The certificate is being processed for renewal in the queue.  * `3` - The new certificate has failed to be issued in the queue.  * `4` - The certificate has failed to be renewed in the queue.  * `5` - The certificate has been successfully issued.  * `6` - The certificate has been successfully renewed.  * `7` - The certificate has failed in the polling flow.  * `8` - The certificate has failed to be renewed in the polling flow. 
+	// The state of the SSL certificate that is associated with the showcase's domain.  Option descriptions:  * `null` - There is no associated HTTPS domain with this showcase.  * `0` - The new certificate has yet to be processed.  * `1` - The new certificate is being processed in the queue.  * `2` - The certificate is being processed for renewal in the queue.  * `3` - The new certificate has failed to be issued in the queue.  * `4` - The certificate has failed to be renewed in the queue.  * `5` - The certificate has been successfully issued.  * `6` - The certificate has been successfully renewed.  * `7` - The certificate has failed in the polling flow.  * `8` - The certificate has failed to be renewed in the polling flow.
 	DomainCertificateState string `json:"domain_certificate_state"`
 	// The total duration in seconds of all the videos in the showcase.
-	Duration float32 `json:"duration"`
-	Embed AlbumEmbed `json:"embed"`
+	Duration float32    `json:"duration"`
+	Embed    AlbumEmbed `json:"embed"`
 	// Whether to show the showcase's custom brand color in the player of the showcase's embedded playlist.
 	EmbedBrandColor NullableBool `json:"embed_brand_color"`
 	// Whether to show the showcase's custom logo in the player of the showcase's embedded playlist.
@@ -55,19 +55,19 @@ type Album struct {
 	HideUpcoming bool `json:"hide_upcoming"`
 	// Whether to hide the Vimeo logo in the player of the showcase's embedded playlist.
 	HideVimeoLogo NullableBool `json:"hide_vimeo_logo"`
-	// The type of layout for presenting the showcase.  Option descriptions:  * `grid` - The showcase videos appear in a grid.  * `player` - The showcase videos appear in the player. 
+	// The type of layout for presenting the showcase.  Option descriptions:  * `grid` - The showcase videos appear in a grid.  * `player` - The showcase videos appear in the player.
 	Layout string `json:"layout"`
 	// The URL of the showcase.
 	Link string `json:"link"`
 	// Whether automatic playback restarts at the top of the showcase's embedded playlist after reaching the end of the last video in the playlist.
-	Loop bool `json:"loop"`
+	Loop     bool          `json:"loop"`
 	Metadata AlbumMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the showcase was last modified.
 	ModifiedTime string `json:"modified_time"`
 	// The display name of the showcase.
-	Name string `json:"name"`
-	Pictures Picture `json:"pictures"`
-	Privacy AlbumPrivacy `json:"privacy"`
+	Name     string       `json:"name"`
+	Pictures Picture      `json:"pictures"`
+	Privacy  AlbumPrivacy `json:"privacy"`
 	// The resource key of the showcase.
 	ResourceKey string `json:"resource_key"`
 	// Whether showcase videos use the review mode URL.
@@ -82,9 +82,9 @@ type Album struct {
 	SeoTitle NullableString `json:"seo_title"`
 	// The URL for sharing the showcase.
 	ShareLink string `json:"share_link"`
-	// The sort order of the showcase.  Option descriptions:  * `added_first` - Sort the showcase videos in order of those most recently added.  * `added_last` - Sort the showcase videos in order of those least recently added.  * `alphabetical` - Sort the showcase videos alphabetically.  * `arranged` - Sort the showcase videos according to their custom arrangement.  * `comments` - Sort the showcase videos by number of comments.  * `likes` - Sort the showcase videos by number of likes.  * `newest` - Sort the showcase videos in order of creation date with the newest first.  * `oldest` - Sort the showcase videos in order of creation date with the oldest first.  * `plays` - Sort the showcase videos by number of plays. 
+	// The sort order of the showcase.  Option descriptions:  * `added_first` - Sort the showcase videos in order of those most recently added.  * `added_last` - Sort the showcase videos in order of those least recently added.  * `alphabetical` - Sort the showcase videos alphabetically.  * `arranged` - Sort the showcase videos according to their custom arrangement.  * `comments` - Sort the showcase videos by number of comments.  * `likes` - Sort the showcase videos by number of likes.  * `newest` - Sort the showcase videos in order of creation date with the newest first.  * `oldest` - Sort the showcase videos in order of creation date with the oldest first.  * `plays` - Sort the showcase videos by number of plays.
 	Sort string `json:"sort"`
-	// The color theme of the showcase.  Option descriptions:  * `dark` - The showcase uses the dark theme.  * `standard` - The showcase uses the standard theme. 
+	// The color theme of the showcase.  Option descriptions:  * `dark` - The showcase uses the dark theme.  * `standard` - The showcase uses the standard theme.
 	Theme string `json:"theme"`
 	// The unlisted hash of the showcase. Omit this hash from the showcase URL to prevent access to the showcase on Vimeo.
 	UnlistedHash string `json:"unlisted_hash"`
@@ -94,7 +94,7 @@ type Album struct {
 	Url NullableString `json:"url"`
 	// Whether the showcase uses a custom domain.
 	UseCustomDomain bool `json:"use_custom_domain"`
-	User User `json:"user"`
+	User            User `json:"user"`
 	// Whether to use the showcase's brand color in the web layout.
 	WebBrandColor bool `json:"web_brand_color"`
 	// Whether to use the showcase's custom logo in the web layout.
@@ -1214,7 +1214,7 @@ func (o *Album) SetWebCustomLogo(v bool) {
 }
 
 func (o Album) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1304,5 +1304,3 @@ func (v *NullableAlbum) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

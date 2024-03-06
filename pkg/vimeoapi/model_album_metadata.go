@@ -19,7 +19,7 @@ var _ MappedNullable = &AlbumMetadata{}
 
 // AlbumMetadata Metadata about the showcase.
 type AlbumMetadata struct {
-	Connections AlbumMetadataConnections `json:"connections"`
+	Connections  AlbumMetadataConnections          `json:"connections"`
 	Interactions NullableAlbumMetadataInteractions `json:"interactions"`
 }
 
@@ -93,7 +93,7 @@ func (o *AlbumMetadata) SetInteractions(v AlbumMetadataInteractions) {
 }
 
 func (o AlbumMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,5 +142,3 @@ func (v *NullableAlbumMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

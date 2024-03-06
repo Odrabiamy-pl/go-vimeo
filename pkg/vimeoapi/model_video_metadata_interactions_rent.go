@@ -33,7 +33,7 @@ type VideoMetadataInteractionsRent struct {
 	Price NullableFloat32 `json:"price"`
 	// The time in ISO 8601 format when the On Demand video was rented.
 	PurchaseTime NullableString `json:"purchase_time"`
-	// The user's streaming access to the On Demand video.  Option descriptions:  * `available` - The video is available for streaming.  * `purchased` - The user has purchased the video.  * `restricted` - The user isn't permitted to stream the video.  * `unavailable` - The video isn't available for streaming. 
+	// The user's streaming access to the On Demand video.  Option descriptions:  * `available` - The video is available for streaming.  * `purchased` - The user has purchased the video.  * `restricted` - The user isn't permitted to stream the video.  * `unavailable` - The video isn't available for streaming.
 	Stream string `json:"stream"`
 	// The product URI to rent the On Demand video.
 	Uri NullableString `json:"uri"`
@@ -296,7 +296,7 @@ func (o *VideoMetadataInteractionsRent) SetUri(v string) {
 }
 
 func (o VideoMetadataInteractionsRent) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -352,5 +352,3 @@ func (v *NullableVideoMetadataInteractionsRent) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

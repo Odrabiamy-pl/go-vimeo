@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type WebinarEssentialsAPI interface {
 
 	/*
-	CreateWebinar Create a webinar
+		CreateWebinar Create a webinar
 
-	This method creates a new webinar for the authenticated user.
+		This method creates a new webinar for the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiCreateWebinarRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiCreateWebinarRequest
 	*/
 	CreateWebinar(ctx context.Context, userId int32) ApiCreateWebinarRequest
 
@@ -38,12 +37,12 @@ type WebinarEssentialsAPI interface {
 	CreateWebinarExecute(r ApiCreateWebinarRequest) (*Webinar, *http.Response, error)
 
 	/*
-	CreateWebinarAlt1 Create a webinar
+		CreateWebinarAlt1 Create a webinar
 
-	This method creates a new webinar for the authenticated user.
+		This method creates a new webinar for the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateWebinarAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateWebinarAlt1Request
 	*/
 	CreateWebinarAlt1(ctx context.Context) ApiCreateWebinarAlt1Request
 
@@ -52,14 +51,14 @@ type WebinarEssentialsAPI interface {
 	CreateWebinarAlt1Execute(r ApiCreateWebinarAlt1Request) (*Webinar, *http.Response, error)
 
 	/*
-	GetWebinar Get a specific webinar
+		GetWebinar Get a specific webinar
 
-	This method returns a single webinar belonging to the authenticated user.
+		This method returns a single webinar belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param webinarId The ID of the webinar.
-	@return ApiGetWebinarRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param webinarId The ID of the webinar.
+		@return ApiGetWebinarRequest
 	*/
 	GetWebinar(ctx context.Context, userId int32, webinarId string) ApiGetWebinarRequest
 
@@ -68,13 +67,13 @@ type WebinarEssentialsAPI interface {
 	GetWebinarExecute(r ApiGetWebinarRequest) (*Webinar, *http.Response, error)
 
 	/*
-	GetWebinarAlt1 Get a specific webinar
+		GetWebinarAlt1 Get a specific webinar
 
-	This method returns a single webinar belonging to the authenticated user.
+		This method returns a single webinar belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param webinarId The ID of the webinar.
-	@return ApiGetWebinarAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param webinarId The ID of the webinar.
+		@return ApiGetWebinarAlt1Request
 	*/
 	GetWebinarAlt1(ctx context.Context, webinarId string) ApiGetWebinarAlt1Request
 
@@ -83,13 +82,13 @@ type WebinarEssentialsAPI interface {
 	GetWebinarAlt1Execute(r ApiGetWebinarAlt1Request) (*Webinar, *http.Response, error)
 
 	/*
-	GetWebinarAlt2 Get a specific webinar
+		GetWebinarAlt2 Get a specific webinar
 
-	This method returns a single webinar belonging to the authenticated user.
+		This method returns a single webinar belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param webinarId The ID of the webinar.
-	@return ApiGetWebinarAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param webinarId The ID of the webinar.
+		@return ApiGetWebinarAlt2Request
 	*/
 	GetWebinarAlt2(ctx context.Context, webinarId string) ApiGetWebinarAlt2Request
 
@@ -98,14 +97,14 @@ type WebinarEssentialsAPI interface {
 	GetWebinarAlt2Execute(r ApiGetWebinarAlt2Request) (*Webinar, *http.Response, error)
 
 	/*
-	UpdateWebinar Update a webinar
+		UpdateWebinar Update a webinar
 
-	This method updates a webinar belonging to the authenticated user.
+		This method updates a webinar belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param webinarId The ID of the webinar.
-	@return ApiUpdateWebinarRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param webinarId The ID of the webinar.
+		@return ApiUpdateWebinarRequest
 	*/
 	UpdateWebinar(ctx context.Context, userId int32, webinarId string) ApiUpdateWebinarRequest
 
@@ -114,13 +113,13 @@ type WebinarEssentialsAPI interface {
 	UpdateWebinarExecute(r ApiUpdateWebinarRequest) (*Webinar, *http.Response, error)
 
 	/*
-	UpdateWebinarAlt1 Update a webinar
+		UpdateWebinarAlt1 Update a webinar
 
-	This method updates a webinar belonging to the authenticated user.
+		This method updates a webinar belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param webinarId The ID of the webinar.
-	@return ApiUpdateWebinarAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param webinarId The ID of the webinar.
+		@return ApiUpdateWebinarAlt1Request
 	*/
 	UpdateWebinarAlt1(ctx context.Context, webinarId string) ApiUpdateWebinarAlt1Request
 
@@ -133,9 +132,9 @@ type WebinarEssentialsAPI interface {
 type WebinarEssentialsAPIService service
 
 type ApiCreateWebinarRequest struct {
-	ctx context.Context
-	ApiService WebinarEssentialsAPI
-	userId int32
+	ctx                      context.Context
+	ApiService               WebinarEssentialsAPI
+	userId                   int32
 	createWebinarAlt1Request *CreateWebinarAlt1Request
 }
 
@@ -153,26 +152,27 @@ CreateWebinar Create a webinar
 
 This method creates a new webinar for the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiCreateWebinarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiCreateWebinarRequest
 */
 func (a *WebinarEssentialsAPIService) CreateWebinar(ctx context.Context, userId int32) ApiCreateWebinarRequest {
 	return ApiCreateWebinarRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Webinar
+//
+//	@return Webinar
 func (a *WebinarEssentialsAPIService) CreateWebinarExecute(r ApiCreateWebinarRequest) (*Webinar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Webinar
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Webinar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEssentialsAPIService.CreateWebinar")
@@ -238,8 +238,8 @@ func (a *WebinarEssentialsAPIService) CreateWebinarExecute(r ApiCreateWebinarReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -249,8 +249,8 @@ func (a *WebinarEssentialsAPIService) CreateWebinarExecute(r ApiCreateWebinarReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -260,8 +260,8 @@ func (a *WebinarEssentialsAPIService) CreateWebinarExecute(r ApiCreateWebinarReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -279,8 +279,8 @@ func (a *WebinarEssentialsAPIService) CreateWebinarExecute(r ApiCreateWebinarReq
 }
 
 type ApiCreateWebinarAlt1Request struct {
-	ctx context.Context
-	ApiService WebinarEssentialsAPI
+	ctx                      context.Context
+	ApiService               WebinarEssentialsAPI
 	createWebinarAlt1Request *CreateWebinarAlt1Request
 }
 
@@ -298,24 +298,25 @@ CreateWebinarAlt1 Create a webinar
 
 This method creates a new webinar for the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateWebinarAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateWebinarAlt1Request
 */
 func (a *WebinarEssentialsAPIService) CreateWebinarAlt1(ctx context.Context) ApiCreateWebinarAlt1Request {
 	return ApiCreateWebinarAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Webinar
+//
+//	@return Webinar
 func (a *WebinarEssentialsAPIService) CreateWebinarAlt1Execute(r ApiCreateWebinarAlt1Request) (*Webinar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Webinar
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Webinar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEssentialsAPIService.CreateWebinarAlt1")
@@ -380,8 +381,8 @@ func (a *WebinarEssentialsAPIService) CreateWebinarAlt1Execute(r ApiCreateWebina
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -391,8 +392,8 @@ func (a *WebinarEssentialsAPIService) CreateWebinarAlt1Execute(r ApiCreateWebina
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -402,8 +403,8 @@ func (a *WebinarEssentialsAPIService) CreateWebinarAlt1Execute(r ApiCreateWebina
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -421,10 +422,10 @@ func (a *WebinarEssentialsAPIService) CreateWebinarAlt1Execute(r ApiCreateWebina
 }
 
 type ApiGetWebinarRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WebinarEssentialsAPI
-	userId int32
-	webinarId string
+	userId     int32
+	webinarId  string
 }
 
 func (r ApiGetWebinarRequest) Execute() (*Webinar, *http.Response, error) {
@@ -436,28 +437,29 @@ GetWebinar Get a specific webinar
 
 This method returns a single webinar belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param webinarId The ID of the webinar.
- @return ApiGetWebinarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param webinarId The ID of the webinar.
+	@return ApiGetWebinarRequest
 */
 func (a *WebinarEssentialsAPIService) GetWebinar(ctx context.Context, userId int32, webinarId string) ApiGetWebinarRequest {
 	return ApiGetWebinarRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		webinarId: webinarId,
+		ctx:        ctx,
+		userId:     userId,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return Webinar
+//
+//	@return Webinar
 func (a *WebinarEssentialsAPIService) GetWebinarExecute(r ApiGetWebinarRequest) (*Webinar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Webinar
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Webinar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEssentialsAPIService.GetWebinar")
@@ -519,8 +521,8 @@ func (a *WebinarEssentialsAPIService) GetWebinarExecute(r ApiGetWebinarRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -538,9 +540,9 @@ func (a *WebinarEssentialsAPIService) GetWebinarExecute(r ApiGetWebinarRequest) 
 }
 
 type ApiGetWebinarAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WebinarEssentialsAPI
-	webinarId string
+	webinarId  string
 }
 
 func (r ApiGetWebinarAlt1Request) Execute() (*Webinar, *http.Response, error) {
@@ -552,26 +554,27 @@ GetWebinarAlt1 Get a specific webinar
 
 This method returns a single webinar belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param webinarId The ID of the webinar.
- @return ApiGetWebinarAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param webinarId The ID of the webinar.
+	@return ApiGetWebinarAlt1Request
 */
 func (a *WebinarEssentialsAPIService) GetWebinarAlt1(ctx context.Context, webinarId string) ApiGetWebinarAlt1Request {
 	return ApiGetWebinarAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		webinarId: webinarId,
+		ctx:        ctx,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return Webinar
+//
+//	@return Webinar
 func (a *WebinarEssentialsAPIService) GetWebinarAlt1Execute(r ApiGetWebinarAlt1Request) (*Webinar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Webinar
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Webinar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEssentialsAPIService.GetWebinarAlt1")
@@ -632,8 +635,8 @@ func (a *WebinarEssentialsAPIService) GetWebinarAlt1Execute(r ApiGetWebinarAlt1R
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -651,9 +654,9 @@ func (a *WebinarEssentialsAPIService) GetWebinarAlt1Execute(r ApiGetWebinarAlt1R
 }
 
 type ApiGetWebinarAlt2Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WebinarEssentialsAPI
-	webinarId string
+	webinarId  string
 }
 
 func (r ApiGetWebinarAlt2Request) Execute() (*Webinar, *http.Response, error) {
@@ -665,26 +668,27 @@ GetWebinarAlt2 Get a specific webinar
 
 This method returns a single webinar belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param webinarId The ID of the webinar.
- @return ApiGetWebinarAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param webinarId The ID of the webinar.
+	@return ApiGetWebinarAlt2Request
 */
 func (a *WebinarEssentialsAPIService) GetWebinarAlt2(ctx context.Context, webinarId string) ApiGetWebinarAlt2Request {
 	return ApiGetWebinarAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		webinarId: webinarId,
+		ctx:        ctx,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return Webinar
+//
+//	@return Webinar
 func (a *WebinarEssentialsAPIService) GetWebinarAlt2Execute(r ApiGetWebinarAlt2Request) (*Webinar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Webinar
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Webinar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEssentialsAPIService.GetWebinarAlt2")
@@ -745,8 +749,8 @@ func (a *WebinarEssentialsAPIService) GetWebinarAlt2Execute(r ApiGetWebinarAlt2R
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -764,10 +768,10 @@ func (a *WebinarEssentialsAPIService) GetWebinarAlt2Execute(r ApiGetWebinarAlt2R
 }
 
 type ApiUpdateWebinarRequest struct {
-	ctx context.Context
-	ApiService WebinarEssentialsAPI
-	userId int32
-	webinarId string
+	ctx                      context.Context
+	ApiService               WebinarEssentialsAPI
+	userId                   int32
+	webinarId                string
 	updateWebinarAlt1Request *UpdateWebinarAlt1Request
 }
 
@@ -785,28 +789,29 @@ UpdateWebinar Update a webinar
 
 This method updates a webinar belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param webinarId The ID of the webinar.
- @return ApiUpdateWebinarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param webinarId The ID of the webinar.
+	@return ApiUpdateWebinarRequest
 */
 func (a *WebinarEssentialsAPIService) UpdateWebinar(ctx context.Context, userId int32, webinarId string) ApiUpdateWebinarRequest {
 	return ApiUpdateWebinarRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		webinarId: webinarId,
+		ctx:        ctx,
+		userId:     userId,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return Webinar
+//
+//	@return Webinar
 func (a *WebinarEssentialsAPIService) UpdateWebinarExecute(r ApiUpdateWebinarRequest) (*Webinar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Webinar
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Webinar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEssentialsAPIService.UpdateWebinar")
@@ -863,17 +868,6 @@ func (a *WebinarEssentialsAPIService) UpdateWebinarExecute(r ApiUpdateWebinarReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -881,8 +875,8 @@ func (a *WebinarEssentialsAPIService) UpdateWebinarExecute(r ApiUpdateWebinarReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -892,8 +886,19 @@ func (a *WebinarEssentialsAPIService) UpdateWebinarExecute(r ApiUpdateWebinarReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -911,9 +916,9 @@ func (a *WebinarEssentialsAPIService) UpdateWebinarExecute(r ApiUpdateWebinarReq
 }
 
 type ApiUpdateWebinarAlt1Request struct {
-	ctx context.Context
-	ApiService WebinarEssentialsAPI
-	webinarId string
+	ctx                      context.Context
+	ApiService               WebinarEssentialsAPI
+	webinarId                string
 	updateWebinarAlt1Request *UpdateWebinarAlt1Request
 }
 
@@ -931,26 +936,27 @@ UpdateWebinarAlt1 Update a webinar
 
 This method updates a webinar belonging to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param webinarId The ID of the webinar.
- @return ApiUpdateWebinarAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param webinarId The ID of the webinar.
+	@return ApiUpdateWebinarAlt1Request
 */
 func (a *WebinarEssentialsAPIService) UpdateWebinarAlt1(ctx context.Context, webinarId string) ApiUpdateWebinarAlt1Request {
 	return ApiUpdateWebinarAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		webinarId: webinarId,
+		ctx:        ctx,
+		webinarId:  webinarId,
 	}
 }
 
 // Execute executes the request
-//  @return Webinar
+//
+//	@return Webinar
 func (a *WebinarEssentialsAPIService) UpdateWebinarAlt1Execute(r ApiUpdateWebinarAlt1Request) (*Webinar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Webinar
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Webinar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebinarEssentialsAPIService.UpdateWebinarAlt1")
@@ -1006,17 +1012,6 @@ func (a *WebinarEssentialsAPIService) UpdateWebinarAlt1Execute(r ApiUpdateWebina
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ModelError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1024,8 +1019,8 @@ func (a *WebinarEssentialsAPIService) UpdateWebinarAlt1Execute(r ApiUpdateWebina
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1035,8 +1030,19 @@ func (a *WebinarEssentialsAPIService) UpdateWebinarAlt1Execute(r ApiUpdateWebina
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

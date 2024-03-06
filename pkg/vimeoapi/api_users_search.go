@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 type UsersSearchAPI interface {
 
 	/*
-	SearchUsers Search for users
+		SearchUsers Search for users
 
-	This method returns user search results.
+		This method returns user search results.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiSearchUsersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSearchUsersRequest
 	*/
 	SearchUsers(ctx context.Context) ApiSearchUsersRequest
 
@@ -40,16 +39,16 @@ type UsersSearchAPI interface {
 type UsersSearchAPIService service
 
 type ApiSearchUsersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersSearchAPI
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiSearchUsersRequest) Direction(direction string) ApiSearchUsersRequest {
 	r.direction = &direction
 	return r
@@ -73,7 +72,7 @@ func (r ApiSearchUsersRequest) Query(query string) ApiSearchUsersRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;relevant&#x60; - Sort the results by relevance.  * &#x60;videos&#x60; - Sort the results by number of videos. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;relevant&#x60; - Sort the results by relevance.  * &#x60;videos&#x60; - Sort the results by number of videos.
 func (r ApiSearchUsersRequest) Sort(sort string) ApiSearchUsersRequest {
 	r.sort = &sort
 	return r
@@ -88,24 +87,25 @@ SearchUsers Search for users
 
 This method returns user search results.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSearchUsersRequest
 */
 func (a *UsersSearchAPIService) SearchUsers(ctx context.Context) ApiSearchUsersRequest {
 	return ApiSearchUsersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *UsersSearchAPIService) SearchUsersExecute(r ApiSearchUsersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersSearchAPIService.SearchUsers")
@@ -173,17 +173,6 @@ func (a *UsersSearchAPIService) SearchUsersExecute(r ApiSearchUsersRequest) ([]U
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 503 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -191,8 +180,19 @@ func (a *UsersSearchAPIService) SearchUsersExecute(r ApiSearchUsersRequest) ([]U
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -19,7 +19,7 @@ var _ MappedNullable = &EmbedSettingsPlayButton{}
 
 // EmbedSettingsPlayButton A representation of the play button's settings.
 type EmbedSettingsPlayButton struct {
-	// The position of the play button within the embeddable player.  Option descriptions:  * `auto` - Use Vimeo's default positioning for the play button.  * `bottom` - The play button is positioned at the bottom of the player, except when in tiny mode.  * `center` - The play button is positioned in the center of the player. 
+	// The position of the play button within the embeddable player.  Option descriptions:  * `auto` - Use Vimeo's default positioning for the play button.  * `bottom` - The play button is positioned at the bottom of the player, except when in tiny mode.  * `center` - The play button is positioned in the center of the player.
 	Position string `json:"position"`
 }
 
@@ -66,7 +66,7 @@ func (o *EmbedSettingsPlayButton) SetPosition(v string) {
 }
 
 func (o EmbedSettingsPlayButton) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,5 +114,3 @@ func (v *NullableEmbedSettingsPlayButton) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

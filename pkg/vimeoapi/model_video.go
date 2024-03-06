@@ -21,16 +21,16 @@ var _ MappedNullable = &Video{}
 type Video struct {
 	// An array of privacy settings supported for this video and the requesting user.
 	AllowedPrivacies []string `json:"allowed_privacies"`
-	App ApiApp `json:"app"`
+	App              ApiApp   `json:"app"`
 	// Whether the video can be moved to a folder. This data requires a bearer token with the `private` scope.
 	CanMoveToProject NullableBool `json:"can_move_to_project"`
 	// The categories that the video belongs to.
 	Categories []Category `json:"categories"`
-	// The video's granular content rating.  Option descriptions:  * `advertisement` - The video contains advertisements.  * `drugs` - The video contains drug or alcohol use.  * `language` - The video contains profanity or sexually suggestive content.  * `nudity` - The video contains nudity.  * `safe` - The video is safe for all audiences.  * `unrated` - The video hasn't been rated.  * `violence` - The video contains violence. 
+	// The video's granular content rating.  Option descriptions:  * `advertisement` - The video contains advertisements.  * `drugs` - The video contains drug or alcohol use.  * `language` - The video contains profanity or sexually suggestive content.  * `nudity` - The video contains nudity.  * `safe` - The video is safe for all audiences.  * `unrated` - The video hasn't been rated.  * `violence` - The video contains violence.
 	ContentRating []string `json:"content_rating"`
-	// The video's high-level content rating class.  Option descriptions:  * `explicit` - The video contains one or more explicit content rating types.  * `safe` - The video contains no explicit content rating types.  * `unrated` - The video doesn't belong to a content rating class. 
-	ContentRatingClass string `json:"content_rating_class"`
-	Context VideoContext `json:"context"`
+	// The video's high-level content rating class.  Option descriptions:  * `explicit` - The video contains one or more explicit content rating types.  * `safe` - The video contains no explicit content rating types.  * `unrated` - The video doesn't belong to a content rating class.
+	ContentRatingClass string       `json:"content_rating_class"`
+	Context            VideoContext `json:"context"`
 	// The time in ISO 8601 format when the video was created.
 	CreatedTime string `json:"created_time"`
 	// The custom URL of the video.
@@ -40,14 +40,14 @@ type Video struct {
 	// A brief explanation of the video's content, formatted with HTML entities.
 	DescriptionHtml NullableString `json:"description_html"`
 	// A JSON representation of the description.
-	DescriptionRich *string `json:"description_rich,omitempty"`
+	DescriptionRich    *string                  `json:"description_rich,omitempty"`
 	DisabledProperties *DisabledVideoProperties `json:"disabled_properties,omitempty"`
 	// The list of downloadable files for the video. This data requires a bearer token with the `private` scope.
 	Download []VideoFile `json:"download"`
 	// The video's duration in seconds. A value of `0` indicates the duration hasn't been calculated yet.
-	Duration float32 `json:"duration"`
+	Duration    float32         `json:"duration"`
 	EditSession *EditingSession `json:"edit_session,omitempty"`
-	Embed EmbedSettings `json:"embed"`
+	Embed       EmbedSettings   `json:"embed"`
 	// The list of files for the video. This data requires a bearer token with the `private` scope.
 	Files []VideoFile `json:"files"`
 	// Whether the video has audio.
@@ -72,27 +72,27 @@ type Video struct {
 	Language NullableString `json:"language"`
 	// The time in ISO 8601 format when the user last modified the video.
 	LastUserActionEventDate NullableString `json:"last_user_action_event_date,omitempty"`
-	// The [Creative Commons](http://creativecommons.org/licenses/) license that the video is given under.  Option descriptions:  * `by` - The video is given under the Attribution license.  * `by-nc` - The video is given under the Attribution Non-Commercial license.  * `by-nc-nd` - The video is given under the Attribution Non-Commercial No Derivatives license.  * `by-nc-sa` - The video is given under the Attribution Non-Commercial Share Alike license.  * `by-nd` - The video is given under the Attribution No Derivatives license.  * `by-sa` - The video is given under the Attribution Share Alike license.  * `cc0` - The video is given under the Public Domain Dedication license. 
+	// The [Creative Commons](http://creativecommons.org/licenses/) license that the video is given under.  Option descriptions:  * `by` - The video is given under the Attribution license.  * `by-nc` - The video is given under the Attribution Non-Commercial license.  * `by-nc-nd` - The video is given under the Attribution Non-Commercial No Derivatives license.  * `by-nc-sa` - The video is given under the Attribution Non-Commercial Share Alike license.  * `by-nd` - The video is given under the Attribution No Derivatives license.  * `by-sa` - The video is given under the Attribution Share Alike license.  * `cc0` - The video is given under the Public Domain Dedication license.
 	License string `json:"license"`
 	// The link to the video.
 	Link string `json:"link"`
 	// The link to the video management page. This data requires a bearer token with the `private` scope.
-	ManageLink *string `json:"manage_link,omitempty"`
-	Metadata VideoMetadata `json:"metadata"`
+	ManageLink *string       `json:"manage_link,omitempty"`
+	Metadata   VideoMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the video metadata was last modified.
 	ModifiedTime string `json:"modified_time"`
 	// The video's title.
 	Name string `json:"name"`
 	// Whether the video has unified resolution. If the value of this field is `false`, the video requires transcoding.
-	OriginVariableFrameResolution bool `json:"origin_variable_frame_resolution"`
-	ParentFolder NullableVideoParentFolder `json:"parent_folder,omitempty"`
+	OriginVariableFrameResolution bool                      `json:"origin_variable_frame_resolution"`
+	ParentFolder                  NullableVideoParentFolder `json:"parent_folder,omitempty"`
 	// The privacy-enabled password to watch the video. Only the video's owner and team members with permission can access the video's password. This data requires a bearer token with the `private` scope.
 	Password *string `json:"password,omitempty"`
 	Pictures Picture `json:"pictures"`
-	Play *Play `json:"play,omitempty"`
+	Play     *Play   `json:"play,omitempty"`
 	// The video's player embed URL.
-	PlayerEmbedUrl string `json:"player_embed_url"`
-	Privacy VideoPrivacy `json:"privacy"`
+	PlayerEmbedUrl string       `json:"player_embed_url"`
+	Privacy        VideoPrivacy `json:"privacy"`
 	// Whether the video's content rating is locked by a mod.
 	RatingModLocked bool `json:"rating_mod_locked"`
 	// The time in ISO 8601 format when the video was released.
@@ -105,23 +105,23 @@ type Video struct {
 	ShowSvvFooterBanner NullableBool `json:"show_svv_footer_banner"`
 	// Whether to enable timecoded comments on the single video view recipient page. This data requires a bearer token with the `private` scope.
 	ShowSvvTimecodedComments NullableBool `json:"show_svv_timecoded_comments"`
-	Spatial VideoSpatial `json:"spatial"`
-	Stats VideoStats `json:"stats"`
-	// The status code for the availability of the video.  Option descriptions:  * `available` - The video is available.  * `quota_exceeded` - The user's weekly upload quota is exceeded with this video.  * `total_cap_exceeded` - The user's total storage limit is exceeded with this video.  * `transcode_starting` - Transcoding is starting for the video.  * `transcoding` - Transcoding has started and is currently underway for the video.  * `transcoding_error` - There was an error in transcoding the video.  * `unavailable` - The video is unavailable.  * `uploading` - The video is being uploaded.  * `uploading_error` - There was an error in uploading the video. 
+	Spatial                  VideoSpatial `json:"spatial"`
+	Stats                    VideoStats   `json:"stats"`
+	// The status code for the availability of the video.  Option descriptions:  * `available` - The video is available.  * `quota_exceeded` - The user's weekly upload quota is exceeded with this video.  * `total_cap_exceeded` - The user's total storage limit is exceeded with this video.  * `transcode_starting` - Transcoding is starting for the video.  * `transcoding` - Transcoding has started and is currently underway for the video.  * `transcoding_error` - There was an error in transcoding the video.  * `unavailable` - The video is unavailable.  * `uploading` - The video is being uploaded.  * `uploading_error` - There was an error in uploading the video.
 	Status NullableString `json:"status"`
 	// An array of all tags assigned to the video.
-	Tags []Tag `json:"tags"`
-	Transcode NullableVideoTranscode `json:"transcode"`
+	Tags       []Tag                   `json:"tags"`
+	Transcode  NullableVideoTranscode  `json:"transcode"`
 	Transcript NullableVideoTranscript `json:"transcript"`
-	// The type of the video.  Option descriptions:  * `live` - The video is or was an event.  * `stock` - The video is a Vimeo Stock video.  * `video` - The video is a standard Vimeo video. 
-	Type string `json:"type"`
-	Upload NullableVideoUpload `json:"upload"`
-	Uploader VideoUploader `json:"uploader"`
+	// The type of the video.  Option descriptions:  * `live` - The video is or was an event.  * `stock` - The video is a Vimeo Stock video.  * `video` - The video is a standard Vimeo video.
+	Type     string              `json:"type"`
+	Upload   NullableVideoUpload `json:"upload"`
+	Uploader VideoUploader       `json:"uploader"`
 	// The video's canonical relative URI.
-	Uri string `json:"uri"`
-	User NullableVideoUser `json:"user"`
+	Uri                    string                 `json:"uri"`
+	User                   NullableVideoUser      `json:"user"`
 	VersionTranscodeStatus VersionTranscodeStatus `json:"version_transcode_status"`
-	Vod NullableVideoVod `json:"vod"`
+	Vod                    NullableVideoVod       `json:"vod"`
 	// The video's width in pixels.
 	Width float32 `json:"width"`
 }
@@ -942,6 +942,7 @@ func (o *Video) HasLastUserActionEventDate() bool {
 func (o *Video) SetLastUserActionEventDate(v string) {
 	o.LastUserActionEventDate.Set(&v)
 }
+
 // SetLastUserActionEventDateNil sets the value for LastUserActionEventDate to be an explicit nil
 func (o *Video) SetLastUserActionEventDateNil() {
 	o.LastUserActionEventDate.Set(nil)
@@ -1160,6 +1161,7 @@ func (o *Video) HasParentFolder() bool {
 func (o *Video) SetParentFolder(v VideoParentFolder) {
 	o.ParentFolder.Set(&v)
 }
+
 // SetParentFolderNil sets the value for ParentFolder to be an explicit nil
 func (o *Video) SetParentFolderNil() {
 	o.ParentFolder.Set(nil)
@@ -1805,7 +1807,7 @@ func (o *Video) SetWidth(v float32) {
 }
 
 func (o Video) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1932,5 +1934,3 @@ func (v *NullableVideo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,7 +20,7 @@ var _ MappedNullable = &VideoMetadataInteractionsCanRequestTeamRoleUpgrade{}
 // VideoMetadataInteractionsCanRequestTeamRoleUpgrade Information about whether the user can request a team upgrade from the Viewer role.
 type VideoMetadataInteractionsCanRequestTeamRoleUpgrade struct {
 	// An array of HTTP methods permitted on this URI.
-	Options []string `json:"options"`
+	Options    []string                                                     `json:"options"`
 	Properties VideoMetadataInteractionsCanRequestTeamRoleUpgradeProperties `json:"properties"`
 	// The API URI that resolves to the connection data.
 	Uri string `json:"uri"`
@@ -119,7 +119,7 @@ func (o *VideoMetadataInteractionsCanRequestTeamRoleUpgrade) SetUri(v string) {
 }
 
 func (o VideoMetadataInteractionsCanRequestTeamRoleUpgrade) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +169,3 @@ func (v *NullableVideoMetadataInteractionsCanRequestTeamRoleUpgrade) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

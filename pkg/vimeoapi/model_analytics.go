@@ -22,8 +22,8 @@ type Analytics struct {
 	// The average percent watched in seconds of the corresponding Vimeo content.
 	AveragePercentWatched float32 `json:"average_percent_watched"`
 	// The average time watched in seconds of the corresponding Vimeo content.
-	AverageTimeWatched float32 `json:"average_time_watched"`
-	Country AnalyticsCountry `json:"country"`
+	AverageTimeWatched float32          `json:"average_time_watched"`
+	Country            AnalyticsCountry `json:"country"`
 	// The number of downloads of the corresponding Vimeo content.
 	Downloads float32 `json:"downloads"`
 	// The domain name of the website.
@@ -33,8 +33,8 @@ type Analytics struct {
 	// The number of finishes of the corresponding Vimeo content.
 	Finishes float32 `json:"finishes"`
 	// The number of impressions of the corresponding Vimeo content.
-	Impressions float32 `json:"impressions"`
-	Metadata AnalyticsMetadata `json:"metadata"`
+	Impressions float32           `json:"impressions"`
+	Metadata    AnalyticsMetadata `json:"metadata"`
 	// The start time of the time interval in ISO 8601 format.
 	StartDate string `json:"start_date"`
 	// The total time watched in seconds of the corresponding Vimeo content.
@@ -415,7 +415,7 @@ func (o *Analytics) SetViews(v float32) {
 }
 
 func (o Analytics) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -476,5 +476,3 @@ func (v *NullableAnalytics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

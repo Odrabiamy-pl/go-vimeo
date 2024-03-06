@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type UsersFeedsAPI interface {
 
 	/*
-	GetFeed Get all the videos in the user's feed
+		GetFeed Get all the videos in the user's feed
 
-	This method returns every video in the authenticated user's feed.
+		This method returns every video in the authenticated user's feed.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetFeedRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetFeedRequest
 	*/
 	GetFeed(ctx context.Context, userId int32) ApiGetFeedRequest
 
@@ -38,12 +37,12 @@ type UsersFeedsAPI interface {
 	GetFeedExecute(r ApiGetFeedRequest) ([]Activity31, *http.Response, error)
 
 	/*
-	GetFeedAlt1 Get all the videos in the user's feed
+		GetFeedAlt1 Get all the videos in the user's feed
 
-	This method returns every video in the authenticated user's feed.
+		This method returns every video in the authenticated user's feed.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetFeedAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetFeedAlt1Request
 	*/
 	GetFeedAlt1(ctx context.Context) ApiGetFeedAlt1Request
 
@@ -56,13 +55,13 @@ type UsersFeedsAPI interface {
 type UsersFeedsAPIService service
 
 type ApiGetFeedRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersFeedsAPI
-	userId int32
-	offset *string
-	page *float32
-	perPage *float32
-	type_ *string
+	userId     int32
+	offset     *string
+	page       *float32
+	perPage    *float32
+	type_      *string
 }
 
 // The pagination offset. We recommend that you use the pagination links in the feed response instead of working with this value directly. For more details, see our [pagination documentation](https://developer.vimeo.com/api/common-formats#using-the-pagination-parameter).
@@ -83,7 +82,7 @@ func (r ApiGetFeedRequest) PerPage(perPage float32) ApiGetFeedRequest {
 	return r
 }
 
-// The feed type.  Option descriptions:  * &#x60;appears&#x60; - Videos in which the user appears.  * &#x60;category_featured&#x60; - Featured videos.  * &#x60;channel&#x60; - Channel videos.  * &#x60;facebook_feed&#x60; - Videos from the user&#39;s Facebook feed.  * &#x60;following&#x60; - Videos from accounts that the user follows.  * &#x60;group&#x60; - Group videos.  * &#x60;likes&#x60; - Liked videos.  * &#x60;ondemand_publish&#x60; - On Demand videos.  * &#x60;share&#x60; - Shared videos.  * &#x60;tagged_with&#x60; - Tagged videos.  * &#x60;twitter_timeline&#x60; - Videos from the user&#39;s Twitter timeline.  * &#x60;uploads&#x60; - Uploaded videos. 
+// The feed type.  Option descriptions:  * &#x60;appears&#x60; - Videos in which the user appears.  * &#x60;category_featured&#x60; - Featured videos.  * &#x60;channel&#x60; - Channel videos.  * &#x60;facebook_feed&#x60; - Videos from the user&#39;s Facebook feed.  * &#x60;following&#x60; - Videos from accounts that the user follows.  * &#x60;group&#x60; - Group videos.  * &#x60;likes&#x60; - Liked videos.  * &#x60;ondemand_publish&#x60; - On Demand videos.  * &#x60;share&#x60; - Shared videos.  * &#x60;tagged_with&#x60; - Tagged videos.  * &#x60;twitter_timeline&#x60; - Videos from the user&#39;s Twitter timeline.  * &#x60;uploads&#x60; - Uploaded videos.
 func (r ApiGetFeedRequest) Type_(type_ string) ApiGetFeedRequest {
 	r.type_ = &type_
 	return r
@@ -98,26 +97,27 @@ GetFeed Get all the videos in the user's feed
 
 This method returns every video in the authenticated user's feed.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetFeedRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetFeedRequest
 */
 func (a *UsersFeedsAPIService) GetFeed(ctx context.Context, userId int32) ApiGetFeedRequest {
 	return ApiGetFeedRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Activity31
+//
+//	@return []Activity31
 func (a *UsersFeedsAPIService) GetFeedExecute(r ApiGetFeedRequest) ([]Activity31, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Activity31
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Activity31
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFeedsAPIService.GetFeed")
@@ -199,12 +199,12 @@ func (a *UsersFeedsAPIService) GetFeedExecute(r ApiGetFeedRequest) ([]Activity31
 }
 
 type ApiGetFeedAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService UsersFeedsAPI
-	offset *string
-	page *float32
-	perPage *float32
-	type_ *string
+	offset     *string
+	page       *float32
+	perPage    *float32
+	type_      *string
 }
 
 // The pagination offset. We recommend that you use the pagination links in the feed response instead of working with this value directly. For more details, see our [pagination documentation](https://developer.vimeo.com/api/common-formats#using-the-pagination-parameter).
@@ -225,7 +225,7 @@ func (r ApiGetFeedAlt1Request) PerPage(perPage float32) ApiGetFeedAlt1Request {
 	return r
 }
 
-// The feed type.  Option descriptions:  * &#x60;appears&#x60; - Videos in which the user appears.  * &#x60;category_featured&#x60; - Featured videos.  * &#x60;channel&#x60; - Channel videos.  * &#x60;facebook_feed&#x60; - Videos from the user&#39;s Facebook feed.  * &#x60;following&#x60; - Videos from accounts that the user follows.  * &#x60;group&#x60; - Group videos.  * &#x60;likes&#x60; - Liked videos.  * &#x60;ondemand_publish&#x60; - On Demand videos.  * &#x60;share&#x60; - Shared videos.  * &#x60;tagged_with&#x60; - Tagged videos.  * &#x60;twitter_timeline&#x60; - Videos from the user&#39;s Twitter timeline.  * &#x60;uploads&#x60; - Uploaded videos. 
+// The feed type.  Option descriptions:  * &#x60;appears&#x60; - Videos in which the user appears.  * &#x60;category_featured&#x60; - Featured videos.  * &#x60;channel&#x60; - Channel videos.  * &#x60;facebook_feed&#x60; - Videos from the user&#39;s Facebook feed.  * &#x60;following&#x60; - Videos from accounts that the user follows.  * &#x60;group&#x60; - Group videos.  * &#x60;likes&#x60; - Liked videos.  * &#x60;ondemand_publish&#x60; - On Demand videos.  * &#x60;share&#x60; - Shared videos.  * &#x60;tagged_with&#x60; - Tagged videos.  * &#x60;twitter_timeline&#x60; - Videos from the user&#39;s Twitter timeline.  * &#x60;uploads&#x60; - Uploaded videos.
 func (r ApiGetFeedAlt1Request) Type_(type_ string) ApiGetFeedAlt1Request {
 	r.type_ = &type_
 	return r
@@ -240,24 +240,25 @@ GetFeedAlt1 Get all the videos in the user's feed
 
 This method returns every video in the authenticated user's feed.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeedAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFeedAlt1Request
 */
 func (a *UsersFeedsAPIService) GetFeedAlt1(ctx context.Context) ApiGetFeedAlt1Request {
 	return ApiGetFeedAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Activity31
+//
+//	@return []Activity31
 func (a *UsersFeedsAPIService) GetFeedAlt1Execute(r ApiGetFeedAlt1Request) ([]Activity31, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Activity31
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Activity31
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersFeedsAPIService.GetFeedAlt1")

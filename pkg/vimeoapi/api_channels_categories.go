@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type ChannelsCategoriesAPI interface {
 
 	/*
-	AddChannelCategories Add a channel to a list of categories
+		AddChannelCategories Add a channel to a list of categories
 
-	This method adds the specified channel to multiple categories.
+		This method adds the specified channel to multiple categories.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiAddChannelCategoriesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiAddChannelCategoriesRequest
 	*/
 	AddChannelCategories(ctx context.Context, channelId float32) ApiAddChannelCategoriesRequest
 
@@ -37,14 +36,14 @@ type ChannelsCategoriesAPI interface {
 	AddChannelCategoriesExecute(r ApiAddChannelCategoriesRequest) (*http.Response, error)
 
 	/*
-	CategorizeChannel Add a channel to a specific category
+		CategorizeChannel Add a channel to a specific category
 
-	This method adds the specified channel to a single category. The authenticated user must be the owner of the channel.
+		This method adds the specified channel to a single category. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@param channelId The ID of the channel.
-	@return ApiCategorizeChannelRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@param channelId The ID of the channel.
+		@return ApiCategorizeChannelRequest
 	*/
 	CategorizeChannel(ctx context.Context, category string, channelId float32) ApiCategorizeChannelRequest
 
@@ -52,14 +51,14 @@ type ChannelsCategoriesAPI interface {
 	CategorizeChannelExecute(r ApiCategorizeChannelRequest) (*http.Response, error)
 
 	/*
-	DeleteChannelCategory Remove a channel from a category
+		DeleteChannelCategory Remove a channel from a category
 
-	This method removes a channel from the specified category. The authenticated user must be the owner of the channel.
+		This method removes a channel from the specified category. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@param channelId The ID of the channel.
-	@return ApiDeleteChannelCategoryRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param category The name of the category.
+		@param channelId The ID of the channel.
+		@return ApiDeleteChannelCategoryRequest
 	*/
 	DeleteChannelCategory(ctx context.Context, category string, channelId float32) ApiDeleteChannelCategoryRequest
 
@@ -67,13 +66,13 @@ type ChannelsCategoriesAPI interface {
 	DeleteChannelCategoryExecute(r ApiDeleteChannelCategoryRequest) (*http.Response, error)
 
 	/*
-	GetChannelCategories Get all the categories to which a channel belongs
+		GetChannelCategories Get all the categories to which a channel belongs
 
-	This method returns every category to which the specified channel belongs.
+		This method returns every category to which the specified channel belongs.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiGetChannelCategoriesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiGetChannelCategoriesRequest
 	*/
 	GetChannelCategories(ctx context.Context, channelId float32) ApiGetChannelCategoriesRequest
 
@@ -86,9 +85,9 @@ type ChannelsCategoriesAPI interface {
 type ChannelsCategoriesAPIService service
 
 type ApiAddChannelCategoriesRequest struct {
-	ctx context.Context
-	ApiService ChannelsCategoriesAPI
-	channelId float32
+	ctx                         context.Context
+	ApiService                  ChannelsCategoriesAPI
+	channelId                   float32
 	addChannelCategoriesRequest *AddChannelCategoriesRequest
 }
 
@@ -106,24 +105,24 @@ AddChannelCategories Add a channel to a list of categories
 
 This method adds the specified channel to multiple categories.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiAddChannelCategoriesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiAddChannelCategoriesRequest
 */
 func (a *ChannelsCategoriesAPIService) AddChannelCategories(ctx context.Context, channelId float32) ApiAddChannelCategoriesRequest {
 	return ApiAddChannelCategoriesRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsCategoriesAPIService) AddChannelCategoriesExecute(r ApiAddChannelCategoriesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsCategoriesAPIService.AddChannelCategories")
@@ -182,6 +181,17 @@ func (a *ChannelsCategoriesAPIService) AddChannelCategoriesExecute(r ApiAddChann
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -189,19 +199,8 @@ func (a *ChannelsCategoriesAPIService) AddChannelCategoriesExecute(r ApiAddChann
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -211,19 +210,19 @@ func (a *ChannelsCategoriesAPIService) AddChannelCategoriesExecute(r ApiAddChann
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ModelError
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -232,10 +231,10 @@ func (a *ChannelsCategoriesAPIService) AddChannelCategoriesExecute(r ApiAddChann
 }
 
 type ApiCategorizeChannelRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsCategoriesAPI
-	category string
-	channelId float32
+	category   string
+	channelId  float32
 }
 
 func (r ApiCategorizeChannelRequest) Execute() (*http.Response, error) {
@@ -247,26 +246,26 @@ CategorizeChannel Add a channel to a specific category
 
 This method adds the specified channel to a single category. The authenticated user must be the owner of the channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @param channelId The ID of the channel.
- @return ApiCategorizeChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@param channelId The ID of the channel.
+	@return ApiCategorizeChannelRequest
 */
 func (a *ChannelsCategoriesAPIService) CategorizeChannel(ctx context.Context, category string, channelId float32) ApiCategorizeChannelRequest {
 	return ApiCategorizeChannelRequest{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
-		channelId: channelId,
+		ctx:        ctx,
+		category:   category,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsCategoriesAPIService) CategorizeChannelExecute(r ApiCategorizeChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsCategoriesAPIService.CategorizeChannel")
@@ -328,8 +327,8 @@ func (a *ChannelsCategoriesAPIService) CategorizeChannelExecute(r ApiCategorizeC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -339,19 +338,8 @@ func (a *ChannelsCategoriesAPIService) CategorizeChannelExecute(r ApiCategorizeC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -361,8 +349,19 @@ func (a *ChannelsCategoriesAPIService) CategorizeChannelExecute(r ApiCategorizeC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -371,10 +370,10 @@ func (a *ChannelsCategoriesAPIService) CategorizeChannelExecute(r ApiCategorizeC
 }
 
 type ApiDeleteChannelCategoryRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsCategoriesAPI
-	category string
-	channelId float32
+	category   string
+	channelId  float32
 }
 
 func (r ApiDeleteChannelCategoryRequest) Execute() (*http.Response, error) {
@@ -386,26 +385,26 @@ DeleteChannelCategory Remove a channel from a category
 
 This method removes a channel from the specified category. The authenticated user must be the owner of the channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param category The name of the category.
- @param channelId The ID of the channel.
- @return ApiDeleteChannelCategoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@param channelId The ID of the channel.
+	@return ApiDeleteChannelCategoryRequest
 */
 func (a *ChannelsCategoriesAPIService) DeleteChannelCategory(ctx context.Context, category string, channelId float32) ApiDeleteChannelCategoryRequest {
 	return ApiDeleteChannelCategoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		category: category,
-		channelId: channelId,
+		ctx:        ctx,
+		category:   category,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsCategoriesAPIService) DeleteChannelCategoryExecute(r ApiDeleteChannelCategoryRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsCategoriesAPIService.DeleteChannelCategory")
@@ -467,19 +466,8 @@ func (a *ChannelsCategoriesAPIService) DeleteChannelCategoryExecute(r ApiDeleteC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -489,8 +477,19 @@ func (a *ChannelsCategoriesAPIService) DeleteChannelCategoryExecute(r ApiDeleteC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -499,9 +498,9 @@ func (a *ChannelsCategoriesAPIService) DeleteChannelCategoryExecute(r ApiDeleteC
 }
 
 type ApiGetChannelCategoriesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsCategoriesAPI
-	channelId float32
+	channelId  float32
 }
 
 func (r ApiGetChannelCategoriesRequest) Execute() ([]Category, *http.Response, error) {
@@ -513,26 +512,27 @@ GetChannelCategories Get all the categories to which a channel belongs
 
 This method returns every category to which the specified channel belongs.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiGetChannelCategoriesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiGetChannelCategoriesRequest
 */
 func (a *ChannelsCategoriesAPIService) GetChannelCategories(ctx context.Context, channelId float32) ApiGetChannelCategoriesRequest {
 	return ApiGetChannelCategoriesRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
-//  @return []Category
+//
+//	@return []Category
 func (a *ChannelsCategoriesAPIService) GetChannelCategoriesExecute(r ApiGetChannelCategoriesRequest) ([]Category, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Category
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Category
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsCategoriesAPIService.GetChannelCategories")
@@ -593,8 +593,8 @@ func (a *ChannelsCategoriesAPIService) GetChannelCategoriesExecute(r ApiGetChann
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

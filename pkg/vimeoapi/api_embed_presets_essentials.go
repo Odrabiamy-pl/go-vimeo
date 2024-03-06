@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type EmbedPresetsEssentialsAPI interface {
 
 	/*
-	CreateEmbedPresets Create an embed preset
+		CreateEmbedPresets Create an embed preset
 
-	This method creates an embed preset.
+		This method creates an embed preset.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiCreateEmbedPresetsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiCreateEmbedPresetsRequest
 	*/
 	CreateEmbedPresets(ctx context.Context, userId int32) ApiCreateEmbedPresetsRequest
 
@@ -38,12 +37,12 @@ type EmbedPresetsEssentialsAPI interface {
 	CreateEmbedPresetsExecute(r ApiCreateEmbedPresetsRequest) (*Preset, *http.Response, error)
 
 	/*
-	CreateEmbedPresetsAlt1 Create an embed preset
+		CreateEmbedPresetsAlt1 Create an embed preset
 
-	This method creates an embed preset.
+		This method creates an embed preset.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEmbedPresetsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateEmbedPresetsAlt1Request
 	*/
 	CreateEmbedPresetsAlt1(ctx context.Context) ApiCreateEmbedPresetsAlt1Request
 
@@ -52,14 +51,14 @@ type EmbedPresetsEssentialsAPI interface {
 	CreateEmbedPresetsAlt1Execute(r ApiCreateEmbedPresetsAlt1Request) (*Preset, *http.Response, error)
 
 	/*
-	EditEmbedPreset Edit an embed preset
+		EditEmbedPreset Edit an embed preset
 
-	This method edits the specified embed preset. The authenticated user must be the owner of the preset.
+		This method edits the specified embed preset. The authenticated user must be the owner of the preset.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the preset.
-	@param userId The ID of the user.
-	@return ApiEditEmbedPresetRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param presetId The ID of the preset.
+		@param userId The ID of the user.
+		@return ApiEditEmbedPresetRequest
 	*/
 	EditEmbedPreset(ctx context.Context, presetId float32, userId int32) ApiEditEmbedPresetRequest
 
@@ -68,13 +67,13 @@ type EmbedPresetsEssentialsAPI interface {
 	EditEmbedPresetExecute(r ApiEditEmbedPresetRequest) (*Preset, *http.Response, error)
 
 	/*
-	EditEmbedPresetAlt1 Edit an embed preset
+		EditEmbedPresetAlt1 Edit an embed preset
 
-	This method edits the specified embed preset. The authenticated user must be the owner of the preset.
+		This method edits the specified embed preset. The authenticated user must be the owner of the preset.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the preset.
-	@return ApiEditEmbedPresetAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param presetId The ID of the preset.
+		@return ApiEditEmbedPresetAlt1Request
 	*/
 	EditEmbedPresetAlt1(ctx context.Context, presetId float32) ApiEditEmbedPresetAlt1Request
 
@@ -83,14 +82,14 @@ type EmbedPresetsEssentialsAPI interface {
 	EditEmbedPresetAlt1Execute(r ApiEditEmbedPresetAlt1Request) (*Preset, *http.Response, error)
 
 	/*
-	GetEmbedPreset Get a specific embed preset
+		GetEmbedPreset Get a specific embed preset
 
-	This method returns a single embed preset. The authenticated user must be the owner of the preset.
+		This method returns a single embed preset. The authenticated user must be the owner of the preset.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the preset.
-	@param userId The ID of the user.
-	@return ApiGetEmbedPresetRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param presetId The ID of the preset.
+		@param userId The ID of the user.
+		@return ApiGetEmbedPresetRequest
 	*/
 	GetEmbedPreset(ctx context.Context, presetId float32, userId int32) ApiGetEmbedPresetRequest
 
@@ -99,13 +98,13 @@ type EmbedPresetsEssentialsAPI interface {
 	GetEmbedPresetExecute(r ApiGetEmbedPresetRequest) (*Preset, *http.Response, error)
 
 	/*
-	GetEmbedPresetAlt1 Get a specific embed preset
+		GetEmbedPresetAlt1 Get a specific embed preset
 
-	This method returns a single embed preset. The authenticated user must be the owner of the preset.
+		This method returns a single embed preset. The authenticated user must be the owner of the preset.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the preset.
-	@return ApiGetEmbedPresetAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param presetId The ID of the preset.
+		@return ApiGetEmbedPresetAlt1Request
 	*/
 	GetEmbedPresetAlt1(ctx context.Context, presetId float32) ApiGetEmbedPresetAlt1Request
 
@@ -114,13 +113,13 @@ type EmbedPresetsEssentialsAPI interface {
 	GetEmbedPresetAlt1Execute(r ApiGetEmbedPresetAlt1Request) (*Preset, *http.Response, error)
 
 	/*
-	GetEmbedPresets Get all the embed presets that a user has created
+		GetEmbedPresets Get all the embed presets that a user has created
 
-	This method returns every embed preset that belongs to the authenticated user.
+		This method returns every embed preset that belongs to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetEmbedPresetsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetEmbedPresetsRequest
 	*/
 	GetEmbedPresets(ctx context.Context, userId int32) ApiGetEmbedPresetsRequest
 
@@ -129,12 +128,12 @@ type EmbedPresetsEssentialsAPI interface {
 	GetEmbedPresetsExecute(r ApiGetEmbedPresetsRequest) ([]Preset, *http.Response, error)
 
 	/*
-	GetEmbedPresetsAlt1 Get all the embed presets that a user has created
+		GetEmbedPresetsAlt1 Get all the embed presets that a user has created
 
-	This method returns every embed preset that belongs to the authenticated user.
+		This method returns every embed preset that belongs to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetEmbedPresetsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetEmbedPresetsAlt1Request
 	*/
 	GetEmbedPresetsAlt1(ctx context.Context) ApiGetEmbedPresetsAlt1Request
 
@@ -147,9 +146,9 @@ type EmbedPresetsEssentialsAPI interface {
 type EmbedPresetsEssentialsAPIService service
 
 type ApiCreateEmbedPresetsRequest struct {
-	ctx context.Context
-	ApiService EmbedPresetsEssentialsAPI
-	userId int32
+	ctx                           context.Context
+	ApiService                    EmbedPresetsEssentialsAPI
+	userId                        int32
 	createEmbedPresetsAlt1Request *CreateEmbedPresetsAlt1Request
 }
 
@@ -167,26 +166,27 @@ CreateEmbedPresets Create an embed preset
 
 This method creates an embed preset.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiCreateEmbedPresetsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiCreateEmbedPresetsRequest
 */
 func (a *EmbedPresetsEssentialsAPIService) CreateEmbedPresets(ctx context.Context, userId int32) ApiCreateEmbedPresetsRequest {
 	return ApiCreateEmbedPresetsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Preset
+//
+//	@return Preset
 func (a *EmbedPresetsEssentialsAPIService) CreateEmbedPresetsExecute(r ApiCreateEmbedPresetsRequest) (*Preset, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Preset
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Preset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsEssentialsAPIService.CreateEmbedPresets")
@@ -258,8 +258,8 @@ func (a *EmbedPresetsEssentialsAPIService) CreateEmbedPresetsExecute(r ApiCreate
 }
 
 type ApiCreateEmbedPresetsAlt1Request struct {
-	ctx context.Context
-	ApiService EmbedPresetsEssentialsAPI
+	ctx                           context.Context
+	ApiService                    EmbedPresetsEssentialsAPI
 	createEmbedPresetsAlt1Request *CreateEmbedPresetsAlt1Request
 }
 
@@ -277,24 +277,25 @@ CreateEmbedPresetsAlt1 Create an embed preset
 
 This method creates an embed preset.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateEmbedPresetsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateEmbedPresetsAlt1Request
 */
 func (a *EmbedPresetsEssentialsAPIService) CreateEmbedPresetsAlt1(ctx context.Context) ApiCreateEmbedPresetsAlt1Request {
 	return ApiCreateEmbedPresetsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Preset
+//
+//	@return Preset
 func (a *EmbedPresetsEssentialsAPIService) CreateEmbedPresetsAlt1Execute(r ApiCreateEmbedPresetsAlt1Request) (*Preset, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Preset
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Preset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsEssentialsAPIService.CreateEmbedPresetsAlt1")
@@ -365,10 +366,10 @@ func (a *EmbedPresetsEssentialsAPIService) CreateEmbedPresetsAlt1Execute(r ApiCr
 }
 
 type ApiEditEmbedPresetRequest struct {
-	ctx context.Context
-	ApiService EmbedPresetsEssentialsAPI
-	presetId float32
-	userId int32
+	ctx                        context.Context
+	ApiService                 EmbedPresetsEssentialsAPI
+	presetId                   float32
+	userId                     int32
 	editEmbedPresetAlt1Request *EditEmbedPresetAlt1Request
 }
 
@@ -386,28 +387,29 @@ EditEmbedPreset Edit an embed preset
 
 This method edits the specified embed preset. The authenticated user must be the owner of the preset.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param presetId The ID of the preset.
- @param userId The ID of the user.
- @return ApiEditEmbedPresetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the preset.
+	@param userId The ID of the user.
+	@return ApiEditEmbedPresetRequest
 */
 func (a *EmbedPresetsEssentialsAPIService) EditEmbedPreset(ctx context.Context, presetId float32, userId int32) ApiEditEmbedPresetRequest {
 	return ApiEditEmbedPresetRequest{
 		ApiService: a,
-		ctx: ctx,
-		presetId: presetId,
-		userId: userId,
+		ctx:        ctx,
+		presetId:   presetId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Preset
+//
+//	@return Preset
 func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetExecute(r ApiEditEmbedPresetRequest) (*Preset, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Preset
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Preset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsEssentialsAPIService.EditEmbedPreset")
@@ -464,17 +466,6 @@ func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetExecute(r ApiEditEmbed
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -482,8 +473,19 @@ func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetExecute(r ApiEditEmbed
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -501,9 +503,9 @@ func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetExecute(r ApiEditEmbed
 }
 
 type ApiEditEmbedPresetAlt1Request struct {
-	ctx context.Context
-	ApiService EmbedPresetsEssentialsAPI
-	presetId float32
+	ctx                        context.Context
+	ApiService                 EmbedPresetsEssentialsAPI
+	presetId                   float32
 	editEmbedPresetAlt1Request *EditEmbedPresetAlt1Request
 }
 
@@ -521,26 +523,27 @@ EditEmbedPresetAlt1 Edit an embed preset
 
 This method edits the specified embed preset. The authenticated user must be the owner of the preset.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param presetId The ID of the preset.
- @return ApiEditEmbedPresetAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the preset.
+	@return ApiEditEmbedPresetAlt1Request
 */
 func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetAlt1(ctx context.Context, presetId float32) ApiEditEmbedPresetAlt1Request {
 	return ApiEditEmbedPresetAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		presetId: presetId,
+		ctx:        ctx,
+		presetId:   presetId,
 	}
 }
 
 // Execute executes the request
-//  @return Preset
+//
+//	@return Preset
 func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetAlt1Execute(r ApiEditEmbedPresetAlt1Request) (*Preset, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Preset
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Preset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsEssentialsAPIService.EditEmbedPresetAlt1")
@@ -596,17 +599,6 @@ func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetAlt1Execute(r ApiEditE
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -614,8 +606,19 @@ func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetAlt1Execute(r ApiEditE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -633,10 +636,10 @@ func (a *EmbedPresetsEssentialsAPIService) EditEmbedPresetAlt1Execute(r ApiEditE
 }
 
 type ApiGetEmbedPresetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService EmbedPresetsEssentialsAPI
-	presetId float32
-	userId int32
+	presetId   float32
+	userId     int32
 }
 
 func (r ApiGetEmbedPresetRequest) Execute() (*Preset, *http.Response, error) {
@@ -648,28 +651,29 @@ GetEmbedPreset Get a specific embed preset
 
 This method returns a single embed preset. The authenticated user must be the owner of the preset.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param presetId The ID of the preset.
- @param userId The ID of the user.
- @return ApiGetEmbedPresetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the preset.
+	@param userId The ID of the user.
+	@return ApiGetEmbedPresetRequest
 */
 func (a *EmbedPresetsEssentialsAPIService) GetEmbedPreset(ctx context.Context, presetId float32, userId int32) ApiGetEmbedPresetRequest {
 	return ApiGetEmbedPresetRequest{
 		ApiService: a,
-		ctx: ctx,
-		presetId: presetId,
-		userId: userId,
+		ctx:        ctx,
+		presetId:   presetId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Preset
+//
+//	@return Preset
 func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetExecute(r ApiGetEmbedPresetRequest) (*Preset, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Preset
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Preset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsEssentialsAPIService.GetEmbedPreset")
@@ -740,9 +744,9 @@ func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetExecute(r ApiGetEmbedPr
 }
 
 type ApiGetEmbedPresetAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService EmbedPresetsEssentialsAPI
-	presetId float32
+	presetId   float32
 }
 
 func (r ApiGetEmbedPresetAlt1Request) Execute() (*Preset, *http.Response, error) {
@@ -754,26 +758,27 @@ GetEmbedPresetAlt1 Get a specific embed preset
 
 This method returns a single embed preset. The authenticated user must be the owner of the preset.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param presetId The ID of the preset.
- @return ApiGetEmbedPresetAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the preset.
+	@return ApiGetEmbedPresetAlt1Request
 */
 func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetAlt1(ctx context.Context, presetId float32) ApiGetEmbedPresetAlt1Request {
 	return ApiGetEmbedPresetAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		presetId: presetId,
+		ctx:        ctx,
+		presetId:   presetId,
 	}
 }
 
 // Execute executes the request
-//  @return Preset
+//
+//	@return Preset
 func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetAlt1Execute(r ApiGetEmbedPresetAlt1Request) (*Preset, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Preset
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Preset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsEssentialsAPIService.GetEmbedPresetAlt1")
@@ -843,11 +848,11 @@ func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetAlt1Execute(r ApiGetEmb
 }
 
 type ApiGetEmbedPresetsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService EmbedPresetsEssentialsAPI
-	userId int32
-	page *float32
-	perPage *float32
+	userId     int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -871,26 +876,27 @@ GetEmbedPresets Get all the embed presets that a user has created
 
 This method returns every embed preset that belongs to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetEmbedPresetsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetEmbedPresetsRequest
 */
 func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresets(ctx context.Context, userId int32) ApiGetEmbedPresetsRequest {
 	return ApiGetEmbedPresetsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Preset
+//
+//	@return []Preset
 func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetsExecute(r ApiGetEmbedPresetsRequest) ([]Preset, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Preset
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Preset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsEssentialsAPIService.GetEmbedPresets")
@@ -966,10 +972,10 @@ func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetsExecute(r ApiGetEmbedP
 }
 
 type ApiGetEmbedPresetsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService EmbedPresetsEssentialsAPI
-	page *float32
-	perPage *float32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -993,24 +999,25 @@ GetEmbedPresetsAlt1 Get all the embed presets that a user has created
 
 This method returns every embed preset that belongs to the authenticated user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetEmbedPresetsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetEmbedPresetsAlt1Request
 */
 func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetsAlt1(ctx context.Context) ApiGetEmbedPresetsAlt1Request {
 	return ApiGetEmbedPresetsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Preset
+//
+//	@return []Preset
 func (a *EmbedPresetsEssentialsAPIService) GetEmbedPresetsAlt1Execute(r ApiGetEmbedPresetsAlt1Request) ([]Preset, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Preset
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Preset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsEssentialsAPIService.GetEmbedPresetsAlt1")

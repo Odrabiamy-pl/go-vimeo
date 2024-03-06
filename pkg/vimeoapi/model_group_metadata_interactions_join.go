@@ -25,7 +25,7 @@ type GroupMetadataInteractionsJoin struct {
 	AddedTime NullableString `json:"added_time"`
 	// The user's title. If this field isn't applicable, it takes the null value. This data requires a bearer token with the `private` scope.
 	Title NullableString `json:"title"`
-	// Whether the user is a moderator or subscriber. This data requires a bearer token with the `private` scope.  Option descriptions:  * `member` - The user is a member.  * `moderator` - The user is a moderator. 
+	// Whether the user is a moderator or subscriber. This data requires a bearer token with the `private` scope.  Option descriptions:  * `member` - The user is a member.  * `moderator` - The user is a moderator.
 	Type NullableString `json:"type"`
 	// The URI for following the group. PUT to this URI to follow the group, or DELETE to this URI to unfollow the group. This data requires a bearer token with the `private` scope.
 	Uri string `json:"uri"`
@@ -180,7 +180,7 @@ func (o *GroupMetadataInteractionsJoin) SetUri(v string) {
 }
 
 func (o GroupMetadataInteractionsJoin) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,5 +232,3 @@ func (v *NullableGroupMetadataInteractionsJoin) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

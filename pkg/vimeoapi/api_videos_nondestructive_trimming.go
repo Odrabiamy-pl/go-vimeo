@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type VideosNondestructiveTrimmingAPI interface {
 
 	/*
-	ClipTrim Start a trim operation for a video
+		ClipTrim Start a trim operation for a video
 
-	This method starts a trim operation for the specified video.
+		This method starts a trim operation for the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiClipTrimRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiClipTrimRequest
 	*/
 	ClipTrim(ctx context.Context, videoId int32) ApiClipTrimRequest
 
@@ -38,13 +37,13 @@ type VideosNondestructiveTrimmingAPI interface {
 	ClipTrimExecute(r ApiClipTrimRequest) (*TrimmedVideo, *http.Response, error)
 
 	/*
-	GetClipTrim Get the status of a video's trim operation
+		GetClipTrim Get the status of a video's trim operation
 
-	This method returns the status of the trim operation for the specified video.
+		This method returns the status of the trim operation for the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetClipTrimRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetClipTrimRequest
 	*/
 	GetClipTrim(ctx context.Context, videoId int32) ApiGetClipTrimRequest
 
@@ -57,9 +56,9 @@ type VideosNondestructiveTrimmingAPI interface {
 type VideosNondestructiveTrimmingAPIService service
 
 type ApiClipTrimRequest struct {
-	ctx context.Context
-	ApiService VideosNondestructiveTrimmingAPI
-	videoId int32
+	ctx             context.Context
+	ApiService      VideosNondestructiveTrimmingAPI
+	videoId         int32
 	clipTrimRequest *ClipTrimRequest
 }
 
@@ -77,26 +76,27 @@ ClipTrim Start a trim operation for a video
 
 This method starts a trim operation for the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiClipTrimRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiClipTrimRequest
 */
 func (a *VideosNondestructiveTrimmingAPIService) ClipTrim(ctx context.Context, videoId int32) ApiClipTrimRequest {
 	return ApiClipTrimRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return TrimmedVideo
+//
+//	@return TrimmedVideo
 func (a *VideosNondestructiveTrimmingAPIService) ClipTrimExecute(r ApiClipTrimRequest) (*TrimmedVideo, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TrimmedVideo
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TrimmedVideo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosNondestructiveTrimmingAPIService.ClipTrim")
@@ -159,8 +159,8 @@ func (a *VideosNondestructiveTrimmingAPIService) ClipTrimExecute(r ApiClipTrimRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -170,8 +170,8 @@ func (a *VideosNondestructiveTrimmingAPIService) ClipTrimExecute(r ApiClipTrimRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -189,9 +189,9 @@ func (a *VideosNondestructiveTrimmingAPIService) ClipTrimExecute(r ApiClipTrimRe
 }
 
 type ApiGetClipTrimRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosNondestructiveTrimmingAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiGetClipTrimRequest) Execute() (*TrimmedVideo, *http.Response, error) {
@@ -203,26 +203,27 @@ GetClipTrim Get the status of a video's trim operation
 
 This method returns the status of the trim operation for the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetClipTrimRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetClipTrimRequest
 */
 func (a *VideosNondestructiveTrimmingAPIService) GetClipTrim(ctx context.Context, videoId int32) ApiGetClipTrimRequest {
 	return ApiGetClipTrimRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return TrimmedVideo
+//
+//	@return TrimmedVideo
 func (a *VideosNondestructiveTrimmingAPIService) GetClipTrimExecute(r ApiGetClipTrimRequest) (*TrimmedVideo, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TrimmedVideo
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TrimmedVideo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosNondestructiveTrimmingAPIService.GetClipTrim")
@@ -283,8 +284,8 @@ func (a *VideosNondestructiveTrimmingAPIService) GetClipTrimExecute(r ApiGetClip
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -294,8 +295,8 @@ func (a *VideosNondestructiveTrimmingAPIService) GetClipTrimExecute(r ApiGetClip
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

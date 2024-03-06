@@ -19,9 +19,9 @@ var _ MappedNullable = &ChannelMetadataInteractions{}
 
 // ChannelMetadataInteractions A list of resource URIs related to the channel.
 type ChannelMetadataInteractions struct {
-	AddModerators ChannelMetadataInteractionsAddModerators `json:"add_moderators"`
-	AddTo NullableChannelMetadataInteractionsAddTo `json:"add_to"`
-	Follow ChannelMetadataInteractionsFollow `json:"follow"`
+	AddModerators  ChannelMetadataInteractionsAddModerators  `json:"add_moderators"`
+	AddTo          NullableChannelMetadataInteractionsAddTo  `json:"add_to"`
+	Follow         ChannelMetadataInteractionsFollow         `json:"follow"`
 	ModerateVideos ChannelMetadataInteractionsModerateVideos `json:"moderate_videos"`
 }
 
@@ -145,7 +145,7 @@ func (o *ChannelMetadataInteractions) SetModerateVideos(v ChannelMetadataInterac
 }
 
 func (o ChannelMetadataInteractions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableChannelMetadataInteractions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

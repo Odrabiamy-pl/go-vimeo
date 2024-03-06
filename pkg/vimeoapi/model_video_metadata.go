@@ -20,13 +20,13 @@ var _ MappedNullable = &VideoMetadata{}
 // VideoMetadata The video's metadata.
 type VideoMetadata struct {
 	// Whether the video can be replaced.
-	CanBeReplaced *bool `json:"can_be_replaced,omitempty"`
-	Connections VideoMetadataConnections `json:"connections"`
+	CanBeReplaced *bool                    `json:"can_be_replaced,omitempty"`
+	Connections   VideoMetadataConnections `json:"connections"`
 	// Whether the video has chapter suggestions.
 	HasChapterSuggestions bool `json:"has_chapter_suggestions"`
 	// Whether the video has the email capture feature.
-	HasEmailCapture *bool `json:"has_email_capture,omitempty"`
-	Interactions VideoMetadataInteractions `json:"interactions"`
+	HasEmailCapture *bool                     `json:"has_email_capture,omitempty"`
+	Interactions    VideoMetadataInteractions `json:"interactions"`
 	// Whether the video is a screen recording.
 	IsScreenRecord bool `json:"is_screen_record"`
 	// Whether the video is a Vimeo Create video.
@@ -294,7 +294,7 @@ func (o *VideoMetadata) SetIsZoomUpload(v bool) {
 }
 
 func (o VideoMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -354,5 +354,3 @@ func (v *NullableVideoMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

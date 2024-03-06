@@ -25,12 +25,12 @@ type Category struct {
 	// The most recent time in ISO 8601 format when the video was featured.
 	LastVideoFeaturedTime string `json:"last_video_featured_time"`
 	// The URL to access the category in a browser.
-	Link string `json:"link"`
+	Link     string           `json:"link"`
 	Metadata CategoryMetadata `json:"metadata"`
 	// The display name that identifies the category.
-	Name string `json:"name"`
-	Parent NullableCategoryParent `json:"parent"`
-	Pictures Picture `json:"pictures"`
+	Name     string                 `json:"name"`
+	Parent   NullableCategoryParent `json:"parent"`
+	Pictures Picture                `json:"pictures"`
 	// The resource key of the category.
 	ResourceKey string `json:"resource_key"`
 	// All the subcategories that belong to the category, if the current category is a top-level parent.
@@ -375,7 +375,7 @@ func (o *Category) SetUri(v string) {
 }
 
 func (o Category) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -438,5 +438,3 @@ func (v *NullableCategory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

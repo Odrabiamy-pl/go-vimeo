@@ -93,7 +93,7 @@ func (o *AlbumMetadataInteractionsAddVideos) SetUri(v string) {
 }
 
 func (o AlbumMetadataInteractionsAddVideos) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,5 +142,3 @@ func (v *NullableAlbumMetadataInteractionsAddVideos) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

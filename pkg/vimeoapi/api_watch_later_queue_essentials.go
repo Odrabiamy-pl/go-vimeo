@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type WatchLaterQueueEssentialsAPI interface {
 
 	/*
-	AddVideoToWatchLater Add a video to the user's Watch Later queue
+		AddVideoToWatchLater Add a video to the user's Watch Later queue
 
-	This method adds the specified video to the authenticated user's Watch Later queue.
+		This method adds the specified video to the authenticated user's Watch Later queue.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToWatchLaterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiAddVideoToWatchLaterRequest
 	*/
 	AddVideoToWatchLater(ctx context.Context, userId int32, videoId int32) ApiAddVideoToWatchLaterRequest
 
@@ -38,13 +37,13 @@ type WatchLaterQueueEssentialsAPI interface {
 	AddVideoToWatchLaterExecute(r ApiAddVideoToWatchLaterRequest) (*http.Response, error)
 
 	/*
-	AddVideoToWatchLaterAlt1 Add a video to the user's Watch Later queue
+		AddVideoToWatchLaterAlt1 Add a video to the user's Watch Later queue
 
-	This method adds the specified video to the authenticated user's Watch Later queue.
+		This method adds the specified video to the authenticated user's Watch Later queue.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiAddVideoToWatchLaterAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiAddVideoToWatchLaterAlt1Request
 	*/
 	AddVideoToWatchLaterAlt1(ctx context.Context, videoId int32) ApiAddVideoToWatchLaterAlt1Request
 
@@ -52,14 +51,14 @@ type WatchLaterQueueEssentialsAPI interface {
 	AddVideoToWatchLaterAlt1Execute(r ApiAddVideoToWatchLaterAlt1Request) (*http.Response, error)
 
 	/*
-	CheckWatchLaterQueue Check if the user has added a video to their Watch Later queue
+		CheckWatchLaterQueue Check if the user has added a video to their Watch Later queue
 
-	This method checks the authenticated user's Watch Later queue for the specified video.
+		This method checks the authenticated user's Watch Later queue for the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiCheckWatchLaterQueueRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiCheckWatchLaterQueueRequest
 	*/
 	CheckWatchLaterQueue(ctx context.Context, userId int32, videoId int32) ApiCheckWatchLaterQueueRequest
 
@@ -68,13 +67,13 @@ type WatchLaterQueueEssentialsAPI interface {
 	CheckWatchLaterQueueExecute(r ApiCheckWatchLaterQueueRequest) (*Video, *http.Response, error)
 
 	/*
-	CheckWatchLaterQueueAlt1 Check if the user has added a video to their Watch Later queue
+		CheckWatchLaterQueueAlt1 Check if the user has added a video to their Watch Later queue
 
-	This method checks the authenticated user's Watch Later queue for the specified video.
+		This method checks the authenticated user's Watch Later queue for the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCheckWatchLaterQueueAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiCheckWatchLaterQueueAlt1Request
 	*/
 	CheckWatchLaterQueueAlt1(ctx context.Context, videoId int32) ApiCheckWatchLaterQueueAlt1Request
 
@@ -83,14 +82,14 @@ type WatchLaterQueueEssentialsAPI interface {
 	CheckWatchLaterQueueAlt1Execute(r ApiCheckWatchLaterQueueAlt1Request) (*Video, *http.Response, error)
 
 	/*
-	DeleteVideoFromWatchLater Remove a video from the user's Watch Later queue
+		DeleteVideoFromWatchLater Remove a video from the user's Watch Later queue
 
-	This method removes the specified video from the authenticated user's Watch Later queue.
+		This method removes the specified video from the authenticated user's Watch Later queue.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoFromWatchLaterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoFromWatchLaterRequest
 	*/
 	DeleteVideoFromWatchLater(ctx context.Context, userId int32, videoId int32) ApiDeleteVideoFromWatchLaterRequest
 
@@ -98,13 +97,13 @@ type WatchLaterQueueEssentialsAPI interface {
 	DeleteVideoFromWatchLaterExecute(r ApiDeleteVideoFromWatchLaterRequest) (*http.Response, error)
 
 	/*
-	DeleteVideoFromWatchLaterAlt1 Remove a video from the user's Watch Later queue
+		DeleteVideoFromWatchLaterAlt1 Remove a video from the user's Watch Later queue
 
-	This method removes the specified video from the authenticated user's Watch Later queue.
+		This method removes the specified video from the authenticated user's Watch Later queue.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoFromWatchLaterAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoFromWatchLaterAlt1Request
 	*/
 	DeleteVideoFromWatchLaterAlt1(ctx context.Context, videoId int32) ApiDeleteVideoFromWatchLaterAlt1Request
 
@@ -112,13 +111,13 @@ type WatchLaterQueueEssentialsAPI interface {
 	DeleteVideoFromWatchLaterAlt1Execute(r ApiDeleteVideoFromWatchLaterAlt1Request) (*http.Response, error)
 
 	/*
-	GetWatchLaterQueue Get all the videos in the user's Watch Later queue
+		GetWatchLaterQueue Get all the videos in the user's Watch Later queue
 
-	This method returns every video from the authenticated user's Watch Later queue.
+		This method returns every video from the authenticated user's Watch Later queue.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetWatchLaterQueueRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetWatchLaterQueueRequest
 	*/
 	GetWatchLaterQueue(ctx context.Context, userId int32) ApiGetWatchLaterQueueRequest
 
@@ -127,12 +126,12 @@ type WatchLaterQueueEssentialsAPI interface {
 	GetWatchLaterQueueExecute(r ApiGetWatchLaterQueueRequest) ([]Video, *http.Response, error)
 
 	/*
-	GetWatchLaterQueueAlt1 Get all the videos in the user's Watch Later queue
+		GetWatchLaterQueueAlt1 Get all the videos in the user's Watch Later queue
 
-	This method returns every video from the authenticated user's Watch Later queue.
+		This method returns every video from the authenticated user's Watch Later queue.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetWatchLaterQueueAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetWatchLaterQueueAlt1Request
 	*/
 	GetWatchLaterQueueAlt1(ctx context.Context) ApiGetWatchLaterQueueAlt1Request
 
@@ -145,10 +144,10 @@ type WatchLaterQueueEssentialsAPI interface {
 type WatchLaterQueueEssentialsAPIService service
 
 type ApiAddVideoToWatchLaterRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiAddVideoToWatchLaterRequest) Execute() (*http.Response, error) {
@@ -160,26 +159,26 @@ AddVideoToWatchLater Add a video to the user's Watch Later queue
 
 This method adds the specified video to the authenticated user's Watch Later queue.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiAddVideoToWatchLaterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToWatchLaterRequest
 */
 func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLater(ctx context.Context, userId int32, videoId int32) ApiAddVideoToWatchLaterRequest {
 	return ApiAddVideoToWatchLaterRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterExecute(r ApiAddVideoToWatchLaterRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WatchLaterQueueEssentialsAPIService.AddVideoToWatchLater")
@@ -241,9 +240,9 @@ func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterExecute(r ApiA
 }
 
 type ApiAddVideoToWatchLaterAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiAddVideoToWatchLaterAlt1Request) Execute() (*http.Response, error) {
@@ -255,24 +254,24 @@ AddVideoToWatchLaterAlt1 Add a video to the user's Watch Later queue
 
 This method adds the specified video to the authenticated user's Watch Later queue.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiAddVideoToWatchLaterAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiAddVideoToWatchLaterAlt1Request
 */
 func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterAlt1(ctx context.Context, videoId int32) ApiAddVideoToWatchLaterAlt1Request {
 	return ApiAddVideoToWatchLaterAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterAlt1Execute(r ApiAddVideoToWatchLaterAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WatchLaterQueueEssentialsAPIService.AddVideoToWatchLaterAlt1")
@@ -333,10 +332,10 @@ func (a *WatchLaterQueueEssentialsAPIService) AddVideoToWatchLaterAlt1Execute(r 
 }
 
 type ApiCheckWatchLaterQueueRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiCheckWatchLaterQueueRequest) Execute() (*Video, *http.Response, error) {
@@ -348,28 +347,29 @@ CheckWatchLaterQueue Check if the user has added a video to their Watch Later qu
 
 This method checks the authenticated user's Watch Later queue for the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiCheckWatchLaterQueueRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiCheckWatchLaterQueueRequest
 */
 func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueue(ctx context.Context, userId int32, videoId int32) ApiCheckWatchLaterQueueRequest {
 	return ApiCheckWatchLaterQueueRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueExecute(r ApiCheckWatchLaterQueueRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WatchLaterQueueEssentialsAPIService.CheckWatchLaterQueue")
@@ -431,8 +431,8 @@ func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueExecute(r ApiC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -450,9 +450,9 @@ func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueExecute(r ApiC
 }
 
 type ApiCheckWatchLaterQueueAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiCheckWatchLaterQueueAlt1Request) Execute() (*Video, *http.Response, error) {
@@ -464,26 +464,27 @@ CheckWatchLaterQueueAlt1 Check if the user has added a video to their Watch Late
 
 This method checks the authenticated user's Watch Later queue for the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiCheckWatchLaterQueueAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCheckWatchLaterQueueAlt1Request
 */
 func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueAlt1(ctx context.Context, videoId int32) ApiCheckWatchLaterQueueAlt1Request {
 	return ApiCheckWatchLaterQueueAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueAlt1Execute(r ApiCheckWatchLaterQueueAlt1Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WatchLaterQueueEssentialsAPIService.CheckWatchLaterQueueAlt1")
@@ -544,8 +545,8 @@ func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -563,10 +564,10 @@ func (a *WatchLaterQueueEssentialsAPIService) CheckWatchLaterQueueAlt1Execute(r 
 }
 
 type ApiDeleteVideoFromWatchLaterRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiDeleteVideoFromWatchLaterRequest) Execute() (*http.Response, error) {
@@ -578,26 +579,26 @@ DeleteVideoFromWatchLater Remove a video from the user's Watch Later queue
 
 This method removes the specified video from the authenticated user's Watch Later queue.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiDeleteVideoFromWatchLaterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoFromWatchLaterRequest
 */
 func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLater(ctx context.Context, userId int32, videoId int32) ApiDeleteVideoFromWatchLaterRequest {
 	return ApiDeleteVideoFromWatchLaterRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterExecute(r ApiDeleteVideoFromWatchLaterRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WatchLaterQueueEssentialsAPIService.DeleteVideoFromWatchLater")
@@ -659,9 +660,9 @@ func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterExecute(r
 }
 
 type ApiDeleteVideoFromWatchLaterAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService WatchLaterQueueEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiDeleteVideoFromWatchLaterAlt1Request) Execute() (*http.Response, error) {
@@ -673,24 +674,24 @@ DeleteVideoFromWatchLaterAlt1 Remove a video from the user's Watch Later queue
 
 This method removes the specified video from the authenticated user's Watch Later queue.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiDeleteVideoFromWatchLaterAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoFromWatchLaterAlt1Request
 */
 func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterAlt1(ctx context.Context, videoId int32) ApiDeleteVideoFromWatchLaterAlt1Request {
 	return ApiDeleteVideoFromWatchLaterAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterAlt1Execute(r ApiDeleteVideoFromWatchLaterAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WatchLaterQueueEssentialsAPIService.DeleteVideoFromWatchLaterAlt1")
@@ -751,25 +752,25 @@ func (a *WatchLaterQueueEssentialsAPIService) DeleteVideoFromWatchLaterAlt1Execu
 }
 
 type ApiGetWatchLaterQueueRequest struct {
-	ctx context.Context
-	ApiService WatchLaterQueueEssentialsAPI
-	userId int32
-	direction *string
-	filter *string
+	ctx              context.Context
+	ApiService       WatchLaterQueueEssentialsAPI
+	userId           int32
+	direction        *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	page             *float32
+	perPage          *float32
+	query            *string
+	sort             *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetWatchLaterQueueRequest) Direction(direction string) ApiGetWatchLaterQueueRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetWatchLaterQueueRequest) Filter(filter string) ApiGetWatchLaterQueueRequest {
 	r.filter = &filter
 	return r
@@ -799,7 +800,7 @@ func (r ApiGetWatchLaterQueueRequest) Query(query string) ApiGetWatchLaterQueueR
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date added.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date added.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetWatchLaterQueueRequest) Sort(sort string) ApiGetWatchLaterQueueRequest {
 	r.sort = &sort
 	return r
@@ -814,26 +815,27 @@ GetWatchLaterQueue Get all the videos in the user's Watch Later queue
 
 This method returns every video from the authenticated user's Watch Later queue.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetWatchLaterQueueRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetWatchLaterQueueRequest
 */
 func (a *WatchLaterQueueEssentialsAPIService) GetWatchLaterQueue(ctx context.Context, userId int32) ApiGetWatchLaterQueueRequest {
 	return ApiGetWatchLaterQueueRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *WatchLaterQueueEssentialsAPIService) GetWatchLaterQueueExecute(r ApiGetWatchLaterQueueRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WatchLaterQueueEssentialsAPIService.GetWatchLaterQueue")
@@ -924,24 +926,24 @@ func (a *WatchLaterQueueEssentialsAPIService) GetWatchLaterQueueExecute(r ApiGet
 }
 
 type ApiGetWatchLaterQueueAlt1Request struct {
-	ctx context.Context
-	ApiService WatchLaterQueueEssentialsAPI
-	direction *string
-	filter *string
+	ctx              context.Context
+	ApiService       WatchLaterQueueEssentialsAPI
+	direction        *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	page             *float32
+	perPage          *float32
+	query            *string
+	sort             *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetWatchLaterQueueAlt1Request) Direction(direction string) ApiGetWatchLaterQueueAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetWatchLaterQueueAlt1Request) Filter(filter string) ApiGetWatchLaterQueueAlt1Request {
 	r.filter = &filter
 	return r
@@ -971,7 +973,7 @@ func (r ApiGetWatchLaterQueueAlt1Request) Query(query string) ApiGetWatchLaterQu
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date added.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date added.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetWatchLaterQueueAlt1Request) Sort(sort string) ApiGetWatchLaterQueueAlt1Request {
 	r.sort = &sort
 	return r
@@ -986,24 +988,25 @@ GetWatchLaterQueueAlt1 Get all the videos in the user's Watch Later queue
 
 This method returns every video from the authenticated user's Watch Later queue.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetWatchLaterQueueAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetWatchLaterQueueAlt1Request
 */
 func (a *WatchLaterQueueEssentialsAPIService) GetWatchLaterQueueAlt1(ctx context.Context) ApiGetWatchLaterQueueAlt1Request {
 	return ApiGetWatchLaterQueueAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *WatchLaterQueueEssentialsAPIService) GetWatchLaterQueueAlt1Execute(r ApiGetWatchLaterQueueAlt1Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WatchLaterQueueEssentialsAPIService.GetWatchLaterQueueAlt1")

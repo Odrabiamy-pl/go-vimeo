@@ -20,17 +20,17 @@ var _ MappedNullable = &ProjectMetadataConnections{}
 // ProjectMetadataConnections A list of resource URIs related to the folder.
 type ProjectMetadataConnections struct {
 	// Information about the folder's ancestry ordered from the direct parent to higher-level ancestors.
-	AncestorPath []ProjectMetadataConnectionsAncestorPathInner `json:"ancestor_path"`
-	DataRetention ProjectMetadataConnectionsDataRetention `json:"data_retention"`
-	Folders ProjectMetadataConnectionsFolders `json:"folders"`
-	GroupFolderGrants ProjectMetadataConnectionsGroupFolderGrants `json:"group_folder_grants"`
-	Items ProjectMetadataConnectionsItems `json:"items"`
-	ParentFolder ProjectMetadataConnectionsParentFolder `json:"parent_folder"`
+	AncestorPath            []ProjectMetadataConnectionsAncestorPathInner     `json:"ancestor_path"`
+	DataRetention           ProjectMetadataConnectionsDataRetention           `json:"data_retention"`
+	Folders                 ProjectMetadataConnectionsFolders                 `json:"folders"`
+	GroupFolderGrants       ProjectMetadataConnectionsGroupFolderGrants       `json:"group_folder_grants"`
+	Items                   ProjectMetadataConnectionsItems                   `json:"items"`
+	ParentFolder            ProjectMetadataConnectionsParentFolder            `json:"parent_folder"`
 	PersonalTeamFolderOwner ProjectMetadataConnectionsPersonalTeamFolderOwner `json:"personal_team_folder_owner"`
 	ResourceCreatorTeamUser ProjectMetadataConnectionsResourceCreatorTeamUser `json:"resource_creator_team_user"`
-	TeamPermissions ProjectMetadataConnectionsTeamPermissions `json:"team_permissions"`
-	UserFolderAccessGrants ProjectMetadataConnectionsUserFolderAccessGrants `json:"user_folder_access_grants"`
-	Videos ProjectMetadataConnectionsVideos `json:"videos"`
+	TeamPermissions         ProjectMetadataConnectionsTeamPermissions         `json:"team_permissions"`
+	UserFolderAccessGrants  ProjectMetadataConnectionsUserFolderAccessGrants  `json:"user_folder_access_grants"`
+	Videos                  ProjectMetadataConnectionsVideos                  `json:"videos"`
 }
 
 // NewProjectMetadataConnections instantiates a new ProjectMetadataConnections object
@@ -326,7 +326,7 @@ func (o *ProjectMetadataConnections) SetVideos(v ProjectMetadataConnectionsVideo
 }
 
 func (o ProjectMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -384,5 +384,3 @@ func (v *NullableProjectMetadataConnections) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

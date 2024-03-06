@@ -120,7 +120,7 @@ func (o *UserMetadataConnectionsPortfolios) SetUri(v string) {
 }
 
 func (o UserMetadataConnectionsPortfolios) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableUserMetadataConnectionsPortfolios) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

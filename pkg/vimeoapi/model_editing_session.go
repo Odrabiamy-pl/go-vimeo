@@ -33,7 +33,7 @@ type EditingSession struct {
 	MinTierForMovie string `json:"min_tier_for_movie"`
 	// The result video hash for the created video.
 	ResultVideoHash string `json:"result_video_hash"`
-	// The status of the video.  Option descriptions:  * `done` - The video is finished processing.  * `processing` - The video is still being processed. 
+	// The status of the video.  Option descriptions:  * `done` - The video is finished processing.  * `processing` - The video is still being processed.
 	Status string `json:"status"`
 	// The version's canonical relative URI.
 	VersionUri *string `json:"version_uri,omitempty"`
@@ -316,7 +316,7 @@ func (o *EditingSession) SetVsid(v float32) {
 }
 
 func (o EditingSession) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -375,5 +375,3 @@ func (v *NullableEditingSession) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type LiveEventLowLatencyAPI interface {
 
 	/*
-	ToggleRleLowLatency Toggle the low-latency option of a live event
+		ToggleRleLowLatency Toggle the low-latency option of a live event
 
-	This method toggles the low-latency option of the specified event.
+		This method toggles the low-latency option of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiToggleRleLowLatencyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param liveEventId The ID of the event.
+		@param userId The ID of the user.
+		@return ApiToggleRleLowLatencyRequest
 	*/
 	ToggleRleLowLatency(ctx context.Context, liveEventId float32, userId int32) ApiToggleRleLowLatencyRequest
 
@@ -39,13 +38,13 @@ type LiveEventLowLatencyAPI interface {
 	ToggleRleLowLatencyExecute(r ApiToggleRleLowLatencyRequest) (*RecurringLiveEventLowLatency, *http.Response, error)
 
 	/*
-	ToggleRleLowLatencyAlt1 Toggle the low-latency option of a live event
+		ToggleRleLowLatencyAlt1 Toggle the low-latency option of a live event
 
-	This method toggles the low-latency option of the specified event.
+		This method toggles the low-latency option of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiToggleRleLowLatencyAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param liveEventId The ID of the event.
+		@return ApiToggleRleLowLatencyAlt1Request
 	*/
 	ToggleRleLowLatencyAlt1(ctx context.Context, liveEventId float32) ApiToggleRleLowLatencyAlt1Request
 
@@ -54,13 +53,13 @@ type LiveEventLowLatencyAPI interface {
 	ToggleRleLowLatencyAlt1Execute(r ApiToggleRleLowLatencyAlt1Request) (*RecurringLiveEventLowLatency, *http.Response, error)
 
 	/*
-	ToggleRleLowLatencyAlt2 Toggle the low-latency option of a live event
+		ToggleRleLowLatencyAlt2 Toggle the low-latency option of a live event
 
-	This method toggles the low-latency option of the specified event.
+		This method toggles the low-latency option of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiToggleRleLowLatencyAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param liveEventId The ID of the event.
+		@return ApiToggleRleLowLatencyAlt2Request
 	*/
 	ToggleRleLowLatencyAlt2(ctx context.Context, liveEventId float32) ApiToggleRleLowLatencyAlt2Request
 
@@ -73,10 +72,10 @@ type LiveEventLowLatencyAPI interface {
 type LiveEventLowLatencyAPIService service
 
 type ApiToggleRleLowLatencyRequest struct {
-	ctx context.Context
-	ApiService LiveEventLowLatencyAPI
-	liveEventId float32
-	userId int32
+	ctx                            context.Context
+	ApiService                     LiveEventLowLatencyAPI
+	liveEventId                    float32
+	userId                         int32
 	toggleRleLowLatencyAlt1Request *ToggleRleLowLatencyAlt1Request
 }
 
@@ -94,28 +93,29 @@ ToggleRleLowLatency Toggle the low-latency option of a live event
 
 This method toggles the low-latency option of the specified event.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param liveEventId The ID of the event.
- @param userId The ID of the user.
- @return ApiToggleRleLowLatencyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiToggleRleLowLatencyRequest
 */
 func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatency(ctx context.Context, liveEventId float32, userId int32) ApiToggleRleLowLatencyRequest {
 	return ApiToggleRleLowLatencyRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		liveEventId: liveEventId,
-		userId: userId,
+		userId:      userId,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringLiveEventLowLatency
+//
+//	@return RecurringLiveEventLowLatency
 func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyExecute(r ApiToggleRleLowLatencyRequest) (*RecurringLiveEventLowLatency, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringLiveEventLowLatency
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringLiveEventLowLatency
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventLowLatencyAPIService.ToggleRleLowLatency")
@@ -179,8 +179,8 @@ func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyExecute(r ApiToggleRl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -190,8 +190,8 @@ func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyExecute(r ApiToggleRl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -209,9 +209,9 @@ func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyExecute(r ApiToggleRl
 }
 
 type ApiToggleRleLowLatencyAlt1Request struct {
-	ctx context.Context
-	ApiService LiveEventLowLatencyAPI
-	liveEventId float32
+	ctx                            context.Context
+	ApiService                     LiveEventLowLatencyAPI
+	liveEventId                    float32
 	toggleRleLowLatencyAlt1Request *ToggleRleLowLatencyAlt1Request
 }
 
@@ -229,26 +229,27 @@ ToggleRleLowLatencyAlt1 Toggle the low-latency option of a live event
 
 This method toggles the low-latency option of the specified event.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param liveEventId The ID of the event.
- @return ApiToggleRleLowLatencyAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiToggleRleLowLatencyAlt1Request
 */
 func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt1(ctx context.Context, liveEventId float32) ApiToggleRleLowLatencyAlt1Request {
 	return ApiToggleRleLowLatencyAlt1Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringLiveEventLowLatency
+//
+//	@return RecurringLiveEventLowLatency
 func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt1Execute(r ApiToggleRleLowLatencyAlt1Request) (*RecurringLiveEventLowLatency, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringLiveEventLowLatency
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringLiveEventLowLatency
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventLowLatencyAPIService.ToggleRleLowLatencyAlt1")
@@ -311,8 +312,8 @@ func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt1Execute(r ApiTogg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -322,8 +323,8 @@ func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt1Execute(r ApiTogg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -341,9 +342,9 @@ func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt1Execute(r ApiTogg
 }
 
 type ApiToggleRleLowLatencyAlt2Request struct {
-	ctx context.Context
-	ApiService LiveEventLowLatencyAPI
-	liveEventId float32
+	ctx                            context.Context
+	ApiService                     LiveEventLowLatencyAPI
+	liveEventId                    float32
 	toggleRleLowLatencyAlt1Request *ToggleRleLowLatencyAlt1Request
 }
 
@@ -361,26 +362,27 @@ ToggleRleLowLatencyAlt2 Toggle the low-latency option of a live event
 
 This method toggles the low-latency option of the specified event.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param liveEventId The ID of the event.
- @return ApiToggleRleLowLatencyAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiToggleRleLowLatencyAlt2Request
 */
 func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt2(ctx context.Context, liveEventId float32) ApiToggleRleLowLatencyAlt2Request {
 	return ApiToggleRleLowLatencyAlt2Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringLiveEventLowLatency
+//
+//	@return RecurringLiveEventLowLatency
 func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt2Execute(r ApiToggleRleLowLatencyAlt2Request) (*RecurringLiveEventLowLatency, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringLiveEventLowLatency
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringLiveEventLowLatency
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventLowLatencyAPIService.ToggleRleLowLatencyAlt2")
@@ -443,8 +445,8 @@ func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt2Execute(r ApiTogg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -454,8 +456,8 @@ func (a *LiveEventLowLatencyAPIService) ToggleRleLowLatencyAlt2Execute(r ApiTogg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type VideosCreditsAPI interface {
 
 	/*
-	AddVideoCredit Credit a user in a video
+		AddVideoCredit Credit a user in a video
 
-	This method adds a user credit to the specified video.
+		This method adds a user credit to the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiAddVideoCreditRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiAddVideoCreditRequest
 	*/
 	AddVideoCredit(ctx context.Context, videoId int32) ApiAddVideoCreditRequest
 
@@ -38,14 +37,14 @@ type VideosCreditsAPI interface {
 	AddVideoCreditExecute(r ApiAddVideoCreditRequest) (*Credit, *http.Response, error)
 
 	/*
-	AddVideoCreditAlt1 Credit a user in a video
+		AddVideoCreditAlt1 Credit a user in a video
 
-	This method adds a user credit to the specified video.
+		This method adds a user credit to the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiAddVideoCreditAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiAddVideoCreditAlt1Request
 	*/
 	AddVideoCreditAlt1(ctx context.Context, channelId float32, videoId int32) ApiAddVideoCreditAlt1Request
 
@@ -54,13 +53,13 @@ type VideosCreditsAPI interface {
 	AddVideoCreditAlt1Execute(r ApiAddVideoCreditAlt1Request) (*Credit, *http.Response, error)
 
 	/*
-	AvailableUsers Get users who can be credited on a video
+		AvailableUsers Get users who can be credited on a video
 
-	This method returns the users who can be credited on the specified video.
+		This method returns the users who can be credited on the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiAvailableUsersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiAvailableUsersRequest
 	*/
 	AvailableUsers(ctx context.Context, videoId int32) ApiAvailableUsersRequest
 
@@ -69,14 +68,14 @@ type VideosCreditsAPI interface {
 	AvailableUsersExecute(r ApiAvailableUsersRequest) ([]User, *http.Response, error)
 
 	/*
-	DeleteVideoCredit Delete the credit for a user in a video
+		DeleteVideoCredit Delete the credit for a user in a video
 
-	This method deletes the specified user credit from a video. The authenticated user must be the creator of the credit or the credited user.
+		This method deletes the specified user credit from a video. The authenticated user must be the creator of the credit or the credited user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param creditId The ID of the credit.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoCreditRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param creditId The ID of the credit.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoCreditRequest
 	*/
 	DeleteVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiDeleteVideoCreditRequest
 
@@ -84,14 +83,14 @@ type VideosCreditsAPI interface {
 	DeleteVideoCreditExecute(r ApiDeleteVideoCreditRequest) (*http.Response, error)
 
 	/*
-	EditVideoCredit Edit the credit for a user in a video
+		EditVideoCredit Edit the credit for a user in a video
 
-	This method edits the specified user credit in a video.
+		This method edits the specified user credit in a video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param creditId The ID of the credit.
-	@param videoId The ID of the video.
-	@return ApiEditVideoCreditRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param creditId The ID of the credit.
+		@param videoId The ID of the video.
+		@return ApiEditVideoCreditRequest
 	*/
 	EditVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiEditVideoCreditRequest
 
@@ -100,14 +99,14 @@ type VideosCreditsAPI interface {
 	EditVideoCreditExecute(r ApiEditVideoCreditRequest) (*Credit, *http.Response, error)
 
 	/*
-	GetVideoCredit Get a specific credited user in a video
+		GetVideoCredit Get a specific credited user in a video
 
-	This method returns a single credited user in a video.
+		This method returns a single credited user in a video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param creditId The ID of the credit.
-	@param videoId The ID of the video.
-	@return ApiGetVideoCreditRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param creditId The ID of the credit.
+		@param videoId The ID of the video.
+		@return ApiGetVideoCreditRequest
 	*/
 	GetVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiGetVideoCreditRequest
 
@@ -116,13 +115,13 @@ type VideosCreditsAPI interface {
 	GetVideoCreditExecute(r ApiGetVideoCreditRequest) (*Credit, *http.Response, error)
 
 	/*
-	GetVideoCredits Get all the credited users in a video
+		GetVideoCredits Get all the credited users in a video
 
-	This method returns every credited user in a video.
+		This method returns every credited user in a video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoCreditsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetVideoCreditsRequest
 	*/
 	GetVideoCredits(ctx context.Context, videoId int32) ApiGetVideoCreditsRequest
 
@@ -131,14 +130,14 @@ type VideosCreditsAPI interface {
 	GetVideoCreditsExecute(r ApiGetVideoCreditsRequest) ([]Credit, *http.Response, error)
 
 	/*
-	GetVideoCreditsAlt1 Get all the credited users in a video
+		GetVideoCreditsAlt1 Get all the credited users in a video
 
-	This method returns every credited user in a video.
+		This method returns every credited user in a video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiGetVideoCreditsAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiGetVideoCreditsAlt1Request
 	*/
 	GetVideoCreditsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoCreditsAlt1Request
 
@@ -151,9 +150,9 @@ type VideosCreditsAPI interface {
 type VideosCreditsAPIService service
 
 type ApiAddVideoCreditRequest struct {
-	ctx context.Context
-	ApiService VideosCreditsAPI
-	videoId int32
+	ctx                       context.Context
+	ApiService                VideosCreditsAPI
+	videoId                   int32
 	addVideoCreditAlt1Request *AddVideoCreditAlt1Request
 }
 
@@ -171,26 +170,27 @@ AddVideoCredit Credit a user in a video
 
 This method adds a user credit to the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiAddVideoCreditRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiAddVideoCreditRequest
 */
 func (a *VideosCreditsAPIService) AddVideoCredit(ctx context.Context, videoId int32) ApiAddVideoCreditRequest {
 	return ApiAddVideoCreditRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Credit
+//
+//	@return Credit
 func (a *VideosCreditsAPIService) AddVideoCreditExecute(r ApiAddVideoCreditRequest) (*Credit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Credit
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Credit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreditsAPIService.AddVideoCredit")
@@ -256,8 +256,8 @@ func (a *VideosCreditsAPIService) AddVideoCreditExecute(r ApiAddVideoCreditReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -267,8 +267,8 @@ func (a *VideosCreditsAPIService) AddVideoCreditExecute(r ApiAddVideoCreditReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -286,10 +286,10 @@ func (a *VideosCreditsAPIService) AddVideoCreditExecute(r ApiAddVideoCreditReque
 }
 
 type ApiAddVideoCreditAlt1Request struct {
-	ctx context.Context
-	ApiService VideosCreditsAPI
-	channelId float32
-	videoId int32
+	ctx                       context.Context
+	ApiService                VideosCreditsAPI
+	channelId                 float32
+	videoId                   int32
 	addVideoCreditAlt1Request *AddVideoCreditAlt1Request
 }
 
@@ -307,28 +307,29 @@ AddVideoCreditAlt1 Credit a user in a video
 
 This method adds a user credit to the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiAddVideoCreditAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiAddVideoCreditAlt1Request
 */
 func (a *VideosCreditsAPIService) AddVideoCreditAlt1(ctx context.Context, channelId float32, videoId int32) ApiAddVideoCreditAlt1Request {
 	return ApiAddVideoCreditAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Credit
+//
+//	@return Credit
 func (a *VideosCreditsAPIService) AddVideoCreditAlt1Execute(r ApiAddVideoCreditAlt1Request) (*Credit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Credit
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Credit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreditsAPIService.AddVideoCreditAlt1")
@@ -395,8 +396,8 @@ func (a *VideosCreditsAPIService) AddVideoCreditAlt1Execute(r ApiAddVideoCreditA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -406,8 +407,8 @@ func (a *VideosCreditsAPIService) AddVideoCreditAlt1Execute(r ApiAddVideoCreditA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -425,17 +426,17 @@ func (a *VideosCreditsAPIService) AddVideoCreditAlt1Execute(r ApiAddVideoCreditA
 }
 
 type ApiAvailableUsersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosCreditsAPI
-	videoId int32
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	videoId    int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiAvailableUsersRequest) Direction(direction string) ApiAvailableUsersRequest {
 	r.direction = &direction
 	return r
@@ -459,7 +460,7 @@ func (r ApiAvailableUsersRequest) Query(query string) ApiAvailableUsersRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date followed.
 func (r ApiAvailableUsersRequest) Sort(sort string) ApiAvailableUsersRequest {
 	r.sort = &sort
 	return r
@@ -474,26 +475,27 @@ AvailableUsers Get users who can be credited on a video
 
 This method returns the users who can be credited on the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiAvailableUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiAvailableUsersRequest
 */
 func (a *VideosCreditsAPIService) AvailableUsers(ctx context.Context, videoId int32) ApiAvailableUsersRequest {
 	return ApiAvailableUsersRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *VideosCreditsAPIService) AvailableUsersExecute(r ApiAvailableUsersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreditsAPIService.AvailableUsers")
@@ -578,10 +580,10 @@ func (a *VideosCreditsAPIService) AvailableUsersExecute(r ApiAvailableUsersReque
 }
 
 type ApiDeleteVideoCreditRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosCreditsAPI
-	creditId float32
-	videoId int32
+	creditId   float32
+	videoId    int32
 }
 
 func (r ApiDeleteVideoCreditRequest) Execute() (*http.Response, error) {
@@ -593,26 +595,26 @@ DeleteVideoCredit Delete the credit for a user in a video
 
 This method deletes the specified user credit from a video. The authenticated user must be the creator of the credit or the credited user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param creditId The ID of the credit.
- @param videoId The ID of the video.
- @return ApiDeleteVideoCreditRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param creditId The ID of the credit.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoCreditRequest
 */
 func (a *VideosCreditsAPIService) DeleteVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiDeleteVideoCreditRequest {
 	return ApiDeleteVideoCreditRequest{
 		ApiService: a,
-		ctx: ctx,
-		creditId: creditId,
-		videoId: videoId,
+		ctx:        ctx,
+		creditId:   creditId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosCreditsAPIService) DeleteVideoCreditExecute(r ApiDeleteVideoCreditRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreditsAPIService.DeleteVideoCredit")
@@ -674,8 +676,8 @@ func (a *VideosCreditsAPIService) DeleteVideoCreditExecute(r ApiDeleteVideoCredi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -684,10 +686,10 @@ func (a *VideosCreditsAPIService) DeleteVideoCreditExecute(r ApiDeleteVideoCredi
 }
 
 type ApiEditVideoCreditRequest struct {
-	ctx context.Context
-	ApiService VideosCreditsAPI
-	creditId float32
-	videoId int32
+	ctx                    context.Context
+	ApiService             VideosCreditsAPI
+	creditId               float32
+	videoId                int32
 	editVideoCreditRequest *EditVideoCreditRequest
 }
 
@@ -705,28 +707,29 @@ EditVideoCredit Edit the credit for a user in a video
 
 This method edits the specified user credit in a video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param creditId The ID of the credit.
- @param videoId The ID of the video.
- @return ApiEditVideoCreditRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param creditId The ID of the credit.
+	@param videoId The ID of the video.
+	@return ApiEditVideoCreditRequest
 */
 func (a *VideosCreditsAPIService) EditVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiEditVideoCreditRequest {
 	return ApiEditVideoCreditRequest{
 		ApiService: a,
-		ctx: ctx,
-		creditId: creditId,
-		videoId: videoId,
+		ctx:        ctx,
+		creditId:   creditId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Credit
+//
+//	@return Credit
 func (a *VideosCreditsAPIService) EditVideoCreditExecute(r ApiEditVideoCreditRequest) (*Credit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Credit
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Credit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreditsAPIService.EditVideoCredit")
@@ -790,8 +793,8 @@ func (a *VideosCreditsAPIService) EditVideoCreditExecute(r ApiEditVideoCreditReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -801,8 +804,8 @@ func (a *VideosCreditsAPIService) EditVideoCreditExecute(r ApiEditVideoCreditReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -820,10 +823,10 @@ func (a *VideosCreditsAPIService) EditVideoCreditExecute(r ApiEditVideoCreditReq
 }
 
 type ApiGetVideoCreditRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosCreditsAPI
-	creditId float32
-	videoId int32
+	creditId   float32
+	videoId    int32
 }
 
 func (r ApiGetVideoCreditRequest) Execute() (*Credit, *http.Response, error) {
@@ -835,28 +838,29 @@ GetVideoCredit Get a specific credited user in a video
 
 This method returns a single credited user in a video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param creditId The ID of the credit.
- @param videoId The ID of the video.
- @return ApiGetVideoCreditRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param creditId The ID of the credit.
+	@param videoId The ID of the video.
+	@return ApiGetVideoCreditRequest
 */
 func (a *VideosCreditsAPIService) GetVideoCredit(ctx context.Context, creditId float32, videoId int32) ApiGetVideoCreditRequest {
 	return ApiGetVideoCreditRequest{
 		ApiService: a,
-		ctx: ctx,
-		creditId: creditId,
-		videoId: videoId,
+		ctx:        ctx,
+		creditId:   creditId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Credit
+//
+//	@return Credit
 func (a *VideosCreditsAPIService) GetVideoCreditExecute(r ApiGetVideoCreditRequest) (*Credit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Credit
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Credit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreditsAPIService.GetVideoCredit")
@@ -918,8 +922,8 @@ func (a *VideosCreditsAPIService) GetVideoCreditExecute(r ApiGetVideoCreditReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -937,17 +941,17 @@ func (a *VideosCreditsAPIService) GetVideoCreditExecute(r ApiGetVideoCreditReque
 }
 
 type ApiGetVideoCreditsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosCreditsAPI
-	videoId int32
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	videoId    int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVideoCreditsRequest) Direction(direction string) ApiGetVideoCreditsRequest {
 	r.direction = &direction
 	return r
@@ -971,7 +975,7 @@ func (r ApiGetVideoCreditsRequest) Query(query string) ApiGetVideoCreditsRequest
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.
 func (r ApiGetVideoCreditsRequest) Sort(sort string) ApiGetVideoCreditsRequest {
 	r.sort = &sort
 	return r
@@ -986,26 +990,27 @@ GetVideoCredits Get all the credited users in a video
 
 This method returns every credited user in a video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetVideoCreditsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoCreditsRequest
 */
 func (a *VideosCreditsAPIService) GetVideoCredits(ctx context.Context, videoId int32) ApiGetVideoCreditsRequest {
 	return ApiGetVideoCreditsRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Credit
+//
+//	@return []Credit
 func (a *VideosCreditsAPIService) GetVideoCreditsExecute(r ApiGetVideoCreditsRequest) ([]Credit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Credit
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Credit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreditsAPIService.GetVideoCredits")
@@ -1090,18 +1095,18 @@ func (a *VideosCreditsAPIService) GetVideoCreditsExecute(r ApiGetVideoCreditsReq
 }
 
 type ApiGetVideoCreditsAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosCreditsAPI
-	channelId float32
-	videoId int32
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	channelId  float32
+	videoId    int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVideoCreditsAlt1Request) Direction(direction string) ApiGetVideoCreditsAlt1Request {
 	r.direction = &direction
 	return r
@@ -1125,7 +1130,7 @@ func (r ApiGetVideoCreditsAlt1Request) Query(query string) ApiGetVideoCreditsAlt
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.
 func (r ApiGetVideoCreditsAlt1Request) Sort(sort string) ApiGetVideoCreditsAlt1Request {
 	r.sort = &sort
 	return r
@@ -1140,28 +1145,29 @@ GetVideoCreditsAlt1 Get all the credited users in a video
 
 This method returns every credited user in a video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiGetVideoCreditsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiGetVideoCreditsAlt1Request
 */
 func (a *VideosCreditsAPIService) GetVideoCreditsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoCreditsAlt1Request {
 	return ApiGetVideoCreditsAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Credit
+//
+//	@return []Credit
 func (a *VideosCreditsAPIService) GetVideoCreditsAlt1Execute(r ApiGetVideoCreditsAlt1Request) ([]Credit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Credit
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Credit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosCreditsAPIService.GetVideoCreditsAlt1")

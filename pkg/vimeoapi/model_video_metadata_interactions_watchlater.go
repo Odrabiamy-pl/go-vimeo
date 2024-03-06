@@ -147,7 +147,7 @@ func (o *VideoMetadataInteractionsWatchlater) SetUri(v string) {
 }
 
 func (o VideoMetadataInteractionsWatchlater) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullableVideoMetadataInteractionsWatchlater) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

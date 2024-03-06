@@ -73,7 +73,7 @@ func (o *CaptureWebinarRegistrationListAlt1Request) SetRegistrants(v []CaptureWe
 }
 
 func (o CaptureWebinarRegistrationListAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableCaptureWebinarRegistrationListAlt1Request) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

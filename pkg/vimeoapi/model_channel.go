@@ -25,23 +25,23 @@ type Channel struct {
 	CreatedTime string `json:"created_time"`
 	// A brief explanation of the channel's content.
 	Description NullableString `json:"description"`
-	Header Picture `json:"header"`
+	Header      Picture        `json:"header"`
 	// The URL to access the channel in a browser.
-	Link string `json:"link"`
+	Link     string          `json:"link"`
 	Metadata ChannelMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the channel was last modified.
 	ModifiedTime string `json:"modified_time"`
 	// The display name that identifies the channel.
-	Name string `json:"name"`
-	Pictures Picture `json:"pictures"`
-	Privacy ChannelPrivacy `json:"privacy"`
+	Name     string         `json:"name"`
+	Pictures Picture        `json:"pictures"`
+	Privacy  ChannelPrivacy `json:"privacy"`
 	// The channel resource key.
 	ResourceKey string `json:"resource_key"`
 	// An array of all tags assigned to the channel.
 	Tags []Tag `json:"tags"`
 	// The unique identifier to access the channel resource.
-	Uri string `json:"uri"`
-	User User `json:"user"`
+	Uri  string `json:"uri"`
+	User User   `json:"user"`
 }
 
 // NewChannel instantiates a new Channel object
@@ -414,7 +414,7 @@ func (o *Channel) SetUser(v User) {
 }
 
 func (o Channel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -475,5 +475,3 @@ func (v *NullableChannel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

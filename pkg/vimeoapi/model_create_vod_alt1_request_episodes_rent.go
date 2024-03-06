@@ -21,9 +21,9 @@ var _ MappedNullable = &CreateVodAlt1RequestEpisodesRent{}
 type CreateVodAlt1RequestEpisodesRent struct {
 	// Whether episodes can be rented.
 	Active *bool `json:"active,omitempty"`
-	// The rental period of the episode.  Option descriptions:  * `1 week` - The episode can be rented for a maximum of 1 week.  * `1 year` - The episode can be rented for a maximum of 1 year.  * `24 hour` - The episode can be rented for a maximum of 24 hours.  * `3 month` - The episode can be rented for a maximum of 3 months.  * `30 day` - The episode can be rented for a maximum of 30 days.  * `48 hour` - The episode can be rented for a maximum of 48 hours.  * `6 month` - The episode can be rented for a maximum of 6 months.  * `72 hour` - The episode can be rented for a maximum of 72 hours. 
-	Period *string `json:"period,omitempty"`
-	Price *CreateVodAlt1RequestEpisodesRentPrice `json:"price,omitempty"`
+	// The rental period of the episode.  Option descriptions:  * `1 week` - The episode can be rented for a maximum of 1 week.  * `1 year` - The episode can be rented for a maximum of 1 year.  * `24 hour` - The episode can be rented for a maximum of 24 hours.  * `3 month` - The episode can be rented for a maximum of 3 months.  * `30 day` - The episode can be rented for a maximum of 30 days.  * `48 hour` - The episode can be rented for a maximum of 48 hours.  * `6 month` - The episode can be rented for a maximum of 6 months.  * `72 hour` - The episode can be rented for a maximum of 72 hours.
+	Period *string                                `json:"period,omitempty"`
+	Price  *CreateVodAlt1RequestEpisodesRentPrice `json:"price,omitempty"`
 }
 
 // NewCreateVodAlt1RequestEpisodesRent instantiates a new CreateVodAlt1RequestEpisodesRent object
@@ -140,7 +140,7 @@ func (o *CreateVodAlt1RequestEpisodesRent) SetPrice(v CreateVodAlt1RequestEpisod
 }
 
 func (o CreateVodAlt1RequestEpisodesRent) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableCreateVodAlt1RequestEpisodesRent) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,11 +19,11 @@ var _ MappedNullable = &EmbedSettingsTitle{}
 
 // EmbedSettingsTitle A collection of information about the embeddable player's title bar.
 type EmbedSettingsTitle struct {
-	// How the embeddable player handles the video title.  Option descriptions:  * `hide` - The title is hidden.  * `show` - The title is shown.  * `user` - The title can be toggled to `show` or `hide` by the user. 
+	// How the embeddable player handles the video title.  Option descriptions:  * `hide` - The title is hidden.  * `show` - The title is shown.  * `user` - The title can be toggled to `show` or `hide` by the user.
 	Name string `json:"name"`
-	// How the embeddable player handles the video owner's information.  Option descriptions:  * `hide` - The owner's information is hidden.  * `show` - The owner's information is shown.  * `user` - The owner's information can be toggled to `show` or `hide` by the user. 
+	// How the embeddable player handles the video owner's information.  Option descriptions:  * `hide` - The owner's information is hidden.  * `show` - The owner's information is shown.  * `user` - The owner's information can be toggled to `show` or `hide` by the user.
 	Owner string `json:"owner"`
-	// How the embeddable player handles the video owner's portrait.  Option descriptions:  * `hide` - The owner's portrait is hidden  * `show` - The owner's portrait is shown.  * `user` - The owner's portrait can be toggled to `show` or `hide` by the user. 
+	// How the embeddable player handles the video owner's portrait.  Option descriptions:  * `hide` - The owner's portrait is hidden  * `show` - The owner's portrait is shown.  * `user` - The owner's portrait can be toggled to `show` or `hide` by the user.
 	Portrait string `json:"portrait"`
 }
 
@@ -120,7 +120,7 @@ func (o *EmbedSettingsTitle) SetPortrait(v string) {
 }
 
 func (o EmbedSettingsTitle) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableEmbedSettingsTitle) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

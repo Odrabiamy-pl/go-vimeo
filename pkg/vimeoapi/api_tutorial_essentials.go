@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 type TutorialEssentialsAPI interface {
 
 	/*
-	DeveloperTutorial Get started with the Vimeo API
+		DeveloperTutorial Get started with the Vimeo API
 
-	This method tests whether users who are working through the [Getting Started](https://developer.vimeo.com/api/guides/start) guides have set up their configurations correctly.
+		This method tests whether users who are working through the [Getting Started](https://developer.vimeo.com/api/guides/start) guides have set up their configurations correctly.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeveloperTutorialRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeveloperTutorialRequest
 	*/
 	DeveloperTutorial(ctx context.Context) ApiDeveloperTutorialRequest
 
@@ -39,7 +38,7 @@ type TutorialEssentialsAPI interface {
 type TutorialEssentialsAPIService service
 
 type ApiDeveloperTutorialRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService TutorialEssentialsAPI
 }
 
@@ -52,22 +51,22 @@ DeveloperTutorial Get started with the Vimeo API
 
 This method tests whether users who are working through the [Getting Started](https://developer.vimeo.com/api/guides/start) guides have set up their configurations correctly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeveloperTutorialRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeveloperTutorialRequest
 */
 func (a *TutorialEssentialsAPIService) DeveloperTutorial(ctx context.Context) ApiDeveloperTutorialRequest {
 	return ApiDeveloperTutorialRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *TutorialEssentialsAPIService) DeveloperTutorialExecute(r ApiDeveloperTutorialRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TutorialEssentialsAPIService.DeveloperTutorial")

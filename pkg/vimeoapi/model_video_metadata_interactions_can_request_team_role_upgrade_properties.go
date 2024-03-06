@@ -19,8 +19,8 @@ var _ MappedNullable = &VideoMetadataInteractionsCanRequestTeamRoleUpgradeProper
 
 // VideoMetadataInteractionsCanRequestTeamRoleUpgradeProperties An object of suggested fields to be used for this interaction.
 type VideoMetadataInteractionsCanRequestTeamRoleUpgradeProperties struct {
-	FolderUri VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri `json:"folder_uri"`
-	Status VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesStatus `json:"status"`
+	FolderUri     VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesFolderUri     `json:"folder_uri"`
+	Status        VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesStatus        `json:"status"`
 	UpgradeToRole VideoMetadataInteractionsCanRequestTeamRoleUpgradePropertiesUpgradeToRole `json:"upgrade_to_role"`
 }
 
@@ -117,7 +117,7 @@ func (o *VideoMetadataInteractionsCanRequestTeamRoleUpgradeProperties) SetUpgrad
 }
 
 func (o VideoMetadataInteractionsCanRequestTeamRoleUpgradeProperties) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -167,5 +167,3 @@ func (v *NullableVideoMetadataInteractionsCanRequestTeamRoleUpgradeProperties) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

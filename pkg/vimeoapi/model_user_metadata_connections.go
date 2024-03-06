@@ -19,28 +19,28 @@ var _ MappedNullable = &UserMetadataConnections{}
 
 // UserMetadataConnections The list of resource URIs related to the authenticated user.
 type UserMetadataConnections struct {
-	Albums UserMetadataConnectionsAlbums `json:"albums"`
-	Appearances UserMetadataConnectionsAppearances `json:"appearances"`
-	Block UserMetadataConnectionsBlock `json:"block"`
-	Categories UserMetadataConnectionsCategories `json:"categories"`
-	Channels UserMetadataConnectionsChannels `json:"channels"`
-	ConnectedApps UserMetadataConnectionsConnectedApps `json:"connected_apps"`
-	Feed UserMetadataConnectionsFeed `json:"feed"`
-	Folders UserMetadataConnectionsFolders `json:"folders"`
-	FoldersRoot UserMetadataConnectionsFoldersRoot `json:"folders_root"`
-	Followers UserMetadataConnectionsFollowers `json:"followers"`
-	Following UserMetadataConnectionsFollowing `json:"following"`
-	Groups UserMetadataConnectionsGroups `json:"groups"`
-	Likes UserMetadataConnectionsLikes `json:"likes"`
-	ModeratedChannels UserMetadataConnectionsModeratedChannels `json:"moderated_channels"`
-	Pictures UserMetadataConnectionsPictures `json:"pictures"`
-	Portfolios UserMetadataConnectionsPortfolios `json:"portfolios"`
+	Albums              UserMetadataConnectionsAlbums              `json:"albums"`
+	Appearances         UserMetadataConnectionsAppearances         `json:"appearances"`
+	Block               UserMetadataConnectionsBlock               `json:"block"`
+	Categories          UserMetadataConnectionsCategories          `json:"categories"`
+	Channels            UserMetadataConnectionsChannels            `json:"channels"`
+	ConnectedApps       UserMetadataConnectionsConnectedApps       `json:"connected_apps"`
+	Feed                UserMetadataConnectionsFeed                `json:"feed"`
+	Folders             UserMetadataConnectionsFolders             `json:"folders"`
+	FoldersRoot         UserMetadataConnectionsFoldersRoot         `json:"folders_root"`
+	Followers           UserMetadataConnectionsFollowers           `json:"followers"`
+	Following           UserMetadataConnectionsFollowing           `json:"following"`
+	Groups              UserMetadataConnectionsGroups              `json:"groups"`
+	Likes               UserMetadataConnectionsLikes               `json:"likes"`
+	ModeratedChannels   UserMetadataConnectionsModeratedChannels   `json:"moderated_channels"`
+	Pictures            UserMetadataConnectionsPictures            `json:"pictures"`
+	Portfolios          UserMetadataConnectionsPortfolios          `json:"portfolios"`
 	RecommendedChannels UserMetadataConnectionsRecommendedChannels `json:"recommended_channels"`
-	RecommendedUsers UserMetadataConnectionsRecommendedUsers `json:"recommended_users"`
-	Shared UserMetadataConnectionsShared `json:"shared"`
-	Videos UserMetadataConnectionsVideos `json:"videos"`
-	WatchedVideos UserMetadataConnectionsWatchedVideos `json:"watched_videos"`
-	Watchlater UserMetadataConnectionsWatchlater `json:"watchlater"`
+	RecommendedUsers    UserMetadataConnectionsRecommendedUsers    `json:"recommended_users"`
+	Shared              UserMetadataConnectionsShared              `json:"shared"`
+	Videos              UserMetadataConnectionsVideos              `json:"videos"`
+	WatchedVideos       UserMetadataConnectionsWatchedVideos       `json:"watched_videos"`
+	Watchlater          UserMetadataConnectionsWatchlater          `json:"watchlater"`
 }
 
 // NewUserMetadataConnections instantiates a new UserMetadataConnections object
@@ -611,7 +611,7 @@ func (o *UserMetadataConnections) SetWatchlater(v UserMetadataConnectionsWatchla
 }
 
 func (o UserMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -680,5 +680,3 @@ func (v *NullableUserMetadataConnections) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

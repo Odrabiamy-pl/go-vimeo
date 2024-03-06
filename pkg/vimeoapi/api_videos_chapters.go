@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type VideosChaptersAPI interface {
 
 	/*
-	CreateChapter Add a chapter to a video
+		CreateChapter Add a chapter to a video
 
-	This method adds a chapter to the specified video.
+		This method adds a chapter to the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateChapterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiCreateChapterRequest
 	*/
 	CreateChapter(ctx context.Context, videoId int32) ApiCreateChapterRequest
 
@@ -38,14 +37,14 @@ type VideosChaptersAPI interface {
 	CreateChapterExecute(r ApiCreateChapterRequest) (*Chapter, *http.Response, error)
 
 	/*
-	CreateChapterThumbnailOrUploadLink Generate an upload link or timecode-based thumbnail for a saved video chapter
+		CreateChapterThumbnailOrUploadLink Generate an upload link or timecode-based thumbnail for a saved video chapter
 
-	This method generates either an upload link or a timecode-based thumbnail for the specified saved video chapter. To generate the upload link, which enables the authenticated user to upload a chapter thumbnail image manually, leave the body of the request empty. To generate an automatic timecode-based thumbnail, include the **timecode** parameter in the body of the request.
+		This method generates either an upload link or a timecode-based thumbnail for the specified saved video chapter. To generate the upload link, which enables the authenticated user to upload a chapter thumbnail image manually, leave the body of the request empty. To generate an automatic timecode-based thumbnail, include the **timecode** parameter in the body of the request.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param chapterId The ID of the chapter.
-	@param videoId The ID of the video.
-	@return ApiCreateChapterThumbnailOrUploadLinkRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param chapterId The ID of the chapter.
+		@param videoId The ID of the video.
+		@return ApiCreateChapterThumbnailOrUploadLinkRequest
 	*/
 	CreateChapterThumbnailOrUploadLink(ctx context.Context, chapterId float32, videoId int32) ApiCreateChapterThumbnailOrUploadLinkRequest
 
@@ -54,13 +53,13 @@ type VideosChaptersAPI interface {
 	CreateChapterThumbnailOrUploadLinkExecute(r ApiCreateChapterThumbnailOrUploadLinkRequest) (*Picture, *http.Response, error)
 
 	/*
-	CreateUnsavedChapterThumbnailOrUploadLink Generate an upload link or timecode-based thumbnail for an unsaved video chapter
+		CreateUnsavedChapterThumbnailOrUploadLink Generate an upload link or timecode-based thumbnail for an unsaved video chapter
 
-	This method generates either an upload link or a timecode-based thumbnail for an unsaved video chapter. To generate the upload link, which enables the authenticated user to upload a chapter thumbnail image manually, leave the body of the request empty. To generate an automatic timecode-based thumbnail, specify the **timecode** parameter in the body of the request.
+		This method generates either an upload link or a timecode-based thumbnail for an unsaved video chapter. To generate the upload link, which enables the authenticated user to upload a chapter thumbnail image manually, leave the body of the request empty. To generate an automatic timecode-based thumbnail, specify the **timecode** parameter in the body of the request.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
 	*/
 	CreateUnsavedChapterThumbnailOrUploadLink(ctx context.Context, videoId int32) ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
 
@@ -69,14 +68,14 @@ type VideosChaptersAPI interface {
 	CreateUnsavedChapterThumbnailOrUploadLinkExecute(r ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest) (*Picture, *http.Response, error)
 
 	/*
-	DeleteChapter Delete a chapter
+		DeleteChapter Delete a chapter
 
-	This method deletes the specified chapter from a video. The authenticated user must be the owner of the video.
+		This method deletes the specified chapter from a video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param chapterId The ID of the chapter.
-	@param videoId The ID of the video.
-	@return ApiDeleteChapterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param chapterId The ID of the chapter.
+		@param videoId The ID of the video.
+		@return ApiDeleteChapterRequest
 	*/
 	DeleteChapter(ctx context.Context, chapterId float32, videoId int32) ApiDeleteChapterRequest
 
@@ -84,18 +83,18 @@ type VideosChaptersAPI interface {
 	DeleteChapterExecute(r ApiDeleteChapterRequest) (*http.Response, error)
 
 	/*
-	DeleteChapterThumbnail Delete a chapter thumbnail
+			DeleteChapterThumbnail Delete a chapter thumbnail
 
-	This method deletes the specified chapter thumbnail from a video.
+			This method deletes the specified chapter thumbnail from a video.
 
-The authenticated user must be the owner of the video that the chapter belongs to.
-This method deletes both timecode-generated and custom-uploaded thumbnails.
+		The authenticated user must be the owner of the video that the chapter belongs to.
+		This method deletes both timecode-generated and custom-uploaded thumbnails.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@param chapterId The ID of the chapter.
-	@param uid The unique ID of the thumbnail.
-	@return ApiDeleteChapterThumbnailRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param videoId The ID of the video.
+			@param chapterId The ID of the chapter.
+			@param uid The unique ID of the thumbnail.
+			@return ApiDeleteChapterThumbnailRequest
 	*/
 	DeleteChapterThumbnail(ctx context.Context, videoId int32, chapterId float32, uid string) ApiDeleteChapterThumbnailRequest
 
@@ -103,14 +102,14 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	DeleteChapterThumbnailExecute(r ApiDeleteChapterThumbnailRequest) (*http.Response, error)
 
 	/*
-	EditChapter Edit a chapter
+		EditChapter Edit a chapter
 
-	This method edits the specified chapter of a video. The authenticated user must be the owner of the video.
+		This method edits the specified chapter of a video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param chapterId The ID of the chapter.
-	@param videoId The ID of the video.
-	@return ApiEditChapterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param chapterId The ID of the chapter.
+		@param videoId The ID of the video.
+		@return ApiEditChapterRequest
 	*/
 	EditChapter(ctx context.Context, chapterId float32, videoId int32) ApiEditChapterRequest
 
@@ -119,14 +118,14 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	EditChapterExecute(r ApiEditChapterRequest) (*Chapter, *http.Response, error)
 
 	/*
-	GetChapter Get a specific chapter
+		GetChapter Get a specific chapter
 
-	This method returns a single chapter of the specified video.
+		This method returns a single chapter of the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param chapterId The ID of the chapter.
-	@param videoId The ID of the video.
-	@return ApiGetChapterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param chapterId The ID of the chapter.
+		@param videoId The ID of the video.
+		@return ApiGetChapterRequest
 	*/
 	GetChapter(ctx context.Context, chapterId float32, videoId int32) ApiGetChapterRequest
 
@@ -135,15 +134,15 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	GetChapterExecute(r ApiGetChapterRequest) (*Chapter, *http.Response, error)
 
 	/*
-	GetChapterThumbnail Get a single chapter thumbnail associated with a saved video chapter
+		GetChapterThumbnail Get a single chapter thumbnail associated with a saved video chapter
 
-	This method returns the specified thumbnail associated with a saved video chapter.
+		This method returns the specified thumbnail associated with a saved video chapter.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param chapterId The ID of the chapter.
-	@param videoId The ID of the video.
-	@param uid The unique ID of the thumbnail.
-	@return ApiGetChapterThumbnailRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param chapterId The ID of the chapter.
+		@param videoId The ID of the video.
+		@param uid The unique ID of the thumbnail.
+		@return ApiGetChapterThumbnailRequest
 	*/
 	GetChapterThumbnail(ctx context.Context, chapterId float32, videoId int32, uid string) ApiGetChapterThumbnailRequest
 
@@ -152,14 +151,14 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	GetChapterThumbnailExecute(r ApiGetChapterThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-	GetChapterThumbnails Get all the thumbnails associated with a saved video chapter
+		GetChapterThumbnails Get all the thumbnails associated with a saved video chapter
 
-	This method returns every thumbnail associated with the specified saved video chapter.
+		This method returns every thumbnail associated with the specified saved video chapter.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param chapterId The ID of the chapter.
-	@param videoId The ID of the video.
-	@return ApiGetChapterThumbnailsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param chapterId The ID of the chapter.
+		@param videoId The ID of the video.
+		@return ApiGetChapterThumbnailsRequest
 	*/
 	GetChapterThumbnails(ctx context.Context, chapterId float32, videoId int32) ApiGetChapterThumbnailsRequest
 
@@ -168,13 +167,13 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	GetChapterThumbnailsExecute(r ApiGetChapterThumbnailsRequest) (*Picture, *http.Response, error)
 
 	/*
-	GetChapters Get all the chapters of a video
+		GetChapters Get all the chapters of a video
 
-	This method returns every chapter of the specified video.
+		This method returns every chapter of the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetChaptersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetChaptersRequest
 	*/
 	GetChapters(ctx context.Context, videoId int32) ApiGetChaptersRequest
 
@@ -183,14 +182,14 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	GetChaptersExecute(r ApiGetChaptersRequest) ([]Chapter, *http.Response, error)
 
 	/*
-	GetUnsavedChapterThumbnail Get a single chapter thumbnail associated with an unsaved video chapter
+		GetUnsavedChapterThumbnail Get a single chapter thumbnail associated with an unsaved video chapter
 
-	This method returns the specified thumbnail associated with an unsaved video chapter.
+		This method returns the specified thumbnail associated with an unsaved video chapter.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@param uid The unique ID of the thumbnail.
-	@return ApiGetUnsavedChapterThumbnailRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@param uid The unique ID of the thumbnail.
+		@return ApiGetUnsavedChapterThumbnailRequest
 	*/
 	GetUnsavedChapterThumbnail(ctx context.Context, videoId int32, uid string) ApiGetUnsavedChapterThumbnailRequest
 
@@ -199,15 +198,15 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 	GetUnsavedChapterThumbnailExecute(r ApiGetUnsavedChapterThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-	SetChapterThumbnailActive Set a chapter thumbnail as active
+		SetChapterThumbnailActive Set a chapter thumbnail as active
 
-	This method sets the specified chapter thumbnail for a video as active.
+		This method sets the specified chapter thumbnail for a video as active.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param chapterId The ID of the chapter.
-	@param videoId The ID of the video.
-	@param uid The unique ID of the thumbnail.
-	@return ApiSetChapterThumbnailActiveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param chapterId The ID of the chapter.
+		@param videoId The ID of the video.
+		@param uid The unique ID of the thumbnail.
+		@return ApiSetChapterThumbnailActiveRequest
 	*/
 	SetChapterThumbnailActive(ctx context.Context, chapterId float32, videoId int32, uid string) ApiSetChapterThumbnailActiveRequest
 
@@ -220,9 +219,9 @@ This method deletes both timecode-generated and custom-uploaded thumbnails.
 type VideosChaptersAPIService service
 
 type ApiCreateChapterRequest struct {
-	ctx context.Context
-	ApiService VideosChaptersAPI
-	videoId int32
+	ctx                  context.Context
+	ApiService           VideosChaptersAPI
+	videoId              int32
 	createChapterRequest *CreateChapterRequest
 }
 
@@ -240,26 +239,27 @@ CreateChapter Add a chapter to a video
 
 This method adds a chapter to the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiCreateChapterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateChapterRequest
 */
 func (a *VideosChaptersAPIService) CreateChapter(ctx context.Context, videoId int32) ApiCreateChapterRequest {
 	return ApiCreateChapterRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Chapter
+//
+//	@return Chapter
 func (a *VideosChaptersAPIService) CreateChapterExecute(r ApiCreateChapterRequest) (*Chapter, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Chapter
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Chapter
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.CreateChapter")
@@ -322,8 +322,8 @@ func (a *VideosChaptersAPIService) CreateChapterExecute(r ApiCreateChapterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -341,10 +341,10 @@ func (a *VideosChaptersAPIService) CreateChapterExecute(r ApiCreateChapterReques
 }
 
 type ApiCreateChapterThumbnailOrUploadLinkRequest struct {
-	ctx context.Context
-	ApiService VideosChaptersAPI
-	chapterId float32
-	videoId int32
+	ctx                                              context.Context
+	ApiService                                       VideosChaptersAPI
+	chapterId                                        float32
+	videoId                                          int32
 	createUnsavedChapterThumbnailOrUploadLinkRequest *CreateUnsavedChapterThumbnailOrUploadLinkRequest
 }
 
@@ -362,28 +362,29 @@ CreateChapterThumbnailOrUploadLink Generate an upload link or timecode-based thu
 
 This method generates either an upload link or a timecode-based thumbnail for the specified saved video chapter. To generate the upload link, which enables the authenticated user to upload a chapter thumbnail image manually, leave the body of the request empty. To generate an automatic timecode-based thumbnail, include the **timecode** parameter in the body of the request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param chapterId The ID of the chapter.
- @param videoId The ID of the video.
- @return ApiCreateChapterThumbnailOrUploadLinkRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chapterId The ID of the chapter.
+	@param videoId The ID of the video.
+	@return ApiCreateChapterThumbnailOrUploadLinkRequest
 */
 func (a *VideosChaptersAPIService) CreateChapterThumbnailOrUploadLink(ctx context.Context, chapterId float32, videoId int32) ApiCreateChapterThumbnailOrUploadLinkRequest {
 	return ApiCreateChapterThumbnailOrUploadLinkRequest{
 		ApiService: a,
-		ctx: ctx,
-		chapterId: chapterId,
-		videoId: videoId,
+		ctx:        ctx,
+		chapterId:  chapterId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosChaptersAPIService) CreateChapterThumbnailOrUploadLinkExecute(r ApiCreateChapterThumbnailOrUploadLinkRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.CreateChapterThumbnailOrUploadLink")
@@ -447,8 +448,8 @@ func (a *VideosChaptersAPIService) CreateChapterThumbnailOrUploadLinkExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -466,9 +467,9 @@ func (a *VideosChaptersAPIService) CreateChapterThumbnailOrUploadLinkExecute(r A
 }
 
 type ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest struct {
-	ctx context.Context
-	ApiService VideosChaptersAPI
-	videoId int32
+	ctx                                              context.Context
+	ApiService                                       VideosChaptersAPI
+	videoId                                          int32
 	createUnsavedChapterThumbnailOrUploadLinkRequest *CreateUnsavedChapterThumbnailOrUploadLinkRequest
 }
 
@@ -486,26 +487,27 @@ CreateUnsavedChapterThumbnailOrUploadLink Generate an upload link or timecode-ba
 
 This method generates either an upload link or a timecode-based thumbnail for an unsaved video chapter. To generate the upload link, which enables the authenticated user to upload a chapter thumbnail image manually, leave the body of the request empty. To generate an automatic timecode-based thumbnail, specify the **timecode** parameter in the body of the request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest
 */
 func (a *VideosChaptersAPIService) CreateUnsavedChapterThumbnailOrUploadLink(ctx context.Context, videoId int32) ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest {
 	return ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosChaptersAPIService) CreateUnsavedChapterThumbnailOrUploadLinkExecute(r ApiCreateUnsavedChapterThumbnailOrUploadLinkRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.CreateUnsavedChapterThumbnailOrUploadLink")
@@ -568,8 +570,8 @@ func (a *VideosChaptersAPIService) CreateUnsavedChapterThumbnailOrUploadLinkExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -587,10 +589,10 @@ func (a *VideosChaptersAPIService) CreateUnsavedChapterThumbnailOrUploadLinkExec
 }
 
 type ApiDeleteChapterRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosChaptersAPI
-	chapterId float32
-	videoId int32
+	chapterId  float32
+	videoId    int32
 }
 
 func (r ApiDeleteChapterRequest) Execute() (*http.Response, error) {
@@ -602,26 +604,26 @@ DeleteChapter Delete a chapter
 
 This method deletes the specified chapter from a video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param chapterId The ID of the chapter.
- @param videoId The ID of the video.
- @return ApiDeleteChapterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chapterId The ID of the chapter.
+	@param videoId The ID of the video.
+	@return ApiDeleteChapterRequest
 */
 func (a *VideosChaptersAPIService) DeleteChapter(ctx context.Context, chapterId float32, videoId int32) ApiDeleteChapterRequest {
 	return ApiDeleteChapterRequest{
 		ApiService: a,
-		ctx: ctx,
-		chapterId: chapterId,
-		videoId: videoId,
+		ctx:        ctx,
+		chapterId:  chapterId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosChaptersAPIService) DeleteChapterExecute(r ApiDeleteChapterRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.DeleteChapter")
@@ -683,8 +685,8 @@ func (a *VideosChaptersAPIService) DeleteChapterExecute(r ApiDeleteChapterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -693,11 +695,11 @@ func (a *VideosChaptersAPIService) DeleteChapterExecute(r ApiDeleteChapterReques
 }
 
 type ApiDeleteChapterThumbnailRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosChaptersAPI
-	videoId int32
-	chapterId float32
-	uid string
+	videoId    int32
+	chapterId  float32
+	uid        string
 }
 
 func (r ApiDeleteChapterThumbnailRequest) Execute() (*http.Response, error) {
@@ -712,28 +714,28 @@ This method deletes the specified chapter thumbnail from a video.
 The authenticated user must be the owner of the video that the chapter belongs to.
 This method deletes both timecode-generated and custom-uploaded thumbnails.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @param chapterId The ID of the chapter.
- @param uid The unique ID of the thumbnail.
- @return ApiDeleteChapterThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@param chapterId The ID of the chapter.
+	@param uid The unique ID of the thumbnail.
+	@return ApiDeleteChapterThumbnailRequest
 */
 func (a *VideosChaptersAPIService) DeleteChapterThumbnail(ctx context.Context, videoId int32, chapterId float32, uid string) ApiDeleteChapterThumbnailRequest {
 	return ApiDeleteChapterThumbnailRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
-		chapterId: chapterId,
-		uid: uid,
+		ctx:        ctx,
+		videoId:    videoId,
+		chapterId:  chapterId,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
 func (a *VideosChaptersAPIService) DeleteChapterThumbnailExecute(r ApiDeleteChapterThumbnailRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.DeleteChapterThumbnail")
@@ -796,8 +798,8 @@ func (a *VideosChaptersAPIService) DeleteChapterThumbnailExecute(r ApiDeleteChap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -806,10 +808,10 @@ func (a *VideosChaptersAPIService) DeleteChapterThumbnailExecute(r ApiDeleteChap
 }
 
 type ApiEditChapterRequest struct {
-	ctx context.Context
-	ApiService VideosChaptersAPI
-	chapterId float32
-	videoId int32
+	ctx                context.Context
+	ApiService         VideosChaptersAPI
+	chapterId          float32
+	videoId            int32
 	editChapterRequest *EditChapterRequest
 }
 
@@ -827,28 +829,29 @@ EditChapter Edit a chapter
 
 This method edits the specified chapter of a video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param chapterId The ID of the chapter.
- @param videoId The ID of the video.
- @return ApiEditChapterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chapterId The ID of the chapter.
+	@param videoId The ID of the video.
+	@return ApiEditChapterRequest
 */
 func (a *VideosChaptersAPIService) EditChapter(ctx context.Context, chapterId float32, videoId int32) ApiEditChapterRequest {
 	return ApiEditChapterRequest{
 		ApiService: a,
-		ctx: ctx,
-		chapterId: chapterId,
-		videoId: videoId,
+		ctx:        ctx,
+		chapterId:  chapterId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Chapter
+//
+//	@return Chapter
 func (a *VideosChaptersAPIService) EditChapterExecute(r ApiEditChapterRequest) (*Chapter, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Chapter
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Chapter
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.EditChapter")
@@ -905,17 +908,6 @@ func (a *VideosChaptersAPIService) EditChapterExecute(r ApiEditChapterRequest) (
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -923,8 +915,19 @@ func (a *VideosChaptersAPIService) EditChapterExecute(r ApiEditChapterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -942,10 +945,10 @@ func (a *VideosChaptersAPIService) EditChapterExecute(r ApiEditChapterRequest) (
 }
 
 type ApiGetChapterRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosChaptersAPI
-	chapterId float32
-	videoId int32
+	chapterId  float32
+	videoId    int32
 }
 
 func (r ApiGetChapterRequest) Execute() (*Chapter, *http.Response, error) {
@@ -957,28 +960,29 @@ GetChapter Get a specific chapter
 
 This method returns a single chapter of the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param chapterId The ID of the chapter.
- @param videoId The ID of the video.
- @return ApiGetChapterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chapterId The ID of the chapter.
+	@param videoId The ID of the video.
+	@return ApiGetChapterRequest
 */
 func (a *VideosChaptersAPIService) GetChapter(ctx context.Context, chapterId float32, videoId int32) ApiGetChapterRequest {
 	return ApiGetChapterRequest{
 		ApiService: a,
-		ctx: ctx,
-		chapterId: chapterId,
-		videoId: videoId,
+		ctx:        ctx,
+		chapterId:  chapterId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Chapter
+//
+//	@return Chapter
 func (a *VideosChaptersAPIService) GetChapterExecute(r ApiGetChapterRequest) (*Chapter, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Chapter
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Chapter
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.GetChapter")
@@ -1040,8 +1044,8 @@ func (a *VideosChaptersAPIService) GetChapterExecute(r ApiGetChapterRequest) (*C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1059,11 +1063,11 @@ func (a *VideosChaptersAPIService) GetChapterExecute(r ApiGetChapterRequest) (*C
 }
 
 type ApiGetChapterThumbnailRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosChaptersAPI
-	chapterId float32
-	videoId int32
-	uid string
+	chapterId  float32
+	videoId    int32
+	uid        string
 }
 
 func (r ApiGetChapterThumbnailRequest) Execute() (*Picture, *http.Response, error) {
@@ -1075,30 +1079,31 @@ GetChapterThumbnail Get a single chapter thumbnail associated with a saved video
 
 This method returns the specified thumbnail associated with a saved video chapter.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param chapterId The ID of the chapter.
- @param videoId The ID of the video.
- @param uid The unique ID of the thumbnail.
- @return ApiGetChapterThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chapterId The ID of the chapter.
+	@param videoId The ID of the video.
+	@param uid The unique ID of the thumbnail.
+	@return ApiGetChapterThumbnailRequest
 */
 func (a *VideosChaptersAPIService) GetChapterThumbnail(ctx context.Context, chapterId float32, videoId int32, uid string) ApiGetChapterThumbnailRequest {
 	return ApiGetChapterThumbnailRequest{
 		ApiService: a,
-		ctx: ctx,
-		chapterId: chapterId,
-		videoId: videoId,
-		uid: uid,
+		ctx:        ctx,
+		chapterId:  chapterId,
+		videoId:    videoId,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosChaptersAPIService) GetChapterThumbnailExecute(r ApiGetChapterThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.GetChapterThumbnail")
@@ -1161,8 +1166,8 @@ func (a *VideosChaptersAPIService) GetChapterThumbnailExecute(r ApiGetChapterThu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1180,10 +1185,10 @@ func (a *VideosChaptersAPIService) GetChapterThumbnailExecute(r ApiGetChapterThu
 }
 
 type ApiGetChapterThumbnailsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosChaptersAPI
-	chapterId float32
-	videoId int32
+	chapterId  float32
+	videoId    int32
 }
 
 func (r ApiGetChapterThumbnailsRequest) Execute() (*Picture, *http.Response, error) {
@@ -1195,28 +1200,29 @@ GetChapterThumbnails Get all the thumbnails associated with a saved video chapte
 
 This method returns every thumbnail associated with the specified saved video chapter.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param chapterId The ID of the chapter.
- @param videoId The ID of the video.
- @return ApiGetChapterThumbnailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chapterId The ID of the chapter.
+	@param videoId The ID of the video.
+	@return ApiGetChapterThumbnailsRequest
 */
 func (a *VideosChaptersAPIService) GetChapterThumbnails(ctx context.Context, chapterId float32, videoId int32) ApiGetChapterThumbnailsRequest {
 	return ApiGetChapterThumbnailsRequest{
 		ApiService: a,
-		ctx: ctx,
-		chapterId: chapterId,
-		videoId: videoId,
+		ctx:        ctx,
+		chapterId:  chapterId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosChaptersAPIService) GetChapterThumbnailsExecute(r ApiGetChapterThumbnailsRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.GetChapterThumbnails")
@@ -1278,8 +1284,8 @@ func (a *VideosChaptersAPIService) GetChapterThumbnailsExecute(r ApiGetChapterTh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1297,11 +1303,11 @@ func (a *VideosChaptersAPIService) GetChapterThumbnailsExecute(r ApiGetChapterTh
 }
 
 type ApiGetChaptersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosChaptersAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -1325,26 +1331,27 @@ GetChapters Get all the chapters of a video
 
 This method returns every chapter of the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetChaptersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetChaptersRequest
 */
 func (a *VideosChaptersAPIService) GetChapters(ctx context.Context, videoId int32) ApiGetChaptersRequest {
 	return ApiGetChaptersRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Chapter
+//
+//	@return []Chapter
 func (a *VideosChaptersAPIService) GetChaptersExecute(r ApiGetChaptersRequest) ([]Chapter, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Chapter
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Chapter
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.GetChapters")
@@ -1411,8 +1418,8 @@ func (a *VideosChaptersAPIService) GetChaptersExecute(r ApiGetChaptersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1430,10 +1437,10 @@ func (a *VideosChaptersAPIService) GetChaptersExecute(r ApiGetChaptersRequest) (
 }
 
 type ApiGetUnsavedChapterThumbnailRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosChaptersAPI
-	videoId int32
-	uid string
+	videoId    int32
+	uid        string
 }
 
 func (r ApiGetUnsavedChapterThumbnailRequest) Execute() (*Picture, *http.Response, error) {
@@ -1445,28 +1452,29 @@ GetUnsavedChapterThumbnail Get a single chapter thumbnail associated with an uns
 
 This method returns the specified thumbnail associated with an unsaved video chapter.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @param uid The unique ID of the thumbnail.
- @return ApiGetUnsavedChapterThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@param uid The unique ID of the thumbnail.
+	@return ApiGetUnsavedChapterThumbnailRequest
 */
 func (a *VideosChaptersAPIService) GetUnsavedChapterThumbnail(ctx context.Context, videoId int32, uid string) ApiGetUnsavedChapterThumbnailRequest {
 	return ApiGetUnsavedChapterThumbnailRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
-		uid: uid,
+		ctx:        ctx,
+		videoId:    videoId,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosChaptersAPIService) GetUnsavedChapterThumbnailExecute(r ApiGetUnsavedChapterThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.GetUnsavedChapterThumbnail")
@@ -1528,8 +1536,8 @@ func (a *VideosChaptersAPIService) GetUnsavedChapterThumbnailExecute(r ApiGetUns
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1547,11 +1555,11 @@ func (a *VideosChaptersAPIService) GetUnsavedChapterThumbnailExecute(r ApiGetUns
 }
 
 type ApiSetChapterThumbnailActiveRequest struct {
-	ctx context.Context
-	ApiService VideosChaptersAPI
-	chapterId float32
-	videoId int32
-	uid string
+	ctx                              context.Context
+	ApiService                       VideosChaptersAPI
+	chapterId                        float32
+	videoId                          int32
+	uid                              string
 	setChapterThumbnailActiveRequest *SetChapterThumbnailActiveRequest
 }
 
@@ -1569,30 +1577,31 @@ SetChapterThumbnailActive Set a chapter thumbnail as active
 
 This method sets the specified chapter thumbnail for a video as active.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param chapterId The ID of the chapter.
- @param videoId The ID of the video.
- @param uid The unique ID of the thumbnail.
- @return ApiSetChapterThumbnailActiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chapterId The ID of the chapter.
+	@param videoId The ID of the video.
+	@param uid The unique ID of the thumbnail.
+	@return ApiSetChapterThumbnailActiveRequest
 */
 func (a *VideosChaptersAPIService) SetChapterThumbnailActive(ctx context.Context, chapterId float32, videoId int32, uid string) ApiSetChapterThumbnailActiveRequest {
 	return ApiSetChapterThumbnailActiveRequest{
 		ApiService: a,
-		ctx: ctx,
-		chapterId: chapterId,
-		videoId: videoId,
-		uid: uid,
+		ctx:        ctx,
+		chapterId:  chapterId,
+		videoId:    videoId,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return Picture
+//
+//	@return Picture
 func (a *VideosChaptersAPIService) SetChapterThumbnailActiveExecute(r ApiSetChapterThumbnailActiveRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Picture
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosChaptersAPIService.SetChapterThumbnailActive")
@@ -1657,8 +1666,8 @@ func (a *VideosChaptersAPIService) SetChapterThumbnailActiveExecute(r ApiSetChap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

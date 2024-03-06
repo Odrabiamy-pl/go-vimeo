@@ -23,7 +23,7 @@ type EditUserAlt1Request struct {
 	Bio *string `json:"bio,omitempty"`
 	// A list of values describing the content in the user's videos. Find the full list in the [/contentratings](https://developer.vimeo.com/api/reference/videos#get_content_ratings) endpoint. You must provide a comma-separated list if you're using a query string or an array if you're using JSON.
 	ContentFilter []string `json:"content_filter,omitempty"`
-	// The authenticated user's gender.  Option descriptions:  * `f` - The user's preferred pronouns are she and her.  * `m` - The user's preferred pronouns are he and him.  * `n` - The user would rather not give preferred pronouns.  * `o` - The user's preferred pronouns are they and them. 
+	// The authenticated user's gender.  Option descriptions:  * `f` - The user's preferred pronouns are she and her.  * `m` - The user's preferred pronouns are he and him.  * `n` - The user would rather not give preferred pronouns.  * `o` - The user's preferred pronouns are they and them.
 	Gender *string `json:"gender,omitempty"`
 	// The user's custom Vimeo URL.
 	Link *string `json:"link,omitempty"`
@@ -32,8 +32,8 @@ type EditUserAlt1Request struct {
 	// The user's display name.
 	Name *string `json:"name,omitempty"`
 	// The default password for all future videos that this user uploads. To use this field, the **videos.privacy.view** field must be `password`.
-	Password *string `json:"password,omitempty"`
-	Videos *EditUserAlt1RequestVideos `json:"videos,omitempty"`
+	Password *string                    `json:"password,omitempty"`
+	Videos   *EditUserAlt1RequestVideos `json:"videos,omitempty"`
 }
 
 // NewEditUserAlt1Request instantiates a new EditUserAlt1Request object
@@ -310,7 +310,7 @@ func (o *EditUserAlt1Request) SetVideos(v EditUserAlt1RequestVideos) {
 }
 
 func (o EditUserAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -381,5 +381,3 @@ func (v *NullableEditUserAlt1Request) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

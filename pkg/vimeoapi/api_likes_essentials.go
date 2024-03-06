@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type LikesEssentialsAPI interface {
 
 	/*
-	CheckIfUserLikedVideo Check if the user has liked a video
+		CheckIfUserLikedVideo Check if the user has liked a video
 
-	This method checks if the authenticated user has liked the specified video.
+		This method checks if the authenticated user has liked the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiCheckIfUserLikedVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiCheckIfUserLikedVideoRequest
 	*/
 	CheckIfUserLikedVideo(ctx context.Context, userId int32, videoId int32) ApiCheckIfUserLikedVideoRequest
 
@@ -38,13 +37,13 @@ type LikesEssentialsAPI interface {
 	CheckIfUserLikedVideoExecute(r ApiCheckIfUserLikedVideoRequest) (*http.Response, error)
 
 	/*
-	CheckIfUserLikedVideoAlt1 Check if the user has liked a video
+		CheckIfUserLikedVideoAlt1 Check if the user has liked a video
 
-	This method checks if the authenticated user has liked the specified video.
+		This method checks if the authenticated user has liked the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCheckIfUserLikedVideoAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiCheckIfUserLikedVideoAlt1Request
 	*/
 	CheckIfUserLikedVideoAlt1(ctx context.Context, videoId int32) ApiCheckIfUserLikedVideoAlt1Request
 
@@ -52,13 +51,13 @@ type LikesEssentialsAPI interface {
 	CheckIfUserLikedVideoAlt1Execute(r ApiCheckIfUserLikedVideoAlt1Request) (*http.Response, error)
 
 	/*
-	GetLikes Get all the videos that a user has liked
+		GetLikes Get all the videos that a user has liked
 
-	This method returns every video that the authenticated user has liked.
+		This method returns every video that the authenticated user has liked.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetLikesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetLikesRequest
 	*/
 	GetLikes(ctx context.Context, userId int32) ApiGetLikesRequest
 
@@ -67,12 +66,12 @@ type LikesEssentialsAPI interface {
 	GetLikesExecute(r ApiGetLikesRequest) ([]Video, *http.Response, error)
 
 	/*
-	GetLikesAlt1 Get all the videos that a user has liked
+		GetLikesAlt1 Get all the videos that a user has liked
 
-	This method returns every video that the authenticated user has liked.
+		This method returns every video that the authenticated user has liked.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetLikesAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetLikesAlt1Request
 	*/
 	GetLikesAlt1(ctx context.Context) ApiGetLikesAlt1Request
 
@@ -81,13 +80,13 @@ type LikesEssentialsAPI interface {
 	GetLikesAlt1Execute(r ApiGetLikesAlt1Request) ([]Video, *http.Response, error)
 
 	/*
-	GetVideoLikes Get all the users who have liked a video
+		GetVideoLikes Get all the users who have liked a video
 
-	This method returns every user who has liked the specified video.
+		This method returns every user who has liked the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoLikesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetVideoLikesRequest
 	*/
 	GetVideoLikes(ctx context.Context, videoId int32) ApiGetVideoLikesRequest
 
@@ -96,14 +95,14 @@ type LikesEssentialsAPI interface {
 	GetVideoLikesExecute(r ApiGetVideoLikesRequest) ([]User, *http.Response, error)
 
 	/*
-	GetVideoLikesAlt1 Get all the users who have liked a video
+		GetVideoLikesAlt1 Get all the users who have liked a video
 
-	This method returns every user who has liked the specified video.
+		This method returns every user who has liked the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiGetVideoLikesAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param videoId The ID of the video.
+		@return ApiGetVideoLikesAlt1Request
 	*/
 	GetVideoLikesAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoLikesAlt1Request
 
@@ -112,13 +111,13 @@ type LikesEssentialsAPI interface {
 	GetVideoLikesAlt1Execute(r ApiGetVideoLikesAlt1Request) ([]User, *http.Response, error)
 
 	/*
-	GetVodLikes Get all the users who have liked a video on an On Demand page
+		GetVodLikes Get all the users who have liked a video on an On Demand page
 
-	This method returns every user who has liked the specified video on an On Demand page.
+		This method returns every user who has liked the specified video on an On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodLikesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@return ApiGetVodLikesRequest
 	*/
 	GetVodLikes(ctx context.Context, ondemandId float32) ApiGetVodLikesRequest
 
@@ -127,14 +126,14 @@ type LikesEssentialsAPI interface {
 	GetVodLikesExecute(r ApiGetVodLikesRequest) ([]User, *http.Response, error)
 
 	/*
-	LikeVideo Cause the user to like a video
+		LikeVideo Cause the user to like a video
 
-	This method causes the authenticated user to like the specified video. The user can't like their own video.
+		This method causes the authenticated user to like the specified video. The user can't like their own video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiLikeVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiLikeVideoRequest
 	*/
 	LikeVideo(ctx context.Context, userId int32, videoId int32) ApiLikeVideoRequest
 
@@ -142,13 +141,13 @@ type LikesEssentialsAPI interface {
 	LikeVideoExecute(r ApiLikeVideoRequest) (*http.Response, error)
 
 	/*
-	LikeVideoAlt1 Cause the user to like a video
+		LikeVideoAlt1 Cause the user to like a video
 
-	This method causes the authenticated user to like the specified video. The user can't like their own video.
+		This method causes the authenticated user to like the specified video. The user can't like their own video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiLikeVideoAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiLikeVideoAlt1Request
 	*/
 	LikeVideoAlt1(ctx context.Context, videoId int32) ApiLikeVideoAlt1Request
 
@@ -156,14 +155,14 @@ type LikesEssentialsAPI interface {
 	LikeVideoAlt1Execute(r ApiLikeVideoAlt1Request) (*http.Response, error)
 
 	/*
-	UnlikeVideo Cause a user to unlike a video
+		UnlikeVideo Cause a user to unlike a video
 
-	This method causes the authenticated user to unlike the specified video.
+		This method causes the authenticated user to unlike the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiUnlikeVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiUnlikeVideoRequest
 	*/
 	UnlikeVideo(ctx context.Context, userId int32, videoId int32) ApiUnlikeVideoRequest
 
@@ -171,13 +170,13 @@ type LikesEssentialsAPI interface {
 	UnlikeVideoExecute(r ApiUnlikeVideoRequest) (*http.Response, error)
 
 	/*
-	UnlikeVideoAlt1 Cause a user to unlike a video
+		UnlikeVideoAlt1 Cause a user to unlike a video
 
-	This method causes the authenticated user to unlike the specified video.
+		This method causes the authenticated user to unlike the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiUnlikeVideoAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiUnlikeVideoAlt1Request
 	*/
 	UnlikeVideoAlt1(ctx context.Context, videoId int32) ApiUnlikeVideoAlt1Request
 
@@ -189,10 +188,10 @@ type LikesEssentialsAPI interface {
 type LikesEssentialsAPIService service
 
 type ApiCheckIfUserLikedVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiCheckIfUserLikedVideoRequest) Execute() (*http.Response, error) {
@@ -204,26 +203,26 @@ CheckIfUserLikedVideo Check if the user has liked a video
 
 This method checks if the authenticated user has liked the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiCheckIfUserLikedVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiCheckIfUserLikedVideoRequest
 */
 func (a *LikesEssentialsAPIService) CheckIfUserLikedVideo(ctx context.Context, userId int32, videoId int32) ApiCheckIfUserLikedVideoRequest {
 	return ApiCheckIfUserLikedVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoExecute(r ApiCheckIfUserLikedVideoRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.CheckIfUserLikedVideo")
@@ -285,8 +284,8 @@ func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoExecute(r ApiCheckIfUse
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -295,9 +294,9 @@ func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoExecute(r ApiCheckIfUse
 }
 
 type ApiCheckIfUserLikedVideoAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiCheckIfUserLikedVideoAlt1Request) Execute() (*http.Response, error) {
@@ -309,24 +308,24 @@ CheckIfUserLikedVideoAlt1 Check if the user has liked a video
 
 This method checks if the authenticated user has liked the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiCheckIfUserLikedVideoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCheckIfUserLikedVideoAlt1Request
 */
 func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoAlt1(ctx context.Context, videoId int32) ApiCheckIfUserLikedVideoAlt1Request {
 	return ApiCheckIfUserLikedVideoAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoAlt1Execute(r ApiCheckIfUserLikedVideoAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.CheckIfUserLikedVideoAlt1")
@@ -387,8 +386,8 @@ func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoAlt1Execute(r ApiCheckI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -397,18 +396,18 @@ func (a *LikesEssentialsAPIService) CheckIfUserLikedVideoAlt1Execute(r ApiCheckI
 }
 
 type ApiGetLikesRequest struct {
-	ctx context.Context
-	ApiService LikesEssentialsAPI
-	userId int32
-	filter *string
+	ctx              context.Context
+	ApiService       LikesEssentialsAPI
+	userId           int32
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	page             *float32
+	perPage          *float32
+	query            *string
+	sort             *string
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetLikesRequest) Filter(filter string) ApiGetLikesRequest {
 	r.filter = &filter
 	return r
@@ -438,7 +437,7 @@ func (r ApiGetLikesRequest) Query(query string) ApiGetLikesRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetLikesRequest) Sort(sort string) ApiGetLikesRequest {
 	r.sort = &sort
 	return r
@@ -453,26 +452,27 @@ GetLikes Get all the videos that a user has liked
 
 This method returns every video that the authenticated user has liked.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetLikesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetLikesRequest
 */
 func (a *LikesEssentialsAPIService) GetLikes(ctx context.Context, userId int32) ApiGetLikesRequest {
 	return ApiGetLikesRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *LikesEssentialsAPIService) GetLikesExecute(r ApiGetLikesRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.GetLikes")
@@ -560,17 +560,17 @@ func (a *LikesEssentialsAPIService) GetLikesExecute(r ApiGetLikesRequest) ([]Vid
 }
 
 type ApiGetLikesAlt1Request struct {
-	ctx context.Context
-	ApiService LikesEssentialsAPI
-	filter *string
+	ctx              context.Context
+	ApiService       LikesEssentialsAPI
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	page             *float32
+	perPage          *float32
+	query            *string
+	sort             *string
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetLikesAlt1Request) Filter(filter string) ApiGetLikesAlt1Request {
 	r.filter = &filter
 	return r
@@ -600,7 +600,7 @@ func (r ApiGetLikesAlt1Request) Query(query string) ApiGetLikesAlt1Request {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetLikesAlt1Request) Sort(sort string) ApiGetLikesAlt1Request {
 	r.sort = &sort
 	return r
@@ -615,24 +615,25 @@ GetLikesAlt1 Get all the videos that a user has liked
 
 This method returns every video that the authenticated user has liked.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetLikesAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetLikesAlt1Request
 */
 func (a *LikesEssentialsAPIService) GetLikesAlt1(ctx context.Context) ApiGetLikesAlt1Request {
 	return ApiGetLikesAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *LikesEssentialsAPIService) GetLikesAlt1Execute(r ApiGetLikesAlt1Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.GetLikesAlt1")
@@ -719,16 +720,16 @@ func (a *LikesEssentialsAPIService) GetLikesAlt1Execute(r ApiGetLikesAlt1Request
 }
 
 type ApiGetVideoLikesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
-	videoId int32
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	videoId    int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVideoLikesRequest) Direction(direction string) ApiGetVideoLikesRequest {
 	r.direction = &direction
 	return r
@@ -746,7 +747,7 @@ func (r ApiGetVideoLikesRequest) PerPage(perPage float32) ApiGetVideoLikesReques
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by join date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by join date.
 func (r ApiGetVideoLikesRequest) Sort(sort string) ApiGetVideoLikesRequest {
 	r.sort = &sort
 	return r
@@ -761,26 +762,27 @@ GetVideoLikes Get all the users who have liked a video
 
 This method returns every user who has liked the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetVideoLikesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoLikesRequest
 */
 func (a *LikesEssentialsAPIService) GetVideoLikes(ctx context.Context, videoId int32) ApiGetVideoLikesRequest {
 	return ApiGetVideoLikesRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *LikesEssentialsAPIService) GetVideoLikesExecute(r ApiGetVideoLikesRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.GetVideoLikes")
@@ -862,17 +864,17 @@ func (a *LikesEssentialsAPIService) GetVideoLikesExecute(r ApiGetVideoLikesReque
 }
 
 type ApiGetVideoLikesAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
-	channelId float32
-	videoId int32
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	channelId  float32
+	videoId    int32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVideoLikesAlt1Request) Direction(direction string) ApiGetVideoLikesAlt1Request {
 	r.direction = &direction
 	return r
@@ -890,7 +892,7 @@ func (r ApiGetVideoLikesAlt1Request) PerPage(perPage float32) ApiGetVideoLikesAl
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by join date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by join date.
 func (r ApiGetVideoLikesAlt1Request) Sort(sort string) ApiGetVideoLikesAlt1Request {
 	r.sort = &sort
 	return r
@@ -905,28 +907,29 @@ GetVideoLikesAlt1 Get all the users who have liked a video
 
 This method returns every user who has liked the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param videoId The ID of the video.
- @return ApiGetVideoLikesAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiGetVideoLikesAlt1Request
 */
 func (a *LikesEssentialsAPIService) GetVideoLikesAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoLikesAlt1Request {
 	return ApiGetVideoLikesAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		videoId: videoId,
+		ctx:        ctx,
+		channelId:  channelId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *LikesEssentialsAPIService) GetVideoLikesAlt1Execute(r ApiGetVideoLikesAlt1Request) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.GetVideoLikesAlt1")
@@ -1009,23 +1012,23 @@ func (a *LikesEssentialsAPIService) GetVideoLikesAlt1Execute(r ApiGetVideoLikesA
 }
 
 type ApiGetVodLikesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
 	ondemandId float32
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	sort *string
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVodLikesRequest) Direction(direction string) ApiGetVodLikesRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;extra&#x60; - Consider extra content only.  * &#x60;main&#x60; - Consider main content only.  * &#x60;trailer&#x60; - Consider trailer content only. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;extra&#x60; - Consider extra content only.  * &#x60;main&#x60; - Consider main content only.  * &#x60;trailer&#x60; - Consider trailer content only.
 func (r ApiGetVodLikesRequest) Filter(filter string) ApiGetVodLikesRequest {
 	r.filter = &filter
 	return r
@@ -1043,7 +1046,7 @@ func (r ApiGetVodLikesRequest) PerPage(perPage float32) ApiGetVodLikesRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by join date. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by join date.
 func (r ApiGetVodLikesRequest) Sort(sort string) ApiGetVodLikesRequest {
 	r.sort = &sort
 	return r
@@ -1058,26 +1061,27 @@ GetVodLikes Get all the users who have liked a video on an On Demand page
 
 This method returns every user who has liked the specified video on an On Demand page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @return ApiGetVodLikesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodLikesRequest
 */
 func (a *LikesEssentialsAPIService) GetVodLikes(ctx context.Context, ondemandId float32) ApiGetVodLikesRequest {
 	return ApiGetVodLikesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *LikesEssentialsAPIService) GetVodLikesExecute(r ApiGetVodLikesRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.GetVodLikes")
@@ -1162,10 +1166,10 @@ func (a *LikesEssentialsAPIService) GetVodLikesExecute(r ApiGetVodLikesRequest) 
 }
 
 type ApiLikeVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiLikeVideoRequest) Execute() (*http.Response, error) {
@@ -1177,26 +1181,26 @@ LikeVideo Cause the user to like a video
 
 This method causes the authenticated user to like the specified video. The user can't like their own video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiLikeVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiLikeVideoRequest
 */
 func (a *LikesEssentialsAPIService) LikeVideo(ctx context.Context, userId int32, videoId int32) ApiLikeVideoRequest {
 	return ApiLikeVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *LikesEssentialsAPIService) LikeVideoExecute(r ApiLikeVideoRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.LikeVideo")
@@ -1251,17 +1255,6 @@ func (a *LikesEssentialsAPIService) LikeVideoExecute(r ApiLikeVideoRequest) (*ht
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1269,8 +1262,19 @@ func (a *LikesEssentialsAPIService) LikeVideoExecute(r ApiLikeVideoRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1279,9 +1283,9 @@ func (a *LikesEssentialsAPIService) LikeVideoExecute(r ApiLikeVideoRequest) (*ht
 }
 
 type ApiLikeVideoAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiLikeVideoAlt1Request) Execute() (*http.Response, error) {
@@ -1293,24 +1297,24 @@ LikeVideoAlt1 Cause the user to like a video
 
 This method causes the authenticated user to like the specified video. The user can't like their own video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiLikeVideoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiLikeVideoAlt1Request
 */
 func (a *LikesEssentialsAPIService) LikeVideoAlt1(ctx context.Context, videoId int32) ApiLikeVideoAlt1Request {
 	return ApiLikeVideoAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *LikesEssentialsAPIService) LikeVideoAlt1Execute(r ApiLikeVideoAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.LikeVideoAlt1")
@@ -1364,17 +1368,6 @@ func (a *LikesEssentialsAPIService) LikeVideoAlt1Execute(r ApiLikeVideoAlt1Reque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1382,8 +1375,19 @@ func (a *LikesEssentialsAPIService) LikeVideoAlt1Execute(r ApiLikeVideoAlt1Reque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1392,10 +1396,10 @@ func (a *LikesEssentialsAPIService) LikeVideoAlt1Execute(r ApiLikeVideoAlt1Reque
 }
 
 type ApiUnlikeVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiUnlikeVideoRequest) Execute() (*http.Response, error) {
@@ -1407,26 +1411,26 @@ UnlikeVideo Cause a user to unlike a video
 
 This method causes the authenticated user to unlike the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiUnlikeVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiUnlikeVideoRequest
 */
 func (a *LikesEssentialsAPIService) UnlikeVideo(ctx context.Context, userId int32, videoId int32) ApiUnlikeVideoRequest {
 	return ApiUnlikeVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *LikesEssentialsAPIService) UnlikeVideoExecute(r ApiUnlikeVideoRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.UnlikeVideo")
@@ -1488,8 +1492,8 @@ func (a *LikesEssentialsAPIService) UnlikeVideoExecute(r ApiUnlikeVideoRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1498,9 +1502,9 @@ func (a *LikesEssentialsAPIService) UnlikeVideoExecute(r ApiUnlikeVideoRequest) 
 }
 
 type ApiUnlikeVideoAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService LikesEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiUnlikeVideoAlt1Request) Execute() (*http.Response, error) {
@@ -1512,24 +1516,24 @@ UnlikeVideoAlt1 Cause a user to unlike a video
 
 This method causes the authenticated user to unlike the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiUnlikeVideoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiUnlikeVideoAlt1Request
 */
 func (a *LikesEssentialsAPIService) UnlikeVideoAlt1(ctx context.Context, videoId int32) ApiUnlikeVideoAlt1Request {
 	return ApiUnlikeVideoAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *LikesEssentialsAPIService) UnlikeVideoAlt1Execute(r ApiUnlikeVideoAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LikesEssentialsAPIService.UnlikeVideoAlt1")
@@ -1590,8 +1594,8 @@ func (a *LikesEssentialsAPIService) UnlikeVideoAlt1Execute(r ApiUnlikeVideoAlt1R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

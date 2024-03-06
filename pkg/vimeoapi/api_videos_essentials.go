@@ -16,22 +16,21 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
-
 
 type VideosEssentialsAPI interface {
 
 	/*
-	CheckIfUserOwnsVideo Check if the user owns a video
+		CheckIfUserOwnsVideo Check if the user owns a video
 
-	This method determines whether the authenticated user is the owner of the specified video.
+		This method determines whether the authenticated user is the owner of the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiCheckIfUserOwnsVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiCheckIfUserOwnsVideoRequest
 	*/
 	CheckIfUserOwnsVideo(ctx context.Context, userId int32, videoId int32) ApiCheckIfUserOwnsVideoRequest
 
@@ -40,13 +39,13 @@ type VideosEssentialsAPI interface {
 	CheckIfUserOwnsVideoExecute(r ApiCheckIfUserOwnsVideoRequest) (*Video, *http.Response, error)
 
 	/*
-	CheckIfUserOwnsVideoAlt1 Check if the user owns a video
+		CheckIfUserOwnsVideoAlt1 Check if the user owns a video
 
-	This method determines whether the authenticated user is the owner of the specified video.
+		This method determines whether the authenticated user is the owner of the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCheckIfUserOwnsVideoAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiCheckIfUserOwnsVideoAlt1Request
 	*/
 	CheckIfUserOwnsVideoAlt1(ctx context.Context, videoId int32) ApiCheckIfUserOwnsVideoAlt1Request
 
@@ -55,13 +54,13 @@ type VideosEssentialsAPI interface {
 	CheckIfUserOwnsVideoAlt1Execute(r ApiCheckIfUserOwnsVideoAlt1Request) (*Video, *http.Response, error)
 
 	/*
-	DeleteVideo Delete a video
+		DeleteVideo Delete a video
 
-	This method deletes the specified video. The authenticated user must be the owner of the video.
+		This method deletes the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoRequest
 	*/
 	DeleteVideo(ctx context.Context, videoId int32) ApiDeleteVideoRequest
 
@@ -69,15 +68,15 @@ type VideosEssentialsAPI interface {
 	DeleteVideoExecute(r ApiDeleteVideoRequest) (*http.Response, error)
 
 	/*
-	DeleteVideos Delete a user's videos
+			DeleteVideos Delete a user's videos
 
-	This method deletes one or more videos belonging to the specified user. The authenticated user must have permission to delete the videos.
+			This method deletes one or more videos belonging to the specified user. The authenticated user must have permission to delete the videos.
 
-Specify the videos to delete in a comma-separated list by URI using the **uris** query parameter.
+		Specify the videos to delete in a comma-separated list by URI using the **uris** query parameter.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiDeleteVideosRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param userId The ID of the user.
+			@return ApiDeleteVideosRequest
 	*/
 	DeleteVideos(ctx context.Context, userId int32) ApiDeleteVideosRequest
 
@@ -85,14 +84,14 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	DeleteVideosExecute(r ApiDeleteVideosRequest) (*http.Response, error)
 
 	/*
-	DeleteVideosAlt1 Delete a user's videos
+			DeleteVideosAlt1 Delete a user's videos
 
-	This method deletes one or more videos belonging to the specified user. The authenticated user must have permission to delete the videos.
+			This method deletes one or more videos belonging to the specified user. The authenticated user must have permission to delete the videos.
 
-Specify the videos to delete in a comma-separated list by URI using the **uris** query parameter.
+		Specify the videos to delete in a comma-separated list by URI using the **uris** query parameter.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteVideosAlt1Request
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiDeleteVideosAlt1Request
 	*/
 	DeleteVideosAlt1(ctx context.Context) ApiDeleteVideosAlt1Request
 
@@ -100,13 +99,13 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	DeleteVideosAlt1Execute(r ApiDeleteVideosAlt1Request) (*http.Response, error)
 
 	/*
-	EditVideo Edit a video
+		EditVideo Edit a video
 
-	This method edits the specified video.
+		This method edits the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiEditVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiEditVideoRequest
 	*/
 	EditVideo(ctx context.Context, videoId int32) ApiEditVideoRequest
 
@@ -115,13 +114,13 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	EditVideoExecute(r ApiEditVideoRequest) (*Video, *http.Response, error)
 
 	/*
-	GetAppearances Get all the videos in which the user appears
+		GetAppearances Get all the videos in which the user appears
 
-	This method returns all the videos in which the authenticated user has a credited appearance.
+		This method returns all the videos in which the authenticated user has a credited appearance.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetAppearancesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetAppearancesRequest
 	*/
 	GetAppearances(ctx context.Context, userId int32) ApiGetAppearancesRequest
 
@@ -130,12 +129,12 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	GetAppearancesExecute(r ApiGetAppearancesRequest) ([]Video, *http.Response, error)
 
 	/*
-	GetAppearancesAlt1 Get all the videos in which the user appears
+		GetAppearancesAlt1 Get all the videos in which the user appears
 
-	This method returns all the videos in which the authenticated user has a credited appearance.
+		This method returns all the videos in which the authenticated user has a credited appearance.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetAppearancesAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetAppearancesAlt1Request
 	*/
 	GetAppearancesAlt1(ctx context.Context) ApiGetAppearancesAlt1Request
 
@@ -144,13 +143,13 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	GetAppearancesAlt1Execute(r ApiGetAppearancesAlt1Request) ([]Video, *http.Response, error)
 
 	/*
-	GetVideo Get a specific video
+		GetVideo Get a specific video
 
-	This method returns a single video.
+		This method returns a single video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetVideoRequest
 	*/
 	GetVideo(ctx context.Context, videoId int32) ApiGetVideoRequest
 
@@ -159,13 +158,13 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	GetVideoExecute(r ApiGetVideoRequest) (*Video, *http.Response, error)
 
 	/*
-	GetVideos Get all the videos that the user has uploaded
+		GetVideos Get all the videos that the user has uploaded
 
-	This method returns all the videos that the authenticated user has uploaded.
+		This method returns all the videos that the authenticated user has uploaded.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetVideosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The ID of the user.
+		@return ApiGetVideosRequest
 	*/
 	GetVideos(ctx context.Context, userId int32) ApiGetVideosRequest
 
@@ -174,12 +173,12 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	GetVideosExecute(r ApiGetVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-	GetVideosAlt1 Get all the videos that the user has uploaded
+		GetVideosAlt1 Get all the videos that the user has uploaded
 
-	This method returns all the videos that the authenticated user has uploaded.
+		This method returns all the videos that the authenticated user has uploaded.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetVideosAlt1Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetVideosAlt1Request
 	*/
 	GetVideosAlt1(ctx context.Context) ApiGetVideosAlt1Request
 
@@ -188,12 +187,12 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 	GetVideosAlt1Execute(r ApiGetVideosAlt1Request) ([]Video, *http.Response, error)
 
 	/*
-	SearchVideos Search for videos
+		SearchVideos Search for videos
 
-	This method returns all the videos that match custom search criteria.
+		This method returns all the videos that match custom search criteria.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiSearchVideosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSearchVideosRequest
 	*/
 	SearchVideos(ctx context.Context) ApiSearchVideosRequest
 
@@ -206,10 +205,10 @@ Specify the videos to delete in a comma-separated list by URI using the **uris**
 type VideosEssentialsAPIService service
 
 type ApiCheckIfUserOwnsVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEssentialsAPI
-	userId int32
-	videoId int32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiCheckIfUserOwnsVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -221,28 +220,29 @@ CheckIfUserOwnsVideo Check if the user owns a video
 
 This method determines whether the authenticated user is the owner of the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiCheckIfUserOwnsVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiCheckIfUserOwnsVideoRequest
 */
 func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideo(ctx context.Context, userId int32, videoId int32) ApiCheckIfUserOwnsVideoRequest {
 	return ApiCheckIfUserOwnsVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoExecute(r ApiCheckIfUserOwnsVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.CheckIfUserOwnsVideo")
@@ -304,8 +304,8 @@ func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoExecute(r ApiCheckIfUse
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -323,9 +323,9 @@ func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoExecute(r ApiCheckIfUse
 }
 
 type ApiCheckIfUserOwnsVideoAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiCheckIfUserOwnsVideoAlt1Request) Execute() (*Video, *http.Response, error) {
@@ -337,26 +337,27 @@ CheckIfUserOwnsVideoAlt1 Check if the user owns a video
 
 This method determines whether the authenticated user is the owner of the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiCheckIfUserOwnsVideoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCheckIfUserOwnsVideoAlt1Request
 */
 func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoAlt1(ctx context.Context, videoId int32) ApiCheckIfUserOwnsVideoAlt1Request {
 	return ApiCheckIfUserOwnsVideoAlt1Request{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoAlt1Execute(r ApiCheckIfUserOwnsVideoAlt1Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.CheckIfUserOwnsVideoAlt1")
@@ -417,8 +418,8 @@ func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoAlt1Execute(r ApiCheckI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -436,9 +437,9 @@ func (a *VideosEssentialsAPIService) CheckIfUserOwnsVideoAlt1Execute(r ApiCheckI
 }
 
 type ApiDeleteVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiDeleteVideoRequest) Execute() (*http.Response, error) {
@@ -450,24 +451,24 @@ DeleteVideo Delete a video
 
 This method deletes the specified video. The authenticated user must be the owner of the video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiDeleteVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoRequest
 */
 func (a *VideosEssentialsAPIService) DeleteVideo(ctx context.Context, videoId int32) ApiDeleteVideoRequest {
 	return ApiDeleteVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosEssentialsAPIService) DeleteVideoExecute(r ApiDeleteVideoRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.DeleteVideo")
@@ -528,8 +529,8 @@ func (a *VideosEssentialsAPIService) DeleteVideoExecute(r ApiDeleteVideoRequest)
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -538,10 +539,10 @@ func (a *VideosEssentialsAPIService) DeleteVideoExecute(r ApiDeleteVideoRequest)
 }
 
 type ApiDeleteVideosRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEssentialsAPI
-	userId int32
-	uris *string
+	userId     int32
+	uris       *string
 }
 
 // A comma-separated list of the video URIs to delete.
@@ -561,24 +562,24 @@ This method deletes one or more videos belonging to the specified user. The auth
 
 Specify the videos to delete in a comma-separated list by URI using the **uris** query parameter.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiDeleteVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiDeleteVideosRequest
 */
 func (a *VideosEssentialsAPIService) DeleteVideos(ctx context.Context, userId int32) ApiDeleteVideosRequest {
 	return ApiDeleteVideosRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosEssentialsAPIService) DeleteVideosExecute(r ApiDeleteVideosRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.DeleteVideos")
@@ -636,15 +637,15 @@ func (a *VideosEssentialsAPIService) DeleteVideosExecute(r ApiDeleteVideosReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -654,19 +655,19 @@ func (a *VideosEssentialsAPIService) DeleteVideosExecute(r ApiDeleteVideosReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -675,9 +676,9 @@ func (a *VideosEssentialsAPIService) DeleteVideosExecute(r ApiDeleteVideosReques
 }
 
 type ApiDeleteVideosAlt1Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEssentialsAPI
-	uris *string
+	uris       *string
 }
 
 // A comma-separated list of the video URIs to delete.
@@ -697,22 +698,22 @@ This method deletes one or more videos belonging to the specified user. The auth
 
 Specify the videos to delete in a comma-separated list by URI using the **uris** query parameter.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteVideosAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteVideosAlt1Request
 */
 func (a *VideosEssentialsAPIService) DeleteVideosAlt1(ctx context.Context) ApiDeleteVideosAlt1Request {
 	return ApiDeleteVideosAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *VideosEssentialsAPIService) DeleteVideosAlt1Execute(r ApiDeleteVideosAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.DeleteVideosAlt1")
@@ -769,15 +770,15 @@ func (a *VideosEssentialsAPIService) DeleteVideosAlt1Execute(r ApiDeleteVideosAl
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -787,19 +788,19 @@ func (a *VideosEssentialsAPIService) DeleteVideosAlt1Execute(r ApiDeleteVideosAl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -808,9 +809,9 @@ func (a *VideosEssentialsAPIService) DeleteVideosAlt1Execute(r ApiDeleteVideosAl
 }
 
 type ApiEditVideoRequest struct {
-	ctx context.Context
-	ApiService VideosEssentialsAPI
-	videoId int32
+	ctx              context.Context
+	ApiService       VideosEssentialsAPI
+	videoId          int32
 	editVideoRequest *EditVideoRequest
 }
 
@@ -828,26 +829,27 @@ EditVideo Edit a video
 
 This method edits the specified video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiEditVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiEditVideoRequest
 */
 func (a *VideosEssentialsAPIService) EditVideo(ctx context.Context, videoId int32) ApiEditVideoRequest {
 	return ApiEditVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *VideosEssentialsAPIService) EditVideoExecute(r ApiEditVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.EditVideo")
@@ -906,17 +908,6 @@ func (a *VideosEssentialsAPIService) EditVideoExecute(r ApiEditVideoRequest) (*V
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -924,8 +915,19 @@ func (a *VideosEssentialsAPIService) EditVideoExecute(r ApiEditVideoRequest) (*V
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -943,25 +945,25 @@ func (a *VideosEssentialsAPIService) EditVideoExecute(r ApiEditVideoRequest) (*V
 }
 
 type ApiGetAppearancesRequest struct {
-	ctx context.Context
-	ApiService VideosEssentialsAPI
-	userId int32
-	direction *string
-	filter *string
+	ctx              context.Context
+	ApiService       VideosEssentialsAPI
+	userId           int32
+	direction        *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	page             *float32
+	perPage          *float32
+	query            *string
+	sort             *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetAppearancesRequest) Direction(direction string) ApiGetAppearancesRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetAppearancesRequest) Filter(filter string) ApiGetAppearancesRequest {
 	r.filter = &filter
 	return r
@@ -991,7 +993,7 @@ func (r ApiGetAppearancesRequest) Query(query string) ApiGetAppearancesRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetAppearancesRequest) Sort(sort string) ApiGetAppearancesRequest {
 	r.sort = &sort
 	return r
@@ -1006,26 +1008,27 @@ GetAppearances Get all the videos in which the user appears
 
 This method returns all the videos in which the authenticated user has a credited appearance.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetAppearancesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetAppearancesRequest
 */
 func (a *VideosEssentialsAPIService) GetAppearances(ctx context.Context, userId int32) ApiGetAppearancesRequest {
 	return ApiGetAppearancesRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *VideosEssentialsAPIService) GetAppearancesExecute(r ApiGetAppearancesRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.GetAppearances")
@@ -1116,24 +1119,24 @@ func (a *VideosEssentialsAPIService) GetAppearancesExecute(r ApiGetAppearancesRe
 }
 
 type ApiGetAppearancesAlt1Request struct {
-	ctx context.Context
-	ApiService VideosEssentialsAPI
-	direction *string
-	filter *string
+	ctx              context.Context
+	ApiService       VideosEssentialsAPI
+	direction        *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	page             *float32
+	perPage          *float32
+	query            *string
+	sort             *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetAppearancesAlt1Request) Direction(direction string) ApiGetAppearancesAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetAppearancesAlt1Request) Filter(filter string) ApiGetAppearancesAlt1Request {
 	r.filter = &filter
 	return r
@@ -1163,7 +1166,7 @@ func (r ApiGetAppearancesAlt1Request) Query(query string) ApiGetAppearancesAlt1R
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetAppearancesAlt1Request) Sort(sort string) ApiGetAppearancesAlt1Request {
 	r.sort = &sort
 	return r
@@ -1178,24 +1181,25 @@ GetAppearancesAlt1 Get all the videos in which the user appears
 
 This method returns all the videos in which the authenticated user has a credited appearance.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetAppearancesAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetAppearancesAlt1Request
 */
 func (a *VideosEssentialsAPIService) GetAppearancesAlt1(ctx context.Context) ApiGetAppearancesAlt1Request {
 	return ApiGetAppearancesAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *VideosEssentialsAPIService) GetAppearancesAlt1Execute(r ApiGetAppearancesAlt1Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.GetAppearancesAlt1")
@@ -1285,9 +1289,9 @@ func (a *VideosEssentialsAPIService) GetAppearancesAlt1Execute(r ApiGetAppearanc
 }
 
 type ApiGetVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEssentialsAPI
-	videoId int32
+	videoId    int32
 }
 
 func (r ApiGetVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -1299,26 +1303,27 @@ GetVideo Get a specific video
 
 This method returns a single video.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoRequest
 */
 func (a *VideosEssentialsAPIService) GetVideo(ctx context.Context, videoId int32) ApiGetVideoRequest {
 	return ApiGetVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *VideosEssentialsAPIService) GetVideoExecute(r ApiGetVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.GetVideo")
@@ -1379,8 +1384,8 @@ func (a *VideosEssentialsAPIService) GetVideoExecute(r ApiGetVideoRequest) (*Vid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1398,24 +1403,24 @@ func (a *VideosEssentialsAPIService) GetVideoExecute(r ApiGetVideoRequest) (*Vid
 }
 
 type ApiGetVideosRequest struct {
-	ctx context.Context
-	ApiService VideosEssentialsAPI
-	userId int32
-	containingUri *string
-	direction *string
-	filter *string
-	filterEmbeddable *bool
-	filterPlayable *bool
+	ctx                  context.Context
+	ApiService           VideosEssentialsAPI
+	userId               int32
+	containingUri        *string
+	direction            *string
+	filter               *string
+	filterEmbeddable     *bool
+	filterPlayable       *bool
 	filterScreenRecorded *bool
-	filterTag *string
-	filterTagAllOf *string
-	filterTagExclude *string
-	includeTeamContent *string
-	page *float32
-	perPage *float32
-	query *string
-	queryFields *[]string
-	sort *string
+	filterTag            *string
+	filterTagAllOf       *string
+	filterTagExclude     *string
+	includeTeamContent   *string
+	page                 *float32
+	perPage              *float32
+	query                *string
+	queryFields          *[]string
+	sort                 *string
 }
 
 // The page that contains the video URI. The field is available only when not paired with **query**.
@@ -1424,13 +1429,13 @@ func (r ApiGetVideosRequest) ContainingUri(containingUri string) ApiGetVideosReq
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVideosRequest) Direction(direction string) ApiGetVideosRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;app_only&#x60; - Return app-only videos.  * &#x60;embeddable&#x60; - Return embeddable videos.  * &#x60;featured&#x60; - Return featured videos.  * &#x60;live&#x60; - Return only live videos.  * &#x60;no_placeholder&#x60; - Return no placeholder videos.  * &#x60;nolive&#x60; - Return no live videos.  * &#x60;playable&#x60; - Return playable videos.  * &#x60;screen_recorded&#x60; - Return screen-recorded videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;app_only&#x60; - Return app-only videos.  * &#x60;embeddable&#x60; - Return embeddable videos.  * &#x60;featured&#x60; - Return featured videos.  * &#x60;live&#x60; - Return only live videos.  * &#x60;no_placeholder&#x60; - Return no placeholder videos.  * &#x60;nolive&#x60; - Return no live videos.  * &#x60;playable&#x60; - Return playable videos.  * &#x60;screen_recorded&#x60; - Return screen-recorded videos.
 func (r ApiGetVideosRequest) Filter(filter string) ApiGetVideosRequest {
 	r.filter = &filter
 	return r
@@ -1496,13 +1501,13 @@ func (r ApiGetVideosRequest) Query(query string) ApiGetVideosRequest {
 	return r
 }
 
-// A comma-separated list of fields to query over. The default value is &#x60;title,description,chapters,tags&#x60;.  Option descriptions:  * &#x60;chapters&#x60; - Query by chapter titles that have been added to the video.  * &#x60;description&#x60; - Query by the description of the video.  * &#x60;tags&#x60; - Query by tag names that have been added to the video.  * &#x60;title&#x60; - Query by the title of the video. 
+// A comma-separated list of fields to query over. The default value is &#x60;title,description,chapters,tags&#x60;.  Option descriptions:  * &#x60;chapters&#x60; - Query by chapter titles that have been added to the video.  * &#x60;description&#x60; - Query by the description of the video.  * &#x60;tags&#x60; - Query by tag names that have been added to the video.  * &#x60;title&#x60; - Query by the title of the video.
 func (r ApiGetVideosRequest) QueryFields(queryFields []string) ApiGetVideosRequest {
 	r.queryFields = &queryFields
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically by title.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by last user interaction. If a result hasn&#39;t had an interaction, the upload date is used instead.  * &#x60;likes&#x60; - Sort the results by number of likes. To use this option, **direction** must be &#x60;desc&#x60;.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays. To use this option, **direction** must be &#x60;desc&#x60;. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically by title.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by last user interaction. If a result hasn&#39;t had an interaction, the upload date is used instead.  * &#x60;likes&#x60; - Sort the results by number of likes. To use this option, **direction** must be &#x60;desc&#x60;.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays. To use this option, **direction** must be &#x60;desc&#x60;.
 func (r ApiGetVideosRequest) Sort(sort string) ApiGetVideosRequest {
 	r.sort = &sort
 	return r
@@ -1517,26 +1522,27 @@ GetVideos Get all the videos that the user has uploaded
 
 This method returns all the videos that the authenticated user has uploaded.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The ID of the user.
- @return ApiGetVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetVideosRequest
 */
 func (a *VideosEssentialsAPIService) GetVideos(ctx context.Context, userId int32) ApiGetVideosRequest {
 	return ApiGetVideosRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *VideosEssentialsAPIService) GetVideosExecute(r ApiGetVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.GetVideos")
@@ -1659,23 +1665,23 @@ func (a *VideosEssentialsAPIService) GetVideosExecute(r ApiGetVideosRequest) ([]
 }
 
 type ApiGetVideosAlt1Request struct {
-	ctx context.Context
-	ApiService VideosEssentialsAPI
-	containingUri *string
-	direction *string
-	filter *string
-	filterEmbeddable *bool
-	filterPlayable *bool
+	ctx                  context.Context
+	ApiService           VideosEssentialsAPI
+	containingUri        *string
+	direction            *string
+	filter               *string
+	filterEmbeddable     *bool
+	filterPlayable       *bool
 	filterScreenRecorded *bool
-	filterTag *string
-	filterTagAllOf *string
-	filterTagExclude *string
-	includeTeamContent *string
-	page *float32
-	perPage *float32
-	query *string
-	queryFields *[]string
-	sort *string
+	filterTag            *string
+	filterTagAllOf       *string
+	filterTagExclude     *string
+	includeTeamContent   *string
+	page                 *float32
+	perPage              *float32
+	query                *string
+	queryFields          *[]string
+	sort                 *string
 }
 
 // The page that contains the video URI. The field is available only when not paired with **query**.
@@ -1684,13 +1690,13 @@ func (r ApiGetVideosAlt1Request) ContainingUri(containingUri string) ApiGetVideo
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetVideosAlt1Request) Direction(direction string) ApiGetVideosAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;app_only&#x60; - Return app-only videos.  * &#x60;embeddable&#x60; - Return embeddable videos.  * &#x60;featured&#x60; - Return featured videos.  * &#x60;live&#x60; - Return only live videos.  * &#x60;no_placeholder&#x60; - Return no placeholder videos.  * &#x60;nolive&#x60; - Return no live videos.  * &#x60;playable&#x60; - Return playable videos.  * &#x60;screen_recorded&#x60; - Return screen-recorded videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;app_only&#x60; - Return app-only videos.  * &#x60;embeddable&#x60; - Return embeddable videos.  * &#x60;featured&#x60; - Return featured videos.  * &#x60;live&#x60; - Return only live videos.  * &#x60;no_placeholder&#x60; - Return no placeholder videos.  * &#x60;nolive&#x60; - Return no live videos.  * &#x60;playable&#x60; - Return playable videos.  * &#x60;screen_recorded&#x60; - Return screen-recorded videos.
 func (r ApiGetVideosAlt1Request) Filter(filter string) ApiGetVideosAlt1Request {
 	r.filter = &filter
 	return r
@@ -1756,13 +1762,13 @@ func (r ApiGetVideosAlt1Request) Query(query string) ApiGetVideosAlt1Request {
 	return r
 }
 
-// A comma-separated list of fields to query over. The default value is &#x60;title,description,chapters,tags&#x60;.  Option descriptions:  * &#x60;chapters&#x60; - Query by chapter titles that have been added to the video.  * &#x60;description&#x60; - Query by the description of the video.  * &#x60;tags&#x60; - Query by tag names that have been added to the video.  * &#x60;title&#x60; - Query by the title of the video. 
+// A comma-separated list of fields to query over. The default value is &#x60;title,description,chapters,tags&#x60;.  Option descriptions:  * &#x60;chapters&#x60; - Query by chapter titles that have been added to the video.  * &#x60;description&#x60; - Query by the description of the video.  * &#x60;tags&#x60; - Query by tag names that have been added to the video.  * &#x60;title&#x60; - Query by the title of the video.
 func (r ApiGetVideosAlt1Request) QueryFields(queryFields []string) ApiGetVideosAlt1Request {
 	r.queryFields = &queryFields
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically by title.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by last user interaction. If a result hasn&#39;t had an interaction, the upload date is used instead.  * &#x60;likes&#x60; - Sort the results by number of likes. To use this option, **direction** must be &#x60;desc&#x60;.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays. To use this option, **direction** must be &#x60;desc&#x60;. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically by title.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by last user interaction. If a result hasn&#39;t had an interaction, the upload date is used instead.  * &#x60;likes&#x60; - Sort the results by number of likes. To use this option, **direction** must be &#x60;desc&#x60;.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays. To use this option, **direction** must be &#x60;desc&#x60;.
 func (r ApiGetVideosAlt1Request) Sort(sort string) ApiGetVideosAlt1Request {
 	r.sort = &sort
 	return r
@@ -1777,24 +1783,25 @@ GetVideosAlt1 Get all the videos that the user has uploaded
 
 This method returns all the videos that the authenticated user has uploaded.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetVideosAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetVideosAlt1Request
 */
 func (a *VideosEssentialsAPIService) GetVideosAlt1(ctx context.Context) ApiGetVideosAlt1Request {
 	return ApiGetVideosAlt1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *VideosEssentialsAPIService) GetVideosAlt1Execute(r ApiGetVideosAlt1Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.GetVideosAlt1")
@@ -1916,16 +1923,16 @@ func (a *VideosEssentialsAPIService) GetVideosAlt1Execute(r ApiGetVideosAlt1Requ
 }
 
 type ApiSearchVideosRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService VideosEssentialsAPI
-	query *string
-	direction *string
-	filter *string
-	links *string
-	page *float32
-	perPage *float32
-	sort *string
-	uris *string
+	query      *string
+	direction  *string
+	filter     *string
+	links      *string
+	page       *float32
+	perPage    *float32
+	sort       *string
+	uris       *string
 }
 
 // The search query.
@@ -1934,13 +1941,13 @@ func (r ApiSearchVideosRequest) Query(query string) ApiSearchVideosRequest {
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiSearchVideosRequest) Direction(direction string) ApiSearchVideosRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results. &#x60;CC&#x60; and related filters target videos with the corresponding Creative Commons licenses. For more information, see our [Creative Commons](https://vimeo.com/creativecommons) page.  Option descriptions:  * &#x60;CC&#x60; - Return videos under any Creative Commons license.  * &#x60;CC-BY&#x60; - Return CC BY, or attribution-only, videos.  * &#x60;CC-BY-NC&#x60; - Return CC BY-NC, or Attribution-NonCommercial, videos.  * &#x60;CC-BY-NC-ND&#x60; - Return CC BY-NC-ND, or Attribution-NonCommercial-NoDerivs, videos.  * &#x60;CC-BY-NC-SA&#x60; - Return CC BY-NC-SA, or Attribution-NonCommercial-ShareAlike, videos.  * &#x60;CC-BY-ND&#x60; - Return CC BY-ND, or Attribution-NoDerivs, videos.  * &#x60;CC-BY-SA&#x60; - Return CC BY-SA, or Attribution-ShareAlike, videos.  * &#x60;CC0&#x60; - Return CC0, or public domain, videos.  * &#x60;categories&#x60; - Filter by categories.  * &#x60;duration&#x60; - Filter by duration.  * &#x60;in-progress&#x60; - Return in-progress videos.  * &#x60;minimum_likes&#x60; - Filter by minimum likes.  * &#x60;trending&#x60; - Return trending videos.  * &#x60;upload_date&#x60; - Filter by upload date. 
+// The attribute by which to filter the results. &#x60;CC&#x60; and related filters target videos with the corresponding Creative Commons licenses. For more information, see our [Creative Commons](https://vimeo.com/creativecommons) page.  Option descriptions:  * &#x60;CC&#x60; - Return videos under any Creative Commons license.  * &#x60;CC-BY&#x60; - Return CC BY, or attribution-only, videos.  * &#x60;CC-BY-NC&#x60; - Return CC BY-NC, or Attribution-NonCommercial, videos.  * &#x60;CC-BY-NC-ND&#x60; - Return CC BY-NC-ND, or Attribution-NonCommercial-NoDerivs, videos.  * &#x60;CC-BY-NC-SA&#x60; - Return CC BY-NC-SA, or Attribution-NonCommercial-ShareAlike, videos.  * &#x60;CC-BY-ND&#x60; - Return CC BY-ND, or Attribution-NoDerivs, videos.  * &#x60;CC-BY-SA&#x60; - Return CC BY-SA, or Attribution-ShareAlike, videos.  * &#x60;CC0&#x60; - Return CC0, or public domain, videos.  * &#x60;categories&#x60; - Filter by categories.  * &#x60;duration&#x60; - Filter by duration.  * &#x60;in-progress&#x60; - Return in-progress videos.  * &#x60;minimum_likes&#x60; - Filter by minimum likes.  * &#x60;trending&#x60; - Return trending videos.  * &#x60;upload_date&#x60; - Filter by upload date.
 func (r ApiSearchVideosRequest) Filter(filter string) ApiSearchVideosRequest {
 	r.filter = &filter
 	return r
@@ -1964,7 +1971,7 @@ func (r ApiSearchVideosRequest) PerPage(perPage float32) ApiSearchVideosRequest 
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.  * &#x60;relevant&#x60; - Sort the results by relevance. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.  * &#x60;relevant&#x60; - Sort the results by relevance.
 func (r ApiSearchVideosRequest) Sort(sort string) ApiSearchVideosRequest {
 	r.sort = &sort
 	return r
@@ -1985,24 +1992,25 @@ SearchVideos Search for videos
 
 This method returns all the videos that match custom search criteria.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSearchVideosRequest
 */
 func (a *VideosEssentialsAPIService) SearchVideos(ctx context.Context) ApiSearchVideosRequest {
 	return ApiSearchVideosRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *VideosEssentialsAPIService) SearchVideosExecute(r ApiSearchVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosEssentialsAPIService.SearchVideos")
@@ -2087,8 +2095,8 @@ func (a *VideosEssentialsAPIService) SearchVideosExecute(r ApiSearchVideosReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2098,8 +2106,8 @@ func (a *VideosEssentialsAPIService) SearchVideosExecute(r ApiSearchVideosReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

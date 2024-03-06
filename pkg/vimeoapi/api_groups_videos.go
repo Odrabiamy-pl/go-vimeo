@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type GroupsVideosAPI interface {
 
 	/*
-	AddVideoToGroup Add a video to a group
+		AddVideoToGroup Add a video to a group
 
-	This method adds a video to the specified group. The authenticated user must be the owner of the group.
+		This method adds a video to the specified group. The authenticated user must be the owner of the group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToGroupRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@param videoId The ID of the video.
+		@return ApiAddVideoToGroupRequest
 	*/
 	AddVideoToGroup(ctx context.Context, groupId float32, videoId int32) ApiAddVideoToGroupRequest
 
@@ -39,14 +38,14 @@ type GroupsVideosAPI interface {
 	AddVideoToGroupExecute(r ApiAddVideoToGroupRequest) (*Video, *http.Response, error)
 
 	/*
-	DeleteVideoFromGroup Remove a video from a group
+		DeleteVideoFromGroup Remove a video from a group
 
-	This method removes a video from the specified group. The authenticated user must be the owner of the group.
+		This method removes a video from the specified group. The authenticated user must be the owner of the group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoFromGroupRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@param videoId The ID of the video.
+		@return ApiDeleteVideoFromGroupRequest
 	*/
 	DeleteVideoFromGroup(ctx context.Context, groupId float32, videoId int32) ApiDeleteVideoFromGroupRequest
 
@@ -54,14 +53,14 @@ type GroupsVideosAPI interface {
 	DeleteVideoFromGroupExecute(r ApiDeleteVideoFromGroupRequest) (*http.Response, error)
 
 	/*
-	GetGroupVideo Get a specific video in a group
+		GetGroupVideo Get a specific video in a group
 
-	This method returns a single video from the specified group. You can use this method to determine whether the video belongs to the group.
+		This method returns a single video from the specified group. You can use this method to determine whether the video belongs to the group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@param videoId The ID of the video.
-	@return ApiGetGroupVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@param videoId The ID of the video.
+		@return ApiGetGroupVideoRequest
 	*/
 	GetGroupVideo(ctx context.Context, groupId float32, videoId int32) ApiGetGroupVideoRequest
 
@@ -70,13 +69,13 @@ type GroupsVideosAPI interface {
 	GetGroupVideoExecute(r ApiGetGroupVideoRequest) (*Video, *http.Response, error)
 
 	/*
-	GetGroupVideos Get all the videos in a group
+		GetGroupVideos Get all the videos in a group
 
-	This method returns every video from the specified group.
+		This method returns every video from the specified group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@return ApiGetGroupVideosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param groupId The ID of the group.
+		@return ApiGetGroupVideosRequest
 	*/
 	GetGroupVideos(ctx context.Context, groupId float32) ApiGetGroupVideosRequest
 
@@ -89,10 +88,10 @@ type GroupsVideosAPI interface {
 type GroupsVideosAPIService service
 
 type ApiAddVideoToGroupRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsVideosAPI
-	groupId float32
-	videoId int32
+	groupId    float32
+	videoId    int32
 }
 
 func (r ApiAddVideoToGroupRequest) Execute() (*Video, *http.Response, error) {
@@ -104,28 +103,29 @@ AddVideoToGroup Add a video to a group
 
 This method adds a video to the specified group. The authenticated user must be the owner of the group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @param videoId The ID of the video.
- @return ApiAddVideoToGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToGroupRequest
 */
 func (a *GroupsVideosAPIService) AddVideoToGroup(ctx context.Context, groupId float32, videoId int32) ApiAddVideoToGroupRequest {
 	return ApiAddVideoToGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
-		videoId: videoId,
+		ctx:        ctx,
+		groupId:    groupId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *GroupsVideosAPIService) AddVideoToGroupExecute(r ApiAddVideoToGroupRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsVideosAPIService.AddVideoToGroup")
@@ -187,8 +187,8 @@ func (a *GroupsVideosAPIService) AddVideoToGroupExecute(r ApiAddVideoToGroupRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -206,10 +206,10 @@ func (a *GroupsVideosAPIService) AddVideoToGroupExecute(r ApiAddVideoToGroupRequ
 }
 
 type ApiDeleteVideoFromGroupRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsVideosAPI
-	groupId float32
-	videoId int32
+	groupId    float32
+	videoId    int32
 }
 
 func (r ApiDeleteVideoFromGroupRequest) Execute() (*http.Response, error) {
@@ -221,26 +221,26 @@ DeleteVideoFromGroup Remove a video from a group
 
 This method removes a video from the specified group. The authenticated user must be the owner of the group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @param videoId The ID of the video.
- @return ApiDeleteVideoFromGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoFromGroupRequest
 */
 func (a *GroupsVideosAPIService) DeleteVideoFromGroup(ctx context.Context, groupId float32, videoId int32) ApiDeleteVideoFromGroupRequest {
 	return ApiDeleteVideoFromGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
-		videoId: videoId,
+		ctx:        ctx,
+		groupId:    groupId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupsVideosAPIService) DeleteVideoFromGroupExecute(r ApiDeleteVideoFromGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsVideosAPIService.DeleteVideoFromGroup")
@@ -302,8 +302,8 @@ func (a *GroupsVideosAPIService) DeleteVideoFromGroupExecute(r ApiDeleteVideoFro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -312,10 +312,10 @@ func (a *GroupsVideosAPIService) DeleteVideoFromGroupExecute(r ApiDeleteVideoFro
 }
 
 type ApiGetGroupVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService GroupsVideosAPI
-	groupId float32
-	videoId int32
+	groupId    float32
+	videoId    int32
 }
 
 func (r ApiGetGroupVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -327,28 +327,29 @@ GetGroupVideo Get a specific video in a group
 
 This method returns a single video from the specified group. You can use this method to determine whether the video belongs to the group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @param videoId The ID of the video.
- @return ApiGetGroupVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@param videoId The ID of the video.
+	@return ApiGetGroupVideoRequest
 */
 func (a *GroupsVideosAPIService) GetGroupVideo(ctx context.Context, groupId float32, videoId int32) ApiGetGroupVideoRequest {
 	return ApiGetGroupVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
-		videoId: videoId,
+		ctx:        ctx,
+		groupId:    groupId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *GroupsVideosAPIService) GetGroupVideoExecute(r ApiGetGroupVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsVideosAPIService.GetGroupVideo")
@@ -410,8 +411,8 @@ func (a *GroupsVideosAPIService) GetGroupVideoExecute(r ApiGetGroupVideoRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -429,25 +430,25 @@ func (a *GroupsVideosAPIService) GetGroupVideoExecute(r ApiGetGroupVideoRequest)
 }
 
 type ApiGetGroupVideosRequest struct {
-	ctx context.Context
-	ApiService GroupsVideosAPI
-	groupId float32
-	direction *string
-	filter *string
+	ctx              context.Context
+	ApiService       GroupsVideosAPI
+	groupId          float32
+	direction        *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	page             *float32
+	perPage          *float32
+	query            *string
+	sort             *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetGroupVideosRequest) Direction(direction string) ApiGetGroupVideosRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
 func (r ApiGetGroupVideosRequest) Filter(filter string) ApiGetGroupVideosRequest {
 	r.filter = &filter
 	return r
@@ -477,7 +478,7 @@ func (r ApiGetGroupVideosRequest) Query(query string) ApiGetGroupVideosRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetGroupVideosRequest) Sort(sort string) ApiGetGroupVideosRequest {
 	r.sort = &sort
 	return r
@@ -492,26 +493,27 @@ GetGroupVideos Get all the videos in a group
 
 This method returns every video from the specified group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId The ID of the group.
- @return ApiGetGroupVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@return ApiGetGroupVideosRequest
 */
 func (a *GroupsVideosAPIService) GetGroupVideos(ctx context.Context, groupId float32) ApiGetGroupVideosRequest {
 	return ApiGetGroupVideosRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *GroupsVideosAPIService) GetGroupVideosExecute(r ApiGetGroupVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsVideosAPIService.GetGroupVideos")
@@ -593,8 +595,8 @@ func (a *GroupsVideosAPIService) GetGroupVideosExecute(r ApiGetGroupVideosReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

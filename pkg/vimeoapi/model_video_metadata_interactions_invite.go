@@ -93,7 +93,7 @@ func (o *VideoMetadataInteractionsInvite) SetUri(v string) {
 }
 
 func (o VideoMetadataInteractionsInvite) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,5 +142,3 @@ func (v *NullableVideoMetadataInteractionsInvite) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

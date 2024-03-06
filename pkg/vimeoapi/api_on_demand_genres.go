@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type OnDemandGenresAPI interface {
 
 	/*
-	AddVodGenre Add a genre to an On Demand page
+		AddVodGenre Add a genre to an On Demand page
 
-	This method adds the specified genre designation to an On Demand page. A page can be associated with a maximum of two genres. The authenticated user must be the owner of the page.
+		This method adds the specified genre designation to an On Demand page. A page can be associated with a maximum of two genres. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param genreId The ID of the genre.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiAddVodGenreRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param genreId The ID of the genre.
+		@param ondemandId The ID of the On Demand page.
+		@return ApiAddVodGenreRequest
 	*/
 	AddVodGenre(ctx context.Context, genreId string, ondemandId float32) ApiAddVodGenreRequest
 
@@ -39,14 +38,14 @@ type OnDemandGenresAPI interface {
 	AddVodGenreExecute(r ApiAddVodGenreRequest) (*OnDemandGenre, *http.Response, error)
 
 	/*
-	DeleteVodGenre Remove a genre from an On Demand page
+		DeleteVodGenre Remove a genre from an On Demand page
 
-	This method removes a genre association from the specified On Demand page. The authenticated user must be the owner of the page.
+		This method removes a genre association from the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param genreId The ID of the genre.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiDeleteVodGenreRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param genreId The ID of the genre.
+		@param ondemandId The ID of the On Demand page.
+		@return ApiDeleteVodGenreRequest
 	*/
 	DeleteVodGenre(ctx context.Context, genreId string, ondemandId float32) ApiDeleteVodGenreRequest
 
@@ -54,14 +53,14 @@ type OnDemandGenresAPI interface {
 	DeleteVodGenreExecute(r ApiDeleteVodGenreRequest) (*http.Response, error)
 
 	/*
-	GetGenreVod Get a specific On Demand page in a genre
+		GetGenreVod Get a specific On Demand page in a genre
 
-	This method returns a single On Demand page that belongs to the specified genre.
+		This method returns a single On Demand page that belongs to the specified genre.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param genreId The ID of the genre.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetGenreVodRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param genreId The ID of the genre.
+		@param ondemandId The ID of the On Demand page.
+		@return ApiGetGenreVodRequest
 	*/
 	GetGenreVod(ctx context.Context, genreId string, ondemandId float32) ApiGetGenreVodRequest
 
@@ -70,13 +69,13 @@ type OnDemandGenresAPI interface {
 	GetGenreVodExecute(r ApiGetGenreVodRequest) (*OnDemandPage, *http.Response, error)
 
 	/*
-	GetGenreVods Get all the On Demand pages in a genre
+		GetGenreVods Get all the On Demand pages in a genre
 
-	This method returns every On Demand page that belongs to the specified genre.
+		This method returns every On Demand page that belongs to the specified genre.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param genreId The ID of the genre.
-	@return ApiGetGenreVodsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param genreId The ID of the genre.
+		@return ApiGetGenreVodsRequest
 	*/
 	GetGenreVods(ctx context.Context, genreId string) ApiGetGenreVodsRequest
 
@@ -85,13 +84,13 @@ type OnDemandGenresAPI interface {
 	GetGenreVodsExecute(r ApiGetGenreVodsRequest) ([]OnDemandPage, *http.Response, error)
 
 	/*
-	GetVodGenre Get a specific On Demand genre
+		GetVodGenre Get a specific On Demand genre
 
-	This method returns a single On Demand genre.
+		This method returns a single On Demand genre.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param genreId The ID of the genre.
-	@return ApiGetVodGenreRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param genreId The ID of the genre.
+		@return ApiGetVodGenreRequest
 	*/
 	GetVodGenre(ctx context.Context, genreId string) ApiGetVodGenreRequest
 
@@ -100,14 +99,14 @@ type OnDemandGenresAPI interface {
 	GetVodGenreExecute(r ApiGetVodGenreRequest) (*OnDemandGenre, *http.Response, error)
 
 	/*
-	GetVodGenreByOndemandId Check whether an On Demand page belongs to a specific genre
+		GetVodGenreByOndemandId Check whether an On Demand page belongs to a specific genre
 
-	This method determines whether an On Demand page is associated with the specified genre.
+		This method determines whether an On Demand page is associated with the specified genre.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param genreId The ID of the genre.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodGenreByOndemandIdRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param genreId The ID of the genre.
+		@param ondemandId The ID of the On Demand page.
+		@return ApiGetVodGenreByOndemandIdRequest
 	*/
 	GetVodGenreByOndemandId(ctx context.Context, genreId string, ondemandId float32) ApiGetVodGenreByOndemandIdRequest
 
@@ -116,12 +115,12 @@ type OnDemandGenresAPI interface {
 	GetVodGenreByOndemandIdExecute(r ApiGetVodGenreByOndemandIdRequest) (*OnDemandGenre, *http.Response, error)
 
 	/*
-	GetVodGenres Get all On Demand genres
+		GetVodGenres Get all On Demand genres
 
-	This method returns every existing On Demand genre.
+		This method returns every existing On Demand genre.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetVodGenresRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetVodGenresRequest
 	*/
 	GetVodGenres(ctx context.Context) ApiGetVodGenresRequest
 
@@ -130,13 +129,13 @@ type OnDemandGenresAPI interface {
 	GetVodGenresExecute(r ApiGetVodGenresRequest) ([]OnDemandGenre, *http.Response, error)
 
 	/*
-	GetVodGenresByOndemandId Get all the genres of an On Demand page
+		GetVodGenresByOndemandId Get all the genres of an On Demand page
 
-	This method returns every genre associated with the specified On Demand page.
+		This method returns every genre associated with the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodGenresByOndemandIdRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param ondemandId The ID of the On Demand page.
+		@return ApiGetVodGenresByOndemandIdRequest
 	*/
 	GetVodGenresByOndemandId(ctx context.Context, ondemandId float32) ApiGetVodGenresByOndemandIdRequest
 
@@ -149,9 +148,9 @@ type OnDemandGenresAPI interface {
 type OnDemandGenresAPIService service
 
 type ApiAddVodGenreRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandGenresAPI
-	genreId string
+	genreId    string
 	ondemandId float32
 }
 
@@ -164,28 +163,29 @@ AddVodGenre Add a genre to an On Demand page
 
 This method adds the specified genre designation to an On Demand page. A page can be associated with a maximum of two genres. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param genreId The ID of the genre.
- @param ondemandId The ID of the On Demand page.
- @return ApiAddVodGenreRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param genreId The ID of the genre.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiAddVodGenreRequest
 */
 func (a *OnDemandGenresAPIService) AddVodGenre(ctx context.Context, genreId string, ondemandId float32) ApiAddVodGenreRequest {
 	return ApiAddVodGenreRequest{
 		ApiService: a,
-		ctx: ctx,
-		genreId: genreId,
+		ctx:        ctx,
+		genreId:    genreId,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandGenre
+//
+//	@return OnDemandGenre
 func (a *OnDemandGenresAPIService) AddVodGenreExecute(r ApiAddVodGenreRequest) (*OnDemandGenre, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandGenre
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandGenre
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandGenresAPIService.AddVodGenre")
@@ -247,8 +247,8 @@ func (a *OnDemandGenresAPIService) AddVodGenreExecute(r ApiAddVodGenreRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -258,8 +258,8 @@ func (a *OnDemandGenresAPIService) AddVodGenreExecute(r ApiAddVodGenreRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -269,8 +269,8 @@ func (a *OnDemandGenresAPIService) AddVodGenreExecute(r ApiAddVodGenreRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -288,9 +288,9 @@ func (a *OnDemandGenresAPIService) AddVodGenreExecute(r ApiAddVodGenreRequest) (
 }
 
 type ApiDeleteVodGenreRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandGenresAPI
-	genreId string
+	genreId    string
 	ondemandId float32
 }
 
@@ -303,16 +303,16 @@ DeleteVodGenre Remove a genre from an On Demand page
 
 This method removes a genre association from the specified On Demand page. The authenticated user must be the owner of the page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param genreId The ID of the genre.
- @param ondemandId The ID of the On Demand page.
- @return ApiDeleteVodGenreRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param genreId The ID of the genre.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiDeleteVodGenreRequest
 */
 func (a *OnDemandGenresAPIService) DeleteVodGenre(ctx context.Context, genreId string, ondemandId float32) ApiDeleteVodGenreRequest {
 	return ApiDeleteVodGenreRequest{
 		ApiService: a,
-		ctx: ctx,
-		genreId: genreId,
+		ctx:        ctx,
+		genreId:    genreId,
 		ondemandId: ondemandId,
 	}
 }
@@ -320,9 +320,9 @@ func (a *OnDemandGenresAPIService) DeleteVodGenre(ctx context.Context, genreId s
 // Execute executes the request
 func (a *OnDemandGenresAPIService) DeleteVodGenreExecute(r ApiDeleteVodGenreRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandGenresAPIService.DeleteVodGenre")
@@ -384,8 +384,8 @@ func (a *OnDemandGenresAPIService) DeleteVodGenreExecute(r ApiDeleteVodGenreRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -395,8 +395,8 @@ func (a *OnDemandGenresAPIService) DeleteVodGenreExecute(r ApiDeleteVodGenreRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -406,8 +406,8 @@ func (a *OnDemandGenresAPIService) DeleteVodGenreExecute(r ApiDeleteVodGenreRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -416,9 +416,9 @@ func (a *OnDemandGenresAPIService) DeleteVodGenreExecute(r ApiDeleteVodGenreRequ
 }
 
 type ApiGetGenreVodRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandGenresAPI
-	genreId string
+	genreId    string
 	ondemandId float32
 }
 
@@ -431,28 +431,29 @@ GetGenreVod Get a specific On Demand page in a genre
 
 This method returns a single On Demand page that belongs to the specified genre.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param genreId The ID of the genre.
- @param ondemandId The ID of the On Demand page.
- @return ApiGetGenreVodRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param genreId The ID of the genre.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetGenreVodRequest
 */
 func (a *OnDemandGenresAPIService) GetGenreVod(ctx context.Context, genreId string, ondemandId float32) ApiGetGenreVodRequest {
 	return ApiGetGenreVodRequest{
 		ApiService: a,
-		ctx: ctx,
-		genreId: genreId,
+		ctx:        ctx,
+		genreId:    genreId,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandPage
+//
+//	@return OnDemandPage
 func (a *OnDemandGenresAPIService) GetGenreVodExecute(r ApiGetGenreVodRequest) (*OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandPage
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandGenresAPIService.GetGenreVod")
@@ -514,8 +515,8 @@ func (a *OnDemandGenresAPIService) GetGenreVodExecute(r ApiGetGenreVodRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -533,24 +534,24 @@ func (a *OnDemandGenresAPIService) GetGenreVodExecute(r ApiGetGenreVodRequest) (
 }
 
 type ApiGetGenreVodsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandGenresAPI
-	genreId string
-	direction *string
-	filter *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	genreId    string
+	direction  *string
+	filter     *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetGenreVodsRequest) Direction(direction string) ApiGetGenreVodsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;country&#x60; - Sort the results by country.  * &#x60;my_region&#x60; - Sort the results by user&#39;s region. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;country&#x60; - Sort the results by country.  * &#x60;my_region&#x60; - Sort the results by user&#39;s region.
 func (r ApiGetGenreVodsRequest) Filter(filter string) ApiGetGenreVodsRequest {
 	r.filter = &filter
 	return r
@@ -574,7 +575,7 @@ func (r ApiGetGenreVodsRequest) Query(query string) ApiGetGenreVodsRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;publish.time&#x60; - Sort the results by time of publishing.  * &#x60;videos&#x60; - Sort the results by video. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;publish.time&#x60; - Sort the results by time of publishing.  * &#x60;videos&#x60; - Sort the results by video.
 func (r ApiGetGenreVodsRequest) Sort(sort string) ApiGetGenreVodsRequest {
 	r.sort = &sort
 	return r
@@ -589,26 +590,27 @@ GetGenreVods Get all the On Demand pages in a genre
 
 This method returns every On Demand page that belongs to the specified genre.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param genreId The ID of the genre.
- @return ApiGetGenreVodsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param genreId The ID of the genre.
+	@return ApiGetGenreVodsRequest
 */
 func (a *OnDemandGenresAPIService) GetGenreVods(ctx context.Context, genreId string) ApiGetGenreVodsRequest {
 	return ApiGetGenreVodsRequest{
 		ApiService: a,
-		ctx: ctx,
-		genreId: genreId,
+		ctx:        ctx,
+		genreId:    genreId,
 	}
 }
 
 // Execute executes the request
-//  @return []OnDemandPage
+//
+//	@return []OnDemandPage
 func (a *OnDemandGenresAPIService) GetGenreVodsExecute(r ApiGetGenreVodsRequest) ([]OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []OnDemandPage
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandGenresAPIService.GetGenreVods")
@@ -696,9 +698,9 @@ func (a *OnDemandGenresAPIService) GetGenreVodsExecute(r ApiGetGenreVodsRequest)
 }
 
 type ApiGetVodGenreRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandGenresAPI
-	genreId string
+	genreId    string
 }
 
 func (r ApiGetVodGenreRequest) Execute() (*OnDemandGenre, *http.Response, error) {
@@ -710,26 +712,27 @@ GetVodGenre Get a specific On Demand genre
 
 This method returns a single On Demand genre.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param genreId The ID of the genre.
- @return ApiGetVodGenreRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param genreId The ID of the genre.
+	@return ApiGetVodGenreRequest
 */
 func (a *OnDemandGenresAPIService) GetVodGenre(ctx context.Context, genreId string) ApiGetVodGenreRequest {
 	return ApiGetVodGenreRequest{
 		ApiService: a,
-		ctx: ctx,
-		genreId: genreId,
+		ctx:        ctx,
+		genreId:    genreId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandGenre
+//
+//	@return OnDemandGenre
 func (a *OnDemandGenresAPIService) GetVodGenreExecute(r ApiGetVodGenreRequest) (*OnDemandGenre, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandGenre
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandGenre
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandGenresAPIService.GetVodGenre")
@@ -790,8 +793,8 @@ func (a *OnDemandGenresAPIService) GetVodGenreExecute(r ApiGetVodGenreRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -809,9 +812,9 @@ func (a *OnDemandGenresAPIService) GetVodGenreExecute(r ApiGetVodGenreRequest) (
 }
 
 type ApiGetVodGenreByOndemandIdRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandGenresAPI
-	genreId string
+	genreId    string
 	ondemandId float32
 }
 
@@ -824,28 +827,29 @@ GetVodGenreByOndemandId Check whether an On Demand page belongs to a specific ge
 
 This method determines whether an On Demand page is associated with the specified genre.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param genreId The ID of the genre.
- @param ondemandId The ID of the On Demand page.
- @return ApiGetVodGenreByOndemandIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param genreId The ID of the genre.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodGenreByOndemandIdRequest
 */
 func (a *OnDemandGenresAPIService) GetVodGenreByOndemandId(ctx context.Context, genreId string, ondemandId float32) ApiGetVodGenreByOndemandIdRequest {
 	return ApiGetVodGenreByOndemandIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		genreId: genreId,
+		ctx:        ctx,
+		genreId:    genreId,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return OnDemandGenre
+//
+//	@return OnDemandGenre
 func (a *OnDemandGenresAPIService) GetVodGenreByOndemandIdExecute(r ApiGetVodGenreByOndemandIdRequest) (*OnDemandGenre, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OnDemandGenre
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OnDemandGenre
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandGenresAPIService.GetVodGenreByOndemandId")
@@ -907,8 +911,8 @@ func (a *OnDemandGenresAPIService) GetVodGenreByOndemandIdExecute(r ApiGetVodGen
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -926,7 +930,7 @@ func (a *OnDemandGenresAPIService) GetVodGenreByOndemandIdExecute(r ApiGetVodGen
 }
 
 type ApiGetVodGenresRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandGenresAPI
 }
 
@@ -939,24 +943,25 @@ GetVodGenres Get all On Demand genres
 
 This method returns every existing On Demand genre.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetVodGenresRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetVodGenresRequest
 */
 func (a *OnDemandGenresAPIService) GetVodGenres(ctx context.Context) ApiGetVodGenresRequest {
 	return ApiGetVodGenresRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []OnDemandGenre
+//
+//	@return []OnDemandGenre
 func (a *OnDemandGenresAPIService) GetVodGenresExecute(r ApiGetVodGenresRequest) ([]OnDemandGenre, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []OnDemandGenre
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []OnDemandGenre
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandGenresAPIService.GetVodGenres")
@@ -1025,7 +1030,7 @@ func (a *OnDemandGenresAPIService) GetVodGenresExecute(r ApiGetVodGenresRequest)
 }
 
 type ApiGetVodGenresByOndemandIdRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OnDemandGenresAPI
 	ondemandId float32
 }
@@ -1039,26 +1044,27 @@ GetVodGenresByOndemandId Get all the genres of an On Demand page
 
 This method returns every genre associated with the specified On Demand page.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param ondemandId The ID of the On Demand page.
- @return ApiGetVodGenresByOndemandIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodGenresByOndemandIdRequest
 */
 func (a *OnDemandGenresAPIService) GetVodGenresByOndemandId(ctx context.Context, ondemandId float32) ApiGetVodGenresByOndemandIdRequest {
 	return ApiGetVodGenresByOndemandIdRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//  @return []OnDemandGenre
+//
+//	@return []OnDemandGenre
 func (a *OnDemandGenresAPIService) GetVodGenresByOndemandIdExecute(r ApiGetVodGenresByOndemandIdRequest) ([]OnDemandGenre, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []OnDemandGenre
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []OnDemandGenre
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandGenresAPIService.GetVodGenresByOndemandId")
@@ -1119,8 +1125,8 @@ func (a *OnDemandGenresAPIService) GetVodGenresByOndemandIdExecute(r ApiGetVodGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

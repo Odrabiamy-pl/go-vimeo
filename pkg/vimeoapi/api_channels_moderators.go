@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 type ChannelsModeratorsAPI interface {
 
 	/*
-	AddChannelModerator Add a specific moderator to a channel
+		AddChannelModerator Add a specific moderator to a channel
 
-	This method adds a single user as a moderator to the specified channel. The authenticated user must be a follower of the requested user to add them as a channel moderator.
+		This method adds a single user as a moderator to the specified channel. The authenticated user must be a follower of the requested user to add them as a channel moderator.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param userId The ID of the user.
-	@return ApiAddChannelModeratorRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param userId The ID of the user.
+		@return ApiAddChannelModeratorRequest
 	*/
 	AddChannelModerator(ctx context.Context, channelId float32, userId int32) ApiAddChannelModeratorRequest
 
@@ -38,13 +37,13 @@ type ChannelsModeratorsAPI interface {
 	AddChannelModeratorExecute(r ApiAddChannelModeratorRequest) (*http.Response, error)
 
 	/*
-	AddChannelModerators Add a list of moderators to a channel
+		AddChannelModerators Add a list of moderators to a channel
 
-	This method adds multiple users as moderators to the specified channel. Include the users by their URI as a JSON array in the body of the request using the **user_uri** field, like this: `[{ "user_uri": "/users/1234" }, { "user_uri": "/users/1235" }]`. The authenticated user must be a follower of a requested user to add this person as a moderator. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
+		This method adds multiple users as moderators to the specified channel. Include the users by their URI as a JSON array in the body of the request using the **user_uri** field, like this: `[{ "user_uri": "/users/1234" }, { "user_uri": "/users/1235" }]`. The authenticated user must be a follower of a requested user to add this person as a moderator. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiAddChannelModeratorsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiAddChannelModeratorsRequest
 	*/
 	AddChannelModerators(ctx context.Context, channelId float32) ApiAddChannelModeratorsRequest
 
@@ -52,14 +51,14 @@ type ChannelsModeratorsAPI interface {
 	AddChannelModeratorsExecute(r ApiAddChannelModeratorsRequest) (*http.Response, error)
 
 	/*
-	GetChannelModerator Get a specific moderator of a channel
+		GetChannelModerator Get a specific moderator of a channel
 
-	This method returns a single moderator of the specified channel.
+		This method returns a single moderator of the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param userId The ID of the user.
-	@return ApiGetChannelModeratorRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param userId The ID of the user.
+		@return ApiGetChannelModeratorRequest
 	*/
 	GetChannelModerator(ctx context.Context, channelId float32, userId int32) ApiGetChannelModeratorRequest
 
@@ -68,13 +67,13 @@ type ChannelsModeratorsAPI interface {
 	GetChannelModeratorExecute(r ApiGetChannelModeratorRequest) (*User, *http.Response, error)
 
 	/*
-	GetChannelModerators Get all the moderators of a channel
+		GetChannelModerators Get all the moderators of a channel
 
-	This method returns every moderator of the specified channel.
+		This method returns every moderator of the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiGetChannelModeratorsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiGetChannelModeratorsRequest
 	*/
 	GetChannelModerators(ctx context.Context, channelId float32) ApiGetChannelModeratorsRequest
 
@@ -83,14 +82,14 @@ type ChannelsModeratorsAPI interface {
 	GetChannelModeratorsExecute(r ApiGetChannelModeratorsRequest) ([]User, *http.Response, error)
 
 	/*
-	RemoveChannelModerator Remove a specific moderator from a channel
+		RemoveChannelModerator Remove a specific moderator from a channel
 
-	This method removes a single moderator from the specified channel. The authenticated user must be the owner of the channel.
+		This method removes a single moderator from the specified channel. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param userId The ID of the user.
-	@return ApiRemoveChannelModeratorRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@param userId The ID of the user.
+		@return ApiRemoveChannelModeratorRequest
 	*/
 	RemoveChannelModerator(ctx context.Context, channelId float32, userId int32) ApiRemoveChannelModeratorRequest
 
@@ -98,13 +97,13 @@ type ChannelsModeratorsAPI interface {
 	RemoveChannelModeratorExecute(r ApiRemoveChannelModeratorRequest) (*http.Response, error)
 
 	/*
-	RemoveChannelModerators Remove a list of moderators from a channel
+		RemoveChannelModerators Remove a list of moderators from a channel
 
-	This method removes multiple moderators from the specified channel. The authenticated user must be the owner of the channel.
+		This method removes multiple moderators from the specified channel. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiRemoveChannelModeratorsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiRemoveChannelModeratorsRequest
 	*/
 	RemoveChannelModerators(ctx context.Context, channelId float32) ApiRemoveChannelModeratorsRequest
 
@@ -112,13 +111,13 @@ type ChannelsModeratorsAPI interface {
 	RemoveChannelModeratorsExecute(r ApiRemoveChannelModeratorsRequest) (*http.Response, error)
 
 	/*
-	ReplaceChannelModerators Replace the moderators of a channel
+		ReplaceChannelModerators Replace the moderators of a channel
 
-	This method replaces the current list of channel moderators with a new list. The authenticated user must be the owner of the channel and a follower of each requested user to add them as a channel moderator.
+		This method replaces the current list of channel moderators with a new list. The authenticated user must be the owner of the channel and a follower of each requested user to add them as a channel moderator.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiReplaceChannelModeratorsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param channelId The ID of the channel.
+		@return ApiReplaceChannelModeratorsRequest
 	*/
 	ReplaceChannelModerators(ctx context.Context, channelId float32) ApiReplaceChannelModeratorsRequest
 
@@ -131,10 +130,10 @@ type ChannelsModeratorsAPI interface {
 type ChannelsModeratorsAPIService service
 
 type ApiAddChannelModeratorRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsModeratorsAPI
-	channelId float32
-	userId int32
+	channelId  float32
+	userId     int32
 }
 
 func (r ApiAddChannelModeratorRequest) Execute() (*http.Response, error) {
@@ -146,26 +145,26 @@ AddChannelModerator Add a specific moderator to a channel
 
 This method adds a single user as a moderator to the specified channel. The authenticated user must be a follower of the requested user to add them as a channel moderator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param userId The ID of the user.
- @return ApiAddChannelModeratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param userId The ID of the user.
+	@return ApiAddChannelModeratorRequest
 */
 func (a *ChannelsModeratorsAPIService) AddChannelModerator(ctx context.Context, channelId float32, userId int32) ApiAddChannelModeratorRequest {
 	return ApiAddChannelModeratorRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		userId: userId,
+		ctx:        ctx,
+		channelId:  channelId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsModeratorsAPIService) AddChannelModeratorExecute(r ApiAddChannelModeratorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsModeratorsAPIService.AddChannelModerator")
@@ -220,17 +219,6 @@ func (a *ChannelsModeratorsAPIService) AddChannelModeratorExecute(r ApiAddChanne
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -238,8 +226,19 @@ func (a *ChannelsModeratorsAPIService) AddChannelModeratorExecute(r ApiAddChanne
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -248,9 +247,9 @@ func (a *ChannelsModeratorsAPIService) AddChannelModeratorExecute(r ApiAddChanne
 }
 
 type ApiAddChannelModeratorsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsModeratorsAPI
-	channelId float32
+	channelId  float32
 }
 
 func (r ApiAddChannelModeratorsRequest) Execute() (*http.Response, error) {
@@ -262,24 +261,24 @@ AddChannelModerators Add a list of moderators to a channel
 
 This method adds multiple users as moderators to the specified channel. Include the users by their URI as a JSON array in the body of the request using the **user_uri** field, like this: `[{ "user_uri": "/users/1234" }, { "user_uri": "/users/1235" }]`. The authenticated user must be a follower of a requested user to add this person as a moderator. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiAddChannelModeratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiAddChannelModeratorsRequest
 */
 func (a *ChannelsModeratorsAPIService) AddChannelModerators(ctx context.Context, channelId float32) ApiAddChannelModeratorsRequest {
 	return ApiAddChannelModeratorsRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsModeratorsAPIService) AddChannelModeratorsExecute(r ApiAddChannelModeratorsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsModeratorsAPIService.AddChannelModerators")
@@ -340,19 +339,8 @@ func (a *ChannelsModeratorsAPIService) AddChannelModeratorsExecute(r ApiAddChann
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -362,8 +350,19 @@ func (a *ChannelsModeratorsAPIService) AddChannelModeratorsExecute(r ApiAddChann
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -372,10 +371,10 @@ func (a *ChannelsModeratorsAPIService) AddChannelModeratorsExecute(r ApiAddChann
 }
 
 type ApiGetChannelModeratorRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsModeratorsAPI
-	channelId float32
-	userId int32
+	channelId  float32
+	userId     int32
 }
 
 func (r ApiGetChannelModeratorRequest) Execute() (*User, *http.Response, error) {
@@ -387,28 +386,29 @@ GetChannelModerator Get a specific moderator of a channel
 
 This method returns a single moderator of the specified channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param userId The ID of the user.
- @return ApiGetChannelModeratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param userId The ID of the user.
+	@return ApiGetChannelModeratorRequest
 */
 func (a *ChannelsModeratorsAPIService) GetChannelModerator(ctx context.Context, channelId float32, userId int32) ApiGetChannelModeratorRequest {
 	return ApiGetChannelModeratorRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		userId: userId,
+		ctx:        ctx,
+		channelId:  channelId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return User
+//
+//	@return User
 func (a *ChannelsModeratorsAPIService) GetChannelModeratorExecute(r ApiGetChannelModeratorRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsModeratorsAPIService.GetChannelModerator")
@@ -479,17 +479,17 @@ func (a *ChannelsModeratorsAPIService) GetChannelModeratorExecute(r ApiGetChanne
 }
 
 type ApiGetChannelModeratorsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsModeratorsAPI
-	channelId float32
-	direction *string
-	page *float32
-	perPage *float32
-	query *string
-	sort *string
+	channelId  float32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	query      *string
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetChannelModeratorsRequest) Direction(direction string) ApiGetChannelModeratorsRequest {
 	r.direction = &direction
 	return r
@@ -513,7 +513,7 @@ func (r ApiGetChannelModeratorsRequest) Query(query string) ApiGetChannelModerat
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date added. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date added.
 func (r ApiGetChannelModeratorsRequest) Sort(sort string) ApiGetChannelModeratorsRequest {
 	r.sort = &sort
 	return r
@@ -528,26 +528,27 @@ GetChannelModerators Get all the moderators of a channel
 
 This method returns every moderator of the specified channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiGetChannelModeratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiGetChannelModeratorsRequest
 */
 func (a *ChannelsModeratorsAPIService) GetChannelModerators(ctx context.Context, channelId float32) ApiGetChannelModeratorsRequest {
 	return ApiGetChannelModeratorsRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *ChannelsModeratorsAPIService) GetChannelModeratorsExecute(r ApiGetChannelModeratorsRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsModeratorsAPIService.GetChannelModerators")
@@ -632,10 +633,10 @@ func (a *ChannelsModeratorsAPIService) GetChannelModeratorsExecute(r ApiGetChann
 }
 
 type ApiRemoveChannelModeratorRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ChannelsModeratorsAPI
-	channelId float32
-	userId int32
+	channelId  float32
+	userId     int32
 }
 
 func (r ApiRemoveChannelModeratorRequest) Execute() (*http.Response, error) {
@@ -647,26 +648,26 @@ RemoveChannelModerator Remove a specific moderator from a channel
 
 This method removes a single moderator from the specified channel. The authenticated user must be the owner of the channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @param userId The ID of the user.
- @return ApiRemoveChannelModeratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param userId The ID of the user.
+	@return ApiRemoveChannelModeratorRequest
 */
 func (a *ChannelsModeratorsAPIService) RemoveChannelModerator(ctx context.Context, channelId float32, userId int32) ApiRemoveChannelModeratorRequest {
 	return ApiRemoveChannelModeratorRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-		userId: userId,
+		ctx:        ctx,
+		channelId:  channelId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsModeratorsAPIService) RemoveChannelModeratorExecute(r ApiRemoveChannelModeratorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsModeratorsAPIService.RemoveChannelModerator")
@@ -721,17 +722,6 @@ func (a *ChannelsModeratorsAPIService) RemoveChannelModeratorExecute(r ApiRemove
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -739,8 +729,19 @@ func (a *ChannelsModeratorsAPIService) RemoveChannelModeratorExecute(r ApiRemove
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -749,9 +750,9 @@ func (a *ChannelsModeratorsAPIService) RemoveChannelModeratorExecute(r ApiRemove
 }
 
 type ApiRemoveChannelModeratorsRequest struct {
-	ctx context.Context
-	ApiService ChannelsModeratorsAPI
-	channelId float32
+	ctx                            context.Context
+	ApiService                     ChannelsModeratorsAPI
+	channelId                      float32
 	removeChannelModeratorsRequest *RemoveChannelModeratorsRequest
 }
 
@@ -769,24 +770,24 @@ RemoveChannelModerators Remove a list of moderators from a channel
 
 This method removes multiple moderators from the specified channel. The authenticated user must be the owner of the channel.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiRemoveChannelModeratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiRemoveChannelModeratorsRequest
 */
 func (a *ChannelsModeratorsAPIService) RemoveChannelModerators(ctx context.Context, channelId float32) ApiRemoveChannelModeratorsRequest {
 	return ApiRemoveChannelModeratorsRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsModeratorsAPIService) RemoveChannelModeratorsExecute(r ApiRemoveChannelModeratorsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsModeratorsAPIService.RemoveChannelModerators")
@@ -845,17 +846,6 @@ func (a *ChannelsModeratorsAPIService) RemoveChannelModeratorsExecute(r ApiRemov
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v LegacyError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -863,8 +853,19 @@ func (a *ChannelsModeratorsAPIService) RemoveChannelModeratorsExecute(r ApiRemov
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -873,9 +874,9 @@ func (a *ChannelsModeratorsAPIService) RemoveChannelModeratorsExecute(r ApiRemov
 }
 
 type ApiReplaceChannelModeratorsRequest struct {
-	ctx context.Context
-	ApiService ChannelsModeratorsAPI
-	channelId float32
+	ctx                             context.Context
+	ApiService                      ChannelsModeratorsAPI
+	channelId                       float32
 	replaceChannelModeratorsRequest *ReplaceChannelModeratorsRequest
 }
 
@@ -893,26 +894,27 @@ ReplaceChannelModerators Replace the moderators of a channel
 
 This method replaces the current list of channel moderators with a new list. The authenticated user must be the owner of the channel and a follower of each requested user to add them as a channel moderator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId The ID of the channel.
- @return ApiReplaceChannelModeratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiReplaceChannelModeratorsRequest
 */
 func (a *ChannelsModeratorsAPIService) ReplaceChannelModerators(ctx context.Context, channelId float32) ApiReplaceChannelModeratorsRequest {
 	return ApiReplaceChannelModeratorsRequest{
 		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
+		ctx:        ctx,
+		channelId:  channelId,
 	}
 }
 
 // Execute executes the request
-//  @return []User
+//
+//	@return []User
 func (a *ChannelsModeratorsAPIService) ReplaceChannelModeratorsExecute(r ApiReplaceChannelModeratorsRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []User
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsModeratorsAPIService.ReplaceChannelModerators")
@@ -978,19 +980,8 @@ func (a *ChannelsModeratorsAPIService) ReplaceChannelModeratorsExecute(r ApiRepl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1000,8 +991,19 @@ func (a *ChannelsModeratorsAPIService) ReplaceChannelModeratorsExecute(r ApiRepl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

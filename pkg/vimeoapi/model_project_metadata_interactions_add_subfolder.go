@@ -26,7 +26,7 @@ type ProjectMetadataInteractionsAddSubfolder struct {
 	// An array of HTTP methods permitted on this URI.
 	Options []string `json:"options,omitempty"`
 	// Properties that can be added to the request body.
-	Properties []string `json:"properties,omitempty"`
+	Properties []map[string]interface{} `json:"properties,omitempty"`
 	// Whether the user has reached the maximum subfolder depth.
 	SubfolderDepthLimitReached bool `json:"subfolder_depth_limit_reached"`
 	// The API URI that resolves to the connection data.
@@ -141,9 +141,9 @@ func (o *ProjectMetadataInteractionsAddSubfolder) SetOptions(v []string) {
 }
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
-func (o *ProjectMetadataInteractionsAddSubfolder) GetProperties() []string {
+func (o *ProjectMetadataInteractionsAddSubfolder) GetProperties() []map[string]interface{} {
 	if o == nil || IsNil(o.Properties) {
-		var ret []string
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.Properties
@@ -151,7 +151,7 @@ func (o *ProjectMetadataInteractionsAddSubfolder) GetProperties() []string {
 
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectMetadataInteractionsAddSubfolder) GetPropertiesOk() ([]string, bool) {
+func (o *ProjectMetadataInteractionsAddSubfolder) GetPropertiesOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Properties) {
 		return nil, false
 	}
@@ -167,8 +167,8 @@ func (o *ProjectMetadataInteractionsAddSubfolder) HasProperties() bool {
 	return false
 }
 
-// SetProperties gets a reference to the given []string and assigns it to the Properties field.
-func (o *ProjectMetadataInteractionsAddSubfolder) SetProperties(v []string) {
+// SetProperties gets a reference to the given []map[string]interface{} and assigns it to the Properties field.
+func (o *ProjectMetadataInteractionsAddSubfolder) SetProperties(v []map[string]interface{}) {
 	o.Properties = v
 }
 
@@ -229,7 +229,7 @@ func (o *ProjectMetadataInteractionsAddSubfolder) SetUri(v string) {
 }
 
 func (o ProjectMetadataInteractionsAddSubfolder) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -290,5 +290,3 @@ func (v *NullableProjectMetadataInteractionsAddSubfolder) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

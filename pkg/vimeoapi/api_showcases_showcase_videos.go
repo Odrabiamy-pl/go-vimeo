@@ -19,19 +19,18 @@ import (
 	"strings"
 )
 
-
 type ShowcasesShowcaseVideosAPI interface {
 
 	/*
-	AddVideoToShowcase Add a specific video to a showcase
+		AddVideoToShowcase Add a specific video to a showcase
 
-	This method adds a single video to the specified showcase. The authenticated user must be the owner of the showcase.
+		This method adds a single video to the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToShowcaseRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiAddVideoToShowcaseRequest
 	*/
 	AddVideoToShowcase(ctx context.Context, albumId float32, userId int32, videoId int32) ApiAddVideoToShowcaseRequest
 
@@ -39,14 +38,14 @@ type ShowcasesShowcaseVideosAPI interface {
 	AddVideoToShowcaseExecute(r ApiAddVideoToShowcaseRequest) (*http.Response, error)
 
 	/*
-	AddVideoToShowcaseAlt2 Add a specific video to a showcase
+		AddVideoToShowcaseAlt2 Add a specific video to a showcase
 
-	This method adds a single video to the specified showcase. The authenticated user must be the owner of the showcase.
+		This method adds a single video to the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToShowcaseAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param videoId The ID of the video.
+		@return ApiAddVideoToShowcaseAlt2Request
 	*/
 	AddVideoToShowcaseAlt2(ctx context.Context, albumId float32, videoId int32) ApiAddVideoToShowcaseAlt2Request
 
@@ -54,13 +53,13 @@ type ShowcasesShowcaseVideosAPI interface {
 	AddVideoToShowcaseAlt2Execute(r ApiAddVideoToShowcaseAlt2Request) (*http.Response, error)
 
 	/*
-	GetAvailableShowcaseVideos Get all the user's videos that can be added to or removed from a showcase
+		GetAvailableShowcaseVideos Get all the user's videos that can be added to or removed from a showcase
 
-	This endpoint returns every video belonging to the authenticated user that can be added to or removed from the specified showcase. The user must be the owner of the showcase.
+		This endpoint returns every video belonging to the authenticated user that can be added to or removed from the specified showcase. The user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@return ApiGetAvailableShowcaseVideosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@return ApiGetAvailableShowcaseVideosRequest
 	*/
 	GetAvailableShowcaseVideos(ctx context.Context, albumId float32) ApiGetAvailableShowcaseVideosRequest
 
@@ -69,13 +68,13 @@ type ShowcasesShowcaseVideosAPI interface {
 	GetAvailableShowcaseVideosExecute(r ApiGetAvailableShowcaseVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-	GetAvailableVideoShowcases Get all the showcases to which the user can add or remove a specific video
+		GetAvailableVideoShowcases Get all the showcases to which the user can add or remove a specific video
 
-	This endpoint returns every showcase to which the authenticated user can add or remove the specified video. The user must be the owner of the showcase.
+		This endpoint returns every showcase to which the authenticated user can add or remove the specified video. The user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetAvailableVideoShowcasesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param videoId The ID of the video.
+		@return ApiGetAvailableVideoShowcasesRequest
 	*/
 	GetAvailableVideoShowcases(ctx context.Context, videoId int32) ApiGetAvailableVideoShowcasesRequest
 
@@ -84,15 +83,15 @@ type ShowcasesShowcaseVideosAPI interface {
 	GetAvailableVideoShowcasesExecute(r ApiGetAvailableVideoShowcasesRequest) ([]Album, *http.Response, error)
 
 	/*
-	GetShowcaseVideo Get a specific video in a showcase
+		GetShowcaseVideo Get a specific video in a showcase
 
-	This method returns a single video belonging to the specified showcase. The authenticated user must be the owner of the showcase.
+		This method returns a single video belonging to the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiGetShowcaseVideoRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiGetShowcaseVideoRequest
 	*/
 	GetShowcaseVideo(ctx context.Context, albumId float32, userId int32, videoId int32) ApiGetShowcaseVideoRequest
 
@@ -101,14 +100,14 @@ type ShowcasesShowcaseVideosAPI interface {
 	GetShowcaseVideoExecute(r ApiGetShowcaseVideoRequest) (*Video, *http.Response, error)
 
 	/*
-	GetShowcaseVideoAlt2 Get a specific video in a showcase
+		GetShowcaseVideoAlt2 Get a specific video in a showcase
 
-	This method returns a single video belonging to the specified showcase. The authenticated user must be the owner of the showcase.
+		This method returns a single video belonging to the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param videoId The ID of the video.
-	@return ApiGetShowcaseVideoAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param videoId The ID of the video.
+		@return ApiGetShowcaseVideoAlt2Request
 	*/
 	GetShowcaseVideoAlt2(ctx context.Context, albumId float32, videoId int32) ApiGetShowcaseVideoAlt2Request
 
@@ -117,14 +116,14 @@ type ShowcasesShowcaseVideosAPI interface {
 	GetShowcaseVideoAlt2Execute(r ApiGetShowcaseVideoAlt2Request) (*Video, *http.Response, error)
 
 	/*
-	GetShowcaseVideos Get all the videos in a showcase
+		GetShowcaseVideos Get all the videos in a showcase
 
-	This method returns every video in the specified showcase. The authenticated user must be the owner of the showcase.
+		This method returns every video in the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiGetShowcaseVideosRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@return ApiGetShowcaseVideosRequest
 	*/
 	GetShowcaseVideos(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseVideosRequest
 
@@ -133,13 +132,13 @@ type ShowcasesShowcaseVideosAPI interface {
 	GetShowcaseVideosExecute(r ApiGetShowcaseVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-	GetShowcaseVideosAlt2 Get all the videos in a showcase
+		GetShowcaseVideosAlt2 Get all the videos in a showcase
 
-	This method returns every video in the specified showcase. The authenticated user must be the owner of the showcase.
+		This method returns every video in the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@return ApiGetShowcaseVideosAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@return ApiGetShowcaseVideosAlt2Request
 	*/
 	GetShowcaseVideosAlt2(ctx context.Context, albumId float32) ApiGetShowcaseVideosAlt2Request
 
@@ -148,15 +147,15 @@ type ShowcasesShowcaseVideosAPI interface {
 	GetShowcaseVideosAlt2Execute(r ApiGetShowcaseVideosAlt2Request) ([]Video, *http.Response, error)
 
 	/*
-	RemoveVideoFromShowcase Remove a video from a showcase
+		RemoveVideoFromShowcase Remove a video from a showcase
 
-	This method removes the specified video from its showcase. The authenticated user must be the owner of the showcase.
+		This method removes the specified video from its showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiRemoveVideoFromShowcaseRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiRemoveVideoFromShowcaseRequest
 	*/
 	RemoveVideoFromShowcase(ctx context.Context, albumId float32, userId int32, videoId int32) ApiRemoveVideoFromShowcaseRequest
 
@@ -164,14 +163,14 @@ type ShowcasesShowcaseVideosAPI interface {
 	RemoveVideoFromShowcaseExecute(r ApiRemoveVideoFromShowcaseRequest) (*http.Response, error)
 
 	/*
-	RemoveVideoFromShowcaseAlt2 Remove a video from a showcase
+		RemoveVideoFromShowcaseAlt2 Remove a video from a showcase
 
-	This method removes the specified video from its showcase. The authenticated user must be the owner of the showcase.
+		This method removes the specified video from its showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param videoId The ID of the video.
-	@return ApiRemoveVideoFromShowcaseAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param videoId The ID of the video.
+		@return ApiRemoveVideoFromShowcaseAlt2Request
 	*/
 	RemoveVideoFromShowcaseAlt2(ctx context.Context, albumId float32, videoId int32) ApiRemoveVideoFromShowcaseAlt2Request
 
@@ -179,14 +178,14 @@ type ShowcasesShowcaseVideosAPI interface {
 	RemoveVideoFromShowcaseAlt2Execute(r ApiRemoveVideoFromShowcaseAlt2Request) (*http.Response, error)
 
 	/*
-	ReplaceVideosInShowcase Replace all the videos in a showcase
+		ReplaceVideosInShowcase Replace all the videos in a showcase
 
-	This method replaces all the videos in the specified showcase with a new set of one or more videos. The authenticated user must be the owner of the showcase.
+		This method replaces all the videos in the specified showcase with a new set of one or more videos. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiReplaceVideosInShowcaseRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@return ApiReplaceVideosInShowcaseRequest
 	*/
 	ReplaceVideosInShowcase(ctx context.Context, albumId float32, userId int32) ApiReplaceVideosInShowcaseRequest
 
@@ -194,13 +193,13 @@ type ShowcasesShowcaseVideosAPI interface {
 	ReplaceVideosInShowcaseExecute(r ApiReplaceVideosInShowcaseRequest) (*http.Response, error)
 
 	/*
-	ReplaceVideosInShowcaseAlt2 Replace all the videos in a showcase
+		ReplaceVideosInShowcaseAlt2 Replace all the videos in a showcase
 
-	This method replaces all the videos in the specified showcase with a new set of one or more videos. The authenticated user must be the owner of the showcase.
+		This method replaces all the videos in the specified showcase with a new set of one or more videos. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@return ApiReplaceVideosInShowcaseAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@return ApiReplaceVideosInShowcaseAlt2Request
 	*/
 	ReplaceVideosInShowcaseAlt2(ctx context.Context, albumId float32) ApiReplaceVideosInShowcaseAlt2Request
 
@@ -208,15 +207,15 @@ type ShowcasesShowcaseVideosAPI interface {
 	ReplaceVideosInShowcaseAlt2Execute(r ApiReplaceVideosInShowcaseAlt2Request) (*http.Response, error)
 
 	/*
-	SetVideoAsShowcaseFeatured Set the featured video of a showcase
+		SetVideoAsShowcaseFeatured Set the featured video of a showcase
 
-	This method sets the featured video of the specified showcase. The authenticated user must be the owner of the showcase, and the featured video must belong to it.
+		This method sets the featured video of the specified showcase. The authenticated user must be the owner of the showcase, and the featured video must belong to it.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiSetVideoAsShowcaseFeaturedRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiSetVideoAsShowcaseFeaturedRequest
 	*/
 	SetVideoAsShowcaseFeatured(ctx context.Context, albumId float32, userId int32, videoId int32) ApiSetVideoAsShowcaseFeaturedRequest
 
@@ -225,14 +224,14 @@ type ShowcasesShowcaseVideosAPI interface {
 	SetVideoAsShowcaseFeaturedExecute(r ApiSetVideoAsShowcaseFeaturedRequest) (*Album, *http.Response, error)
 
 	/*
-	SetVideoAsShowcaseFeaturedAlt2 Set the featured video of a showcase
+		SetVideoAsShowcaseFeaturedAlt2 Set the featured video of a showcase
 
-	This method sets the featured video of the specified showcase. The authenticated user must be the owner of the showcase, and the featured video must belong to it.
+		This method sets the featured video of the specified showcase. The authenticated user must be the owner of the showcase, and the featured video must belong to it.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param videoId The ID of the video.
-	@return ApiSetVideoAsShowcaseFeaturedAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param videoId The ID of the video.
+		@return ApiSetVideoAsShowcaseFeaturedAlt2Request
 	*/
 	SetVideoAsShowcaseFeaturedAlt2(ctx context.Context, albumId float32, videoId int32) ApiSetVideoAsShowcaseFeaturedAlt2Request
 
@@ -241,15 +240,15 @@ type ShowcasesShowcaseVideosAPI interface {
 	SetVideoAsShowcaseFeaturedAlt2Execute(r ApiSetVideoAsShowcaseFeaturedAlt2Request) (*Album, *http.Response, error)
 
 	/*
-	SetVideoAsShowcaseThumbnail Create a thumbnail for a showcase from a showcase video
+		SetVideoAsShowcaseThumbnail Create a thumbnail for a showcase from a showcase video
 
-	This method creates a thumbnail image for a showcase from the specified frame of a showcase video. The authenticated user must be the owner of the showcase.
+		This method creates a thumbnail image for a showcase from the specified frame of a showcase video. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiSetVideoAsShowcaseThumbnailRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param userId The ID of the user.
+		@param videoId The ID of the video.
+		@return ApiSetVideoAsShowcaseThumbnailRequest
 	*/
 	SetVideoAsShowcaseThumbnail(ctx context.Context, albumId float32, userId int32, videoId int32) ApiSetVideoAsShowcaseThumbnailRequest
 
@@ -258,14 +257,14 @@ type ShowcasesShowcaseVideosAPI interface {
 	SetVideoAsShowcaseThumbnailExecute(r ApiSetVideoAsShowcaseThumbnailRequest) (*Album, *http.Response, error)
 
 	/*
-	SetVideoAsShowcaseThumbnailAlt2 Create a thumbnail for a showcase from a showcase video
+		SetVideoAsShowcaseThumbnailAlt2 Create a thumbnail for a showcase from a showcase video
 
-	This method creates a thumbnail image for a showcase from the specified frame of a showcase video. The authenticated user must be the owner of the showcase.
+		This method creates a thumbnail image for a showcase from the specified frame of a showcase video. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param videoId The ID of the video.
-	@return ApiSetVideoAsShowcaseThumbnailAlt2Request
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param albumId The ID of the showcase.
+		@param videoId The ID of the video.
+		@return ApiSetVideoAsShowcaseThumbnailAlt2Request
 	*/
 	SetVideoAsShowcaseThumbnailAlt2(ctx context.Context, albumId float32, videoId int32) ApiSetVideoAsShowcaseThumbnailAlt2Request
 
@@ -278,11 +277,11 @@ type ShowcasesShowcaseVideosAPI interface {
 type ShowcasesShowcaseVideosAPIService service
 
 type ApiAddVideoToShowcaseRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	userId int32
-	videoId int32
+	albumId    float32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiAddVideoToShowcaseRequest) Execute() (*http.Response, error) {
@@ -294,28 +293,28 @@ AddVideoToShowcase Add a specific video to a showcase
 
 This method adds a single video to the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiAddVideoToShowcaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToShowcaseRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcase(ctx context.Context, albumId float32, userId int32, videoId int32) ApiAddVideoToShowcaseRequest {
 	return ApiAddVideoToShowcaseRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseExecute(r ApiAddVideoToShowcaseRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.AddVideoToShowcase")
@@ -378,8 +377,8 @@ func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseExecute(r ApiAddVi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -389,8 +388,8 @@ func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseExecute(r ApiAddVi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -399,10 +398,10 @@ func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseExecute(r ApiAddVi
 }
 
 type ApiAddVideoToShowcaseAlt2Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	videoId int32
+	albumId    float32
+	videoId    int32
 }
 
 func (r ApiAddVideoToShowcaseAlt2Request) Execute() (*http.Response, error) {
@@ -414,26 +413,26 @@ AddVideoToShowcaseAlt2 Add a specific video to a showcase
 
 This method adds a single video to the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param videoId The ID of the video.
- @return ApiAddVideoToShowcaseAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToShowcaseAlt2Request
 */
 func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseAlt2(ctx context.Context, albumId float32, videoId int32) ApiAddVideoToShowcaseAlt2Request {
 	return ApiAddVideoToShowcaseAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseAlt2Execute(r ApiAddVideoToShowcaseAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.AddVideoToShowcaseAlt2")
@@ -495,8 +494,8 @@ func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseAlt2Execute(r ApiA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -506,8 +505,8 @@ func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseAlt2Execute(r ApiA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -516,16 +515,16 @@ func (a *ShowcasesShowcaseVideosAPIService) AddVideoToShowcaseAlt2Execute(r ApiA
 }
 
 type ApiGetAvailableShowcaseVideosRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	direction *string
-	page *float32
-	perPage *float32
-	sort *string
+	albumId    float32
+	direction  *string
+	page       *float32
+	perPage    *float32
+	sort       *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetAvailableShowcaseVideosRequest) Direction(direction string) ApiGetAvailableShowcaseVideosRequest {
 	r.direction = &direction
 	return r
@@ -543,7 +542,7 @@ func (r ApiGetAvailableShowcaseVideosRequest) PerPage(perPage float32) ApiGetAva
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Sort the results by the default method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by most recent user interaction.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Sort the results by the default method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by most recent user interaction.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetAvailableShowcaseVideosRequest) Sort(sort string) ApiGetAvailableShowcaseVideosRequest {
 	r.sort = &sort
 	return r
@@ -558,26 +557,27 @@ GetAvailableShowcaseVideos Get all the user's videos that can be added to or rem
 
 This endpoint returns every video belonging to the authenticated user that can be added to or removed from the specified showcase. The user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @return ApiGetAvailableShowcaseVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@return ApiGetAvailableShowcaseVideosRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) GetAvailableShowcaseVideos(ctx context.Context, albumId float32) ApiGetAvailableShowcaseVideosRequest {
 	return ApiGetAvailableShowcaseVideosRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
+		ctx:        ctx,
+		albumId:    albumId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *ShowcasesShowcaseVideosAPIService) GetAvailableShowcaseVideosExecute(r ApiGetAvailableShowcaseVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.GetAvailableShowcaseVideos")
@@ -643,17 +643,6 @@ func (a *ShowcasesShowcaseVideosAPIService) GetAvailableShowcaseVideosExecute(r 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v LegacyError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -661,8 +650,19 @@ func (a *ShowcasesShowcaseVideosAPIService) GetAvailableShowcaseVideosExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v LegacyError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -680,11 +680,11 @@ func (a *ShowcasesShowcaseVideosAPIService) GetAvailableShowcaseVideosExecute(r 
 }
 
 type ApiGetAvailableVideoShowcasesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	videoId int32
-	page *float32
-	perPage *float32
+	videoId    int32
+	page       *float32
+	perPage    *float32
 }
 
 // The page number of the results to show.
@@ -708,26 +708,27 @@ GetAvailableVideoShowcases Get all the showcases to which the user can add or re
 
 This endpoint returns every showcase to which the authenticated user can add or remove the specified video. The user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param videoId The ID of the video.
- @return ApiGetAvailableVideoShowcasesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetAvailableVideoShowcasesRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) GetAvailableVideoShowcases(ctx context.Context, videoId int32) ApiGetAvailableVideoShowcasesRequest {
 	return ApiGetAvailableVideoShowcasesRequest{
 		ApiService: a,
-		ctx: ctx,
-		videoId: videoId,
+		ctx:        ctx,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return []Album
+//
+//	@return []Album
 func (a *ShowcasesShowcaseVideosAPIService) GetAvailableVideoShowcasesExecute(r ApiGetAvailableVideoShowcasesRequest) ([]Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Album
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.GetAvailableVideoShowcases")
@@ -794,8 +795,8 @@ func (a *ShowcasesShowcaseVideosAPIService) GetAvailableVideoShowcasesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -813,12 +814,12 @@ func (a *ShowcasesShowcaseVideosAPIService) GetAvailableVideoShowcasesExecute(r 
 }
 
 type ApiGetShowcaseVideoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	userId int32
-	videoId int32
-	password *string
+	albumId    float32
+	userId     int32
+	videoId    int32
+	password   *string
 }
 
 // The password of the showcase.
@@ -836,30 +837,31 @@ GetShowcaseVideo Get a specific video in a showcase
 
 This method returns a single video belonging to the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiGetShowcaseVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiGetShowcaseVideoRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideo(ctx context.Context, albumId float32, userId int32, videoId int32) ApiGetShowcaseVideoRequest {
 	return ApiGetShowcaseVideoRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoExecute(r ApiGetShowcaseVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.GetShowcaseVideo")
@@ -925,8 +927,8 @@ func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoExecute(r ApiGetShow
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -944,11 +946,11 @@ func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoExecute(r ApiGetShow
 }
 
 type ApiGetShowcaseVideoAlt2Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	videoId int32
-	password *string
+	albumId    float32
+	videoId    int32
+	password   *string
 }
 
 // The password of the showcase.
@@ -966,28 +968,29 @@ GetShowcaseVideoAlt2 Get a specific video in a showcase
 
 This method returns a single video belonging to the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param videoId The ID of the video.
- @return ApiGetShowcaseVideoAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param videoId The ID of the video.
+	@return ApiGetShowcaseVideoAlt2Request
 */
 func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoAlt2(ctx context.Context, albumId float32, videoId int32) ApiGetShowcaseVideoAlt2Request {
 	return ApiGetShowcaseVideoAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Video
+//
+//	@return Video
 func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoAlt2Execute(r ApiGetShowcaseVideoAlt2Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.GetShowcaseVideoAlt2")
@@ -1052,8 +1055,8 @@ func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoAlt2Execute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1071,20 +1074,20 @@ func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideoAlt2Execute(r ApiGet
 }
 
 type ApiGetShowcaseVideosRequest struct {
-	ctx context.Context
-	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	userId int32
-	containingUri *string
-	direction *string
-	filter *string
+	ctx              context.Context
+	ApiService       ShowcasesShowcaseVideosAPI
+	albumId          float32
+	userId           int32
+	containingUri    *string
+	direction        *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	password *string
-	perPage *float32
-	query *string
-	sort *string
-	weakSearch *bool
+	page             *float32
+	password         *string
+	perPage          *float32
+	query            *string
+	sort             *string
+	weakSearch       *bool
 }
 
 // The page containing the video URI.
@@ -1093,13 +1096,13 @@ func (r ApiGetShowcaseVideosRequest) ContainingUri(containingUri string) ApiGetS
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetShowcaseVideosRequest) Direction(direction string) ApiGetShowcaseVideosRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Filter the results by the **embeddable** attribute. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Filter the results by the **embeddable** attribute.
 func (r ApiGetShowcaseVideosRequest) Filter(filter string) ApiGetShowcaseVideosRequest {
 	r.filter = &filter
 	return r
@@ -1135,7 +1138,7 @@ func (r ApiGetShowcaseVideosRequest) Query(query string) ApiGetShowcaseVideosReq
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Sort the results by the default method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results by their manual order.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Sort the results by the default method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results by their manual order.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetShowcaseVideosRequest) Sort(sort string) ApiGetShowcaseVideosRequest {
 	r.sort = &sort
 	return r
@@ -1156,28 +1159,29 @@ GetShowcaseVideos Get all the videos in a showcase
 
 This method returns every video in the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @return ApiGetShowcaseVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiGetShowcaseVideosRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideos(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseVideosRequest {
 	return ApiGetShowcaseVideosRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideosExecute(r ApiGetShowcaseVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.GetShowcaseVideos")
@@ -1269,8 +1273,8 @@ func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideosExecute(r ApiGetSho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1288,19 +1292,19 @@ func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideosExecute(r ApiGetSho
 }
 
 type ApiGetShowcaseVideosAlt2Request struct {
-	ctx context.Context
-	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	containingUri *string
-	direction *string
-	filter *string
+	ctx              context.Context
+	ApiService       ShowcasesShowcaseVideosAPI
+	albumId          float32
+	containingUri    *string
+	direction        *string
+	filter           *string
 	filterEmbeddable *bool
-	page *float32
-	password *string
-	perPage *float32
-	query *string
-	sort *string
-	weakSearch *bool
+	page             *float32
+	password         *string
+	perPage          *float32
+	query            *string
+	sort             *string
+	weakSearch       *bool
 }
 
 // The page containing the video URI.
@@ -1309,13 +1313,13 @@ func (r ApiGetShowcaseVideosAlt2Request) ContainingUri(containingUri string) Api
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
 func (r ApiGetShowcaseVideosAlt2Request) Direction(direction string) ApiGetShowcaseVideosAlt2Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Filter the results by the **embeddable** attribute. 
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Filter the results by the **embeddable** attribute.
 func (r ApiGetShowcaseVideosAlt2Request) Filter(filter string) ApiGetShowcaseVideosAlt2Request {
 	r.filter = &filter
 	return r
@@ -1351,7 +1355,7 @@ func (r ApiGetShowcaseVideosAlt2Request) Query(query string) ApiGetShowcaseVideo
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Sort the results by the default method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results by their manual order.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays. 
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Sort the results by the default method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results by their manual order.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays.
 func (r ApiGetShowcaseVideosAlt2Request) Sort(sort string) ApiGetShowcaseVideosAlt2Request {
 	r.sort = &sort
 	return r
@@ -1372,26 +1376,27 @@ GetShowcaseVideosAlt2 Get all the videos in a showcase
 
 This method returns every video in the specified showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @return ApiGetShowcaseVideosAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@return ApiGetShowcaseVideosAlt2Request
 */
 func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideosAlt2(ctx context.Context, albumId float32) ApiGetShowcaseVideosAlt2Request {
 	return ApiGetShowcaseVideosAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
+		ctx:        ctx,
+		albumId:    albumId,
 	}
 }
 
 // Execute executes the request
-//  @return []Video
+//
+//	@return []Video
 func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideosAlt2Execute(r ApiGetShowcaseVideosAlt2Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Video
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.GetShowcaseVideosAlt2")
@@ -1482,8 +1487,8 @@ func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideosAlt2Execute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1501,11 +1506,11 @@ func (a *ShowcasesShowcaseVideosAPIService) GetShowcaseVideosAlt2Execute(r ApiGe
 }
 
 type ApiRemoveVideoFromShowcaseRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	userId int32
-	videoId int32
+	albumId    float32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiRemoveVideoFromShowcaseRequest) Execute() (*http.Response, error) {
@@ -1517,28 +1522,28 @@ RemoveVideoFromShowcase Remove a video from a showcase
 
 This method removes the specified video from its showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiRemoveVideoFromShowcaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiRemoveVideoFromShowcaseRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcase(ctx context.Context, albumId float32, userId int32, videoId int32) ApiRemoveVideoFromShowcaseRequest {
 	return ApiRemoveVideoFromShowcaseRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseExecute(r ApiRemoveVideoFromShowcaseRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.RemoveVideoFromShowcase")
@@ -1601,8 +1606,8 @@ func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1612,8 +1617,8 @@ func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1622,10 +1627,10 @@ func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseExecute(r Api
 }
 
 type ApiRemoveVideoFromShowcaseAlt2Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	videoId int32
+	albumId    float32
+	videoId    int32
 }
 
 func (r ApiRemoveVideoFromShowcaseAlt2Request) Execute() (*http.Response, error) {
@@ -1637,26 +1642,26 @@ RemoveVideoFromShowcaseAlt2 Remove a video from a showcase
 
 This method removes the specified video from its showcase. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param videoId The ID of the video.
- @return ApiRemoveVideoFromShowcaseAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param videoId The ID of the video.
+	@return ApiRemoveVideoFromShowcaseAlt2Request
 */
 func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseAlt2(ctx context.Context, albumId float32, videoId int32) ApiRemoveVideoFromShowcaseAlt2Request {
 	return ApiRemoveVideoFromShowcaseAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseAlt2Execute(r ApiRemoveVideoFromShowcaseAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.RemoveVideoFromShowcaseAlt2")
@@ -1718,8 +1723,8 @@ func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseAlt2Execute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1729,8 +1734,8 @@ func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseAlt2Execute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1739,10 +1744,10 @@ func (a *ShowcasesShowcaseVideosAPIService) RemoveVideoFromShowcaseAlt2Execute(r
 }
 
 type ApiReplaceVideosInShowcaseRequest struct {
-	ctx context.Context
-	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	userId int32
+	ctx                                context.Context
+	ApiService                         ShowcasesShowcaseVideosAPI
+	albumId                            float32
+	userId                             int32
 	replaceVideosInShowcaseAlt2Request *ReplaceVideosInShowcaseAlt2Request
 }
 
@@ -1760,26 +1765,26 @@ ReplaceVideosInShowcase Replace all the videos in a showcase
 
 This method replaces all the videos in the specified showcase with a new set of one or more videos. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @return ApiReplaceVideosInShowcaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiReplaceVideosInShowcaseRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcase(ctx context.Context, albumId float32, userId int32) ApiReplaceVideosInShowcaseRequest {
 	return ApiReplaceVideosInShowcaseRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseExecute(r ApiReplaceVideosInShowcaseRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.ReplaceVideosInShowcase")
@@ -1846,8 +1851,8 @@ func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1857,8 +1862,8 @@ func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1867,9 +1872,9 @@ func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseExecute(r Api
 }
 
 type ApiReplaceVideosInShowcaseAlt2Request struct {
-	ctx context.Context
-	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
+	ctx                                context.Context
+	ApiService                         ShowcasesShowcaseVideosAPI
+	albumId                            float32
 	replaceVideosInShowcaseAlt2Request *ReplaceVideosInShowcaseAlt2Request
 }
 
@@ -1887,24 +1892,24 @@ ReplaceVideosInShowcaseAlt2 Replace all the videos in a showcase
 
 This method replaces all the videos in the specified showcase with a new set of one or more videos. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @return ApiReplaceVideosInShowcaseAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@return ApiReplaceVideosInShowcaseAlt2Request
 */
 func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseAlt2(ctx context.Context, albumId float32) ApiReplaceVideosInShowcaseAlt2Request {
 	return ApiReplaceVideosInShowcaseAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
+		ctx:        ctx,
+		albumId:    albumId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseAlt2Execute(r ApiReplaceVideosInShowcaseAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.ReplaceVideosInShowcaseAlt2")
@@ -1970,8 +1975,8 @@ func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseAlt2Execute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1981,8 +1986,8 @@ func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseAlt2Execute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1991,11 +1996,11 @@ func (a *ShowcasesShowcaseVideosAPIService) ReplaceVideosInShowcaseAlt2Execute(r
 }
 
 type ApiSetVideoAsShowcaseFeaturedRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	userId int32
-	videoId int32
+	albumId    float32
+	userId     int32
+	videoId    int32
 }
 
 func (r ApiSetVideoAsShowcaseFeaturedRequest) Execute() (*Album, *http.Response, error) {
@@ -2007,30 +2012,31 @@ SetVideoAsShowcaseFeatured Set the featured video of a showcase
 
 This method sets the featured video of the specified showcase. The authenticated user must be the owner of the showcase, and the featured video must belong to it.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiSetVideoAsShowcaseFeaturedRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiSetVideoAsShowcaseFeaturedRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeatured(ctx context.Context, albumId float32, userId int32, videoId int32) ApiSetVideoAsShowcaseFeaturedRequest {
 	return ApiSetVideoAsShowcaseFeaturedRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedExecute(r ApiSetVideoAsShowcaseFeaturedRequest) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.SetVideoAsShowcaseFeatured")
@@ -2093,8 +2099,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2104,8 +2110,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2123,10 +2129,10 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedExecute(r 
 }
 
 type ApiSetVideoAsShowcaseFeaturedAlt2Request struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	videoId int32
+	albumId    float32
+	videoId    int32
 }
 
 func (r ApiSetVideoAsShowcaseFeaturedAlt2Request) Execute() (*Album, *http.Response, error) {
@@ -2138,28 +2144,29 @@ SetVideoAsShowcaseFeaturedAlt2 Set the featured video of a showcase
 
 This method sets the featured video of the specified showcase. The authenticated user must be the owner of the showcase, and the featured video must belong to it.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param videoId The ID of the video.
- @return ApiSetVideoAsShowcaseFeaturedAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param videoId The ID of the video.
+	@return ApiSetVideoAsShowcaseFeaturedAlt2Request
 */
 func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedAlt2(ctx context.Context, albumId float32, videoId int32) ApiSetVideoAsShowcaseFeaturedAlt2Request {
 	return ApiSetVideoAsShowcaseFeaturedAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedAlt2Execute(r ApiSetVideoAsShowcaseFeaturedAlt2Request) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.SetVideoAsShowcaseFeaturedAlt2")
@@ -2221,8 +2228,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedAlt2Execut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2232,8 +2239,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedAlt2Execut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2251,11 +2258,11 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseFeaturedAlt2Execut
 }
 
 type ApiSetVideoAsShowcaseThumbnailRequest struct {
-	ctx context.Context
-	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	userId int32
-	videoId int32
+	ctx                                    context.Context
+	ApiService                             ShowcasesShowcaseVideosAPI
+	albumId                                float32
+	userId                                 int32
+	videoId                                int32
 	setVideoAsShowcaseThumbnailAlt2Request *SetVideoAsShowcaseThumbnailAlt2Request
 }
 
@@ -2273,30 +2280,31 @@ SetVideoAsShowcaseThumbnail Create a thumbnail for a showcase from a showcase vi
 
 This method creates a thumbnail image for a showcase from the specified frame of a showcase video. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param userId The ID of the user.
- @param videoId The ID of the video.
- @return ApiSetVideoAsShowcaseThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiSetVideoAsShowcaseThumbnailRequest
 */
 func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnail(ctx context.Context, albumId float32, userId int32, videoId int32) ApiSetVideoAsShowcaseThumbnailRequest {
 	return ApiSetVideoAsShowcaseThumbnailRequest{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		userId: userId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		userId:     userId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailExecute(r ApiSetVideoAsShowcaseThumbnailRequest) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.SetVideoAsShowcaseThumbnail")
@@ -2361,8 +2369,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2372,8 +2380,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2383,8 +2391,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2402,10 +2410,10 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailExecute(r
 }
 
 type ApiSetVideoAsShowcaseThumbnailAlt2Request struct {
-	ctx context.Context
-	ApiService ShowcasesShowcaseVideosAPI
-	albumId float32
-	videoId int32
+	ctx                                    context.Context
+	ApiService                             ShowcasesShowcaseVideosAPI
+	albumId                                float32
+	videoId                                int32
 	setVideoAsShowcaseThumbnailAlt2Request *SetVideoAsShowcaseThumbnailAlt2Request
 }
 
@@ -2423,28 +2431,29 @@ SetVideoAsShowcaseThumbnailAlt2 Create a thumbnail for a showcase from a showcas
 
 This method creates a thumbnail image for a showcase from the specified frame of a showcase video. The authenticated user must be the owner of the showcase.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param albumId The ID of the showcase.
- @param videoId The ID of the video.
- @return ApiSetVideoAsShowcaseThumbnailAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param videoId The ID of the video.
+	@return ApiSetVideoAsShowcaseThumbnailAlt2Request
 */
 func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailAlt2(ctx context.Context, albumId float32, videoId int32) ApiSetVideoAsShowcaseThumbnailAlt2Request {
 	return ApiSetVideoAsShowcaseThumbnailAlt2Request{
 		ApiService: a,
-		ctx: ctx,
-		albumId: albumId,
-		videoId: videoId,
+		ctx:        ctx,
+		albumId:    albumId,
+		videoId:    videoId,
 	}
 }
 
 // Execute executes the request
-//  @return Album
+//
+//	@return Album
 func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailAlt2Execute(r ApiSetVideoAsShowcaseThumbnailAlt2Request) (*Album, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Album
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Album
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesShowcaseVideosAPIService.SetVideoAsShowcaseThumbnailAlt2")
@@ -2508,8 +2517,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailAlt2Execu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2519,8 +2528,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailAlt2Execu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2530,8 +2539,8 @@ func (a *ShowcasesShowcaseVideosAPIService) SetVideoAsShowcaseThumbnailAlt2Execu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

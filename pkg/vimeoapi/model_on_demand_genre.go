@@ -20,10 +20,10 @@ var _ MappedNullable = &OnDemandGenre{}
 // OnDemandGenre struct for OnDemandGenre
 type OnDemandGenre struct {
 	// The canonical name or URL slug of the genre.
-	Canonical string `json:"canonical"`
+	Canonical    string                    `json:"canonical"`
 	Interactions OnDemandGenreInteractions `json:"interactions"`
 	// The Vimeo URL for the genre.
-	Link string `json:"link"`
+	Link     string                `json:"link"`
 	Metadata OnDemandGenreMetadata `json:"metadata"`
 	// The descriptive name of the genre.
 	Name string `json:"name"`
@@ -199,7 +199,7 @@ func (o *OnDemandGenre) SetUri(v string) {
 }
 
 func (o OnDemandGenre) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -252,5 +252,3 @@ func (v *NullableOnDemandGenre) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

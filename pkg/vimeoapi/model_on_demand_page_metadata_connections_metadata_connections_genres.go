@@ -120,7 +120,7 @@ func (o *OnDemandPageMetadataConnectionsMetadataConnectionsGenres) SetUri(v stri
 }
 
 func (o OnDemandPageMetadataConnectionsMetadataConnectionsGenres) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableOnDemandPageMetadataConnectionsMetadataConnectionsGenres) Unmar
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

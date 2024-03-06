@@ -20,22 +20,22 @@ var _ MappedNullable = &VideoMetadataConnections{}
 // VideoMetadataConnections A list of resource URIs related to the video.
 type VideoMetadataConnections struct {
 	// Information about the video's ancestry, ordered from the direct parent folder to higher-level ancestors.
-	AncestorPath []AncestorPath `json:"ancestor_path"`
-	AvailableChannels VideoMetadataConnectionsAvailableChannels `json:"available_channels"`
-	Comments VideoMetadataConnectionsComments `json:"comments"`
-	Credits NullableVideoMetadataConnectionsCredits `json:"credits"`
-	Likes VideoMetadataConnectionsLikes `json:"likes"`
-	Ondemand VideoMetadataConnectionsOndemand `json:"ondemand"`
-	Pictures VideoMetadataConnectionsPictures `json:"pictures"`
-	Recommendations NullableVideoMetadataConnectionsRecommendations `json:"recommendations"`
-	Related NullableVideoMetadataConnectionsRelated `json:"related"`
+	AncestorPath            []AncestorPath                                  `json:"ancestor_path"`
+	AvailableChannels       VideoMetadataConnectionsAvailableChannels       `json:"available_channels"`
+	Comments                VideoMetadataConnectionsComments                `json:"comments"`
+	Credits                 NullableVideoMetadataConnectionsCredits         `json:"credits"`
+	Likes                   VideoMetadataConnectionsLikes                   `json:"likes"`
+	Ondemand                VideoMetadataConnectionsOndemand                `json:"ondemand"`
+	Pictures                VideoMetadataConnectionsPictures                `json:"pictures"`
+	Recommendations         NullableVideoMetadataConnectionsRecommendations `json:"recommendations"`
+	Related                 NullableVideoMetadataConnectionsRelated         `json:"related"`
 	ResourceCreatorTeamUser VideoMetadataConnectionsResourceCreatorTeamUser `json:"resource_creator_team_user"`
-	Season VideoMetadataConnectionsSeason `json:"season"`
-	TeamPermissions VideoMetadataConnectionsTeamPermissions `json:"team_permissions"`
-	Texttracks VideoMetadataConnectionsTexttracks `json:"texttracks"`
-	Trailer VideoMetadataConnectionsTrailer `json:"trailer"`
-	UsersWithAccess VideoMetadataConnectionsUsersWithAccess `json:"users_with_access"`
-	Versions VideoMetadataConnectionsVersions `json:"versions"`
+	Season                  VideoMetadataConnectionsSeason                  `json:"season"`
+	TeamPermissions         VideoMetadataConnectionsTeamPermissions         `json:"team_permissions"`
+	Texttracks              VideoMetadataConnectionsTexttracks              `json:"texttracks"`
+	Trailer                 VideoMetadataConnectionsTrailer                 `json:"trailer"`
+	UsersWithAccess         VideoMetadataConnectionsUsersWithAccess         `json:"users_with_access"`
+	Versions                VideoMetadataConnectionsVersions                `json:"versions"`
 }
 
 // NewVideoMetadataConnections instantiates a new VideoMetadataConnections object
@@ -462,7 +462,7 @@ func (o *VideoMetadataConnections) SetVersions(v VideoMetadataConnectionsVersion
 }
 
 func (o VideoMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -525,5 +525,3 @@ func (v *NullableVideoMetadataConnections) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

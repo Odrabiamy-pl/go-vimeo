@@ -19,7 +19,7 @@ var _ MappedNullable = &OnDemandVideoMetadataInteractions{}
 
 // OnDemandVideoMetadataInteractions struct for OnDemandVideoMetadataInteractions
 type OnDemandVideoMetadataInteractions struct {
-	Likes OnDemandVideoMetadataInteractionsLikes `json:"likes"`
+	Likes      OnDemandVideoMetadataInteractionsLikes      `json:"likes"`
 	Watchlater OnDemandVideoMetadataInteractionsWatchlater `json:"watchlater"`
 }
 
@@ -91,7 +91,7 @@ func (o *OnDemandVideoMetadataInteractions) SetWatchlater(v OnDemandVideoMetadat
 }
 
 func (o OnDemandVideoMetadataInteractions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableOnDemandVideoMetadataInteractions) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

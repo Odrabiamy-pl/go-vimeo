@@ -31,7 +31,7 @@ type WebinarEmailContent struct {
 	ModifiedTime string `json:"modified_time"`
 	// The HTML subject of the email.
 	Subject string `json:"subject"`
-	// The email type for which the content was customized.  Option descriptions:  * `email_event_reminder_24_hrs` - The webinar reminder email, which goes out 24 hours before the event.  * `email_post_event_thank_you` - The webinar post-event thank-you email.  * `email_registration_confirmation` - The webinar registration confirmation email. 
+	// The email type for which the content was customized.  Option descriptions:  * `email_event_reminder_24_hrs` - The webinar reminder email, which goes out 24 hours before the event.  * `email_post_event_thank_you` - The webinar post-event thank-you email.  * `email_registration_confirmation` - The webinar registration confirmation email.
 	Type string `json:"type"`
 	// Whether to show the calendar in the email.
 	UseCalender bool `json:"use_calender"`
@@ -282,7 +282,7 @@ func (o *WebinarEmailContent) SetUseCustomLink(v bool) {
 }
 
 func (o WebinarEmailContent) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -338,5 +338,3 @@ func (v *NullableWebinarEmailContent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
