@@ -21,7 +21,7 @@ var _ MappedNullable = &UserUploadQuota{}
 type UserUploadQuota struct {
 	Lifetime UserUploadQuotaLifetime `json:"lifetime"`
 	Periodic UserUploadQuotaPeriodic `json:"periodic"`
-	Space    UserUploadQuotaSpace    `json:"space"`
+	Space UserUploadQuotaSpace `json:"space"`
 }
 
 // NewUserUploadQuota instantiates a new UserUploadQuota object
@@ -117,7 +117,7 @@ func (o *UserUploadQuota) SetSpace(v UserUploadQuotaSpace) {
 }
 
 func (o UserUploadQuota) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -167,3 +167,5 @@ func (v *NullableUserUploadQuota) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

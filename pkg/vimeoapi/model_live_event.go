@@ -29,7 +29,7 @@ type LiveEvent struct {
 	AutoCcEnabled NullableBool `json:"auto_cc_enabled"`
 	// A comma-separated list of keywords for enhancing the speech detection of automated closed captions.
 	AutoCcKeywords NullableString `json:"auto_cc_keywords"`
-	// The language of the automated closed captions.  Option descriptions:  * `de-DE` - The language is German.  * `en-US` - The language is English.  * `es-ES` - The language is Spanish.  * `fr-FR` - The language is French.  * `pt-BR` - The language is Portuguese.
+	// The language of the automated closed captions.  Option descriptions:  * `de-DE` - The language is German.  * `en-US` - The language is English.  * `es-ES` - The language is Spanish.  * `fr-FR` - The language is French.  * `pt-BR` - The language is Portuguese. 
 	AutoCcLanguage NullableString `json:"auto_cc_language"`
 	// The amount of time remaining to the user to access the automated closed captions feature.
 	AutoCcRemaining NullableFloat32 `json:"auto_cc_remaining"`
@@ -39,14 +39,14 @@ type LiveEvent struct {
 	ChatEnabled bool `json:"chat_enabled"`
 	// The time in ISO 8601 format when the event was completed.
 	CompletedOn string `json:"completed_on"`
-	// The event's granular content ratings.  Option descriptions:  * `advertisement` - The event contains advertisements.  * `drugs` - The event contains drug or alcohol use.  * `language` - The event contains profanity or sexually suggestive content.  * `nudity` - The event contains nudity.  * `safe` - The event is safe for all audiences.  * `unrated` - The event hasn't been rated.  * `violence` - The event contains violence.
+	// The event's granular content ratings.  Option descriptions:  * `advertisement` - The event contains advertisements.  * `drugs` - The event contains drug or alcohol use.  * `language` - The event contains profanity or sexually suggestive content.  * `nudity` - The event contains nudity.  * `safe` - The event is safe for all audiences.  * `unrated` - The event hasn't been rated.  * `violence` - The event contains violence. 
 	ContentRating []string `json:"content_rating"`
 	// The time in ISO 8601 format when the event was created.
 	CreatedTime string `json:"created_time"`
 	// Whether the DVR feature is enabled.
-	Dvr        bool                `json:"dvr"`
+	Dvr bool `json:"dvr"`
 	EmailQuota LiveEventEmailQuota `json:"email_quota"`
-	Embed      LiveEventEmbed      `json:"embed"`
+	Embed LiveEventEmbed `json:"embed"`
 	// Whether the event was created from a showcase.
 	FromShowcase bool `json:"from_showcase"`
 	// Whether the event was created from a webinar.
@@ -55,7 +55,7 @@ type LiveEvent struct {
 	HeadClip map[string]interface{} `json:"head_clip"`
 	// The settings for the interaction tools.
 	InteractionToolsSettings []LiveEventInteractionToolsSettingsInner `json:"interaction_tools_settings"`
-	// The type of latency.  Option descriptions:  * `fail-safe` - The latency is in the failsafe range, with a delay of 60-75 seconds.  * `low` - The latency is low, with a delay of 5-7 seconds.  * `standard` - The latency is standard, with a delay of 15-20 seconds.
+	// The type of latency.  Option descriptions:  * `fail-safe` - The latency is in the failsafe range, with a delay of 60-75 seconds.  * `low` - The latency is low, with a delay of 5-7 seconds.  * `standard` - The latency is standard, with a delay of 15-20 seconds. 
 	Latency string `json:"latency"`
 	// The unique ID for the registered viewer.
 	LeadUuid string `json:"lead_uuid"`
@@ -66,36 +66,36 @@ type LiveEvent struct {
 	// _This field is deprecated in favor of the following method:_ [Get all the destinations of a one-time live event](https://developer.vimeo.com/api/reference/live#get_one_time_event_destinations).
 	LiveDestinations []string `json:"live_destinations"`
 	// Whether the low-latency feature is enabled.
-	LowLatency bool              `json:"low_latency"`
-	Metadata   LiveEventMetadata `json:"metadata"`
+	LowLatency bool `json:"low_latency"`
+	Metadata LiveEventMetadata `json:"metadata"`
 	// The date in ISO 8601 format on which the next occurrence of the event is expected to be live.
-	NextOccurrenceTime NullableString                `json:"next_occurrence_time"`
-	ParentFolder       NullableLiveEventParentFolder `json:"parent_folder"`
-	Pictures           Picture                       `json:"pictures"`
-	// The order in which the videos inside the event appear in the playlist.  Option descriptions:  * `added_first` - The videos appear according to when they were added to the event, with the most recently added first.  * `added_last` - The videos appear according to when they were added to the event, with the most recently added last.  * `alphabetical` - The videos appear alphabetically by their title.  * `arranged` - The videos appear as arranged by the owner of the event.  * `comments` - The videos appear according to their number of comments.  * `duration` - The videos appear in order of duration.  * `likes` - The videos appear according to their number of likes.  * `newest` - The videos appear in chronological order, with the newest first.  * `oldest` - The videos appear in chronological order, with the oldest first.  * `plays` - The videos appear according to their number of plays.
+	NextOccurrenceTime NullableString `json:"next_occurrence_time"`
+	ParentFolder NullableLiveEventParentFolder `json:"parent_folder"`
+	Pictures Picture `json:"pictures"`
+	// The order in which the videos inside the event appear in the playlist.  Option descriptions:  * `added_first` - The videos appear according to when they were added to the event, with the most recently added first.  * `added_last` - The videos appear according to when they were added to the event, with the most recently added last.  * `alphabetical` - The videos appear alphabetically by their title.  * `arranged` - The videos appear as arranged by the owner of the event.  * `comments` - The videos appear according to their number of comments.  * `duration` - The videos appear in order of duration.  * `likes` - The videos appear according to their number of likes.  * `newest` - The videos appear in chronological order, with the newest first.  * `oldest` - The videos appear in chronological order, with the oldest first.  * `plays` - The videos appear according to their number of plays. 
 	PlaylistSort string `json:"playlist_sort"`
-	// The preferred streaming method.  Option descriptions:  * `browser` - Stream in the browser.  * `encoder` - Stream by the encoder.
+	// The preferred streaming method.  Option descriptions:  * `browser` - Stream in the browser.  * `encoder` - Stream by the encoder. 
 	PreferredStreamMethod string `json:"preferred_stream_method"`
 	// The upstream RTMP link. Send your live content to this link to create a live video on the event.
 	RtmpLink NullableString `json:"rtmp_link"`
 	// Whether to preview the RTMP stream before the event goes live.
 	RtmpPreview bool `json:"rtmp_preview"`
 	// The upstream RTMPS link. Send your live content to this link to create a live video on the event.
-	RtmpsLink NullableString    `json:"rtmps_link"`
-	Schedule  LiveEventSchedule `json:"schedule"`
+	RtmpsLink NullableString `json:"rtmps_link"`
+	Schedule LiveEventSchedule `json:"schedule"`
 	// Whether the scheduled playback feature is enabled.
 	ScheduledPlayback bool `json:"scheduled_playback"`
-	// The status of the event.  Option descriptions:  * `ended` - The user ended the event.  * `started` - The user started the event.
+	// The status of the event.  Option descriptions:  * `ended` - The user ended the event.  * `started` - The user started the event. 
 	Status NullableString `json:"status"`
 	// The description of the next video streamed to the event.
 	StreamDescription NullableString `json:"stream_description"`
 	// The stream key used in conjunction with the RTMP and RTMPS links.
 	StreamKey NullableString `json:"stream_key"`
-	// The stream mode of the event.  Option descriptions:  * `live` - The stream is live playback.  * `record` - The stream is in record mode.  * `simulive` - The stream is scheduled media playback.
+	// The stream mode of the event.  Option descriptions:  * `live` - The stream is live playback.  * `record` - The stream is in record mode.  * `simulive` - The stream is scheduled media playback. 
 	StreamMode string `json:"stream_mode"`
 	// The password that anyone can use to access the videos generated by streaming to the event.
-	StreamPassword NullableString         `json:"stream_password"`
-	StreamPrivacy  LiveEventStreamPrivacy `json:"stream_privacy"`
+	StreamPassword NullableString `json:"stream_password"`
+	StreamPrivacy LiveEventStreamPrivacy `json:"stream_privacy"`
 	// The title of the next video streamed to the event. This field applies only when **automatically_title_stream** is `false`.
 	StreamTitle string `json:"stream_title"`
 	// The event's video. An event always has a video, which is either in a pre-live state (ready to be streamed to) or in a live state (which is currently being streamed to).
@@ -109,8 +109,8 @@ type LiveEvent struct {
 	// Whether 24/7 streaming is enabled for the event.
 	UnlimitedDuration bool `json:"unlimited_duration"`
 	// The event's canonical relative URI.
-	Uri  string `json:"uri"`
-	User User   `json:"user"`
+	Uri string `json:"uri"`
+	User User `json:"user"`
 	// The URI to access the event on Vimeo with or without an unlisted hash.
 	ViewLink string `json:"view_link"`
 	// Information about the associated webinar.
@@ -1480,7 +1480,7 @@ func (o *LiveEvent) SetWebinar(v []string) {
 }
 
 func (o LiveEvent) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1593,3 +1593,5 @@ func (v *NullableLiveEvent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

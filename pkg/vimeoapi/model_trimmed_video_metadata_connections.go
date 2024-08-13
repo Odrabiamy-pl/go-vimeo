@@ -20,8 +20,8 @@ var _ MappedNullable = &TrimmedVideoMetadataConnections{}
 // TrimmedVideoMetadataConnections struct for TrimmedVideoMetadataConnections
 type TrimmedVideoMetadataConnections struct {
 	CreatedVersion TrimmedVideoMetadataConnectionsCreatedVersion `json:"created_version"`
-	RootVersion    TrimmedVideoMetadataConnectionsRootVersion    `json:"root_version"`
-	Video          TrimmedVideoMetadataConnectionsVideo          `json:"video"`
+	RootVersion TrimmedVideoMetadataConnectionsRootVersion `json:"root_version"`
+	Video TrimmedVideoMetadataConnectionsVideo `json:"video"`
 }
 
 // NewTrimmedVideoMetadataConnections instantiates a new TrimmedVideoMetadataConnections object
@@ -117,7 +117,7 @@ func (o *TrimmedVideoMetadataConnections) SetVideo(v TrimmedVideoMetadataConnect
 }
 
 func (o TrimmedVideoMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -167,3 +167,5 @@ func (v *NullableTrimmedVideoMetadataConnections) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

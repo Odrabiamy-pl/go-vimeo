@@ -21,7 +21,7 @@ var _ MappedNullable = &CreateLiveEventAlt1RequestSchedule{}
 type CreateLiveEventAlt1RequestSchedule struct {
 	// The time in ISO 8601 format when the event is expected to be live, with the zero UTC offset `Z`. This parameter is required when **schedule.type** is `weekly`.
 	DailyTime *string `json:"daily_time,omitempty"`
-	// How often the event is expected to be live.  Option descriptions:  * `single` - The event is live one time only.  * `weekly` - The event is live on a weekly basis.
+	// How often the event is expected to be live.  Option descriptions:  * `single` - The event is live one time only.  * `weekly` - The event is live on a weekly basis. 
 	Type *string `json:"type,omitempty"`
 	// A non-empty array of weekdays on which the event is expected to be live. Weekdays can range from 1 to 7, where 1 is Monday and 7 is Sunday. This parameter is required when **schedule.type** is `weekly`.
 	Weekdays []string `json:"weekdays,omitempty"`
@@ -141,7 +141,7 @@ func (o *CreateLiveEventAlt1RequestSchedule) SetWeekdays(v []string) {
 }
 
 func (o CreateLiveEventAlt1RequestSchedule) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,3 +197,5 @@ func (v *NullableCreateLiveEventAlt1RequestSchedule) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

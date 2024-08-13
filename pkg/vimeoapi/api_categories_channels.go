@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type CategoriesChannelsAPI interface {
 
 	/*
-		GetCategoryChannels Get all the channels in a category
+	GetCategoryChannels Get all the channels in a category
 
-		This method returns every channel that belongs to the specified category.
+	This method returns every channel that belongs to the specified category.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param category The name of the category.
-		@return ApiGetCategoryChannelsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@return ApiGetCategoryChannelsRequest
 	*/
 	GetCategoryChannels(ctx context.Context, category string) ApiGetCategoryChannelsRequest
 
@@ -41,17 +42,17 @@ type CategoriesChannelsAPI interface {
 type CategoriesChannelsAPIService service
 
 type ApiGetCategoryChannelsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService CategoriesChannelsAPI
-	category   string
-	direction  *string
-	page       *float32
-	perPage    *float32
-	query      *string
-	sort       *string
+	category string
+	direction *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetCategoryChannelsRequest) Direction(direction string) ApiGetCategoryChannelsRequest {
 	r.direction = &direction
 	return r
@@ -75,7 +76,7 @@ func (r ApiGetCategoryChannelsRequest) Query(query string) ApiGetCategoryChannel
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;videos&#x60; - Sort the results by number of videos.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;videos&#x60; - Sort the results by number of videos. 
 func (r ApiGetCategoryChannelsRequest) Sort(sort string) ApiGetCategoryChannelsRequest {
 	r.sort = &sort
 	return r
@@ -90,27 +91,26 @@ GetCategoryChannels Get all the channels in a category
 
 This method returns every channel that belongs to the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@return ApiGetCategoryChannelsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param category The name of the category.
+ @return ApiGetCategoryChannelsRequest
 */
 func (a *CategoriesChannelsAPIService) GetCategoryChannels(ctx context.Context, category string) ApiGetCategoryChannelsRequest {
 	return ApiGetCategoryChannelsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		category:   category,
+		ctx: ctx,
+		category: category,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Channel
+//  @return []Channel
 func (a *CategoriesChannelsAPIService) GetCategoryChannelsExecute(r ApiGetCategoryChannelsRequest) ([]Channel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Channel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Channel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesChannelsAPIService.GetCategoryChannels")
@@ -186,8 +186,8 @@ func (a *CategoriesChannelsAPIService) GetCategoryChannelsExecute(r ApiGetCatego
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

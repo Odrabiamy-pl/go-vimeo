@@ -19,7 +19,7 @@ var _ MappedNullable = &OnDemandPageEpisodes{}
 
 // OnDemandPageEpisodes Information about the On Demand page's episodes, if the page is for a series.
 type OnDemandPageEpisodes struct {
-	Buy  OnDemandPageEpisodesBuy  `json:"buy"`
+	Buy OnDemandPageEpisodesBuy `json:"buy"`
 	Rent OnDemandPageEpisodesRent `json:"rent"`
 }
 
@@ -91,7 +91,7 @@ func (o *OnDemandPageEpisodes) SetRent(v OnDemandPageEpisodesRent) {
 }
 
 func (o OnDemandPageEpisodes) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,3 +140,5 @@ func (v *NullableOnDemandPageEpisodes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

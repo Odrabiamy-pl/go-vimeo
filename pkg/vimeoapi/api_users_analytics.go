@@ -16,20 +16,21 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"reflect"
 	"strings"
+	"reflect"
 )
+
 
 type UsersAnalyticsAPI interface {
 
 	/*
-		GetUserAnalytics Get analytics for the user
+	GetUserAnalytics Get analytics for the user
 
-		This method returns analytic metrics for the authenticated user.
+	This method returns analytic metrics for the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiGetUserAnalyticsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetUserAnalyticsRequest
 	*/
 	GetUserAnalytics(ctx context.Context, userId int32) ApiGetUserAnalyticsRequest
 
@@ -38,12 +39,12 @@ type UsersAnalyticsAPI interface {
 	GetUserAnalyticsExecute(r ApiGetUserAnalyticsRequest) ([]Analytics, *http.Response, error)
 
 	/*
-		GetUserAnalyticsAlt1 Get analytics for the user
+	GetUserAnalyticsAlt1 Get analytics for the user
 
-		This method returns analytic metrics for the authenticated user.
+	This method returns analytic metrics for the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetUserAnalyticsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetUserAnalyticsAlt1Request
 	*/
 	GetUserAnalyticsAlt1(ctx context.Context) ApiGetUserAnalyticsAlt1Request
 
@@ -56,25 +57,25 @@ type UsersAnalyticsAPI interface {
 type UsersAnalyticsAPIService service
 
 type ApiGetUserAnalyticsRequest struct {
-	ctx                  context.Context
-	ApiService           UsersAnalyticsAPI
-	userId               int32
-	dimension            *string
-	from                 *string
-	to                   *string
-	direction            *string
-	filterContent        *string
-	filterCountries      *[]string
-	filterDeviceTypes    *[]string
-	filterEmbedDomains   *[]string
+	ctx context.Context
+	ApiService UsersAnalyticsAPI
+	userId int32
+	dimension *string
+	from *string
+	to *string
+	direction *string
+	filterContent *string
+	filterCountries *[]string
+	filterDeviceTypes *[]string
+	filterEmbedDomains *[]string
 	filterStreamingTypes *[]string
-	page                 *float32
-	perPage              *float32
-	sort                 *string
-	timeInterval         *string
+	page *float32
+	perPage *float32
+	sort *string
+	timeInterval *string
 }
 
-// The data dimension by which to group the results.  Option descriptions:  * &#x60;country&#x60; - Group the results by country.  * &#x60;embed_domain&#x60; - Group the results by embed domain.  * &#x60;total&#x60; - Group the results by the time range provided.  * &#x60;video&#x60; - Group the results by video.
+// The data dimension by which to group the results.  Option descriptions:  * &#x60;country&#x60; - Group the results by country.  * &#x60;embed_domain&#x60; - Group the results by embed domain.  * &#x60;total&#x60; - Group the results by the time range provided.  * &#x60;video&#x60; - Group the results by video. 
 func (r ApiGetUserAnalyticsRequest) Dimension(dimension string) ApiGetUserAnalyticsRequest {
 	r.dimension = &dimension
 	return r
@@ -92,7 +93,7 @@ func (r ApiGetUserAnalyticsRequest) To(to string) ApiGetUserAnalyticsRequest {
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetUserAnalyticsRequest) Direction(direction string) ApiGetUserAnalyticsRequest {
 	r.direction = &direction
 	return r
@@ -140,13 +141,13 @@ func (r ApiGetUserAnalyticsRequest) PerPage(perPage float32) ApiGetUserAnalytics
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;average_percent_watched&#x60; - Sort the results by mean seconds played.  * &#x60;average_time_watched&#x60; - Sort the results by mean percentage played.  * &#x60;comments&#x60; - Sort the results by the number of comments.  * &#x60;country&#x60; - Sort the results by country.  * &#x60;default&#x60; - Sort the results by the values of both the **dimension** and **time_interval** fields.  * &#x60;downloads&#x60; - Sort the results by the number of downloads.  * &#x60;embed_domain&#x60; - Sort the results by embed domain.  * &#x60;finishes&#x60; - Sort the results by the number of complete plays.  * &#x60;impressions&#x60; - Sort the results by the number of impressions.  * &#x60;like&#x60; - Sort the results by the number of likes.  * &#x60;time&#x60; - Sort the results by the value of the **start_date** field. This option is available only when the value of **time_interval** isn&#39;t &#x60;none&#x60;.  * &#x60;total_time_watched&#x60; - Sort the results by total seconds played.  * &#x60;unique_impressions&#x60; - Sort the results by unique impressions.  * &#x60;unique_viewers&#x60; - Sort the results by unique viewers.  * &#x60;video&#x60; - Sort the results by video ID.  * &#x60;views&#x60; - Sort the results by the number of views.
+// The way to sort the results.  Option descriptions:  * &#x60;average_percent_watched&#x60; - Sort the results by mean seconds played.  * &#x60;average_time_watched&#x60; - Sort the results by mean percentage played.  * &#x60;comments&#x60; - Sort the results by the number of comments.  * &#x60;country&#x60; - Sort the results by country.  * &#x60;default&#x60; - Sort the results by the values of both the **dimension** and **time_interval** fields.  * &#x60;downloads&#x60; - Sort the results by the number of downloads.  * &#x60;embed_domain&#x60; - Sort the results by embed domain.  * &#x60;finishes&#x60; - Sort the results by the number of complete plays.  * &#x60;impressions&#x60; - Sort the results by the number of impressions.  * &#x60;like&#x60; - Sort the results by the number of likes.  * &#x60;time&#x60; - Sort the results by the value of the **start_date** field. This option is available only when the value of **time_interval** isn&#39;t &#x60;none&#x60;.  * &#x60;total_time_watched&#x60; - Sort the results by total seconds played.  * &#x60;unique_impressions&#x60; - Sort the results by unique impressions.  * &#x60;unique_viewers&#x60; - Sort the results by unique viewers.  * &#x60;video&#x60; - Sort the results by video ID.  * &#x60;views&#x60; - Sort the results by the number of views. 
 func (r ApiGetUserAnalyticsRequest) Sort(sort string) ApiGetUserAnalyticsRequest {
 	r.sort = &sort
 	return r
 }
 
-// The interval by which to aggregate the data according to the specified data dimension. The default value is &#x60;none&#x60;.  Option descriptions:  * &#x60;day&#x60; - Aggregate the results by day according to the specified data dimension.  * &#x60;month&#x60; - Aggregate the results by month according to the specified data dimension.  * &#x60;none&#x60; - The results are not aggregated by time interval.  * &#x60;week&#x60; - Aggregate the results by week according to the specified data dimension.  * &#x60;year&#x60; - Aggregate the results by year according to the specified data dimension.
+// The interval by which to aggregate the data according to the specified data dimension. The default value is &#x60;none&#x60;.  Option descriptions:  * &#x60;day&#x60; - Aggregate the results by day according to the specified data dimension.  * &#x60;month&#x60; - Aggregate the results by month according to the specified data dimension.  * &#x60;none&#x60; - The results are not aggregated by time interval.  * &#x60;week&#x60; - Aggregate the results by week according to the specified data dimension.  * &#x60;year&#x60; - Aggregate the results by year according to the specified data dimension. 
 func (r ApiGetUserAnalyticsRequest) TimeInterval(timeInterval string) ApiGetUserAnalyticsRequest {
 	r.timeInterval = &timeInterval
 	return r
@@ -161,27 +162,26 @@ GetUserAnalytics Get analytics for the user
 
 This method returns analytic metrics for the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetUserAnalyticsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiGetUserAnalyticsRequest
 */
 func (a *UsersAnalyticsAPIService) GetUserAnalytics(ctx context.Context, userId int32) ApiGetUserAnalyticsRequest {
 	return ApiGetUserAnalyticsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Analytics
+//  @return []Analytics
 func (a *UsersAnalyticsAPIService) GetUserAnalyticsExecute(r ApiGetUserAnalyticsRequest) ([]Analytics, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Analytics
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Analytics
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAnalyticsAPIService.GetUserAnalytics")
@@ -325,24 +325,24 @@ func (a *UsersAnalyticsAPIService) GetUserAnalyticsExecute(r ApiGetUserAnalytics
 }
 
 type ApiGetUserAnalyticsAlt1Request struct {
-	ctx                  context.Context
-	ApiService           UsersAnalyticsAPI
-	dimension            *string
-	from                 *string
-	to                   *string
-	direction            *string
-	filterContent        *string
-	filterCountries      *[]string
-	filterDeviceTypes    *[]string
-	filterEmbedDomains   *[]string
+	ctx context.Context
+	ApiService UsersAnalyticsAPI
+	dimension *string
+	from *string
+	to *string
+	direction *string
+	filterContent *string
+	filterCountries *[]string
+	filterDeviceTypes *[]string
+	filterEmbedDomains *[]string
 	filterStreamingTypes *[]string
-	page                 *float32
-	perPage              *float32
-	sort                 *string
-	timeInterval         *string
+	page *float32
+	perPage *float32
+	sort *string
+	timeInterval *string
 }
 
-// The data dimension by which to group the results.  Option descriptions:  * &#x60;country&#x60; - Group the results by country.  * &#x60;embed_domain&#x60; - Group the results by embed domain.  * &#x60;total&#x60; - Group the results by the time range provided.  * &#x60;video&#x60; - Group the results by video.
+// The data dimension by which to group the results.  Option descriptions:  * &#x60;country&#x60; - Group the results by country.  * &#x60;embed_domain&#x60; - Group the results by embed domain.  * &#x60;total&#x60; - Group the results by the time range provided.  * &#x60;video&#x60; - Group the results by video. 
 func (r ApiGetUserAnalyticsAlt1Request) Dimension(dimension string) ApiGetUserAnalyticsAlt1Request {
 	r.dimension = &dimension
 	return r
@@ -360,7 +360,7 @@ func (r ApiGetUserAnalyticsAlt1Request) To(to string) ApiGetUserAnalyticsAlt1Req
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetUserAnalyticsAlt1Request) Direction(direction string) ApiGetUserAnalyticsAlt1Request {
 	r.direction = &direction
 	return r
@@ -408,13 +408,13 @@ func (r ApiGetUserAnalyticsAlt1Request) PerPage(perPage float32) ApiGetUserAnaly
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;average_percent_watched&#x60; - Sort the results by mean seconds played.  * &#x60;average_time_watched&#x60; - Sort the results by mean percentage played.  * &#x60;comments&#x60; - Sort the results by the number of comments.  * &#x60;country&#x60; - Sort the results by country.  * &#x60;default&#x60; - Sort the results by the values of both the **dimension** and **time_interval** fields.  * &#x60;downloads&#x60; - Sort the results by the number of downloads.  * &#x60;embed_domain&#x60; - Sort the results by embed domain.  * &#x60;finishes&#x60; - Sort the results by the number of complete plays.  * &#x60;impressions&#x60; - Sort the results by the number of impressions.  * &#x60;like&#x60; - Sort the results by the number of likes.  * &#x60;time&#x60; - Sort the results by the value of the **start_date** field. This option is available only when the value of **time_interval** isn&#39;t &#x60;none&#x60;.  * &#x60;total_time_watched&#x60; - Sort the results by total seconds played.  * &#x60;unique_impressions&#x60; - Sort the results by unique impressions.  * &#x60;unique_viewers&#x60; - Sort the results by unique viewers.  * &#x60;video&#x60; - Sort the results by video ID.  * &#x60;views&#x60; - Sort the results by the number of views.
+// The way to sort the results.  Option descriptions:  * &#x60;average_percent_watched&#x60; - Sort the results by mean seconds played.  * &#x60;average_time_watched&#x60; - Sort the results by mean percentage played.  * &#x60;comments&#x60; - Sort the results by the number of comments.  * &#x60;country&#x60; - Sort the results by country.  * &#x60;default&#x60; - Sort the results by the values of both the **dimension** and **time_interval** fields.  * &#x60;downloads&#x60; - Sort the results by the number of downloads.  * &#x60;embed_domain&#x60; - Sort the results by embed domain.  * &#x60;finishes&#x60; - Sort the results by the number of complete plays.  * &#x60;impressions&#x60; - Sort the results by the number of impressions.  * &#x60;like&#x60; - Sort the results by the number of likes.  * &#x60;time&#x60; - Sort the results by the value of the **start_date** field. This option is available only when the value of **time_interval** isn&#39;t &#x60;none&#x60;.  * &#x60;total_time_watched&#x60; - Sort the results by total seconds played.  * &#x60;unique_impressions&#x60; - Sort the results by unique impressions.  * &#x60;unique_viewers&#x60; - Sort the results by unique viewers.  * &#x60;video&#x60; - Sort the results by video ID.  * &#x60;views&#x60; - Sort the results by the number of views. 
 func (r ApiGetUserAnalyticsAlt1Request) Sort(sort string) ApiGetUserAnalyticsAlt1Request {
 	r.sort = &sort
 	return r
 }
 
-// The interval by which to aggregate the data according to the specified data dimension. The default value is &#x60;none&#x60;.  Option descriptions:  * &#x60;day&#x60; - Aggregate the results by day according to the specified data dimension.  * &#x60;month&#x60; - Aggregate the results by month according to the specified data dimension.  * &#x60;none&#x60; - The results are not aggregated by time interval.  * &#x60;week&#x60; - Aggregate the results by week according to the specified data dimension.  * &#x60;year&#x60; - Aggregate the results by year according to the specified data dimension.
+// The interval by which to aggregate the data according to the specified data dimension. The default value is &#x60;none&#x60;.  Option descriptions:  * &#x60;day&#x60; - Aggregate the results by day according to the specified data dimension.  * &#x60;month&#x60; - Aggregate the results by month according to the specified data dimension.  * &#x60;none&#x60; - The results are not aggregated by time interval.  * &#x60;week&#x60; - Aggregate the results by week according to the specified data dimension.  * &#x60;year&#x60; - Aggregate the results by year according to the specified data dimension. 
 func (r ApiGetUserAnalyticsAlt1Request) TimeInterval(timeInterval string) ApiGetUserAnalyticsAlt1Request {
 	r.timeInterval = &timeInterval
 	return r
@@ -429,25 +429,24 @@ GetUserAnalyticsAlt1 Get analytics for the user
 
 This method returns analytic metrics for the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserAnalyticsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetUserAnalyticsAlt1Request
 */
 func (a *UsersAnalyticsAPIService) GetUserAnalyticsAlt1(ctx context.Context) ApiGetUserAnalyticsAlt1Request {
 	return ApiGetUserAnalyticsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Analytics
+//  @return []Analytics
 func (a *UsersAnalyticsAPIService) GetUserAnalyticsAlt1Execute(r ApiGetUserAnalyticsAlt1Request) ([]Analytics, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Analytics
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Analytics
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAnalyticsAPIService.GetUserAnalyticsAlt1")

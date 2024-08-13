@@ -23,9 +23,9 @@ type UserUploadQuotaSpace struct {
 	Free float32 `json:"free"`
 	// The maximum number of bytes or videos allotted to the authenticated user's upload quota.
 	Max NullableFloat32 `json:"max"`
-	// The type of quota for the values of the **upload_quota.space** field.  Option descriptions:  * `lifetime` - The quota type is lifetime.  * `periodic` - The quota type is periodic.
+	// The type of quota for the values of the **upload_quota.space** field.  Option descriptions:  * `lifetime` - The quota type is lifetime.  * `periodic` - The quota type is periodic. 
 	Showing string `json:"showing"`
-	// The unit that's used to compute quota.  Option descriptions:  * `video_count` - The quota is calculated using the count of the videos.  * `video_size` - The quota is calculated using the byte size of the videos.
+	// The unit that's used to compute quota.  Option descriptions:  * `video_count` - The quota is calculated using the count of the videos.  * `video_size` - The quota is calculated using the byte size of the videos. 
 	Unit NullableString `json:"unit"`
 	// The number of bytes or videos that the authenticated user has already uploaded against their quota.
 	Used float32 `json:"used"`
@@ -178,7 +178,7 @@ func (o *UserUploadQuotaSpace) SetUsed(v float32) {
 }
 
 func (o UserUploadQuotaSpace) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,3 +230,5 @@ func (v *NullableUserUploadQuotaSpace) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

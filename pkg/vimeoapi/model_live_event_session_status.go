@@ -23,12 +23,12 @@ type LiveEventSessionStatus struct {
 	// Whether the current user can manage the event.
 	CanManage bool `json:"can_manage"`
 	// The ID of the live video.
-	Id       float32                        `json:"id"`
-	Ingest   LiveEventSessionStatusIngest   `json:"ingest"`
+	Id float32 `json:"id"`
+	Ingest LiveEventSessionStatusIngest `json:"ingest"`
 	Metering LiveEventSessionStatusMetering `json:"metering"`
-	// The status of the live event.  Option descriptions:  * `ended` - The live event has ended.  * `started` - The live event has started.
+	// The status of the live event.  Option descriptions:  * `ended` - The live event has ended.  * `started` - The live event has started. 
 	Status NullableString `json:"status"`
-	// The stream mode of the event.  Option descriptions:  * `live` - The stream is live playback.  * `record` - The stream is in record mode.  * `simulive` - The stream is scheduled media playback.
+	// The stream mode of the event.  Option descriptions:  * `live` - The stream is live playback.  * `record` - The stream is in record mode.  * `simulive` - The stream is scheduled media playback. 
 	StreamMode string `json:"stream_mode"`
 }
 
@@ -227,7 +227,7 @@ func (o *LiveEventSessionStatus) SetStreamMode(v string) {
 }
 
 func (o LiveEventSessionStatus) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -281,3 +281,5 @@ func (v *NullableLiveEventSessionStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

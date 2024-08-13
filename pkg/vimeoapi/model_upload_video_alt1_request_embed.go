@@ -21,12 +21,12 @@ var _ MappedNullable = &UploadVideoAlt1RequestEmbed{}
 type UploadVideoAlt1RequestEmbed struct {
 	Buttons *CreateEmbedPresetsAlt1RequestEmbedButtons `json:"buttons,omitempty"`
 	// The main color of the embeddable player.
-	Color     *string                               `json:"color,omitempty"`
+	Color *string `json:"color,omitempty"`
 	EndScreen *UploadVideoAlt1RequestEmbedEndScreen `json:"end_screen,omitempty"`
-	Logos     *UploadVideoAlt1RequestEmbedLogos     `json:"logos,omitempty"`
+	Logos *UploadVideoAlt1RequestEmbedLogos `json:"logos,omitempty"`
 	// Whether to show the playbar on the embeddable player.
-	Playbar *bool                                    `json:"playbar,omitempty"`
-	Title   *CreateEmbedPresetsAlt1RequestEmbedTitle `json:"title,omitempty"`
+	Playbar *bool `json:"playbar,omitempty"`
+	Title *CreateEmbedPresetsAlt1RequestEmbedTitle `json:"title,omitempty"`
 	// Whether to show the volume selector on the embeddable player.
 	Volume *bool `json:"volume,omitempty"`
 }
@@ -273,7 +273,7 @@ func (o *UploadVideoAlt1RequestEmbed) SetVolume(v bool) {
 }
 
 func (o UploadVideoAlt1RequestEmbed) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -341,3 +341,5 @@ func (v *NullableUploadVideoAlt1RequestEmbed) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

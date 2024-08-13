@@ -19,8 +19,8 @@ var _ MappedNullable = &WebinarEmailSettingsEmailRegistrationConfirmation{}
 
 // WebinarEmailSettingsEmailRegistrationConfirmation The email customization details for the webinar registration confirmation email.
 type WebinarEmailSettingsEmailRegistrationConfirmation struct {
-	Custom  NullableWebinarEmailSettingsEmailRegistrationConfirmationCustom `json:"custom"`
-	Default WebinarEmailContent                                             `json:"default"`
+	Custom NullableWebinarEmailSettingsEmailRegistrationConfirmationCustom `json:"custom"`
+	Default WebinarEmailContent `json:"default"`
 }
 
 // NewWebinarEmailSettingsEmailRegistrationConfirmation instantiates a new WebinarEmailSettingsEmailRegistrationConfirmation object
@@ -93,7 +93,7 @@ func (o *WebinarEmailSettingsEmailRegistrationConfirmation) SetDefault(v Webinar
 }
 
 func (o WebinarEmailSettingsEmailRegistrationConfirmation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,3 +142,5 @@ func (v *NullableWebinarEmailSettingsEmailRegistrationConfirmation) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

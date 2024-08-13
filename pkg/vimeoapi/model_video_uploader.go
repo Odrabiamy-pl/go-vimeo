@@ -22,7 +22,7 @@ type VideoUploader struct {
 	// The profile link of the user who uploaded the video.
 	Link string `json:"link"`
 	// The display name of the user who uploaded the video.
-	Name     string  `json:"name"`
+	Name string `json:"name"`
 	Pictures Picture `json:"pictures"`
 }
 
@@ -119,7 +119,7 @@ func (o *VideoUploader) SetPictures(v Picture) {
 }
 
 func (o VideoUploader) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,3 +169,5 @@ func (v *NullableVideoUploader) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

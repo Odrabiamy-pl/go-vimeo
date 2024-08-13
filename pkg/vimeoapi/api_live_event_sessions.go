@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type LiveEventSessionsAPI interface {
 
 	/*
-		GetLiveIngestStatus Get the ingest status of a one-time live event
+	GetLiveIngestStatus Get the ingest status of a one-time live event
 
-		This method returns the ingest status of the specified event.
+	This method returns the ingest status of the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the event.
-		@return ApiGetLiveIngestStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the event.
+	@return ApiGetLiveIngestStatusRequest
 	*/
 	GetLiveIngestStatus(ctx context.Context, videoId int32) ApiGetLiveIngestStatusRequest
 
@@ -41,9 +42,9 @@ type LiveEventSessionsAPI interface {
 type LiveEventSessionsAPIService service
 
 type ApiGetLiveIngestStatusRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService LiveEventSessionsAPI
-	videoId    int32
+	videoId int32
 }
 
 func (r ApiGetLiveIngestStatusRequest) Execute() (*LiveEventSessionStatus, *http.Response, error) {
@@ -55,27 +56,26 @@ GetLiveIngestStatus Get the ingest status of a one-time live event
 
 This method returns the ingest status of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the event.
-	@return ApiGetLiveIngestStatusRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the event.
+ @return ApiGetLiveIngestStatusRequest
 */
 func (a *LiveEventSessionsAPIService) GetLiveIngestStatus(ctx context.Context, videoId int32) ApiGetLiveIngestStatusRequest {
 	return ApiGetLiveIngestStatusRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventSessionStatus
+//  @return LiveEventSessionStatus
 func (a *LiveEventSessionsAPIService) GetLiveIngestStatusExecute(r ApiGetLiveIngestStatusRequest) (*LiveEventSessionStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventSessionStatus
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventSessionStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventSessionsAPIService.GetLiveIngestStatus")

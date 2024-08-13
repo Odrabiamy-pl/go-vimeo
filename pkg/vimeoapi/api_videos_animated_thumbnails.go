@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type VideosAnimatedThumbnailsAPI interface {
 
 	/*
-		CreateAnimatedThumbset Create a set of animated thumbnails for a video
+	CreateAnimatedThumbset Create a set of animated thumbnails for a video
 
-		This method creates a set of animated thumbnails for the specified video. Please note that you can't create more than four sets of animated thumbnails for the same video.
+	This method creates a set of animated thumbnails for the specified video. Please note that you can't create more than four sets of animated thumbnails for the same video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiCreateAnimatedThumbsetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateAnimatedThumbsetRequest
 	*/
 	CreateAnimatedThumbset(ctx context.Context, videoId int32) ApiCreateAnimatedThumbsetRequest
 
@@ -37,14 +38,14 @@ type VideosAnimatedThumbnailsAPI interface {
 	CreateAnimatedThumbsetExecute(r ApiCreateAnimatedThumbsetRequest) (*AnimatedThumbset, *http.Response, error)
 
 	/*
-		DeleteAnimatedThumbset Delete a set of animated thumbnails for a video
+	DeleteAnimatedThumbset Delete a set of animated thumbnails for a video
 
-		This method deletes a set of animated thumbnails for the specified video.
+	This method deletes a set of animated thumbnails for the specified video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param pictureId The UUID of the set of animated thumbnails.
-		@param videoId The ID of the video.
-		@return ApiDeleteAnimatedThumbsetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pictureId The UUID of the set of animated thumbnails.
+	@param videoId The ID of the video.
+	@return ApiDeleteAnimatedThumbsetRequest
 	*/
 	DeleteAnimatedThumbset(ctx context.Context, pictureId string, videoId int32) ApiDeleteAnimatedThumbsetRequest
 
@@ -52,13 +53,13 @@ type VideosAnimatedThumbnailsAPI interface {
 	DeleteAnimatedThumbsetExecute(r ApiDeleteAnimatedThumbsetRequest) (*http.Response, error)
 
 	/*
-		GetAllAnimatedThumbset Get all the animated thumbnails of a video
+	GetAllAnimatedThumbset Get all the animated thumbnails of a video
 
-		This method returns all the sets of animated thumbnails associated with the specified video. The authenticated user must be the owner of the video.
+	This method returns all the sets of animated thumbnails associated with the specified video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiGetAllAnimatedThumbsetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetAllAnimatedThumbsetRequest
 	*/
 	GetAllAnimatedThumbset(ctx context.Context, videoId int32) ApiGetAllAnimatedThumbsetRequest
 
@@ -67,14 +68,14 @@ type VideosAnimatedThumbnailsAPI interface {
 	GetAllAnimatedThumbsetExecute(r ApiGetAllAnimatedThumbsetRequest) ([]AnimatedThumbset, *http.Response, error)
 
 	/*
-		GetAnimatedThumbset Get a specific set of animated thumbnails
+	GetAnimatedThumbset Get a specific set of animated thumbnails
 
-		This method returns a particular set of animated thumbnails associated with the specified video. The authenticated user must be the owner of the video.
+	This method returns a particular set of animated thumbnails associated with the specified video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param pictureId The UUID of the set of animated thumbnails.
-		@param videoId The ID of the video.
-		@return ApiGetAnimatedThumbsetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pictureId The UUID of the set of animated thumbnails.
+	@param videoId The ID of the video.
+	@return ApiGetAnimatedThumbsetRequest
 	*/
 	GetAnimatedThumbset(ctx context.Context, pictureId string, videoId int32) ApiGetAnimatedThumbsetRequest
 
@@ -83,14 +84,14 @@ type VideosAnimatedThumbnailsAPI interface {
 	GetAnimatedThumbsetExecute(r ApiGetAnimatedThumbsetRequest) (*AnimatedThumbset, *http.Response, error)
 
 	/*
-		GetAnimatedThumbsetStatus Get the status of a set of animated thumbnails
+	GetAnimatedThumbsetStatus Get the status of a set of animated thumbnails
 
-		This method returns the status of a particular set of animated thumbnails associated with the specified video. The status indicates whether the thumbnails are ready to use. The authenticated user must be the owner of the video.
+	This method returns the status of a particular set of animated thumbnails associated with the specified video. The status indicates whether the thumbnails are ready to use. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param pictureId The UUID of the set of animated thumbnails.
-		@param videoId The ID of the video.
-		@return ApiGetAnimatedThumbsetStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pictureId The UUID of the set of animated thumbnails.
+	@param videoId The ID of the video.
+	@return ApiGetAnimatedThumbsetStatusRequest
 	*/
 	GetAnimatedThumbsetStatus(ctx context.Context, pictureId string, videoId int32) ApiGetAnimatedThumbsetStatusRequest
 
@@ -103,9 +104,9 @@ type VideosAnimatedThumbnailsAPI interface {
 type VideosAnimatedThumbnailsAPIService service
 
 type ApiCreateAnimatedThumbsetRequest struct {
-	ctx                           context.Context
-	ApiService                    VideosAnimatedThumbnailsAPI
-	videoId                       int32
+	ctx context.Context
+	ApiService VideosAnimatedThumbnailsAPI
+	videoId int32
 	createAnimatedThumbsetRequest *CreateAnimatedThumbsetRequest
 }
 
@@ -123,27 +124,26 @@ CreateAnimatedThumbset Create a set of animated thumbnails for a video
 
 This method creates a set of animated thumbnails for the specified video. Please note that you can't create more than four sets of animated thumbnails for the same video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateAnimatedThumbsetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiCreateAnimatedThumbsetRequest
 */
 func (a *VideosAnimatedThumbnailsAPIService) CreateAnimatedThumbset(ctx context.Context, videoId int32) ApiCreateAnimatedThumbsetRequest {
 	return ApiCreateAnimatedThumbsetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AnimatedThumbset
+//  @return AnimatedThumbset
 func (a *VideosAnimatedThumbnailsAPIService) CreateAnimatedThumbsetExecute(r ApiCreateAnimatedThumbsetRequest) (*AnimatedThumbset, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AnimatedThumbset
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AnimatedThumbset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosAnimatedThumbnailsAPIService.CreateAnimatedThumbset")
@@ -209,8 +209,8 @@ func (a *VideosAnimatedThumbnailsAPIService) CreateAnimatedThumbsetExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -220,8 +220,8 @@ func (a *VideosAnimatedThumbnailsAPIService) CreateAnimatedThumbsetExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -231,8 +231,8 @@ func (a *VideosAnimatedThumbnailsAPIService) CreateAnimatedThumbsetExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -250,10 +250,10 @@ func (a *VideosAnimatedThumbnailsAPIService) CreateAnimatedThumbsetExecute(r Api
 }
 
 type ApiDeleteAnimatedThumbsetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
-	pictureId  string
-	videoId    int32
+	pictureId string
+	videoId int32
 }
 
 func (r ApiDeleteAnimatedThumbsetRequest) Execute() (*http.Response, error) {
@@ -265,26 +265,26 @@ DeleteAnimatedThumbset Delete a set of animated thumbnails for a video
 
 This method deletes a set of animated thumbnails for the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param pictureId The UUID of the set of animated thumbnails.
-	@param videoId The ID of the video.
-	@return ApiDeleteAnimatedThumbsetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pictureId The UUID of the set of animated thumbnails.
+ @param videoId The ID of the video.
+ @return ApiDeleteAnimatedThumbsetRequest
 */
 func (a *VideosAnimatedThumbnailsAPIService) DeleteAnimatedThumbset(ctx context.Context, pictureId string, videoId int32) ApiDeleteAnimatedThumbsetRequest {
 	return ApiDeleteAnimatedThumbsetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		pictureId:  pictureId,
-		videoId:    videoId,
+		ctx: ctx,
+		pictureId: pictureId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosAnimatedThumbnailsAPIService) DeleteAnimatedThumbsetExecute(r ApiDeleteAnimatedThumbsetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosAnimatedThumbnailsAPIService.DeleteAnimatedThumbset")
@@ -346,8 +346,8 @@ func (a *VideosAnimatedThumbnailsAPIService) DeleteAnimatedThumbsetExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -356,11 +356,11 @@ func (a *VideosAnimatedThumbnailsAPIService) DeleteAnimatedThumbsetExecute(r Api
 }
 
 type ApiGetAllAnimatedThumbsetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
-	videoId    int32
-	page       *float32
-	perPage    *float32
+	videoId int32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -384,27 +384,26 @@ GetAllAnimatedThumbset Get all the animated thumbnails of a video
 
 This method returns all the sets of animated thumbnails associated with the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetAllAnimatedThumbsetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiGetAllAnimatedThumbsetRequest
 */
 func (a *VideosAnimatedThumbnailsAPIService) GetAllAnimatedThumbset(ctx context.Context, videoId int32) ApiGetAllAnimatedThumbsetRequest {
 	return ApiGetAllAnimatedThumbsetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []AnimatedThumbset
+//  @return []AnimatedThumbset
 func (a *VideosAnimatedThumbnailsAPIService) GetAllAnimatedThumbsetExecute(r ApiGetAllAnimatedThumbsetRequest) ([]AnimatedThumbset, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []AnimatedThumbset
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []AnimatedThumbset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosAnimatedThumbnailsAPIService.GetAllAnimatedThumbset")
@@ -471,8 +470,8 @@ func (a *VideosAnimatedThumbnailsAPIService) GetAllAnimatedThumbsetExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -490,10 +489,10 @@ func (a *VideosAnimatedThumbnailsAPIService) GetAllAnimatedThumbsetExecute(r Api
 }
 
 type ApiGetAnimatedThumbsetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
-	pictureId  string
-	videoId    int32
+	pictureId string
+	videoId int32
 }
 
 func (r ApiGetAnimatedThumbsetRequest) Execute() (*AnimatedThumbset, *http.Response, error) {
@@ -505,29 +504,28 @@ GetAnimatedThumbset Get a specific set of animated thumbnails
 
 This method returns a particular set of animated thumbnails associated with the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param pictureId The UUID of the set of animated thumbnails.
-	@param videoId The ID of the video.
-	@return ApiGetAnimatedThumbsetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pictureId The UUID of the set of animated thumbnails.
+ @param videoId The ID of the video.
+ @return ApiGetAnimatedThumbsetRequest
 */
 func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbset(ctx context.Context, pictureId string, videoId int32) ApiGetAnimatedThumbsetRequest {
 	return ApiGetAnimatedThumbsetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		pictureId:  pictureId,
-		videoId:    videoId,
+		ctx: ctx,
+		pictureId: pictureId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AnimatedThumbset
+//  @return AnimatedThumbset
 func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbsetExecute(r ApiGetAnimatedThumbsetRequest) (*AnimatedThumbset, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AnimatedThumbset
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AnimatedThumbset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosAnimatedThumbnailsAPIService.GetAnimatedThumbset")
@@ -589,8 +587,8 @@ func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbsetExecute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -608,10 +606,10 @@ func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbsetExecute(r ApiGet
 }
 
 type ApiGetAnimatedThumbsetStatusRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosAnimatedThumbnailsAPI
-	pictureId  string
-	videoId    int32
+	pictureId string
+	videoId int32
 }
 
 func (r ApiGetAnimatedThumbsetStatusRequest) Execute() (*AnimatedThumbset, *http.Response, error) {
@@ -623,29 +621,28 @@ GetAnimatedThumbsetStatus Get the status of a set of animated thumbnails
 
 This method returns the status of a particular set of animated thumbnails associated with the specified video. The status indicates whether the thumbnails are ready to use. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param pictureId The UUID of the set of animated thumbnails.
-	@param videoId The ID of the video.
-	@return ApiGetAnimatedThumbsetStatusRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pictureId The UUID of the set of animated thumbnails.
+ @param videoId The ID of the video.
+ @return ApiGetAnimatedThumbsetStatusRequest
 */
 func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbsetStatus(ctx context.Context, pictureId string, videoId int32) ApiGetAnimatedThumbsetStatusRequest {
 	return ApiGetAnimatedThumbsetStatusRequest{
 		ApiService: a,
-		ctx:        ctx,
-		pictureId:  pictureId,
-		videoId:    videoId,
+		ctx: ctx,
+		pictureId: pictureId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AnimatedThumbset
+//  @return AnimatedThumbset
 func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbsetStatusExecute(r ApiGetAnimatedThumbsetStatusRequest) (*AnimatedThumbset, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AnimatedThumbset
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AnimatedThumbset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosAnimatedThumbnailsAPIService.GetAnimatedThumbsetStatus")
@@ -707,8 +704,8 @@ func (a *VideosAnimatedThumbnailsAPIService) GetAnimatedThumbsetStatusExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

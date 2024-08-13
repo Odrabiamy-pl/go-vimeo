@@ -73,7 +73,7 @@ func (o *CreateLiveEventThumbnailAlt1Request) SetActive(v bool) {
 }
 
 func (o CreateLiveEventThumbnailAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableCreateLiveEventThumbnailAlt1Request) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

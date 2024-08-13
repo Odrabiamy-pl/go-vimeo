@@ -22,9 +22,9 @@ type SubscriptionPlansPromotion struct {
 	// The promotion code.
 	Code string `json:"code"`
 	// The promotion discount percentage.
-	Discount float32                         `json:"discount"`
-	Price    SubscriptionPlansPromotionPrice `json:"price"`
-	Uri      SubscriptionPlansPromotionUri   `json:"uri"`
+	Discount float32 `json:"discount"`
+	Price SubscriptionPlansPromotionPrice `json:"price"`
+	Uri SubscriptionPlansPromotionUri `json:"uri"`
 }
 
 // NewSubscriptionPlansPromotion instantiates a new SubscriptionPlansPromotion object
@@ -145,7 +145,7 @@ func (o *SubscriptionPlansPromotion) SetUri(v SubscriptionPlansPromotionUri) {
 }
 
 func (o SubscriptionPlansPromotion) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,3 +196,5 @@ func (v *NullableSubscriptionPlansPromotion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

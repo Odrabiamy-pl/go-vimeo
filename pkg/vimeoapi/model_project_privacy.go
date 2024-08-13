@@ -19,7 +19,7 @@ var _ MappedNullable = &ProjectPrivacy{}
 
 // ProjectPrivacy The privacy settings of the folder.
 type ProjectPrivacy struct {
-	// The privacy setting for accessing the folder.  Option descriptions:  * `anybody` - Anyone with the link can access the contents of the folder. This privacy setting appears as `Public` on the Vimeo front end.  * `nobody` - Only the owner and those team members that the owner has explicitly invited can access the contents of the folder. This privacy setting appears as `Private` on the Vimeo front end.  * `team` - Only those team members with the link can access the contents of the folder.
+	// The privacy setting for accessing the folder.  Option descriptions:  * `anybody` - Anyone with the link can access the contents of the folder. This privacy setting appears as `Public` on the Vimeo front end.  * `nobody` - Only the owner and those team members that the owner has explicitly invited can access the contents of the folder. This privacy setting appears as `Private` on the Vimeo front end.  * `team` - Only those team members with the link can access the contents of the folder. 
 	View string `json:"view"`
 }
 
@@ -66,7 +66,7 @@ func (o *ProjectPrivacy) SetView(v string) {
 }
 
 func (o ProjectPrivacy) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,3 +114,5 @@ func (v *NullableProjectPrivacy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

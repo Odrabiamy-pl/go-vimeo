@@ -19,7 +19,7 @@ var _ MappedNullable = &TeamMembershipMetadataConnections{}
 
 // TeamMembershipMetadataConnections A list of resource URIs related to the user.
 type TeamMembershipMetadataConnections struct {
-	Owner              TeamMembershipMetadataConnectionsOwner              `json:"owner"`
+	Owner TeamMembershipMetadataConnectionsOwner `json:"owner"`
 	PersonalTeamFolder TeamMembershipMetadataConnectionsPersonalTeamFolder `json:"personal_team_folder"`
 }
 
@@ -91,7 +91,7 @@ func (o *TeamMembershipMetadataConnections) SetPersonalTeamFolder(v TeamMembersh
 }
 
 func (o TeamMembershipMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,3 +140,5 @@ func (v *NullableTeamMembershipMetadataConnections) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

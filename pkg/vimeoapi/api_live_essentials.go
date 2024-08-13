@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type LiveEssentialsAPI interface {
 
 	/*
-		CreateLiveEvent Create a live event
+	CreateLiveEvent Create a live event
 
-		This method creates a new event for the authenticated user.
+	This method creates a new event for the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiCreateLiveEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiCreateLiveEventRequest
 	*/
 	CreateLiveEvent(ctx context.Context, userId int32) ApiCreateLiveEventRequest
 
@@ -37,12 +38,12 @@ type LiveEssentialsAPI interface {
 	CreateLiveEventExecute(r ApiCreateLiveEventRequest) (*LiveEventRecurring, *http.Response, error)
 
 	/*
-		CreateLiveEventAlt1 Create a live event
+	CreateLiveEventAlt1 Create a live event
 
-		This method creates a new event for the authenticated user.
+	This method creates a new event for the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateLiveEventAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateLiveEventAlt1Request
 	*/
 	CreateLiveEventAlt1(ctx context.Context) ApiCreateLiveEventAlt1Request
 
@@ -51,12 +52,12 @@ type LiveEssentialsAPI interface {
 	CreateLiveEventAlt1Execute(r ApiCreateLiveEventAlt1Request) (*LiveEventRecurring, *http.Response, error)
 
 	/*
-		CreateLiveEventAlt2 Create a live event
+	CreateLiveEventAlt2 Create a live event
 
-		This method creates a new event for the authenticated user.
+	This method creates a new event for the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateLiveEventAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateLiveEventAlt2Request
 	*/
 	CreateLiveEventAlt2(ctx context.Context) ApiCreateLiveEventAlt2Request
 
@@ -65,14 +66,14 @@ type LiveEssentialsAPI interface {
 	CreateLiveEventAlt2Execute(r ApiCreateLiveEventAlt2Request) (*LiveEventRecurring, *http.Response, error)
 
 	/*
-		DeleteLiveEvent Delete a specific live event
+	DeleteLiveEvent Delete a specific live event
 
-		This method deletes a single event belonging to the authenticated user.
+	This method deletes a single event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiDeleteLiveEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiDeleteLiveEventRequest
 	*/
 	DeleteLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiDeleteLiveEventRequest
 
@@ -80,13 +81,13 @@ type LiveEssentialsAPI interface {
 	DeleteLiveEventExecute(r ApiDeleteLiveEventRequest) (*http.Response, error)
 
 	/*
-		DeleteLiveEventAlt1 Delete a specific live event
+	DeleteLiveEventAlt1 Delete a specific live event
 
-		This method deletes a single event belonging to the authenticated user.
+	This method deletes a single event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiDeleteLiveEventAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiDeleteLiveEventAlt1Request
 	*/
 	DeleteLiveEventAlt1(ctx context.Context, liveEventId float32) ApiDeleteLiveEventAlt1Request
 
@@ -94,13 +95,13 @@ type LiveEssentialsAPI interface {
 	DeleteLiveEventAlt1Execute(r ApiDeleteLiveEventAlt1Request) (*http.Response, error)
 
 	/*
-		DeleteLiveEventAlt2 Delete a specific live event
+	DeleteLiveEventAlt2 Delete a specific live event
 
-		This method deletes a single event belonging to the authenticated user.
+	This method deletes a single event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiDeleteLiveEventAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiDeleteLiveEventAlt2Request
 	*/
 	DeleteLiveEventAlt2(ctx context.Context, liveEventId float32) ApiDeleteLiveEventAlt2Request
 
@@ -108,13 +109,13 @@ type LiveEssentialsAPI interface {
 	DeleteLiveEventAlt2Execute(r ApiDeleteLiveEventAlt2Request) (*http.Response, error)
 
 	/*
-		DeleteLiveEvents Delete a list of live events
+	DeleteLiveEvents Delete a list of live events
 
-		This method deletes multiple events belonging to the authenticated user.
+	This method deletes multiple events belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiDeleteLiveEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiDeleteLiveEventsRequest
 	*/
 	DeleteLiveEvents(ctx context.Context, userId int32) ApiDeleteLiveEventsRequest
 
@@ -122,12 +123,12 @@ type LiveEssentialsAPI interface {
 	DeleteLiveEventsExecute(r ApiDeleteLiveEventsRequest) (*http.Response, error)
 
 	/*
-		DeleteLiveEventsAlt1 Delete a list of live events
+	DeleteLiveEventsAlt1 Delete a list of live events
 
-		This method deletes multiple events belonging to the authenticated user.
+	This method deletes multiple events belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiDeleteLiveEventsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteLiveEventsAlt1Request
 	*/
 	DeleteLiveEventsAlt1(ctx context.Context) ApiDeleteLiveEventsAlt1Request
 
@@ -135,12 +136,12 @@ type LiveEssentialsAPI interface {
 	DeleteLiveEventsAlt1Execute(r ApiDeleteLiveEventsAlt1Request) (*http.Response, error)
 
 	/*
-		DeleteLiveEventsAlt2 Delete a list of live events
+	DeleteLiveEventsAlt2 Delete a list of live events
 
-		This method deletes multiple events belonging to the authenticated user.
+	This method deletes multiple events belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiDeleteLiveEventsAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteLiveEventsAlt2Request
 	*/
 	DeleteLiveEventsAlt2(ctx context.Context) ApiDeleteLiveEventsAlt2Request
 
@@ -148,14 +149,14 @@ type LiveEssentialsAPI interface {
 	DeleteLiveEventsAlt2Execute(r ApiDeleteLiveEventsAlt2Request) (*http.Response, error)
 
 	/*
-		GetLiveEvent Get a specific live event
+	GetLiveEvent Get a specific live event
 
-		This method returns a single event belonging to the authenticated user.
+	This method returns a single event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiGetLiveEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiGetLiveEventRequest
 	*/
 	GetLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventRequest
 
@@ -164,13 +165,13 @@ type LiveEssentialsAPI interface {
 	GetLiveEventExecute(r ApiGetLiveEventRequest) (*LiveEventRecurring, *http.Response, error)
 
 	/*
-		GetLiveEventAlt1 Get a specific live event
+	GetLiveEventAlt1 Get a specific live event
 
-		This method returns a single event belonging to the authenticated user.
+	This method returns a single event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventAlt1Request
 	*/
 	GetLiveEventAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventAlt1Request
 
@@ -179,13 +180,13 @@ type LiveEssentialsAPI interface {
 	GetLiveEventAlt1Execute(r ApiGetLiveEventAlt1Request) (*LiveEventRecurring, *http.Response, error)
 
 	/*
-		GetLiveEventAlt2 Get a specific live event
+	GetLiveEventAlt2 Get a specific live event
 
-		This method returns a single event belonging to the authenticated user.
+	This method returns a single event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventAlt2Request
 	*/
 	GetLiveEventAlt2(ctx context.Context, liveEventId float32) ApiGetLiveEventAlt2Request
 
@@ -194,13 +195,13 @@ type LiveEssentialsAPI interface {
 	GetLiveEventAlt2Execute(r ApiGetLiveEventAlt2Request) (*LiveEventRecurring, *http.Response, error)
 
 	/*
-		GetLiveEvents Get all the live events that belong to the user
+	GetLiveEvents Get all the live events that belong to the user
 
-		The method returns every event belonging to the authenticated user.
+	The method returns every event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiGetLiveEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetLiveEventsRequest
 	*/
 	GetLiveEvents(ctx context.Context, userId int32) ApiGetLiveEventsRequest
 
@@ -209,12 +210,12 @@ type LiveEssentialsAPI interface {
 	GetLiveEventsExecute(r ApiGetLiveEventsRequest) ([]LiveEvent, *http.Response, error)
 
 	/*
-		GetLiveEventsAlt1 Get all the live events that belong to the user
+	GetLiveEventsAlt1 Get all the live events that belong to the user
 
-		The method returns every event belonging to the authenticated user.
+	The method returns every event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetLiveEventsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetLiveEventsAlt1Request
 	*/
 	GetLiveEventsAlt1(ctx context.Context) ApiGetLiveEventsAlt1Request
 
@@ -223,12 +224,12 @@ type LiveEssentialsAPI interface {
 	GetLiveEventsAlt1Execute(r ApiGetLiveEventsAlt1Request) ([]LiveEvent, *http.Response, error)
 
 	/*
-		GetLiveEventsAlt2 Get all the live events that belong to the user
+	GetLiveEventsAlt2 Get all the live events that belong to the user
 
-		The method returns every event belonging to the authenticated user.
+	The method returns every event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetLiveEventsAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetLiveEventsAlt2Request
 	*/
 	GetLiveEventsAlt2(ctx context.Context) ApiGetLiveEventsAlt2Request
 
@@ -237,14 +238,14 @@ type LiveEssentialsAPI interface {
 	GetLiveEventsAlt2Execute(r ApiGetLiveEventsAlt2Request) ([]LiveEvent, *http.Response, error)
 
 	/*
-		UpdateLiveEvent Update a live event
+	UpdateLiveEvent Update a live event
 
-		This method updates an event belonging to the authenticated user.
+	This method updates an event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiUpdateLiveEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiUpdateLiveEventRequest
 	*/
 	UpdateLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiUpdateLiveEventRequest
 
@@ -253,13 +254,13 @@ type LiveEssentialsAPI interface {
 	UpdateLiveEventExecute(r ApiUpdateLiveEventRequest) (*LiveEventRecurring, *http.Response, error)
 
 	/*
-		UpdateLiveEventAlt1 Update a live event
+	UpdateLiveEventAlt1 Update a live event
 
-		This method updates an event belonging to the authenticated user.
+	This method updates an event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiUpdateLiveEventAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiUpdateLiveEventAlt1Request
 	*/
 	UpdateLiveEventAlt1(ctx context.Context, liveEventId float32) ApiUpdateLiveEventAlt1Request
 
@@ -268,13 +269,13 @@ type LiveEssentialsAPI interface {
 	UpdateLiveEventAlt1Execute(r ApiUpdateLiveEventAlt1Request) (*LiveEventRecurring, *http.Response, error)
 
 	/*
-		UpdateLiveEventAlt2 Update a live event
+	UpdateLiveEventAlt2 Update a live event
 
-		This method updates an event belonging to the authenticated user.
+	This method updates an event belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiUpdateLiveEventAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiUpdateLiveEventAlt2Request
 	*/
 	UpdateLiveEventAlt2(ctx context.Context, liveEventId float32) ApiUpdateLiveEventAlt2Request
 
@@ -287,9 +288,9 @@ type LiveEssentialsAPI interface {
 type LiveEssentialsAPIService service
 
 type ApiCreateLiveEventRequest struct {
-	ctx                        context.Context
-	ApiService                 LiveEssentialsAPI
-	userId                     int32
+	ctx context.Context
+	ApiService LiveEssentialsAPI
+	userId int32
 	createLiveEventAlt1Request *CreateLiveEventAlt1Request
 }
 
@@ -307,27 +308,26 @@ CreateLiveEvent Create a live event
 
 This method creates a new event for the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiCreateLiveEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiCreateLiveEventRequest
 */
 func (a *LiveEssentialsAPIService) CreateLiveEvent(ctx context.Context, userId int32) ApiCreateLiveEventRequest {
 	return ApiCreateLiveEventRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) CreateLiveEventExecute(r ApiCreateLiveEventRequest) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.CreateLiveEvent")
@@ -393,8 +393,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventExecute(r ApiCreateLiveEventRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -404,8 +404,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventExecute(r ApiCreateLiveEventRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -415,8 +415,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventExecute(r ApiCreateLiveEventRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -434,8 +434,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventExecute(r ApiCreateLiveEventRe
 }
 
 type ApiCreateLiveEventAlt1Request struct {
-	ctx                        context.Context
-	ApiService                 LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	createLiveEventAlt1Request *CreateLiveEventAlt1Request
 }
 
@@ -453,25 +453,24 @@ CreateLiveEventAlt1 Create a live event
 
 This method creates a new event for the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateLiveEventAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateLiveEventAlt1Request
 */
 func (a *LiveEssentialsAPIService) CreateLiveEventAlt1(ctx context.Context) ApiCreateLiveEventAlt1Request {
 	return ApiCreateLiveEventAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) CreateLiveEventAlt1Execute(r ApiCreateLiveEventAlt1Request) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.CreateLiveEventAlt1")
@@ -536,8 +535,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventAlt1Execute(r ApiCreateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -547,8 +546,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventAlt1Execute(r ApiCreateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -558,8 +557,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventAlt1Execute(r ApiCreateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -577,8 +576,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventAlt1Execute(r ApiCreateLiveEve
 }
 
 type ApiCreateLiveEventAlt2Request struct {
-	ctx                        context.Context
-	ApiService                 LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	createLiveEventAlt1Request *CreateLiveEventAlt1Request
 }
 
@@ -596,25 +595,24 @@ CreateLiveEventAlt2 Create a live event
 
 This method creates a new event for the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateLiveEventAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateLiveEventAlt2Request
 */
 func (a *LiveEssentialsAPIService) CreateLiveEventAlt2(ctx context.Context) ApiCreateLiveEventAlt2Request {
 	return ApiCreateLiveEventAlt2Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) CreateLiveEventAlt2Execute(r ApiCreateLiveEventAlt2Request) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.CreateLiveEventAlt2")
@@ -679,8 +677,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventAlt2Execute(r ApiCreateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -690,8 +688,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventAlt2Execute(r ApiCreateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -701,8 +699,8 @@ func (a *LiveEssentialsAPIService) CreateLiveEventAlt2Execute(r ApiCreateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -720,10 +718,10 @@ func (a *LiveEssentialsAPIService) CreateLiveEventAlt2Execute(r ApiCreateLiveEve
 }
 
 type ApiDeleteLiveEventRequest struct {
-	ctx         context.Context
-	ApiService  LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	liveEventId float32
-	userId      float32
+	userId float32
 }
 
 func (r ApiDeleteLiveEventRequest) Execute() (*http.Response, error) {
@@ -735,26 +733,26 @@ DeleteLiveEvent Delete a specific live event
 
 This method deletes a single event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiDeleteLiveEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiDeleteLiveEventRequest
 */
 func (a *LiveEssentialsAPIService) DeleteLiveEvent(ctx context.Context, liveEventId float32, userId float32) ApiDeleteLiveEventRequest {
 	return ApiDeleteLiveEventRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEssentialsAPIService) DeleteLiveEventExecute(r ApiDeleteLiveEventRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.DeleteLiveEvent")
@@ -816,8 +814,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventExecute(r ApiDeleteLiveEventRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -827,8 +825,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventExecute(r ApiDeleteLiveEventRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -837,8 +835,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventExecute(r ApiDeleteLiveEventRe
 }
 
 type ApiDeleteLiveEventAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	liveEventId float32
 }
 
@@ -851,14 +849,14 @@ DeleteLiveEventAlt1 Delete a specific live event
 
 This method deletes a single event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiDeleteLiveEventAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiDeleteLiveEventAlt1Request
 */
 func (a *LiveEssentialsAPIService) DeleteLiveEventAlt1(ctx context.Context, liveEventId float32) ApiDeleteLiveEventAlt1Request {
 	return ApiDeleteLiveEventAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -866,9 +864,9 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt1(ctx context.Context, live
 // Execute executes the request
 func (a *LiveEssentialsAPIService) DeleteLiveEventAlt1Execute(r ApiDeleteLiveEventAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.DeleteLiveEventAlt1")
@@ -929,8 +927,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt1Execute(r ApiDeleteLiveEve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -940,8 +938,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt1Execute(r ApiDeleteLiveEve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -950,8 +948,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt1Execute(r ApiDeleteLiveEve
 }
 
 type ApiDeleteLiveEventAlt2Request struct {
-	ctx         context.Context
-	ApiService  LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	liveEventId float32
 }
 
@@ -964,14 +962,14 @@ DeleteLiveEventAlt2 Delete a specific live event
 
 This method deletes a single event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiDeleteLiveEventAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiDeleteLiveEventAlt2Request
 */
 func (a *LiveEssentialsAPIService) DeleteLiveEventAlt2(ctx context.Context, liveEventId float32) ApiDeleteLiveEventAlt2Request {
 	return ApiDeleteLiveEventAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -979,9 +977,9 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt2(ctx context.Context, live
 // Execute executes the request
 func (a *LiveEssentialsAPIService) DeleteLiveEventAlt2Execute(r ApiDeleteLiveEventAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.DeleteLiveEventAlt2")
@@ -1042,8 +1040,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt2Execute(r ApiDeleteLiveEve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1053,8 +1051,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt2Execute(r ApiDeleteLiveEve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1063,9 +1061,9 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventAlt2Execute(r ApiDeleteLiveEve
 }
 
 type ApiDeleteLiveEventsRequest struct {
-	ctx                         context.Context
-	ApiService                  LiveEssentialsAPI
-	userId                      int32
+	ctx context.Context
+	ApiService LiveEssentialsAPI
+	userId int32
 	deleteLiveEventsAlt1Request *DeleteLiveEventsAlt1Request
 }
 
@@ -1083,24 +1081,24 @@ DeleteLiveEvents Delete a list of live events
 
 This method deletes multiple events belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiDeleteLiveEventsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiDeleteLiveEventsRequest
 */
 func (a *LiveEssentialsAPIService) DeleteLiveEvents(ctx context.Context, userId int32) ApiDeleteLiveEventsRequest {
 	return ApiDeleteLiveEventsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEssentialsAPIService) DeleteLiveEventsExecute(r ApiDeleteLiveEventsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.DeleteLiveEvents")
@@ -1166,8 +1164,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventsExecute(r ApiDeleteLiveEvents
 }
 
 type ApiDeleteLiveEventsAlt1Request struct {
-	ctx                         context.Context
-	ApiService                  LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	deleteLiveEventsAlt1Request *DeleteLiveEventsAlt1Request
 }
 
@@ -1185,22 +1183,22 @@ DeleteLiveEventsAlt1 Delete a list of live events
 
 This method deletes multiple events belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteLiveEventsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDeleteLiveEventsAlt1Request
 */
 func (a *LiveEssentialsAPIService) DeleteLiveEventsAlt1(ctx context.Context) ApiDeleteLiveEventsAlt1Request {
 	return ApiDeleteLiveEventsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEssentialsAPIService) DeleteLiveEventsAlt1Execute(r ApiDeleteLiveEventsAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.DeleteLiveEventsAlt1")
@@ -1265,8 +1263,8 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventsAlt1Execute(r ApiDeleteLiveEv
 }
 
 type ApiDeleteLiveEventsAlt2Request struct {
-	ctx                         context.Context
-	ApiService                  LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	deleteLiveEventsAlt1Request *DeleteLiveEventsAlt1Request
 }
 
@@ -1284,22 +1282,22 @@ DeleteLiveEventsAlt2 Delete a list of live events
 
 This method deletes multiple events belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteLiveEventsAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDeleteLiveEventsAlt2Request
 */
 func (a *LiveEssentialsAPIService) DeleteLiveEventsAlt2(ctx context.Context) ApiDeleteLiveEventsAlt2Request {
 	return ApiDeleteLiveEventsAlt2Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEssentialsAPIService) DeleteLiveEventsAlt2Execute(r ApiDeleteLiveEventsAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.DeleteLiveEventsAlt2")
@@ -1364,11 +1362,11 @@ func (a *LiveEssentialsAPIService) DeleteLiveEventsAlt2Execute(r ApiDeleteLiveEv
 }
 
 type ApiGetLiveEventRequest struct {
-	ctx         context.Context
-	ApiService  LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	liveEventId float32
-	userId      int32
-	password    *string
+	userId int32
+	password *string
 }
 
 // The password of the event when the privacy is set to &#x60;password&#x60;.
@@ -1386,29 +1384,28 @@ GetLiveEvent Get a specific live event
 
 This method returns a single event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiGetLiveEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiGetLiveEventRequest
 */
 func (a *LiveEssentialsAPIService) GetLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventRequest {
 	return ApiGetLiveEventRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) GetLiveEventExecute(r ApiGetLiveEventRequest) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.GetLiveEvent")
@@ -1473,8 +1470,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventExecute(r ApiGetLiveEventRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1484,8 +1481,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventExecute(r ApiGetLiveEventRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1495,8 +1492,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventExecute(r ApiGetLiveEventRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1514,10 +1511,10 @@ func (a *LiveEssentialsAPIService) GetLiveEventExecute(r ApiGetLiveEventRequest)
 }
 
 type ApiGetLiveEventAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	liveEventId float32
-	password    *string
+	password *string
 }
 
 // The password of the event when the privacy is set to &#x60;password&#x60;.
@@ -1535,27 +1532,26 @@ GetLiveEventAlt1 Get a specific live event
 
 This method returns a single event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventAlt1Request
 */
 func (a *LiveEssentialsAPIService) GetLiveEventAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventAlt1Request {
 	return ApiGetLiveEventAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) GetLiveEventAlt1Execute(r ApiGetLiveEventAlt1Request) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.GetLiveEventAlt1")
@@ -1619,8 +1615,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt1Execute(r ApiGetLiveEventAlt1
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1630,8 +1626,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt1Execute(r ApiGetLiveEventAlt1
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1641,8 +1637,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt1Execute(r ApiGetLiveEventAlt1
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1660,10 +1656,10 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt1Execute(r ApiGetLiveEventAlt1
 }
 
 type ApiGetLiveEventAlt2Request struct {
-	ctx         context.Context
-	ApiService  LiveEssentialsAPI
+	ctx context.Context
+	ApiService LiveEssentialsAPI
 	liveEventId float32
-	password    *string
+	password *string
 }
 
 // The password of the event when the privacy is set to &#x60;password&#x60;.
@@ -1681,27 +1677,26 @@ GetLiveEventAlt2 Get a specific live event
 
 This method returns a single event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventAlt2Request
 */
 func (a *LiveEssentialsAPIService) GetLiveEventAlt2(ctx context.Context, liveEventId float32) ApiGetLiveEventAlt2Request {
 	return ApiGetLiveEventAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) GetLiveEventAlt2Execute(r ApiGetLiveEventAlt2Request) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.GetLiveEventAlt2")
@@ -1765,8 +1760,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt2Execute(r ApiGetLiveEventAlt2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1776,8 +1771,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt2Execute(r ApiGetLiveEventAlt2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1787,8 +1782,8 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt2Execute(r ApiGetLiveEventAlt2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1806,25 +1801,25 @@ func (a *LiveEssentialsAPIService) GetLiveEventAlt2Execute(r ApiGetLiveEventAlt2
 }
 
 type ApiGetLiveEventsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService LiveEssentialsAPI
-	userId     int32
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	query      *string
-	sort       *string
-	type_      *string
+	userId int32
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
+	type_ *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetLiveEventsRequest) Direction(direction string) ApiGetLiveEventsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;not_in_folder&#x60; - Show only events that aren&#39;t in a folder.  * &#x60;not_in_showcase&#x60; - Show only events that aren&#39;t in a showcase.  * &#x60;not_in_webinar&#x60; - Show only events that aren&#39;t in a webinar.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;not_in_folder&#x60; - Show only events that aren&#39;t in a folder.  * &#x60;not_in_showcase&#x60; - Show only events that aren&#39;t in a showcase.  * &#x60;not_in_webinar&#x60; - Show only events that aren&#39;t in a webinar. 
 func (r ApiGetLiveEventsRequest) Filter(filter string) ApiGetLiveEventsRequest {
 	r.filter = &filter
 	return r
@@ -1848,13 +1843,13 @@ func (r ApiGetLiveEventsRequest) Query(query string) ApiGetLiveEventsRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date. 
 func (r ApiGetLiveEventsRequest) Sort(sort string) ApiGetLiveEventsRequest {
 	r.sort = &sort
 	return r
 }
 
-// The type of event to return.  Option descriptions:  * &#x60;all&#x60; - Return all events.  * &#x60;one_time&#x60; - Return one-time events only.  * &#x60;recurring&#x60; - Return recurring events only.
+// The type of event to return.  Option descriptions:  * &#x60;all&#x60; - Return all events.  * &#x60;one_time&#x60; - Return one-time events only.  * &#x60;recurring&#x60; - Return recurring events only. 
 func (r ApiGetLiveEventsRequest) Type_(type_ string) ApiGetLiveEventsRequest {
 	r.type_ = &type_
 	return r
@@ -1869,27 +1864,26 @@ GetLiveEvents Get all the live events that belong to the user
 
 The method returns every event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetLiveEventsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiGetLiveEventsRequest
 */
 func (a *LiveEssentialsAPIService) GetLiveEvents(ctx context.Context, userId int32) ApiGetLiveEventsRequest {
 	return ApiGetLiveEventsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []LiveEvent
+//  @return []LiveEvent
 func (a *LiveEssentialsAPIService) GetLiveEventsExecute(r ApiGetLiveEventsRequest) ([]LiveEvent, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []LiveEvent
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []LiveEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.GetLiveEvents")
@@ -1980,24 +1974,24 @@ func (a *LiveEssentialsAPIService) GetLiveEventsExecute(r ApiGetLiveEventsReques
 }
 
 type ApiGetLiveEventsAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService LiveEssentialsAPI
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	query      *string
-	sort       *string
-	type_      *string
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
+	type_ *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetLiveEventsAlt1Request) Direction(direction string) ApiGetLiveEventsAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;not_in_folder&#x60; - Show only events that aren&#39;t in a folder.  * &#x60;not_in_showcase&#x60; - Show only events that aren&#39;t in a showcase.  * &#x60;not_in_webinar&#x60; - Show only events that aren&#39;t in a webinar.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;not_in_folder&#x60; - Show only events that aren&#39;t in a folder.  * &#x60;not_in_showcase&#x60; - Show only events that aren&#39;t in a showcase.  * &#x60;not_in_webinar&#x60; - Show only events that aren&#39;t in a webinar. 
 func (r ApiGetLiveEventsAlt1Request) Filter(filter string) ApiGetLiveEventsAlt1Request {
 	r.filter = &filter
 	return r
@@ -2021,13 +2015,13 @@ func (r ApiGetLiveEventsAlt1Request) Query(query string) ApiGetLiveEventsAlt1Req
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date. 
 func (r ApiGetLiveEventsAlt1Request) Sort(sort string) ApiGetLiveEventsAlt1Request {
 	r.sort = &sort
 	return r
 }
 
-// The type of event to return.  Option descriptions:  * &#x60;all&#x60; - Return all events.  * &#x60;one_time&#x60; - Return one-time events only.  * &#x60;recurring&#x60; - Return recurring events only.
+// The type of event to return.  Option descriptions:  * &#x60;all&#x60; - Return all events.  * &#x60;one_time&#x60; - Return one-time events only.  * &#x60;recurring&#x60; - Return recurring events only. 
 func (r ApiGetLiveEventsAlt1Request) Type_(type_ string) ApiGetLiveEventsAlt1Request {
 	r.type_ = &type_
 	return r
@@ -2042,25 +2036,24 @@ GetLiveEventsAlt1 Get all the live events that belong to the user
 
 The method returns every event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetLiveEventsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetLiveEventsAlt1Request
 */
 func (a *LiveEssentialsAPIService) GetLiveEventsAlt1(ctx context.Context) ApiGetLiveEventsAlt1Request {
 	return ApiGetLiveEventsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []LiveEvent
+//  @return []LiveEvent
 func (a *LiveEssentialsAPIService) GetLiveEventsAlt1Execute(r ApiGetLiveEventsAlt1Request) ([]LiveEvent, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []LiveEvent
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []LiveEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.GetLiveEventsAlt1")
@@ -2150,24 +2143,24 @@ func (a *LiveEssentialsAPIService) GetLiveEventsAlt1Execute(r ApiGetLiveEventsAl
 }
 
 type ApiGetLiveEventsAlt2Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService LiveEssentialsAPI
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	query      *string
-	sort       *string
-	type_      *string
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
+	type_ *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetLiveEventsAlt2Request) Direction(direction string) ApiGetLiveEventsAlt2Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;not_in_folder&#x60; - Show only events that aren&#39;t in a folder.  * &#x60;not_in_showcase&#x60; - Show only events that aren&#39;t in a showcase.  * &#x60;not_in_webinar&#x60; - Show only events that aren&#39;t in a webinar.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;not_in_folder&#x60; - Show only events that aren&#39;t in a folder.  * &#x60;not_in_showcase&#x60; - Show only events that aren&#39;t in a showcase.  * &#x60;not_in_webinar&#x60; - Show only events that aren&#39;t in a webinar. 
 func (r ApiGetLiveEventsAlt2Request) Filter(filter string) ApiGetLiveEventsAlt2Request {
 	r.filter = &filter
 	return r
@@ -2191,13 +2184,13 @@ func (r ApiGetLiveEventsAlt2Request) Query(query string) ApiGetLiveEventsAlt2Req
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date. 
 func (r ApiGetLiveEventsAlt2Request) Sort(sort string) ApiGetLiveEventsAlt2Request {
 	r.sort = &sort
 	return r
 }
 
-// The type of event to return.  Option descriptions:  * &#x60;all&#x60; - Return all events.  * &#x60;one_time&#x60; - Return one-time events only.  * &#x60;recurring&#x60; - Return recurring events only.
+// The type of event to return.  Option descriptions:  * &#x60;all&#x60; - Return all events.  * &#x60;one_time&#x60; - Return one-time events only.  * &#x60;recurring&#x60; - Return recurring events only. 
 func (r ApiGetLiveEventsAlt2Request) Type_(type_ string) ApiGetLiveEventsAlt2Request {
 	r.type_ = &type_
 	return r
@@ -2212,25 +2205,24 @@ GetLiveEventsAlt2 Get all the live events that belong to the user
 
 The method returns every event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetLiveEventsAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetLiveEventsAlt2Request
 */
 func (a *LiveEssentialsAPIService) GetLiveEventsAlt2(ctx context.Context) ApiGetLiveEventsAlt2Request {
 	return ApiGetLiveEventsAlt2Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []LiveEvent
+//  @return []LiveEvent
 func (a *LiveEssentialsAPIService) GetLiveEventsAlt2Execute(r ApiGetLiveEventsAlt2Request) ([]LiveEvent, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []LiveEvent
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []LiveEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.GetLiveEventsAlt2")
@@ -2320,10 +2312,10 @@ func (a *LiveEssentialsAPIService) GetLiveEventsAlt2Execute(r ApiGetLiveEventsAl
 }
 
 type ApiUpdateLiveEventRequest struct {
-	ctx                        context.Context
-	ApiService                 LiveEssentialsAPI
-	liveEventId                float32
-	userId                     int32
+	ctx context.Context
+	ApiService LiveEssentialsAPI
+	liveEventId float32
+	userId int32
 	updateLiveEventAlt1Request *UpdateLiveEventAlt1Request
 }
 
@@ -2341,29 +2333,28 @@ UpdateLiveEvent Update a live event
 
 This method updates an event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiUpdateLiveEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiUpdateLiveEventRequest
 */
 func (a *LiveEssentialsAPIService) UpdateLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiUpdateLiveEventRequest {
 	return ApiUpdateLiveEventRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) UpdateLiveEventExecute(r ApiUpdateLiveEventRequest) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.UpdateLiveEvent")
@@ -2427,8 +2418,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventExecute(r ApiUpdateLiveEventRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2438,8 +2429,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventExecute(r ApiUpdateLiveEventRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2449,8 +2440,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventExecute(r ApiUpdateLiveEventRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2468,9 +2459,9 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventExecute(r ApiUpdateLiveEventRe
 }
 
 type ApiUpdateLiveEventAlt1Request struct {
-	ctx                        context.Context
-	ApiService                 LiveEssentialsAPI
-	liveEventId                float32
+	ctx context.Context
+	ApiService LiveEssentialsAPI
+	liveEventId float32
 	updateLiveEventAlt1Request *UpdateLiveEventAlt1Request
 }
 
@@ -2488,27 +2479,26 @@ UpdateLiveEventAlt1 Update a live event
 
 This method updates an event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiUpdateLiveEventAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiUpdateLiveEventAlt1Request
 */
 func (a *LiveEssentialsAPIService) UpdateLiveEventAlt1(ctx context.Context, liveEventId float32) ApiUpdateLiveEventAlt1Request {
 	return ApiUpdateLiveEventAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) UpdateLiveEventAlt1Execute(r ApiUpdateLiveEventAlt1Request) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.UpdateLiveEventAlt1")
@@ -2571,8 +2561,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventAlt1Execute(r ApiUpdateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2582,8 +2572,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventAlt1Execute(r ApiUpdateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2593,8 +2583,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventAlt1Execute(r ApiUpdateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2612,9 +2602,9 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventAlt1Execute(r ApiUpdateLiveEve
 }
 
 type ApiUpdateLiveEventAlt2Request struct {
-	ctx                        context.Context
-	ApiService                 LiveEssentialsAPI
-	liveEventId                float32
+	ctx context.Context
+	ApiService LiveEssentialsAPI
+	liveEventId float32
 	updateLiveEventAlt1Request *UpdateLiveEventAlt1Request
 }
 
@@ -2632,27 +2622,26 @@ UpdateLiveEventAlt2 Update a live event
 
 This method updates an event belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiUpdateLiveEventAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiUpdateLiveEventAlt2Request
 */
 func (a *LiveEssentialsAPIService) UpdateLiveEventAlt2(ctx context.Context, liveEventId float32) ApiUpdateLiveEventAlt2Request {
 	return ApiUpdateLiveEventAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventRecurring
+//  @return LiveEventRecurring
 func (a *LiveEssentialsAPIService) UpdateLiveEventAlt2Execute(r ApiUpdateLiveEventAlt2Request) (*LiveEventRecurring, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventRecurring
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventRecurring
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEssentialsAPIService.UpdateLiveEventAlt2")
@@ -2715,8 +2704,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventAlt2Execute(r ApiUpdateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2726,8 +2715,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventAlt2Execute(r ApiUpdateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2737,8 +2726,8 @@ func (a *LiveEssentialsAPIService) UpdateLiveEventAlt2Execute(r ApiUpdateLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

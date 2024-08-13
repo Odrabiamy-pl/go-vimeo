@@ -19,8 +19,8 @@ var _ MappedNullable = &WebinarEmailSettingsEmailEventReminder24Hrs{}
 
 // WebinarEmailSettingsEmailEventReminder24Hrs The email customization details for the webinar reminder email, which goes out 24 hours before the event.
 type WebinarEmailSettingsEmailEventReminder24Hrs struct {
-	Custom  NullableWebinarEmailSettingsEmailEventReminder24HrsCustom `json:"custom"`
-	Default WebinarEmailContent                                       `json:"default"`
+	Custom NullableWebinarEmailSettingsEmailEventReminder24HrsCustom `json:"custom"`
+	Default WebinarEmailContent `json:"default"`
 }
 
 // NewWebinarEmailSettingsEmailEventReminder24Hrs instantiates a new WebinarEmailSettingsEmailEventReminder24Hrs object
@@ -93,7 +93,7 @@ func (o *WebinarEmailSettingsEmailEventReminder24Hrs) SetDefault(v WebinarEmailC
 }
 
 func (o WebinarEmailSettingsEmailEventReminder24Hrs) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,3 +142,5 @@ func (v *NullableWebinarEmailSettingsEmailEventReminder24Hrs) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

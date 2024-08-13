@@ -72,7 +72,7 @@ func (o *EditUserAlt1RequestVideos) SetPrivacy(v EditUserAlt1RequestVideosPrivac
 }
 
 func (o EditUserAlt1RequestVideos) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,3 +122,5 @@ func (v *NullableEditUserAlt1RequestVideos) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

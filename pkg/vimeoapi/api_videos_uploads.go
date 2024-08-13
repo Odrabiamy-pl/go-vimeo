@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type VideosUploadsAPI interface {
 
 	/*
-		CompleteStreamingUpload Complete a streaming upload
+	CompleteStreamingUpload Complete a streaming upload
 
-		This method completes the specified streaming upload of the authenticated user.
+	This method completes the specified streaming upload of the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param uploadId The ID of the streaming upload.
-		@param userId The ID of the user.
-		@return ApiCompleteStreamingUploadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uploadId The ID of the streaming upload.
+	@param userId The ID of the user.
+	@return ApiCompleteStreamingUploadRequest
 	*/
 	CompleteStreamingUpload(ctx context.Context, uploadId float32, userId int32) ApiCompleteStreamingUploadRequest
 
@@ -37,14 +38,14 @@ type VideosUploadsAPI interface {
 	CompleteStreamingUploadExecute(r ApiCompleteStreamingUploadRequest) (*http.Response, error)
 
 	/*
-		GetUploadAttempt Get an upload attempt
+	GetUploadAttempt Get an upload attempt
 
-		This method returns the specified upload attempt of the authenticated user. _This method has been deprecated. For information on our currently supported upload approaches, see our [Working with Video Uploads](https://developer.vimeo.com/api/upload/videos) guide._
+	This method returns the specified upload attempt of the authenticated user. _This method has been deprecated. For information on our currently supported upload approaches, see our [Working with Video Uploads](https://developer.vimeo.com/api/upload/videos) guide._
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param uploadId The ID of the upload attempt.
-		@param userId The ID of the user.
-		@return ApiGetUploadAttemptRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uploadId The ID of the upload attempt.
+	@param userId The ID of the user.
+	@return ApiGetUploadAttemptRequest
 	*/
 	GetUploadAttempt(ctx context.Context, uploadId float32, userId int32) ApiGetUploadAttemptRequest
 
@@ -53,13 +54,13 @@ type VideosUploadsAPI interface {
 	GetUploadAttemptExecute(r ApiGetUploadAttemptRequest) (*UploadAttempt, *http.Response, error)
 
 	/*
-		UploadVideo Upload a video
+	UploadVideo Upload a video
 
-		This method begins the video upload process for the authenticated user. For more information, see our [upload documentation](https://developer.vimeo.com/api/upload/videos).
+	This method begins the video upload process for the authenticated user. For more information, see our [upload documentation](https://developer.vimeo.com/api/upload/videos).
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiUploadVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiUploadVideoRequest
 	*/
 	UploadVideo(ctx context.Context, userId int32) ApiUploadVideoRequest
 
@@ -68,12 +69,12 @@ type VideosUploadsAPI interface {
 	UploadVideoExecute(r ApiUploadVideoRequest) (*Video, *http.Response, error)
 
 	/*
-		UploadVideoAlt1 Upload a video
+	UploadVideoAlt1 Upload a video
 
-		This method begins the video upload process for the authenticated user. For more information, see our [upload documentation](https://developer.vimeo.com/api/upload/videos).
+	This method begins the video upload process for the authenticated user. For more information, see our [upload documentation](https://developer.vimeo.com/api/upload/videos).
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUploadVideoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUploadVideoAlt1Request
 	*/
 	UploadVideoAlt1(ctx context.Context) ApiUploadVideoAlt1Request
 
@@ -86,11 +87,11 @@ type VideosUploadsAPI interface {
 type VideosUploadsAPIService service
 
 type ApiCompleteStreamingUploadRequest struct {
-	ctx         context.Context
-	ApiService  VideosUploadsAPI
-	uploadId    float32
-	userId      int32
-	signature   *string
+	ctx context.Context
+	ApiService VideosUploadsAPI
+	uploadId float32
+	userId int32
+	signature *string
 	videoFileId *float32
 }
 
@@ -115,26 +116,26 @@ CompleteStreamingUpload Complete a streaming upload
 
 This method completes the specified streaming upload of the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param uploadId The ID of the streaming upload.
-	@param userId The ID of the user.
-	@return ApiCompleteStreamingUploadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param uploadId The ID of the streaming upload.
+ @param userId The ID of the user.
+ @return ApiCompleteStreamingUploadRequest
 */
 func (a *VideosUploadsAPIService) CompleteStreamingUpload(ctx context.Context, uploadId float32, userId int32) ApiCompleteStreamingUploadRequest {
 	return ApiCompleteStreamingUploadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		uploadId:   uploadId,
-		userId:     userId,
+		ctx: ctx,
+		uploadId: uploadId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosUploadsAPIService) CompleteStreamingUploadExecute(r ApiCompleteStreamingUploadRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUploadsAPIService.CompleteStreamingUpload")
@@ -204,8 +205,8 @@ func (a *VideosUploadsAPIService) CompleteStreamingUploadExecute(r ApiCompleteSt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -215,8 +216,8 @@ func (a *VideosUploadsAPIService) CompleteStreamingUploadExecute(r ApiCompleteSt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -226,8 +227,8 @@ func (a *VideosUploadsAPIService) CompleteStreamingUploadExecute(r ApiCompleteSt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -236,10 +237,10 @@ func (a *VideosUploadsAPIService) CompleteStreamingUploadExecute(r ApiCompleteSt
 }
 
 type ApiGetUploadAttemptRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosUploadsAPI
-	uploadId   float32
-	userId     int32
+	uploadId float32
+	userId int32
 }
 
 func (r ApiGetUploadAttemptRequest) Execute() (*UploadAttempt, *http.Response, error) {
@@ -251,29 +252,28 @@ GetUploadAttempt Get an upload attempt
 
 This method returns the specified upload attempt of the authenticated user. _This method has been deprecated. For information on our currently supported upload approaches, see our [Working with Video Uploads](https://developer.vimeo.com/api/upload/videos) guide._
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param uploadId The ID of the upload attempt.
-	@param userId The ID of the user.
-	@return ApiGetUploadAttemptRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param uploadId The ID of the upload attempt.
+ @param userId The ID of the user.
+ @return ApiGetUploadAttemptRequest
 */
 func (a *VideosUploadsAPIService) GetUploadAttempt(ctx context.Context, uploadId float32, userId int32) ApiGetUploadAttemptRequest {
 	return ApiGetUploadAttemptRequest{
 		ApiService: a,
-		ctx:        ctx,
-		uploadId:   uploadId,
-		userId:     userId,
+		ctx: ctx,
+		uploadId: uploadId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UploadAttempt
+//  @return UploadAttempt
 func (a *VideosUploadsAPIService) GetUploadAttemptExecute(r ApiGetUploadAttemptRequest) (*UploadAttempt, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UploadAttempt
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UploadAttempt
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUploadsAPIService.GetUploadAttempt")
@@ -344,9 +344,9 @@ func (a *VideosUploadsAPIService) GetUploadAttemptExecute(r ApiGetUploadAttemptR
 }
 
 type ApiUploadVideoRequest struct {
-	ctx                    context.Context
-	ApiService             VideosUploadsAPI
-	userId                 int32
+	ctx context.Context
+	ApiService VideosUploadsAPI
+	userId int32
 	uploadVideoAlt1Request *UploadVideoAlt1Request
 }
 
@@ -364,27 +364,26 @@ UploadVideo Upload a video
 
 This method begins the video upload process for the authenticated user. For more information, see our [upload documentation](https://developer.vimeo.com/api/upload/videos).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiUploadVideoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiUploadVideoRequest
 */
 func (a *VideosUploadsAPIService) UploadVideo(ctx context.Context, userId int32) ApiUploadVideoRequest {
 	return ApiUploadVideoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *VideosUploadsAPIService) UploadVideoExecute(r ApiUploadVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUploadsAPIService.UploadVideo")
@@ -450,8 +449,8 @@ func (a *VideosUploadsAPIService) UploadVideoExecute(r ApiUploadVideoRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -461,8 +460,8 @@ func (a *VideosUploadsAPIService) UploadVideoExecute(r ApiUploadVideoRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -472,8 +471,8 @@ func (a *VideosUploadsAPIService) UploadVideoExecute(r ApiUploadVideoRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -483,8 +482,8 @@ func (a *VideosUploadsAPIService) UploadVideoExecute(r ApiUploadVideoRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -502,8 +501,8 @@ func (a *VideosUploadsAPIService) UploadVideoExecute(r ApiUploadVideoRequest) (*
 }
 
 type ApiUploadVideoAlt1Request struct {
-	ctx                    context.Context
-	ApiService             VideosUploadsAPI
+	ctx context.Context
+	ApiService VideosUploadsAPI
 	uploadVideoAlt1Request *UploadVideoAlt1Request
 }
 
@@ -521,25 +520,24 @@ UploadVideoAlt1 Upload a video
 
 This method begins the video upload process for the authenticated user. For more information, see our [upload documentation](https://developer.vimeo.com/api/upload/videos).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUploadVideoAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiUploadVideoAlt1Request
 */
 func (a *VideosUploadsAPIService) UploadVideoAlt1(ctx context.Context) ApiUploadVideoAlt1Request {
 	return ApiUploadVideoAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *VideosUploadsAPIService) UploadVideoAlt1Execute(r ApiUploadVideoAlt1Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosUploadsAPIService.UploadVideoAlt1")
@@ -604,8 +602,8 @@ func (a *VideosUploadsAPIService) UploadVideoAlt1Execute(r ApiUploadVideoAlt1Req
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -615,8 +613,8 @@ func (a *VideosUploadsAPIService) UploadVideoAlt1Execute(r ApiUploadVideoAlt1Req
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -626,8 +624,8 @@ func (a *VideosUploadsAPIService) UploadVideoAlt1Execute(r ApiUploadVideoAlt1Req
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -637,8 +635,8 @@ func (a *VideosUploadsAPIService) UploadVideoAlt1Execute(r ApiUploadVideoAlt1Req
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

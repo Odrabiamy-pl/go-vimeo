@@ -334,30 +334,23 @@
     },
     "websites":
     [],
-    "metadata":
-    {
-      "connections":
-      {
-        "albums":
-        {
+    "metadata": {
+      "connections": {
+        "albums": {
           "uri": "/users/202422358/albums",
-          "options":
-          [
+          "options": [
             "GET"
           ],
           "total": 0
         },
-        "appearances":
-        {
+        "appearances": {
           "uri": "/users/202422358/appearances",
-          "options":
-          [
+          "options": [
             "GET"
           ],
           "total": 0
         },
-        "categories":
-        {
+        "categories": {
           "uri": "/users/202422358/categories",
           "options":
           [
@@ -507,7 +500,8 @@
           ],
           "total": 7
         }
-      }
+      },
+      "interactions": []
     },
     "location_details":
     {

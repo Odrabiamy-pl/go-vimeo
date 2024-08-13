@@ -21,7 +21,7 @@ var _ MappedNullable = &LiveEventMetadataConnectionsLiveVideo{}
 type LiveEventMetadataConnectionsLiveVideo struct {
 	// An array of the HTTP methods permitted on this URI.
 	Options []string `json:"options"`
-	// The status of the live video's RTMP link.  Option descriptions:  * `streaming` - The stream is open and receiving content.
+	// The status of the live video's RTMP link.  Option descriptions:  * `streaming` - The stream is open and receiving content. 
 	Status string `json:"status"`
 	// The API URI that resolves to the connection data.
 	Uri string `json:"uri"`
@@ -120,7 +120,7 @@ func (o *LiveEventMetadataConnectionsLiveVideo) SetUri(v string) {
 }
 
 func (o LiveEventMetadataConnectionsLiveVideo) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,3 +170,5 @@ func (v *NullableLiveEventMetadataConnectionsLiveVideo) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

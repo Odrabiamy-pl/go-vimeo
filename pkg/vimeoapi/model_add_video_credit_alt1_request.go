@@ -147,7 +147,7 @@ func (o *AddVideoCreditAlt1Request) SetUserUri(v string) {
 }
 
 func (o AddVideoCreditAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,3 +198,5 @@ func (v *NullableAddVideoCreditAlt1Request) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

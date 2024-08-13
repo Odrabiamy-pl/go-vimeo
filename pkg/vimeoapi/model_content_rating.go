@@ -19,7 +19,7 @@ var _ MappedNullable = &ContentRating{}
 
 // ContentRating struct for ContentRating
 type ContentRating struct {
-	// The reason for the content rating.  Option descriptions:  * `advertisement` - The content contains an advertisement.  * `drugs` - The content contains drug or alcohol use.  * `language` - The content contains profanity or sexually suggestive language.  * `nudity` - The content contains nudity.  * `safe` - The content is suitable for all audiences.  * `unrated` - The content hasn't been rated.  * `violence` - The content contains violence or is graphic.
+	// The reason for the content rating.  Option descriptions:  * `advertisement` - The content contains an advertisement.  * `drugs` - The content contains drug or alcohol use.  * `language` - The content contains profanity or sexually suggestive language.  * `nudity` - The content contains nudity.  * `safe` - The content is suitable for all audiences.  * `unrated` - The content hasn't been rated.  * `violence` - The content contains violence or is graphic. 
 	Code string `json:"code"`
 	// The name of the content rating.
 	Name string `json:"name"`
@@ -122,7 +122,7 @@ func (o *ContentRating) SetUri(v string) {
 }
 
 func (o ContentRating) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -172,3 +172,5 @@ func (v *NullableContentRating) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

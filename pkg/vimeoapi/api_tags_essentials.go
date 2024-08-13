@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type TagsEssentialsAPI interface {
 
 	/*
-		GetTag Get a tag
+	GetTag Get a tag
 
-		This method returns the specified tag.
+	This method returns the specified tag.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param word The tag to return.
-		@return ApiGetTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param word The tag to return.
+	@return ApiGetTagRequest
 	*/
 	GetTag(ctx context.Context, word string) ApiGetTagRequest
 
@@ -41,9 +42,9 @@ type TagsEssentialsAPI interface {
 type TagsEssentialsAPIService service
 
 type ApiGetTagRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService TagsEssentialsAPI
-	word       string
+	word string
 }
 
 func (r ApiGetTagRequest) Execute() (*Tag, *http.Response, error) {
@@ -55,27 +56,26 @@ GetTag Get a tag
 
 This method returns the specified tag.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param word The tag to return.
-	@return ApiGetTagRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param word The tag to return.
+ @return ApiGetTagRequest
 */
 func (a *TagsEssentialsAPIService) GetTag(ctx context.Context, word string) ApiGetTagRequest {
 	return ApiGetTagRequest{
 		ApiService: a,
-		ctx:        ctx,
-		word:       word,
+		ctx: ctx,
+		word: word,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Tag
+//  @return Tag
 func (a *TagsEssentialsAPIService) GetTagExecute(r ApiGetTagRequest) (*Tag, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Tag
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Tag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsEssentialsAPIService.GetTag")

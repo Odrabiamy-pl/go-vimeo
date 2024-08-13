@@ -19,9 +19,9 @@ var _ MappedNullable = &SubscriptionPlansMetadataInteractionsPurchase{}
 
 // SubscriptionPlansMetadataInteractionsPurchase struct for SubscriptionPlansMetadataInteractionsPurchase
 type SubscriptionPlansMetadataInteractionsPurchase struct {
-	// The purchase status of the product.  Option descriptions:  * `available` - The product is available for purchase.  * `purchased` - The product is already purchased.  * `unavailable` - The product isn't available for purchase.
-	Status string                                           `json:"status"`
-	Uri    SubscriptionPlansMetadataInteractionsPurchaseUri `json:"uri"`
+	// The purchase status of the product.  Option descriptions:  * `available` - The product is available for purchase.  * `purchased` - The product is already purchased.  * `unavailable` - The product isn't available for purchase. 
+	Status string `json:"status"`
+	Uri SubscriptionPlansMetadataInteractionsPurchaseUri `json:"uri"`
 }
 
 // NewSubscriptionPlansMetadataInteractionsPurchase instantiates a new SubscriptionPlansMetadataInteractionsPurchase object
@@ -92,7 +92,7 @@ func (o *SubscriptionPlansMetadataInteractionsPurchase) SetUri(v SubscriptionPla
 }
 
 func (o SubscriptionPlansMetadataInteractionsPurchase) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -141,3 +141,5 @@ func (v *NullableSubscriptionPlansMetadataInteractionsPurchase) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,11 +20,11 @@ var _ MappedNullable = &PresetSettingsOutro{}
 // PresetSettingsOutro struct for PresetSettingsOutro
 type PresetSettingsOutro struct {
 	// A comma-separated list of video URIs. This field appears only when **type** is `uploaded_clips`.
-	Clips NullableString                  `json:"clips,omitempty"`
-	Link  NullablePresetSettingsOutroLink `json:"link,omitempty"`
+	Clips NullableString `json:"clips,omitempty"`
+	Link NullablePresetSettingsOutroLink `json:"link,omitempty"`
 	// The outro text. This appears only when **type** is `text`.
 	Text NullableString `json:"text,omitempty"`
-	// The preset outro type.  Option descriptions:  * `link` - The outro includes a link.  * `no idea` - The outro type is `no idea`. The outro includes uploaded videos.  * `text` - The outro includes text.  * `uploaded_clips` - The outro includes uploaded videos.  * `uploaded_videos` - The outro includes uploaded videos.
+	// The preset outro type.  Option descriptions:  * `link` - The outro includes a link.  * `no idea` - The outro type is `no idea`. The outro includes uploaded videos.  * `text` - The outro includes text.  * `uploaded_clips` - The outro includes uploaded videos.  * `uploaded_videos` - The outro includes uploaded videos. 
 	Type string `json:"type"`
 	// A comma-separated list of video URIs. This field appears only when **type** is `no idea`.
 	Videos NullableString `json:"videos,omitempty"`
@@ -80,7 +80,6 @@ func (o *PresetSettingsOutro) HasClips() bool {
 func (o *PresetSettingsOutro) SetClips(v string) {
 	o.Clips.Set(&v)
 }
-
 // SetClipsNil sets the value for Clips to be an explicit nil
 func (o *PresetSettingsOutro) SetClipsNil() {
 	o.Clips.Set(nil)
@@ -123,7 +122,6 @@ func (o *PresetSettingsOutro) HasLink() bool {
 func (o *PresetSettingsOutro) SetLink(v PresetSettingsOutroLink) {
 	o.Link.Set(&v)
 }
-
 // SetLinkNil sets the value for Link to be an explicit nil
 func (o *PresetSettingsOutro) SetLinkNil() {
 	o.Link.Set(nil)
@@ -166,7 +164,6 @@ func (o *PresetSettingsOutro) HasText() bool {
 func (o *PresetSettingsOutro) SetText(v string) {
 	o.Text.Set(&v)
 }
-
 // SetTextNil sets the value for Text to be an explicit nil
 func (o *PresetSettingsOutro) SetTextNil() {
 	o.Text.Set(nil)
@@ -233,7 +230,6 @@ func (o *PresetSettingsOutro) HasVideos() bool {
 func (o *PresetSettingsOutro) SetVideos(v string) {
 	o.Videos.Set(&v)
 }
-
 // SetVideosNil sets the value for Videos to be an explicit nil
 func (o *PresetSettingsOutro) SetVideosNil() {
 	o.Videos.Set(nil)
@@ -245,7 +241,7 @@ func (o *PresetSettingsOutro) UnsetVideos() {
 }
 
 func (o PresetSettingsOutro) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -305,3 +301,5 @@ func (v *NullablePresetSettingsOutro) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -31,7 +31,7 @@ type LiveEventSchedule struct {
 	StartTime *string `json:"start_time,omitempty"`
 	// The time zone of the live event.
 	TimeZone *string `json:"time_zone,omitempty"`
-	// The schedule of the live event.  Option descriptions:  * `single` - The event is live only once.  * `weekly` - The event is live on a recurring weekly basis.
+	// The schedule of the live event.  Option descriptions:  * `single` - The event is live only once.  * `weekly` - The event is live on a recurring weekly basis. 
 	Type string `json:"type"`
 	// When **schedule.type** is `weekly`, the weekdays in UTC when the event is expected to be live. The value of this field ranges from `1` to `7`, where `1` is Monday and `7` is Sunday.
 	Weekdays []string `json:"weekdays,omitempty"`
@@ -304,7 +304,7 @@ func (o *LiveEventSchedule) SetWeekdays(v []string) {
 }
 
 func (o LiveEventSchedule) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -373,3 +373,5 @@ func (v *NullableLiveEventSchedule) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

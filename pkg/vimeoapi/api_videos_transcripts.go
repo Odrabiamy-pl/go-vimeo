@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type VideosTranscriptsAPI interface {
 
 	/*
-		GetTranscript Get transcript segments
+	GetTranscript Get transcript segments
 
-		This method returns the transcript segments of the specified text track.
+	This method returns the transcript segments of the specified text track.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param texttrackId The ID of the text track.
-		@param videoId The ID of the video.
-		@return ApiGetTranscriptRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param texttrackId The ID of the text track.
+	@param videoId The ID of the video.
+	@return ApiGetTranscriptRequest
 	*/
 	GetTranscript(ctx context.Context, texttrackId float32, videoId int32) ApiGetTranscriptRequest
 
@@ -42,10 +43,10 @@ type VideosTranscriptsAPI interface {
 type VideosTranscriptsAPIService service
 
 type ApiGetTranscriptRequest struct {
-	ctx         context.Context
-	ApiService  VideosTranscriptsAPI
+	ctx context.Context
+	ApiService VideosTranscriptsAPI
 	texttrackId float32
-	videoId     int32
+	videoId int32
 }
 
 func (r ApiGetTranscriptRequest) Execute() ([]Segment, *http.Response, error) {
@@ -57,29 +58,28 @@ GetTranscript Get transcript segments
 
 This method returns the transcript segments of the specified text track.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param texttrackId The ID of the text track.
-	@param videoId The ID of the video.
-	@return ApiGetTranscriptRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param texttrackId The ID of the text track.
+ @param videoId The ID of the video.
+ @return ApiGetTranscriptRequest
 */
 func (a *VideosTranscriptsAPIService) GetTranscript(ctx context.Context, texttrackId float32, videoId int32) ApiGetTranscriptRequest {
 	return ApiGetTranscriptRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		texttrackId: texttrackId,
-		videoId:     videoId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Segment
+//  @return []Segment
 func (a *VideosTranscriptsAPIService) GetTranscriptExecute(r ApiGetTranscriptRequest) ([]Segment, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Segment
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Segment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosTranscriptsAPIService.GetTranscript")
@@ -141,8 +141,8 @@ func (a *VideosTranscriptsAPIService) GetTranscriptExecute(r ApiGetTranscriptReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

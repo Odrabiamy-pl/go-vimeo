@@ -19,7 +19,7 @@ var _ MappedNullable = &DisabledVideoPropertiesDownloadReasonsInner{}
 
 // DisabledVideoPropertiesDownloadReasonsInner struct for DisabledVideoPropertiesDownloadReasonsInner
 type DisabledVideoPropertiesDownloadReasonsInner struct {
-	// The icon that represents the reason why download is disabled.  Option descriptions:  * `clock` - The reason is represented by a clock icon.  * `create` - The reason is represented by a create icon.  * `image` - The reason is represented by an image icon.  * `theme` - The reason is represented by a theme icon.
+	// The icon that represents the reason why download is disabled.  Option descriptions:  * `clock` - The reason is represented by a clock icon.  * `create` - The reason is represented by a create icon.  * `image` - The reason is represented by an image icon.  * `theme` - The reason is represented by a theme icon. 
 	Icon string `json:"icon"`
 	// A user-deliverable message of why the download is disabled.
 	Message string `json:"message"`
@@ -93,7 +93,7 @@ func (o *DisabledVideoPropertiesDownloadReasonsInner) SetMessage(v string) {
 }
 
 func (o DisabledVideoPropertiesDownloadReasonsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,3 +142,5 @@ func (v *NullableDisabledVideoPropertiesDownloadReasonsInner) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

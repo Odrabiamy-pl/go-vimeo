@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type VideosVersionsAPI interface {
 
 	/*
-		CreateVideoVersion Add a version to a video
+	CreateVideoVersion Add a version to a video
 
-		This method adds a version to the specified video. The authenticated user must be the owner of the video.
+	This method adds a version to the specified video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiCreateVideoVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateVideoVersionRequest
 	*/
 	CreateVideoVersion(ctx context.Context, videoId int32) ApiCreateVideoVersionRequest
 
@@ -37,14 +38,14 @@ type VideosVersionsAPI interface {
 	CreateVideoVersionExecute(r ApiCreateVideoVersionRequest) (*VideoVersion, *http.Response, error)
 
 	/*
-		DeleteVideoVersion Delete a video version
+	DeleteVideoVersion Delete a video version
 
-		This method deletes the specified version from a video. The authenticated user must be the owner of the video.
+	This method deletes the specified version from a video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param versionId The ID of the video version.
-		@param videoId The ID of the video.
-		@return ApiDeleteVideoVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param versionId The ID of the video version.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoVersionRequest
 	*/
 	DeleteVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiDeleteVideoVersionRequest
 
@@ -52,14 +53,14 @@ type VideosVersionsAPI interface {
 	DeleteVideoVersionExecute(r ApiDeleteVideoVersionRequest) (*http.Response, error)
 
 	/*
-		EditVideoVersion Edit a video version
+	EditVideoVersion Edit a video version
 
-		This method edits the specified version of a video. The authenticated user must be the owner of the video.
+	This method edits the specified version of a video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param versionId The ID of the video version.
-		@param videoId The ID of the video.
-		@return ApiEditVideoVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param versionId The ID of the video version.
+	@param videoId The ID of the video.
+	@return ApiEditVideoVersionRequest
 	*/
 	EditVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiEditVideoVersionRequest
 
@@ -68,14 +69,14 @@ type VideosVersionsAPI interface {
 	EditVideoVersionExecute(r ApiEditVideoVersionRequest) (*VideoVersion, *http.Response, error)
 
 	/*
-		GetVideoVersion Get a specific video version
+	GetVideoVersion Get a specific video version
 
-		This method returns a single version of the specified video. The authenticated user must be the owner of the video.
+	This method returns a single version of the specified video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param versionId The ID of the video version.
-		@param videoId The ID of the video.
-		@return ApiGetVideoVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param versionId The ID of the video version.
+	@param videoId The ID of the video.
+	@return ApiGetVideoVersionRequest
 	*/
 	GetVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiGetVideoVersionRequest
 
@@ -84,13 +85,13 @@ type VideosVersionsAPI interface {
 	GetVideoVersionExecute(r ApiGetVideoVersionRequest) (*VideoVersion, *http.Response, error)
 
 	/*
-		GetVideoVersions Get all the versions of a video
+	GetVideoVersions Get all the versions of a video
 
-		This method returns every version of the specified video. The authenticated user must be the owner of the video.
+	This method returns every version of the specified video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiGetVideoVersionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoVersionsRequest
 	*/
 	GetVideoVersions(ctx context.Context, videoId int32) ApiGetVideoVersionsRequest
 
@@ -99,14 +100,14 @@ type VideosVersionsAPI interface {
 	GetVideoVersionsExecute(r ApiGetVideoVersionsRequest) ([]VideoVersion, *http.Response, error)
 
 	/*
-		GetVideoVersionsAlt1 Get all the versions of a video
+	GetVideoVersionsAlt1 Get all the versions of a video
 
-		This method returns every version of the specified video. The authenticated user must be the owner of the video.
+	This method returns every version of the specified video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param videoId The ID of the video.
-		@return ApiGetVideoVersionsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiGetVideoVersionsAlt1Request
 	*/
 	GetVideoVersionsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoVersionsAlt1Request
 
@@ -119,9 +120,9 @@ type VideosVersionsAPI interface {
 type VideosVersionsAPIService service
 
 type ApiCreateVideoVersionRequest struct {
-	ctx                       context.Context
-	ApiService                VideosVersionsAPI
-	videoId                   int32
+	ctx context.Context
+	ApiService VideosVersionsAPI
+	videoId int32
 	createVideoVersionRequest *CreateVideoVersionRequest
 }
 
@@ -139,27 +140,26 @@ CreateVideoVersion Add a version to a video
 
 This method adds a version to the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateVideoVersionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiCreateVideoVersionRequest
 */
 func (a *VideosVersionsAPIService) CreateVideoVersion(ctx context.Context, videoId int32) ApiCreateVideoVersionRequest {
 	return ApiCreateVideoVersionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VideoVersion
+//  @return VideoVersion
 func (a *VideosVersionsAPIService) CreateVideoVersionExecute(r ApiCreateVideoVersionRequest) (*VideoVersion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VideoVersion
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VideoVersion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVersionsAPIService.CreateVideoVersion")
@@ -225,8 +225,8 @@ func (a *VideosVersionsAPIService) CreateVideoVersionExecute(r ApiCreateVideoVer
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -236,8 +236,8 @@ func (a *VideosVersionsAPIService) CreateVideoVersionExecute(r ApiCreateVideoVer
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -247,8 +247,8 @@ func (a *VideosVersionsAPIService) CreateVideoVersionExecute(r ApiCreateVideoVer
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -266,10 +266,10 @@ func (a *VideosVersionsAPIService) CreateVideoVersionExecute(r ApiCreateVideoVer
 }
 
 type ApiDeleteVideoVersionRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosVersionsAPI
-	versionId  float32
-	videoId    int32
+	versionId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoVersionRequest) Execute() (*http.Response, error) {
@@ -281,26 +281,26 @@ DeleteVideoVersion Delete a video version
 
 This method deletes the specified version from a video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param versionId The ID of the video version.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoVersionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param versionId The ID of the video version.
+ @param videoId The ID of the video.
+ @return ApiDeleteVideoVersionRequest
 */
 func (a *VideosVersionsAPIService) DeleteVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiDeleteVideoVersionRequest {
 	return ApiDeleteVideoVersionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		versionId:  versionId,
-		videoId:    videoId,
+		ctx: ctx,
+		versionId: versionId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosVersionsAPIService) DeleteVideoVersionExecute(r ApiDeleteVideoVersionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVersionsAPIService.DeleteVideoVersion")
@@ -362,8 +362,8 @@ func (a *VideosVersionsAPIService) DeleteVideoVersionExecute(r ApiDeleteVideoVer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -372,10 +372,10 @@ func (a *VideosVersionsAPIService) DeleteVideoVersionExecute(r ApiDeleteVideoVer
 }
 
 type ApiEditVideoVersionRequest struct {
-	ctx                     context.Context
-	ApiService              VideosVersionsAPI
-	versionId               float32
-	videoId                 int32
+	ctx context.Context
+	ApiService VideosVersionsAPI
+	versionId float32
+	videoId int32
 	editVideoVersionRequest *EditVideoVersionRequest
 }
 
@@ -393,29 +393,28 @@ EditVideoVersion Edit a video version
 
 This method edits the specified version of a video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param versionId The ID of the video version.
-	@param videoId The ID of the video.
-	@return ApiEditVideoVersionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param versionId The ID of the video version.
+ @param videoId The ID of the video.
+ @return ApiEditVideoVersionRequest
 */
 func (a *VideosVersionsAPIService) EditVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiEditVideoVersionRequest {
 	return ApiEditVideoVersionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		versionId:  versionId,
-		videoId:    videoId,
+		ctx: ctx,
+		versionId: versionId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VideoVersion
+//  @return VideoVersion
 func (a *VideosVersionsAPIService) EditVideoVersionExecute(r ApiEditVideoVersionRequest) (*VideoVersion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VideoVersion
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VideoVersion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVersionsAPIService.EditVideoVersion")
@@ -479,8 +478,8 @@ func (a *VideosVersionsAPIService) EditVideoVersionExecute(r ApiEditVideoVersion
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -490,8 +489,8 @@ func (a *VideosVersionsAPIService) EditVideoVersionExecute(r ApiEditVideoVersion
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -509,10 +508,10 @@ func (a *VideosVersionsAPIService) EditVideoVersionExecute(r ApiEditVideoVersion
 }
 
 type ApiGetVideoVersionRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosVersionsAPI
-	versionId  float32
-	videoId    int32
+	versionId float32
+	videoId int32
 }
 
 func (r ApiGetVideoVersionRequest) Execute() (*VideoVersion, *http.Response, error) {
@@ -524,29 +523,28 @@ GetVideoVersion Get a specific video version
 
 This method returns a single version of the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param versionId The ID of the video version.
-	@param videoId The ID of the video.
-	@return ApiGetVideoVersionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param versionId The ID of the video version.
+ @param videoId The ID of the video.
+ @return ApiGetVideoVersionRequest
 */
 func (a *VideosVersionsAPIService) GetVideoVersion(ctx context.Context, versionId float32, videoId int32) ApiGetVideoVersionRequest {
 	return ApiGetVideoVersionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		versionId:  versionId,
-		videoId:    videoId,
+		ctx: ctx,
+		versionId: versionId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VideoVersion
+//  @return VideoVersion
 func (a *VideosVersionsAPIService) GetVideoVersionExecute(r ApiGetVideoVersionRequest) (*VideoVersion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VideoVersion
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VideoVersion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVersionsAPIService.GetVideoVersion")
@@ -608,8 +606,8 @@ func (a *VideosVersionsAPIService) GetVideoVersionExecute(r ApiGetVideoVersionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -627,11 +625,11 @@ func (a *VideosVersionsAPIService) GetVideoVersionExecute(r ApiGetVideoVersionRe
 }
 
 type ApiGetVideoVersionsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosVersionsAPI
-	videoId    int32
-	page       *float32
-	perPage    *float32
+	videoId int32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -655,27 +653,26 @@ GetVideoVersions Get all the versions of a video
 
 This method returns every version of the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoVersionsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiGetVideoVersionsRequest
 */
 func (a *VideosVersionsAPIService) GetVideoVersions(ctx context.Context, videoId int32) ApiGetVideoVersionsRequest {
 	return ApiGetVideoVersionsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []VideoVersion
+//  @return []VideoVersion
 func (a *VideosVersionsAPIService) GetVideoVersionsExecute(r ApiGetVideoVersionsRequest) ([]VideoVersion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []VideoVersion
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []VideoVersion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVersionsAPIService.GetVideoVersions")
@@ -742,8 +739,8 @@ func (a *VideosVersionsAPIService) GetVideoVersionsExecute(r ApiGetVideoVersions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -753,8 +750,8 @@ func (a *VideosVersionsAPIService) GetVideoVersionsExecute(r ApiGetVideoVersions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -772,12 +769,12 @@ func (a *VideosVersionsAPIService) GetVideoVersionsExecute(r ApiGetVideoVersions
 }
 
 type ApiGetVideoVersionsAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosVersionsAPI
-	channelId  float32
-	videoId    int32
-	page       *float32
-	perPage    *float32
+	channelId float32
+	videoId int32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -801,29 +798,28 @@ GetVideoVersionsAlt1 Get all the versions of a video
 
 This method returns every version of the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiGetVideoVersionsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param videoId The ID of the video.
+ @return ApiGetVideoVersionsAlt1Request
 */
 func (a *VideosVersionsAPIService) GetVideoVersionsAlt1(ctx context.Context, channelId float32, videoId int32) ApiGetVideoVersionsAlt1Request {
 	return ApiGetVideoVersionsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		videoId:    videoId,
+		ctx: ctx,
+		channelId: channelId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []VideoVersion
+//  @return []VideoVersion
 func (a *VideosVersionsAPIService) GetVideoVersionsAlt1Execute(r ApiGetVideoVersionsAlt1Request) ([]VideoVersion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []VideoVersion
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []VideoVersion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosVersionsAPIService.GetVideoVersionsAlt1")
@@ -891,8 +887,8 @@ func (a *VideosVersionsAPIService) GetVideoVersionsAlt1Execute(r ApiGetVideoVers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -902,8 +898,8 @@ func (a *VideosVersionsAPIService) GetVideoVersionsAlt1Execute(r ApiGetVideoVers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type GroupsSubscriptionsAPI interface {
 
 	/*
-		JoinGroup Add the user to a group
+	JoinGroup Add the user to a group
 
-		This method adds the authenticated user to the specified group.
+	This method adds the authenticated user to the specified group.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param groupId The ID of the group.
-		@param userId The ID of the user.
-		@return ApiJoinGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@param userId The ID of the user.
+	@return ApiJoinGroupRequest
 	*/
 	JoinGroup(ctx context.Context, groupId float32, userId int32) ApiJoinGroupRequest
 
@@ -37,13 +38,13 @@ type GroupsSubscriptionsAPI interface {
 	JoinGroupExecute(r ApiJoinGroupRequest) (*http.Response, error)
 
 	/*
-		JoinGroupAlt1 Add the user to a group
+	JoinGroupAlt1 Add the user to a group
 
-		This method adds the authenticated user to the specified group.
+	This method adds the authenticated user to the specified group.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param groupId The ID of the group.
-		@return ApiJoinGroupAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@return ApiJoinGroupAlt1Request
 	*/
 	JoinGroupAlt1(ctx context.Context, groupId float32) ApiJoinGroupAlt1Request
 
@@ -51,14 +52,14 @@ type GroupsSubscriptionsAPI interface {
 	JoinGroupAlt1Execute(r ApiJoinGroupAlt1Request) (*http.Response, error)
 
 	/*
-		LeaveGroup Remove the user from a group
+	LeaveGroup Remove the user from a group
 
-		This method removes the authenticated user from the specified group. The authenticated user can't be the owner of the group; assign a new owner through a PATCH request first.
+	This method removes the authenticated user from the specified group. The authenticated user can't be the owner of the group; assign a new owner through a PATCH request first.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param groupId The ID of the group.
-		@param userId The ID of the user.
-		@return ApiLeaveGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@param userId The ID of the user.
+	@return ApiLeaveGroupRequest
 	*/
 	LeaveGroup(ctx context.Context, groupId float32, userId int32) ApiLeaveGroupRequest
 
@@ -66,13 +67,13 @@ type GroupsSubscriptionsAPI interface {
 	LeaveGroupExecute(r ApiLeaveGroupRequest) (*http.Response, error)
 
 	/*
-		LeaveGroupAlt1 Remove the user from a group
+	LeaveGroupAlt1 Remove the user from a group
 
-		This method removes the authenticated user from the specified group. The authenticated user can't be the owner of the group; assign a new owner through a PATCH request first.
+	This method removes the authenticated user from the specified group. The authenticated user can't be the owner of the group; assign a new owner through a PATCH request first.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param groupId The ID of the group.
-		@return ApiLeaveGroupAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId The ID of the group.
+	@return ApiLeaveGroupAlt1Request
 	*/
 	LeaveGroupAlt1(ctx context.Context, groupId float32) ApiLeaveGroupAlt1Request
 
@@ -84,10 +85,10 @@ type GroupsSubscriptionsAPI interface {
 type GroupsSubscriptionsAPIService service
 
 type ApiJoinGroupRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService GroupsSubscriptionsAPI
-	groupId    float32
-	userId     int32
+	groupId float32
+	userId int32
 }
 
 func (r ApiJoinGroupRequest) Execute() (*http.Response, error) {
@@ -99,26 +100,26 @@ JoinGroup Add the user to a group
 
 This method adds the authenticated user to the specified group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@param userId The ID of the user.
-	@return ApiJoinGroupRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param groupId The ID of the group.
+ @param userId The ID of the user.
+ @return ApiJoinGroupRequest
 */
 func (a *GroupsSubscriptionsAPIService) JoinGroup(ctx context.Context, groupId float32, userId int32) ApiJoinGroupRequest {
 	return ApiJoinGroupRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
-		userId:     userId,
+		ctx: ctx,
+		groupId: groupId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupsSubscriptionsAPIService) JoinGroupExecute(r ApiJoinGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsSubscriptionsAPIService.JoinGroup")
@@ -180,8 +181,8 @@ func (a *GroupsSubscriptionsAPIService) JoinGroupExecute(r ApiJoinGroupRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -190,9 +191,9 @@ func (a *GroupsSubscriptionsAPIService) JoinGroupExecute(r ApiJoinGroupRequest) 
 }
 
 type ApiJoinGroupAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService GroupsSubscriptionsAPI
-	groupId    float32
+	groupId float32
 }
 
 func (r ApiJoinGroupAlt1Request) Execute() (*http.Response, error) {
@@ -204,24 +205,24 @@ JoinGroupAlt1 Add the user to a group
 
 This method adds the authenticated user to the specified group.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@return ApiJoinGroupAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param groupId The ID of the group.
+ @return ApiJoinGroupAlt1Request
 */
 func (a *GroupsSubscriptionsAPIService) JoinGroupAlt1(ctx context.Context, groupId float32) ApiJoinGroupAlt1Request {
 	return ApiJoinGroupAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupsSubscriptionsAPIService) JoinGroupAlt1Execute(r ApiJoinGroupAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsSubscriptionsAPIService.JoinGroupAlt1")
@@ -282,8 +283,8 @@ func (a *GroupsSubscriptionsAPIService) JoinGroupAlt1Execute(r ApiJoinGroupAlt1R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -292,10 +293,10 @@ func (a *GroupsSubscriptionsAPIService) JoinGroupAlt1Execute(r ApiJoinGroupAlt1R
 }
 
 type ApiLeaveGroupRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService GroupsSubscriptionsAPI
-	groupId    float32
-	userId     int32
+	groupId float32
+	userId int32
 }
 
 func (r ApiLeaveGroupRequest) Execute() (*http.Response, error) {
@@ -307,26 +308,26 @@ LeaveGroup Remove the user from a group
 
 This method removes the authenticated user from the specified group. The authenticated user can't be the owner of the group; assign a new owner through a PATCH request first.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@param userId The ID of the user.
-	@return ApiLeaveGroupRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param groupId The ID of the group.
+ @param userId The ID of the user.
+ @return ApiLeaveGroupRequest
 */
 func (a *GroupsSubscriptionsAPIService) LeaveGroup(ctx context.Context, groupId float32, userId int32) ApiLeaveGroupRequest {
 	return ApiLeaveGroupRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
-		userId:     userId,
+		ctx: ctx,
+		groupId: groupId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupsSubscriptionsAPIService) LeaveGroupExecute(r ApiLeaveGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsSubscriptionsAPIService.LeaveGroup")
@@ -388,8 +389,8 @@ func (a *GroupsSubscriptionsAPIService) LeaveGroupExecute(r ApiLeaveGroupRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -398,9 +399,9 @@ func (a *GroupsSubscriptionsAPIService) LeaveGroupExecute(r ApiLeaveGroupRequest
 }
 
 type ApiLeaveGroupAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService GroupsSubscriptionsAPI
-	groupId    float32
+	groupId float32
 }
 
 func (r ApiLeaveGroupAlt1Request) Execute() (*http.Response, error) {
@@ -412,24 +413,24 @@ LeaveGroupAlt1 Remove the user from a group
 
 This method removes the authenticated user from the specified group. The authenticated user can't be the owner of the group; assign a new owner through a PATCH request first.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param groupId The ID of the group.
-	@return ApiLeaveGroupAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param groupId The ID of the group.
+ @return ApiLeaveGroupAlt1Request
 */
 func (a *GroupsSubscriptionsAPIService) LeaveGroupAlt1(ctx context.Context, groupId float32) ApiLeaveGroupAlt1Request {
 	return ApiLeaveGroupAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupsSubscriptionsAPIService) LeaveGroupAlt1Execute(r ApiLeaveGroupAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsSubscriptionsAPIService.LeaveGroupAlt1")
@@ -490,8 +491,8 @@ func (a *GroupsSubscriptionsAPIService) LeaveGroupAlt1Execute(r ApiLeaveGroupAlt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

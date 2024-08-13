@@ -19,15 +19,15 @@ var _ MappedNullable = &GroupPrivacy{}
 
 // GroupPrivacy The group's privacy settings.
 type GroupPrivacy struct {
-	// Who can comment on the group.  Option descriptions:  * `all` - Anyone can comment on the group.  * `members` - Only group members can comment on the group.
+	// Who can comment on the group.  Option descriptions:  * `all` - Anyone can comment on the group.  * `members` - Only group members can comment on the group. 
 	Comment string `json:"comment"`
-	// Who can invite new members to the group.  Option descriptions:  * `all` - Anyone can invite new members to the group.  * `members` - Only group members can invite new members to the group.
+	// Who can invite new members to the group.  Option descriptions:  * `all` - Anyone can invite new members to the group.  * `members` - Only group members can invite new members to the group. 
 	Invite string `json:"invite"`
-	// Who can join the group.  Option descriptions:  * `anybody` - Anyone can join the group.  * `members` - Only people with a Vimeo account can join the group.
+	// Who can join the group.  Option descriptions:  * `anybody` - Anyone can join the group.  * `members` - Only people with a Vimeo account can join the group. 
 	Join string `json:"join"`
-	// Who can add videos to the group.  Option descriptions:  * `all` - Anyone can add videos to the group.  * `members` - Only group members can add videos to the group.
+	// Who can add videos to the group.  Option descriptions:  * `all` - Anyone can add videos to the group.  * `members` - Only group members can add videos to the group. 
 	Videos string `json:"videos"`
-	// Who can access the group.  Option descriptions:  * `anybody` - Anyone can access the group. This privacy setting appears as `Public` on the Vimeo front end.  * `members` - Only group members can access the group.
+	// Who can access the group.  Option descriptions:  * `anybody` - Anyone can access the group. This privacy setting appears as `Public` on the Vimeo front end.  * `members` - Only group members can access the group. 
 	View string `json:"view"`
 }
 
@@ -174,7 +174,7 @@ func (o *GroupPrivacy) SetView(v string) {
 }
 
 func (o GroupPrivacy) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -226,3 +226,5 @@ func (v *NullableGroupPrivacy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

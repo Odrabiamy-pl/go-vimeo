@@ -18,15 +18,16 @@ import (
 	"net/url"
 )
 
+
 type VideosLanguagesAPI interface {
 
 	/*
-		GetLanguages Get all languages
+	GetLanguages Get all languages
 
-		This method returns all available video languages.
+	This method returns all available video languages.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetLanguagesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetLanguagesRequest
 	*/
 	GetLanguages(ctx context.Context) ApiGetLanguagesRequest
 
@@ -39,14 +40,14 @@ type VideosLanguagesAPI interface {
 type VideosLanguagesAPIService service
 
 type ApiGetLanguagesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosLanguagesAPI
-	filter     *string
-	page       *float32
-	perPage    *float32
+	filter *string
+	page *float32
+	perPage *float32
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;audiotracks&#x60; - Return languages that can be used for audio tracks.  * &#x60;texttracks&#x60; - Return languages that can be used for text tracks.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;audiotracks&#x60; - Return languages that can be used for audio tracks.  * &#x60;texttracks&#x60; - Return languages that can be used for text tracks. 
 func (r ApiGetLanguagesRequest) Filter(filter string) ApiGetLanguagesRequest {
 	r.filter = &filter
 	return r
@@ -73,25 +74,24 @@ GetLanguages Get all languages
 
 This method returns all available video languages.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetLanguagesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetLanguagesRequest
 */
 func (a *VideosLanguagesAPIService) GetLanguages(ctx context.Context) ApiGetLanguagesRequest {
 	return ApiGetLanguagesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Language
+//  @return []Language
 func (a *VideosLanguagesAPIService) GetLanguagesExecute(r ApiGetLanguagesRequest) ([]Language, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Language
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Language
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosLanguagesAPIService.GetLanguages")

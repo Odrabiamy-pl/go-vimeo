@@ -19,19 +19,20 @@ import (
 	"strings"
 )
 
+
 type ShowcasesCustomShowcaseLogosAPI interface {
 
 	/*
-			CreateShowcaseLogo Add a custom logo to a showcase
+	CreateShowcaseLogo Add a custom logo to a showcase
 
-			This method adds an image file as a custom logo to the specified showcase. The authenticated user must be the owner of the showcase.
+	This method adds an image file as a custom logo to the specified showcase. The authenticated user must be the owner of the showcase.
 
-		For information on how to upload the logo, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
+For information on how to upload the logo, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param albumId The ID of the showcase.
-			@param userId The ID of the user.
-			@return ApiCreateShowcaseLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiCreateShowcaseLogoRequest
 	*/
 	CreateShowcaseLogo(ctx context.Context, albumId float32, userId int32) ApiCreateShowcaseLogoRequest
 
@@ -40,15 +41,15 @@ type ShowcasesCustomShowcaseLogosAPI interface {
 	CreateShowcaseLogoExecute(r ApiCreateShowcaseLogoRequest) (*Picture, *http.Response, error)
 
 	/*
-		DeleteShowcaseLogo Delete a custom showcase logo
+	DeleteShowcaseLogo Delete a custom showcase logo
 
-		This method deletes the specified custom logo from its showcase. The authenticated user must be the owner of the showcase.
+	This method deletes the specified custom logo from its showcase. The authenticated user must be the owner of the showcase.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param albumId The ID of the showcase.
-		@param logoId The ID of the custom logo.
-		@param userId The ID of the user.
-		@return ApiDeleteShowcaseLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param logoId The ID of the custom logo.
+	@param userId The ID of the user.
+	@return ApiDeleteShowcaseLogoRequest
 	*/
 	DeleteShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiDeleteShowcaseLogoRequest
 
@@ -56,15 +57,15 @@ type ShowcasesCustomShowcaseLogosAPI interface {
 	DeleteShowcaseLogoExecute(r ApiDeleteShowcaseLogoRequest) (*http.Response, error)
 
 	/*
-		GetShowcaseLogo Get a specific custom showcase logo
+	GetShowcaseLogo Get a specific custom showcase logo
 
-		This method returns a single custom logo of the specified showcase. The authenticated user must be the owner of the showcase.
+	This method returns a single custom logo of the specified showcase. The authenticated user must be the owner of the showcase.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param albumId The ID of the showcase.
-		@param logoId The ID of the custom logo.
-		@param userId The ID of the user.
-		@return ApiGetShowcaseLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param logoId The ID of the custom logo.
+	@param userId The ID of the user.
+	@return ApiGetShowcaseLogoRequest
 	*/
 	GetShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiGetShowcaseLogoRequest
 
@@ -73,14 +74,14 @@ type ShowcasesCustomShowcaseLogosAPI interface {
 	GetShowcaseLogoExecute(r ApiGetShowcaseLogoRequest) (*Picture, *http.Response, error)
 
 	/*
-		GetShowcaseLogos Get all the custom logos of a showcase
+	GetShowcaseLogos Get all the custom logos of a showcase
 
-		This method returns every custom logo of the specified showcase. The authenticated user must be the owner of the showcase.
+	This method returns every custom logo of the specified showcase. The authenticated user must be the owner of the showcase.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param albumId The ID of the showcase.
-		@param userId The ID of the user.
-		@return ApiGetShowcaseLogosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiGetShowcaseLogosRequest
 	*/
 	GetShowcaseLogos(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseLogosRequest
 
@@ -89,17 +90,17 @@ type ShowcasesCustomShowcaseLogosAPI interface {
 	GetShowcaseLogosExecute(r ApiGetShowcaseLogosRequest) ([]Picture, *http.Response, error)
 
 	/*
-			ReplaceShowcaseLogo Replace a custom showcase logo
+	ReplaceShowcaseLogo Replace a custom showcase logo
 
-			This method replaces the specified custom showcase logo with a new image file. The authenticated user must be the owner of the showcase.
+	This method replaces the specified custom showcase logo with a new image file. The authenticated user must be the owner of the showcase.
 
-		For information on how to upload the logo, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
+For information on how to upload the logo, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param albumId The ID of the showcase.
-			@param logoId The ID of the custom logo.
-			@param userId The ID of the user.
-			@return ApiReplaceShowcaseLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param logoId The ID of the custom logo.
+	@param userId The ID of the user.
+	@return ApiReplaceShowcaseLogoRequest
 	*/
 	ReplaceShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiReplaceShowcaseLogoRequest
 
@@ -112,10 +113,10 @@ type ShowcasesCustomShowcaseLogosAPI interface {
 type ShowcasesCustomShowcaseLogosAPIService service
 
 type ApiCreateShowcaseLogoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ShowcasesCustomShowcaseLogosAPI
-	albumId    float32
-	userId     int32
+	albumId float32
+	userId int32
 }
 
 func (r ApiCreateShowcaseLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -129,29 +130,28 @@ This method adds an image file as a custom logo to the specified showcase. The a
 
 For information on how to upload the logo, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiCreateShowcaseLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param userId The ID of the user.
+ @return ApiCreateShowcaseLogoRequest
 */
 func (a *ShowcasesCustomShowcaseLogosAPIService) CreateShowcaseLogo(ctx context.Context, albumId float32, userId int32) ApiCreateShowcaseLogoRequest {
 	return ApiCreateShowcaseLogoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		albumId:    albumId,
-		userId:     userId,
+		ctx: ctx,
+		albumId: albumId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *ShowcasesCustomShowcaseLogosAPIService) CreateShowcaseLogoExecute(r ApiCreateShowcaseLogoRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseLogosAPIService.CreateShowcaseLogo")
@@ -213,8 +213,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) CreateShowcaseLogoExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -224,8 +224,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) CreateShowcaseLogoExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -243,11 +243,11 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) CreateShowcaseLogoExecute(r Api
 }
 
 type ApiDeleteShowcaseLogoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ShowcasesCustomShowcaseLogosAPI
-	albumId    float32
-	logoId     float32
-	userId     int32
+	albumId float32
+	logoId float32
+	userId int32
 }
 
 func (r ApiDeleteShowcaseLogoRequest) Execute() (*http.Response, error) {
@@ -259,28 +259,28 @@ DeleteShowcaseLogo Delete a custom showcase logo
 
 This method deletes the specified custom logo from its showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param logoId The ID of the custom logo.
-	@param userId The ID of the user.
-	@return ApiDeleteShowcaseLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param logoId The ID of the custom logo.
+ @param userId The ID of the user.
+ @return ApiDeleteShowcaseLogoRequest
 */
 func (a *ShowcasesCustomShowcaseLogosAPIService) DeleteShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiDeleteShowcaseLogoRequest {
 	return ApiDeleteShowcaseLogoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		albumId:    albumId,
-		logoId:     logoId,
-		userId:     userId,
+		ctx: ctx,
+		albumId: albumId,
+		logoId: logoId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesCustomShowcaseLogosAPIService) DeleteShowcaseLogoExecute(r ApiDeleteShowcaseLogoRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseLogosAPIService.DeleteShowcaseLogo")
@@ -343,8 +343,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) DeleteShowcaseLogoExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -354,8 +354,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) DeleteShowcaseLogoExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -364,11 +364,11 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) DeleteShowcaseLogoExecute(r Api
 }
 
 type ApiGetShowcaseLogoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ShowcasesCustomShowcaseLogosAPI
-	albumId    float32
-	logoId     float32
-	userId     int32
+	albumId float32
+	logoId float32
+	userId int32
 }
 
 func (r ApiGetShowcaseLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -380,31 +380,30 @@ GetShowcaseLogo Get a specific custom showcase logo
 
 This method returns a single custom logo of the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param logoId The ID of the custom logo.
-	@param userId The ID of the user.
-	@return ApiGetShowcaseLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param logoId The ID of the custom logo.
+ @param userId The ID of the user.
+ @return ApiGetShowcaseLogoRequest
 */
 func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiGetShowcaseLogoRequest {
 	return ApiGetShowcaseLogoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		albumId:    albumId,
-		logoId:     logoId,
-		userId:     userId,
+		ctx: ctx,
+		albumId: albumId,
+		logoId: logoId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogoExecute(r ApiGetShowcaseLogoRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseLogosAPIService.GetShowcaseLogo")
@@ -467,8 +466,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogoExecute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -478,8 +477,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogoExecute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -497,12 +496,12 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogoExecute(r ApiGet
 }
 
 type ApiGetShowcaseLogosRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ShowcasesCustomShowcaseLogosAPI
-	albumId    float32
-	userId     int32
-	page       *float32
-	perPage    *float32
+	albumId float32
+	userId int32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -526,29 +525,28 @@ GetShowcaseLogos Get all the custom logos of a showcase
 
 This method returns every custom logo of the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiGetShowcaseLogosRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param userId The ID of the user.
+ @return ApiGetShowcaseLogosRequest
 */
 func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogos(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseLogosRequest {
 	return ApiGetShowcaseLogosRequest{
 		ApiService: a,
-		ctx:        ctx,
-		albumId:    albumId,
-		userId:     userId,
+		ctx: ctx,
+		albumId: albumId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogosExecute(r ApiGetShowcaseLogosRequest) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseLogosAPIService.GetShowcaseLogos")
@@ -616,8 +614,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogosExecute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -635,11 +633,11 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) GetShowcaseLogosExecute(r ApiGe
 }
 
 type ApiReplaceShowcaseLogoRequest struct {
-	ctx                        context.Context
-	ApiService                 ShowcasesCustomShowcaseLogosAPI
-	albumId                    float32
-	logoId                     float32
-	userId                     int32
+	ctx context.Context
+	ApiService ShowcasesCustomShowcaseLogosAPI
+	albumId float32
+	logoId float32
+	userId int32
 	replaceShowcaseLogoRequest *ReplaceShowcaseLogoRequest
 }
 
@@ -659,31 +657,30 @@ This method replaces the specified custom showcase logo with a new image file. T
 
 For information on how to upload the logo, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param logoId The ID of the custom logo.
-	@param userId The ID of the user.
-	@return ApiReplaceShowcaseLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param logoId The ID of the custom logo.
+ @param userId The ID of the user.
+ @return ApiReplaceShowcaseLogoRequest
 */
 func (a *ShowcasesCustomShowcaseLogosAPIService) ReplaceShowcaseLogo(ctx context.Context, albumId float32, logoId float32, userId int32) ApiReplaceShowcaseLogoRequest {
 	return ApiReplaceShowcaseLogoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		albumId:    albumId,
-		logoId:     logoId,
-		userId:     userId,
+		ctx: ctx,
+		albumId: albumId,
+		logoId: logoId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *ShowcasesCustomShowcaseLogosAPIService) ReplaceShowcaseLogoExecute(r ApiReplaceShowcaseLogoRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseLogosAPIService.ReplaceShowcaseLogo")
@@ -748,8 +745,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) ReplaceShowcaseLogoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -759,8 +756,8 @@ func (a *ShowcasesCustomShowcaseLogosAPIService) ReplaceShowcaseLogoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

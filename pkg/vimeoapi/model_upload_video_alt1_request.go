@@ -22,26 +22,26 @@ type UploadVideoAlt1Request struct {
 	// A list of values describing the content in this video. For a full list of values, use the [`/contentratings`](https://developer.vimeo.com/api/reference/videos#get_content_ratings) endpoint.
 	ContentRating []string `json:"content_rating,omitempty"`
 	// The description of the video.
-	Description *string                      `json:"description,omitempty"`
-	Embed       *UploadVideoAlt1RequestEmbed `json:"embed,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Embed *UploadVideoAlt1RequestEmbed `json:"embed,omitempty"`
 	// The complete list of domains the video can be embedded on. This field requires that **privacy_embed** have the value `whitelist`.
 	EmbedDomains []string `json:"embed_domains,omitempty"`
 	// The URI of the folder to which the video is uploaded.
 	FolderUri *string `json:"folder_uri,omitempty"`
 	// Whether to hide the video from everyone except the video's owner. When the value is `true`, unlisted video links work only for the video's owner.
 	HideFromVimeo *bool `json:"hide_from_vimeo,omitempty"`
-	// The Creative Commons license under which the video is offered.  Option descriptions:  * `by` - The video is offered under CC BY, or the attibution-only license.  * `by-nc` - The video is offered under CC BY-NC, or the Attribution-NonCommercial license.  * `by-nc-nd` - The video is offered under CC BY-NC-ND, or the Attribution-NonCommercian-NoDerivs license.  * `by-nc-sa` - The video is offered under CC BY-NC-SA, or the Attribution-NonCommercial-ShareAlike licence.  * `by-nd` - The video is offered under CC BY-ND, or the Attribution-NoDerivs license.  * `by-sa` - The video is offered under CC BY-SA, or the Attribution-ShareAlike license.  * `cc0` - The video is offered under CC0, or the public domain license.
+	// The Creative Commons license under which the video is offered.  Option descriptions:  * `by` - The video is offered under CC BY, or the attibution-only license.  * `by-nc` - The video is offered under CC BY-NC, or the Attribution-NonCommercial license.  * `by-nc-nd` - The video is offered under CC BY-NC-ND, or the Attribution-NonCommercian-NoDerivs license.  * `by-nc-sa` - The video is offered under CC BY-NC-SA, or the Attribution-NonCommercial-ShareAlike licence.  * `by-nd` - The video is offered under CC BY-ND, or the Attribution-NoDerivs license.  * `by-sa` - The video is offered under CC BY-SA, or the Attribution-ShareAlike license.  * `cc0` - The video is offered under CC0, or the public domain license. 
 	License *string `json:"license,omitempty"`
 	// The video's default language. For a full list of supported languages, use the [`/languages?filter=texttracks`](https://developer.vimeo.com/api/reference/videos#get_languages) endpoint.
 	Locale *string `json:"locale,omitempty"`
 	// The title of the video.
 	Name *string `json:"name,omitempty"`
 	// The password. This field is required when **privacy.view** is `password`.
-	Password   *string                           `json:"password,omitempty"`
-	Privacy    *UploadVideoAlt1RequestPrivacy    `json:"privacy,omitempty"`
+	Password *string `json:"password,omitempty"`
+	Privacy *UploadVideoAlt1RequestPrivacy `json:"privacy,omitempty"`
 	ReviewPage *UploadVideoAlt1RequestReviewPage `json:"review_page,omitempty"`
-	Spatial    *UploadVideoAlt1RequestSpatial    `json:"spatial,omitempty"`
-	Upload     UploadVideoAlt1RequestUpload      `json:"upload"`
+	Spatial *UploadVideoAlt1RequestSpatial `json:"spatial,omitempty"`
+	Upload UploadVideoAlt1RequestUpload `json:"upload"`
 }
 
 // NewUploadVideoAlt1Request instantiates a new UploadVideoAlt1Request object
@@ -503,7 +503,7 @@ func (o *UploadVideoAlt1Request) SetUpload(v UploadVideoAlt1RequestUpload) {
 }
 
 func (o UploadVideoAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -590,3 +590,5 @@ func (v *NullableUploadVideoAlt1Request) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

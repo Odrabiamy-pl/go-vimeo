@@ -22,9 +22,9 @@ type PresetSettings struct {
 	// Whether AirPlay is enabled in the embeddable player.
 	Airplay bool `json:"airplay"`
 	// Whether multiple audio tracks can appear in the embeddable player.
-	AudioTracks bool                  `json:"audio_tracks"`
-	Buttons     PresetSettingsButtons `json:"buttons"`
-	// How the embeddable player handles the video owner's information.  Option descriptions:  * `hide` - The owner's information is hidden.  * `show` - The owner's information is shown.  * `user` - The owner's information can be toggled to `show` or `hide` by the user.
+	AudioTracks bool `json:"audio_tracks"`
+	Buttons PresetSettingsButtons `json:"buttons"`
+	// How the embeddable player handles the video owner's information.  Option descriptions:  * `hide` - The owner's information is hidden.  * `show` - The owner's information is shown.  * `user` - The owner's information can be toggled to `show` or `hide` by the user. 
 	Byline string `json:"byline"`
 	// Whether chapters are enabled in the embeddable player.
 	Chapters bool `json:"chapters"`
@@ -33,22 +33,22 @@ type PresetSettings struct {
 	// Whether closed captions are enabled in the embeddable player.
 	ClosedCaptions bool `json:"closed_captions"`
 	// The first player color, which controls the color of the progress bar, buttons, and more.
-	Color  string               `json:"color"`
+	Color string `json:"color"`
 	Colors PresetSettingsColors `json:"colors"`
-	Logos  PresetSettingsLogos  `json:"logos"`
-	Outro  PresetSettingsOutro  `json:"outro"`
+	Logos PresetSettingsLogos `json:"logos"`
+	Outro PresetSettingsOutro `json:"outro"`
 	// Whether picture-in-picture is enabled and the button appears in the embeddable player.
-	Pip        bool                    `json:"pip"`
+	Pip bool `json:"pip"`
 	PlayButton EmbedSettingsPlayButton `json:"play_button"`
 	// Whether the playbar appears in the embeddable player.
 	Playbar bool `json:"playbar"`
-	// How the embeddable player handles the video owner's portrait.  Option descriptions:  * `hide` - The owner's portrait is hidden.  * `show` - The owner's portrait is shown.  * `user` - The owner's portrait can be toggled to `show` or `hide` by the user.
+	// How the embeddable player handles the video owner's portrait.  Option descriptions:  * `hide` - The owner's portrait is hidden.  * `show` - The owner's portrait is shown.  * `user` - The owner's portrait can be toggled to `show` or `hide` by the user. 
 	Portrait string `json:"portrait"`
 	// Whether to show the quality selector in the embeddable player.
 	QualitySelector bool `json:"quality_selector"`
 	// Whether the speed controls appear in the embeddable player.
 	Speed bool `json:"speed"`
-	// How the embeddable player handles the video title.  Option descriptions:  * `hide` - The title is hidden.  * `show` - The title is shown.  * `user` - The title can be toggled to `show` or `hide` by the user.
+	// How the embeddable player handles the video title.  Option descriptions:  * `hide` - The title is hidden.  * `show` - The title is shown.  * `user` - The title can be toggled to `show` or `hide` by the user. 
 	Title string `json:"title"`
 	// Whether the transcript controls appear in the embeddable player.
 	Transcript bool `json:"transcript"`
@@ -574,7 +574,7 @@ func (o *PresetSettings) SetVolume(v bool) {
 }
 
 func (o PresetSettings) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -641,3 +641,5 @@ func (v *NullablePresetSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

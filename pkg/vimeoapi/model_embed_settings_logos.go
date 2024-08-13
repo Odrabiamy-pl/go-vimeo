@@ -92,7 +92,7 @@ func (o *EmbedSettingsLogos) SetVimeo(v bool) {
 }
 
 func (o EmbedSettingsLogos) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -141,3 +141,5 @@ func (v *NullableEmbedSettingsLogos) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

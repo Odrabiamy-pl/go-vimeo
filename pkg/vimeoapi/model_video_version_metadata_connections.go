@@ -65,7 +65,7 @@ func (o *VideoVersionMetadataConnections) SetVideo(v VideoVersionMetadataConnect
 }
 
 func (o VideoVersionMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -113,3 +113,5 @@ func (v *NullableVideoVersionMetadataConnections) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

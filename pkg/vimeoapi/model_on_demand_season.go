@@ -20,8 +20,8 @@ var _ MappedNullable = &OnDemandSeason{}
 // OnDemandSeason struct for OnDemandSeason
 type OnDemandSeason struct {
 	// The description of the season.
-	Description string                 `json:"description"`
-	Metadata    OnDemandSeasonMetadata `json:"metadata"`
+	Description string `json:"description"`
+	Metadata OnDemandSeasonMetadata `json:"metadata"`
 	// The name of the season.
 	Name string `json:"name"`
 	// The position of the season relative to other seasons in the series.
@@ -31,7 +31,7 @@ type OnDemandSeason struct {
 	// The type of the season.
 	Type string `json:"type"`
 	// The season container's relative URI.
-	Uri  string                     `json:"uri"`
+	Uri string `json:"uri"`
 	User NullableOnDemandSeasonUser `json:"user"`
 }
 
@@ -255,7 +255,7 @@ func (o *OnDemandSeason) SetUser(v OnDemandSeasonUser) {
 }
 
 func (o OnDemandSeason) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,3 +310,5 @@ func (v *NullableOnDemandSeason) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

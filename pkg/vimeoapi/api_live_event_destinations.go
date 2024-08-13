@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type LiveEventDestinationsAPI interface {
 
 	/*
-		CreateLiveEventDestination Create a live event destination
+	CreateLiveEventDestination Create a live event destination
 
-		This method creates a destination for the specified event. The authenticated user must be the owner of the event.
+	This method creates a destination for the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiCreateLiveEventDestinationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiCreateLiveEventDestinationRequest
 	*/
 	CreateLiveEventDestination(ctx context.Context, liveEventId float32) ApiCreateLiveEventDestinationRequest
 
@@ -37,14 +38,14 @@ type LiveEventDestinationsAPI interface {
 	CreateLiveEventDestinationExecute(r ApiCreateLiveEventDestinationRequest) (*LiveEventDestination, *http.Response, error)
 
 	/*
-		CreateLiveEventDestinationAlt1 Create a live event destination
+	CreateLiveEventDestinationAlt1 Create a live event destination
 
-		This method creates a destination for the specified event. The authenticated user must be the owner of the event.
+	This method creates a destination for the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiCreateLiveEventDestinationAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiCreateLiveEventDestinationAlt1Request
 	*/
 	CreateLiveEventDestinationAlt1(ctx context.Context, liveEventId float32, userId int32) ApiCreateLiveEventDestinationAlt1Request
 
@@ -53,14 +54,14 @@ type LiveEventDestinationsAPI interface {
 	CreateLiveEventDestinationAlt1Execute(r ApiCreateLiveEventDestinationAlt1Request) (*LiveEventDestination, *http.Response, error)
 
 	/*
-		CreateOneTimeEventDestination Create a one-time live event destination
+	CreateOneTimeEventDestination Create a one-time live event destination
 
-		This method creates a destination for the specified event. The authenticated user must be the owner of the event.
+	This method creates a destination for the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@param videoId The ID of the video.
-		@return ApiCreateOneTimeEventDestinationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiCreateOneTimeEventDestinationRequest
 	*/
 	CreateOneTimeEventDestination(ctx context.Context, userId int32, videoId int32) ApiCreateOneTimeEventDestinationRequest
 
@@ -68,13 +69,13 @@ type LiveEventDestinationsAPI interface {
 	CreateOneTimeEventDestinationExecute(r ApiCreateOneTimeEventDestinationRequest) (*http.Response, error)
 
 	/*
-		CreateOneTimeEventDestinationAlt1 Create a one-time live event destination
+	CreateOneTimeEventDestinationAlt1 Create a one-time live event destination
 
-		This method creates a destination for the specified event. The authenticated user must be the owner of the event.
+	This method creates a destination for the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiCreateOneTimeEventDestinationAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateOneTimeEventDestinationAlt1Request
 	*/
 	CreateOneTimeEventDestinationAlt1(ctx context.Context, videoId int32) ApiCreateOneTimeEventDestinationAlt1Request
 
@@ -82,14 +83,14 @@ type LiveEventDestinationsAPI interface {
 	CreateOneTimeEventDestinationAlt1Execute(r ApiCreateOneTimeEventDestinationAlt1Request) (*http.Response, error)
 
 	/*
-		CreateOttDestination Create a live event OTT destination
+	CreateOttDestination Create a live event OTT destination
 
-		This method creates an OTT channel as the destination of the specified event. The authenticated user must be the owner of the event.
+	This method creates an OTT channel as the destination of the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiCreateOttDestinationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiCreateOttDestinationRequest
 	*/
 	CreateOttDestination(ctx context.Context, liveEventId float32, userId int32) ApiCreateOttDestinationRequest
 
@@ -98,13 +99,13 @@ type LiveEventDestinationsAPI interface {
 	CreateOttDestinationExecute(r ApiCreateOttDestinationRequest) (*OttDestination, *http.Response, error)
 
 	/*
-		DeleteLiveEventDestination Delete a live event destination
+	DeleteLiveEventDestination Delete a live event destination
 
-		This method deletes the specified event destination belonging to the authenticated user.
+	This method deletes the specified event destination belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param destinationId The ID of the event destination.
-		@return ApiDeleteLiveEventDestinationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param destinationId The ID of the event destination.
+	@return ApiDeleteLiveEventDestinationRequest
 	*/
 	DeleteLiveEventDestination(ctx context.Context, destinationId float32) ApiDeleteLiveEventDestinationRequest
 
@@ -112,15 +113,15 @@ type LiveEventDestinationsAPI interface {
 	DeleteLiveEventDestinationExecute(r ApiDeleteLiveEventDestinationRequest) (*http.Response, error)
 
 	/*
-		DeleteOttDestination Delete a live event OTT destination
+	DeleteOttDestination Delete a live event OTT destination
 
-		This method deletes an OTT channel as the destination of the specified event. The authenticated user must be the owner of the event.
+	This method deletes an OTT channel as the destination of the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@param destinationId The ID of the event destination.
-		@return ApiDeleteOttDestinationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@param destinationId The ID of the event destination.
+	@return ApiDeleteOttDestinationRequest
 	*/
 	DeleteOttDestination(ctx context.Context, liveEventId float32, userId int32, destinationId float32) ApiDeleteOttDestinationRequest
 
@@ -128,13 +129,13 @@ type LiveEventDestinationsAPI interface {
 	DeleteOttDestinationExecute(r ApiDeleteOttDestinationRequest) (*http.Response, error)
 
 	/*
-		GetAvailableDestinations Get all available live event destinations for the user to stream to
+	GetAvailableDestinations Get all available live event destinations for the user to stream to
 
-		This method returns every available event destination for the authenticated user to stream to.
+	This method returns every available event destination for the authenticated user to stream to.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiGetAvailableDestinationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetAvailableDestinationsRequest
 	*/
 	GetAvailableDestinations(ctx context.Context, userId int32) ApiGetAvailableDestinationsRequest
 
@@ -142,12 +143,12 @@ type LiveEventDestinationsAPI interface {
 	GetAvailableDestinationsExecute(r ApiGetAvailableDestinationsRequest) (*http.Response, error)
 
 	/*
-		GetAvailableDestinationsAlt1 Get all available live event destinations for the user to stream to
+	GetAvailableDestinationsAlt1 Get all available live event destinations for the user to stream to
 
-		This method returns every available event destination for the authenticated user to stream to.
+	This method returns every available event destination for the authenticated user to stream to.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetAvailableDestinationsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetAvailableDestinationsAlt1Request
 	*/
 	GetAvailableDestinationsAlt1(ctx context.Context) ApiGetAvailableDestinationsAlt1Request
 
@@ -155,13 +156,13 @@ type LiveEventDestinationsAPI interface {
 	GetAvailableDestinationsAlt1Execute(r ApiGetAvailableDestinationsAlt1Request) (*http.Response, error)
 
 	/*
-		GetLiveEventDestination Get a live event destination
+	GetLiveEventDestination Get a live event destination
 
-		This method returns the specified event destination belonging to the authenticated user.
+	This method returns the specified event destination belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param destinationId The ID of the event destination.
-		@return ApiGetLiveEventDestinationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param destinationId The ID of the event destination.
+	@return ApiGetLiveEventDestinationRequest
 	*/
 	GetLiveEventDestination(ctx context.Context, destinationId float32) ApiGetLiveEventDestinationRequest
 
@@ -170,13 +171,13 @@ type LiveEventDestinationsAPI interface {
 	GetLiveEventDestinationExecute(r ApiGetLiveEventDestinationRequest) (*LiveEventDestination, *http.Response, error)
 
 	/*
-		GetLiveEventDestinations Get all the destinations of a recurring live event
+	GetLiveEventDestinations Get all the destinations of a recurring live event
 
-		This method returns every destination of the specified event. The authenticated user must be the owner of the event.
+	This method returns every destination of the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventDestinationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventDestinationsRequest
 	*/
 	GetLiveEventDestinations(ctx context.Context, liveEventId float32) ApiGetLiveEventDestinationsRequest
 
@@ -185,14 +186,14 @@ type LiveEventDestinationsAPI interface {
 	GetLiveEventDestinationsExecute(r ApiGetLiveEventDestinationsRequest) ([]LiveEventDestination, *http.Response, error)
 
 	/*
-		GetLiveEventDestinationsAlt1 Get all the destinations of a recurring live event
+	GetLiveEventDestinationsAlt1 Get all the destinations of a recurring live event
 
-		This method returns every destination of the specified event. The authenticated user must be the owner of the event.
+	This method returns every destination of the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiGetLiveEventDestinationsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiGetLiveEventDestinationsAlt1Request
 	*/
 	GetLiveEventDestinationsAlt1(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventDestinationsAlt1Request
 
@@ -201,14 +202,14 @@ type LiveEventDestinationsAPI interface {
 	GetLiveEventDestinationsAlt1Execute(r ApiGetLiveEventDestinationsAlt1Request) ([]LiveEventDestination, *http.Response, error)
 
 	/*
-		GetOneTimeEventDestinations Get all the destinations of a one-time live event
+	GetOneTimeEventDestinations Get all the destinations of a one-time live event
 
-		This method returns every destination of the specified event. The authenticated user must be the owner of the event.
+	This method returns every destination of the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@param videoId The ID of the video.
-		@return ApiGetOneTimeEventDestinationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiGetOneTimeEventDestinationsRequest
 	*/
 	GetOneTimeEventDestinations(ctx context.Context, userId int32, videoId int32) ApiGetOneTimeEventDestinationsRequest
 
@@ -217,13 +218,13 @@ type LiveEventDestinationsAPI interface {
 	GetOneTimeEventDestinationsExecute(r ApiGetOneTimeEventDestinationsRequest) ([]LiveEventDestination, *http.Response, error)
 
 	/*
-		GetOneTimeEventDestinationsAlt1 Get all the destinations of a one-time live event
+	GetOneTimeEventDestinationsAlt1 Get all the destinations of a one-time live event
 
-		This method returns every destination of the specified event. The authenticated user must be the owner of the event.
+	This method returns every destination of the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiGetOneTimeEventDestinationsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetOneTimeEventDestinationsAlt1Request
 	*/
 	GetOneTimeEventDestinationsAlt1(ctx context.Context, videoId int32) ApiGetOneTimeEventDestinationsAlt1Request
 
@@ -232,14 +233,14 @@ type LiveEventDestinationsAPI interface {
 	GetOneTimeEventDestinationsAlt1Execute(r ApiGetOneTimeEventDestinationsAlt1Request) ([]LiveEventDestination, *http.Response, error)
 
 	/*
-		GetOttDestinations Get all the OTT destinations of a recurring live event
+	GetOttDestinations Get all the OTT destinations of a recurring live event
 
-		This method returns every OTT destination of the specified event. The authenticated user must be the owner of the event.
+	This method returns every OTT destination of the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiGetOttDestinationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiGetOttDestinationsRequest
 	*/
 	GetOttDestinations(ctx context.Context, liveEventId float32, userId int32) ApiGetOttDestinationsRequest
 
@@ -248,13 +249,13 @@ type LiveEventDestinationsAPI interface {
 	GetOttDestinationsExecute(r ApiGetOttDestinationsRequest) ([]OttDestination, *http.Response, error)
 
 	/*
-		UpdateLiveEventDestination Update a live event destination
+	UpdateLiveEventDestination Update a live event destination
 
-		This method updates the specified event destination belonging to the authenticated user.
+	This method updates the specified event destination belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param destinationId The ID of the event destination.
-		@return ApiUpdateLiveEventDestinationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param destinationId The ID of the event destination.
+	@return ApiUpdateLiveEventDestinationRequest
 	*/
 	UpdateLiveEventDestination(ctx context.Context, destinationId float32) ApiUpdateLiveEventDestinationRequest
 
@@ -267,9 +268,9 @@ type LiveEventDestinationsAPI interface {
 type LiveEventDestinationsAPIService service
 
 type ApiCreateLiveEventDestinationRequest struct {
-	ctx                               context.Context
-	ApiService                        LiveEventDestinationsAPI
-	liveEventId                       float32
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
+	liveEventId float32
 	createLiveEventDestinationRequest *CreateLiveEventDestinationRequest
 }
 
@@ -287,27 +288,26 @@ CreateLiveEventDestination Create a live event destination
 
 This method creates a destination for the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiCreateLiveEventDestinationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiCreateLiveEventDestinationRequest
 */
 func (a *LiveEventDestinationsAPIService) CreateLiveEventDestination(ctx context.Context, liveEventId float32) ApiCreateLiveEventDestinationRequest {
 	return ApiCreateLiveEventDestinationRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventDestination
+//  @return LiveEventDestination
 func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationExecute(r ApiCreateLiveEventDestinationRequest) (*LiveEventDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventDestination
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.CreateLiveEventDestination")
@@ -373,8 +373,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -384,8 +384,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -395,8 +395,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -406,8 +406,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -425,10 +425,10 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationExecute(r Ap
 }
 
 type ApiCreateLiveEventDestinationAlt1Request struct {
-	ctx                               context.Context
-	ApiService                        LiveEventDestinationsAPI
-	liveEventId                       float32
-	userId                            int32
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
+	liveEventId float32
+	userId int32
 	createLiveEventDestinationRequest *CreateLiveEventDestinationRequest
 }
 
@@ -446,29 +446,28 @@ CreateLiveEventDestinationAlt1 Create a live event destination
 
 This method creates a destination for the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiCreateLiveEventDestinationAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiCreateLiveEventDestinationAlt1Request
 */
 func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1(ctx context.Context, liveEventId float32, userId int32) ApiCreateLiveEventDestinationAlt1Request {
 	return ApiCreateLiveEventDestinationAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventDestination
+//  @return LiveEventDestination
 func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1Execute(r ApiCreateLiveEventDestinationAlt1Request) (*LiveEventDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventDestination
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.CreateLiveEventDestinationAlt1")
@@ -535,8 +534,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1Execute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -546,8 +545,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1Execute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -557,8 +556,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1Execute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -568,8 +567,8 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1Execute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -587,10 +586,10 @@ func (a *LiveEventDestinationsAPIService) CreateLiveEventDestinationAlt1Execute(
 }
 
 type ApiCreateOneTimeEventDestinationRequest struct {
-	ctx                               context.Context
-	ApiService                        LiveEventDestinationsAPI
-	userId                            int32
-	videoId                           int32
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
+	userId int32
+	videoId int32
 	createLiveEventDestinationRequest *CreateLiveEventDestinationRequest
 }
 
@@ -608,26 +607,26 @@ CreateOneTimeEventDestination Create a one-time live event destination
 
 This method creates a destination for the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiCreateOneTimeEventDestinationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @param videoId The ID of the video.
+ @return ApiCreateOneTimeEventDestinationRequest
 */
 func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestination(ctx context.Context, userId int32, videoId int32) ApiCreateOneTimeEventDestinationRequest {
 	return ApiCreateOneTimeEventDestinationRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
-		videoId:    videoId,
+		ctx: ctx,
+		userId: userId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationExecute(r ApiCreateOneTimeEventDestinationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.CreateOneTimeEventDestination")
@@ -694,8 +693,8 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -705,8 +704,8 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -716,8 +715,8 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -727,8 +726,8 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -737,9 +736,9 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationExecute(r
 }
 
 type ApiCreateOneTimeEventDestinationAlt1Request struct {
-	ctx                               context.Context
-	ApiService                        LiveEventDestinationsAPI
-	videoId                           int32
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
+	videoId int32
 	createLiveEventDestinationRequest *CreateLiveEventDestinationRequest
 }
 
@@ -757,24 +756,24 @@ CreateOneTimeEventDestinationAlt1 Create a one-time live event destination
 
 This method creates a destination for the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateOneTimeEventDestinationAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiCreateOneTimeEventDestinationAlt1Request
 */
 func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1(ctx context.Context, videoId int32) ApiCreateOneTimeEventDestinationAlt1Request {
 	return ApiCreateOneTimeEventDestinationAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1Execute(r ApiCreateOneTimeEventDestinationAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.CreateOneTimeEventDestinationAlt1")
@@ -840,8 +839,8 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1Execu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -851,8 +850,8 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1Execu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -862,8 +861,8 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1Execu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -873,8 +872,8 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1Execu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -883,10 +882,10 @@ func (a *LiveEventDestinationsAPIService) CreateOneTimeEventDestinationAlt1Execu
 }
 
 type ApiCreateOttDestinationRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventDestinationsAPI
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
 	liveEventId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiCreateOttDestinationRequest) Execute() (*OttDestination, *http.Response, error) {
@@ -898,29 +897,28 @@ CreateOttDestination Create a live event OTT destination
 
 This method creates an OTT channel as the destination of the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiCreateOttDestinationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiCreateOttDestinationRequest
 */
 func (a *LiveEventDestinationsAPIService) CreateOttDestination(ctx context.Context, liveEventId float32, userId int32) ApiCreateOttDestinationRequest {
 	return ApiCreateOttDestinationRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OttDestination
+//  @return OttDestination
 func (a *LiveEventDestinationsAPIService) CreateOttDestinationExecute(r ApiCreateOttDestinationRequest) (*OttDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OttDestination
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OttDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.CreateOttDestination")
@@ -982,8 +980,8 @@ func (a *LiveEventDestinationsAPIService) CreateOttDestinationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -993,8 +991,8 @@ func (a *LiveEventDestinationsAPIService) CreateOttDestinationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1004,8 +1002,8 @@ func (a *LiveEventDestinationsAPIService) CreateOttDestinationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1015,8 +1013,8 @@ func (a *LiveEventDestinationsAPIService) CreateOttDestinationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1034,8 +1032,8 @@ func (a *LiveEventDestinationsAPIService) CreateOttDestinationExecute(r ApiCreat
 }
 
 type ApiDeleteLiveEventDestinationRequest struct {
-	ctx           context.Context
-	ApiService    LiveEventDestinationsAPI
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
 	destinationId float32
 }
 
@@ -1048,14 +1046,14 @@ DeleteLiveEventDestination Delete a live event destination
 
 This method deletes the specified event destination belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param destinationId The ID of the event destination.
-	@return ApiDeleteLiveEventDestinationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param destinationId The ID of the event destination.
+ @return ApiDeleteLiveEventDestinationRequest
 */
 func (a *LiveEventDestinationsAPIService) DeleteLiveEventDestination(ctx context.Context, destinationId float32) ApiDeleteLiveEventDestinationRequest {
 	return ApiDeleteLiveEventDestinationRequest{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		destinationId: destinationId,
 	}
 }
@@ -1063,9 +1061,9 @@ func (a *LiveEventDestinationsAPIService) DeleteLiveEventDestination(ctx context
 // Execute executes the request
 func (a *LiveEventDestinationsAPIService) DeleteLiveEventDestinationExecute(r ApiDeleteLiveEventDestinationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.DeleteLiveEventDestination")
@@ -1126,8 +1124,8 @@ func (a *LiveEventDestinationsAPIService) DeleteLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1137,8 +1135,8 @@ func (a *LiveEventDestinationsAPIService) DeleteLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1148,8 +1146,8 @@ func (a *LiveEventDestinationsAPIService) DeleteLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1158,10 +1156,10 @@ func (a *LiveEventDestinationsAPIService) DeleteLiveEventDestinationExecute(r Ap
 }
 
 type ApiDeleteOttDestinationRequest struct {
-	ctx           context.Context
-	ApiService    LiveEventDestinationsAPI
-	liveEventId   float32
-	userId        int32
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
+	liveEventId float32
+	userId int32
 	destinationId float32
 }
 
@@ -1174,18 +1172,18 @@ DeleteOttDestination Delete a live event OTT destination
 
 This method deletes an OTT channel as the destination of the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@param destinationId The ID of the event destination.
-	@return ApiDeleteOttDestinationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @param destinationId The ID of the event destination.
+ @return ApiDeleteOttDestinationRequest
 */
 func (a *LiveEventDestinationsAPIService) DeleteOttDestination(ctx context.Context, liveEventId float32, userId int32, destinationId float32) ApiDeleteOttDestinationRequest {
 	return ApiDeleteOttDestinationRequest{
-		ApiService:    a,
-		ctx:           ctx,
-		liveEventId:   liveEventId,
-		userId:        userId,
+		ApiService: a,
+		ctx: ctx,
+		liveEventId: liveEventId,
+		userId: userId,
 		destinationId: destinationId,
 	}
 }
@@ -1193,9 +1191,9 @@ func (a *LiveEventDestinationsAPIService) DeleteOttDestination(ctx context.Conte
 // Execute executes the request
 func (a *LiveEventDestinationsAPIService) DeleteOttDestinationExecute(r ApiDeleteOttDestinationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.DeleteOttDestination")
@@ -1258,8 +1256,8 @@ func (a *LiveEventDestinationsAPIService) DeleteOttDestinationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1269,8 +1267,8 @@ func (a *LiveEventDestinationsAPIService) DeleteOttDestinationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1280,8 +1278,8 @@ func (a *LiveEventDestinationsAPIService) DeleteOttDestinationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1291,8 +1289,8 @@ func (a *LiveEventDestinationsAPIService) DeleteOttDestinationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1301,9 +1299,9 @@ func (a *LiveEventDestinationsAPIService) DeleteOttDestinationExecute(r ApiDelet
 }
 
 type ApiGetAvailableDestinationsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService LiveEventDestinationsAPI
-	userId     int32
+	userId int32
 }
 
 func (r ApiGetAvailableDestinationsRequest) Execute() (*http.Response, error) {
@@ -1315,24 +1313,24 @@ GetAvailableDestinations Get all available live event destinations for the user 
 
 This method returns every available event destination for the authenticated user to stream to.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetAvailableDestinationsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiGetAvailableDestinationsRequest
 */
 func (a *LiveEventDestinationsAPIService) GetAvailableDestinations(ctx context.Context, userId int32) ApiGetAvailableDestinationsRequest {
 	return ApiGetAvailableDestinationsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsExecute(r ApiGetAvailableDestinationsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.GetAvailableDestinations")
@@ -1393,8 +1391,8 @@ func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1404,8 +1402,8 @@ func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1414,7 +1412,7 @@ func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsExecute(r ApiG
 }
 
 type ApiGetAvailableDestinationsAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService LiveEventDestinationsAPI
 }
 
@@ -1427,22 +1425,22 @@ GetAvailableDestinationsAlt1 Get all available live event destinations for the u
 
 This method returns every available event destination for the authenticated user to stream to.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetAvailableDestinationsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetAvailableDestinationsAlt1Request
 */
 func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsAlt1(ctx context.Context) ApiGetAvailableDestinationsAlt1Request {
 	return ApiGetAvailableDestinationsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsAlt1Execute(r ApiGetAvailableDestinationsAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.GetAvailableDestinationsAlt1")
@@ -1502,8 +1500,8 @@ func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1513,8 +1511,8 @@ func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1523,8 +1521,8 @@ func (a *LiveEventDestinationsAPIService) GetAvailableDestinationsAlt1Execute(r 
 }
 
 type ApiGetLiveEventDestinationRequest struct {
-	ctx           context.Context
-	ApiService    LiveEventDestinationsAPI
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
 	destinationId float32
 }
 
@@ -1537,27 +1535,26 @@ GetLiveEventDestination Get a live event destination
 
 This method returns the specified event destination belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param destinationId The ID of the event destination.
-	@return ApiGetLiveEventDestinationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param destinationId The ID of the event destination.
+ @return ApiGetLiveEventDestinationRequest
 */
 func (a *LiveEventDestinationsAPIService) GetLiveEventDestination(ctx context.Context, destinationId float32) ApiGetLiveEventDestinationRequest {
 	return ApiGetLiveEventDestinationRequest{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		destinationId: destinationId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventDestination
+//  @return LiveEventDestination
 func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationExecute(r ApiGetLiveEventDestinationRequest) (*LiveEventDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventDestination
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.GetLiveEventDestination")
@@ -1618,8 +1615,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationExecute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1629,8 +1626,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationExecute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1640,8 +1637,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationExecute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1659,8 +1656,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationExecute(r ApiGe
 }
 
 type ApiGetLiveEventDestinationsRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventDestinationsAPI
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
 	liveEventId float32
 }
 
@@ -1673,27 +1670,26 @@ GetLiveEventDestinations Get all the destinations of a recurring live event
 
 This method returns every destination of the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventDestinationsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventDestinationsRequest
 */
 func (a *LiveEventDestinationsAPIService) GetLiveEventDestinations(ctx context.Context, liveEventId float32) ApiGetLiveEventDestinationsRequest {
 	return ApiGetLiveEventDestinationsRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []LiveEventDestination
+//  @return []LiveEventDestination
 func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsExecute(r ApiGetLiveEventDestinationsRequest) ([]LiveEventDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []LiveEventDestination
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []LiveEventDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.GetLiveEventDestinations")
@@ -1754,8 +1750,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1765,8 +1761,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1776,8 +1772,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1787,8 +1783,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1806,10 +1802,10 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsExecute(r ApiG
 }
 
 type ApiGetLiveEventDestinationsAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEventDestinationsAPI
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
 	liveEventId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiGetLiveEventDestinationsAlt1Request) Execute() ([]LiveEventDestination, *http.Response, error) {
@@ -1821,29 +1817,28 @@ GetLiveEventDestinationsAlt1 Get all the destinations of a recurring live event
 
 This method returns every destination of the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiGetLiveEventDestinationsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiGetLiveEventDestinationsAlt1Request
 */
 func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventDestinationsAlt1Request {
 	return ApiGetLiveEventDestinationsAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []LiveEventDestination
+//  @return []LiveEventDestination
 func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1Execute(r ApiGetLiveEventDestinationsAlt1Request) ([]LiveEventDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []LiveEventDestination
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []LiveEventDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.GetLiveEventDestinationsAlt1")
@@ -1905,8 +1900,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1916,8 +1911,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1927,8 +1922,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1938,8 +1933,8 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1957,10 +1952,10 @@ func (a *LiveEventDestinationsAPIService) GetLiveEventDestinationsAlt1Execute(r 
 }
 
 type ApiGetOneTimeEventDestinationsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService LiveEventDestinationsAPI
-	userId     int32
-	videoId    int32
+	userId int32
+	videoId int32
 }
 
 func (r ApiGetOneTimeEventDestinationsRequest) Execute() ([]LiveEventDestination, *http.Response, error) {
@@ -1972,29 +1967,28 @@ GetOneTimeEventDestinations Get all the destinations of a one-time live event
 
 This method returns every destination of the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiGetOneTimeEventDestinationsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @param videoId The ID of the video.
+ @return ApiGetOneTimeEventDestinationsRequest
 */
 func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinations(ctx context.Context, userId int32, videoId int32) ApiGetOneTimeEventDestinationsRequest {
 	return ApiGetOneTimeEventDestinationsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
-		videoId:    videoId,
+		ctx: ctx,
+		userId: userId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []LiveEventDestination
+//  @return []LiveEventDestination
 func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsExecute(r ApiGetOneTimeEventDestinationsRequest) ([]LiveEventDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []LiveEventDestination
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []LiveEventDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.GetOneTimeEventDestinations")
@@ -2056,8 +2050,8 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2067,8 +2061,8 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2078,8 +2072,8 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2097,9 +2091,9 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsExecute(r A
 }
 
 type ApiGetOneTimeEventDestinationsAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService LiveEventDestinationsAPI
-	videoId    int32
+	videoId int32
 }
 
 func (r ApiGetOneTimeEventDestinationsAlt1Request) Execute() ([]LiveEventDestination, *http.Response, error) {
@@ -2111,27 +2105,26 @@ GetOneTimeEventDestinationsAlt1 Get all the destinations of a one-time live even
 
 This method returns every destination of the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetOneTimeEventDestinationsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiGetOneTimeEventDestinationsAlt1Request
 */
 func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsAlt1(ctx context.Context, videoId int32) ApiGetOneTimeEventDestinationsAlt1Request {
 	return ApiGetOneTimeEventDestinationsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []LiveEventDestination
+//  @return []LiveEventDestination
 func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsAlt1Execute(r ApiGetOneTimeEventDestinationsAlt1Request) ([]LiveEventDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []LiveEventDestination
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []LiveEventDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.GetOneTimeEventDestinationsAlt1")
@@ -2192,8 +2185,8 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsAlt1Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2203,8 +2196,8 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsAlt1Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2214,8 +2207,8 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsAlt1Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2233,10 +2226,10 @@ func (a *LiveEventDestinationsAPIService) GetOneTimeEventDestinationsAlt1Execute
 }
 
 type ApiGetOttDestinationsRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventDestinationsAPI
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
 	liveEventId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiGetOttDestinationsRequest) Execute() ([]OttDestination, *http.Response, error) {
@@ -2248,29 +2241,28 @@ GetOttDestinations Get all the OTT destinations of a recurring live event
 
 This method returns every OTT destination of the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiGetOttDestinationsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiGetOttDestinationsRequest
 */
 func (a *LiveEventDestinationsAPIService) GetOttDestinations(ctx context.Context, liveEventId float32, userId int32) ApiGetOttDestinationsRequest {
 	return ApiGetOttDestinationsRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OttDestination
+//  @return []OttDestination
 func (a *LiveEventDestinationsAPIService) GetOttDestinationsExecute(r ApiGetOttDestinationsRequest) ([]OttDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OttDestination
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OttDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.GetOttDestinations")
@@ -2332,8 +2324,8 @@ func (a *LiveEventDestinationsAPIService) GetOttDestinationsExecute(r ApiGetOttD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2343,8 +2335,8 @@ func (a *LiveEventDestinationsAPIService) GetOttDestinationsExecute(r ApiGetOttD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2354,8 +2346,8 @@ func (a *LiveEventDestinationsAPIService) GetOttDestinationsExecute(r ApiGetOttD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2373,9 +2365,9 @@ func (a *LiveEventDestinationsAPIService) GetOttDestinationsExecute(r ApiGetOttD
 }
 
 type ApiUpdateLiveEventDestinationRequest struct {
-	ctx                               context.Context
-	ApiService                        LiveEventDestinationsAPI
-	destinationId                     float32
+	ctx context.Context
+	ApiService LiveEventDestinationsAPI
+	destinationId float32
 	updateLiveEventDestinationRequest *UpdateLiveEventDestinationRequest
 }
 
@@ -2393,27 +2385,26 @@ UpdateLiveEventDestination Update a live event destination
 
 This method updates the specified event destination belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param destinationId The ID of the event destination.
-	@return ApiUpdateLiveEventDestinationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param destinationId The ID of the event destination.
+ @return ApiUpdateLiveEventDestinationRequest
 */
 func (a *LiveEventDestinationsAPIService) UpdateLiveEventDestination(ctx context.Context, destinationId float32) ApiUpdateLiveEventDestinationRequest {
 	return ApiUpdateLiveEventDestinationRequest{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		destinationId: destinationId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventDestination
+//  @return LiveEventDestination
 func (a *LiveEventDestinationsAPIService) UpdateLiveEventDestinationExecute(r ApiUpdateLiveEventDestinationRequest) (*LiveEventDestination, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventDestination
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventDestination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventDestinationsAPIService.UpdateLiveEventDestination")
@@ -2476,8 +2467,8 @@ func (a *LiveEventDestinationsAPIService) UpdateLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2487,8 +2478,8 @@ func (a *LiveEventDestinationsAPIService) UpdateLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2498,8 +2489,8 @@ func (a *LiveEventDestinationsAPIService) UpdateLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2509,8 +2500,8 @@ func (a *LiveEventDestinationsAPIService) UpdateLiveEventDestinationExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

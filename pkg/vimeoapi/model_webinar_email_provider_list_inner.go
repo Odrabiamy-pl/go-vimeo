@@ -22,9 +22,9 @@ type WebinarEmailProviderListInner struct {
 	// Whether the connection is active.
 	IsActive bool `json:"is_active"`
 	// The most recent sync date of the provider list.
-	LastImportTime NullableString                            `json:"last_import_time"`
-	List           NullableWebinarEmailProviderListInnerList `json:"list"`
-	Provider       WebinarEmailProviderListInnerProvider     `json:"provider"`
+	LastImportTime NullableString `json:"last_import_time"`
+	List NullableWebinarEmailProviderListInnerList `json:"list"`
+	Provider WebinarEmailProviderListInnerProvider `json:"provider"`
 }
 
 // NewWebinarEmailProviderListInner instantiates a new WebinarEmailProviderListInner object
@@ -149,7 +149,7 @@ func (o *WebinarEmailProviderListInner) SetProvider(v WebinarEmailProviderListIn
 }
 
 func (o WebinarEmailProviderListInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -200,3 +200,5 @@ func (v *NullableWebinarEmailProviderListInner) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

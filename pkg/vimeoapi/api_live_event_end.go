@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type LiveEventEndAPI interface {
 
 	/*
-		EndLiveEvent End a live event
+	EndLiveEvent End a live event
 
-		This method ends the specified event. The authenticated user must be the owner of the event.
+	This method ends the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@param liveEventId The ID of the event.
-		@return ApiEndLiveEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@param liveEventId The ID of the event.
+	@return ApiEndLiveEventRequest
 	*/
 	EndLiveEvent(ctx context.Context, userId int32, liveEventId float32) ApiEndLiveEventRequest
 
@@ -38,13 +39,13 @@ type LiveEventEndAPI interface {
 	EndLiveEventExecute(r ApiEndLiveEventRequest) (*Video, *http.Response, error)
 
 	/*
-		EndLiveEventAlt1 End a live event
+	EndLiveEventAlt1 End a live event
 
-		This method ends the specified event. The authenticated user must be the owner of the event.
+	This method ends the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiEndLiveEventAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiEndLiveEventAlt1Request
 	*/
 	EndLiveEventAlt1(ctx context.Context, liveEventId float32) ApiEndLiveEventAlt1Request
 
@@ -53,13 +54,13 @@ type LiveEventEndAPI interface {
 	EndLiveEventAlt1Execute(r ApiEndLiveEventAlt1Request) (*Video, *http.Response, error)
 
 	/*
-		EndLiveEventAlt2 End a live event
+	EndLiveEventAlt2 End a live event
 
-		This method ends the specified event. The authenticated user must be the owner of the event.
+	This method ends the specified event. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiEndLiveEventAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiEndLiveEventAlt2Request
 	*/
 	EndLiveEventAlt2(ctx context.Context, liveEventId float32) ApiEndLiveEventAlt2Request
 
@@ -72,11 +73,11 @@ type LiveEventEndAPI interface {
 type LiveEventEndAPIService service
 
 type ApiEndLiveEventRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventEndAPI
-	userId      int32
+	ctx context.Context
+	ApiService LiveEventEndAPI
+	userId int32
 	liveEventId float32
-	clipId      *float32
+	clipId *float32
 }
 
 // The ID of the streamable video.
@@ -94,29 +95,28 @@ EndLiveEvent End a live event
 
 This method ends the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@param liveEventId The ID of the event.
-	@return ApiEndLiveEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @param liveEventId The ID of the event.
+ @return ApiEndLiveEventRequest
 */
 func (a *LiveEventEndAPIService) EndLiveEvent(ctx context.Context, userId int32, liveEventId float32) ApiEndLiveEventRequest {
 	return ApiEndLiveEventRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		userId:      userId,
+		ApiService: a,
+		ctx: ctx,
+		userId: userId,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventEndAPIService) EndLiveEventExecute(r ApiEndLiveEventRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventEndAPIService.EndLiveEvent")
@@ -181,8 +181,8 @@ func (a *LiveEventEndAPIService) EndLiveEventExecute(r ApiEndLiveEventRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -192,8 +192,8 @@ func (a *LiveEventEndAPIService) EndLiveEventExecute(r ApiEndLiveEventRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -203,8 +203,8 @@ func (a *LiveEventEndAPIService) EndLiveEventExecute(r ApiEndLiveEventRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -214,8 +214,8 @@ func (a *LiveEventEndAPIService) EndLiveEventExecute(r ApiEndLiveEventRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -233,10 +233,10 @@ func (a *LiveEventEndAPIService) EndLiveEventExecute(r ApiEndLiveEventRequest) (
 }
 
 type ApiEndLiveEventAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEventEndAPI
+	ctx context.Context
+	ApiService LiveEventEndAPI
 	liveEventId float32
-	clipId      *float32
+	clipId *float32
 }
 
 // The ID of the streamable video.
@@ -254,27 +254,26 @@ EndLiveEventAlt1 End a live event
 
 This method ends the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiEndLiveEventAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiEndLiveEventAlt1Request
 */
 func (a *LiveEventEndAPIService) EndLiveEventAlt1(ctx context.Context, liveEventId float32) ApiEndLiveEventAlt1Request {
 	return ApiEndLiveEventAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventEndAPIService) EndLiveEventAlt1Execute(r ApiEndLiveEventAlt1Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventEndAPIService.EndLiveEventAlt1")
@@ -338,8 +337,8 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt1Execute(r ApiEndLiveEventAlt1Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -349,8 +348,8 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt1Execute(r ApiEndLiveEventAlt1Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -360,8 +359,8 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt1Execute(r ApiEndLiveEventAlt1Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -371,8 +370,8 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt1Execute(r ApiEndLiveEventAlt1Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -390,10 +389,10 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt1Execute(r ApiEndLiveEventAlt1Re
 }
 
 type ApiEndLiveEventAlt2Request struct {
-	ctx         context.Context
-	ApiService  LiveEventEndAPI
+	ctx context.Context
+	ApiService LiveEventEndAPI
 	liveEventId float32
-	clipId      *float32
+	clipId *float32
 }
 
 // The ID of the streamable video.
@@ -411,27 +410,26 @@ EndLiveEventAlt2 End a live event
 
 This method ends the specified event. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiEndLiveEventAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiEndLiveEventAlt2Request
 */
 func (a *LiveEventEndAPIService) EndLiveEventAlt2(ctx context.Context, liveEventId float32) ApiEndLiveEventAlt2Request {
 	return ApiEndLiveEventAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventEndAPIService) EndLiveEventAlt2Execute(r ApiEndLiveEventAlt2Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventEndAPIService.EndLiveEventAlt2")
@@ -495,8 +493,8 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt2Execute(r ApiEndLiveEventAlt2Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -506,8 +504,8 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt2Execute(r ApiEndLiveEventAlt2Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -517,8 +515,8 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt2Execute(r ApiEndLiveEventAlt2Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -528,8 +526,8 @@ func (a *LiveEventEndAPIService) EndLiveEventAlt2Execute(r ApiEndLiveEventAlt2Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type EmbedPresetsCustomLogosAPI interface {
 
 	/*
-		CreateCustomLogo Add a custom user logo
+	CreateCustomLogo Add a custom user logo
 
-		This method adds a custom logo representing the authenticated user for display in the embedded player. Be sure to use this method in the context of the multi-step upload procedure described in our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail) guide. This method represents Step 2 of the procedure.
+	This method adds a custom logo representing the authenticated user for display in the embedded player. Be sure to use this method in the context of the multi-step upload procedure described in our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail) guide. This method represents Step 2 of the procedure.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiCreateCustomLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiCreateCustomLogoRequest
 	*/
 	CreateCustomLogo(ctx context.Context, userId int32) ApiCreateCustomLogoRequest
 
@@ -37,12 +38,12 @@ type EmbedPresetsCustomLogosAPI interface {
 	CreateCustomLogoExecute(r ApiCreateCustomLogoRequest) (*Picture, *http.Response, error)
 
 	/*
-		CreateCustomLogoAlt1 Add a custom user logo
+	CreateCustomLogoAlt1 Add a custom user logo
 
-		This method adds a custom logo representing the authenticated user for display in the embedded player. Be sure to use this method in the context of the multi-step upload procedure described in our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail) guide. This method represents Step 2 of the procedure.
+	This method adds a custom logo representing the authenticated user for display in the embedded player. Be sure to use this method in the context of the multi-step upload procedure described in our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail) guide. This method represents Step 2 of the procedure.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateCustomLogoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateCustomLogoAlt1Request
 	*/
 	CreateCustomLogoAlt1(ctx context.Context) ApiCreateCustomLogoAlt1Request
 
@@ -51,14 +52,14 @@ type EmbedPresetsCustomLogosAPI interface {
 	CreateCustomLogoAlt1Execute(r ApiCreateCustomLogoAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-		DeleteCustomLogo Delete a custom user logo
+	DeleteCustomLogo Delete a custom user logo
 
-		This method deletes the specified custom logo belonging to the authenticated user.
+	This method deletes the specified custom logo belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param logoId The ID of the custom logo.
-		@param userId The ID of the user.
-		@return ApiDeleteCustomLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param logoId The ID of the custom logo.
+	@param userId The ID of the user.
+	@return ApiDeleteCustomLogoRequest
 	*/
 	DeleteCustomLogo(ctx context.Context, logoId float32, userId int32) ApiDeleteCustomLogoRequest
 
@@ -66,13 +67,13 @@ type EmbedPresetsCustomLogosAPI interface {
 	DeleteCustomLogoExecute(r ApiDeleteCustomLogoRequest) (*http.Response, error)
 
 	/*
-		DeleteCustomLogoAlt1 Delete a custom user logo
+	DeleteCustomLogoAlt1 Delete a custom user logo
 
-		This method deletes the specified custom logo belonging to the authenticated user.
+	This method deletes the specified custom logo belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param logoId The ID of the custom logo.
-		@return ApiDeleteCustomLogoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param logoId The ID of the custom logo.
+	@return ApiDeleteCustomLogoAlt1Request
 	*/
 	DeleteCustomLogoAlt1(ctx context.Context, logoId float32) ApiDeleteCustomLogoAlt1Request
 
@@ -80,14 +81,14 @@ type EmbedPresetsCustomLogosAPI interface {
 	DeleteCustomLogoAlt1Execute(r ApiDeleteCustomLogoAlt1Request) (*http.Response, error)
 
 	/*
-		GetCustomLogo Get a specific custom user logo
+	GetCustomLogo Get a specific custom user logo
 
-		This method returns a single custom logo belonging to the authenticated user.
+	This method returns a single custom logo belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param logoId The ID of the custom logo.
-		@param userId The ID of the user.
-		@return ApiGetCustomLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param logoId The ID of the custom logo.
+	@param userId The ID of the user.
+	@return ApiGetCustomLogoRequest
 	*/
 	GetCustomLogo(ctx context.Context, logoId float32, userId int32) ApiGetCustomLogoRequest
 
@@ -96,13 +97,13 @@ type EmbedPresetsCustomLogosAPI interface {
 	GetCustomLogoExecute(r ApiGetCustomLogoRequest) (*Picture, *http.Response, error)
 
 	/*
-		GetCustomLogoAlt1 Get a specific custom user logo
+	GetCustomLogoAlt1 Get a specific custom user logo
 
-		This method returns a single custom logo belonging to the authenticated user.
+	This method returns a single custom logo belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param logoId The ID of the custom logo.
-		@return ApiGetCustomLogoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param logoId The ID of the custom logo.
+	@return ApiGetCustomLogoAlt1Request
 	*/
 	GetCustomLogoAlt1(ctx context.Context, logoId float32) ApiGetCustomLogoAlt1Request
 
@@ -111,13 +112,13 @@ type EmbedPresetsCustomLogosAPI interface {
 	GetCustomLogoAlt1Execute(r ApiGetCustomLogoAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-		GetCustomLogos Get all the custom logos that belong to the user
+	GetCustomLogos Get all the custom logos that belong to the user
 
-		This method returns every custom logo that belongs to the authenticated user or team owner.
+	This method returns every custom logo that belongs to the authenticated user or team owner.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiGetCustomLogosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetCustomLogosRequest
 	*/
 	GetCustomLogos(ctx context.Context, userId int32) ApiGetCustomLogosRequest
 
@@ -126,12 +127,12 @@ type EmbedPresetsCustomLogosAPI interface {
 	GetCustomLogosExecute(r ApiGetCustomLogosRequest) ([]Picture, *http.Response, error)
 
 	/*
-		GetCustomLogosAlt1 Get all the custom logos that belong to the user
+	GetCustomLogosAlt1 Get all the custom logos that belong to the user
 
-		This method returns every custom logo that belongs to the authenticated user or team owner.
+	This method returns every custom logo that belongs to the authenticated user or team owner.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetCustomLogosAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetCustomLogosAlt1Request
 	*/
 	GetCustomLogosAlt1(ctx context.Context) ApiGetCustomLogosAlt1Request
 
@@ -144,9 +145,9 @@ type EmbedPresetsCustomLogosAPI interface {
 type EmbedPresetsCustomLogosAPIService service
 
 type ApiCreateCustomLogoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
-	userId     int32
+	userId int32
 }
 
 func (r ApiCreateCustomLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -158,27 +159,26 @@ CreateCustomLogo Add a custom user logo
 
 This method adds a custom logo representing the authenticated user for display in the embedded player. Be sure to use this method in the context of the multi-step upload procedure described in our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail) guide. This method represents Step 2 of the procedure.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiCreateCustomLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiCreateCustomLogoRequest
 */
 func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogo(ctx context.Context, userId int32) ApiCreateCustomLogoRequest {
 	return ApiCreateCustomLogoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogoExecute(r ApiCreateCustomLogoRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsCustomLogosAPIService.CreateCustomLogo")
@@ -239,8 +239,8 @@ func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogoExecute(r ApiCreateC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -258,7 +258,7 @@ func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogoExecute(r ApiCreateC
 }
 
 type ApiCreateCustomLogoAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
 }
 
@@ -271,25 +271,24 @@ CreateCustomLogoAlt1 Add a custom user logo
 
 This method adds a custom logo representing the authenticated user for display in the embedded player. Be sure to use this method in the context of the multi-step upload procedure described in our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail) guide. This method represents Step 2 of the procedure.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateCustomLogoAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateCustomLogoAlt1Request
 */
 func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogoAlt1(ctx context.Context) ApiCreateCustomLogoAlt1Request {
 	return ApiCreateCustomLogoAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogoAlt1Execute(r ApiCreateCustomLogoAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsCustomLogosAPIService.CreateCustomLogoAlt1")
@@ -349,8 +348,8 @@ func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogoAlt1Execute(r ApiCre
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -368,10 +367,10 @@ func (a *EmbedPresetsCustomLogosAPIService) CreateCustomLogoAlt1Execute(r ApiCre
 }
 
 type ApiDeleteCustomLogoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
-	logoId     float32
-	userId     int32
+	logoId float32
+	userId int32
 }
 
 func (r ApiDeleteCustomLogoRequest) Execute() (*http.Response, error) {
@@ -383,26 +382,26 @@ DeleteCustomLogo Delete a custom user logo
 
 This method deletes the specified custom logo belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param logoId The ID of the custom logo.
-	@param userId The ID of the user.
-	@return ApiDeleteCustomLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param logoId The ID of the custom logo.
+ @param userId The ID of the user.
+ @return ApiDeleteCustomLogoRequest
 */
 func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogo(ctx context.Context, logoId float32, userId int32) ApiDeleteCustomLogoRequest {
 	return ApiDeleteCustomLogoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		logoId:     logoId,
-		userId:     userId,
+		ctx: ctx,
+		logoId: logoId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogoExecute(r ApiDeleteCustomLogoRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsCustomLogosAPIService.DeleteCustomLogo")
@@ -464,8 +463,8 @@ func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogoExecute(r ApiDeleteC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -474,9 +473,9 @@ func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogoExecute(r ApiDeleteC
 }
 
 type ApiDeleteCustomLogoAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
-	logoId     float32
+	logoId float32
 }
 
 func (r ApiDeleteCustomLogoAlt1Request) Execute() (*http.Response, error) {
@@ -488,24 +487,24 @@ DeleteCustomLogoAlt1 Delete a custom user logo
 
 This method deletes the specified custom logo belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param logoId The ID of the custom logo.
-	@return ApiDeleteCustomLogoAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param logoId The ID of the custom logo.
+ @return ApiDeleteCustomLogoAlt1Request
 */
 func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogoAlt1(ctx context.Context, logoId float32) ApiDeleteCustomLogoAlt1Request {
 	return ApiDeleteCustomLogoAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		logoId:     logoId,
+		ctx: ctx,
+		logoId: logoId,
 	}
 }
 
 // Execute executes the request
 func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogoAlt1Execute(r ApiDeleteCustomLogoAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsCustomLogosAPIService.DeleteCustomLogoAlt1")
@@ -566,8 +565,8 @@ func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogoAlt1Execute(r ApiDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -576,10 +575,10 @@ func (a *EmbedPresetsCustomLogosAPIService) DeleteCustomLogoAlt1Execute(r ApiDel
 }
 
 type ApiGetCustomLogoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
-	logoId     float32
-	userId     int32
+	logoId float32
+	userId int32
 }
 
 func (r ApiGetCustomLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -591,29 +590,28 @@ GetCustomLogo Get a specific custom user logo
 
 This method returns a single custom logo belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param logoId The ID of the custom logo.
-	@param userId The ID of the user.
-	@return ApiGetCustomLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param logoId The ID of the custom logo.
+ @param userId The ID of the user.
+ @return ApiGetCustomLogoRequest
 */
 func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogo(ctx context.Context, logoId float32, userId int32) ApiGetCustomLogoRequest {
 	return ApiGetCustomLogoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		logoId:     logoId,
-		userId:     userId,
+		ctx: ctx,
+		logoId: logoId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogoExecute(r ApiGetCustomLogoRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsCustomLogosAPIService.GetCustomLogo")
@@ -675,8 +673,8 @@ func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogoExecute(r ApiGetCustomL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -694,9 +692,9 @@ func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogoExecute(r ApiGetCustomL
 }
 
 type ApiGetCustomLogoAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
-	logoId     float32
+	logoId float32
 }
 
 func (r ApiGetCustomLogoAlt1Request) Execute() (*Picture, *http.Response, error) {
@@ -708,27 +706,26 @@ GetCustomLogoAlt1 Get a specific custom user logo
 
 This method returns a single custom logo belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param logoId The ID of the custom logo.
-	@return ApiGetCustomLogoAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param logoId The ID of the custom logo.
+ @return ApiGetCustomLogoAlt1Request
 */
 func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogoAlt1(ctx context.Context, logoId float32) ApiGetCustomLogoAlt1Request {
 	return ApiGetCustomLogoAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		logoId:     logoId,
+		ctx: ctx,
+		logoId: logoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogoAlt1Execute(r ApiGetCustomLogoAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsCustomLogosAPIService.GetCustomLogoAlt1")
@@ -789,8 +786,8 @@ func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogoAlt1Execute(r ApiGetCus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -808,9 +805,9 @@ func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogoAlt1Execute(r ApiGetCus
 }
 
 type ApiGetCustomLogosRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
-	userId     int32
+	userId int32
 }
 
 func (r ApiGetCustomLogosRequest) Execute() ([]Picture, *http.Response, error) {
@@ -822,27 +819,26 @@ GetCustomLogos Get all the custom logos that belong to the user
 
 This method returns every custom logo that belongs to the authenticated user or team owner.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetCustomLogosRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiGetCustomLogosRequest
 */
 func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogos(ctx context.Context, userId int32) ApiGetCustomLogosRequest {
 	return ApiGetCustomLogosRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogosExecute(r ApiGetCustomLogosRequest) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsCustomLogosAPIService.GetCustomLogos")
@@ -903,8 +899,8 @@ func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogosExecute(r ApiGetCustom
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -922,7 +918,7 @@ func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogosExecute(r ApiGetCustom
 }
 
 type ApiGetCustomLogosAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsCustomLogosAPI
 }
 
@@ -935,25 +931,24 @@ GetCustomLogosAlt1 Get all the custom logos that belong to the user
 
 This method returns every custom logo that belongs to the authenticated user or team owner.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCustomLogosAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetCustomLogosAlt1Request
 */
 func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogosAlt1(ctx context.Context) ApiGetCustomLogosAlt1Request {
 	return ApiGetCustomLogosAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogosAlt1Execute(r ApiGetCustomLogosAlt1Request) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsCustomLogosAPIService.GetCustomLogosAlt1")
@@ -1013,8 +1008,8 @@ func (a *EmbedPresetsCustomLogosAPIService) GetCustomLogosAlt1Execute(r ApiGetCu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

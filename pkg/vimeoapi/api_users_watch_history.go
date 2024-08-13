@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type UsersWatchHistoryAPI interface {
 
 	/*
-		DeleteFromWatchHistory Delete a specific video from the user's watch history
+	DeleteFromWatchHistory Delete a specific video from the user's watch history
 
-		This method deletes the specified video from the authenticated user's watch history.
+	This method deletes the specified video from the authenticated user's watch history.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiDeleteFromWatchHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiDeleteFromWatchHistoryRequest
 	*/
 	DeleteFromWatchHistory(ctx context.Context, videoId int32) ApiDeleteFromWatchHistoryRequest
 
@@ -36,12 +37,12 @@ type UsersWatchHistoryAPI interface {
 	DeleteFromWatchHistoryExecute(r ApiDeleteFromWatchHistoryRequest) (*http.Response, error)
 
 	/*
-		DeleteWatchHistory Delete the user's watch history
+	DeleteWatchHistory Delete the user's watch history
 
-		This method deletes the entire watch history of the authenticated user.
+	This method deletes the entire watch history of the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiDeleteWatchHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteWatchHistoryRequest
 	*/
 	DeleteWatchHistory(ctx context.Context) ApiDeleteWatchHistoryRequest
 
@@ -49,12 +50,12 @@ type UsersWatchHistoryAPI interface {
 	DeleteWatchHistoryExecute(r ApiDeleteWatchHistoryRequest) (*http.Response, error)
 
 	/*
-		GetWatchHistory Get all the videos that a user has watched
+	GetWatchHistory Get all the videos that a user has watched
 
-		This method returns every video on the authenticated user's watch history. _This endpoint is deprecated. Any request to it returns empty data with HTTP status code 200._
+	This method returns every video on the authenticated user's watch history. _This endpoint is deprecated. Any request to it returns empty data with HTTP status code 200._
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetWatchHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetWatchHistoryRequest
 	*/
 	GetWatchHistory(ctx context.Context) ApiGetWatchHistoryRequest
 
@@ -67,9 +68,9 @@ type UsersWatchHistoryAPI interface {
 type UsersWatchHistoryAPIService service
 
 type ApiDeleteFromWatchHistoryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService UsersWatchHistoryAPI
-	videoId    int32
+	videoId int32
 }
 
 func (r ApiDeleteFromWatchHistoryRequest) Execute() (*http.Response, error) {
@@ -81,24 +82,24 @@ DeleteFromWatchHistory Delete a specific video from the user's watch history
 
 This method deletes the specified video from the authenticated user's watch history.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiDeleteFromWatchHistoryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiDeleteFromWatchHistoryRequest
 */
 func (a *UsersWatchHistoryAPIService) DeleteFromWatchHistory(ctx context.Context, videoId int32) ApiDeleteFromWatchHistoryRequest {
 	return ApiDeleteFromWatchHistoryRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersWatchHistoryAPIService) DeleteFromWatchHistoryExecute(r ApiDeleteFromWatchHistoryRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersWatchHistoryAPIService.DeleteFromWatchHistory")
@@ -159,7 +160,7 @@ func (a *UsersWatchHistoryAPIService) DeleteFromWatchHistoryExecute(r ApiDeleteF
 }
 
 type ApiDeleteWatchHistoryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService UsersWatchHistoryAPI
 }
 
@@ -172,22 +173,22 @@ DeleteWatchHistory Delete the user's watch history
 
 This method deletes the entire watch history of the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteWatchHistoryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDeleteWatchHistoryRequest
 */
 func (a *UsersWatchHistoryAPIService) DeleteWatchHistory(ctx context.Context) ApiDeleteWatchHistoryRequest {
 	return ApiDeleteWatchHistoryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *UsersWatchHistoryAPIService) DeleteWatchHistoryExecute(r ApiDeleteWatchHistoryRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersWatchHistoryAPIService.DeleteWatchHistory")
@@ -247,10 +248,10 @@ func (a *UsersWatchHistoryAPIService) DeleteWatchHistoryExecute(r ApiDeleteWatch
 }
 
 type ApiGetWatchHistoryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService UsersWatchHistoryAPI
-	page       *float32
-	perPage    *float32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -274,25 +275,24 @@ GetWatchHistory Get all the videos that a user has watched
 
 This method returns every video on the authenticated user's watch history. _This endpoint is deprecated. Any request to it returns empty data with HTTP status code 200._
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetWatchHistoryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetWatchHistoryRequest
 */
 func (a *UsersWatchHistoryAPIService) GetWatchHistory(ctx context.Context) ApiGetWatchHistoryRequest {
 	return ApiGetWatchHistoryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *UsersWatchHistoryAPIService) GetWatchHistoryExecute(r ApiGetWatchHistoryRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersWatchHistoryAPIService.GetWatchHistory")
@@ -358,8 +358,8 @@ func (a *UsersWatchHistoryAPIService) GetWatchHistoryExecute(r ApiGetWatchHistor
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

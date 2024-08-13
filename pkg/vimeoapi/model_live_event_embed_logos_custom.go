@@ -174,7 +174,7 @@ func (o *LiveEventEmbedLogosCustom) SetUseLink(v bool) {
 }
 
 func (o LiveEventEmbedLogosCustom) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -226,3 +226,5 @@ func (v *NullableLiveEventEmbedLogosCustom) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

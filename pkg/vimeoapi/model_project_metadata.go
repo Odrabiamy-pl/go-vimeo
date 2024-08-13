@@ -19,7 +19,7 @@ var _ MappedNullable = &ProjectMetadata{}
 
 // ProjectMetadata Information about the folders's metadata.
 type ProjectMetadata struct {
-	Connections  ProjectMetadataConnections  `json:"connections"`
+	Connections ProjectMetadataConnections `json:"connections"`
 	Interactions ProjectMetadataInteractions `json:"interactions"`
 }
 
@@ -91,7 +91,7 @@ func (o *ProjectMetadata) SetInteractions(v ProjectMetadataInteractions) {
 }
 
 func (o ProjectMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,3 +140,5 @@ func (v *NullableProjectMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,7 +19,7 @@ var _ MappedNullable = &DisabledVideoPropertiesEmbedReasonsInner{}
 
 // DisabledVideoPropertiesEmbedReasonsInner struct for DisabledVideoPropertiesEmbedReasonsInner
 type DisabledVideoPropertiesEmbedReasonsInner struct {
-	// The icon that represents the reason why embed is disabled.  Option descriptions:  * `clock` - The reason is represented by a clock icon.  * `create` - The reason is represented by a create icon.  * `image` - The reason is represented by an image icon.  * `theme` - The reason is represented by a theme icon.
+	// The icon that represents the reason why embed is disabled.  Option descriptions:  * `clock` - The reason is represented by a clock icon.  * `create` - The reason is represented by a create icon.  * `image` - The reason is represented by an image icon.  * `theme` - The reason is represented by a theme icon. 
 	Icon string `json:"icon"`
 	// A user-deliverable message of why embed is disabled.
 	Message string `json:"message"`
@@ -93,7 +93,7 @@ func (o *DisabledVideoPropertiesEmbedReasonsInner) SetMessage(v string) {
 }
 
 func (o DisabledVideoPropertiesEmbedReasonsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,3 +142,5 @@ func (v *NullableDisabledVideoPropertiesEmbedReasonsInner) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

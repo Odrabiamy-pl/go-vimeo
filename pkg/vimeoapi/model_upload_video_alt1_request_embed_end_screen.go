@@ -19,7 +19,7 @@ var _ MappedNullable = &UploadVideoAlt1RequestEmbedEndScreen{}
 
 // UploadVideoAlt1RequestEmbedEndScreen struct for UploadVideoAlt1RequestEmbedEndScreen
 type UploadVideoAlt1RequestEmbedEndScreen struct {
-	// The end screen type.  Option descriptions:  * `empty` - The end screen is empty.  * `loop` - The end screen loops the video playback.  * `share` - The end screen includes sharing options.  * `thumbnail` - The end screen includes the thumbnail of the video.
+	// The end screen type.  Option descriptions:  * `empty` - The end screen is empty.  * `loop` - The end screen loops the video playback.  * `share` - The end screen includes sharing options.  * `thumbnail` - The end screen includes the thumbnail of the video. 
 	Type *string `json:"type,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *UploadVideoAlt1RequestEmbedEndScreen) SetType(v string) {
 }
 
 func (o UploadVideoAlt1RequestEmbedEndScreen) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableUploadVideoAlt1RequestEmbedEndScreen) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

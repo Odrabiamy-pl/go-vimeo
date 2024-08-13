@@ -26,8 +26,8 @@ type UpdateWebinarEmailSettingsAlt1Request struct {
 	// The email customization details for the webinar reminder email, which goes out 24 hours before the event.
 	EmailEventReminder24Hrs map[string]interface{} `json:"email_event_reminder_24_hrs,omitempty"`
 	// The email customization details for the webinar post-event thank-you email.
-	EmailPostEventThankYou map[string]interface{}                                 `json:"email_post_event_thank_you,omitempty"`
-	EmailPreferences       *UpdateWebinarEmailSettingsAlt1RequestEmailPreferences `json:"email_preferences,omitempty"`
+	EmailPostEventThankYou map[string]interface{} `json:"email_post_event_thank_you,omitempty"`
+	EmailPreferences *UpdateWebinarEmailSettingsAlt1RequestEmailPreferences `json:"email_preferences,omitempty"`
 	// The email customization details for the webinar registration confirmation email.
 	EmailRegistrationConfirmation map[string]interface{} `json:"email_registration_confirmation,omitempty"`
 	// The name of the sender for emails that are sent about the webinar.
@@ -548,7 +548,7 @@ func (o *UpdateWebinarEmailSettingsAlt1Request) SetUseSenderPolicyUrl(v bool) {
 }
 
 func (o UpdateWebinarEmailSettingsAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -640,3 +640,5 @@ func (v *NullableUpdateWebinarEmailSettingsAlt1Request) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

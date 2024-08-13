@@ -23,7 +23,7 @@ type EmailCaptureFormCustomFieldsInnerConnectedFieldsInner struct {
 	EmailServiceProviderFieldId string `json:"email_service_provider_field_id"`
 	// The ID of the field in the form associated with the connected field.
 	FormFieldId float32 `json:"form_field_id"`
-	// A third-party email service provider.  Option descriptions:  * `1` - The provider is Mailchimp.  * `2` - The provider is Campaign Monitor.  * `3` - The provider is Constant Contact.  * `4` - The provider is Infusionsoft.  * `5` - The provider is HubSpot.  * `6` - The provider is Constant Contact V3.  * `7` - The provider is Marketo.
+	// A third-party email service provider.  Option descriptions:  * `1` - The provider is Mailchimp.  * `2` - The provider is Campaign Monitor.  * `3` - The provider is Constant Contact.  * `4` - The provider is Infusionsoft.  * `5` - The provider is HubSpot.  * `6` - The provider is Constant Contact V3.  * `7` - The provider is Marketo. 
 	ProviderId string `json:"provider_id"`
 }
 
@@ -120,7 +120,7 @@ func (o *EmailCaptureFormCustomFieldsInnerConnectedFieldsInner) SetProviderId(v 
 }
 
 func (o EmailCaptureFormCustomFieldsInnerConnectedFieldsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,3 +170,5 @@ func (v *NullableEmailCaptureFormCustomFieldsInnerConnectedFieldsInner) Unmarsha
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

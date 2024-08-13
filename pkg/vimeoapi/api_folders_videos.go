@@ -19,18 +19,19 @@ import (
 	"strings"
 )
 
+
 type FoldersVideosAPI interface {
 
 	/*
-		AddVideoToProject Add a video to a folder
+	AddVideoToProject Add a video to a folder
 
-		This method adds a single video to the specified folder. The authenticated user must be the owner of the folder.
+	This method adds a single video to the specified folder. The authenticated user must be the owner of the folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@param userId The ID of the user.
-		@param videoId The ID of the video.
-		@return ApiAddVideoToProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToProjectRequest
 	*/
 	AddVideoToProject(ctx context.Context, projectId float32, userId int32, videoId int32) ApiAddVideoToProjectRequest
 
@@ -38,14 +39,14 @@ type FoldersVideosAPI interface {
 	AddVideoToProjectExecute(r ApiAddVideoToProjectRequest) (*http.Response, error)
 
 	/*
-		AddVideoToProjectAlt1 Add a video to a folder
+	AddVideoToProjectAlt1 Add a video to a folder
 
-		This method adds a single video to the specified folder. The authenticated user must be the owner of the folder.
+	This method adds a single video to the specified folder. The authenticated user must be the owner of the folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@param videoId The ID of the video.
-		@return ApiAddVideoToProjectAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToProjectAlt1Request
 	*/
 	AddVideoToProjectAlt1(ctx context.Context, projectId float32, videoId int32) ApiAddVideoToProjectAlt1Request
 
@@ -53,14 +54,14 @@ type FoldersVideosAPI interface {
 	AddVideoToProjectAlt1Execute(r ApiAddVideoToProjectAlt1Request) (*http.Response, error)
 
 	/*
-		AddVideosToProject Add a list of videos to a folder
+	AddVideosToProject Add a list of videos to a folder
 
-		This method adds multiple videos to the specified folder. The authenticated user must be the owner of the folder.
+	This method adds multiple videos to the specified folder. The authenticated user must be the owner of the folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@param userId The ID of the user.
-		@return ApiAddVideosToProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@return ApiAddVideosToProjectRequest
 	*/
 	AddVideosToProject(ctx context.Context, projectId float32, userId int32) ApiAddVideosToProjectRequest
 
@@ -68,13 +69,13 @@ type FoldersVideosAPI interface {
 	AddVideosToProjectExecute(r ApiAddVideosToProjectRequest) (*http.Response, error)
 
 	/*
-		AddVideosToProjectAlt1 Add a list of videos to a folder
+	AddVideosToProjectAlt1 Add a list of videos to a folder
 
-		This method adds multiple videos to the specified folder. The authenticated user must be the owner of the folder.
+	This method adds multiple videos to the specified folder. The authenticated user must be the owner of the folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@return ApiAddVideosToProjectAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@return ApiAddVideosToProjectAlt1Request
 	*/
 	AddVideosToProjectAlt1(ctx context.Context, projectId float32) ApiAddVideosToProjectAlt1Request
 
@@ -82,14 +83,14 @@ type FoldersVideosAPI interface {
 	AddVideosToProjectAlt1Execute(r ApiAddVideosToProjectAlt1Request) (*http.Response, error)
 
 	/*
-		GetProjectVideos Get all the videos in a folder
+	GetProjectVideos Get all the videos in a folder
 
-		This method returns all the videos that belong to the specified folder.
+	This method returns all the videos that belong to the specified folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@param userId The ID of the user.
-		@return ApiGetProjectVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@return ApiGetProjectVideosRequest
 	*/
 	GetProjectVideos(ctx context.Context, projectId float32, userId int32) ApiGetProjectVideosRequest
 
@@ -98,13 +99,13 @@ type FoldersVideosAPI interface {
 	GetProjectVideosExecute(r ApiGetProjectVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-		GetProjectVideosAlt1 Get all the videos in a folder
+	GetProjectVideosAlt1 Get all the videos in a folder
 
-		This method returns all the videos that belong to the specified folder.
+	This method returns all the videos that belong to the specified folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@return ApiGetProjectVideosAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@return ApiGetProjectVideosAlt1Request
 	*/
 	GetProjectVideosAlt1(ctx context.Context, projectId float32) ApiGetProjectVideosAlt1Request
 
@@ -113,15 +114,15 @@ type FoldersVideosAPI interface {
 	GetProjectVideosAlt1Execute(r ApiGetProjectVideosAlt1Request) ([]Video, *http.Response, error)
 
 	/*
-		RemoveVideoFromProject Remove a video from a folder
+	RemoveVideoFromProject Remove a video from a folder
 
-		This method removes a single video from the specified folder. Please note that this doesn't delete the video itself.
+	This method removes a single video from the specified folder. Please note that this doesn't delete the video itself.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@param userId The ID of the user.
-		@param videoId The ID of the video.
-		@return ApiRemoveVideoFromProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiRemoveVideoFromProjectRequest
 	*/
 	RemoveVideoFromProject(ctx context.Context, projectId float32, userId int32, videoId int32) ApiRemoveVideoFromProjectRequest
 
@@ -129,14 +130,14 @@ type FoldersVideosAPI interface {
 	RemoveVideoFromProjectExecute(r ApiRemoveVideoFromProjectRequest) (*http.Response, error)
 
 	/*
-		RemoveVideoFromProjectAlt1 Remove a video from a folder
+	RemoveVideoFromProjectAlt1 Remove a video from a folder
 
-		This method removes a single video from the specified folder. Please note that this doesn't delete the video itself.
+	This method removes a single video from the specified folder. Please note that this doesn't delete the video itself.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@param videoId The ID of the video.
-		@return ApiRemoveVideoFromProjectAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param videoId The ID of the video.
+	@return ApiRemoveVideoFromProjectAlt1Request
 	*/
 	RemoveVideoFromProjectAlt1(ctx context.Context, projectId float32, videoId int32) ApiRemoveVideoFromProjectAlt1Request
 
@@ -144,14 +145,14 @@ type FoldersVideosAPI interface {
 	RemoveVideoFromProjectAlt1Execute(r ApiRemoveVideoFromProjectAlt1Request) (*http.Response, error)
 
 	/*
-		RemoveVideosFromProject Remove a list of videos from a folder
+	RemoveVideosFromProject Remove a list of videos from a folder
 
-		This method removes multiple videos from the specified folder. The authenticated user must be the owner of the folder.
+	This method removes multiple videos from the specified folder. The authenticated user must be the owner of the folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@param userId The ID of the user.
-		@return ApiRemoveVideosFromProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@return ApiRemoveVideosFromProjectRequest
 	*/
 	RemoveVideosFromProject(ctx context.Context, projectId float32, userId int32) ApiRemoveVideosFromProjectRequest
 
@@ -159,13 +160,13 @@ type FoldersVideosAPI interface {
 	RemoveVideosFromProjectExecute(r ApiRemoveVideosFromProjectRequest) (*http.Response, error)
 
 	/*
-		RemoveVideosFromProjectAlt1 Remove a list of videos from a folder
+	RemoveVideosFromProjectAlt1 Remove a list of videos from a folder
 
-		This method removes multiple videos from the specified folder. The authenticated user must be the owner of the folder.
+	This method removes multiple videos from the specified folder. The authenticated user must be the owner of the folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@return ApiRemoveVideosFromProjectAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@return ApiRemoveVideosFromProjectAlt1Request
 	*/
 	RemoveVideosFromProjectAlt1(ctx context.Context, projectId float32) ApiRemoveVideosFromProjectAlt1Request
 
@@ -177,11 +178,11 @@ type FoldersVideosAPI interface {
 type FoldersVideosAPIService service
 
 type ApiAddVideoToProjectRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService FoldersVideosAPI
-	projectId  float32
-	userId     int32
-	videoId    int32
+	projectId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiAddVideoToProjectRequest) Execute() (*http.Response, error) {
@@ -193,28 +194,28 @@ AddVideoToProject Add a video to a folder
 
 This method adds a single video to the specified folder. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToProjectRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @param userId The ID of the user.
+ @param videoId The ID of the video.
+ @return ApiAddVideoToProjectRequest
 */
 func (a *FoldersVideosAPIService) AddVideoToProject(ctx context.Context, projectId float32, userId int32, videoId int32) ApiAddVideoToProjectRequest {
 	return ApiAddVideoToProjectRequest{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
-		userId:     userId,
-		videoId:    videoId,
+		ctx: ctx,
+		projectId: projectId,
+		userId: userId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersVideosAPIService) AddVideoToProjectExecute(r ApiAddVideoToProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.AddVideoToProject")
@@ -277,8 +278,8 @@ func (a *FoldersVideosAPIService) AddVideoToProjectExecute(r ApiAddVideoToProjec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -287,10 +288,10 @@ func (a *FoldersVideosAPIService) AddVideoToProjectExecute(r ApiAddVideoToProjec
 }
 
 type ApiAddVideoToProjectAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService FoldersVideosAPI
-	projectId  float32
-	videoId    int32
+	projectId float32
+	videoId int32
 }
 
 func (r ApiAddVideoToProjectAlt1Request) Execute() (*http.Response, error) {
@@ -302,26 +303,26 @@ AddVideoToProjectAlt1 Add a video to a folder
 
 This method adds a single video to the specified folder. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToProjectAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @param videoId The ID of the video.
+ @return ApiAddVideoToProjectAlt1Request
 */
 func (a *FoldersVideosAPIService) AddVideoToProjectAlt1(ctx context.Context, projectId float32, videoId int32) ApiAddVideoToProjectAlt1Request {
 	return ApiAddVideoToProjectAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
-		videoId:    videoId,
+		ctx: ctx,
+		projectId: projectId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersVideosAPIService) AddVideoToProjectAlt1Execute(r ApiAddVideoToProjectAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.AddVideoToProjectAlt1")
@@ -383,8 +384,8 @@ func (a *FoldersVideosAPIService) AddVideoToProjectAlt1Execute(r ApiAddVideoToPr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -393,11 +394,11 @@ func (a *FoldersVideosAPIService) AddVideoToProjectAlt1Execute(r ApiAddVideoToPr
 }
 
 type ApiAddVideosToProjectRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService FoldersVideosAPI
-	projectId  float32
-	userId     int32
-	uris       *string
+	projectId float32
+	userId int32
+	uris *string
 }
 
 // A comma-separated list of video URIs to add.
@@ -415,26 +416,26 @@ AddVideosToProject Add a list of videos to a folder
 
 This method adds multiple videos to the specified folder. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@return ApiAddVideosToProjectRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @param userId The ID of the user.
+ @return ApiAddVideosToProjectRequest
 */
 func (a *FoldersVideosAPIService) AddVideosToProject(ctx context.Context, projectId float32, userId int32) ApiAddVideosToProjectRequest {
 	return ApiAddVideosToProjectRequest{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
-		userId:     userId,
+		ctx: ctx,
+		projectId: projectId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersVideosAPIService) AddVideosToProjectExecute(r ApiAddVideosToProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.AddVideosToProject")
@@ -500,8 +501,8 @@ func (a *FoldersVideosAPIService) AddVideosToProjectExecute(r ApiAddVideosToProj
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -511,8 +512,8 @@ func (a *FoldersVideosAPIService) AddVideosToProjectExecute(r ApiAddVideosToProj
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -522,8 +523,8 @@ func (a *FoldersVideosAPIService) AddVideosToProjectExecute(r ApiAddVideosToProj
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -532,10 +533,10 @@ func (a *FoldersVideosAPIService) AddVideosToProjectExecute(r ApiAddVideosToProj
 }
 
 type ApiAddVideosToProjectAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService FoldersVideosAPI
-	projectId  float32
-	uris       *string
+	projectId float32
+	uris *string
 }
 
 // A comma-separated list of video URIs to add.
@@ -553,24 +554,24 @@ AddVideosToProjectAlt1 Add a list of videos to a folder
 
 This method adds multiple videos to the specified folder. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@return ApiAddVideosToProjectAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @return ApiAddVideosToProjectAlt1Request
 */
 func (a *FoldersVideosAPIService) AddVideosToProjectAlt1(ctx context.Context, projectId float32) ApiAddVideosToProjectAlt1Request {
 	return ApiAddVideosToProjectAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
+		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersVideosAPIService) AddVideosToProjectAlt1Execute(r ApiAddVideosToProjectAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.AddVideosToProjectAlt1")
@@ -635,8 +636,8 @@ func (a *FoldersVideosAPIService) AddVideosToProjectAlt1Execute(r ApiAddVideosTo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -646,8 +647,8 @@ func (a *FoldersVideosAPIService) AddVideosToProjectAlt1Execute(r ApiAddVideosTo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -657,8 +658,8 @@ func (a *FoldersVideosAPIService) AddVideosToProjectAlt1Execute(r ApiAddVideosTo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -667,23 +668,23 @@ func (a *FoldersVideosAPIService) AddVideosToProjectAlt1Execute(r ApiAddVideosTo
 }
 
 type ApiGetProjectVideosRequest struct {
-	ctx               context.Context
-	ApiService        FoldersVideosAPI
-	projectId         float32
-	userId            int32
-	direction         *string
-	filterTag         *string
-	filterTagAllOf    *string
-	filterTagExclude  *string
+	ctx context.Context
+	ApiService FoldersVideosAPI
+	projectId float32
+	userId int32
+	direction *string
+	filterTag *string
+	filterTagAllOf *string
+	filterTagExclude *string
 	includeSubfolders *bool
-	page              *float32
-	perPage           *float32
-	query             *string
-	queryFields       *string
-	sort              *string
+	page *float32
+	perPage *float32
+	query *string
+	queryFields *string
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetProjectVideosRequest) Direction(direction string) ApiGetProjectVideosRequest {
 	r.direction = &direction
 	return r
@@ -737,7 +738,7 @@ func (r ApiGetProjectVideosRequest) QueryFields(queryFields string) ApiGetProjec
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by the date of the last user action.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by the date of the last user action. 
 func (r ApiGetProjectVideosRequest) Sort(sort string) ApiGetProjectVideosRequest {
 	r.sort = &sort
 	return r
@@ -752,29 +753,28 @@ GetProjectVideos Get all the videos in a folder
 
 This method returns all the videos that belong to the specified folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@return ApiGetProjectVideosRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @param userId The ID of the user.
+ @return ApiGetProjectVideosRequest
 */
 func (a *FoldersVideosAPIService) GetProjectVideos(ctx context.Context, projectId float32, userId int32) ApiGetProjectVideosRequest {
 	return ApiGetProjectVideosRequest{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
-		userId:     userId,
+		ctx: ctx,
+		projectId: projectId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *FoldersVideosAPIService) GetProjectVideosExecute(r ApiGetProjectVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.GetProjectVideos")
@@ -866,8 +866,8 @@ func (a *FoldersVideosAPIService) GetProjectVideosExecute(r ApiGetProjectVideosR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -877,8 +877,8 @@ func (a *FoldersVideosAPIService) GetProjectVideosExecute(r ApiGetProjectVideosR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -896,22 +896,22 @@ func (a *FoldersVideosAPIService) GetProjectVideosExecute(r ApiGetProjectVideosR
 }
 
 type ApiGetProjectVideosAlt1Request struct {
-	ctx               context.Context
-	ApiService        FoldersVideosAPI
-	projectId         float32
-	direction         *string
-	filterTag         *string
-	filterTagAllOf    *string
-	filterTagExclude  *string
+	ctx context.Context
+	ApiService FoldersVideosAPI
+	projectId float32
+	direction *string
+	filterTag *string
+	filterTagAllOf *string
+	filterTagExclude *string
 	includeSubfolders *bool
-	page              *float32
-	perPage           *float32
-	query             *string
-	queryFields       *string
-	sort              *string
+	page *float32
+	perPage *float32
+	query *string
+	queryFields *string
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetProjectVideosAlt1Request) Direction(direction string) ApiGetProjectVideosAlt1Request {
 	r.direction = &direction
 	return r
@@ -965,7 +965,7 @@ func (r ApiGetProjectVideosAlt1Request) QueryFields(queryFields string) ApiGetPr
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by the date of the last user action.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;last_user_action_event_date&#x60; - Sort the results by the date of the last user action. 
 func (r ApiGetProjectVideosAlt1Request) Sort(sort string) ApiGetProjectVideosAlt1Request {
 	r.sort = &sort
 	return r
@@ -980,27 +980,26 @@ GetProjectVideosAlt1 Get all the videos in a folder
 
 This method returns all the videos that belong to the specified folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@return ApiGetProjectVideosAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @return ApiGetProjectVideosAlt1Request
 */
 func (a *FoldersVideosAPIService) GetProjectVideosAlt1(ctx context.Context, projectId float32) ApiGetProjectVideosAlt1Request {
 	return ApiGetProjectVideosAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
+		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *FoldersVideosAPIService) GetProjectVideosAlt1Execute(r ApiGetProjectVideosAlt1Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.GetProjectVideosAlt1")
@@ -1091,8 +1090,8 @@ func (a *FoldersVideosAPIService) GetProjectVideosAlt1Execute(r ApiGetProjectVid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1102,8 +1101,8 @@ func (a *FoldersVideosAPIService) GetProjectVideosAlt1Execute(r ApiGetProjectVid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1121,11 +1120,11 @@ func (a *FoldersVideosAPIService) GetProjectVideosAlt1Execute(r ApiGetProjectVid
 }
 
 type ApiRemoveVideoFromProjectRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService FoldersVideosAPI
-	projectId  float32
-	userId     int32
-	videoId    int32
+	projectId float32
+	userId int32
+	videoId int32
 }
 
 func (r ApiRemoveVideoFromProjectRequest) Execute() (*http.Response, error) {
@@ -1137,28 +1136,28 @@ RemoveVideoFromProject Remove a video from a folder
 
 This method removes a single video from the specified folder. Please note that this doesn't delete the video itself.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiRemoveVideoFromProjectRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @param userId The ID of the user.
+ @param videoId The ID of the video.
+ @return ApiRemoveVideoFromProjectRequest
 */
 func (a *FoldersVideosAPIService) RemoveVideoFromProject(ctx context.Context, projectId float32, userId int32, videoId int32) ApiRemoveVideoFromProjectRequest {
 	return ApiRemoveVideoFromProjectRequest{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
-		userId:     userId,
-		videoId:    videoId,
+		ctx: ctx,
+		projectId: projectId,
+		userId: userId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersVideosAPIService) RemoveVideoFromProjectExecute(r ApiRemoveVideoFromProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.RemoveVideoFromProject")
@@ -1221,8 +1220,8 @@ func (a *FoldersVideosAPIService) RemoveVideoFromProjectExecute(r ApiRemoveVideo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1232,8 +1231,8 @@ func (a *FoldersVideosAPIService) RemoveVideoFromProjectExecute(r ApiRemoveVideo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1243,8 +1242,8 @@ func (a *FoldersVideosAPIService) RemoveVideoFromProjectExecute(r ApiRemoveVideo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1253,10 +1252,10 @@ func (a *FoldersVideosAPIService) RemoveVideoFromProjectExecute(r ApiRemoveVideo
 }
 
 type ApiRemoveVideoFromProjectAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService FoldersVideosAPI
-	projectId  float32
-	videoId    int32
+	projectId float32
+	videoId int32
 }
 
 func (r ApiRemoveVideoFromProjectAlt1Request) Execute() (*http.Response, error) {
@@ -1268,26 +1267,26 @@ RemoveVideoFromProjectAlt1 Remove a video from a folder
 
 This method removes a single video from the specified folder. Please note that this doesn't delete the video itself.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param videoId The ID of the video.
-	@return ApiRemoveVideoFromProjectAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @param videoId The ID of the video.
+ @return ApiRemoveVideoFromProjectAlt1Request
 */
 func (a *FoldersVideosAPIService) RemoveVideoFromProjectAlt1(ctx context.Context, projectId float32, videoId int32) ApiRemoveVideoFromProjectAlt1Request {
 	return ApiRemoveVideoFromProjectAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
-		videoId:    videoId,
+		ctx: ctx,
+		projectId: projectId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersVideosAPIService) RemoveVideoFromProjectAlt1Execute(r ApiRemoveVideoFromProjectAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.RemoveVideoFromProjectAlt1")
@@ -1349,8 +1348,8 @@ func (a *FoldersVideosAPIService) RemoveVideoFromProjectAlt1Execute(r ApiRemoveV
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1360,8 +1359,8 @@ func (a *FoldersVideosAPIService) RemoveVideoFromProjectAlt1Execute(r ApiRemoveV
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1371,8 +1370,8 @@ func (a *FoldersVideosAPIService) RemoveVideoFromProjectAlt1Execute(r ApiRemoveV
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1381,11 +1380,11 @@ func (a *FoldersVideosAPIService) RemoveVideoFromProjectAlt1Execute(r ApiRemoveV
 }
 
 type ApiRemoveVideosFromProjectRequest struct {
-	ctx               context.Context
-	ApiService        FoldersVideosAPI
-	projectId         float32
-	userId            int32
-	uris              *string
+	ctx context.Context
+	ApiService FoldersVideosAPI
+	projectId float32
+	userId int32
+	uris *string
 	shouldDeleteClips *bool
 }
 
@@ -1410,26 +1409,26 @@ RemoveVideosFromProject Remove a list of videos from a folder
 
 This method removes multiple videos from the specified folder. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@return ApiRemoveVideosFromProjectRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @param userId The ID of the user.
+ @return ApiRemoveVideosFromProjectRequest
 */
 func (a *FoldersVideosAPIService) RemoveVideosFromProject(ctx context.Context, projectId float32, userId int32) ApiRemoveVideosFromProjectRequest {
 	return ApiRemoveVideosFromProjectRequest{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
-		userId:     userId,
+		ctx: ctx,
+		projectId: projectId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersVideosAPIService) RemoveVideosFromProjectExecute(r ApiRemoveVideosFromProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.RemoveVideosFromProject")
@@ -1498,8 +1497,8 @@ func (a *FoldersVideosAPIService) RemoveVideosFromProjectExecute(r ApiRemoveVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1509,8 +1508,8 @@ func (a *FoldersVideosAPIService) RemoveVideosFromProjectExecute(r ApiRemoveVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1520,8 +1519,8 @@ func (a *FoldersVideosAPIService) RemoveVideosFromProjectExecute(r ApiRemoveVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1530,10 +1529,10 @@ func (a *FoldersVideosAPIService) RemoveVideosFromProjectExecute(r ApiRemoveVide
 }
 
 type ApiRemoveVideosFromProjectAlt1Request struct {
-	ctx               context.Context
-	ApiService        FoldersVideosAPI
-	projectId         float32
-	uris              *string
+	ctx context.Context
+	ApiService FoldersVideosAPI
+	projectId float32
+	uris *string
 	shouldDeleteClips *bool
 }
 
@@ -1558,24 +1557,24 @@ RemoveVideosFromProjectAlt1 Remove a list of videos from a folder
 
 This method removes multiple videos from the specified folder. The authenticated user must be the owner of the folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@return ApiRemoveVideosFromProjectAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @return ApiRemoveVideosFromProjectAlt1Request
 */
 func (a *FoldersVideosAPIService) RemoveVideosFromProjectAlt1(ctx context.Context, projectId float32) ApiRemoveVideosFromProjectAlt1Request {
 	return ApiRemoveVideosFromProjectAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
+		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersVideosAPIService) RemoveVideosFromProjectAlt1Execute(r ApiRemoveVideosFromProjectAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersVideosAPIService.RemoveVideosFromProjectAlt1")
@@ -1643,8 +1642,8 @@ func (a *FoldersVideosAPIService) RemoveVideosFromProjectAlt1Execute(r ApiRemove
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1654,8 +1653,8 @@ func (a *FoldersVideosAPIService) RemoveVideosFromProjectAlt1Execute(r ApiRemove
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1665,8 +1664,8 @@ func (a *FoldersVideosAPIService) RemoveVideosFromProjectAlt1Execute(r ApiRemove
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

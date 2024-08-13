@@ -23,9 +23,9 @@ type VideoSpatial struct {
 	DirectorTimeline []VideoSpatialDirectorTimelineInner `json:"director_timeline"`
 	// The video's 360 field of view value, ranging from a mininum of `30` to a maximum of `90`. The default value is `50`.
 	FieldOfView NullableFloat32 `json:"field_of_view"`
-	// The video's 360 spatial projection.  Option descriptions:  * `cubical` - The spatial projection is cubical.  * `cylindrical` - The spatial projection is cylindrical.  * `dome` - The spatial projection is dome-shaped.  * `equirectangular` - The spatial projection is equirectangular.  * `pyramid` - The spatial projection is pyramid-shaped.
+	// The video's 360 spatial projection.  Option descriptions:  * `cubical` - The spatial projection is cubical.  * `cylindrical` - The spatial projection is cylindrical.  * `dome` - The spatial projection is dome-shaped.  * `equirectangular` - The spatial projection is equirectangular.  * `pyramid` - The spatial projection is pyramid-shaped. 
 	Projection NullableString `json:"projection"`
-	// The video's 360 stereo format.  Option descriptions:  * `left-right` - The stereo format is left-right.  * `mono` - The audio is monaural.  * `top-bottom` - The stereo format is top-bottom.
+	// The video's 360 stereo format.  Option descriptions:  * `left-right` - The stereo format is left-right.  * `mono` - The audio is monaural.  * `top-bottom` - The stereo format is top-bottom. 
 	StereoFormat NullableString `json:"stereo_format"`
 }
 
@@ -153,7 +153,7 @@ func (o *VideoSpatial) SetStereoFormat(v string) {
 }
 
 func (o VideoSpatial) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -204,3 +204,5 @@ func (v *NullableVideoSpatial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type LiveEventVideosAPI interface {
 
 	/*
-		AddVideosToLiveEvent Add a list of videos to a live event
+	AddVideosToLiveEvent Add a list of videos to a live event
 
-		This method adds multiple videos to the specified event.
+	This method adds multiple videos to the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiAddVideosToLiveEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiAddVideosToLiveEventRequest
 	*/
 	AddVideosToLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiAddVideosToLiveEventRequest
 
@@ -37,13 +38,13 @@ type LiveEventVideosAPI interface {
 	AddVideosToLiveEventExecute(r ApiAddVideosToLiveEventRequest) (*http.Response, error)
 
 	/*
-		AddVideosToLiveEventAlt1 Add a list of videos to a live event
+	AddVideosToLiveEventAlt1 Add a list of videos to a live event
 
-		This method adds multiple videos to the specified event.
+	This method adds multiple videos to the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiAddVideosToLiveEventAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiAddVideosToLiveEventAlt1Request
 	*/
 	AddVideosToLiveEventAlt1(ctx context.Context, liveEventId float32) ApiAddVideosToLiveEventAlt1Request
 
@@ -51,13 +52,13 @@ type LiveEventVideosAPI interface {
 	AddVideosToLiveEventAlt1Execute(r ApiAddVideosToLiveEventAlt1Request) (*http.Response, error)
 
 	/*
-		AddVideosToLiveEventAlt2 Add a list of videos to a live event
+	AddVideosToLiveEventAlt2 Add a list of videos to a live event
 
-		This method adds multiple videos to the specified event.
+	This method adds multiple videos to the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiAddVideosToLiveEventAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiAddVideosToLiveEventAlt2Request
 	*/
 	AddVideosToLiveEventAlt2(ctx context.Context, liveEventId float32) ApiAddVideosToLiveEventAlt2Request
 
@@ -65,15 +66,15 @@ type LiveEventVideosAPI interface {
 	AddVideosToLiveEventAlt2Execute(r ApiAddVideosToLiveEventAlt2Request) (*http.Response, error)
 
 	/*
-		GetLiveEventVideo Get a specific video in a live event
+	GetLiveEventVideo Get a specific video in a live event
 
-		This method returns a single video in the specified event.
+	This method returns a single video in the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@param videoId The ID of the video.
-		@return ApiGetLiveEventVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@param videoId The ID of the video.
+	@return ApiGetLiveEventVideoRequest
 	*/
 	GetLiveEventVideo(ctx context.Context, liveEventId float32, userId int32, videoId int32) ApiGetLiveEventVideoRequest
 
@@ -82,14 +83,14 @@ type LiveEventVideosAPI interface {
 	GetLiveEventVideoExecute(r ApiGetLiveEventVideoRequest) (*Video, *http.Response, error)
 
 	/*
-		GetLiveEventVideoAlt1 Get a specific video in a live event
+	GetLiveEventVideoAlt1 Get a specific video in a live event
 
-		This method returns a single video in the specified event.
+	This method returns a single video in the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param videoId The ID of the video.
-		@return ApiGetLiveEventVideoAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param videoId The ID of the video.
+	@return ApiGetLiveEventVideoAlt1Request
 	*/
 	GetLiveEventVideoAlt1(ctx context.Context, liveEventId float32, videoId int32) ApiGetLiveEventVideoAlt1Request
 
@@ -98,14 +99,14 @@ type LiveEventVideosAPI interface {
 	GetLiveEventVideoAlt1Execute(r ApiGetLiveEventVideoAlt1Request) (*Video, *http.Response, error)
 
 	/*
-		GetLiveEventVideoAlt2 Get a specific video in a live event
+	GetLiveEventVideoAlt2 Get a specific video in a live event
 
-		This method returns a single video in the specified event.
+	This method returns a single video in the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param videoId The ID of the video.
-		@return ApiGetLiveEventVideoAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param videoId The ID of the video.
+	@return ApiGetLiveEventVideoAlt2Request
 	*/
 	GetLiveEventVideoAlt2(ctx context.Context, liveEventId float32, videoId int32) ApiGetLiveEventVideoAlt2Request
 
@@ -114,14 +115,14 @@ type LiveEventVideosAPI interface {
 	GetLiveEventVideoAlt2Execute(r ApiGetLiveEventVideoAlt2Request) (*Video, *http.Response, error)
 
 	/*
-		GetLiveEventVideos Get all the videos in a live event
+	GetLiveEventVideos Get all the videos in a live event
 
-		This method returns every video in the specified event.
+	This method returns every video in the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiGetLiveEventVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiGetLiveEventVideosRequest
 	*/
 	GetLiveEventVideos(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventVideosRequest
 
@@ -130,13 +131,13 @@ type LiveEventVideosAPI interface {
 	GetLiveEventVideosExecute(r ApiGetLiveEventVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-		GetLiveEventVideosAlt1 Get all the videos in a live event
+	GetLiveEventVideosAlt1 Get all the videos in a live event
 
-		This method returns every video in the specified event.
+	This method returns every video in the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventVideosAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventVideosAlt1Request
 	*/
 	GetLiveEventVideosAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventVideosAlt1Request
 
@@ -145,13 +146,13 @@ type LiveEventVideosAPI interface {
 	GetLiveEventVideosAlt1Execute(r ApiGetLiveEventVideosAlt1Request) ([]Video, *http.Response, error)
 
 	/*
-		GetLiveEventVideosAlt2 Get all the videos in a live event
+	GetLiveEventVideosAlt2 Get all the videos in a live event
 
-		This method returns every video in the specified event.
+	This method returns every video in the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventVideosAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventVideosAlt2Request
 	*/
 	GetLiveEventVideosAlt2(ctx context.Context, liveEventId float32) ApiGetLiveEventVideosAlt2Request
 
@@ -160,14 +161,14 @@ type LiveEventVideosAPI interface {
 	GetLiveEventVideosAlt2Execute(r ApiGetLiveEventVideosAlt2Request) ([]Video, *http.Response, error)
 
 	/*
-		RemoveVideosFromLiveEvent Remove a list of videos from a live event
+	RemoveVideosFromLiveEvent Remove a list of videos from a live event
 
-		This method removes multiple videos from the specified event.
+	This method removes multiple videos from the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiRemoveVideosFromLiveEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiRemoveVideosFromLiveEventRequest
 	*/
 	RemoveVideosFromLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiRemoveVideosFromLiveEventRequest
 
@@ -175,13 +176,13 @@ type LiveEventVideosAPI interface {
 	RemoveVideosFromLiveEventExecute(r ApiRemoveVideosFromLiveEventRequest) (*http.Response, error)
 
 	/*
-		RemoveVideosFromLiveEventAlt1 Remove a list of videos from a live event
+	RemoveVideosFromLiveEventAlt1 Remove a list of videos from a live event
 
-		This method removes multiple videos from the specified event.
+	This method removes multiple videos from the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiRemoveVideosFromLiveEventAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiRemoveVideosFromLiveEventAlt1Request
 	*/
 	RemoveVideosFromLiveEventAlt1(ctx context.Context, liveEventId float32) ApiRemoveVideosFromLiveEventAlt1Request
 
@@ -189,13 +190,13 @@ type LiveEventVideosAPI interface {
 	RemoveVideosFromLiveEventAlt1Execute(r ApiRemoveVideosFromLiveEventAlt1Request) (*http.Response, error)
 
 	/*
-		RemoveVideosFromLiveEventAlt2 Remove a list of videos from a live event
+	RemoveVideosFromLiveEventAlt2 Remove a list of videos from a live event
 
-		This method removes multiple videos from the specified event.
+	This method removes multiple videos from the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiRemoveVideosFromLiveEventAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiRemoveVideosFromLiveEventAlt2Request
 	*/
 	RemoveVideosFromLiveEventAlt2(ctx context.Context, liveEventId float32) ApiRemoveVideosFromLiveEventAlt2Request
 
@@ -207,10 +208,10 @@ type LiveEventVideosAPI interface {
 type LiveEventVideosAPIService service
 
 type ApiAddVideosToLiveEventRequest struct {
-	ctx                             context.Context
-	ApiService                      LiveEventVideosAPI
-	liveEventId                     float32
-	userId                          int32
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
+	userId int32
 	addVideosToLiveEventAlt1Request *AddVideosToLiveEventAlt1Request
 }
 
@@ -228,26 +229,26 @@ AddVideosToLiveEvent Add a list of videos to a live event
 
 This method adds multiple videos to the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiAddVideosToLiveEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiAddVideosToLiveEventRequest
 */
 func (a *LiveEventVideosAPIService) AddVideosToLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiAddVideosToLiveEventRequest {
 	return ApiAddVideosToLiveEventRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEventVideosAPIService) AddVideosToLiveEventExecute(r ApiAddVideosToLiveEventRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.AddVideosToLiveEvent")
@@ -311,8 +312,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventExecute(r ApiAddVideosTo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -322,8 +323,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventExecute(r ApiAddVideosTo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -333,8 +334,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventExecute(r ApiAddVideosTo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -343,9 +344,9 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventExecute(r ApiAddVideosTo
 }
 
 type ApiAddVideosToLiveEventAlt1Request struct {
-	ctx                             context.Context
-	ApiService                      LiveEventVideosAPI
-	liveEventId                     float32
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
 	addVideosToLiveEventAlt1Request *AddVideosToLiveEventAlt1Request
 }
 
@@ -363,14 +364,14 @@ AddVideosToLiveEventAlt1 Add a list of videos to a live event
 
 This method adds multiple videos to the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiAddVideosToLiveEventAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiAddVideosToLiveEventAlt1Request
 */
 func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt1(ctx context.Context, liveEventId float32) ApiAddVideosToLiveEventAlt1Request {
 	return ApiAddVideosToLiveEventAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -378,9 +379,9 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt1(ctx context.Context
 // Execute executes the request
 func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt1Execute(r ApiAddVideosToLiveEventAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.AddVideosToLiveEventAlt1")
@@ -443,8 +444,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt1Execute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -454,8 +455,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt1Execute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -465,8 +466,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt1Execute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -475,9 +476,9 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt1Execute(r ApiAddVide
 }
 
 type ApiAddVideosToLiveEventAlt2Request struct {
-	ctx                             context.Context
-	ApiService                      LiveEventVideosAPI
-	liveEventId                     float32
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
 	addVideosToLiveEventAlt1Request *AddVideosToLiveEventAlt1Request
 }
 
@@ -495,14 +496,14 @@ AddVideosToLiveEventAlt2 Add a list of videos to a live event
 
 This method adds multiple videos to the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiAddVideosToLiveEventAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiAddVideosToLiveEventAlt2Request
 */
 func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt2(ctx context.Context, liveEventId float32) ApiAddVideosToLiveEventAlt2Request {
 	return ApiAddVideosToLiveEventAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -510,9 +511,9 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt2(ctx context.Context
 // Execute executes the request
 func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt2Execute(r ApiAddVideosToLiveEventAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.AddVideosToLiveEventAlt2")
@@ -575,8 +576,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt2Execute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -586,8 +587,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt2Execute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -597,8 +598,8 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt2Execute(r ApiAddVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -607,11 +608,11 @@ func (a *LiveEventVideosAPIService) AddVideosToLiveEventAlt2Execute(r ApiAddVide
 }
 
 type ApiGetLiveEventVideoRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventVideosAPI
+	ctx context.Context
+	ApiService LiveEventVideosAPI
 	liveEventId float32
-	userId      int32
-	videoId     int32
+	userId int32
+	videoId int32
 }
 
 func (r ApiGetLiveEventVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -623,31 +624,30 @@ GetLiveEventVideo Get a specific video in a live event
 
 This method returns a single video in the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@param videoId The ID of the video.
-	@return ApiGetLiveEventVideoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @param videoId The ID of the video.
+ @return ApiGetLiveEventVideoRequest
 */
 func (a *LiveEventVideosAPIService) GetLiveEventVideo(ctx context.Context, liveEventId float32, userId int32, videoId int32) ApiGetLiveEventVideoRequest {
 	return ApiGetLiveEventVideoRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
-		videoId:     videoId,
+		userId: userId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventVideosAPIService) GetLiveEventVideoExecute(r ApiGetLiveEventVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.GetLiveEventVideo")
@@ -710,8 +710,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoExecute(r ApiGetLiveEventVi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -721,8 +721,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoExecute(r ApiGetLiveEventVi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -732,8 +732,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoExecute(r ApiGetLiveEventVi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -751,10 +751,10 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoExecute(r ApiGetLiveEventVi
 }
 
 type ApiGetLiveEventVideoAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEventVideosAPI
+	ctx context.Context
+	ApiService LiveEventVideosAPI
 	liveEventId float32
-	videoId     int32
+	videoId int32
 }
 
 func (r ApiGetLiveEventVideoAlt1Request) Execute() (*Video, *http.Response, error) {
@@ -766,29 +766,28 @@ GetLiveEventVideoAlt1 Get a specific video in a live event
 
 This method returns a single video in the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param videoId The ID of the video.
-	@return ApiGetLiveEventVideoAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param videoId The ID of the video.
+ @return ApiGetLiveEventVideoAlt1Request
 */
 func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt1(ctx context.Context, liveEventId float32, videoId int32) ApiGetLiveEventVideoAlt1Request {
 	return ApiGetLiveEventVideoAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		videoId:     videoId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt1Execute(r ApiGetLiveEventVideoAlt1Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.GetLiveEventVideoAlt1")
@@ -850,8 +849,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt1Execute(r ApiGetLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -861,8 +860,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt1Execute(r ApiGetLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -872,8 +871,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt1Execute(r ApiGetLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -891,10 +890,10 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt1Execute(r ApiGetLiveEve
 }
 
 type ApiGetLiveEventVideoAlt2Request struct {
-	ctx         context.Context
-	ApiService  LiveEventVideosAPI
+	ctx context.Context
+	ApiService LiveEventVideosAPI
 	liveEventId float32
-	videoId     int32
+	videoId int32
 }
 
 func (r ApiGetLiveEventVideoAlt2Request) Execute() (*Video, *http.Response, error) {
@@ -906,29 +905,28 @@ GetLiveEventVideoAlt2 Get a specific video in a live event
 
 This method returns a single video in the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param videoId The ID of the video.
-	@return ApiGetLiveEventVideoAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param videoId The ID of the video.
+ @return ApiGetLiveEventVideoAlt2Request
 */
 func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt2(ctx context.Context, liveEventId float32, videoId int32) ApiGetLiveEventVideoAlt2Request {
 	return ApiGetLiveEventVideoAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		videoId:     videoId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt2Execute(r ApiGetLiveEventVideoAlt2Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.GetLiveEventVideoAlt2")
@@ -990,8 +988,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt2Execute(r ApiGetLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1001,8 +999,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt2Execute(r ApiGetLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1012,8 +1010,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt2Execute(r ApiGetLiveEve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1031,18 +1029,18 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideoAlt2Execute(r ApiGetLiveEve
 }
 
 type ApiGetLiveEventVideosRequest struct {
-	ctx              context.Context
-	ApiService       LiveEventVideosAPI
-	liveEventId      float32
-	userId           int32
-	containingUri    *string
-	direction        *string
-	filter           *string
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
+	userId int32
+	containingUri *string
+	direction *string
+	filter *string
 	filterEmbeddable *bool
-	page             *float32
-	perPage          *float32
-	query            *string
-	sort             *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
 // The page that contains the video URI.
@@ -1051,13 +1049,13 @@ func (r ApiGetLiveEventVideosRequest) ContainingUri(containingUri string) ApiGet
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetLiveEventVideosRequest) Direction(direction string) ApiGetLiveEventVideosRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable events.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable events. 
 func (r ApiGetLiveEventVideosRequest) Filter(filter string) ApiGetLiveEventVideosRequest {
 	r.filter = &filter
 	return r
@@ -1087,7 +1085,7 @@ func (r ApiGetLiveEventVideosRequest) Query(query string) ApiGetLiveEventVideosR
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added videos.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;arranged&#x60; - Sort the results in the order that the user has arranged the videos.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
+// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added videos.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;arranged&#x60; - Sort the results in the order that the user has arranged the videos.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
 func (r ApiGetLiveEventVideosRequest) Sort(sort string) ApiGetLiveEventVideosRequest {
 	r.sort = &sort
 	return r
@@ -1102,29 +1100,28 @@ GetLiveEventVideos Get all the videos in a live event
 
 This method returns every video in the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiGetLiveEventVideosRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiGetLiveEventVideosRequest
 */
 func (a *LiveEventVideosAPIService) GetLiveEventVideos(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventVideosRequest {
 	return ApiGetLiveEventVideosRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *LiveEventVideosAPIService) GetLiveEventVideosExecute(r ApiGetLiveEventVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.GetLiveEventVideos")
@@ -1210,8 +1207,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosExecute(r ApiGetLiveEventV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1221,8 +1218,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosExecute(r ApiGetLiveEventV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1232,8 +1229,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosExecute(r ApiGetLiveEventV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1251,17 +1248,17 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosExecute(r ApiGetLiveEventV
 }
 
 type ApiGetLiveEventVideosAlt1Request struct {
-	ctx              context.Context
-	ApiService       LiveEventVideosAPI
-	liveEventId      float32
-	containingUri    *string
-	direction        *string
-	filter           *string
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
+	containingUri *string
+	direction *string
+	filter *string
 	filterEmbeddable *bool
-	page             *float32
-	perPage          *float32
-	query            *string
-	sort             *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
 // The page that contains the video URI.
@@ -1270,13 +1267,13 @@ func (r ApiGetLiveEventVideosAlt1Request) ContainingUri(containingUri string) Ap
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetLiveEventVideosAlt1Request) Direction(direction string) ApiGetLiveEventVideosAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable events.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable events. 
 func (r ApiGetLiveEventVideosAlt1Request) Filter(filter string) ApiGetLiveEventVideosAlt1Request {
 	r.filter = &filter
 	return r
@@ -1306,7 +1303,7 @@ func (r ApiGetLiveEventVideosAlt1Request) Query(query string) ApiGetLiveEventVid
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added videos.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;arranged&#x60; - Sort the results in the order that the user has arranged the videos.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
+// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added videos.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;arranged&#x60; - Sort the results in the order that the user has arranged the videos.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
 func (r ApiGetLiveEventVideosAlt1Request) Sort(sort string) ApiGetLiveEventVideosAlt1Request {
 	r.sort = &sort
 	return r
@@ -1321,27 +1318,26 @@ GetLiveEventVideosAlt1 Get all the videos in a live event
 
 This method returns every video in the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventVideosAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventVideosAlt1Request
 */
 func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventVideosAlt1Request {
 	return ApiGetLiveEventVideosAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt1Execute(r ApiGetLiveEventVideosAlt1Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.GetLiveEventVideosAlt1")
@@ -1426,8 +1422,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt1Execute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1437,8 +1433,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt1Execute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1448,8 +1444,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt1Execute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1467,17 +1463,17 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt1Execute(r ApiGetLiveEv
 }
 
 type ApiGetLiveEventVideosAlt2Request struct {
-	ctx              context.Context
-	ApiService       LiveEventVideosAPI
-	liveEventId      float32
-	containingUri    *string
-	direction        *string
-	filter           *string
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
+	containingUri *string
+	direction *string
+	filter *string
 	filterEmbeddable *bool
-	page             *float32
-	perPage          *float32
-	query            *string
-	sort             *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
 // The page that contains the video URI.
@@ -1486,13 +1482,13 @@ func (r ApiGetLiveEventVideosAlt2Request) ContainingUri(containingUri string) Ap
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetLiveEventVideosAlt2Request) Direction(direction string) ApiGetLiveEventVideosAlt2Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable events.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable events. 
 func (r ApiGetLiveEventVideosAlt2Request) Filter(filter string) ApiGetLiveEventVideosAlt2Request {
 	r.filter = &filter
 	return r
@@ -1522,7 +1518,7 @@ func (r ApiGetLiveEventVideosAlt2Request) Query(query string) ApiGetLiveEventVid
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added videos.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;arranged&#x60; - Sort the results in the order that the user has arranged the videos.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.
+// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added videos.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;arranged&#x60; - Sort the results in the order that the user has arranged the videos.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays. 
 func (r ApiGetLiveEventVideosAlt2Request) Sort(sort string) ApiGetLiveEventVideosAlt2Request {
 	r.sort = &sort
 	return r
@@ -1537,27 +1533,26 @@ GetLiveEventVideosAlt2 Get all the videos in a live event
 
 This method returns every video in the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventVideosAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventVideosAlt2Request
 */
 func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt2(ctx context.Context, liveEventId float32) ApiGetLiveEventVideosAlt2Request {
 	return ApiGetLiveEventVideosAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt2Execute(r ApiGetLiveEventVideosAlt2Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.GetLiveEventVideosAlt2")
@@ -1642,8 +1637,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt2Execute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1653,8 +1648,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt2Execute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1664,8 +1659,8 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt2Execute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1683,10 +1678,10 @@ func (a *LiveEventVideosAPIService) GetLiveEventVideosAlt2Execute(r ApiGetLiveEv
 }
 
 type ApiRemoveVideosFromLiveEventRequest struct {
-	ctx                                  context.Context
-	ApiService                           LiveEventVideosAPI
-	liveEventId                          float32
-	userId                               int32
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
+	userId int32
 	removeVideosFromLiveEventAlt1Request *RemoveVideosFromLiveEventAlt1Request
 }
 
@@ -1704,26 +1699,26 @@ RemoveVideosFromLiveEvent Remove a list of videos from a live event
 
 This method removes multiple videos from the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiRemoveVideosFromLiveEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiRemoveVideosFromLiveEventRequest
 */
 func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiRemoveVideosFromLiveEventRequest {
 	return ApiRemoveVideosFromLiveEventRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventExecute(r ApiRemoveVideosFromLiveEventRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.RemoveVideosFromLiveEvent")
@@ -1787,8 +1782,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventExecute(r ApiRemove
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1798,8 +1793,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventExecute(r ApiRemove
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1809,8 +1804,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventExecute(r ApiRemove
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1819,9 +1814,9 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventExecute(r ApiRemove
 }
 
 type ApiRemoveVideosFromLiveEventAlt1Request struct {
-	ctx                                  context.Context
-	ApiService                           LiveEventVideosAPI
-	liveEventId                          float32
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
 	removeVideosFromLiveEventAlt1Request *RemoveVideosFromLiveEventAlt1Request
 }
 
@@ -1839,14 +1834,14 @@ RemoveVideosFromLiveEventAlt1 Remove a list of videos from a live event
 
 This method removes multiple videos from the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiRemoveVideosFromLiveEventAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiRemoveVideosFromLiveEventAlt1Request
 */
 func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt1(ctx context.Context, liveEventId float32) ApiRemoveVideosFromLiveEventAlt1Request {
 	return ApiRemoveVideosFromLiveEventAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -1854,9 +1849,9 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt1(ctx context.Co
 // Execute executes the request
 func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt1Execute(r ApiRemoveVideosFromLiveEventAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.RemoveVideosFromLiveEventAlt1")
@@ -1919,8 +1914,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt1Execute(r ApiRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1930,8 +1925,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt1Execute(r ApiRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1941,8 +1936,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt1Execute(r ApiRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1951,9 +1946,9 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt1Execute(r ApiRe
 }
 
 type ApiRemoveVideosFromLiveEventAlt2Request struct {
-	ctx                                  context.Context
-	ApiService                           LiveEventVideosAPI
-	liveEventId                          float32
+	ctx context.Context
+	ApiService LiveEventVideosAPI
+	liveEventId float32
 	removeVideosFromLiveEventAlt1Request *RemoveVideosFromLiveEventAlt1Request
 }
 
@@ -1971,14 +1966,14 @@ RemoveVideosFromLiveEventAlt2 Remove a list of videos from a live event
 
 This method removes multiple videos from the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiRemoveVideosFromLiveEventAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiRemoveVideosFromLiveEventAlt2Request
 */
 func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt2(ctx context.Context, liveEventId float32) ApiRemoveVideosFromLiveEventAlt2Request {
 	return ApiRemoveVideosFromLiveEventAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -1986,9 +1981,9 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt2(ctx context.Co
 // Execute executes the request
 func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt2Execute(r ApiRemoveVideosFromLiveEventAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventVideosAPIService.RemoveVideosFromLiveEventAlt2")
@@ -2051,8 +2046,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt2Execute(r ApiRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2062,8 +2057,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt2Execute(r ApiRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2073,8 +2068,8 @@ func (a *LiveEventVideosAPIService) RemoveVideosFromLiveEventAlt2Execute(r ApiRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

@@ -20,10 +20,10 @@ var _ MappedNullable = &Play{}
 // Play struct for Play
 type Play struct {
 	Dash *HlsDashVideoFile `json:"dash,omitempty"`
-	Hls  *HlsDashVideoFile `json:"hls,omitempty"`
+	Hls *HlsDashVideoFile `json:"hls,omitempty"`
 	// The progressive video files.
 	Progressive []PlayProgressiveInner `json:"progressive,omitempty"`
-	// The play status of the video.  Option descriptions:  * `playable` - The video is playable.  * `purchase_required` - The video must be purchased.  * `restricted` - Playback for the video is restricted.  * `unavailable` - The video is unavailable.
+	// The play status of the video.  Option descriptions:  * `playable` - The video is playable.  * `purchase_required` - The video must be purchased.  * `restricted` - Playback for the video is restricted.  * `unavailable` - The video is unavailable. 
 	Status string `json:"status"`
 }
 
@@ -166,7 +166,7 @@ func (o *Play) SetStatus(v string) {
 }
 
 func (o Play) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -223,3 +223,5 @@ func (v *NullablePlay) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

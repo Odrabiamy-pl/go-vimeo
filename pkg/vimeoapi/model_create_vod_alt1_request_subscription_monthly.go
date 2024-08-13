@@ -20,8 +20,8 @@ var _ MappedNullable = &CreateVodAlt1RequestSubscriptionMonthly{}
 // CreateVodAlt1RequestSubscriptionMonthly struct for CreateVodAlt1RequestSubscriptionMonthly
 type CreateVodAlt1RequestSubscriptionMonthly struct {
 	// Whether a monthly subscription is active. This parameter is required when **rent.active** and **buy.active** are `false`.
-	Active *bool                                         `json:"active,omitempty"`
-	Price  *CreateVodAlt1RequestSubscriptionMonthlyPrice `json:"price,omitempty"`
+	Active *bool `json:"active,omitempty"`
+	Price *CreateVodAlt1RequestSubscriptionMonthlyPrice `json:"price,omitempty"`
 }
 
 // NewCreateVodAlt1RequestSubscriptionMonthly instantiates a new CreateVodAlt1RequestSubscriptionMonthly object
@@ -106,7 +106,7 @@ func (o *CreateVodAlt1RequestSubscriptionMonthly) SetPrice(v CreateVodAlt1Reques
 }
 
 func (o CreateVodAlt1RequestSubscriptionMonthly) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullableCreateVodAlt1RequestSubscriptionMonthly) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

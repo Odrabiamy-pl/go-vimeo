@@ -36,21 +36,21 @@ type VideoParentFolder struct {
 	// The link to the folder on Vimeo.
 	Link string `json:"link"`
 	// The link to the folder management page.
-	ManageLink string          `json:"manage_link"`
-	Metadata   ProjectMetadata `json:"metadata"`
+	ManageLink string `json:"manage_link"`
+	Metadata ProjectMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the folder was last modified.
 	ModifiedTime string `json:"modified_time"`
 	// The name of the folder.
 	Name string `json:"name"`
 	// The time in ISO 8601 format when the folder was pinned.
 	PinnedOn NullableString `json:"pinned_on"`
-	Privacy  ProjectPrivacy `json:"privacy"`
+	Privacy ProjectPrivacy `json:"privacy"`
 	// The resource key string of the folder.
-	ResourceKey string          `json:"resource_key"`
-	Settings    ProjectSettings `json:"settings"`
+	ResourceKey string `json:"resource_key"`
+	Settings ProjectSettings `json:"settings"`
 	// The URI of the folder.
-	Uri  string `json:"uri"`
-	User User   `json:"user"`
+	Uri string `json:"uri"`
+	User User `json:"user"`
 }
 
 // NewVideoParentFolder instantiates a new VideoParentFolder object
@@ -525,7 +525,7 @@ func (o *VideoParentFolder) SetUser(v User) {
 }
 
 func (o VideoParentFolder) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -590,3 +590,5 @@ func (v *NullableVideoParentFolder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

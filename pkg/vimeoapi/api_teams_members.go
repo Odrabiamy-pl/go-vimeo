@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type TeamsMembersAPI interface {
 
 	/*
-		GetTeamInformation Get membership information about a team
+	GetTeamInformation Get membership information about a team
 
-		This method returns information about the membership of the specified team. Usage is currently limited to the team join forms.
+	This method returns information about the membership of the specified team. Usage is currently limited to the team join forms.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param teamUserId The ID of the team user.
-		@param userId The ID of the team owner.
-		@return ApiGetTeamInformationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param teamUserId The ID of the team user.
+	@param userId The ID of the team owner.
+	@return ApiGetTeamInformationRequest
 	*/
 	GetTeamInformation(ctx context.Context, teamUserId float32, userId float32) ApiGetTeamInformationRequest
 
@@ -37,13 +38,13 @@ type TeamsMembersAPI interface {
 	GetTeamInformationExecute(r ApiGetTeamInformationRequest) (*http.Response, error)
 
 	/*
-		GetTeamRoleInformation Get information about the user's role on a team
+	GetTeamRoleInformation Get information about the user's role on a team
 
-		This method returns information about the authenticated user's role on the specified team owner's team.
+	This method returns information about the authenticated user's role on the specified team owner's team.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the team owner.
-		@return ApiGetTeamRoleInformationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the team owner.
+	@return ApiGetTeamRoleInformationRequest
 	*/
 	GetTeamRoleInformation(ctx context.Context, userId int32) ApiGetTeamRoleInformationRequest
 
@@ -51,13 +52,13 @@ type TeamsMembersAPI interface {
 	GetTeamRoleInformationExecute(r ApiGetTeamRoleInformationRequest) (*http.Response, error)
 
 	/*
-		GetTeammembersInformation Get membership information about a team
+	GetTeammembersInformation Get membership information about a team
 
-		This method returns information about the membership of the specified team. Usage is currently limited to the team join forms.
+	This method returns information about the membership of the specified team. Usage is currently limited to the team join forms.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param code The code corresponding to the desired team. This value appears under `TeamUser` > `code`.
-		@return ApiGetTeammembersInformationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param code The code corresponding to the desired team. This value appears under `TeamUser` > `code`.
+	@return ApiGetTeammembersInformationRequest
 	*/
 	GetTeammembersInformation(ctx context.Context, code string) ApiGetTeammembersInformationRequest
 
@@ -69,10 +70,10 @@ type TeamsMembersAPI interface {
 type TeamsMembersAPIService service
 
 type ApiGetTeamInformationRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService TeamsMembersAPI
 	teamUserId float32
-	userId     float32
+	userId float32
 }
 
 func (r ApiGetTeamInformationRequest) Execute() (*http.Response, error) {
@@ -84,26 +85,26 @@ GetTeamInformation Get membership information about a team
 
 This method returns information about the membership of the specified team. Usage is currently limited to the team join forms.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param teamUserId The ID of the team user.
-	@param userId The ID of the team owner.
-	@return ApiGetTeamInformationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param teamUserId The ID of the team user.
+ @param userId The ID of the team owner.
+ @return ApiGetTeamInformationRequest
 */
 func (a *TeamsMembersAPIService) GetTeamInformation(ctx context.Context, teamUserId float32, userId float32) ApiGetTeamInformationRequest {
 	return ApiGetTeamInformationRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		teamUserId: teamUserId,
-		userId:     userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *TeamsMembersAPIService) GetTeamInformationExecute(r ApiGetTeamInformationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsMembersAPIService.GetTeamInformation")
@@ -165,9 +166,9 @@ func (a *TeamsMembersAPIService) GetTeamInformationExecute(r ApiGetTeamInformati
 }
 
 type ApiGetTeamRoleInformationRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService TeamsMembersAPI
-	userId     int32
+	userId int32
 }
 
 func (r ApiGetTeamRoleInformationRequest) Execute() (*http.Response, error) {
@@ -179,24 +180,24 @@ GetTeamRoleInformation Get information about the user's role on a team
 
 This method returns information about the authenticated user's role on the specified team owner's team.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the team owner.
-	@return ApiGetTeamRoleInformationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the team owner.
+ @return ApiGetTeamRoleInformationRequest
 */
 func (a *TeamsMembersAPIService) GetTeamRoleInformation(ctx context.Context, userId int32) ApiGetTeamRoleInformationRequest {
 	return ApiGetTeamRoleInformationRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *TeamsMembersAPIService) GetTeamRoleInformationExecute(r ApiGetTeamRoleInformationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsMembersAPIService.GetTeamRoleInformation")
@@ -257,9 +258,9 @@ func (a *TeamsMembersAPIService) GetTeamRoleInformationExecute(r ApiGetTeamRoleI
 }
 
 type ApiGetTeammembersInformationRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService TeamsMembersAPI
-	code       string
+	code string
 }
 
 func (r ApiGetTeammembersInformationRequest) Execute() (*http.Response, error) {
@@ -271,24 +272,24 @@ GetTeammembersInformation Get membership information about a team
 
 This method returns information about the membership of the specified team. Usage is currently limited to the team join forms.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param code The code corresponding to the desired team. This value appears under `TeamUser` > `code`.
-	@return ApiGetTeammembersInformationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param code The code corresponding to the desired team. This value appears under `TeamUser` > `code`.
+ @return ApiGetTeammembersInformationRequest
 */
 func (a *TeamsMembersAPIService) GetTeammembersInformation(ctx context.Context, code string) ApiGetTeammembersInformationRequest {
 	return ApiGetTeammembersInformationRequest{
 		ApiService: a,
-		ctx:        ctx,
-		code:       code,
+		ctx: ctx,
+		code: code,
 	}
 }
 
 // Execute executes the request
 func (a *TeamsMembersAPIService) GetTeammembersInformationExecute(r ApiGetTeammembersInformationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsMembersAPIService.GetTeammembersInformation")

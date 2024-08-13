@@ -19,7 +19,7 @@ var _ MappedNullable = &PlayProgressiveInner{}
 
 // PlayProgressiveInner struct for PlayProgressiveInner
 type PlayProgressiveInner struct {
-	// The codec of the video file.  Option descriptions:  * `AV1` - The codec is AV1.  * `H264` - The codec is H264.  * `HEVC` - The codec is HEVC.
+	// The codec of the video file.  Option descriptions:  * `AV1` - The codec is AV1.  * `H264` - The codec is H264.  * `HEVC` - The codec is HEVC. 
 	Codec NullableString `json:"codec"`
 	// The time in ISO 8601 format when the video file was created.
 	CreatedTime string `json:"created_time"`
@@ -35,11 +35,11 @@ type PlayProgressiveInner struct {
 	Log map[string]interface{} `json:"log,omitempty"`
 	// The MD5 hash of the video file.
 	Md5 string `json:"md5"`
-	// The video rendition.  Option descriptions:  * `1080p` - The video has 1080p resolution.  * `240p` - The video has 240p resolution.  * `2k` - The video has 2K resolution.  * `360p` - The video has 360p resolution.  * `480p` - The video has 480p resolution.  * `4k` - The video has 4K resolution.  * `540p` - The video has 540p resolution.  * `5k` - The video has 5K resolution.  * `6k` - The video has 6K resolution.  * `720p` - The video has 720p resolution.  * `7k` - The video has 7K resolution.  * `8k` - The video has 8K resolution.
+	// The video rendition.  Option descriptions:  * `1080p` - The video has 1080p resolution.  * `240p` - The video has 240p resolution.  * `2k` - The video has 2K resolution.  * `360p` - The video has 360p resolution.  * `480p` - The video has 480p resolution.  * `4k` - The video has 4K resolution.  * `540p` - The video has 540p resolution.  * `5k` - The video has 5K resolution.  * `6k` - The video has 6K resolution.  * `720p` - The video has 720p resolution.  * `7k` - The video has 7K resolution.  * `8k` - The video has 8K resolution. 
 	Rendition string `json:"rendition"`
 	// The size in bytes of the video file.
 	Size NullableFloat32 `json:"size"`
-	// The type of video file.  Option descriptions:  * `source` - The video file is a source file.  * `video/mp4` - The video file is in MP4 format.  * `video/webm` - The video file is in WebM format.  * `vp6/x-video` - The video file is in VP6 format.
+	// The type of video file.  Option descriptions:  * `source` - The video file is a source file.  * `video/mp4` - The video file is in MP4 format.  * `video/webm` - The video file is in WebM format.  * `vp6/x-video` - The video file is in VP6 format. 
 	Type NullableString `json:"type"`
 	// The width of the video in pixels.
 	Width NullableFloat32 `json:"width"`
@@ -380,7 +380,7 @@ func (o *PlayProgressiveInner) SetWidth(v float32) {
 }
 
 func (o PlayProgressiveInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -441,3 +441,5 @@ func (v *NullablePlayProgressiveInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

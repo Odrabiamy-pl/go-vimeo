@@ -23,13 +23,13 @@ type VideoPrivacy struct {
 	Add bool `json:"add"`
 	// Whether the share link is usable.
 	AllowShareLink bool `json:"allow_share_link"`
-	// The video's comment permission setting.  Option descriptions:  * `anybody` - Anyone can comment on the video.  * `contacts` - Only contacts can comment on the video.  * `nobody` - No one can comment on the video.
+	// The video's comment permission setting.  Option descriptions:  * `anybody` - Anyone can comment on the video.  * `contacts` - Only contacts can comment on the video.  * `nobody` - No one can comment on the video. 
 	Comments string `json:"comments"`
 	// Whether the video can be downloaded.
 	Download bool `json:"download"`
-	// The video's embed permission setting.  Option descriptions:  * `private` - The video is private.  * `public` - Anyone can embed the video.  * `whitelist` - The video can be embedded on specific domains.
+	// The video's embed permission setting.  Option descriptions:  * `private` - The video is private.  * `public` - Anyone can embed the video.  * `whitelist` - The video can be embedded on specific domains. 
 	Embed string `json:"embed"`
-	// The general privacy setting of the video.  Option descriptions:  * `anybody` - Anyone can access the video. This privacy setting appears as `Public` on the Vimeo front end.  * `contacts` - Only contacts can access the video. _This field is deprecated._  * `disable` - The video is hidden from Vimeo. This privacy setting appears as `Hide from Vimeo` on the Vimeo front end.  * `nobody` - No one besides the owner can access the video. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Anyone with the video's password can access the video.  * `ptv` - The Vimeo On Demand video is accessible and searchable from Vimeo. _This field is deprecated._  * `ptvhide` - The Vimeo On Demand video is hidden from Vimeo. _This field is deprecated._  * `stock` - The stock footage is accessible and searchable from Vimeo. _This field is deprecated._  * `stock_purchased` - The purchased stock footage is accessible and searchable from Vimeo. _This field is deprecated._  * `unlisted` - The video is accessible but not searchable from Vimeo.  * `users` - Only Vimeo members can access the video. _This field is deprecated._
+	// The general privacy setting of the video.  Option descriptions:  * `anybody` - Anyone can access the video. This privacy setting appears as `Public` on the Vimeo front end.  * `contacts` - Only contacts can access the video. _This field is deprecated._  * `disable` - The video is hidden from Vimeo. This privacy setting appears as `Hide from Vimeo` on the Vimeo front end.  * `nobody` - No one besides the owner can access the video. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Anyone with the video's password can access the video.  * `ptv` - The Vimeo On Demand video is accessible and searchable from Vimeo. _This field is deprecated._  * `ptvhide` - The Vimeo On Demand video is hidden from Vimeo. _This field is deprecated._  * `stock` - The stock footage is accessible and searchable from Vimeo. _This field is deprecated._  * `stock_purchased` - The purchased stock footage is accessible and searchable from Vimeo. _This field is deprecated._  * `unlisted` - The video is accessible but not searchable from Vimeo.  * `users` - Only Vimeo members can access the video. _This field is deprecated._ 
 	View string `json:"view"`
 }
 
@@ -201,7 +201,7 @@ func (o *VideoPrivacy) SetView(v string) {
 }
 
 func (o VideoPrivacy) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -254,3 +254,5 @@ func (v *NullableVideoPrivacy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

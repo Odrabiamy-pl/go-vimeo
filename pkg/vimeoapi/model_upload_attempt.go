@@ -27,8 +27,8 @@ type UploadAttempt struct {
 	// The upload URL.
 	UploadLink string `json:"upload_link"`
 	// The upload URI.
-	Uri  string `json:"uri"`
-	User User   `json:"user"`
+	Uri string `json:"uri"`
+	User User `json:"user"`
 }
 
 // NewUploadAttempt instantiates a new UploadAttempt object
@@ -213,7 +213,7 @@ func (o *UploadAttempt) SetUser(v User) {
 }
 
 func (o UploadAttempt) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,3 +270,5 @@ func (v *NullableUploadAttempt) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -120,7 +120,7 @@ func (o *OnDemandVideoMetadataInteractionsLikes) SetUri(v string) {
 }
 
 func (o OnDemandVideoMetadataInteractionsLikes) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,3 +170,5 @@ func (v *NullableOnDemandVideoMetadataInteractionsLikes) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

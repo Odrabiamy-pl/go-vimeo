@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type OnDemandEssentialsAPI interface {
 
 	/*
-		CreateVod Create an On Demand page
+	CreateVod Create an On Demand page
 
-		This method creates a new On Demand page for the specified user. To publish the page, use the [edit](https://developer.vimeo.com/api/reference/on-demand#edit_vod) method.
+	This method creates a new On Demand page for the specified user. To publish the page, use the [edit](https://developer.vimeo.com/api/reference/on-demand#edit_vod) method.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiCreateVodRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiCreateVodRequest
 	*/
 	CreateVod(ctx context.Context, userId int32) ApiCreateVodRequest
 
@@ -37,12 +38,12 @@ type OnDemandEssentialsAPI interface {
 	CreateVodExecute(r ApiCreateVodRequest) (*OnDemandPage, *http.Response, error)
 
 	/*
-		CreateVodAlt1 Create an On Demand page
+	CreateVodAlt1 Create an On Demand page
 
-		This method creates a new On Demand page for the specified user. To publish the page, use the [edit](https://developer.vimeo.com/api/reference/on-demand#edit_vod) method.
+	This method creates a new On Demand page for the specified user. To publish the page, use the [edit](https://developer.vimeo.com/api/reference/on-demand#edit_vod) method.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateVodAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateVodAlt1Request
 	*/
 	CreateVodAlt1(ctx context.Context) ApiCreateVodAlt1Request
 
@@ -51,13 +52,13 @@ type OnDemandEssentialsAPI interface {
 	CreateVodAlt1Execute(r ApiCreateVodAlt1Request) (*OnDemandPage, *http.Response, error)
 
 	/*
-		DeleteVodDraft Delete an On Demand page
+	DeleteVodDraft Delete an On Demand page
 
-		This method deletes the specified On Demand page.
+	This method deletes the specified On Demand page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiDeleteVodDraftRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiDeleteVodDraftRequest
 	*/
 	DeleteVodDraft(ctx context.Context, ondemandId float32) ApiDeleteVodDraftRequest
 
@@ -65,13 +66,13 @@ type OnDemandEssentialsAPI interface {
 	DeleteVodDraftExecute(r ApiDeleteVodDraftRequest) (*http.Response, error)
 
 	/*
-		EditVod Edit an On Demand page
+	EditVod Edit an On Demand page
 
-		This method edits the specified On Demand page. Use this method to enable preorders on the page or to publish the page.
+	This method edits the specified On Demand page. Use this method to enable preorders on the page or to publish the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiEditVodRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiEditVodRequest
 	*/
 	EditVod(ctx context.Context, ondemandId float32) ApiEditVodRequest
 
@@ -80,13 +81,13 @@ type OnDemandEssentialsAPI interface {
 	EditVodExecute(r ApiEditVodRequest) (*OnDemandPage, *http.Response, error)
 
 	/*
-		GetUserVods Get all the On Demand pages of the user
+	GetUserVods Get all the On Demand pages of the user
 
-		This method returns every On Demand page belonging to the authenticated user.
+	This method returns every On Demand page belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiGetUserVodsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetUserVodsRequest
 	*/
 	GetUserVods(ctx context.Context, userId int32) ApiGetUserVodsRequest
 
@@ -95,12 +96,12 @@ type OnDemandEssentialsAPI interface {
 	GetUserVodsExecute(r ApiGetUserVodsRequest) ([]OnDemandPage, *http.Response, error)
 
 	/*
-		GetUserVodsAlt1 Get all the On Demand pages of the user
+	GetUserVodsAlt1 Get all the On Demand pages of the user
 
-		This method returns every On Demand page belonging to the authenticated user.
+	This method returns every On Demand page belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetUserVodsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetUserVodsAlt1Request
 	*/
 	GetUserVodsAlt1(ctx context.Context) ApiGetUserVodsAlt1Request
 
@@ -109,13 +110,13 @@ type OnDemandEssentialsAPI interface {
 	GetUserVodsAlt1Execute(r ApiGetUserVodsAlt1Request) ([]OnDemandPage, *http.Response, error)
 
 	/*
-		GetVod Get a specific On Demand page
+	GetVod Get a specific On Demand page
 
-		This method returns the specified On Demand page.
+	This method returns the specified On Demand page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiGetVodRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodRequest
 	*/
 	GetVod(ctx context.Context, ondemandId float32) ApiGetVodRequest
 
@@ -128,9 +129,9 @@ type OnDemandEssentialsAPI interface {
 type OnDemandEssentialsAPIService service
 
 type ApiCreateVodRequest struct {
-	ctx                  context.Context
-	ApiService           OnDemandEssentialsAPI
-	userId               int32
+	ctx context.Context
+	ApiService OnDemandEssentialsAPI
+	userId int32
 	createVodAlt1Request *CreateVodAlt1Request
 }
 
@@ -148,27 +149,26 @@ CreateVod Create an On Demand page
 
 This method creates a new On Demand page for the specified user. To publish the page, use the [edit](https://developer.vimeo.com/api/reference/on-demand#edit_vod) method.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiCreateVodRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiCreateVodRequest
 */
 func (a *OnDemandEssentialsAPIService) CreateVod(ctx context.Context, userId int32) ApiCreateVodRequest {
 	return ApiCreateVodRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandPage
+//  @return OnDemandPage
 func (a *OnDemandEssentialsAPIService) CreateVodExecute(r ApiCreateVodRequest) (*OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandPage
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandEssentialsAPIService.CreateVod")
@@ -243,8 +243,8 @@ func (a *OnDemandEssentialsAPIService) CreateVodExecute(r ApiCreateVodRequest) (
 }
 
 type ApiCreateVodAlt1Request struct {
-	ctx                  context.Context
-	ApiService           OnDemandEssentialsAPI
+	ctx context.Context
+	ApiService OnDemandEssentialsAPI
 	createVodAlt1Request *CreateVodAlt1Request
 }
 
@@ -262,25 +262,24 @@ CreateVodAlt1 Create an On Demand page
 
 This method creates a new On Demand page for the specified user. To publish the page, use the [edit](https://developer.vimeo.com/api/reference/on-demand#edit_vod) method.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateVodAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateVodAlt1Request
 */
 func (a *OnDemandEssentialsAPIService) CreateVodAlt1(ctx context.Context) ApiCreateVodAlt1Request {
 	return ApiCreateVodAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandPage
+//  @return OnDemandPage
 func (a *OnDemandEssentialsAPIService) CreateVodAlt1Execute(r ApiCreateVodAlt1Request) (*OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandPage
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandEssentialsAPIService.CreateVodAlt1")
@@ -354,7 +353,7 @@ func (a *OnDemandEssentialsAPIService) CreateVodAlt1Execute(r ApiCreateVodAlt1Re
 }
 
 type ApiDeleteVodDraftRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandEssentialsAPI
 	ondemandId float32
 }
@@ -368,14 +367,14 @@ DeleteVodDraft Delete an On Demand page
 
 This method deletes the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiDeleteVodDraftRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiDeleteVodDraftRequest
 */
 func (a *OnDemandEssentialsAPIService) DeleteVodDraft(ctx context.Context, ondemandId float32) ApiDeleteVodDraftRequest {
 	return ApiDeleteVodDraftRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
@@ -383,9 +382,9 @@ func (a *OnDemandEssentialsAPIService) DeleteVodDraft(ctx context.Context, ondem
 // Execute executes the request
 func (a *OnDemandEssentialsAPIService) DeleteVodDraftExecute(r ApiDeleteVodDraftRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandEssentialsAPIService.DeleteVodDraft")
@@ -446,8 +445,8 @@ func (a *OnDemandEssentialsAPIService) DeleteVodDraftExecute(r ApiDeleteVodDraft
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -457,8 +456,8 @@ func (a *OnDemandEssentialsAPIService) DeleteVodDraftExecute(r ApiDeleteVodDraft
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -467,9 +466,9 @@ func (a *OnDemandEssentialsAPIService) DeleteVodDraftExecute(r ApiDeleteVodDraft
 }
 
 type ApiEditVodRequest struct {
-	ctx            context.Context
-	ApiService     OnDemandEssentialsAPI
-	ondemandId     float32
+	ctx context.Context
+	ApiService OnDemandEssentialsAPI
+	ondemandId float32
 	editVodRequest *EditVodRequest
 }
 
@@ -487,27 +486,26 @@ EditVod Edit an On Demand page
 
 This method edits the specified On Demand page. Use this method to enable preorders on the page or to publish the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiEditVodRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiEditVodRequest
 */
 func (a *OnDemandEssentialsAPIService) EditVod(ctx context.Context, ondemandId float32) ApiEditVodRequest {
 	return ApiEditVodRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandPage
+//  @return OnDemandPage
 func (a *OnDemandEssentialsAPIService) EditVodExecute(r ApiEditVodRequest) (*OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandPage
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandEssentialsAPIService.EditVod")
@@ -570,8 +568,8 @@ func (a *OnDemandEssentialsAPIService) EditVodExecute(r ApiEditVodRequest) (*OnD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -581,8 +579,8 @@ func (a *OnDemandEssentialsAPIService) EditVodExecute(r ApiEditVodRequest) (*OnD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -600,23 +598,23 @@ func (a *OnDemandEssentialsAPIService) EditVodExecute(r ApiEditVodRequest) (*OnD
 }
 
 type ApiGetUserVodsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandEssentialsAPI
-	userId     int32
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	sort       *string
+	userId int32
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetUserVodsRequest) Direction(direction string) ApiGetUserVodsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The type of the page to return.  Option descriptions:  * &#x60;film&#x60; - The page type is a film.  * &#x60;series&#x60; - The page type is a series.
+// The type of the page to return.  Option descriptions:  * &#x60;film&#x60; - The page type is a film.  * &#x60;series&#x60; - The page type is a series. 
 func (r ApiGetUserVodsRequest) Filter(filter string) ApiGetUserVodsRequest {
 	r.filter = &filter
 	return r
@@ -634,7 +632,7 @@ func (r ApiGetUserVodsRequest) PerPage(perPage float32) ApiGetUserVodsRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added page.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;modified_time&#x60; - Sort the results by time of page modification.  * &#x60;name&#x60; - Sort the results by page name.  * &#x60;publish.time&#x60; - Sort the results by time of page publishing.  * &#x60;rating&#x60; - Sort the results by content rating.
+// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added page.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;modified_time&#x60; - Sort the results by time of page modification.  * &#x60;name&#x60; - Sort the results by page name.  * &#x60;publish.time&#x60; - Sort the results by time of page publishing.  * &#x60;rating&#x60; - Sort the results by content rating. 
 func (r ApiGetUserVodsRequest) Sort(sort string) ApiGetUserVodsRequest {
 	r.sort = &sort
 	return r
@@ -649,27 +647,26 @@ GetUserVods Get all the On Demand pages of the user
 
 This method returns every On Demand page belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetUserVodsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiGetUserVodsRequest
 */
 func (a *OnDemandEssentialsAPIService) GetUserVods(ctx context.Context, userId int32) ApiGetUserVodsRequest {
 	return ApiGetUserVodsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OnDemandPage
+//  @return []OnDemandPage
 func (a *OnDemandEssentialsAPIService) GetUserVodsExecute(r ApiGetUserVodsRequest) ([]OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OnDemandPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandEssentialsAPIService.GetUserVods")
@@ -745,8 +742,8 @@ func (a *OnDemandEssentialsAPIService) GetUserVodsExecute(r ApiGetUserVodsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -764,22 +761,22 @@ func (a *OnDemandEssentialsAPIService) GetUserVodsExecute(r ApiGetUserVodsReques
 }
 
 type ApiGetUserVodsAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandEssentialsAPI
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	sort       *string
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetUserVodsAlt1Request) Direction(direction string) ApiGetUserVodsAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The type of the page to return.  Option descriptions:  * &#x60;film&#x60; - The page type is a film.  * &#x60;series&#x60; - The page type is a series.
+// The type of the page to return.  Option descriptions:  * &#x60;film&#x60; - The page type is a film.  * &#x60;series&#x60; - The page type is a series. 
 func (r ApiGetUserVodsAlt1Request) Filter(filter string) ApiGetUserVodsAlt1Request {
 	r.filter = &filter
 	return r
@@ -797,7 +794,7 @@ func (r ApiGetUserVodsAlt1Request) PerPage(perPage float32) ApiGetUserVodsAlt1Re
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added page.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;modified_time&#x60; - Sort the results by time of page modification.  * &#x60;name&#x60; - Sort the results by page name.  * &#x60;publish.time&#x60; - Sort the results by time of page publishing.  * &#x60;rating&#x60; - Sort the results by content rating.
+// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added page.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;modified_time&#x60; - Sort the results by time of page modification.  * &#x60;name&#x60; - Sort the results by page name.  * &#x60;publish.time&#x60; - Sort the results by time of page publishing.  * &#x60;rating&#x60; - Sort the results by content rating. 
 func (r ApiGetUserVodsAlt1Request) Sort(sort string) ApiGetUserVodsAlt1Request {
 	r.sort = &sort
 	return r
@@ -812,25 +809,24 @@ GetUserVodsAlt1 Get all the On Demand pages of the user
 
 This method returns every On Demand page belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserVodsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetUserVodsAlt1Request
 */
 func (a *OnDemandEssentialsAPIService) GetUserVodsAlt1(ctx context.Context) ApiGetUserVodsAlt1Request {
 	return ApiGetUserVodsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OnDemandPage
+//  @return []OnDemandPage
 func (a *OnDemandEssentialsAPIService) GetUserVodsAlt1Execute(r ApiGetUserVodsAlt1Request) ([]OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OnDemandPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandEssentialsAPIService.GetUserVodsAlt1")
@@ -905,8 +901,8 @@ func (a *OnDemandEssentialsAPIService) GetUserVodsAlt1Execute(r ApiGetUserVodsAl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -924,7 +920,7 @@ func (a *OnDemandEssentialsAPIService) GetUserVodsAlt1Execute(r ApiGetUserVodsAl
 }
 
 type ApiGetVodRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandEssentialsAPI
 	ondemandId float32
 }
@@ -938,27 +934,26 @@ GetVod Get a specific On Demand page
 
 This method returns the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiGetVodRequest
 */
 func (a *OnDemandEssentialsAPIService) GetVod(ctx context.Context, ondemandId float32) ApiGetVodRequest {
 	return ApiGetVodRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandPage
+//  @return OnDemandPage
 func (a *OnDemandEssentialsAPIService) GetVodExecute(r ApiGetVodRequest) (*OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandEssentialsAPIService.GetVod")
@@ -1019,8 +1014,8 @@ func (a *OnDemandEssentialsAPIService) GetVodExecute(r ApiGetVodRequest) (*OnDem
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

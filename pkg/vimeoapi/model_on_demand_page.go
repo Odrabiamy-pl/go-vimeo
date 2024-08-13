@@ -20,7 +20,7 @@ var _ MappedNullable = &OnDemandPage{}
 // OnDemandPage struct for OnDemandPage
 type OnDemandPage struct {
 	Background NullableOnDemandPageBackground `json:"background"`
-	Colors     OnDemandPageColors             `json:"colors"`
+	Colors OnDemandPageColors `json:"colors"`
 	// An array of the On Demand page's content ratings.
 	ContentRating []string `json:"content_rating"`
 	// The time in ISO 8601 format when the On Demand page was created.
@@ -28,36 +28,36 @@ type OnDemandPage struct {
 	// The description of the On Demand page.
 	Description NullableString `json:"description"`
 	// The link to the On Demand page on its own domain.
-	DomainLink NullableString       `json:"domain_link"`
-	Episodes   OnDemandPageEpisodes `json:"episodes"`
-	Film       *Video               `json:"film,omitempty"`
+	DomainLink NullableString `json:"domain_link"`
+	Episodes OnDemandPageEpisodes `json:"episodes"`
+	Film *Video `json:"film,omitempty"`
 	// An array of the genres assigned to the On Demand page.
 	Genres []OnDemandGenre `json:"genres"`
 	// The link to the On Demand page.
-	Link     string               `json:"link"`
+	Link string `json:"link"`
 	Metadata OnDemandPageMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the On Demand page was last modified.
 	ModifiedTime *string `json:"modified_time,omitempty"`
 	// The descriptive title of the On Demand page.
-	Name      string                       `json:"name"`
-	Pictures  NullableOnDemandPagePictures `json:"pictures"`
-	Preorder  OnDemandPagePreorder         `json:"preorder"`
-	Published OnDemandPagePublished        `json:"published"`
+	Name string `json:"name"`
+	Pictures NullableOnDemandPagePictures `json:"pictures"`
+	Preorder OnDemandPagePreorder `json:"preorder"`
+	Published OnDemandPagePublished `json:"published"`
 	// The rating of the On Demand page.
 	Rating NullableFloat32 `json:"rating"`
 	// The On Demand resource key.
 	ResourceKey string `json:"resource_key"`
 	// The creator-designated SKU for the On Demand page.
-	Sku          NullableString                   `json:"sku,omitempty"`
+	Sku NullableString `json:"sku,omitempty"`
 	Subscription NullableOnDemandPageSubscription `json:"subscription"`
 	// The graphical theme for the On Demand page.
-	Theme     string                        `json:"theme"`
+	Theme string `json:"theme"`
 	Thumbnail NullableOnDemandPageThumbnail `json:"thumbnail"`
-	Trailer   NullableOnDemandPageTrailer   `json:"trailer"`
-	// Whether the On Demand page is for a film or a series.  Option descriptions:  * `film` - The On Demand page is for a film.  * `series` - The On Demand page is for a series.
+	Trailer NullableOnDemandPageTrailer `json:"trailer"`
+	// Whether the On Demand page is for a film or a series.  Option descriptions:  * `film` - The On Demand page is for a film.  * `series` - The On Demand page is for a series. 
 	Type string `json:"type"`
 	// The relative URI of the On Demand page.
-	Uri  string                   `json:"uri"`
+	Uri string `json:"uri"`
 	User NullableOnDemandPageUser `json:"user"`
 }
 
@@ -598,7 +598,6 @@ func (o *OnDemandPage) HasSku() bool {
 func (o *OnDemandPage) SetSku(v string) {
 	o.Sku.Set(&v)
 }
-
 // SetSkuNil sets the value for Sku to be an explicit nil
 func (o *OnDemandPage) SetSkuNil() {
 	o.Sku.Set(nil)
@@ -786,7 +785,7 @@ func (o *OnDemandPage) SetUser(v OnDemandPageUser) {
 }
 
 func (o OnDemandPage) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -867,3 +866,5 @@ func (v *NullableOnDemandPage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

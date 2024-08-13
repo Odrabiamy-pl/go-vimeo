@@ -19,7 +19,7 @@ var _ MappedNullable = &EditEmbedPresetAlt1Request{}
 
 // EditEmbedPresetAlt1Request struct for EditEmbedPresetAlt1Request
 type EditEmbedPresetAlt1Request struct {
-	// What to do with the outro.  Option descriptions:  * `nothing` - Disable the outro.
+	// What to do with the outro.  Option descriptions:  * `nothing` - Disable the outro. 
 	Outro *string `json:"outro,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *EditEmbedPresetAlt1Request) SetOutro(v string) {
 }
 
 func (o EditEmbedPresetAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableEditEmbedPresetAlt1Request) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

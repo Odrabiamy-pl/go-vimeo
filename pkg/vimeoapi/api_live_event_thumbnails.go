@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type LiveEventThumbnailsAPI interface {
 
 	/*
-		CreateLiveEventThumbnail Create a live event thumbnail
+	CreateLiveEventThumbnail Create a live event thumbnail
 
-		This method creates a thumbnail image for the specified event.
+	This method creates a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiCreateLiveEventThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiCreateLiveEventThumbnailRequest
 	*/
 	CreateLiveEventThumbnail(ctx context.Context, liveEventId float32, userId int32) ApiCreateLiveEventThumbnailRequest
 
@@ -38,13 +39,13 @@ type LiveEventThumbnailsAPI interface {
 	CreateLiveEventThumbnailExecute(r ApiCreateLiveEventThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-		CreateLiveEventThumbnailAlt1 Create a live event thumbnail
+	CreateLiveEventThumbnailAlt1 Create a live event thumbnail
 
-		This method creates a thumbnail image for the specified event.
+	This method creates a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiCreateLiveEventThumbnailAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiCreateLiveEventThumbnailAlt1Request
 	*/
 	CreateLiveEventThumbnailAlt1(ctx context.Context, liveEventId float32) ApiCreateLiveEventThumbnailAlt1Request
 
@@ -53,13 +54,13 @@ type LiveEventThumbnailsAPI interface {
 	CreateLiveEventThumbnailAlt1Execute(r ApiCreateLiveEventThumbnailAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-		CreateLiveEventThumbnailAlt2 Create a live event thumbnail
+	CreateLiveEventThumbnailAlt2 Create a live event thumbnail
 
-		This method creates a thumbnail image for the specified event.
+	This method creates a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiCreateLiveEventThumbnailAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiCreateLiveEventThumbnailAlt2Request
 	*/
 	CreateLiveEventThumbnailAlt2(ctx context.Context, liveEventId float32) ApiCreateLiveEventThumbnailAlt2Request
 
@@ -68,15 +69,15 @@ type LiveEventThumbnailsAPI interface {
 	CreateLiveEventThumbnailAlt2Execute(r ApiCreateLiveEventThumbnailAlt2Request) (*Picture, *http.Response, error)
 
 	/*
-		DeleteLiveEventThumbnail Delete a live event thumbnail
+	DeleteLiveEventThumbnail Delete a live event thumbnail
 
-		This method deletes a thumbnail image for the specified event.
+	This method deletes a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@param userId The ID of the user.
-		@return ApiDeleteLiveEventThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@param userId The ID of the user.
+	@return ApiDeleteLiveEventThumbnailRequest
 	*/
 	DeleteLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiDeleteLiveEventThumbnailRequest
 
@@ -84,14 +85,14 @@ type LiveEventThumbnailsAPI interface {
 	DeleteLiveEventThumbnailExecute(r ApiDeleteLiveEventThumbnailRequest) (*http.Response, error)
 
 	/*
-		DeleteLiveEventThumbnailAlt1 Delete a live event thumbnail
+	DeleteLiveEventThumbnailAlt1 Delete a live event thumbnail
 
-		This method deletes a thumbnail image for the specified event.
+	This method deletes a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@return ApiDeleteLiveEventThumbnailAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@return ApiDeleteLiveEventThumbnailAlt1Request
 	*/
 	DeleteLiveEventThumbnailAlt1(ctx context.Context, liveEventId float32, thumbnailId float32) ApiDeleteLiveEventThumbnailAlt1Request
 
@@ -99,14 +100,14 @@ type LiveEventThumbnailsAPI interface {
 	DeleteLiveEventThumbnailAlt1Execute(r ApiDeleteLiveEventThumbnailAlt1Request) (*http.Response, error)
 
 	/*
-		DeleteLiveEventThumbnailAlt2 Delete a live event thumbnail
+	DeleteLiveEventThumbnailAlt2 Delete a live event thumbnail
 
-		This method deletes a thumbnail image for the specified event.
+	This method deletes a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@return ApiDeleteLiveEventThumbnailAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@return ApiDeleteLiveEventThumbnailAlt2Request
 	*/
 	DeleteLiveEventThumbnailAlt2(ctx context.Context, liveEventId float32, thumbnailId float32) ApiDeleteLiveEventThumbnailAlt2Request
 
@@ -114,15 +115,15 @@ type LiveEventThumbnailsAPI interface {
 	DeleteLiveEventThumbnailAlt2Execute(r ApiDeleteLiveEventThumbnailAlt2Request) (*http.Response, error)
 
 	/*
-		EditLiveEventThumbnail Edit a live event thumbnail
+	EditLiveEventThumbnail Edit a live event thumbnail
 
-		This method edits a thumbnail image for the specified event.
+	This method edits a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@param userId The ID of the user.
-		@return ApiEditLiveEventThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@param userId The ID of the user.
+	@return ApiEditLiveEventThumbnailRequest
 	*/
 	EditLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiEditLiveEventThumbnailRequest
 
@@ -131,14 +132,14 @@ type LiveEventThumbnailsAPI interface {
 	EditLiveEventThumbnailExecute(r ApiEditLiveEventThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-		EditLiveEventThumbnailAlt1 Edit a live event thumbnail
+	EditLiveEventThumbnailAlt1 Edit a live event thumbnail
 
-		This method edits a thumbnail image for the specified event.
+	This method edits a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@return ApiEditLiveEventThumbnailAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@return ApiEditLiveEventThumbnailAlt1Request
 	*/
 	EditLiveEventThumbnailAlt1(ctx context.Context, liveEventId float32, thumbnailId float32) ApiEditLiveEventThumbnailAlt1Request
 
@@ -147,14 +148,14 @@ type LiveEventThumbnailsAPI interface {
 	EditLiveEventThumbnailAlt1Execute(r ApiEditLiveEventThumbnailAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-		EditLiveEventThumbnailAlt2 Edit a live event thumbnail
+	EditLiveEventThumbnailAlt2 Edit a live event thumbnail
 
-		This method edits a thumbnail image for the specified event.
+	This method edits a thumbnail image for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@return ApiEditLiveEventThumbnailAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@return ApiEditLiveEventThumbnailAlt2Request
 	*/
 	EditLiveEventThumbnailAlt2(ctx context.Context, liveEventId float32, thumbnailId float32) ApiEditLiveEventThumbnailAlt2Request
 
@@ -163,15 +164,15 @@ type LiveEventThumbnailsAPI interface {
 	EditLiveEventThumbnailAlt2Execute(r ApiEditLiveEventThumbnailAlt2Request) (*Picture, *http.Response, error)
 
 	/*
-		GetLiveEventThumbnail Get a specific live event thumbnail
+	GetLiveEventThumbnail Get a specific live event thumbnail
 
-		This method returns a single thumbnail image of the specified event.
+	This method returns a single thumbnail image of the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@param userId The ID of the user.
-		@return ApiGetLiveEventThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@param userId The ID of the user.
+	@return ApiGetLiveEventThumbnailRequest
 	*/
 	GetLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiGetLiveEventThumbnailRequest
 
@@ -180,14 +181,14 @@ type LiveEventThumbnailsAPI interface {
 	GetLiveEventThumbnailExecute(r ApiGetLiveEventThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-		GetLiveEventThumbnailAlt1 Get a specific live event thumbnail
+	GetLiveEventThumbnailAlt1 Get a specific live event thumbnail
 
-		This method returns a single thumbnail image of the specified event.
+	This method returns a single thumbnail image of the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@return ApiGetLiveEventThumbnailAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@return ApiGetLiveEventThumbnailAlt1Request
 	*/
 	GetLiveEventThumbnailAlt1(ctx context.Context, liveEventId float32, thumbnailId float32) ApiGetLiveEventThumbnailAlt1Request
 
@@ -196,14 +197,14 @@ type LiveEventThumbnailsAPI interface {
 	GetLiveEventThumbnailAlt1Execute(r ApiGetLiveEventThumbnailAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-		GetLiveEventThumbnailAlt2 Get a specific live event thumbnail
+	GetLiveEventThumbnailAlt2 Get a specific live event thumbnail
 
-		This method returns a single thumbnail image of the specified event.
+	This method returns a single thumbnail image of the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param thumbnailId The ID of the thumbnail.
-		@return ApiGetLiveEventThumbnailAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param thumbnailId The ID of the thumbnail.
+	@return ApiGetLiveEventThumbnailAlt2Request
 	*/
 	GetLiveEventThumbnailAlt2(ctx context.Context, liveEventId float32, thumbnailId float32) ApiGetLiveEventThumbnailAlt2Request
 
@@ -212,14 +213,14 @@ type LiveEventThumbnailsAPI interface {
 	GetLiveEventThumbnailAlt2Execute(r ApiGetLiveEventThumbnailAlt2Request) (*Picture, *http.Response, error)
 
 	/*
-		GetLiveEventThumbnails Get all the thumbnails of a live event
+	GetLiveEventThumbnails Get all the thumbnails of a live event
 
-		This method returns every thumbnail image of the specified event.
+	This method returns every thumbnail image of the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiGetLiveEventThumbnailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiGetLiveEventThumbnailsRequest
 	*/
 	GetLiveEventThumbnails(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventThumbnailsRequest
 
@@ -228,13 +229,13 @@ type LiveEventThumbnailsAPI interface {
 	GetLiveEventThumbnailsExecute(r ApiGetLiveEventThumbnailsRequest) ([]Picture, *http.Response, error)
 
 	/*
-		GetLiveEventThumbnailsAlt1 Get all the thumbnails of a live event
+	GetLiveEventThumbnailsAlt1 Get all the thumbnails of a live event
 
-		This method returns every thumbnail image of the specified event.
+	This method returns every thumbnail image of the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventThumbnailsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventThumbnailsAlt1Request
 	*/
 	GetLiveEventThumbnailsAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventThumbnailsAlt1Request
 
@@ -243,13 +244,13 @@ type LiveEventThumbnailsAPI interface {
 	GetLiveEventThumbnailsAlt1Execute(r ApiGetLiveEventThumbnailsAlt1Request) ([]Picture, *http.Response, error)
 
 	/*
-		GetLiveEventThumbnailsAlt2 Get all the thumbnails of a live event
+	GetLiveEventThumbnailsAlt2 Get all the thumbnails of a live event
 
-		This method returns every thumbnail image of the specified event.
+	This method returns every thumbnail image of the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventThumbnailsAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventThumbnailsAlt2Request
 	*/
 	GetLiveEventThumbnailsAlt2(ctx context.Context, liveEventId float32) ApiGetLiveEventThumbnailsAlt2Request
 
@@ -262,10 +263,10 @@ type LiveEventThumbnailsAPI interface {
 type LiveEventThumbnailsAPIService service
 
 type ApiCreateLiveEventThumbnailRequest struct {
-	ctx                                 context.Context
-	ApiService                          LiveEventThumbnailsAPI
-	liveEventId                         float32
-	userId                              int32
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
+	liveEventId float32
+	userId int32
 	createLiveEventThumbnailAlt1Request *CreateLiveEventThumbnailAlt1Request
 }
 
@@ -283,29 +284,28 @@ CreateLiveEventThumbnail Create a live event thumbnail
 
 This method creates a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiCreateLiveEventThumbnailRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiCreateLiveEventThumbnailRequest
 */
 func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnail(ctx context.Context, liveEventId float32, userId int32) ApiCreateLiveEventThumbnailRequest {
 	return ApiCreateLiveEventThumbnailRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailExecute(r ApiCreateLiveEventThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.CreateLiveEventThumbnail")
@@ -369,8 +369,8 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailExecute(r ApiCre
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -380,8 +380,8 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailExecute(r ApiCre
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -399,9 +399,9 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailExecute(r ApiCre
 }
 
 type ApiCreateLiveEventThumbnailAlt1Request struct {
-	ctx                                 context.Context
-	ApiService                          LiveEventThumbnailsAPI
-	liveEventId                         float32
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
+	liveEventId float32
 	createLiveEventThumbnailAlt1Request *CreateLiveEventThumbnailAlt1Request
 }
 
@@ -419,27 +419,26 @@ CreateLiveEventThumbnailAlt1 Create a live event thumbnail
 
 This method creates a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiCreateLiveEventThumbnailAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiCreateLiveEventThumbnailAlt1Request
 */
 func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt1(ctx context.Context, liveEventId float32) ApiCreateLiveEventThumbnailAlt1Request {
 	return ApiCreateLiveEventThumbnailAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt1Execute(r ApiCreateLiveEventThumbnailAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.CreateLiveEventThumbnailAlt1")
@@ -502,8 +501,8 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt1Execute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -513,8 +512,8 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt1Execute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -532,9 +531,9 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt1Execute(r Ap
 }
 
 type ApiCreateLiveEventThumbnailAlt2Request struct {
-	ctx                                 context.Context
-	ApiService                          LiveEventThumbnailsAPI
-	liveEventId                         float32
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
+	liveEventId float32
 	createLiveEventThumbnailAlt1Request *CreateLiveEventThumbnailAlt1Request
 }
 
@@ -552,27 +551,26 @@ CreateLiveEventThumbnailAlt2 Create a live event thumbnail
 
 This method creates a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiCreateLiveEventThumbnailAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiCreateLiveEventThumbnailAlt2Request
 */
 func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt2(ctx context.Context, liveEventId float32) ApiCreateLiveEventThumbnailAlt2Request {
 	return ApiCreateLiveEventThumbnailAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt2Execute(r ApiCreateLiveEventThumbnailAlt2Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.CreateLiveEventThumbnailAlt2")
@@ -635,8 +633,8 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt2Execute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -646,8 +644,8 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt2Execute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -665,11 +663,11 @@ func (a *LiveEventThumbnailsAPIService) CreateLiveEventThumbnailAlt2Execute(r Ap
 }
 
 type ApiDeleteLiveEventThumbnailRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiDeleteLiveEventThumbnailRequest) Execute() (*http.Response, error) {
@@ -681,28 +679,28 @@ DeleteLiveEventThumbnail Delete a live event thumbnail
 
 This method deletes a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@param userId The ID of the user.
-	@return ApiDeleteLiveEventThumbnailRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @param userId The ID of the user.
+ @return ApiDeleteLiveEventThumbnailRequest
 */
 func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiDeleteLiveEventThumbnailRequest {
 	return ApiDeleteLiveEventThumbnailRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailExecute(r ApiDeleteLiveEventThumbnailRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.DeleteLiveEventThumbnail")
@@ -765,8 +763,8 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailExecute(r ApiDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -776,8 +774,8 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailExecute(r ApiDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -786,8 +784,8 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailExecute(r ApiDel
 }
 
 type ApiDeleteLiveEventThumbnailAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
 }
@@ -801,15 +799,15 @@ DeleteLiveEventThumbnailAlt1 Delete a live event thumbnail
 
 This method deletes a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@return ApiDeleteLiveEventThumbnailAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @return ApiDeleteLiveEventThumbnailAlt1Request
 */
 func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt1(ctx context.Context, liveEventId float32, thumbnailId float32) ApiDeleteLiveEventThumbnailAlt1Request {
 	return ApiDeleteLiveEventThumbnailAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
 	}
@@ -818,9 +816,9 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt1(ctx context
 // Execute executes the request
 func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt1Execute(r ApiDeleteLiveEventThumbnailAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.DeleteLiveEventThumbnailAlt1")
@@ -882,8 +880,8 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt1Execute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -893,8 +891,8 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt1Execute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -903,8 +901,8 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt1Execute(r Ap
 }
 
 type ApiDeleteLiveEventThumbnailAlt2Request struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
 }
@@ -918,15 +916,15 @@ DeleteLiveEventThumbnailAlt2 Delete a live event thumbnail
 
 This method deletes a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@return ApiDeleteLiveEventThumbnailAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @return ApiDeleteLiveEventThumbnailAlt2Request
 */
 func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt2(ctx context.Context, liveEventId float32, thumbnailId float32) ApiDeleteLiveEventThumbnailAlt2Request {
 	return ApiDeleteLiveEventThumbnailAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
 	}
@@ -935,9 +933,9 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt2(ctx context
 // Execute executes the request
 func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt2Execute(r ApiDeleteLiveEventThumbnailAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.DeleteLiveEventThumbnailAlt2")
@@ -999,8 +997,8 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt2Execute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1010,8 +1008,8 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt2Execute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1020,11 +1018,11 @@ func (a *LiveEventThumbnailsAPIService) DeleteLiveEventThumbnailAlt2Execute(r Ap
 }
 
 type ApiEditLiveEventThumbnailRequest struct {
-	ctx                                 context.Context
-	ApiService                          LiveEventThumbnailsAPI
-	liveEventId                         float32
-	thumbnailId                         float32
-	userId                              int32
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
+	liveEventId float32
+	thumbnailId float32
+	userId int32
 	createLiveEventThumbnailAlt1Request *CreateLiveEventThumbnailAlt1Request
 }
 
@@ -1042,31 +1040,30 @@ EditLiveEventThumbnail Edit a live event thumbnail
 
 This method edits a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@param userId The ID of the user.
-	@return ApiEditLiveEventThumbnailRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @param userId The ID of the user.
+ @return ApiEditLiveEventThumbnailRequest
 */
 func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiEditLiveEventThumbnailRequest {
 	return ApiEditLiveEventThumbnailRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailExecute(r ApiEditLiveEventThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.EditLiveEventThumbnail")
@@ -1131,8 +1128,8 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailExecute(r ApiEditL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1142,8 +1139,8 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailExecute(r ApiEditL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1161,10 +1158,10 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailExecute(r ApiEditL
 }
 
 type ApiEditLiveEventThumbnailAlt1Request struct {
-	ctx                                 context.Context
-	ApiService                          LiveEventThumbnailsAPI
-	liveEventId                         float32
-	thumbnailId                         float32
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
+	liveEventId float32
+	thumbnailId float32
 	createLiveEventThumbnailAlt1Request *CreateLiveEventThumbnailAlt1Request
 }
 
@@ -1182,29 +1179,28 @@ EditLiveEventThumbnailAlt1 Edit a live event thumbnail
 
 This method edits a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@return ApiEditLiveEventThumbnailAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @return ApiEditLiveEventThumbnailAlt1Request
 */
 func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt1(ctx context.Context, liveEventId float32, thumbnailId float32) ApiEditLiveEventThumbnailAlt1Request {
 	return ApiEditLiveEventThumbnailAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt1Execute(r ApiEditLiveEventThumbnailAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.EditLiveEventThumbnailAlt1")
@@ -1268,8 +1264,8 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt1Execute(r ApiE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1279,8 +1275,8 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt1Execute(r ApiE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1298,10 +1294,10 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt1Execute(r ApiE
 }
 
 type ApiEditLiveEventThumbnailAlt2Request struct {
-	ctx                                 context.Context
-	ApiService                          LiveEventThumbnailsAPI
-	liveEventId                         float32
-	thumbnailId                         float32
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
+	liveEventId float32
+	thumbnailId float32
 	createLiveEventThumbnailAlt1Request *CreateLiveEventThumbnailAlt1Request
 }
 
@@ -1319,29 +1315,28 @@ EditLiveEventThumbnailAlt2 Edit a live event thumbnail
 
 This method edits a thumbnail image for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@return ApiEditLiveEventThumbnailAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @return ApiEditLiveEventThumbnailAlt2Request
 */
 func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt2(ctx context.Context, liveEventId float32, thumbnailId float32) ApiEditLiveEventThumbnailAlt2Request {
 	return ApiEditLiveEventThumbnailAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt2Execute(r ApiEditLiveEventThumbnailAlt2Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.EditLiveEventThumbnailAlt2")
@@ -1405,8 +1400,8 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt2Execute(r ApiE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1416,8 +1411,8 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt2Execute(r ApiE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1435,11 +1430,11 @@ func (a *LiveEventThumbnailsAPIService) EditLiveEventThumbnailAlt2Execute(r ApiE
 }
 
 type ApiGetLiveEventThumbnailRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiGetLiveEventThumbnailRequest) Execute() (*Picture, *http.Response, error) {
@@ -1451,31 +1446,30 @@ GetLiveEventThumbnail Get a specific live event thumbnail
 
 This method returns a single thumbnail image of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@param userId The ID of the user.
-	@return ApiGetLiveEventThumbnailRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @param userId The ID of the user.
+ @return ApiGetLiveEventThumbnailRequest
 */
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnail(ctx context.Context, liveEventId float32, thumbnailId float32, userId int32) ApiGetLiveEventThumbnailRequest {
 	return ApiGetLiveEventThumbnailRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailExecute(r ApiGetLiveEventThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.GetLiveEventThumbnail")
@@ -1538,8 +1532,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailExecute(r ApiGetLiv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1549,8 +1543,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailExecute(r ApiGetLiv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1568,8 +1562,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailExecute(r ApiGetLiv
 }
 
 type ApiGetLiveEventThumbnailAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
 }
@@ -1583,29 +1577,28 @@ GetLiveEventThumbnailAlt1 Get a specific live event thumbnail
 
 This method returns a single thumbnail image of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@return ApiGetLiveEventThumbnailAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @return ApiGetLiveEventThumbnailAlt1Request
 */
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt1(ctx context.Context, liveEventId float32, thumbnailId float32) ApiGetLiveEventThumbnailAlt1Request {
 	return ApiGetLiveEventThumbnailAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt1Execute(r ApiGetLiveEventThumbnailAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.GetLiveEventThumbnailAlt1")
@@ -1667,8 +1660,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt1Execute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1678,8 +1671,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt1Execute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1697,8 +1690,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt1Execute(r ApiGe
 }
 
 type ApiGetLiveEventThumbnailAlt2Request struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 	thumbnailId float32
 }
@@ -1712,29 +1705,28 @@ GetLiveEventThumbnailAlt2 Get a specific live event thumbnail
 
 This method returns a single thumbnail image of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param thumbnailId The ID of the thumbnail.
-	@return ApiGetLiveEventThumbnailAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param thumbnailId The ID of the thumbnail.
+ @return ApiGetLiveEventThumbnailAlt2Request
 */
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt2(ctx context.Context, liveEventId float32, thumbnailId float32) ApiGetLiveEventThumbnailAlt2Request {
 	return ApiGetLiveEventThumbnailAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 		thumbnailId: thumbnailId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt2Execute(r ApiGetLiveEventThumbnailAlt2Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.GetLiveEventThumbnailAlt2")
@@ -1796,8 +1788,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt2Execute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1807,8 +1799,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt2Execute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1826,10 +1818,10 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailAlt2Execute(r ApiGe
 }
 
 type ApiGetLiveEventThumbnailsRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiGetLiveEventThumbnailsRequest) Execute() ([]Picture, *http.Response, error) {
@@ -1841,29 +1833,28 @@ GetLiveEventThumbnails Get all the thumbnails of a live event
 
 This method returns every thumbnail image of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiGetLiveEventThumbnailsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiGetLiveEventThumbnailsRequest
 */
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnails(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventThumbnailsRequest {
 	return ApiGetLiveEventThumbnailsRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsExecute(r ApiGetLiveEventThumbnailsRequest) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.GetLiveEventThumbnails")
@@ -1925,8 +1916,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsExecute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1944,8 +1935,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsExecute(r ApiGetLi
 }
 
 type ApiGetLiveEventThumbnailsAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 }
 
@@ -1958,27 +1949,26 @@ GetLiveEventThumbnailsAlt1 Get all the thumbnails of a live event
 
 This method returns every thumbnail image of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventThumbnailsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventThumbnailsAlt1Request
 */
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventThumbnailsAlt1Request {
 	return ApiGetLiveEventThumbnailsAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsAlt1Execute(r ApiGetLiveEventThumbnailsAlt1Request) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.GetLiveEventThumbnailsAlt1")
@@ -2039,8 +2029,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsAlt1Execute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2058,8 +2048,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsAlt1Execute(r ApiG
 }
 
 type ApiGetLiveEventThumbnailsAlt2Request struct {
-	ctx         context.Context
-	ApiService  LiveEventThumbnailsAPI
+	ctx context.Context
+	ApiService LiveEventThumbnailsAPI
 	liveEventId float32
 }
 
@@ -2072,27 +2062,26 @@ GetLiveEventThumbnailsAlt2 Get all the thumbnails of a live event
 
 This method returns every thumbnail image of the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventThumbnailsAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventThumbnailsAlt2Request
 */
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsAlt2(ctx context.Context, liveEventId float32) ApiGetLiveEventThumbnailsAlt2Request {
 	return ApiGetLiveEventThumbnailsAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsAlt2Execute(r ApiGetLiveEventThumbnailsAlt2Request) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventThumbnailsAPIService.GetLiveEventThumbnailsAlt2")
@@ -2153,8 +2142,8 @@ func (a *LiveEventThumbnailsAPIService) GetLiveEventThumbnailsAlt2Execute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -23,9 +23,9 @@ type AddVideoToVodRequest struct {
 	// The position of the video in the On Demand collection.
 	Position *float32 `json:"position,omitempty"`
 	// The release year of the video.
-	ReleaseYear *float32                  `json:"release_year,omitempty"`
-	Rent        *AddVideoToVodRequestRent `json:"rent,omitempty"`
-	// The type of the video.  Option descriptions:  * `extra` - The video type is extra footage.  * `main` - The video type is the main video.  * `trailer` - The video type is a trailer.
+	ReleaseYear *float32 `json:"release_year,omitempty"`
+	Rent *AddVideoToVodRequestRent `json:"rent,omitempty"`
+	// The type of the video.  Option descriptions:  * `extra` - The video type is extra footage.  * `main` - The video type is the main video.  * `trailer` - The video type is a trailer. 
 	Type string `json:"type"`
 }
 
@@ -200,7 +200,7 @@ func (o *AddVideoToVodRequest) SetType(v string) {
 }
 
 func (o AddVideoToVodRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -260,3 +260,5 @@ func (v *NullableAddVideoToVodRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

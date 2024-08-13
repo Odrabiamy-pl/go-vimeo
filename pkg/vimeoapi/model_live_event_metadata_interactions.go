@@ -20,8 +20,8 @@ var _ MappedNullable = &LiveEventMetadataInteractions{}
 // LiveEventMetadataInteractions A list of resource URIs related to the event.
 type LiveEventMetadataInteractions struct {
 	Activate NullableLiveEventMetadataInteractionsActivate `json:"activate"`
-	Delete   NullableLiveEventMetadataInteractionsDelete   `json:"delete"`
-	Edit     NullableLiveEventMetadataInteractionsEdit     `json:"edit"`
+	Delete NullableLiveEventMetadataInteractionsDelete `json:"delete"`
+	Edit NullableLiveEventMetadataInteractionsEdit `json:"edit"`
 }
 
 // NewLiveEventMetadataInteractions instantiates a new LiveEventMetadataInteractions object
@@ -123,7 +123,7 @@ func (o *LiveEventMetadataInteractions) SetEdit(v LiveEventMetadataInteractionsE
 }
 
 func (o LiveEventMetadataInteractions) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -173,3 +173,5 @@ func (v *NullableLiveEventMetadataInteractions) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

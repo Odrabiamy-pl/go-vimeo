@@ -19,7 +19,7 @@ var _ MappedNullable = &CreateLiveEventAlt1RequestStreamEmbed{}
 
 // CreateLiveEventAlt1RequestStreamEmbed struct for CreateLiveEventAlt1RequestStreamEmbed
 type CreateLiveEventAlt1RequestStreamEmbed struct {
-	// The embed permission level for the event.  Option descriptions:  * `private` - Only the user can embed the event.  * `public` - Anyone can embed the event.  * `whitelist` - Only those on the whitelist can embed the event.
+	// The embed permission level for the event.  Option descriptions:  * `private` - Only the user can embed the event.  * `public` - Anyone can embed the event.  * `whitelist` - Only those on the whitelist can embed the event. 
 	Embed *string `json:"embed,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *CreateLiveEventAlt1RequestStreamEmbed) SetEmbed(v string) {
 }
 
 func (o CreateLiveEventAlt1RequestStreamEmbed) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableCreateLiveEventAlt1RequestStreamEmbed) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

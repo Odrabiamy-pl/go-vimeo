@@ -209,7 +209,7 @@ func (o *PaymentMethodCardBillingAddress) SetState(v string) {
 }
 
 func (o PaymentMethodCardBillingAddress) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,3 +271,5 @@ func (v *NullablePaymentMethodCardBillingAddress) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

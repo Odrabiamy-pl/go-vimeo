@@ -19,11 +19,11 @@ var _ MappedNullable = &CreateEmbedPresetsAlt1RequestEmbedTitle{}
 
 // CreateEmbedPresetsAlt1RequestEmbedTitle struct for CreateEmbedPresetsAlt1RequestEmbedTitle
 type CreateEmbedPresetsAlt1RequestEmbedTitle struct {
-	// How to handle the video title in the title bar of the embeddable player.  Option descriptions:  * `hide` - Hide the video title.  * `show` - Show the video title.  * `user` - Enable the user to decide.
+	// How to handle the video title in the title bar of the embeddable player.  Option descriptions:  * `hide` - Hide the video title.  * `show` - Show the video title.  * `user` - Enable the user to decide. 
 	Name *string `json:"name,omitempty"`
-	// How to handle the owner information in the title bar of the embeddable player.  Option descriptions:  * `hide` - Hide the owner info.  * `show` - Show the owner info.  * `user` - Enable the user to decide.
+	// How to handle the owner information in the title bar of the embeddable player.  Option descriptions:  * `hide` - Hide the owner info.  * `show` - Show the owner info.  * `user` - Enable the user to decide. 
 	Owner *string `json:"owner,omitempty"`
-	// How to handle the owner portrait in the title bar of the embeddable player.  Option descriptions:  * `hide` - Hide the portrait.  * `show` - Show the portrait.  * `user` - Enable the user to decide.
+	// How to handle the owner portrait in the title bar of the embeddable player.  Option descriptions:  * `hide` - Hide the portrait.  * `show` - Show the portrait.  * `user` - Enable the user to decide. 
 	Portrait *string `json:"portrait,omitempty"`
 }
 
@@ -141,7 +141,7 @@ func (o *CreateEmbedPresetsAlt1RequestEmbedTitle) SetPortrait(v string) {
 }
 
 func (o CreateEmbedPresetsAlt1RequestEmbedTitle) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,3 +197,5 @@ func (v *NullableCreateEmbedPresetsAlt1RequestEmbedTitle) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

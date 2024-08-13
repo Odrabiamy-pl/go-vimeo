@@ -243,7 +243,7 @@ func (o *UpdateWebinarEmailSettingsAlt1RequestEmailPreferences) SetEmailRegistra
 }
 
 func (o UpdateWebinarEmailSettingsAlt1RequestEmailPreferences) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,3 +308,5 @@ func (v *NullableUpdateWebinarEmailSettingsAlt1RequestEmailPreferences) Unmarsha
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

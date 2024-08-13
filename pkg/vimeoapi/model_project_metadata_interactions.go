@@ -20,14 +20,14 @@ var _ MappedNullable = &ProjectMetadataInteractions{}
 // ProjectMetadataInteractions A list of permitted interactions related to the folder.
 type ProjectMetadataInteractions struct {
 	AddSubfolder ProjectMetadataInteractionsAddSubfolder `json:"add_subfolder"`
-	Delete       ProjectMetadataInteractionsDelete       `json:"delete"`
-	DeleteVideo  ProjectMetadataInteractionsDeleteVideo  `json:"delete_video"`
-	Edit         ProjectMetadataInteractionsEdit         `json:"edit"`
+	Delete ProjectMetadataInteractionsDelete `json:"delete"`
+	DeleteVideo ProjectMetadataInteractionsDeleteVideo `json:"delete_video"`
+	Edit ProjectMetadataInteractionsEdit `json:"edit"`
 	EditSettings ProjectMetadataInteractionsEditSettings `json:"edit_settings"`
-	Invite       ProjectMetadataInteractionsInvite       `json:"invite"`
-	MoveVideo    ProjectMetadataInteractionsMoveVideo    `json:"move_video"`
-	UploadVideo  ProjectMetadataInteractionsUploadVideo  `json:"upload_video"`
-	View         ProjectMetadataInteractionsView         `json:"view"`
+	Invite ProjectMetadataInteractionsInvite `json:"invite"`
+	MoveVideo ProjectMetadataInteractionsMoveVideo `json:"move_video"`
+	UploadVideo ProjectMetadataInteractionsUploadVideo `json:"upload_video"`
+	View ProjectMetadataInteractionsView `json:"view"`
 }
 
 // NewProjectMetadataInteractions instantiates a new ProjectMetadataInteractions object
@@ -273,7 +273,7 @@ func (o *ProjectMetadataInteractions) SetView(v ProjectMetadataInteractionsView)
 }
 
 func (o ProjectMetadataInteractions) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -329,3 +329,5 @@ func (v *NullableProjectMetadataInteractions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

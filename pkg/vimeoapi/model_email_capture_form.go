@@ -35,7 +35,7 @@ type EmailCaptureForm struct {
 	HiddenFields []EmailCaptureFormCustomFieldsInner `json:"hidden_fields"`
 	// The ID of the email capture form.
 	Id float32 `json:"id"`
-	// When the form appears relative to the video playback.  Option descriptions:  * `after-video` - The form appears immediately after the video ends.  * `before-video` - The form appears before the video begins.  * `during-video` - The form appears during the video at the time specified by the **timecode** field.
+	// When the form appears relative to the video playback.  Option descriptions:  * `after-video` - The form appears immediately after the video ends.  * `before-video` - The form appears before the video begins.  * `during-video` - The form appears during the video at the time specified by the **timecode** field. 
 	Position string `json:"position"`
 	// The URL of the privacy policy related to the form.
 	PrivacyPolicy string `json:"privacy_policy"`
@@ -390,7 +390,7 @@ func (o *EmailCaptureForm) SetUri(v string) {
 }
 
 func (o EmailCaptureForm) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -450,3 +450,5 @@ func (v *NullableEmailCaptureForm) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

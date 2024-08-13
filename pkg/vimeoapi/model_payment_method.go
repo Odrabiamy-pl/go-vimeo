@@ -20,8 +20,8 @@ var _ MappedNullable = &PaymentMethod{}
 // PaymentMethod struct for PaymentMethod
 type PaymentMethod struct {
 	// The ID of the account.
-	AccountId string             `json:"account_id"`
-	Card      *PaymentMethodCard `json:"card,omitempty"`
+	AccountId string `json:"account_id"`
+	Card *PaymentMethodCard `json:"card,omitempty"`
 	// The time when the payment method was created.
 	CreatedAt string `json:"created_at"`
 	// The time when the payment method was disabled.
@@ -30,7 +30,7 @@ type PaymentMethod struct {
 	Id string `json:"id"`
 	// Whether the payment method is the default payment method for the account.
 	IsDefault bool `json:"is_default"`
-	// The type of payment method.  Option descriptions:  * `0` - The payment method type is unspecified.  * `1` - The payment method is a card.  * `2` - The payment method is a PayPal account.  * `3` - The payment method is a bank account.  * `4` - The payment method is Apple Pay.  * `5` - The payment method is Google Pay.
+	// The type of payment method.  Option descriptions:  * `0` - The payment method type is unspecified.  * `1` - The payment method is a card.  * `2` - The payment method is a PayPal account.  * `3` - The payment method is a bank account.  * `4` - The payment method is Apple Pay.  * `5` - The payment method is Google Pay. 
 	Type string `json:"type"`
 	// The time when the payment method was last updated.
 	UpdatedAt string `json:"updated_at"`
@@ -261,7 +261,7 @@ func (o *PaymentMethod) SetUpdatedAt(v string) {
 }
 
 func (o PaymentMethod) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -318,3 +318,5 @@ func (v *NullablePaymentMethod) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

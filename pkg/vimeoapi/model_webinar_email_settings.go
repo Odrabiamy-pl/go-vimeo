@@ -22,19 +22,19 @@ type WebinarEmailSettings struct {
 	// The accent color scheme for emails that are sent about the webinar.
 	AccentColor string `json:"accent_color"`
 	// The custom link for emails that are sent about the webinar.
-	CustomLink              NullableString                              `json:"custom_link"`
+	CustomLink NullableString `json:"custom_link"`
 	EmailEventReminder24Hrs WebinarEmailSettingsEmailEventReminder24Hrs `json:"email_event_reminder_24_hrs"`
-	EmailPostEventThankYou  WebinarEmailSettingsEmailPostEventThankYou  `json:"email_post_event_thank_you"`
+	EmailPostEventThankYou WebinarEmailSettingsEmailPostEventThankYou `json:"email_post_event_thank_you"`
 	// A list of preferences for the emails to send during the webinar event.
-	EmailPreferences              []string                                          `json:"email_preferences"`
+	EmailPreferences []string `json:"email_preferences"`
 	EmailRegistrationConfirmation WebinarEmailSettingsEmailRegistrationConfirmation `json:"email_registration_confirmation"`
 	// The time in ISO 8601 format when the follow-up email was sent.
-	FollowUpSendOn string                                     `json:"follow_up_send_on"`
+	FollowUpSendOn string `json:"follow_up_send_on"`
 	FollowUpSender NullableWebinarEmailSettingsFollowUpSender `json:"follow_up_sender"`
 	// The name of the sender for emails that are sent about the webinar.
 	From string `json:"from"`
 	// The URI of the logo image to include in emails that are sent about the webinar.
-	LogoUri  NullableString                       `json:"logo_uri"`
+	LogoUri NullableString `json:"logo_uri"`
 	Pictures NullableWebinarEmailSettingsPictures `json:"pictures"`
 	// The sender's reply email address.
 	ReplyEmail NullableString `json:"reply_email"`
@@ -534,7 +534,7 @@ func (o *WebinarEmailSettings) SetUseSenderPolicyUrl(v bool) {
 }
 
 func (o WebinarEmailSettings) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -599,3 +599,5 @@ func (v *NullableWebinarEmailSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

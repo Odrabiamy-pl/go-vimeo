@@ -110,7 +110,6 @@ func (o *EditVideoRequestEmbedLogosCustom) HasId() bool {
 func (o *EditVideoRequestEmbedLogosCustom) SetId(v float32) {
 	o.Id.Set(&v)
 }
-
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *EditVideoRequestEmbedLogosCustom) SetIdNil() {
 	o.Id.Set(nil)
@@ -153,7 +152,6 @@ func (o *EditVideoRequestEmbedLogosCustom) HasLink() bool {
 func (o *EditVideoRequestEmbedLogosCustom) SetLink(v string) {
 	o.Link.Set(&v)
 }
-
 // SetLinkNil sets the value for Link to be an explicit nil
 func (o *EditVideoRequestEmbedLogosCustom) SetLinkNil() {
 	o.Link.Set(nil)
@@ -197,7 +195,7 @@ func (o *EditVideoRequestEmbedLogosCustom) SetSticky(v bool) {
 }
 
 func (o EditVideoRequestEmbedLogosCustom) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -256,3 +254,5 @@ func (v *NullableEditVideoRequestEmbedLogosCustom) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

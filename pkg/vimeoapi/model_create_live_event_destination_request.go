@@ -23,7 +23,7 @@ type CreateLiveEventDestinationRequest struct {
 	DisplayName string `json:"display_name"`
 	// Whether the destination is enabled for simulcasting.
 	IsEnabled *bool `json:"is_enabled,omitempty"`
-	// The privacy setting of the destination. Be sure to choose a value that corresponds to your service.  Option descriptions:  * `CONNECTIONS` - The privacy setting is `CONNECTIONS` for LinkedIn.  * `PUBLIC` - The privacy setting is `PUBLIC` for LinkedIn.  * `all_friends` - The privacy setting is `all_friends` for Facebook.  * `everyone` - The privacy setting is `everyone` for Facebook.  * `private` - The privacy setting is `private` for YouTube.  * `public` - The privacy setting is `public` for YouTube.  * `self` - The privacy setting is `self` for Facebook.  * `unlisted` - The privacy setting is `unlisted` for YouTube.
+	// The privacy setting of the destination. Be sure to choose a value that corresponds to your service.  Option descriptions:  * `CONNECTIONS` - The privacy setting is `CONNECTIONS` for LinkedIn.  * `PUBLIC` - The privacy setting is `PUBLIC` for LinkedIn.  * `all_friends` - The privacy setting is `all_friends` for Facebook.  * `everyone` - The privacy setting is `everyone` for Facebook.  * `private` - The privacy setting is `private` for YouTube.  * `public` - The privacy setting is `public` for YouTube.  * `self` - The privacy setting is `self` for Facebook.  * `unlisted` - The privacy setting is `unlisted` for YouTube. 
 	Privacy *string `json:"privacy,omitempty"`
 	// The ID of the destination on the specified service, such as the YouTube channel ID or the Facebook page ID.
 	ProviderDestinationId *string `json:"provider_destination_id,omitempty"`
@@ -31,13 +31,13 @@ type CreateLiveEventDestinationRequest struct {
 	ProviderVideoId NullableString `json:"provider_video_id,omitempty"`
 	// The time in Unix timestamp format when live streaming is scheduled to start.
 	ScheduledAt *float32 `json:"scheduled_at,omitempty"`
-	// The service to simulcast to.  Option descriptions:  * `custom_rtmp` - Simulcast to a custom service.  * `facebook` - Simulcast to Facebook Live.  * `linkedin` - Simulcast to LinkedIn Live.  * `youtube` - Simulcast to YouTube Live.
+	// The service to simulcast to.  Option descriptions:  * `custom_rtmp` - Simulcast to a custom service.  * `facebook` - Simulcast to Facebook Live.  * `linkedin` - Simulcast to LinkedIn Live.  * `youtube` - Simulcast to YouTube Live. 
 	ServiceName string `json:"service_name"`
 	// The RTMP stream key.
 	StreamKey *string `json:"stream_key,omitempty"`
 	// The RTMP URL for receiving the video stream.
 	StreamUrl *string `json:"stream_url,omitempty"`
-	// The type of the simulcast destination.  Option descriptions:  * `channel` - The destination is a YouTube channel.  * `custom` - The destination is custom.  * `organization` - The destination is a LinkedIn organization.  * `page` - The destination is a Facebook page.  * `profile` - The destination is a Facebook or LinkedIn profile.
+	// The type of the simulcast destination.  Option descriptions:  * `channel` - The destination is a YouTube channel.  * `custom` - The destination is custom.  * `organization` - The destination is a LinkedIn organization.  * `page` - The destination is a Facebook page.  * `profile` - The destination is a Facebook or LinkedIn profile. 
 	Type string `json:"type"`
 }
 
@@ -213,7 +213,6 @@ func (o *CreateLiveEventDestinationRequest) HasProviderVideoId() bool {
 func (o *CreateLiveEventDestinationRequest) SetProviderVideoId(v string) {
 	o.ProviderVideoId.Set(&v)
 }
-
 // SetProviderVideoIdNil sets the value for ProviderVideoId to be an explicit nil
 func (o *CreateLiveEventDestinationRequest) SetProviderVideoIdNil() {
 	o.ProviderVideoId.Set(nil)
@@ -369,7 +368,7 @@ func (o *CreateLiveEventDestinationRequest) SetType(v string) {
 }
 
 func (o CreateLiveEventDestinationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -440,3 +439,5 @@ func (v *NullableCreateLiveEventDestinationRequest) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

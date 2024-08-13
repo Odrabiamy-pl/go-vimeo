@@ -110,7 +110,6 @@ func (o *CreateEmbedPresetsAlt1RequestEmbedLogosCustom) HasId() bool {
 func (o *CreateEmbedPresetsAlt1RequestEmbedLogosCustom) SetId(v float32) {
 	o.Id.Set(&v)
 }
-
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *CreateEmbedPresetsAlt1RequestEmbedLogosCustom) SetIdNil() {
 	o.Id.Set(nil)
@@ -153,7 +152,6 @@ func (o *CreateEmbedPresetsAlt1RequestEmbedLogosCustom) HasLink() bool {
 func (o *CreateEmbedPresetsAlt1RequestEmbedLogosCustom) SetLink(v string) {
 	o.Link.Set(&v)
 }
-
 // SetLinkNil sets the value for Link to be an explicit nil
 func (o *CreateEmbedPresetsAlt1RequestEmbedLogosCustom) SetLinkNil() {
 	o.Link.Set(nil)
@@ -197,7 +195,7 @@ func (o *CreateEmbedPresetsAlt1RequestEmbedLogosCustom) SetSticky(v bool) {
 }
 
 func (o CreateEmbedPresetsAlt1RequestEmbedLogosCustom) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -256,3 +254,5 @@ func (v *NullableCreateEmbedPresetsAlt1RequestEmbedLogosCustom) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -107,7 +107,7 @@ func (o *SubscriptionPlansPromotionUri) SetMonthly(v string) {
 }
 
 func (o SubscriptionPlansPromotionUri) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableSubscriptionPlansPromotionUri) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

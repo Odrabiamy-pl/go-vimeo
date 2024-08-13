@@ -20,9 +20,9 @@ var _ MappedNullable = &CategoryMetadataConnections{}
 // CategoryMetadataConnections A collection of information that is connected to this resource.
 type CategoryMetadataConnections struct {
 	Channels CategoryMetadataConnectionsChannels `json:"channels"`
-	Groups   CategoryMetadataConnectionsGroups   `json:"groups"`
-	Users    CategoryMetadataConnectionsUsers    `json:"users"`
-	Videos   CategoryMetadataConnectionsVideos   `json:"videos"`
+	Groups CategoryMetadataConnectionsGroups `json:"groups"`
+	Users CategoryMetadataConnectionsUsers `json:"users"`
+	Videos CategoryMetadataConnectionsVideos `json:"videos"`
 }
 
 // NewCategoryMetadataConnections instantiates a new CategoryMetadataConnections object
@@ -143,7 +143,7 @@ func (o *CategoryMetadataConnections) SetVideos(v CategoryMetadataConnectionsVid
 }
 
 func (o CategoryMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,3 +194,5 @@ func (v *NullableCategoryMetadataConnections) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -95,7 +95,7 @@ func (o *OnDemandPageEpisodesBuy) SetPrice(v float32) {
 }
 
 func (o OnDemandPageEpisodesBuy) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -144,3 +144,5 @@ func (v *NullableOnDemandPageEpisodesBuy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

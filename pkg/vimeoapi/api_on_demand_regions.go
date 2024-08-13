@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type OnDemandRegionsAPI interface {
 
 	/*
-		AddVodRegion Add a specific region to an On Demand page
+	AddVodRegion Add a specific region to an On Demand page
 
-		This method adds a single region to the specified On Demand page. The authenticated user must be the owner of the page.
+	This method adds a single region to the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param country The country code of the region to add.
-		@param ondemandId The ID of the On Demand page.
-		@return ApiAddVodRegionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param country The country code of the region to add.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiAddVodRegionRequest
 	*/
 	AddVodRegion(ctx context.Context, country string, ondemandId float32) ApiAddVodRegionRequest
 
@@ -38,14 +39,14 @@ type OnDemandRegionsAPI interface {
 	AddVodRegionExecute(r ApiAddVodRegionRequest) (*OnDemandRegion, *http.Response, error)
 
 	/*
-		DeleteVodRegion Remove a specific region from an On Demand page
+	DeleteVodRegion Remove a specific region from an On Demand page
 
-		This method removes a single region from the specified On Demand page. The authenticated user must be the owner of the page.
+	This method removes a single region from the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param country The country code of the region to remove.
-		@param ondemandId The ID of the On Demand page.
-		@return ApiDeleteVodRegionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param country The country code of the region to remove.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiDeleteVodRegionRequest
 	*/
 	DeleteVodRegion(ctx context.Context, country string, ondemandId float32) ApiDeleteVodRegionRequest
 
@@ -53,13 +54,13 @@ type OnDemandRegionsAPI interface {
 	DeleteVodRegionExecute(r ApiDeleteVodRegionRequest) (*http.Response, error)
 
 	/*
-		DeleteVodRegions Remove a list of regions from an On Demand page
+	DeleteVodRegions Remove a list of regions from an On Demand page
 
-		This method removes multiple regions from the specified On Demand page. The authenticated user must be the owner of the page.
+	This method removes multiple regions from the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiDeleteVodRegionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiDeleteVodRegionsRequest
 	*/
 	DeleteVodRegions(ctx context.Context, ondemandId float32) ApiDeleteVodRegionsRequest
 
@@ -68,13 +69,13 @@ type OnDemandRegionsAPI interface {
 	DeleteVodRegionsExecute(r ApiDeleteVodRegionsRequest) ([]OnDemandRegion, *http.Response, error)
 
 	/*
-		GetRegion Get a specific On Demand region
+	GetRegion Get a specific On Demand region
 
-		This method returns a single On Demand region.
+	This method returns a single On Demand region.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param country The country code of the region to return.
-		@return ApiGetRegionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param country The country code of the region to return.
+	@return ApiGetRegionRequest
 	*/
 	GetRegion(ctx context.Context, country string) ApiGetRegionRequest
 
@@ -83,12 +84,12 @@ type OnDemandRegionsAPI interface {
 	GetRegionExecute(r ApiGetRegionRequest) (*OnDemandRegion, *http.Response, error)
 
 	/*
-		GetRegions Get all the On Demand regions
+	GetRegions Get all the On Demand regions
 
-		This method returns every existing On Demand region.
+	This method returns every existing On Demand region.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetRegionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetRegionsRequest
 	*/
 	GetRegions(ctx context.Context) ApiGetRegionsRequest
 
@@ -97,14 +98,14 @@ type OnDemandRegionsAPI interface {
 	GetRegionsExecute(r ApiGetRegionsRequest) ([]OnDemandRegion, *http.Response, error)
 
 	/*
-		GetVodRegion Get a specific region on an On Demand page
+	GetVodRegion Get a specific region on an On Demand page
 
-		This method returns a single region on the specified On Demand page. The authenticated user must be the owner of the page.
+	This method returns a single region on the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param country The country code of the region to return.
-		@param ondemandId The ID of the On Demand page.
-		@return ApiGetVodRegionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param country The country code of the region to return.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodRegionRequest
 	*/
 	GetVodRegion(ctx context.Context, country string, ondemandId float32) ApiGetVodRegionRequest
 
@@ -113,13 +114,13 @@ type OnDemandRegionsAPI interface {
 	GetVodRegionExecute(r ApiGetVodRegionRequest) (*OnDemandRegion, *http.Response, error)
 
 	/*
-		GetVodRegions Get all the regions on an On Demand page
+	GetVodRegions Get all the regions on an On Demand page
 
-		This method returns every region on the specified On Demand page. The authenticated user must be the owner of the page.
+	This method returns every region on the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiGetVodRegionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodRegionsRequest
 	*/
 	GetVodRegions(ctx context.Context, ondemandId float32) ApiGetVodRegionsRequest
 
@@ -128,13 +129,13 @@ type OnDemandRegionsAPI interface {
 	GetVodRegionsExecute(r ApiGetVodRegionsRequest) ([]OnDemandRegion, *http.Response, error)
 
 	/*
-		SetVodRegions Add a list of regions to an On Demand page
+	SetVodRegions Add a list of regions to an On Demand page
 
-		This method adds multiple regions to the specified On Demand page. The authenticated user must be the owner of the page.
+	This method adds multiple regions to the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiSetVodRegionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiSetVodRegionsRequest
 	*/
 	SetVodRegions(ctx context.Context, ondemandId float32) ApiSetVodRegionsRequest
 
@@ -147,9 +148,9 @@ type OnDemandRegionsAPI interface {
 type OnDemandRegionsAPIService service
 
 type ApiAddVodRegionRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandRegionsAPI
-	country    string
+	country string
 	ondemandId float32
 }
 
@@ -162,29 +163,28 @@ AddVodRegion Add a specific region to an On Demand page
 
 This method adds a single region to the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param country The country code of the region to add.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiAddVodRegionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param country The country code of the region to add.
+ @param ondemandId The ID of the On Demand page.
+ @return ApiAddVodRegionRequest
 */
 func (a *OnDemandRegionsAPIService) AddVodRegion(ctx context.Context, country string, ondemandId float32) ApiAddVodRegionRequest {
 	return ApiAddVodRegionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		country:    country,
+		ctx: ctx,
+		country: country,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandRegion
+//  @return OnDemandRegion
 func (a *OnDemandRegionsAPIService) AddVodRegionExecute(r ApiAddVodRegionRequest) (*OnDemandRegion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandRegion
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandRegion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandRegionsAPIService.AddVodRegion")
@@ -246,8 +246,8 @@ func (a *OnDemandRegionsAPIService) AddVodRegionExecute(r ApiAddVodRegionRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -257,8 +257,8 @@ func (a *OnDemandRegionsAPIService) AddVodRegionExecute(r ApiAddVodRegionRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -276,9 +276,9 @@ func (a *OnDemandRegionsAPIService) AddVodRegionExecute(r ApiAddVodRegionRequest
 }
 
 type ApiDeleteVodRegionRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandRegionsAPI
-	country    string
+	country string
 	ondemandId float32
 }
 
@@ -291,16 +291,16 @@ DeleteVodRegion Remove a specific region from an On Demand page
 
 This method removes a single region from the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param country The country code of the region to remove.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiDeleteVodRegionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param country The country code of the region to remove.
+ @param ondemandId The ID of the On Demand page.
+ @return ApiDeleteVodRegionRequest
 */
 func (a *OnDemandRegionsAPIService) DeleteVodRegion(ctx context.Context, country string, ondemandId float32) ApiDeleteVodRegionRequest {
 	return ApiDeleteVodRegionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		country:    country,
+		ctx: ctx,
+		country: country,
 		ondemandId: ondemandId,
 	}
 }
@@ -308,9 +308,9 @@ func (a *OnDemandRegionsAPIService) DeleteVodRegion(ctx context.Context, country
 // Execute executes the request
 func (a *OnDemandRegionsAPIService) DeleteVodRegionExecute(r ApiDeleteVodRegionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandRegionsAPIService.DeleteVodRegion")
@@ -372,8 +372,8 @@ func (a *OnDemandRegionsAPIService) DeleteVodRegionExecute(r ApiDeleteVodRegionR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -383,8 +383,8 @@ func (a *OnDemandRegionsAPIService) DeleteVodRegionExecute(r ApiDeleteVodRegionR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -393,9 +393,9 @@ func (a *OnDemandRegionsAPIService) DeleteVodRegionExecute(r ApiDeleteVodRegionR
 }
 
 type ApiDeleteVodRegionsRequest struct {
-	ctx                     context.Context
-	ApiService              OnDemandRegionsAPI
-	ondemandId              float32
+	ctx context.Context
+	ApiService OnDemandRegionsAPI
+	ondemandId float32
 	deleteVodRegionsRequest *DeleteVodRegionsRequest
 }
 
@@ -413,27 +413,26 @@ DeleteVodRegions Remove a list of regions from an On Demand page
 
 This method removes multiple regions from the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiDeleteVodRegionsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiDeleteVodRegionsRequest
 */
 func (a *OnDemandRegionsAPIService) DeleteVodRegions(ctx context.Context, ondemandId float32) ApiDeleteVodRegionsRequest {
 	return ApiDeleteVodRegionsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OnDemandRegion
+//  @return []OnDemandRegion
 func (a *OnDemandRegionsAPIService) DeleteVodRegionsExecute(r ApiDeleteVodRegionsRequest) ([]OnDemandRegion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OnDemandRegion
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OnDemandRegion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandRegionsAPIService.DeleteVodRegions")
@@ -496,8 +495,8 @@ func (a *OnDemandRegionsAPIService) DeleteVodRegionsExecute(r ApiDeleteVodRegion
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -507,8 +506,8 @@ func (a *OnDemandRegionsAPIService) DeleteVodRegionsExecute(r ApiDeleteVodRegion
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -526,9 +525,9 @@ func (a *OnDemandRegionsAPIService) DeleteVodRegionsExecute(r ApiDeleteVodRegion
 }
 
 type ApiGetRegionRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandRegionsAPI
-	country    string
+	country string
 }
 
 func (r ApiGetRegionRequest) Execute() (*OnDemandRegion, *http.Response, error) {
@@ -540,27 +539,26 @@ GetRegion Get a specific On Demand region
 
 This method returns a single On Demand region.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param country The country code of the region to return.
-	@return ApiGetRegionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param country The country code of the region to return.
+ @return ApiGetRegionRequest
 */
 func (a *OnDemandRegionsAPIService) GetRegion(ctx context.Context, country string) ApiGetRegionRequest {
 	return ApiGetRegionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		country:    country,
+		ctx: ctx,
+		country: country,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandRegion
+//  @return OnDemandRegion
 func (a *OnDemandRegionsAPIService) GetRegionExecute(r ApiGetRegionRequest) (*OnDemandRegion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandRegion
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandRegion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandRegionsAPIService.GetRegion")
@@ -621,8 +619,8 @@ func (a *OnDemandRegionsAPIService) GetRegionExecute(r ApiGetRegionRequest) (*On
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -640,7 +638,7 @@ func (a *OnDemandRegionsAPIService) GetRegionExecute(r ApiGetRegionRequest) (*On
 }
 
 type ApiGetRegionsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandRegionsAPI
 }
 
@@ -653,25 +651,24 @@ GetRegions Get all the On Demand regions
 
 This method returns every existing On Demand region.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetRegionsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetRegionsRequest
 */
 func (a *OnDemandRegionsAPIService) GetRegions(ctx context.Context) ApiGetRegionsRequest {
 	return ApiGetRegionsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OnDemandRegion
+//  @return []OnDemandRegion
 func (a *OnDemandRegionsAPIService) GetRegionsExecute(r ApiGetRegionsRequest) ([]OnDemandRegion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OnDemandRegion
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OnDemandRegion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandRegionsAPIService.GetRegions")
@@ -740,9 +737,9 @@ func (a *OnDemandRegionsAPIService) GetRegionsExecute(r ApiGetRegionsRequest) ([
 }
 
 type ApiGetVodRegionRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandRegionsAPI
-	country    string
+	country string
 	ondemandId float32
 }
 
@@ -755,29 +752,28 @@ GetVodRegion Get a specific region on an On Demand page
 
 This method returns a single region on the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param country The country code of the region to return.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodRegionRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param country The country code of the region to return.
+ @param ondemandId The ID of the On Demand page.
+ @return ApiGetVodRegionRequest
 */
 func (a *OnDemandRegionsAPIService) GetVodRegion(ctx context.Context, country string, ondemandId float32) ApiGetVodRegionRequest {
 	return ApiGetVodRegionRequest{
 		ApiService: a,
-		ctx:        ctx,
-		country:    country,
+		ctx: ctx,
+		country: country,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandRegion
+//  @return OnDemandRegion
 func (a *OnDemandRegionsAPIService) GetVodRegionExecute(r ApiGetVodRegionRequest) (*OnDemandRegion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandRegion
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandRegion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandRegionsAPIService.GetVodRegion")
@@ -839,8 +835,8 @@ func (a *OnDemandRegionsAPIService) GetVodRegionExecute(r ApiGetVodRegionRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -858,7 +854,7 @@ func (a *OnDemandRegionsAPIService) GetVodRegionExecute(r ApiGetVodRegionRequest
 }
 
 type ApiGetVodRegionsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandRegionsAPI
 	ondemandId float32
 }
@@ -872,27 +868,26 @@ GetVodRegions Get all the regions on an On Demand page
 
 This method returns every region on the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodRegionsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiGetVodRegionsRequest
 */
 func (a *OnDemandRegionsAPIService) GetVodRegions(ctx context.Context, ondemandId float32) ApiGetVodRegionsRequest {
 	return ApiGetVodRegionsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OnDemandRegion
+//  @return []OnDemandRegion
 func (a *OnDemandRegionsAPIService) GetVodRegionsExecute(r ApiGetVodRegionsRequest) ([]OnDemandRegion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OnDemandRegion
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OnDemandRegion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandRegionsAPIService.GetVodRegions")
@@ -953,8 +948,8 @@ func (a *OnDemandRegionsAPIService) GetVodRegionsExecute(r ApiGetVodRegionsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -972,9 +967,9 @@ func (a *OnDemandRegionsAPIService) GetVodRegionsExecute(r ApiGetVodRegionsReque
 }
 
 type ApiSetVodRegionsRequest struct {
-	ctx                  context.Context
-	ApiService           OnDemandRegionsAPI
-	ondemandId           float32
+	ctx context.Context
+	ApiService OnDemandRegionsAPI
+	ondemandId float32
 	setVodRegionsRequest *SetVodRegionsRequest
 }
 
@@ -992,27 +987,26 @@ SetVodRegions Add a list of regions to an On Demand page
 
 This method adds multiple regions to the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiSetVodRegionsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiSetVodRegionsRequest
 */
 func (a *OnDemandRegionsAPIService) SetVodRegions(ctx context.Context, ondemandId float32) ApiSetVodRegionsRequest {
 	return ApiSetVodRegionsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandRegion
+//  @return OnDemandRegion
 func (a *OnDemandRegionsAPIService) SetVodRegionsExecute(r ApiSetVodRegionsRequest) (*OnDemandRegion, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandRegion
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandRegion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandRegionsAPIService.SetVodRegions")
@@ -1078,8 +1072,8 @@ func (a *OnDemandRegionsAPIService) SetVodRegionsExecute(r ApiSetVodRegionsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1089,8 +1083,8 @@ func (a *OnDemandRegionsAPIService) SetVodRegionsExecute(r ApiSetVodRegionsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

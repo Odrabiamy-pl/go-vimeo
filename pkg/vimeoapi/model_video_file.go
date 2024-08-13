@@ -19,7 +19,7 @@ var _ MappedNullable = &VideoFile{}
 
 // VideoFile struct for VideoFile
 type VideoFile struct {
-	// The codec of the video file.  Option descriptions:  * `AV1` - The codec is AV1.  * `H264` - The codec is H264.  * `HEVC` - The codec is HEVC.
+	// The codec of the video file.  Option descriptions:  * `AV1` - The codec is AV1.  * `H264` - The codec is H264.  * `HEVC` - The codec is HEVC. 
 	Codec NullableString `json:"codec"`
 	// The time in ISO 8601 format when the video file was created.
 	CreatedTime string `json:"created_time"`
@@ -30,15 +30,15 @@ type VideoFile struct {
 	// The height of the video in pixels.
 	Height NullableFloat32 `json:"height"`
 	// The direct link to the video file.
-	Link string        `json:"link"`
-	Log  *VideoFileLog `json:"log,omitempty"`
+	Link string `json:"link"`
+	Log *VideoFileLog `json:"log,omitempty"`
 	// The MD5 hash of the video file.
 	Md5 string `json:"md5"`
 	// The public name of the video file.
 	PublicName string `json:"public_name"`
-	// The video quality as determined by height and width.  Option descriptions:  * `hd` - The video is in high definition.  * `hls` - The video is suitable for HTTP live streaming.  * `mobile` - The video is mobile quality.  * `sd` - The video is in standard definition.  * `source` - The video's source file.  * `uhd` - The video resolution is 2K or higher.
+	// The video quality as determined by height and width.  Option descriptions:  * `hd` - The video is in high definition.  * `hls` - The video is suitable for HTTP live streaming.  * `mobile` - The video is mobile quality.  * `sd` - The video is in standard definition.  * `source` - The video's source file.  * `uhd` - The video resolution is 2K or higher. 
 	Quality string `json:"quality"`
-	// The video rendition.  Option descriptions:  * `1080p` - The video has 1080p resolution.  * `240p` - The video has 240p resolution.  * `2k` - The video has 2K resolution.  * `360p` - The video has 360p resolution.  * `480p` - The video has 480p resolution.  * `4k` - The video has 4K resolution.  * `540p` - The video has 540p resolution.  * `5k` - The video has 5K resolution.  * `6k` - The video has 6K resolution.  * `720p` - The video has 720p resolution.  * `7k` - The video has 7K resolution.  * `8k` - The video has 8K resolution.  * `adaptive` - The video rendition is adaptive (for example, HLS or DASH).  * `source` - The video is the source file.
+	// The video rendition.  Option descriptions:  * `1080p` - The video has 1080p resolution.  * `240p` - The video has 240p resolution.  * `2k` - The video has 2K resolution.  * `360p` - The video has 360p resolution.  * `480p` - The video has 480p resolution.  * `4k` - The video has 4K resolution.  * `540p` - The video has 540p resolution.  * `5k` - The video has 5K resolution.  * `6k` - The video has 6K resolution.  * `720p` - The video has 720p resolution.  * `7k` - The video has 7K resolution.  * `8k` - The video has 8K resolution.  * `adaptive` - The video rendition is adaptive (for example, HLS or DASH).  * `source` - The video is the source file. 
 	Rendition string `json:"rendition"`
 	// The approximate size in bytes of the video file.
 	Size NullableFloat32 `json:"size"`
@@ -46,7 +46,7 @@ type VideoFile struct {
 	SizeShort string `json:"size_short"`
 	// The source link of the video file.
 	SourceLink NullableString `json:"source_link,omitempty"`
-	// The type of video file.  Option descriptions:  * `source` - The video file is a source file.  * `video/mp4` - The video file is in MP4 format.  * `video/webm` - The video file is in WebM format.  * `vp6/x-video` - The video file is in VP6 format.
+	// The type of video file.  Option descriptions:  * `source` - The video file is a source file.  * `video/mp4` - The video file is in MP4 format.  * `video/webm` - The video file is in WebM format.  * `vp6/x-video` - The video file is in VP6 format. 
 	Type NullableString `json:"type"`
 	// The ID of the video file.
 	VideoFileId *string `json:"video_file_id,omitempty"`
@@ -450,7 +450,6 @@ func (o *VideoFile) HasSourceLink() bool {
 func (o *VideoFile) SetSourceLink(v string) {
 	o.SourceLink.Set(&v)
 }
-
 // SetSourceLinkNil sets the value for SourceLink to be an explicit nil
 func (o *VideoFile) SetSourceLinkNil() {
 	o.SourceLink.Set(nil)
@@ -546,7 +545,7 @@ func (o *VideoFile) SetWidth(v float32) {
 }
 
 func (o VideoFile) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -618,3 +617,5 @@ func (v *NullableVideoFile) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

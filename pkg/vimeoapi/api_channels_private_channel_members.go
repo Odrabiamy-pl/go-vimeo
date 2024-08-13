@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type ChannelsPrivateChannelMembersAPI interface {
 
 	/*
-		DeleteChannelPrivacyUser Restrict a user from accessing a private channel
+	DeleteChannelPrivacyUser Restrict a user from accessing a private channel
 
-		This method prevents a single user from being able to access the specified private channel. The authenticated user must be the owner of the channel.
+	This method prevents a single user from being able to access the specified private channel. The authenticated user must be the owner of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param userId The ID of the user.
-		@return ApiDeleteChannelPrivacyUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param userId The ID of the user.
+	@return ApiDeleteChannelPrivacyUserRequest
 	*/
 	DeleteChannelPrivacyUser(ctx context.Context, channelId float32, userId int32) ApiDeleteChannelPrivacyUserRequest
 
@@ -37,13 +38,13 @@ type ChannelsPrivateChannelMembersAPI interface {
 	DeleteChannelPrivacyUserExecute(r ApiDeleteChannelPrivacyUserRequest) (*http.Response, error)
 
 	/*
-		GetChannelPrivacyUsers Get all the users who can access a private channel
+	GetChannelPrivacyUsers Get all the users who can access a private channel
 
-		This method returns all the users who have access to the specified private channel. The authenticated user must be the owner of the channel.
+	This method returns all the users who have access to the specified private channel. The authenticated user must be the owner of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiGetChannelPrivacyUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiGetChannelPrivacyUsersRequest
 	*/
 	GetChannelPrivacyUsers(ctx context.Context, channelId float32) ApiGetChannelPrivacyUsersRequest
 
@@ -52,14 +53,14 @@ type ChannelsPrivateChannelMembersAPI interface {
 	GetChannelPrivacyUsersExecute(r ApiGetChannelPrivacyUsersRequest) ([]User, *http.Response, error)
 
 	/*
-		SetChannelPrivacyUser Permit a specific user to access a private channel
+	SetChannelPrivacyUser Permit a specific user to access a private channel
 
-		This method gives a single user access to the specified private channel. The authenticated user must be the owner of the channel.
+	This method gives a single user access to the specified private channel. The authenticated user must be the owner of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param userId The ID of the user.
-		@return ApiSetChannelPrivacyUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param userId The ID of the user.
+	@return ApiSetChannelPrivacyUserRequest
 	*/
 	SetChannelPrivacyUser(ctx context.Context, channelId float32, userId int32) ApiSetChannelPrivacyUserRequest
 
@@ -67,13 +68,13 @@ type ChannelsPrivateChannelMembersAPI interface {
 	SetChannelPrivacyUserExecute(r ApiSetChannelPrivacyUserRequest) (*http.Response, error)
 
 	/*
-		SetChannelPrivacyUsers Permit a list of users to access a private channel
+	SetChannelPrivacyUsers Permit a list of users to access a private channel
 
-		This method gives multiple users access to the specified private channel. The authenticated user must be the owner of the channel.
+	This method gives multiple users access to the specified private channel. The authenticated user must be the owner of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiSetChannelPrivacyUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiSetChannelPrivacyUsersRequest
 	*/
 	SetChannelPrivacyUsers(ctx context.Context, channelId float32) ApiSetChannelPrivacyUsersRequest
 
@@ -86,10 +87,10 @@ type ChannelsPrivateChannelMembersAPI interface {
 type ChannelsPrivateChannelMembersAPIService service
 
 type ApiDeleteChannelPrivacyUserRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsPrivateChannelMembersAPI
-	channelId  float32
-	userId     int32
+	channelId float32
+	userId int32
 }
 
 func (r ApiDeleteChannelPrivacyUserRequest) Execute() (*http.Response, error) {
@@ -101,26 +102,26 @@ DeleteChannelPrivacyUser Restrict a user from accessing a private channel
 
 This method prevents a single user from being able to access the specified private channel. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param userId The ID of the user.
-	@return ApiDeleteChannelPrivacyUserRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param userId The ID of the user.
+ @return ApiDeleteChannelPrivacyUserRequest
 */
 func (a *ChannelsPrivateChannelMembersAPIService) DeleteChannelPrivacyUser(ctx context.Context, channelId float32, userId int32) ApiDeleteChannelPrivacyUserRequest {
 	return ApiDeleteChannelPrivacyUserRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		userId:     userId,
+		ctx: ctx,
+		channelId: channelId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsPrivateChannelMembersAPIService) DeleteChannelPrivacyUserExecute(r ApiDeleteChannelPrivacyUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsPrivateChannelMembersAPIService.DeleteChannelPrivacyUser")
@@ -182,8 +183,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) DeleteChannelPrivacyUserExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -193,8 +194,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) DeleteChannelPrivacyUserExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -203,15 +204,15 @@ func (a *ChannelsPrivateChannelMembersAPIService) DeleteChannelPrivacyUserExecut
 }
 
 type ApiGetChannelPrivacyUsersRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsPrivateChannelMembersAPI
-	channelId  float32
-	direction  *string
-	page       *float32
-	perPage    *float32
+	channelId float32
+	direction *string
+	page *float32
+	perPage *float32
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetChannelPrivacyUsersRequest) Direction(direction string) ApiGetChannelPrivacyUsersRequest {
 	r.direction = &direction
 	return r
@@ -238,27 +239,26 @@ GetChannelPrivacyUsers Get all the users who can access a private channel
 
 This method returns all the users who have access to the specified private channel. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiGetChannelPrivacyUsersRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiGetChannelPrivacyUsersRequest
 */
 func (a *ChannelsPrivateChannelMembersAPIService) GetChannelPrivacyUsers(ctx context.Context, channelId float32) ApiGetChannelPrivacyUsersRequest {
 	return ApiGetChannelPrivacyUsersRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []User
+//  @return []User
 func (a *ChannelsPrivateChannelMembersAPIService) GetChannelPrivacyUsersExecute(r ApiGetChannelPrivacyUsersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []User
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsPrivateChannelMembersAPIService.GetChannelPrivacyUsers")
@@ -328,8 +328,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) GetChannelPrivacyUsersExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -339,8 +339,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) GetChannelPrivacyUsersExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -358,10 +358,10 @@ func (a *ChannelsPrivateChannelMembersAPIService) GetChannelPrivacyUsersExecute(
 }
 
 type ApiSetChannelPrivacyUserRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsPrivateChannelMembersAPI
-	channelId  float32
-	userId     int32
+	channelId float32
+	userId int32
 }
 
 func (r ApiSetChannelPrivacyUserRequest) Execute() (*http.Response, error) {
@@ -373,26 +373,26 @@ SetChannelPrivacyUser Permit a specific user to access a private channel
 
 This method gives a single user access to the specified private channel. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param userId The ID of the user.
-	@return ApiSetChannelPrivacyUserRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param userId The ID of the user.
+ @return ApiSetChannelPrivacyUserRequest
 */
 func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUser(ctx context.Context, channelId float32, userId int32) ApiSetChannelPrivacyUserRequest {
 	return ApiSetChannelPrivacyUserRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		userId:     userId,
+		ctx: ctx,
+		channelId: channelId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUserExecute(r ApiSetChannelPrivacyUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsPrivateChannelMembersAPIService.SetChannelPrivacyUser")
@@ -454,8 +454,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUserExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -465,8 +465,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUserExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -475,9 +475,9 @@ func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUserExecute(r
 }
 
 type ApiSetChannelPrivacyUsersRequest struct {
-	ctx                           context.Context
-	ApiService                    ChannelsPrivateChannelMembersAPI
-	channelId                     float32
+	ctx context.Context
+	ApiService ChannelsPrivateChannelMembersAPI
+	channelId float32
 	setChannelPrivacyUsersRequest *SetChannelPrivacyUsersRequest
 }
 
@@ -495,27 +495,26 @@ SetChannelPrivacyUsers Permit a list of users to access a private channel
 
 This method gives multiple users access to the specified private channel. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiSetChannelPrivacyUsersRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiSetChannelPrivacyUsersRequest
 */
 func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUsers(ctx context.Context, channelId float32) ApiSetChannelPrivacyUsersRequest {
 	return ApiSetChannelPrivacyUsersRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []User
+//  @return []User
 func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUsersExecute(r ApiSetChannelPrivacyUsersRequest) ([]User, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []User
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsPrivateChannelMembersAPIService.SetChannelPrivacyUsers")
@@ -581,8 +580,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUsersExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -592,8 +591,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUsersExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -603,8 +602,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUsersExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -614,8 +613,8 @@ func (a *ChannelsPrivateChannelMembersAPIService) SetChannelPrivacyUsersExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

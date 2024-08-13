@@ -19,18 +19,19 @@ import (
 	"strings"
 )
 
+
 type UsersPicturesAPI interface {
 
 	/*
-			CreatePicture Add a picture to the user's account
+	CreatePicture Add a picture to the user's account
 
-			This method adds a portrait image to the authenticated user's Vimeo account. Send the binary data of the image file to the location that you receive
-		from the **link** field in the response. For step-by-step instructions, see
-		[Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail-step-3).
+	This method adds a portrait image to the authenticated user's Vimeo account. Send the binary data of the image file to the location that you receive
+from the **link** field in the response. For step-by-step instructions, see
+[Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail-step-3).
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param userId The ID of the user.
-			@return ApiCreatePictureRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiCreatePictureRequest
 	*/
 	CreatePicture(ctx context.Context, userId int32) ApiCreatePictureRequest
 
@@ -39,14 +40,14 @@ type UsersPicturesAPI interface {
 	CreatePictureExecute(r ApiCreatePictureRequest) (*Picture, *http.Response, error)
 
 	/*
-			CreatePictureAlt1 Add a picture to the user's account
+	CreatePictureAlt1 Add a picture to the user's account
 
-			This method adds a portrait image to the authenticated user's Vimeo account. Send the binary data of the image file to the location that you receive
-		from the **link** field in the response. For step-by-step instructions, see
-		[Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail-step-3).
+	This method adds a portrait image to the authenticated user's Vimeo account. Send the binary data of the image file to the location that you receive
+from the **link** field in the response. For step-by-step instructions, see
+[Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail-step-3).
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiCreatePictureAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreatePictureAlt1Request
 	*/
 	CreatePictureAlt1(ctx context.Context) ApiCreatePictureAlt1Request
 
@@ -55,14 +56,14 @@ type UsersPicturesAPI interface {
 	CreatePictureAlt1Execute(r ApiCreatePictureAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-		DeletePicture Delete a picture from the user's account
+	DeletePicture Delete a picture from the user's account
 
-		This method removes the specified portrait image from the authenticated user's Vimeo account.
+	This method removes the specified portrait image from the authenticated user's Vimeo account.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param portraitsetId The ID of the picture.
-		@param userId The ID of the user.
-		@return ApiDeletePictureRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portraitsetId The ID of the picture.
+	@param userId The ID of the user.
+	@return ApiDeletePictureRequest
 	*/
 	DeletePicture(ctx context.Context, portraitsetId float32, userId int32) ApiDeletePictureRequest
 
@@ -70,13 +71,13 @@ type UsersPicturesAPI interface {
 	DeletePictureExecute(r ApiDeletePictureRequest) (*http.Response, error)
 
 	/*
-		DeletePictureAlt1 Delete a picture from the user's account
+	DeletePictureAlt1 Delete a picture from the user's account
 
-		This method removes the specified portrait image from the authenticated user's Vimeo account.
+	This method removes the specified portrait image from the authenticated user's Vimeo account.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param portraitsetId The ID of the picture.
-		@return ApiDeletePictureAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portraitsetId The ID of the picture.
+	@return ApiDeletePictureAlt1Request
 	*/
 	DeletePictureAlt1(ctx context.Context, portraitsetId float32) ApiDeletePictureAlt1Request
 
@@ -84,14 +85,14 @@ type UsersPicturesAPI interface {
 	DeletePictureAlt1Execute(r ApiDeletePictureAlt1Request) (*http.Response, error)
 
 	/*
-		EditPicture Edit a picture in the user's account
+	EditPicture Edit a picture in the user's account
 
-		This method edits the specified portrait image belonging to the authenticated user.
+	This method edits the specified portrait image belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param portraitsetId The ID of the picture.
-		@param userId The ID of the user.
-		@return ApiEditPictureRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portraitsetId The ID of the picture.
+	@param userId The ID of the user.
+	@return ApiEditPictureRequest
 	*/
 	EditPicture(ctx context.Context, portraitsetId float32, userId int32) ApiEditPictureRequest
 
@@ -100,13 +101,13 @@ type UsersPicturesAPI interface {
 	EditPictureExecute(r ApiEditPictureRequest) (*Picture, *http.Response, error)
 
 	/*
-		EditPictureAlt1 Edit a picture in the user's account
+	EditPictureAlt1 Edit a picture in the user's account
 
-		This method edits the specified portrait image belonging to the authenticated user.
+	This method edits the specified portrait image belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param portraitsetId The ID of the picture.
-		@return ApiEditPictureAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portraitsetId The ID of the picture.
+	@return ApiEditPictureAlt1Request
 	*/
 	EditPictureAlt1(ctx context.Context, portraitsetId float32) ApiEditPictureAlt1Request
 
@@ -115,14 +116,14 @@ type UsersPicturesAPI interface {
 	EditPictureAlt1Execute(r ApiEditPictureAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-		GetPicture Get a specific picture that belongs to the user
+	GetPicture Get a specific picture that belongs to the user
 
-		This method returns a single portrait image belonging to the authenticated user.
+	This method returns a single portrait image belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param portraitsetId The ID of the picture.
-		@param userId The ID of the user.
-		@return ApiGetPictureRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portraitsetId The ID of the picture.
+	@param userId The ID of the user.
+	@return ApiGetPictureRequest
 	*/
 	GetPicture(ctx context.Context, portraitsetId float32, userId int32) ApiGetPictureRequest
 
@@ -131,13 +132,13 @@ type UsersPicturesAPI interface {
 	GetPictureExecute(r ApiGetPictureRequest) (*Picture, *http.Response, error)
 
 	/*
-		GetPictureAlt1 Get a specific picture that belongs to the user
+	GetPictureAlt1 Get a specific picture that belongs to the user
 
-		This method returns a single portrait image belonging to the authenticated user.
+	This method returns a single portrait image belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param portraitsetId The ID of the picture.
-		@return ApiGetPictureAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param portraitsetId The ID of the picture.
+	@return ApiGetPictureAlt1Request
 	*/
 	GetPictureAlt1(ctx context.Context, portraitsetId float32) ApiGetPictureAlt1Request
 
@@ -146,13 +147,13 @@ type UsersPicturesAPI interface {
 	GetPictureAlt1Execute(r ApiGetPictureAlt1Request) (*Picture, *http.Response, error)
 
 	/*
-		GetPictures Get all the pictures that belong to the user
+	GetPictures Get all the pictures that belong to the user
 
-		This method returns every portrait image belonging to the authenticated user.
+	This method returns every portrait image belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiGetPicturesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetPicturesRequest
 	*/
 	GetPictures(ctx context.Context, userId int32) ApiGetPicturesRequest
 
@@ -161,12 +162,12 @@ type UsersPicturesAPI interface {
 	GetPicturesExecute(r ApiGetPicturesRequest) ([]Picture, *http.Response, error)
 
 	/*
-		GetPicturesAlt1 Get all the pictures that belong to the user
+	GetPicturesAlt1 Get all the pictures that belong to the user
 
-		This method returns every portrait image belonging to the authenticated user.
+	This method returns every portrait image belonging to the authenticated user.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetPicturesAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetPicturesAlt1Request
 	*/
 	GetPicturesAlt1(ctx context.Context) ApiGetPicturesAlt1Request
 
@@ -179,9 +180,9 @@ type UsersPicturesAPI interface {
 type UsersPicturesAPIService service
 
 type ApiCreatePictureRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService UsersPicturesAPI
-	userId     int32
+	userId int32
 }
 
 func (r ApiCreatePictureRequest) Execute() (*Picture, *http.Response, error) {
@@ -195,27 +196,26 @@ This method adds a portrait image to the authenticated user's Vimeo account. Sen
 from the **link** field in the response. For step-by-step instructions, see
 [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail-step-3).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiCreatePictureRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiCreatePictureRequest
 */
 func (a *UsersPicturesAPIService) CreatePicture(ctx context.Context, userId int32) ApiCreatePictureRequest {
 	return ApiCreatePictureRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *UsersPicturesAPIService) CreatePictureExecute(r ApiCreatePictureRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.CreatePicture")
@@ -285,7 +285,7 @@ func (a *UsersPicturesAPIService) CreatePictureExecute(r ApiCreatePictureRequest
 }
 
 type ApiCreatePictureAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService UsersPicturesAPI
 }
 
@@ -300,25 +300,24 @@ This method adds a portrait image to the authenticated user's Vimeo account. Sen
 from the **link** field in the response. For step-by-step instructions, see
 [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails#uploading-a-thumbnail-step-3).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreatePictureAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreatePictureAlt1Request
 */
 func (a *UsersPicturesAPIService) CreatePictureAlt1(ctx context.Context) ApiCreatePictureAlt1Request {
 	return ApiCreatePictureAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *UsersPicturesAPIService) CreatePictureAlt1Execute(r ApiCreatePictureAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.CreatePictureAlt1")
@@ -387,10 +386,10 @@ func (a *UsersPicturesAPIService) CreatePictureAlt1Execute(r ApiCreatePictureAlt
 }
 
 type ApiDeletePictureRequest struct {
-	ctx           context.Context
-	ApiService    UsersPicturesAPI
+	ctx context.Context
+	ApiService UsersPicturesAPI
 	portraitsetId float32
-	userId        int32
+	userId int32
 }
 
 func (r ApiDeletePictureRequest) Execute() (*http.Response, error) {
@@ -402,26 +401,26 @@ DeletePicture Delete a picture from the user's account
 
 This method removes the specified portrait image from the authenticated user's Vimeo account.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portraitsetId The ID of the picture.
-	@param userId The ID of the user.
-	@return ApiDeletePictureRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param portraitsetId The ID of the picture.
+ @param userId The ID of the user.
+ @return ApiDeletePictureRequest
 */
 func (a *UsersPicturesAPIService) DeletePicture(ctx context.Context, portraitsetId float32, userId int32) ApiDeletePictureRequest {
 	return ApiDeletePictureRequest{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		portraitsetId: portraitsetId,
-		userId:        userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersPicturesAPIService) DeletePictureExecute(r ApiDeletePictureRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.DeletePicture")
@@ -483,8 +482,8 @@ func (a *UsersPicturesAPIService) DeletePictureExecute(r ApiDeletePictureRequest
 }
 
 type ApiDeletePictureAlt1Request struct {
-	ctx           context.Context
-	ApiService    UsersPicturesAPI
+	ctx context.Context
+	ApiService UsersPicturesAPI
 	portraitsetId float32
 }
 
@@ -497,14 +496,14 @@ DeletePictureAlt1 Delete a picture from the user's account
 
 This method removes the specified portrait image from the authenticated user's Vimeo account.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portraitsetId The ID of the picture.
-	@return ApiDeletePictureAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param portraitsetId The ID of the picture.
+ @return ApiDeletePictureAlt1Request
 */
 func (a *UsersPicturesAPIService) DeletePictureAlt1(ctx context.Context, portraitsetId float32) ApiDeletePictureAlt1Request {
 	return ApiDeletePictureAlt1Request{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		portraitsetId: portraitsetId,
 	}
 }
@@ -512,9 +511,9 @@ func (a *UsersPicturesAPIService) DeletePictureAlt1(ctx context.Context, portrai
 // Execute executes the request
 func (a *UsersPicturesAPIService) DeletePictureAlt1Execute(r ApiDeletePictureAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.DeletePictureAlt1")
@@ -575,10 +574,10 @@ func (a *UsersPicturesAPIService) DeletePictureAlt1Execute(r ApiDeletePictureAlt
 }
 
 type ApiEditPictureRequest struct {
-	ctx                    context.Context
-	ApiService             UsersPicturesAPI
-	portraitsetId          float32
-	userId                 int32
+	ctx context.Context
+	ApiService UsersPicturesAPI
+	portraitsetId float32
+	userId int32
 	editPictureAlt1Request *EditPictureAlt1Request
 }
 
@@ -596,29 +595,28 @@ EditPicture Edit a picture in the user's account
 
 This method edits the specified portrait image belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portraitsetId The ID of the picture.
-	@param userId The ID of the user.
-	@return ApiEditPictureRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param portraitsetId The ID of the picture.
+ @param userId The ID of the user.
+ @return ApiEditPictureRequest
 */
 func (a *UsersPicturesAPIService) EditPicture(ctx context.Context, portraitsetId float32, userId int32) ApiEditPictureRequest {
 	return ApiEditPictureRequest{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		portraitsetId: portraitsetId,
-		userId:        userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *UsersPicturesAPIService) EditPictureExecute(r ApiEditPictureRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.EditPicture")
@@ -691,9 +689,9 @@ func (a *UsersPicturesAPIService) EditPictureExecute(r ApiEditPictureRequest) (*
 }
 
 type ApiEditPictureAlt1Request struct {
-	ctx                    context.Context
-	ApiService             UsersPicturesAPI
-	portraitsetId          float32
+	ctx context.Context
+	ApiService UsersPicturesAPI
+	portraitsetId float32
 	editPictureAlt1Request *EditPictureAlt1Request
 }
 
@@ -711,27 +709,26 @@ EditPictureAlt1 Edit a picture in the user's account
 
 This method edits the specified portrait image belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portraitsetId The ID of the picture.
-	@return ApiEditPictureAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param portraitsetId The ID of the picture.
+ @return ApiEditPictureAlt1Request
 */
 func (a *UsersPicturesAPIService) EditPictureAlt1(ctx context.Context, portraitsetId float32) ApiEditPictureAlt1Request {
 	return ApiEditPictureAlt1Request{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		portraitsetId: portraitsetId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *UsersPicturesAPIService) EditPictureAlt1Execute(r ApiEditPictureAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.EditPictureAlt1")
@@ -803,10 +800,10 @@ func (a *UsersPicturesAPIService) EditPictureAlt1Execute(r ApiEditPictureAlt1Req
 }
 
 type ApiGetPictureRequest struct {
-	ctx           context.Context
-	ApiService    UsersPicturesAPI
+	ctx context.Context
+	ApiService UsersPicturesAPI
 	portraitsetId float32
-	userId        int32
+	userId int32
 }
 
 func (r ApiGetPictureRequest) Execute() (*Picture, *http.Response, error) {
@@ -818,29 +815,28 @@ GetPicture Get a specific picture that belongs to the user
 
 This method returns a single portrait image belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portraitsetId The ID of the picture.
-	@param userId The ID of the user.
-	@return ApiGetPictureRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param portraitsetId The ID of the picture.
+ @param userId The ID of the user.
+ @return ApiGetPictureRequest
 */
 func (a *UsersPicturesAPIService) GetPicture(ctx context.Context, portraitsetId float32, userId int32) ApiGetPictureRequest {
 	return ApiGetPictureRequest{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		portraitsetId: portraitsetId,
-		userId:        userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *UsersPicturesAPIService) GetPictureExecute(r ApiGetPictureRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.GetPicture")
@@ -911,8 +907,8 @@ func (a *UsersPicturesAPIService) GetPictureExecute(r ApiGetPictureRequest) (*Pi
 }
 
 type ApiGetPictureAlt1Request struct {
-	ctx           context.Context
-	ApiService    UsersPicturesAPI
+	ctx context.Context
+	ApiService UsersPicturesAPI
 	portraitsetId float32
 }
 
@@ -925,27 +921,26 @@ GetPictureAlt1 Get a specific picture that belongs to the user
 
 This method returns a single portrait image belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param portraitsetId The ID of the picture.
-	@return ApiGetPictureAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param portraitsetId The ID of the picture.
+ @return ApiGetPictureAlt1Request
 */
 func (a *UsersPicturesAPIService) GetPictureAlt1(ctx context.Context, portraitsetId float32) ApiGetPictureAlt1Request {
 	return ApiGetPictureAlt1Request{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		portraitsetId: portraitsetId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *UsersPicturesAPIService) GetPictureAlt1Execute(r ApiGetPictureAlt1Request) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.GetPictureAlt1")
@@ -1015,11 +1010,11 @@ func (a *UsersPicturesAPIService) GetPictureAlt1Execute(r ApiGetPictureAlt1Reque
 }
 
 type ApiGetPicturesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService UsersPicturesAPI
-	userId     int32
-	page       *float32
-	perPage    *float32
+	userId int32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -1043,27 +1038,26 @@ GetPictures Get all the pictures that belong to the user
 
 This method returns every portrait image belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetPicturesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiGetPicturesRequest
 */
 func (a *UsersPicturesAPIService) GetPictures(ctx context.Context, userId int32) ApiGetPicturesRequest {
 	return ApiGetPicturesRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *UsersPicturesAPIService) GetPicturesExecute(r ApiGetPicturesRequest) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.GetPictures")
@@ -1139,10 +1133,10 @@ func (a *UsersPicturesAPIService) GetPicturesExecute(r ApiGetPicturesRequest) ([
 }
 
 type ApiGetPicturesAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService UsersPicturesAPI
-	page       *float32
-	perPage    *float32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -1166,25 +1160,24 @@ GetPicturesAlt1 Get all the pictures that belong to the user
 
 This method returns every portrait image belonging to the authenticated user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPicturesAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetPicturesAlt1Request
 */
 func (a *UsersPicturesAPIService) GetPicturesAlt1(ctx context.Context) ApiGetPicturesAlt1Request {
 	return ApiGetPicturesAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *UsersPicturesAPIService) GetPicturesAlt1Execute(r ApiGetPicturesAlt1Request) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersPicturesAPIService.GetPicturesAlt1")

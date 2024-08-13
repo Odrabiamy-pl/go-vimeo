@@ -20,9 +20,9 @@ var _ MappedNullable = &UserPreferencesVideos{}
 // UserPreferencesVideos struct for UserPreferencesVideos
 type UserPreferencesVideos struct {
 	// The password for viewing the authenticated user's videos.
-	Password *string                       `json:"password,omitempty"`
-	Privacy  *UserPreferencesVideosPrivacy `json:"privacy,omitempty"`
-	// An array of the authorized user's default content ratings.  Option descriptions:  * `drugs` - The video contains drug or alcohol use.  * `language` - The video contains profanity or sexually suggestive content.  * `nudity` - The video contains nudity.  * `safe` - The video is suitable for all audiences.  * `unrated` - The video hasn't been rated.  * `violence` - The video contains violent or graphic content.
+	Password *string `json:"password,omitempty"`
+	Privacy *UserPreferencesVideosPrivacy `json:"privacy,omitempty"`
+	// An array of the authorized user's default content ratings.  Option descriptions:  * `drugs` - The video contains drug or alcohol use.  * `language` - The video contains profanity or sexually suggestive content.  * `nudity` - The video contains nudity.  * `safe` - The video is suitable for all audiences.  * `unrated` - The video hasn't been rated.  * `violence` - The video contains violent or graphic content. 
 	Rating []string `json:"rating"`
 }
 
@@ -133,7 +133,7 @@ func (o *UserPreferencesVideos) SetRating(v []string) {
 }
 
 func (o UserPreferencesVideos) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -187,3 +187,5 @@ func (v *NullableUserPreferencesVideos) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

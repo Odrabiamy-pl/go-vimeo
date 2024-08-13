@@ -18,15 +18,16 @@ import (
 	"net/url"
 )
 
+
 type AuthenticationExtrasEssentialsAPI interface {
 
 	/*
-		DeleteToken Revoke the current access token
+	DeleteToken Revoke the current access token
 
-		This method revokes the access token that the requesting app is currently using. The token must be of the OAuth 2 type.
+	This method revokes the access token that the requesting app is currently using. The token must be of the OAuth 2 type.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiDeleteTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteTokenRequest
 	*/
 	DeleteToken(ctx context.Context) ApiDeleteTokenRequest
 
@@ -34,12 +35,12 @@ type AuthenticationExtrasEssentialsAPI interface {
 	DeleteTokenExecute(r ApiDeleteTokenRequest) (*http.Response, error)
 
 	/*
-		VerifyToken Verify an OAuth 2 access token
+	VerifyToken Verify an OAuth 2 access token
 
-		This method verifies that an OAuth 2 access token exists.
+	This method verifies that an OAuth 2 access token exists.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiVerifyTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVerifyTokenRequest
 	*/
 	VerifyToken(ctx context.Context) ApiVerifyTokenRequest
 
@@ -52,7 +53,7 @@ type AuthenticationExtrasEssentialsAPI interface {
 type AuthenticationExtrasEssentialsAPIService service
 
 type ApiDeleteTokenRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService AuthenticationExtrasEssentialsAPI
 }
 
@@ -65,22 +66,22 @@ DeleteToken Revoke the current access token
 
 This method revokes the access token that the requesting app is currently using. The token must be of the OAuth 2 type.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteTokenRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDeleteTokenRequest
 */
 func (a *AuthenticationExtrasEssentialsAPIService) DeleteToken(ctx context.Context) ApiDeleteTokenRequest {
 	return ApiDeleteTokenRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AuthenticationExtrasEssentialsAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationExtrasEssentialsAPIService.DeleteToken")
@@ -140,8 +141,8 @@ func (a *AuthenticationExtrasEssentialsAPIService) DeleteTokenExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -150,7 +151,7 @@ func (a *AuthenticationExtrasEssentialsAPIService) DeleteTokenExecute(r ApiDelet
 }
 
 type ApiVerifyTokenRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService AuthenticationExtrasEssentialsAPI
 }
 
@@ -163,25 +164,24 @@ VerifyToken Verify an OAuth 2 access token
 
 This method verifies that an OAuth 2 access token exists.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVerifyTokenRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVerifyTokenRequest
 */
 func (a *AuthenticationExtrasEssentialsAPIService) VerifyToken(ctx context.Context) ApiVerifyTokenRequest {
 	return ApiVerifyTokenRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Auth
+//  @return Auth
 func (a *AuthenticationExtrasEssentialsAPIService) VerifyTokenExecute(r ApiVerifyTokenRequest) (*Auth, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Auth
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Auth
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationExtrasEssentialsAPIService.VerifyToken")
@@ -241,8 +241,8 @@ func (a *AuthenticationExtrasEssentialsAPIService) VerifyTokenExecute(r ApiVerif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

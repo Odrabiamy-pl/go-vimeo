@@ -27,7 +27,7 @@ type WebinarSchedule struct {
 	ScheduledTime NullableString `json:"scheduled_time"`
 	// The date in ISO 8601 format on which the webinar is expected to be live when **schedule.type** is `single`.
 	StartTime string `json:"start_time"`
-	// The schedule of the webinar.  Option descriptions:  * `single` - The webinar is live only once.  * `weekly` - The webinar is live on a recurring weekly basis.
+	// The schedule of the webinar.  Option descriptions:  * `single` - The webinar is live only once.  * `weekly` - The webinar is live on a recurring weekly basis. 
 	Type string `json:"type"`
 	// The weekdays in UTC on which the webinar is expected to be live when **schedule.time** is `weekly`. The value of this field ranges from `1` to `7`, where `1` is Monday and `7` is Sunday.
 	Weekdays []string `json:"weekdays"`
@@ -203,7 +203,7 @@ func (o *WebinarSchedule) SetWeekdays(v []string) {
 }
 
 func (o WebinarSchedule) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -256,3 +256,5 @@ func (v *NullableWebinarSchedule) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

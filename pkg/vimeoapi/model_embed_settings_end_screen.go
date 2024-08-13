@@ -19,7 +19,7 @@ var _ MappedNullable = &EmbedSettingsEndScreen{}
 
 // EmbedSettingsEndScreen A collection of information about the embeddable player's end screen.
 type EmbedSettingsEndScreen struct {
-	// How the embeddable player handles the end screen.  Option descriptions:  * `empty` - The end screen is empty.  * `loop` - The end screen loops the video playback.  * `share` - The end screen includes sharing options.  * `thumbnail` - The end screen includes the thumbnail of the video.
+	// How the embeddable player handles the end screen.  Option descriptions:  * `empty` - The end screen is empty.  * `loop` - The end screen loops the video playback.  * `share` - The end screen includes sharing options.  * `thumbnail` - The end screen includes the thumbnail of the video. 
 	Type string `json:"type"`
 }
 
@@ -66,7 +66,7 @@ func (o *EmbedSettingsEndScreen) SetType(v string) {
 }
 
 func (o EmbedSettingsEndScreen) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,3 +114,5 @@ func (v *NullableEmbedSettingsEndScreen) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

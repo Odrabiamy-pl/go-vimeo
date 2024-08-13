@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type OnDemandBackgroundsAPI interface {
 
 	/*
-		CreateVodBackground Add a background to an On Demand page
+	CreateVodBackground Add a background to an On Demand page
 
-		This method adds a background image to the specified On Demand page. The authenticated user must be the owner of the page.
+	This method adds a background image to the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiCreateVodBackgroundRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiCreateVodBackgroundRequest
 	*/
 	CreateVodBackground(ctx context.Context, ondemandId float32) ApiCreateVodBackgroundRequest
 
@@ -37,14 +38,14 @@ type OnDemandBackgroundsAPI interface {
 	CreateVodBackgroundExecute(r ApiCreateVodBackgroundRequest) (*Picture, *http.Response, error)
 
 	/*
-		DeleteVodBackground Delete a background on an On Demand page
+	DeleteVodBackground Delete a background on an On Demand page
 
-		This method deletes the specified background image on an On Demand page. The authenticated user must be the owner of the page.
+	This method deletes the specified background image on an On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param backgroundId The ID of the background image.
-		@param ondemandId The ID of the On Demand page.
-		@return ApiDeleteVodBackgroundRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backgroundId The ID of the background image.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiDeleteVodBackgroundRequest
 	*/
 	DeleteVodBackground(ctx context.Context, backgroundId float32, ondemandId float32) ApiDeleteVodBackgroundRequest
 
@@ -52,14 +53,14 @@ type OnDemandBackgroundsAPI interface {
 	DeleteVodBackgroundExecute(r ApiDeleteVodBackgroundRequest) (*http.Response, error)
 
 	/*
-		EditVodBackground Edit a background on an On Demand page
+	EditVodBackground Edit a background on an On Demand page
 
-		This method edits the specified background image on an On Demand page. The authenticated user must be the owner of the page.
+	This method edits the specified background image on an On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param backgroundId The ID of the background image.
-		@param ondemandId The ID of the On Demand page.
-		@return ApiEditVodBackgroundRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backgroundId The ID of the background image.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiEditVodBackgroundRequest
 	*/
 	EditVodBackground(ctx context.Context, backgroundId float32, ondemandId float32) ApiEditVodBackgroundRequest
 
@@ -68,14 +69,14 @@ type OnDemandBackgroundsAPI interface {
 	EditVodBackgroundExecute(r ApiEditVodBackgroundRequest) (*Picture, *http.Response, error)
 
 	/*
-		GetVodBackground Get a specific background on an On Demand page
+	GetVodBackground Get a specific background on an On Demand page
 
-		This method returns a single background image on the specified On Demand page. The authenticated user must be the owner of the page.
+	This method returns a single background image on the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param backgroundId The ID of the background image.
-		@param ondemandId The ID of the On Demand page.
-		@return ApiGetVodBackgroundRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backgroundId The ID of the background image.
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodBackgroundRequest
 	*/
 	GetVodBackground(ctx context.Context, backgroundId float32, ondemandId float32) ApiGetVodBackgroundRequest
 
@@ -84,13 +85,13 @@ type OnDemandBackgroundsAPI interface {
 	GetVodBackgroundExecute(r ApiGetVodBackgroundRequest) (*Picture, *http.Response, error)
 
 	/*
-		GetVodBackgrounds Get all the backgrounds on an On Demand page
+	GetVodBackgrounds Get all the backgrounds on an On Demand page
 
-		This method returns every background image on the specified On Demand page. The authenticated user must be the owner of the page.
+	This method returns every background image on the specified On Demand page. The authenticated user must be the owner of the page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiGetVodBackgroundsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodBackgroundsRequest
 	*/
 	GetVodBackgrounds(ctx context.Context, ondemandId float32) ApiGetVodBackgroundsRequest
 
@@ -103,7 +104,7 @@ type OnDemandBackgroundsAPI interface {
 type OnDemandBackgroundsAPIService service
 
 type ApiCreateVodBackgroundRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandBackgroundsAPI
 	ondemandId float32
 }
@@ -117,27 +118,26 @@ CreateVodBackground Add a background to an On Demand page
 
 This method adds a background image to the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiCreateVodBackgroundRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiCreateVodBackgroundRequest
 */
 func (a *OnDemandBackgroundsAPIService) CreateVodBackground(ctx context.Context, ondemandId float32) ApiCreateVodBackgroundRequest {
 	return ApiCreateVodBackgroundRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *OnDemandBackgroundsAPIService) CreateVodBackgroundExecute(r ApiCreateVodBackgroundRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandBackgroundsAPIService.CreateVodBackground")
@@ -198,8 +198,8 @@ func (a *OnDemandBackgroundsAPIService) CreateVodBackgroundExecute(r ApiCreateVo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -209,8 +209,8 @@ func (a *OnDemandBackgroundsAPIService) CreateVodBackgroundExecute(r ApiCreateVo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -228,10 +228,10 @@ func (a *OnDemandBackgroundsAPIService) CreateVodBackgroundExecute(r ApiCreateVo
 }
 
 type ApiDeleteVodBackgroundRequest struct {
-	ctx          context.Context
-	ApiService   OnDemandBackgroundsAPI
+	ctx context.Context
+	ApiService OnDemandBackgroundsAPI
 	backgroundId float32
-	ondemandId   float32
+	ondemandId float32
 }
 
 func (r ApiDeleteVodBackgroundRequest) Execute() (*http.Response, error) {
@@ -243,26 +243,26 @@ DeleteVodBackground Delete a background on an On Demand page
 
 This method deletes the specified background image on an On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param backgroundId The ID of the background image.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiDeleteVodBackgroundRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param backgroundId The ID of the background image.
+ @param ondemandId The ID of the On Demand page.
+ @return ApiDeleteVodBackgroundRequest
 */
 func (a *OnDemandBackgroundsAPIService) DeleteVodBackground(ctx context.Context, backgroundId float32, ondemandId float32) ApiDeleteVodBackgroundRequest {
 	return ApiDeleteVodBackgroundRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		backgroundId: backgroundId,
-		ondemandId:   ondemandId,
+		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
 func (a *OnDemandBackgroundsAPIService) DeleteVodBackgroundExecute(r ApiDeleteVodBackgroundRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandBackgroundsAPIService.DeleteVodBackground")
@@ -324,8 +324,8 @@ func (a *OnDemandBackgroundsAPIService) DeleteVodBackgroundExecute(r ApiDeleteVo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -335,8 +335,8 @@ func (a *OnDemandBackgroundsAPIService) DeleteVodBackgroundExecute(r ApiDeleteVo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -345,10 +345,10 @@ func (a *OnDemandBackgroundsAPIService) DeleteVodBackgroundExecute(r ApiDeleteVo
 }
 
 type ApiEditVodBackgroundRequest struct {
-	ctx                      context.Context
-	ApiService               OnDemandBackgroundsAPI
-	backgroundId             float32
-	ondemandId               float32
+	ctx context.Context
+	ApiService OnDemandBackgroundsAPI
+	backgroundId float32
+	ondemandId float32
 	editVodBackgroundRequest *EditVodBackgroundRequest
 }
 
@@ -366,29 +366,28 @@ EditVodBackground Edit a background on an On Demand page
 
 This method edits the specified background image on an On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param backgroundId The ID of the background image.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiEditVodBackgroundRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param backgroundId The ID of the background image.
+ @param ondemandId The ID of the On Demand page.
+ @return ApiEditVodBackgroundRequest
 */
 func (a *OnDemandBackgroundsAPIService) EditVodBackground(ctx context.Context, backgroundId float32, ondemandId float32) ApiEditVodBackgroundRequest {
 	return ApiEditVodBackgroundRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		backgroundId: backgroundId,
-		ondemandId:   ondemandId,
+		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *OnDemandBackgroundsAPIService) EditVodBackgroundExecute(r ApiEditVodBackgroundRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandBackgroundsAPIService.EditVodBackground")
@@ -452,8 +451,8 @@ func (a *OnDemandBackgroundsAPIService) EditVodBackgroundExecute(r ApiEditVodBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -463,8 +462,8 @@ func (a *OnDemandBackgroundsAPIService) EditVodBackgroundExecute(r ApiEditVodBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -482,10 +481,10 @@ func (a *OnDemandBackgroundsAPIService) EditVodBackgroundExecute(r ApiEditVodBac
 }
 
 type ApiGetVodBackgroundRequest struct {
-	ctx          context.Context
-	ApiService   OnDemandBackgroundsAPI
+	ctx context.Context
+	ApiService OnDemandBackgroundsAPI
 	backgroundId float32
-	ondemandId   float32
+	ondemandId float32
 }
 
 func (r ApiGetVodBackgroundRequest) Execute() (*Picture, *http.Response, error) {
@@ -497,29 +496,28 @@ GetVodBackground Get a specific background on an On Demand page
 
 This method returns a single background image on the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param backgroundId The ID of the background image.
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodBackgroundRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param backgroundId The ID of the background image.
+ @param ondemandId The ID of the On Demand page.
+ @return ApiGetVodBackgroundRequest
 */
 func (a *OnDemandBackgroundsAPIService) GetVodBackground(ctx context.Context, backgroundId float32, ondemandId float32) ApiGetVodBackgroundRequest {
 	return ApiGetVodBackgroundRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		backgroundId: backgroundId,
-		ondemandId:   ondemandId,
+		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *OnDemandBackgroundsAPIService) GetVodBackgroundExecute(r ApiGetVodBackgroundRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandBackgroundsAPIService.GetVodBackground")
@@ -581,8 +579,8 @@ func (a *OnDemandBackgroundsAPIService) GetVodBackgroundExecute(r ApiGetVodBackg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -592,8 +590,8 @@ func (a *OnDemandBackgroundsAPIService) GetVodBackgroundExecute(r ApiGetVodBackg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -611,11 +609,11 @@ func (a *OnDemandBackgroundsAPIService) GetVodBackgroundExecute(r ApiGetVodBackg
 }
 
 type ApiGetVodBackgroundsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandBackgroundsAPI
 	ondemandId float32
-	page       *float32
-	perPage    *float32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -639,27 +637,26 @@ GetVodBackgrounds Get all the backgrounds on an On Demand page
 
 This method returns every background image on the specified On Demand page. The authenticated user must be the owner of the page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodBackgroundsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiGetVodBackgroundsRequest
 */
 func (a *OnDemandBackgroundsAPIService) GetVodBackgrounds(ctx context.Context, ondemandId float32) ApiGetVodBackgroundsRequest {
 	return ApiGetVodBackgroundsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *OnDemandBackgroundsAPIService) GetVodBackgroundsExecute(r ApiGetVodBackgroundsRequest) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandBackgroundsAPIService.GetVodBackgrounds")
@@ -726,8 +723,8 @@ func (a *OnDemandBackgroundsAPIService) GetVodBackgroundsExecute(r ApiGetVodBack
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -23,9 +23,9 @@ type UploadVideoAlt1RequestSpatial struct {
 	DirectorTimeline []UploadVideoAlt1RequestSpatialDirectorTimelineInner `json:"director_timeline,omitempty"`
 	// The 360 field of view. This value must be between `30` and `90`; the default value is `50`.
 	FieldOfView *float32 `json:"field_of_view,omitempty"`
-	// The 360 spatial projection.  Option descriptions:  * `cubical` - Use cubical projection.  * `cylindrical` - Use cylindrical projection.  * `dome` - Use dome projection.  * `equirectangular` - Use equirectangular projection.  * `pyramid` - Use pyramid projection.
+	// The 360 spatial projection.  Option descriptions:  * `cubical` - Use cubical projection.  * `cylindrical` - Use cylindrical projection.  * `dome` - Use dome projection.  * `equirectangular` - Use equirectangular projection.  * `pyramid` - Use pyramid projection. 
 	Projection *string `json:"projection,omitempty"`
-	// The 360 spatial stereo format.  Option descriptions:  * `left-right` - Use left-right stereo.  * `mono` - Use monaural audio.  * `top-bottom` - Use top-bottom stereo.
+	// The 360 spatial stereo format.  Option descriptions:  * `left-right` - Use left-right stereo.  * `mono` - Use monaural audio.  * `top-bottom` - Use top-bottom stereo. 
 	StereoFormat *string `json:"stereo_format,omitempty"`
 }
 
@@ -175,7 +175,7 @@ func (o *UploadVideoAlt1RequestSpatial) SetStereoFormat(v string) {
 }
 
 func (o UploadVideoAlt1RequestSpatial) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,3 +234,5 @@ func (v *NullableUploadVideoAlt1RequestSpatial) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

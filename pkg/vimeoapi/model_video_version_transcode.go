@@ -19,7 +19,7 @@ var _ MappedNullable = &VideoVersionTranscode{}
 
 // VideoVersionTranscode The version's transcode information.
 type VideoVersionTranscode struct {
-	// The status code for the availability of the video version.  Option descriptions:  * `complete` - Transcoding is complete. The video version is available.  * `error` - There was a transcoding error. The video version isn't available.  * `in_progress` - Transcoding is in progress. The video version isn't available yet.
+	// The status code for the availability of the video version.  Option descriptions:  * `complete` - Transcoding is complete. The video version is available.  * `error` - There was a transcoding error. The video version isn't available.  * `in_progress` - Transcoding is in progress. The video version isn't available yet. 
 	Status *string `json:"status,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *VideoVersionTranscode) SetStatus(v string) {
 }
 
 func (o VideoVersionTranscode) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableVideoVersionTranscode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

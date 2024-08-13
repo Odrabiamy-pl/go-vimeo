@@ -19,23 +19,23 @@ var _ MappedNullable = &CreateVodAlt1Request{}
 
 // CreateVodAlt1Request struct for CreateVodAlt1Request
 type CreateVodAlt1Request struct {
-	// An array of accepted currencies.  Option descriptions:  * `AUD` - The currency is in Australian dollars.  * `CAD` - The currency is in Canadian dollars.  * `CHF` - The currency is in Swiss francs.  * `DKK` - The currency is in Danish krone.  * `EUR` - The currency is in euros.  * `GBP` - The currency is in British pounds.  * `JPY` - The currency is in Japanese yen.  * `KRW` - The currency is in South Korean won.  * `NOK` - The currency is in Norwegian krone.  * `PLN` - The currency is in Polish zloty.  * `SEK` - The currency is in Swedish krona.  * `USD` - The currency is in United States dollars.
-	AcceptedCurrencies *string                  `json:"accepted_currencies,omitempty"`
-	Buy                *CreateVodAlt1RequestBuy `json:"buy,omitempty"`
-	// The content rating of the video, given either as a comma-separated list or as a JSON array, depending on the request format.  Option descriptions:  * `drugs` - The video contains drug or alcohol use.  * `language` - The video contains profanity or sexually suggestive content.  * `nudity` - The video contains nudity.  * `safe` - The video is suitable for all audiences.  * `unrated` - The video hasn't been rated.  * `violence` - The video contains violent or graphic content.
+	// An array of accepted currencies.  Option descriptions:  * `AUD` - The currency is in Australian dollars.  * `CAD` - The currency is in Canadian dollars.  * `CHF` - The currency is in Swiss francs.  * `DKK` - The currency is in Danish krone.  * `EUR` - The currency is in euros.  * `GBP` - The currency is in British pounds.  * `JPY` - The currency is in Japanese yen.  * `KRW` - The currency is in South Korean won.  * `NOK` - The currency is in Norwegian krone.  * `PLN` - The currency is in Polish zloty.  * `SEK` - The currency is in Swedish krona.  * `USD` - The currency is in United States dollars. 
+	AcceptedCurrencies *string `json:"accepted_currencies,omitempty"`
+	Buy *CreateVodAlt1RequestBuy `json:"buy,omitempty"`
+	// The content rating of the video, given either as a comma-separated list or as a JSON array, depending on the request format.  Option descriptions:  * `drugs` - The video contains drug or alcohol use.  * `language` - The video contains profanity or sexually suggestive content.  * `nudity` - The video contains nudity.  * `safe` - The video is suitable for all audiences.  * `unrated` - The video hasn't been rated.  * `violence` - The video contains violent or graphic content. 
 	ContentRating string `json:"content_rating"`
 	// The description of the On Demand page.
 	Description string `json:"description"`
 	// The custom domain of the On Demand page.
-	DomainLink *string                       `json:"domain_link,omitempty"`
-	Episodes   *CreateVodAlt1RequestEpisodes `json:"episodes,omitempty"`
+	DomainLink *string `json:"domain_link,omitempty"`
+	Episodes *CreateVodAlt1RequestEpisodes `json:"episodes,omitempty"`
 	// The custom string to use in the Vimeo URL of the On Demand page.
 	Link *string `json:"link,omitempty"`
 	// The name of the On Demand page.
-	Name         string                            `json:"name"`
-	Rent         *CreateVodAlt1RequestRent         `json:"rent,omitempty"`
+	Name string `json:"name"`
+	Rent *CreateVodAlt1RequestRent `json:"rent,omitempty"`
 	Subscription *CreateVodAlt1RequestSubscription `json:"subscription,omitempty"`
-	// The type of the On Demand page.  Option descriptions:  * `film` - The On Demand page is a film.  * `series` - The On Demand page is a series.
+	// The type of the On Demand page.  Option descriptions:  * `film` - The On Demand page is a film.  * `series` - The On Demand page is a series. 
 	Type string `json:"type"`
 }
 
@@ -381,7 +381,7 @@ func (o *CreateVodAlt1Request) SetType(v string) {
 }
 
 func (o CreateVodAlt1Request) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -453,3 +453,5 @@ func (v *NullableCreateVodAlt1Request) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

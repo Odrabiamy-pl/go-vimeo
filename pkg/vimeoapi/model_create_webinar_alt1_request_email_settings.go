@@ -22,7 +22,7 @@ type CreateWebinarAlt1RequestEmailSettings struct {
 	// The accent color scheme for emails that are sent about the webinar. _This field is deprecated._
 	AccentColor *string `json:"accent_color,omitempty"`
 	// The custom link for emails that are sent about the webinar. _This field is deprecated._
-	CustomLink       *string                                                `json:"custom_link,omitempty"`
+	CustomLink *string `json:"custom_link,omitempty"`
 	EmailPreferences *CreateWebinarAlt1RequestEmailSettingsEmailPreferences `json:"email_preferences,omitempty"`
 	// The name of the sender for emails that are sent about the webinar. _This field is deprecated._
 	From *string `json:"from,omitempty"`
@@ -446,7 +446,7 @@ func (o *CreateWebinarAlt1RequestEmailSettings) SetUseSenderPolicyUrl(v bool) {
 }
 
 func (o CreateWebinarAlt1RequestEmailSettings) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -529,3 +529,5 @@ func (v *NullableCreateWebinarAlt1RequestEmailSettings) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

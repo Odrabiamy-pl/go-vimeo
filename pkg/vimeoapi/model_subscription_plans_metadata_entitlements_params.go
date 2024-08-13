@@ -25,9 +25,9 @@ type SubscriptionPlansMetadataEntitlementsParams struct {
 	VideoStoragePeriodicQuota NullableString `json:"video_storage_periodic_quota"`
 	// The video storage total lifetime cap.
 	VideoStorageQuotaCap NullableString `json:"video_storage_quota_cap"`
-	// The video storage quota period.  Option descriptions:  * `lifetime` - The product has a lifetime video storage quota period.  * `month` - The product has a monthly video storage quota period.  * `week` - The product has a weekly video storage quota period.  * `year` - The product has a yearly video storage quota period.
+	// The video storage quota period.  Option descriptions:  * `lifetime` - The product has a lifetime video storage quota period.  * `month` - The product has a monthly video storage quota period.  * `week` - The product has a weekly video storage quota period.  * `year` - The product has a yearly video storage quota period. 
 	VideoStorageQuotaPeriod string `json:"video_storage_quota_period"`
-	// The unit of the video storage for the user's periodic quota.  Option descriptions:  * `video_count` - The product has video storage based on video count.  * `video_size` - The product has video storage based on video size.
+	// The unit of the video storage for the user's periodic quota.  Option descriptions:  * `video_count` - The product has video storage based on video count.  * `video_size` - The product has video storage based on video size. 
 	VideoStorageQuotaUnit string `json:"video_storage_quota_unit"`
 }
 
@@ -180,7 +180,7 @@ func (o *SubscriptionPlansMetadataEntitlementsParams) SetVideoStorageQuotaUnit(v
 }
 
 func (o SubscriptionPlansMetadataEntitlementsParams) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,3 +232,5 @@ func (v *NullableSubscriptionPlansMetadataEntitlementsParams) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

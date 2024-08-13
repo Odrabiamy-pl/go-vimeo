@@ -18,15 +18,16 @@ import (
 	"net/url"
 )
 
+
 type AuthenticationExtrasExchangeAPI interface {
 
 	/*
-		ExchangeAuthCode Exchange an authorization code for an access token
+	ExchangeAuthCode Exchange an authorization code for an access token
 
-		This method exchanges an OAuth authorization code for an OAuth access token.
+	This method exchanges an OAuth authorization code for an OAuth access token.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiExchangeAuthCodeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiExchangeAuthCodeRequest
 	*/
 	ExchangeAuthCode(ctx context.Context) ApiExchangeAuthCodeRequest
 
@@ -39,8 +40,8 @@ type AuthenticationExtrasExchangeAPI interface {
 type AuthenticationExtrasExchangeAPIService service
 
 type ApiExchangeAuthCodeRequest struct {
-	ctx                     context.Context
-	ApiService              AuthenticationExtrasExchangeAPI
+	ctx context.Context
+	ApiService AuthenticationExtrasExchangeAPI
 	exchangeAuthCodeRequest *ExchangeAuthCodeRequest
 }
 
@@ -58,25 +59,24 @@ ExchangeAuthCode Exchange an authorization code for an access token
 
 This method exchanges an OAuth authorization code for an OAuth access token.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiExchangeAuthCodeRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiExchangeAuthCodeRequest
 */
 func (a *AuthenticationExtrasExchangeAPIService) ExchangeAuthCode(ctx context.Context) ApiExchangeAuthCodeRequest {
 	return ApiExchangeAuthCodeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Auth
+//  @return Auth
 func (a *AuthenticationExtrasExchangeAPIService) ExchangeAuthCodeExecute(r ApiExchangeAuthCodeRequest) (*Auth, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Auth
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Auth
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationExtrasExchangeAPIService.ExchangeAuthCode")
@@ -141,8 +141,8 @@ func (a *AuthenticationExtrasExchangeAPIService) ExchangeAuthCodeExecute(r ApiEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

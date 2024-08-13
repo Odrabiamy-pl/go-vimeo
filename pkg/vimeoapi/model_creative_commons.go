@@ -19,7 +19,7 @@ var _ MappedNullable = &CreativeCommons{}
 
 // CreativeCommons struct for CreativeCommons
 type CreativeCommons struct {
-	// The type of Creative Commons license.  Option descriptions:  * `by` - Attribution.  * `by-nc` - Attribution Non-Commercial.  * `by-nc-nd` - Attribution Non-Commercial No Derivatives.  * `by-nc-sa` - Attribution Non-Commercial Share Alike.  * `by-nd` - Attribution No Derivatives.  * `by-sa` - Attribution Share Alike.  * `cc0` - Public Domain Dedication.
+	// The type of Creative Commons license.  Option descriptions:  * `by` - Attribution.  * `by-nc` - Attribution Non-Commercial.  * `by-nc-nd` - Attribution Non-Commercial No Derivatives.  * `by-nc-sa` - Attribution Non-Commercial Share Alike.  * `by-nd` - Attribution No Derivatives.  * `by-sa` - Attribution Share Alike.  * `cc0` - Public Domain Dedication. 
 	Code string `json:"code"`
 	// The description of the Creative Commons license.
 	Name string `json:"name"`
@@ -122,7 +122,7 @@ func (o *CreativeCommons) SetUri(v string) {
 }
 
 func (o CreativeCommons) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -172,3 +172,5 @@ func (v *NullableCreativeCommons) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

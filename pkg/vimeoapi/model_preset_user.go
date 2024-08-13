@@ -19,7 +19,7 @@ var _ MappedNullable = &PresetUser{}
 
 // PresetUser The owner of the preset.
 type PresetUser struct {
-	// The authenticated user's account type.  Option descriptions:  * `advanced` - The user has a Vimeo Advanced subscription.  * `basic` - The user has a Vimeo Basic subscription.  * `business` - The user has a Vimeo Business subscription.  * `enterprise` - The user has a Vimeo Enterprise subscription.  * `free` - The user has a Vimeo Free subscription.  * `live_business` - The user has a Vimeo Business Live subscription.  * `live_premium` - The user has a Vimeo Premium subscription.  * `live_pro` - The user has a Vimeo PRO Live subscription.  * `plus` - The user has a Vimeo Plus subscription.  * `pro` - The user has a Vimeo Pro subscription.  * `pro_unlimited` - The user has a Vimeo PRO Unlimited subscription.  * `producer` - The user has a Vimeo Producer subscription.  * `standard` - The user has a Vimeo Standard subscription.  * `starter` - The user has a Vimeo Starter subscription.
+	// The authenticated user's account type.  Option descriptions:  * `advanced` - The user has a Vimeo Advanced subscription.  * `basic` - The user has a Vimeo Basic subscription.  * `business` - The user has a Vimeo Business subscription.  * `enterprise` - The user has a Vimeo Enterprise subscription.  * `free` - The user has a Vimeo Free subscription.  * `live_business` - The user has a Vimeo Business Live subscription.  * `live_premium` - The user has a Vimeo Premium subscription.  * `live_pro` - The user has a Vimeo PRO Live subscription.  * `plus` - The user has a Vimeo Plus subscription.  * `pro` - The user has a Vimeo Pro subscription.  * `pro_unlimited` - The user has a Vimeo PRO Unlimited subscription.  * `producer` - The user has a Vimeo Producer subscription.  * `standard` - The user has a Vimeo Standard subscription.  * `starter` - The user has a Vimeo Starter subscription. 
 	Account string `json:"account"`
 	// Whether the authenticated user is available for hire.
 	AvailableForHire bool `json:"available_for_hire"`
@@ -31,7 +31,7 @@ type PresetUser struct {
 	Capabilities map[string]interface{} `json:"capabilities"`
 	// The comma-separated list of clients.
 	Clients string `json:"clients"`
-	// The authenticated user's content filters.  Option descriptions:  * `drugs` - The content contains drug or alcohol use.  * `language` - The content contains profanity or sexually suggestive language.  * `nudity` - The content contains nudity.  * `safe` - The content is suitable for all audiences.  * `unrated` - The content hasn't been rated.  * `violence` - The content contains violence or is graphic.
+	// The authenticated user's content filters.  Option descriptions:  * `drugs` - The content contains drug or alcohol use.  * `language` - The content contains profanity or sexually suggestive language.  * `nudity` - The content contains nudity.  * `safe` - The content is suitable for all audiences.  * `unrated` - The content hasn't been rated.  * `violence` - The content contains violence or is graphic. 
 	ContentFilter []string `json:"content_filter,omitempty"`
 	// The time in ISO 8601 format when the user account was created.
 	CreatedTime string `json:"created_time"`
@@ -44,19 +44,18 @@ type PresetUser struct {
 	// The absolute URL of the authenticated users's profile page.
 	Link string `json:"link"`
 	// The authenticated user's location.
-	Location        NullableString              `json:"location"`
+	Location NullableString `json:"location"`
 	LocationDetails NullableUserLocationDetails `json:"location_details"`
-	Metadata        UserMetadata                `json:"metadata"`
 	// The authenticated user's display name.
-	Name        string          `json:"name"`
-	Pictures    Picture         `json:"pictures"`
+	Name string `json:"name"`
+	Pictures Picture `json:"pictures"`
 	Preferences UserPreferences `json:"preferences"`
 	// The authenticated user's resource key string.
 	ResourceKey string `json:"resource_key"`
 	// The authenticated user's short bio text.
 	ShortBio NullableString `json:"short_bio"`
 	// A list of the authenticated user's skills.
-	Skills      []Skill         `json:"skills"`
+	Skills []Skill `json:"skills"`
 	UploadQuota UserUploadQuota `json:"upload_quota"`
 	// The authenticated user's canonical relative URI.
 	Uri string `json:"uri"`
@@ -68,7 +67,7 @@ type PresetUser struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPresetUser(account string, availableForHire bool, bio NullableString, canWorkRemotely bool, capabilities map[string]interface{}, clients string, createdTime string, gender NullableString, hasInvalidEmail bool, isExpert bool, link string, location NullableString, locationDetails NullableUserLocationDetails, metadata UserMetadata, name string, pictures Picture, preferences UserPreferences, resourceKey string, shortBio NullableString, skills []Skill, uploadQuota UserUploadQuota, uri string, websites []UserWebsitesInner) *PresetUser {
+func NewPresetUser(account string, availableForHire bool, bio NullableString, canWorkRemotely bool, capabilities map[string]interface{}, clients string, createdTime string, gender NullableString, hasInvalidEmail bool, isExpert bool, link string, location NullableString, locationDetails NullableUserLocationDetails, name string, pictures Picture, preferences UserPreferences, resourceKey string, shortBio NullableString, skills []Skill, uploadQuota UserUploadQuota, uri string, websites []UserWebsitesInner) *PresetUser {
 	this := PresetUser{}
 	this.Account = account
 	this.AvailableForHire = availableForHire
@@ -83,7 +82,6 @@ func NewPresetUser(account string, availableForHire bool, bio NullableString, ca
 	this.Link = link
 	this.Location = location
 	this.LocationDetails = locationDetails
-	this.Metadata = metadata
 	this.Name = name
 	this.Pictures = pictures
 	this.Preferences = preferences
@@ -456,30 +454,6 @@ func (o *PresetUser) SetLocationDetails(v UserLocationDetails) {
 	o.LocationDetails.Set(&v)
 }
 
-// GetMetadata returns the Metadata field value
-func (o *PresetUser) GetMetadata() UserMetadata {
-	if o == nil {
-		var ret UserMetadata
-		return ret
-	}
-
-	return o.Metadata
-}
-
-// GetMetadataOk returns a tuple with the Metadata field value
-// and a boolean to check if the value has been set.
-func (o *PresetUser) GetMetadataOk() (*UserMetadata, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Metadata, true
-}
-
-// SetMetadata sets field value
-func (o *PresetUser) SetMetadata(v UserMetadata) {
-	o.Metadata = v
-}
-
 // GetName returns the Name field value
 func (o *PresetUser) GetName() string {
 	if o == nil {
@@ -701,7 +675,7 @@ func (o *PresetUser) SetWebsites(v []UserWebsitesInner) {
 }
 
 func (o PresetUser) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -726,7 +700,6 @@ func (o PresetUser) ToMap() (map[string]interface{}, error) {
 	toSerialize["link"] = o.Link
 	toSerialize["location"] = o.Location.Get()
 	toSerialize["location_details"] = o.LocationDetails.Get()
-	toSerialize["metadata"] = o.Metadata
 	toSerialize["name"] = o.Name
 	toSerialize["pictures"] = o.Pictures
 	toSerialize["preferences"] = o.Preferences
@@ -776,3 +749,5 @@ func (v *NullablePresetUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

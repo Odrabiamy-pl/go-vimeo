@@ -19,7 +19,7 @@ var _ MappedNullable = &LiveEventSessionStatusIngest{}
 
 // LiveEventSessionStatusIngest The ingest of the video.
 type LiveEventSessionStatusIngest struct {
-	// The protocol used for this session.  Option descriptions:  * `dash` - The protocol is DASH.  * `rtmp` - The protocol is RTMP.  * `simple_live` - The protocol is Simplelive.  * `studio_cloud` - The protocol is StudioCloud.  * `unknown` - The protocol is unknown or not set.  * `webrtc` - The protocol is WebRTC.
+	// The protocol used for this session.  Option descriptions:  * `dash` - The protocol is DASH.  * `rtmp` - The protocol is RTMP.  * `simple_live` - The protocol is Simplelive.  * `studio_cloud` - The protocol is StudioCloud.  * `unknown` - The protocol is unknown or not set.  * `webrtc` - The protocol is WebRTC. 
 	EncoderType string `json:"encoder_type"`
 	// The timestamp in UTC format when the live stream ended.
 	EndTime NullableFloat32 `json:"end_time"`
@@ -41,7 +41,7 @@ type LiveEventSessionStatusIngest struct {
 	SessionId NullableString `json:"session_id"`
 	// The timestamp in UTC format when the live video started.
 	StartTime NullableFloat32 `json:"start_time"`
-	// The ingest status of the live video.  Option descriptions:  * `0` - There’s a live video, but no RMTP URL or key.  * `1` - There’s an RMTP URL and key, but the machine is provisioning.  * `2` - There’s an RMTP URL and key, and the machine is provisioned, but the stream hasn’t started yet.  * `3` - There’s an RMTP URL and key, and the machine is provisioned, but the stream didn’t start before the machine timed out.  * `4` - The stream has started and is currently underway.  * `5` - The stream has ended.
+	// The ingest status of the live video.  Option descriptions:  * `0` - There’s a live video, but no RMTP URL or key.  * `1` - There’s an RMTP URL and key, but the machine is provisioning.  * `2` - There’s an RMTP URL and key, and the machine is provisioned, but the stream hasn’t started yet.  * `3` - There’s an RMTP URL and key, and the machine is provisioned, but the stream didn’t start before the machine timed out.  * `4` - The stream has started and is currently underway.  * `5` - The stream has ended. 
 	Status NullableString `json:"status"`
 	// The reason why the stream ended. If the stream hasn't ended, this field is empty.
 	StreamEndedReason NullableFloat32 `json:"stream_ended_reason"`
@@ -470,7 +470,7 @@ func (o *LiveEventSessionStatusIngest) SetWidth(v float32) {
 }
 
 func (o LiveEventSessionStatusIngest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -532,3 +532,5 @@ func (v *NullableLiveEventSessionStatusIngest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

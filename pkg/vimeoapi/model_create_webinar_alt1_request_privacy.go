@@ -19,9 +19,9 @@ var _ MappedNullable = &CreateWebinarAlt1RequestPrivacy{}
 
 // CreateWebinarAlt1RequestPrivacy The privacy settings of the webinar.
 type CreateWebinarAlt1RequestPrivacy struct {
-	// The initial embed privacy of the webinar.  Option descriptions:  * `private` - The webinar can't be embedded on any domain.  * `public` - The webinar can be embedded on any domain.  * `whitelist` - The webinar can be embedded on whitelisted domains only.
+	// The initial embed privacy of the webinar.  Option descriptions:  * `private` - The webinar can't be embedded on any domain.  * `public` - The webinar can be embedded on any domain.  * `whitelist` - The webinar can be embedded on whitelisted domains only. 
 	Embed *string `json:"embed,omitempty"`
-	// The initial privacy of the webinar.  Option descriptions:  * `anybody` - Anyone can access the webinar. This privacy setting appears as `Public` on the Vimeo front end.  * `nobody` - No one except the owner can access the webinar. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Only those with the password can access the event.  * `team` - Only members of the authenticated user's team can access the webinar.
+	// The initial privacy of the webinar.  Option descriptions:  * `anybody` - Anyone can access the webinar. This privacy setting appears as `Public` on the Vimeo front end.  * `nobody` - No one except the owner can access the webinar. This privacy setting appears as `Private` on the Vimeo front end.  * `password` - Only those with the password can access the event.  * `team` - Only members of the authenticated user's team can access the webinar. 
 	View *string `json:"view,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *CreateWebinarAlt1RequestPrivacy) SetView(v string) {
 }
 
 func (o CreateWebinarAlt1RequestPrivacy) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableCreateWebinarAlt1RequestPrivacy) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type CategoriesVideosAPI interface {
 
 	/*
-		CheckCategoryForVideo Get a specific video in a category
+	CheckCategoryForVideo Get a specific video in a category
 
-		This method returns a single video in the specified category. You can use this method to determine whether the video belongs to the category.
+	This method returns a single video in the specified category. You can use this method to determine whether the video belongs to the category.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param category The name of the category.
-		@param videoId The ID of the video.
-		@return ApiCheckCategoryForVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@param videoId The ID of the video.
+	@return ApiCheckCategoryForVideoRequest
 	*/
 	CheckCategoryForVideo(ctx context.Context, category string, videoId int32) ApiCheckCategoryForVideoRequest
 
@@ -38,13 +39,13 @@ type CategoriesVideosAPI interface {
 	CheckCategoryForVideoExecute(r ApiCheckCategoryForVideoRequest) (*Video, *http.Response, error)
 
 	/*
-		GetCategoryVideos Get all the videos in a category
+	GetCategoryVideos Get all the videos in a category
 
-		This method returns every video that belongs to the specified category.
+	This method returns every video that belongs to the specified category.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param category The name of the category.
-		@return ApiGetCategoryVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@return ApiGetCategoryVideosRequest
 	*/
 	GetCategoryVideos(ctx context.Context, category string) ApiGetCategoryVideosRequest
 
@@ -53,13 +54,13 @@ type CategoriesVideosAPI interface {
 	GetCategoryVideosExecute(r ApiGetCategoryVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-		GetVideoCategories Get all the categories to which a video belongs
+	GetVideoCategories Get all the categories to which a video belongs
 
-		This method returns every category that contains the specified video.
+	This method returns every category that contains the specified video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiGetVideoCategoriesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetVideoCategoriesRequest
 	*/
 	GetVideoCategories(ctx context.Context, videoId int32) ApiGetVideoCategoriesRequest
 
@@ -68,13 +69,13 @@ type CategoriesVideosAPI interface {
 	GetVideoCategoriesExecute(r ApiGetVideoCategoriesRequest) ([]Category, *http.Response, error)
 
 	/*
-		SuggestVideoCategory Suggest categories for a video
+	SuggestVideoCategory Suggest categories for a video
 
-		This method sets multiple categories and subcategories for the specified video. Include the categories as a JSON block in the body of the request using the **category** field, like this: `[{ "category": "Tech" }, { "category": "Music" }]`. The authenticated user must have edit access to the video. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
+	This method sets multiple categories and subcategories for the specified video. Include the categories as a JSON block in the body of the request using the **category** field, like this: `[{ "category": "Tech" }, { "category": "Music" }]`. The authenticated user must have edit access to the video. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiSuggestVideoCategoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiSuggestVideoCategoryRequest
 	*/
 	SuggestVideoCategory(ctx context.Context, videoId int32) ApiSuggestVideoCategoryRequest
 
@@ -87,10 +88,10 @@ type CategoriesVideosAPI interface {
 type CategoriesVideosAPIService service
 
 type ApiCheckCategoryForVideoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService CategoriesVideosAPI
-	category   string
-	videoId    int32
+	category string
+	videoId int32
 }
 
 func (r ApiCheckCategoryForVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -102,29 +103,28 @@ CheckCategoryForVideo Get a specific video in a category
 
 This method returns a single video in the specified category. You can use this method to determine whether the video belongs to the category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@param videoId The ID of the video.
-	@return ApiCheckCategoryForVideoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param category The name of the category.
+ @param videoId The ID of the video.
+ @return ApiCheckCategoryForVideoRequest
 */
 func (a *CategoriesVideosAPIService) CheckCategoryForVideo(ctx context.Context, category string, videoId int32) ApiCheckCategoryForVideoRequest {
 	return ApiCheckCategoryForVideoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		category:   category,
-		videoId:    videoId,
+		ctx: ctx,
+		category: category,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *CategoriesVideosAPIService) CheckCategoryForVideoExecute(r ApiCheckCategoryForVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesVideosAPIService.CheckCategoryForVideo")
@@ -186,8 +186,8 @@ func (a *CategoriesVideosAPIService) CheckCategoryForVideoExecute(r ApiCheckCate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -205,25 +205,25 @@ func (a *CategoriesVideosAPIService) CheckCategoryForVideoExecute(r ApiCheckCate
 }
 
 type ApiGetCategoryVideosRequest struct {
-	ctx              context.Context
-	ApiService       CategoriesVideosAPI
-	category         string
-	direction        *string
-	filter           *string
+	ctx context.Context
+	ApiService CategoriesVideosAPI
+	category string
+	direction *string
+	filter *string
 	filterEmbeddable *bool
-	page             *float32
-	perPage          *float32
-	query            *string
-	sort             *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetCategoryVideosRequest) Direction(direction string) ApiGetCategoryVideosRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;conditional_featured&#x60; - Return featured videos.  * &#x60;embeddable&#x60; - Return embeddable videos.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;conditional_featured&#x60; - Return featured videos.  * &#x60;embeddable&#x60; - Return embeddable videos. 
 func (r ApiGetCategoryVideosRequest) Filter(filter string) ApiGetCategoryVideosRequest {
 	r.filter = &filter
 	return r
@@ -253,7 +253,7 @@ func (r ApiGetCategoryVideosRequest) Query(query string) ApiGetCategoryVideosReq
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;featured&#x60; - Sort the results by featured status.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.  * &#x60;relevant&#x60; - Sort the results by relevance.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;featured&#x60; - Sort the results by featured status.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;plays&#x60; - Sort the results by number of plays.  * &#x60;relevant&#x60; - Sort the results by relevance. 
 func (r ApiGetCategoryVideosRequest) Sort(sort string) ApiGetCategoryVideosRequest {
 	r.sort = &sort
 	return r
@@ -268,27 +268,26 @@ GetCategoryVideos Get all the videos in a category
 
 This method returns every video that belongs to the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@return ApiGetCategoryVideosRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param category The name of the category.
+ @return ApiGetCategoryVideosRequest
 */
 func (a *CategoriesVideosAPIService) GetCategoryVideos(ctx context.Context, category string) ApiGetCategoryVideosRequest {
 	return ApiGetCategoryVideosRequest{
 		ApiService: a,
-		ctx:        ctx,
-		category:   category,
+		ctx: ctx,
+		category: category,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *CategoriesVideosAPIService) GetCategoryVideosExecute(r ApiGetCategoryVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesVideosAPIService.GetCategoryVideos")
@@ -370,8 +369,8 @@ func (a *CategoriesVideosAPIService) GetCategoryVideosExecute(r ApiGetCategoryVi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -389,11 +388,11 @@ func (a *CategoriesVideosAPIService) GetCategoryVideosExecute(r ApiGetCategoryVi
 }
 
 type ApiGetVideoCategoriesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService CategoriesVideosAPI
-	videoId    int32
-	page       *float32
-	perPage    *float32
+	videoId int32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -417,27 +416,26 @@ GetVideoCategories Get all the categories to which a video belongs
 
 This method returns every category that contains the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetVideoCategoriesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiGetVideoCategoriesRequest
 */
 func (a *CategoriesVideosAPIService) GetVideoCategories(ctx context.Context, videoId int32) ApiGetVideoCategoriesRequest {
 	return ApiGetVideoCategoriesRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Category
+//  @return []Category
 func (a *CategoriesVideosAPIService) GetVideoCategoriesExecute(r ApiGetVideoCategoriesRequest) ([]Category, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Category
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Category
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesVideosAPIService.GetVideoCategories")
@@ -504,8 +502,8 @@ func (a *CategoriesVideosAPIService) GetVideoCategoriesExecute(r ApiGetVideoCate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -523,9 +521,9 @@ func (a *CategoriesVideosAPIService) GetVideoCategoriesExecute(r ApiGetVideoCate
 }
 
 type ApiSuggestVideoCategoryRequest struct {
-	ctx                         context.Context
-	ApiService                  CategoriesVideosAPI
-	videoId                     int32
+	ctx context.Context
+	ApiService CategoriesVideosAPI
+	videoId int32
 	suggestVideoCategoryRequest *SuggestVideoCategoryRequest
 }
 
@@ -543,27 +541,26 @@ SuggestVideoCategory Suggest categories for a video
 
 This method sets multiple categories and subcategories for the specified video. Include the categories as a JSON block in the body of the request using the **category** field, like this: `[{ "category": "Tech" }, { "category": "Music" }]`. The authenticated user must have edit access to the video. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiSuggestVideoCategoryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiSuggestVideoCategoryRequest
 */
 func (a *CategoriesVideosAPIService) SuggestVideoCategory(ctx context.Context, videoId int32) ApiSuggestVideoCategoryRequest {
 	return ApiSuggestVideoCategoryRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Category
+//  @return Category
 func (a *CategoriesVideosAPIService) SuggestVideoCategoryExecute(r ApiSuggestVideoCategoryRequest) (*Category, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Category
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Category
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesVideosAPIService.SuggestVideoCategory")
@@ -629,8 +626,8 @@ func (a *CategoriesVideosAPIService) SuggestVideoCategoryExecute(r ApiSuggestVid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -640,8 +637,8 @@ func (a *CategoriesVideosAPIService) SuggestVideoCategoryExecute(r ApiSuggestVid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

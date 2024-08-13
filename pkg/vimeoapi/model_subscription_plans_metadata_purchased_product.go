@@ -93,7 +93,7 @@ func (o *SubscriptionPlansMetadataPurchasedProduct) SetIsMonthly(v bool) {
 }
 
 func (o SubscriptionPlansMetadataPurchasedProduct) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,3 +142,5 @@ func (v *NullableSubscriptionPlansMetadataPurchasedProduct) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

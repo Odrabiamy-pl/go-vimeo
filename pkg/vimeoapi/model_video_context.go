@@ -19,7 +19,7 @@ var _ MappedNullable = &VideoContext{}
 
 // VideoContext The context of the video's subscription, if the video is part of a subscription.
 type VideoContext struct {
-	// The relevant contextual action.  Option descriptions:  * `Added to` - An Added To action.  * `Appearance by` - An Appearance By action.  * `Liked by` - A Liked By action.  * `Uploaded by` - An Uploaded By action.
+	// The relevant contextual action.  Option descriptions:  * `Added to` - An Added To action.  * `Appearance by` - An Appearance By action.  * `Liked by` - A Liked By action.  * `Uploaded by` - An Uploaded By action. 
 	Action string `json:"action"`
 	// The contextual resource: a user, group, or channel representation, or an object of a tag.
 	Resource map[string]interface{} `json:"resource"`
@@ -122,7 +122,7 @@ func (o *VideoContext) SetResourceType(v string) {
 }
 
 func (o VideoContext) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -174,3 +174,5 @@ func (v *NullableVideoContext) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

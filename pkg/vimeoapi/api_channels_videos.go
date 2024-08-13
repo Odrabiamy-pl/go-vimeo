@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type ChannelsVideosAPI interface {
 
 	/*
-		AddVideoToChannel Add a specific video to a channel
+	AddVideoToChannel Add a specific video to a channel
 
-		This method adds a single video to the specified channel. The authenticated user must be a moderator of the channel.
+	This method adds a single video to the specified channel. The authenticated user must be a moderator of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param videoId The ID of the video.
-		@return ApiAddVideoToChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiAddVideoToChannelRequest
 	*/
 	AddVideoToChannel(ctx context.Context, channelId float32, videoId int32) ApiAddVideoToChannelRequest
 
@@ -37,13 +38,13 @@ type ChannelsVideosAPI interface {
 	AddVideoToChannelExecute(r ApiAddVideoToChannelRequest) (*http.Response, error)
 
 	/*
-		AddVideosToChannel Add a list of videos to a channel
+	AddVideosToChannel Add a list of videos to a channel
 
-		This method adds multiple videos to the specified channel. The authenticated user must be a moderator of the channel.
+	This method adds multiple videos to the specified channel. The authenticated user must be a moderator of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiAddVideosToChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiAddVideosToChannelRequest
 	*/
 	AddVideosToChannel(ctx context.Context, channelId float32) ApiAddVideosToChannelRequest
 
@@ -51,14 +52,14 @@ type ChannelsVideosAPI interface {
 	AddVideosToChannelExecute(r ApiAddVideosToChannelRequest) (*http.Response, error)
 
 	/*
-		DeleteVideoFromChannel Remove a specific video from a channel
+	DeleteVideoFromChannel Remove a specific video from a channel
 
-		This method removes a single video from the specified channel. The authenticated user must be a moderator of the channel.
+	This method removes a single video from the specified channel. The authenticated user must be a moderator of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param videoId The ID of the video.
-		@return ApiDeleteVideoFromChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoFromChannelRequest
 	*/
 	DeleteVideoFromChannel(ctx context.Context, channelId float32, videoId int32) ApiDeleteVideoFromChannelRequest
 
@@ -66,13 +67,13 @@ type ChannelsVideosAPI interface {
 	DeleteVideoFromChannelExecute(r ApiDeleteVideoFromChannelRequest) (*http.Response, error)
 
 	/*
-		GetAvailableVideoChannels Get all the channels to which the user can add or remove a specific video
+	GetAvailableVideoChannels Get all the channels to which the user can add or remove a specific video
 
-		This method returns every channel to which the authenticated user can add or remove the specified video. The authenticated user must be a moderator of the channel.
+	This method returns every channel to which the authenticated user can add or remove the specified video. The authenticated user must be a moderator of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiGetAvailableVideoChannelsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetAvailableVideoChannelsRequest
 	*/
 	GetAvailableVideoChannels(ctx context.Context, videoId int32) ApiGetAvailableVideoChannelsRequest
 
@@ -81,14 +82,14 @@ type ChannelsVideosAPI interface {
 	GetAvailableVideoChannelsExecute(r ApiGetAvailableVideoChannelsRequest) ([]Channel, *http.Response, error)
 
 	/*
-		GetChannelVideo Get a specific video in a channel
+	GetChannelVideo Get a specific video in a channel
 
-		This method returns a single video in the specified channel. You can use it to determine whether the video is in the channel.
+	This method returns a single video in the specified channel. You can use it to determine whether the video is in the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param videoId The ID of the video.
-		@return ApiGetChannelVideoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param videoId The ID of the video.
+	@return ApiGetChannelVideoRequest
 	*/
 	GetChannelVideo(ctx context.Context, channelId float32, videoId int32) ApiGetChannelVideoRequest
 
@@ -97,13 +98,13 @@ type ChannelsVideosAPI interface {
 	GetChannelVideoExecute(r ApiGetChannelVideoRequest) (*Video, *http.Response, error)
 
 	/*
-		GetChannelVideos Get all the videos in a channel
+	GetChannelVideos Get all the videos in a channel
 
-		This method returns every video in the specified channel.
+	This method returns every video in the specified channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiGetChannelVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiGetChannelVideosRequest
 	*/
 	GetChannelVideos(ctx context.Context, channelId float32) ApiGetChannelVideosRequest
 
@@ -112,13 +113,13 @@ type ChannelsVideosAPI interface {
 	GetChannelVideosExecute(r ApiGetChannelVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-		RemoveVideosFromChannel Remove a list of videos from a channel
+	RemoveVideosFromChannel Remove a list of videos from a channel
 
-		This method removes multiple videos from the specified channel. Include the videos by their URI as a JSON block in the body of the request using the **video_uri** field, like this: `[{ "video_uri": "/videos/1234" }, { "video_uri": "/videos/1235" }]`. The authenticated user must be a moderator of the channel. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
+	This method removes multiple videos from the specified channel. Include the videos by their URI as a JSON block in the body of the request using the **video_uri** field, like this: `[{ "video_uri": "/videos/1234" }, { "video_uri": "/videos/1235" }]`. The authenticated user must be a moderator of the channel. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiRemoveVideosFromChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiRemoveVideosFromChannelRequest
 	*/
 	RemoveVideosFromChannel(ctx context.Context, channelId float32) ApiRemoveVideosFromChannelRequest
 
@@ -130,10 +131,10 @@ type ChannelsVideosAPI interface {
 type ChannelsVideosAPIService service
 
 type ApiAddVideoToChannelRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsVideosAPI
-	channelId  float32
-	videoId    int32
+	channelId float32
+	videoId int32
 }
 
 func (r ApiAddVideoToChannelRequest) Execute() (*http.Response, error) {
@@ -145,26 +146,26 @@ AddVideoToChannel Add a specific video to a channel
 
 This method adds a single video to the specified channel. The authenticated user must be a moderator of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiAddVideoToChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param videoId The ID of the video.
+ @return ApiAddVideoToChannelRequest
 */
 func (a *ChannelsVideosAPIService) AddVideoToChannel(ctx context.Context, channelId float32, videoId int32) ApiAddVideoToChannelRequest {
 	return ApiAddVideoToChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		videoId:    videoId,
+		ctx: ctx,
+		channelId: channelId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsVideosAPIService) AddVideoToChannelExecute(r ApiAddVideoToChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsVideosAPIService.AddVideoToChannel")
@@ -226,8 +227,8 @@ func (a *ChannelsVideosAPIService) AddVideoToChannelExecute(r ApiAddVideoToChann
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -237,8 +238,8 @@ func (a *ChannelsVideosAPIService) AddVideoToChannelExecute(r ApiAddVideoToChann
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -247,9 +248,9 @@ func (a *ChannelsVideosAPIService) AddVideoToChannelExecute(r ApiAddVideoToChann
 }
 
 type ApiAddVideosToChannelRequest struct {
-	ctx                       context.Context
-	ApiService                ChannelsVideosAPI
-	channelId                 float32
+	ctx context.Context
+	ApiService ChannelsVideosAPI
+	channelId float32
 	addVideosToChannelRequest *AddVideosToChannelRequest
 }
 
@@ -267,24 +268,24 @@ AddVideosToChannel Add a list of videos to a channel
 
 This method adds multiple videos to the specified channel. The authenticated user must be a moderator of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiAddVideosToChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiAddVideosToChannelRequest
 */
 func (a *ChannelsVideosAPIService) AddVideosToChannel(ctx context.Context, channelId float32) ApiAddVideosToChannelRequest {
 	return ApiAddVideosToChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsVideosAPIService) AddVideosToChannelExecute(r ApiAddVideosToChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsVideosAPIService.AddVideosToChannel")
@@ -350,8 +351,8 @@ func (a *ChannelsVideosAPIService) AddVideosToChannelExecute(r ApiAddVideosToCha
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -361,8 +362,8 @@ func (a *ChannelsVideosAPIService) AddVideosToChannelExecute(r ApiAddVideosToCha
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -371,10 +372,10 @@ func (a *ChannelsVideosAPIService) AddVideosToChannelExecute(r ApiAddVideosToCha
 }
 
 type ApiDeleteVideoFromChannelRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsVideosAPI
-	channelId  float32
-	videoId    int32
+	channelId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoFromChannelRequest) Execute() (*http.Response, error) {
@@ -386,26 +387,26 @@ DeleteVideoFromChannel Remove a specific video from a channel
 
 This method removes a single video from the specified channel. The authenticated user must be a moderator of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoFromChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param videoId The ID of the video.
+ @return ApiDeleteVideoFromChannelRequest
 */
 func (a *ChannelsVideosAPIService) DeleteVideoFromChannel(ctx context.Context, channelId float32, videoId int32) ApiDeleteVideoFromChannelRequest {
 	return ApiDeleteVideoFromChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		videoId:    videoId,
+		ctx: ctx,
+		channelId: channelId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsVideosAPIService) DeleteVideoFromChannelExecute(r ApiDeleteVideoFromChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsVideosAPIService.DeleteVideoFromChannel")
@@ -467,8 +468,8 @@ func (a *ChannelsVideosAPIService) DeleteVideoFromChannelExecute(r ApiDeleteVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -478,8 +479,8 @@ func (a *ChannelsVideosAPIService) DeleteVideoFromChannelExecute(r ApiDeleteVide
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -488,9 +489,9 @@ func (a *ChannelsVideosAPIService) DeleteVideoFromChannelExecute(r ApiDeleteVide
 }
 
 type ApiGetAvailableVideoChannelsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsVideosAPI
-	videoId    int32
+	videoId int32
 }
 
 func (r ApiGetAvailableVideoChannelsRequest) Execute() ([]Channel, *http.Response, error) {
@@ -502,27 +503,26 @@ GetAvailableVideoChannels Get all the channels to which the user can add or remo
 
 This method returns every channel to which the authenticated user can add or remove the specified video. The authenticated user must be a moderator of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetAvailableVideoChannelsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiGetAvailableVideoChannelsRequest
 */
 func (a *ChannelsVideosAPIService) GetAvailableVideoChannels(ctx context.Context, videoId int32) ApiGetAvailableVideoChannelsRequest {
 	return ApiGetAvailableVideoChannelsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Channel
+//  @return []Channel
 func (a *ChannelsVideosAPIService) GetAvailableVideoChannelsExecute(r ApiGetAvailableVideoChannelsRequest) ([]Channel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Channel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Channel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsVideosAPIService.GetAvailableVideoChannels")
@@ -583,8 +583,8 @@ func (a *ChannelsVideosAPIService) GetAvailableVideoChannelsExecute(r ApiGetAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -594,8 +594,8 @@ func (a *ChannelsVideosAPIService) GetAvailableVideoChannelsExecute(r ApiGetAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -613,10 +613,10 @@ func (a *ChannelsVideosAPIService) GetAvailableVideoChannelsExecute(r ApiGetAvai
 }
 
 type ApiGetChannelVideoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsVideosAPI
-	channelId  float32
-	videoId    int32
+	channelId float32
+	videoId int32
 }
 
 func (r ApiGetChannelVideoRequest) Execute() (*Video, *http.Response, error) {
@@ -628,29 +628,28 @@ GetChannelVideo Get a specific video in a channel
 
 This method returns a single video in the specified channel. You can use it to determine whether the video is in the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param videoId The ID of the video.
-	@return ApiGetChannelVideoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param videoId The ID of the video.
+ @return ApiGetChannelVideoRequest
 */
 func (a *ChannelsVideosAPIService) GetChannelVideo(ctx context.Context, channelId float32, videoId int32) ApiGetChannelVideoRequest {
 	return ApiGetChannelVideoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		videoId:    videoId,
+		ctx: ctx,
+		channelId: channelId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *ChannelsVideosAPIService) GetChannelVideoExecute(r ApiGetChannelVideoRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsVideosAPIService.GetChannelVideo")
@@ -712,8 +711,8 @@ func (a *ChannelsVideosAPIService) GetChannelVideoExecute(r ApiGetChannelVideoRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -731,17 +730,17 @@ func (a *ChannelsVideosAPIService) GetChannelVideoExecute(r ApiGetChannelVideoRe
 }
 
 type ApiGetChannelVideosRequest struct {
-	ctx              context.Context
-	ApiService       ChannelsVideosAPI
-	channelId        float32
-	containingUri    *string
-	direction        *string
-	filter           *string
+	ctx context.Context
+	ApiService ChannelsVideosAPI
+	channelId float32
+	containingUri *string
+	direction *string
+	filter *string
 	filterEmbeddable *bool
-	page             *float32
-	perPage          *float32
-	query            *string
-	sort             *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
 // The page that contains the video URI.
@@ -750,13 +749,13 @@ func (r ApiGetChannelVideosRequest) ContainingUri(containingUri string) ApiGetCh
 	return r
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetChannelVideosRequest) Direction(direction string) ApiGetChannelVideosRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;embeddable&#x60; - Return embeddable videos. 
 func (r ApiGetChannelVideosRequest) Filter(filter string) ApiGetChannelVideosRequest {
 	r.filter = &filter
 	return r
@@ -786,7 +785,7 @@ func (r ApiGetChannelVideosRequest) Query(query string) ApiGetChannelVideosReque
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by date added.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results as the user has arranged them.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays.
+// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by date added.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;comments&#x60; - Sort the results by number of comments.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;duration&#x60; - Sort the results by duration.  * &#x60;likes&#x60; - Sort the results by number of likes.  * &#x60;manual&#x60; - Sort the results as the user has arranged them.  * &#x60;modified_time&#x60; - Sort the results by last modification.  * &#x60;plays&#x60; - Sort the results by number of plays. 
 func (r ApiGetChannelVideosRequest) Sort(sort string) ApiGetChannelVideosRequest {
 	r.sort = &sort
 	return r
@@ -801,27 +800,26 @@ GetChannelVideos Get all the videos in a channel
 
 This method returns every video in the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiGetChannelVideosRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiGetChannelVideosRequest
 */
 func (a *ChannelsVideosAPIService) GetChannelVideos(ctx context.Context, channelId float32) ApiGetChannelVideosRequest {
 	return ApiGetChannelVideosRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *ChannelsVideosAPIService) GetChannelVideosExecute(r ApiGetChannelVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsVideosAPIService.GetChannelVideos")
@@ -906,8 +904,8 @@ func (a *ChannelsVideosAPIService) GetChannelVideosExecute(r ApiGetChannelVideos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -917,8 +915,8 @@ func (a *ChannelsVideosAPIService) GetChannelVideosExecute(r ApiGetChannelVideos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -936,9 +934,9 @@ func (a *ChannelsVideosAPIService) GetChannelVideosExecute(r ApiGetChannelVideos
 }
 
 type ApiRemoveVideosFromChannelRequest struct {
-	ctx                            context.Context
-	ApiService                     ChannelsVideosAPI
-	channelId                      float32
+	ctx context.Context
+	ApiService ChannelsVideosAPI
+	channelId float32
 	removeVideosFromChannelRequest *RemoveVideosFromChannelRequest
 }
 
@@ -956,24 +954,24 @@ RemoveVideosFromChannel Remove a list of videos from a channel
 
 This method removes multiple videos from the specified channel. Include the videos by their URI as a JSON block in the body of the request using the **video_uri** field, like this: `[{ "video_uri": "/videos/1234" }, { "video_uri": "/videos/1235" }]`. The authenticated user must be a moderator of the channel. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiRemoveVideosFromChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiRemoveVideosFromChannelRequest
 */
 func (a *ChannelsVideosAPIService) RemoveVideosFromChannel(ctx context.Context, channelId float32) ApiRemoveVideosFromChannelRequest {
 	return ApiRemoveVideosFromChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsVideosAPIService) RemoveVideosFromChannelExecute(r ApiRemoveVideosFromChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsVideosAPIService.RemoveVideosFromChannel")
@@ -1039,8 +1037,8 @@ func (a *ChannelsVideosAPIService) RemoveVideosFromChannelExecute(r ApiRemoveVid
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1050,8 +1048,8 @@ func (a *ChannelsVideosAPIService) RemoveVideosFromChannelExecute(r ApiRemoveVid
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

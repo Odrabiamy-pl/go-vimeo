@@ -28,8 +28,8 @@ type TrimmedVideo struct {
 	// The end of the trim from the last trim, in seconds.
 	End string `json:"end"`
 	// Whether the transcoding jobs for the video file have finished. _This field is deprecated._
-	IsClipFinishedTranscoding bool                 `json:"is_clip_finished_transcoding"`
-	Metadata                  TrimmedVideoMetadata `json:"metadata"`
+	IsClipFinishedTranscoding bool `json:"is_clip_finished_transcoding"`
+	Metadata TrimmedVideoMetadata `json:"metadata"`
 	// The time in ISO 8601 format when the trim policy was last modified.
 	ModifiedOn NullableString `json:"modified_on"`
 	// The video version that is the source of the trimmed video. _This field is deprecated._
@@ -337,7 +337,7 @@ func (o *TrimmedVideo) SetVersionQuality(v string) {
 }
 
 func (o TrimmedVideo) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -395,3 +395,5 @@ func (v *NullableTrimmedVideo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

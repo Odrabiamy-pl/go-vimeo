@@ -22,8 +22,8 @@ type CreateVodAlt1RequestEpisodesBuy struct {
 	// Whether episodes can be purchased.
 	Active *bool `json:"active,omitempty"`
 	// Whether people who buy episodes can download them. To use this parameter, **type** must be `series`.
-	Download *bool                                 `json:"download,omitempty"`
-	Price    *CreateVodAlt1RequestEpisodesBuyPrice `json:"price,omitempty"`
+	Download *bool `json:"download,omitempty"`
+	Price *CreateVodAlt1RequestEpisodesBuyPrice `json:"price,omitempty"`
 }
 
 // NewCreateVodAlt1RequestEpisodesBuy instantiates a new CreateVodAlt1RequestEpisodesBuy object
@@ -140,7 +140,7 @@ func (o *CreateVodAlt1RequestEpisodesBuy) SetPrice(v CreateVodAlt1RequestEpisode
 }
 
 func (o CreateVodAlt1RequestEpisodesBuy) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,3 +196,5 @@ func (v *NullableCreateVodAlt1RequestEpisodesBuy) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type EmbedPresetsTimelineEventsAPI interface {
 
 	/*
-		CreateVideoCustomLogo Add a timeline event thumbnail to a video
+	CreateVideoCustomLogo Add a timeline event thumbnail to a video
 
-		This method adds a timeline event thumbnail to the specified video. The authenticated user must be the owner of the video.
+	This method adds a timeline event thumbnail to the specified video. The authenticated user must be the owner of the video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiCreateVideoCustomLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiCreateVideoCustomLogoRequest
 	*/
 	CreateVideoCustomLogo(ctx context.Context, videoId int32) ApiCreateVideoCustomLogoRequest
 
@@ -37,14 +38,14 @@ type EmbedPresetsTimelineEventsAPI interface {
 	CreateVideoCustomLogoExecute(r ApiCreateVideoCustomLogoRequest) (*Picture, *http.Response, error)
 
 	/*
-		GetVideoCustomLogo Get a timeline event thumbnail
+	GetVideoCustomLogo Get a timeline event thumbnail
 
-		This method returns a single timeline event thumbnail that belongs to the specified video.
+	This method returns a single timeline event thumbnail that belongs to the specified video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param thumbnailId The ID of the timeline event thumbnail.
-		@param videoId The ID of the video.
-		@return ApiGetVideoCustomLogoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param thumbnailId The ID of the timeline event thumbnail.
+	@param videoId The ID of the video.
+	@return ApiGetVideoCustomLogoRequest
 	*/
 	GetVideoCustomLogo(ctx context.Context, thumbnailId float32, videoId int32) ApiGetVideoCustomLogoRequest
 
@@ -57,9 +58,9 @@ type EmbedPresetsTimelineEventsAPI interface {
 type EmbedPresetsTimelineEventsAPIService service
 
 type ApiCreateVideoCustomLogoRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsTimelineEventsAPI
-	videoId    int32
+	videoId int32
 }
 
 func (r ApiCreateVideoCustomLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -71,27 +72,26 @@ CreateVideoCustomLogo Add a timeline event thumbnail to a video
 
 This method adds a timeline event thumbnail to the specified video. The authenticated user must be the owner of the video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiCreateVideoCustomLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiCreateVideoCustomLogoRequest
 */
 func (a *EmbedPresetsTimelineEventsAPIService) CreateVideoCustomLogo(ctx context.Context, videoId int32) ApiCreateVideoCustomLogoRequest {
 	return ApiCreateVideoCustomLogoRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *EmbedPresetsTimelineEventsAPIService) CreateVideoCustomLogoExecute(r ApiCreateVideoCustomLogoRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsTimelineEventsAPIService.CreateVideoCustomLogo")
@@ -152,8 +152,8 @@ func (a *EmbedPresetsTimelineEventsAPIService) CreateVideoCustomLogoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -163,8 +163,8 @@ func (a *EmbedPresetsTimelineEventsAPIService) CreateVideoCustomLogoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -182,10 +182,10 @@ func (a *EmbedPresetsTimelineEventsAPIService) CreateVideoCustomLogoExecute(r Ap
 }
 
 type ApiGetVideoCustomLogoRequest struct {
-	ctx         context.Context
-	ApiService  EmbedPresetsTimelineEventsAPI
+	ctx context.Context
+	ApiService EmbedPresetsTimelineEventsAPI
 	thumbnailId float32
-	videoId     int32
+	videoId int32
 }
 
 func (r ApiGetVideoCustomLogoRequest) Execute() (*Picture, *http.Response, error) {
@@ -197,29 +197,28 @@ GetVideoCustomLogo Get a timeline event thumbnail
 
 This method returns a single timeline event thumbnail that belongs to the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param thumbnailId The ID of the timeline event thumbnail.
-	@param videoId The ID of the video.
-	@return ApiGetVideoCustomLogoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param thumbnailId The ID of the timeline event thumbnail.
+ @param videoId The ID of the video.
+ @return ApiGetVideoCustomLogoRequest
 */
 func (a *EmbedPresetsTimelineEventsAPIService) GetVideoCustomLogo(ctx context.Context, thumbnailId float32, videoId int32) ApiGetVideoCustomLogoRequest {
 	return ApiGetVideoCustomLogoRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		thumbnailId: thumbnailId,
-		videoId:     videoId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *EmbedPresetsTimelineEventsAPIService) GetVideoCustomLogoExecute(r ApiGetVideoCustomLogoRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsTimelineEventsAPIService.GetVideoCustomLogo")
@@ -281,8 +280,8 @@ func (a *EmbedPresetsTimelineEventsAPIService) GetVideoCustomLogoExecute(r ApiGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

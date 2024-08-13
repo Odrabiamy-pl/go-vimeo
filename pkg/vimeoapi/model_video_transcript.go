@@ -21,7 +21,7 @@ var _ MappedNullable = &VideoTranscript{}
 type VideoTranscript struct {
 	// The video transcript's language. This data requires a bearer token with the `private` scope.
 	Language NullableString `json:"language"`
-	// The video transcript's availability status. This data requires a bearer token with the `private` scope.  Option descriptions:  * `completed` - Transcription is completed. The transcript is available.  * `failed` - There was a transcription error. The transcript isn't available.  * `in_progress` - Transcription is currently underway. The transcript isn't available yet.  * `language_not_supported` - We currently don't support transcribing audio for this video's language.  * `no_speech` - Transcription was completed, but there were no words in the audio to transcribe.  * `not_started` - The transcript job hasn't started.  * `unknown` - There isn't a record of this video's transcription job.
+	// The video transcript's availability status. This data requires a bearer token with the `private` scope.  Option descriptions:  * `completed` - Transcription is completed. The transcript is available.  * `failed` - There was a transcription error. The transcript isn't available.  * `in_progress` - Transcription is currently underway. The transcript isn't available yet.  * `language_not_supported` - We currently don't support transcribing audio for this video's language.  * `no_speech` - Transcription was completed, but there were no words in the audio to transcribe.  * `not_started` - The transcript job hasn't started.  * `unknown` - There isn't a record of this video's transcription job. 
 	Status *string `json:"status,omitempty"`
 }
 
@@ -102,7 +102,7 @@ func (o *VideoTranscript) SetStatus(v string) {
 }
 
 func (o VideoTranscript) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -153,3 +153,5 @@ func (v *NullableVideoTranscript) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

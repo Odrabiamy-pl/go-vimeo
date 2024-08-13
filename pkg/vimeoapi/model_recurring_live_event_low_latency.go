@@ -66,7 +66,7 @@ func (o *RecurringLiveEventLowLatency) SetLowLatency(v bool) {
 }
 
 func (o RecurringLiveEventLowLatency) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,3 +114,5 @@ func (v *NullableRecurringLiveEventLowLatency) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

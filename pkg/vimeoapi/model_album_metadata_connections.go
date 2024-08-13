@@ -19,9 +19,9 @@ var _ MappedNullable = &AlbumMetadataConnections{}
 
 // AlbumMetadataConnections Information about showcase connections.
 type AlbumMetadataConnections struct {
-	AvailableVideos AlbumMetadataConnectionsAvailableVideos       `json:"available_videos"`
-	RequestedClip   NullableAlbumMetadataConnectionsRequestedClip `json:"requested_clip"`
-	Videos          AlbumMetadataConnectionsVideos                `json:"videos"`
+	AvailableVideos AlbumMetadataConnectionsAvailableVideos `json:"available_videos"`
+	RequestedClip NullableAlbumMetadataConnectionsRequestedClip `json:"requested_clip"`
+	Videos AlbumMetadataConnectionsVideos `json:"videos"`
 }
 
 // NewAlbumMetadataConnections instantiates a new AlbumMetadataConnections object
@@ -119,7 +119,7 @@ func (o *AlbumMetadataConnections) SetVideos(v AlbumMetadataConnectionsVideos) {
 }
 
 func (o AlbumMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,3 +169,5 @@ func (v *NullableAlbumMetadataConnections) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

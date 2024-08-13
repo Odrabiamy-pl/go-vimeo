@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type VideosFragmentsAPI interface {
 
 	/*
-		DeleteFragments Delete a video's fragments
+	DeleteFragments Delete a video's fragments
 
-		This method deletes all fragments for the specified video.
+	This method deletes all fragments for the specified video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiDeleteFragmentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiDeleteFragmentsRequest
 	*/
 	DeleteFragments(ctx context.Context, videoId int32) ApiDeleteFragmentsRequest
 
@@ -36,13 +37,13 @@ type VideosFragmentsAPI interface {
 	DeleteFragmentsExecute(r ApiDeleteFragmentsRequest) (*http.Response, error)
 
 	/*
-		GetFragments Get all the fragments for a video
+	GetFragments Get all the fragments for a video
 
-		This method returns all of the fragments associated with the specified video.
+	This method returns all of the fragments associated with the specified video.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiGetFragmentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiGetFragmentsRequest
 	*/
 	GetFragments(ctx context.Context, videoId int32) ApiGetFragmentsRequest
 
@@ -51,13 +52,13 @@ type VideosFragmentsAPI interface {
 	GetFragmentsExecute(r ApiGetFragmentsRequest) (*Fragments, *http.Response, error)
 
 	/*
-		PutFragments Update a video's fragments
+	PutFragments Update a video's fragments
 
-		This method updates the specified video with new fragments.
+	This method updates the specified video with new fragments.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param videoId The ID of the video.
-		@return ApiPutFragmentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param videoId The ID of the video.
+	@return ApiPutFragmentsRequest
 	*/
 	PutFragments(ctx context.Context, videoId int32) ApiPutFragmentsRequest
 
@@ -69,9 +70,9 @@ type VideosFragmentsAPI interface {
 type VideosFragmentsAPIService service
 
 type ApiDeleteFragmentsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosFragmentsAPI
-	videoId    int32
+	videoId int32
 }
 
 func (r ApiDeleteFragmentsRequest) Execute() (*http.Response, error) {
@@ -83,24 +84,24 @@ DeleteFragments Delete a video's fragments
 
 This method deletes all fragments for the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiDeleteFragmentsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiDeleteFragmentsRequest
 */
 func (a *VideosFragmentsAPIService) DeleteFragments(ctx context.Context, videoId int32) ApiDeleteFragmentsRequest {
 	return ApiDeleteFragmentsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosFragmentsAPIService) DeleteFragmentsExecute(r ApiDeleteFragmentsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosFragmentsAPIService.DeleteFragments")
@@ -161,9 +162,9 @@ func (a *VideosFragmentsAPIService) DeleteFragmentsExecute(r ApiDeleteFragmentsR
 }
 
 type ApiGetFragmentsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosFragmentsAPI
-	videoId    int32
+	videoId int32
 }
 
 func (r ApiGetFragmentsRequest) Execute() (*Fragments, *http.Response, error) {
@@ -175,27 +176,26 @@ GetFragments Get all the fragments for a video
 
 This method returns all of the fragments associated with the specified video.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiGetFragmentsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiGetFragmentsRequest
 */
 func (a *VideosFragmentsAPIService) GetFragments(ctx context.Context, videoId int32) ApiGetFragmentsRequest {
 	return ApiGetFragmentsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Fragments
+//  @return Fragments
 func (a *VideosFragmentsAPIService) GetFragmentsExecute(r ApiGetFragmentsRequest) (*Fragments, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Fragments
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Fragments
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosFragmentsAPIService.GetFragments")
@@ -265,9 +265,9 @@ func (a *VideosFragmentsAPIService) GetFragmentsExecute(r ApiGetFragmentsRequest
 }
 
 type ApiPutFragmentsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService VideosFragmentsAPI
-	videoId    int32
+	videoId int32
 }
 
 func (r ApiPutFragmentsRequest) Execute() (*http.Response, error) {
@@ -279,24 +279,24 @@ PutFragments Update a video's fragments
 
 This method updates the specified video with new fragments.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param videoId The ID of the video.
-	@return ApiPutFragmentsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param videoId The ID of the video.
+ @return ApiPutFragmentsRequest
 */
 func (a *VideosFragmentsAPIService) PutFragments(ctx context.Context, videoId int32) ApiPutFragmentsRequest {
 	return ApiPutFragmentsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		videoId:    videoId,
+		ctx: ctx,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *VideosFragmentsAPIService) PutFragmentsExecute(r ApiPutFragmentsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VideosFragmentsAPIService.PutFragments")

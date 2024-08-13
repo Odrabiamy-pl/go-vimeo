@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type LiveEmbedPrivacyAPI interface {
 
 	/*
-		GetLiveEventWhitelist Get all the domains on which a live event can be embedded
+	GetLiveEventWhitelist Get all the domains on which a live event can be embedded
 
-		This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
+	This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiGetLiveEventWhitelistRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiGetLiveEventWhitelistRequest
 	*/
 	GetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventWhitelistRequest
 
@@ -38,13 +39,13 @@ type LiveEmbedPrivacyAPI interface {
 	GetLiveEventWhitelistExecute(r ApiGetLiveEventWhitelistRequest) ([]Domain, *http.Response, error)
 
 	/*
-		GetLiveEventWhitelistAlt1 Get all the domains on which a live event can be embedded
+	GetLiveEventWhitelistAlt1 Get all the domains on which a live event can be embedded
 
-		This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
+	This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventWhitelistAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventWhitelistAlt1Request
 	*/
 	GetLiveEventWhitelistAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventWhitelistAlt1Request
 
@@ -53,13 +54,13 @@ type LiveEmbedPrivacyAPI interface {
 	GetLiveEventWhitelistAlt1Execute(r ApiGetLiveEventWhitelistAlt1Request) ([]Domain, *http.Response, error)
 
 	/*
-		GetLiveEventWhitelistAlt2 Get all the domains on which a live event can be embedded
+	GetLiveEventWhitelistAlt2 Get all the domains on which a live event can be embedded
 
-		This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
+	This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventWhitelistAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventWhitelistAlt2Request
 	*/
 	GetLiveEventWhitelistAlt2(ctx context.Context, liveEventId float32) ApiGetLiveEventWhitelistAlt2Request
 
@@ -68,14 +69,14 @@ type LiveEmbedPrivacyAPI interface {
 	GetLiveEventWhitelistAlt2Execute(r ApiGetLiveEventWhitelistAlt2Request) ([]Domain, *http.Response, error)
 
 	/*
-		SetLiveEventWhitelist Embed a live event on one or more domains
+	SetLiveEventWhitelist Embed a live event on one or more domains
 
-		This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
+	This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiSetLiveEventWhitelistRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiSetLiveEventWhitelistRequest
 	*/
 	SetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId int32) ApiSetLiveEventWhitelistRequest
 
@@ -83,13 +84,13 @@ type LiveEmbedPrivacyAPI interface {
 	SetLiveEventWhitelistExecute(r ApiSetLiveEventWhitelistRequest) (*http.Response, error)
 
 	/*
-		SetLiveEventWhitelistAlt1 Embed a live event on one or more domains
+	SetLiveEventWhitelistAlt1 Embed a live event on one or more domains
 
-		This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
+	This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiSetLiveEventWhitelistAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiSetLiveEventWhitelistAlt1Request
 	*/
 	SetLiveEventWhitelistAlt1(ctx context.Context, liveEventId float32) ApiSetLiveEventWhitelistAlt1Request
 
@@ -97,13 +98,13 @@ type LiveEmbedPrivacyAPI interface {
 	SetLiveEventWhitelistAlt1Execute(r ApiSetLiveEventWhitelistAlt1Request) (*http.Response, error)
 
 	/*
-		SetLiveEventWhitelistAlt2 Embed a live event on one or more domains
+	SetLiveEventWhitelistAlt2 Embed a live event on one or more domains
 
-		This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
+	This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiSetLiveEventWhitelistAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiSetLiveEventWhitelistAlt2Request
 	*/
 	SetLiveEventWhitelistAlt2(ctx context.Context, liveEventId float32) ApiSetLiveEventWhitelistAlt2Request
 
@@ -115,10 +116,10 @@ type LiveEmbedPrivacyAPI interface {
 type LiveEmbedPrivacyAPIService service
 
 type ApiGetLiveEventWhitelistRequest struct {
-	ctx         context.Context
-	ApiService  LiveEmbedPrivacyAPI
+	ctx context.Context
+	ApiService LiveEmbedPrivacyAPI
 	liveEventId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiGetLiveEventWhitelistRequest) Execute() ([]Domain, *http.Response, error) {
@@ -130,29 +131,28 @@ GetLiveEventWhitelist Get all the domains on which a live event can be embedded
 
 This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiGetLiveEventWhitelistRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiGetLiveEventWhitelistRequest
 */
 func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventWhitelistRequest {
 	return ApiGetLiveEventWhitelistRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Domain
+//  @return []Domain
 func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistExecute(r ApiGetLiveEventWhitelistRequest) ([]Domain, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Domain
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Domain
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEmbedPrivacyAPIService.GetLiveEventWhitelist")
@@ -214,8 +214,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistExecute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -225,8 +225,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistExecute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -236,8 +236,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistExecute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -247,8 +247,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistExecute(r ApiGetLiveEv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -266,8 +266,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistExecute(r ApiGetLiveEv
 }
 
 type ApiGetLiveEventWhitelistAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEmbedPrivacyAPI
+	ctx context.Context
+	ApiService LiveEmbedPrivacyAPI
 	liveEventId float32
 }
 
@@ -280,27 +280,26 @@ GetLiveEventWhitelistAlt1 Get all the domains on which a live event can be embed
 
 This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventWhitelistAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventWhitelistAlt1Request
 */
 func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventWhitelistAlt1Request {
 	return ApiGetLiveEventWhitelistAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Domain
+//  @return []Domain
 func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt1Execute(r ApiGetLiveEventWhitelistAlt1Request) ([]Domain, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Domain
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Domain
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEmbedPrivacyAPIService.GetLiveEventWhitelistAlt1")
@@ -361,8 +360,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt1Execute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -372,8 +371,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt1Execute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -383,8 +382,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt1Execute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -394,8 +393,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt1Execute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -413,8 +412,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt1Execute(r ApiGetLi
 }
 
 type ApiGetLiveEventWhitelistAlt2Request struct {
-	ctx         context.Context
-	ApiService  LiveEmbedPrivacyAPI
+	ctx context.Context
+	ApiService LiveEmbedPrivacyAPI
 	liveEventId float32
 }
 
@@ -427,27 +426,26 @@ GetLiveEventWhitelistAlt2 Get all the domains on which a live event can be embed
 
 This method returns every whitelisted domain for an event. The embed privacy setting must be `whitelist`.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventWhitelistAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventWhitelistAlt2Request
 */
 func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt2(ctx context.Context, liveEventId float32) ApiGetLiveEventWhitelistAlt2Request {
 	return ApiGetLiveEventWhitelistAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Domain
+//  @return []Domain
 func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt2Execute(r ApiGetLiveEventWhitelistAlt2Request) ([]Domain, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Domain
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Domain
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEmbedPrivacyAPIService.GetLiveEventWhitelistAlt2")
@@ -508,8 +506,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt2Execute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -519,8 +517,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt2Execute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -530,8 +528,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt2Execute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -541,8 +539,8 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt2Execute(r ApiGetLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -560,10 +558,10 @@ func (a *LiveEmbedPrivacyAPIService) GetLiveEventWhitelistAlt2Execute(r ApiGetLi
 }
 
 type ApiSetLiveEventWhitelistRequest struct {
-	ctx                              context.Context
-	ApiService                       LiveEmbedPrivacyAPI
-	liveEventId                      float32
-	userId                           int32
+	ctx context.Context
+	ApiService LiveEmbedPrivacyAPI
+	liveEventId float32
+	userId int32
 	setLiveEventWhitelistAlt1Request *SetLiveEventWhitelistAlt1Request
 }
 
@@ -581,26 +579,26 @@ SetLiveEventWhitelist Embed a live event on one or more domains
 
 This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiSetLiveEventWhitelistRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiSetLiveEventWhitelistRequest
 */
 func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelist(ctx context.Context, liveEventId float32, userId int32) ApiSetLiveEventWhitelistRequest {
 	return ApiSetLiveEventWhitelistRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistExecute(r ApiSetLiveEventWhitelistRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEmbedPrivacyAPIService.SetLiveEventWhitelist")
@@ -664,8 +662,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistExecute(r ApiSetLiveEv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -675,8 +673,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistExecute(r ApiSetLiveEv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -686,8 +684,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistExecute(r ApiSetLiveEv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -697,8 +695,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistExecute(r ApiSetLiveEv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -707,9 +705,9 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistExecute(r ApiSetLiveEv
 }
 
 type ApiSetLiveEventWhitelistAlt1Request struct {
-	ctx                              context.Context
-	ApiService                       LiveEmbedPrivacyAPI
-	liveEventId                      float32
+	ctx context.Context
+	ApiService LiveEmbedPrivacyAPI
+	liveEventId float32
 	setLiveEventWhitelistAlt1Request *SetLiveEventWhitelistAlt1Request
 }
 
@@ -727,14 +725,14 @@ SetLiveEventWhitelistAlt1 Embed a live event on one or more domains
 
 This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiSetLiveEventWhitelistAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiSetLiveEventWhitelistAlt1Request
 */
 func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt1(ctx context.Context, liveEventId float32) ApiSetLiveEventWhitelistAlt1Request {
 	return ApiSetLiveEventWhitelistAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -742,9 +740,9 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt1(ctx context.Conte
 // Execute executes the request
 func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt1Execute(r ApiSetLiveEventWhitelistAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEmbedPrivacyAPIService.SetLiveEventWhitelistAlt1")
@@ -807,8 +805,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt1Execute(r ApiSetLi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -818,8 +816,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt1Execute(r ApiSetLi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -829,8 +827,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt1Execute(r ApiSetLi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -840,8 +838,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt1Execute(r ApiSetLi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -850,9 +848,9 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt1Execute(r ApiSetLi
 }
 
 type ApiSetLiveEventWhitelistAlt2Request struct {
-	ctx                              context.Context
-	ApiService                       LiveEmbedPrivacyAPI
-	liveEventId                      float32
+	ctx context.Context
+	ApiService LiveEmbedPrivacyAPI
+	liveEventId float32
 	setLiveEventWhitelistAlt1Request *SetLiveEventWhitelistAlt1Request
 }
 
@@ -870,14 +868,14 @@ SetLiveEventWhitelistAlt2 Embed a live event on one or more domains
 
 This method embeds an event on the specified domains. The embed privacy setting must be `whitelist`.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiSetLiveEventWhitelistAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiSetLiveEventWhitelistAlt2Request
 */
 func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt2(ctx context.Context, liveEventId float32) ApiSetLiveEventWhitelistAlt2Request {
 	return ApiSetLiveEventWhitelistAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -885,9 +883,9 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt2(ctx context.Conte
 // Execute executes the request
 func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt2Execute(r ApiSetLiveEventWhitelistAlt2Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEmbedPrivacyAPIService.SetLiveEventWhitelistAlt2")
@@ -950,8 +948,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt2Execute(r ApiSetLi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -961,8 +959,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt2Execute(r ApiSetLi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -972,8 +970,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt2Execute(r ApiSetLi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -983,8 +981,8 @@ func (a *LiveEmbedPrivacyAPIService) SetLiveEventWhitelistAlt2Execute(r ApiSetLi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

@@ -29,7 +29,7 @@ type Segment struct {
 	Enabled bool `json:"enabled"`
 	// The segment identifier.
 	Id string `json:"id"`
-	// The type of caption that the segment originates from.  Option descriptions:  * `captions` - The segment originates from a captions file.  * `subtitles` - The segment originates from a captions and subtitles file.
+	// The type of caption that the segment originates from.  Option descriptions:  * `captions` - The segment originates from a captions file.  * `subtitles` - The segment originates from a captions and subtitles file. 
 	Kind string `json:"kind"`
 	// The language of the segment.
 	Language string `json:"language"`
@@ -370,7 +370,7 @@ func (o *Segment) SetWords(v []SegmentWords) {
 }
 
 func (o Segment) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -431,3 +431,5 @@ func (v *NullableSegment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

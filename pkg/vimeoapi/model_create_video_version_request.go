@@ -20,8 +20,8 @@ var _ MappedNullable = &CreateVideoVersionRequest{}
 // CreateVideoVersionRequest struct for CreateVideoVersionRequest
 type CreateVideoVersionRequest struct {
 	// The name of the version.
-	FileName string                          `json:"file_name"`
-	Upload   CreateVideoVersionRequestUpload `json:"upload"`
+	FileName string `json:"file_name"`
+	Upload CreateVideoVersionRequestUpload `json:"upload"`
 }
 
 // NewCreateVideoVersionRequest instantiates a new CreateVideoVersionRequest object
@@ -92,7 +92,7 @@ func (o *CreateVideoVersionRequest) SetUpload(v CreateVideoVersionRequestUpload)
 }
 
 func (o CreateVideoVersionRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -141,3 +141,5 @@ func (v *NullableCreateVideoVersionRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

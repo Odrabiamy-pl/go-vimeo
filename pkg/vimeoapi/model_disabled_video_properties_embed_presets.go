@@ -23,7 +23,7 @@ type DisabledVideoPropertiesEmbedPresets struct {
 	EnableLink string `json:"enable_link"`
 	// The path to the embed presets object in the video response.
 	KeyPath string `json:"key_path"`
-	// The capability required to activate embed presets.  Option descriptions:  * `basic` - The user must have at least a Vimeo Basic account.  * `business` - The user must have at least a Vimeo Business account.  * `enterprise` - The user must have at least a Vimeo Enterprise account.  * `live_business` - The user must have at least a Vimeo Business Live account.  * `live_premium` - The user must have at least a Vimeo Premium account.  * `live_pro` - The user must have at least a Vimeo Pro Live account.  * `plus` - The user must have at least a Vimeo Plus account.  * `pro` - The user must have at least a Vimeo Pro account.  * `pro_unlimited` - The user must have at least a Vimeo Pro Unlimited account.  * `producer` - The user must have at least a Vimeo Producer account.
+	// The capability required to activate embed presets.  Option descriptions:  * `basic` - The user must have at least a Vimeo Basic account.  * `business` - The user must have at least a Vimeo Business account.  * `enterprise` - The user must have at least a Vimeo Enterprise account.  * `live_business` - The user must have at least a Vimeo Business Live account.  * `live_premium` - The user must have at least a Vimeo Premium account.  * `live_pro` - The user must have at least a Vimeo Pro Live account.  * `plus` - The user must have at least a Vimeo Plus account.  * `pro` - The user must have at least a Vimeo Pro account.  * `pro_unlimited` - The user must have at least a Vimeo Pro Unlimited account.  * `producer` - The user must have at least a Vimeo Producer account. 
 	MinTierForCapability string `json:"min_tier_for_capability"`
 	// The reasons why embed presets are disabled for the video.
 	Reasons []DisabledVideoPropertiesEmbedPresetsReasonsInner `json:"reasons"`
@@ -147,7 +147,7 @@ func (o *DisabledVideoPropertiesEmbedPresets) SetReasons(v []DisabledVideoProper
 }
 
 func (o DisabledVideoPropertiesEmbedPresets) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,3 +198,5 @@ func (v *NullableDisabledVideoPropertiesEmbedPresets) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

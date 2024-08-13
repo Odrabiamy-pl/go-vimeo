@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type OnDemandSeasonsAPI interface {
 
 	/*
-		GetVodSeason Get a specific season on an On Demand page
+	GetVodSeason Get a specific season on an On Demand page
 
-		This method returns a single season on the specified On Demand page.
+	This method returns a single season on the specified On Demand page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@param seasonId The ID of the season.
-		@return ApiGetVodSeasonRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param seasonId The ID of the season.
+	@return ApiGetVodSeasonRequest
 	*/
 	GetVodSeason(ctx context.Context, ondemandId float32, seasonId float32) ApiGetVodSeasonRequest
 
@@ -38,14 +39,14 @@ type OnDemandSeasonsAPI interface {
 	GetVodSeasonExecute(r ApiGetVodSeasonRequest) (*OnDemandSeason, *http.Response, error)
 
 	/*
-		GetVodSeasonVideos Get all the videos in a season on an On Demand page
+	GetVodSeasonVideos Get all the videos in a season on an On Demand page
 
-		This method returns every video in the specified season on an On Demand page.
+	This method returns every video in the specified season on an On Demand page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@param seasonId The ID of the season.
-		@return ApiGetVodSeasonVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@param seasonId The ID of the season.
+	@return ApiGetVodSeasonVideosRequest
 	*/
 	GetVodSeasonVideos(ctx context.Context, ondemandId float32, seasonId float32) ApiGetVodSeasonVideosRequest
 
@@ -54,13 +55,13 @@ type OnDemandSeasonsAPI interface {
 	GetVodSeasonVideosExecute(r ApiGetVodSeasonVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-		GetVodSeasons Get all the seasons on an On Demand page
+	GetVodSeasons Get all the seasons on an On Demand page
 
-		This method returns every season on the specified On Demand page.
+	This method returns every season on the specified On Demand page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiGetVodSeasonsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiGetVodSeasonsRequest
 	*/
 	GetVodSeasons(ctx context.Context, ondemandId float32) ApiGetVodSeasonsRequest
 
@@ -73,10 +74,10 @@ type OnDemandSeasonsAPI interface {
 type OnDemandSeasonsAPIService service
 
 type ApiGetVodSeasonRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandSeasonsAPI
 	ondemandId float32
-	seasonId   float32
+	seasonId float32
 }
 
 func (r ApiGetVodSeasonRequest) Execute() (*OnDemandSeason, *http.Response, error) {
@@ -88,29 +89,28 @@ GetVodSeason Get a specific season on an On Demand page
 
 This method returns a single season on the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param seasonId The ID of the season.
-	@return ApiGetVodSeasonRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @param seasonId The ID of the season.
+ @return ApiGetVodSeasonRequest
 */
 func (a *OnDemandSeasonsAPIService) GetVodSeason(ctx context.Context, ondemandId float32, seasonId float32) ApiGetVodSeasonRequest {
 	return ApiGetVodSeasonRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
-		seasonId:   seasonId,
+		seasonId: seasonId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandSeason
+//  @return OnDemandSeason
 func (a *OnDemandSeasonsAPIService) GetVodSeasonExecute(r ApiGetVodSeasonRequest) (*OnDemandSeason, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandSeason
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandSeason
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandSeasonsAPIService.GetVodSeason")
@@ -172,8 +172,8 @@ func (a *OnDemandSeasonsAPIService) GetVodSeasonExecute(r ApiGetVodSeasonRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -191,17 +191,17 @@ func (a *OnDemandSeasonsAPIService) GetVodSeasonExecute(r ApiGetVodSeasonRequest
 }
 
 type ApiGetVodSeasonVideosRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandSeasonsAPI
 	ondemandId float32
-	seasonId   float32
-	filter     *string
-	page       *float32
-	perPage    *float32
-	sort       *string
+	seasonId float32
+	filter *string
+	page *float32
+	perPage *float32
+	sort *string
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;viewable&#x60; - Filter by viewable videos.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;viewable&#x60; - Filter by viewable videos. 
 func (r ApiGetVodSeasonVideosRequest) Filter(filter string) ApiGetVodSeasonVideosRequest {
 	r.filter = &filter
 	return r
@@ -219,7 +219,7 @@ func (r ApiGetVodSeasonVideosRequest) PerPage(perPage float32) ApiGetVodSeasonVi
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;manual&#x60; - Sort the results manually.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;purchase_time&#x60; - Sort the results by time of purchase.  * &#x60;release_date&#x60; - Sort the results by release date.
+// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sorting method.  * &#x60;manual&#x60; - Sort the results manually.  * &#x60;name&#x60; - Sort the results by name.  * &#x60;purchase_time&#x60; - Sort the results by time of purchase.  * &#x60;release_date&#x60; - Sort the results by release date. 
 func (r ApiGetVodSeasonVideosRequest) Sort(sort string) ApiGetVodSeasonVideosRequest {
 	r.sort = &sort
 	return r
@@ -234,29 +234,28 @@ GetVodSeasonVideos Get all the videos in a season on an On Demand page
 
 This method returns every video in the specified season on an On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@param seasonId The ID of the season.
-	@return ApiGetVodSeasonVideosRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @param seasonId The ID of the season.
+ @return ApiGetVodSeasonVideosRequest
 */
 func (a *OnDemandSeasonsAPIService) GetVodSeasonVideos(ctx context.Context, ondemandId float32, seasonId float32) ApiGetVodSeasonVideosRequest {
 	return ApiGetVodSeasonVideosRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
-		seasonId:   seasonId,
+		seasonId: seasonId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *OnDemandSeasonsAPIService) GetVodSeasonVideosExecute(r ApiGetVodSeasonVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandSeasonsAPIService.GetVodSeasonVideos")
@@ -339,23 +338,23 @@ func (a *OnDemandSeasonsAPIService) GetVodSeasonVideosExecute(r ApiGetVodSeasonV
 }
 
 type ApiGetVodSeasonsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandSeasonsAPI
 	ondemandId float32
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	sort       *string
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetVodSeasonsRequest) Direction(direction string) ApiGetVodSeasonsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;viewable&#x60; - Filter by viewable seasons.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;viewable&#x60; - Filter by viewable seasons. 
 func (r ApiGetVodSeasonsRequest) Filter(filter string) ApiGetVodSeasonsRequest {
 	r.filter = &filter
 	return r
@@ -373,7 +372,7 @@ func (r ApiGetVodSeasonsRequest) PerPage(perPage float32) ApiGetVodSeasonsReques
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;manual&#x60; - Sort the results manually.
+// The way to sort the results.  Option descriptions:  * &#x60;date&#x60; - Sort the results by date.  * &#x60;manual&#x60; - Sort the results manually. 
 func (r ApiGetVodSeasonsRequest) Sort(sort string) ApiGetVodSeasonsRequest {
 	r.sort = &sort
 	return r
@@ -388,27 +387,26 @@ GetVodSeasons Get all the seasons on an On Demand page
 
 This method returns every season on the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiGetVodSeasonsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiGetVodSeasonsRequest
 */
 func (a *OnDemandSeasonsAPIService) GetVodSeasons(ctx context.Context, ondemandId float32) ApiGetVodSeasonsRequest {
 	return ApiGetVodSeasonsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OnDemandSeason
+//  @return []OnDemandSeason
 func (a *OnDemandSeasonsAPIService) GetVodSeasonsExecute(r ApiGetVodSeasonsRequest) ([]OnDemandSeason, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OnDemandSeason
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OnDemandSeason
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandSeasonsAPIService.GetVodSeasons")
@@ -484,8 +482,8 @@ func (a *OnDemandSeasonsAPIService) GetVodSeasonsExecute(r ApiGetVodSeasonsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

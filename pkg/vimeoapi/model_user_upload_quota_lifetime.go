@@ -23,7 +23,7 @@ type UserUploadQuotaLifetime struct {
 	Free NullableFloat32 `json:"free"`
 	// The total number of bytes or videos that the authenticated user can upload across the lifetime of their account.
 	Max NullableFloat32 `json:"max"`
-	// The unit that's used to compute quota.  Option descriptions:  * `video_count` - The quota is calculated using the count of the videos.  * `video_size` - The quota is calculated using the byte size of the videos.
+	// The unit that's used to compute quota.  Option descriptions:  * `video_count` - The quota is calculated using the count of the videos.  * `video_size` - The quota is calculated using the byte size of the videos. 
 	Unit NullableString `json:"unit"`
 	// The number of bytes or videos that the authenticated user has already uploaded against their lifetime limit.
 	Used NullableFloat32 `json:"used"`
@@ -155,7 +155,7 @@ func (o *UserUploadQuotaLifetime) SetUsed(v float32) {
 }
 
 func (o UserUploadQuotaLifetime) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -206,3 +206,5 @@ func (v *NullableUserUploadQuotaLifetime) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

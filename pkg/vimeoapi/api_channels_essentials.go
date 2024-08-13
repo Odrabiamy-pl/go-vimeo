@@ -19,15 +19,16 @@ import (
 	"strings"
 )
 
+
 type ChannelsEssentialsAPI interface {
 
 	/*
-		CreateChannel Create a channel
+	CreateChannel Create a channel
 
-		This method creates a new channel.
+	This method creates a new channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateChannelRequest
 	*/
 	CreateChannel(ctx context.Context) ApiCreateChannelRequest
 
@@ -36,13 +37,13 @@ type ChannelsEssentialsAPI interface {
 	CreateChannelExecute(r ApiCreateChannelRequest) (*Channel, *http.Response, error)
 
 	/*
-		DeleteChannel Delete a channel
+	DeleteChannel Delete a channel
 
-		This method deletes the specified channel.
+	This method deletes the specified channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiDeleteChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiDeleteChannelRequest
 	*/
 	DeleteChannel(ctx context.Context, channelId float32) ApiDeleteChannelRequest
 
@@ -50,13 +51,13 @@ type ChannelsEssentialsAPI interface {
 	DeleteChannelExecute(r ApiDeleteChannelRequest) (*http.Response, error)
 
 	/*
-		EditChannel Edit a channel
+	EditChannel Edit a channel
 
-		This method edits the specified channel.
+	This method edits the specified channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiEditChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiEditChannelRequest
 	*/
 	EditChannel(ctx context.Context, channelId float32) ApiEditChannelRequest
 
@@ -65,13 +66,13 @@ type ChannelsEssentialsAPI interface {
 	EditChannelExecute(r ApiEditChannelRequest) (*Channel, *http.Response, error)
 
 	/*
-		GetChannel Get a specific channel
+	GetChannel Get a specific channel
 
-		This method returns a single channel.
+	This method returns a single channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiGetChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiGetChannelRequest
 	*/
 	GetChannel(ctx context.Context, channelId float32) ApiGetChannelRequest
 
@@ -80,13 +81,13 @@ type ChannelsEssentialsAPI interface {
 	GetChannelExecute(r ApiGetChannelRequest) (*Channel, *http.Response, error)
 
 	/*
-		GetChannelSubscriptions Get all the channels to which a user subscribes
+	GetChannelSubscriptions Get all the channels to which a user subscribes
 
-		This method returns all the channels to which the specified user subscribes.
+	This method returns all the channels to which the specified user subscribes.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiGetChannelSubscriptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetChannelSubscriptionsRequest
 	*/
 	GetChannelSubscriptions(ctx context.Context, userId int32) ApiGetChannelSubscriptionsRequest
 
@@ -95,12 +96,12 @@ type ChannelsEssentialsAPI interface {
 	GetChannelSubscriptionsExecute(r ApiGetChannelSubscriptionsRequest) ([]Channel, *http.Response, error)
 
 	/*
-		GetChannelSubscriptionsAlt1 Get all the channels to which a user subscribes
+	GetChannelSubscriptionsAlt1 Get all the channels to which a user subscribes
 
-		This method returns all the channels to which the specified user subscribes.
+	This method returns all the channels to which the specified user subscribes.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetChannelSubscriptionsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetChannelSubscriptionsAlt1Request
 	*/
 	GetChannelSubscriptionsAlt1(ctx context.Context) ApiGetChannelSubscriptionsAlt1Request
 
@@ -109,12 +110,12 @@ type ChannelsEssentialsAPI interface {
 	GetChannelSubscriptionsAlt1Execute(r ApiGetChannelSubscriptionsAlt1Request) ([]Channel, *http.Response, error)
 
 	/*
-		GetChannels Get all channels
+	GetChannels Get all channels
 
-		This method returns all available channels.
+	This method returns all available channels.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetChannelsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetChannelsRequest
 	*/
 	GetChannels(ctx context.Context) ApiGetChannelsRequest
 
@@ -127,8 +128,8 @@ type ChannelsEssentialsAPI interface {
 type ChannelsEssentialsAPIService service
 
 type ApiCreateChannelRequest struct {
-	ctx                  context.Context
-	ApiService           ChannelsEssentialsAPI
+	ctx context.Context
+	ApiService ChannelsEssentialsAPI
 	createChannelRequest *CreateChannelRequest
 }
 
@@ -146,25 +147,24 @@ CreateChannel Create a channel
 
 This method creates a new channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateChannelRequest
 */
 func (a *ChannelsEssentialsAPIService) CreateChannel(ctx context.Context) ApiCreateChannelRequest {
 	return ApiCreateChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Channel
+//  @return Channel
 func (a *ChannelsEssentialsAPIService) CreateChannelExecute(r ApiCreateChannelRequest) (*Channel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Channel
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Channel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsEssentialsAPIService.CreateChannel")
@@ -229,8 +229,8 @@ func (a *ChannelsEssentialsAPIService) CreateChannelExecute(r ApiCreateChannelRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -240,8 +240,8 @@ func (a *ChannelsEssentialsAPIService) CreateChannelExecute(r ApiCreateChannelRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -259,9 +259,9 @@ func (a *ChannelsEssentialsAPIService) CreateChannelExecute(r ApiCreateChannelRe
 }
 
 type ApiDeleteChannelRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsEssentialsAPI
-	channelId  float32
+	channelId float32
 }
 
 func (r ApiDeleteChannelRequest) Execute() (*http.Response, error) {
@@ -273,24 +273,24 @@ DeleteChannel Delete a channel
 
 This method deletes the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiDeleteChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiDeleteChannelRequest
 */
 func (a *ChannelsEssentialsAPIService) DeleteChannel(ctx context.Context, channelId float32) ApiDeleteChannelRequest {
 	return ApiDeleteChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsEssentialsAPIService) DeleteChannelExecute(r ApiDeleteChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsEssentialsAPIService.DeleteChannel")
@@ -351,8 +351,8 @@ func (a *ChannelsEssentialsAPIService) DeleteChannelExecute(r ApiDeleteChannelRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -361,9 +361,9 @@ func (a *ChannelsEssentialsAPIService) DeleteChannelExecute(r ApiDeleteChannelRe
 }
 
 type ApiEditChannelRequest struct {
-	ctx                context.Context
-	ApiService         ChannelsEssentialsAPI
-	channelId          float32
+	ctx context.Context
+	ApiService ChannelsEssentialsAPI
+	channelId float32
 	editChannelRequest *EditChannelRequest
 }
 
@@ -381,27 +381,26 @@ EditChannel Edit a channel
 
 This method edits the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiEditChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiEditChannelRequest
 */
 func (a *ChannelsEssentialsAPIService) EditChannel(ctx context.Context, channelId float32) ApiEditChannelRequest {
 	return ApiEditChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Channel
+//  @return Channel
 func (a *ChannelsEssentialsAPIService) EditChannelExecute(r ApiEditChannelRequest) (*Channel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Channel
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Channel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsEssentialsAPIService.EditChannel")
@@ -464,8 +463,8 @@ func (a *ChannelsEssentialsAPIService) EditChannelExecute(r ApiEditChannelReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -483,9 +482,9 @@ func (a *ChannelsEssentialsAPIService) EditChannelExecute(r ApiEditChannelReques
 }
 
 type ApiGetChannelRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsEssentialsAPI
-	channelId  float32
+	channelId float32
 }
 
 func (r ApiGetChannelRequest) Execute() (*Channel, *http.Response, error) {
@@ -497,27 +496,26 @@ GetChannel Get a specific channel
 
 This method returns a single channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiGetChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiGetChannelRequest
 */
 func (a *ChannelsEssentialsAPIService) GetChannel(ctx context.Context, channelId float32) ApiGetChannelRequest {
 	return ApiGetChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Channel
+//  @return Channel
 func (a *ChannelsEssentialsAPIService) GetChannelExecute(r ApiGetChannelRequest) (*Channel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Channel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Channel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsEssentialsAPIService.GetChannel")
@@ -587,24 +585,24 @@ func (a *ChannelsEssentialsAPIService) GetChannelExecute(r ApiGetChannelRequest)
 }
 
 type ApiGetChannelSubscriptionsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsEssentialsAPI
-	userId     int32
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	query      *string
-	sort       *string
+	userId int32
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetChannelSubscriptionsRequest) Direction(direction string) ApiGetChannelSubscriptionsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderated&#x60; - Return moderated channels.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderated&#x60; - Return moderated channels. 
 func (r ApiGetChannelSubscriptionsRequest) Filter(filter string) ApiGetChannelSubscriptionsRequest {
 	r.filter = &filter
 	return r
@@ -628,7 +626,7 @@ func (r ApiGetChannelSubscriptionsRequest) Query(query string) ApiGetChannelSubs
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;videos&#x60; - Sort the results by number of videos.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;videos&#x60; - Sort the results by number of videos. 
 func (r ApiGetChannelSubscriptionsRequest) Sort(sort string) ApiGetChannelSubscriptionsRequest {
 	r.sort = &sort
 	return r
@@ -643,27 +641,26 @@ GetChannelSubscriptions Get all the channels to which a user subscribes
 
 This method returns all the channels to which the specified user subscribes.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetChannelSubscriptionsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiGetChannelSubscriptionsRequest
 */
 func (a *ChannelsEssentialsAPIService) GetChannelSubscriptions(ctx context.Context, userId int32) ApiGetChannelSubscriptionsRequest {
 	return ApiGetChannelSubscriptionsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Channel
+//  @return []Channel
 func (a *ChannelsEssentialsAPIService) GetChannelSubscriptionsExecute(r ApiGetChannelSubscriptionsRequest) ([]Channel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Channel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Channel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsEssentialsAPIService.GetChannelSubscriptions")
@@ -751,23 +748,23 @@ func (a *ChannelsEssentialsAPIService) GetChannelSubscriptionsExecute(r ApiGetCh
 }
 
 type ApiGetChannelSubscriptionsAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsEssentialsAPI
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	query      *string
-	sort       *string
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetChannelSubscriptionsAlt1Request) Direction(direction string) ApiGetChannelSubscriptionsAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderated&#x60; - Return moderated channels.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;moderated&#x60; - Return moderated channels. 
 func (r ApiGetChannelSubscriptionsAlt1Request) Filter(filter string) ApiGetChannelSubscriptionsAlt1Request {
 	r.filter = &filter
 	return r
@@ -791,7 +788,7 @@ func (r ApiGetChannelSubscriptionsAlt1Request) Query(query string) ApiGetChannel
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;videos&#x60; - Sort the results by number of videos.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;videos&#x60; - Sort the results by number of videos. 
 func (r ApiGetChannelSubscriptionsAlt1Request) Sort(sort string) ApiGetChannelSubscriptionsAlt1Request {
 	r.sort = &sort
 	return r
@@ -806,25 +803,24 @@ GetChannelSubscriptionsAlt1 Get all the channels to which a user subscribes
 
 This method returns all the channels to which the specified user subscribes.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetChannelSubscriptionsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetChannelSubscriptionsAlt1Request
 */
 func (a *ChannelsEssentialsAPIService) GetChannelSubscriptionsAlt1(ctx context.Context) ApiGetChannelSubscriptionsAlt1Request {
 	return ApiGetChannelSubscriptionsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Channel
+//  @return []Channel
 func (a *ChannelsEssentialsAPIService) GetChannelSubscriptionsAlt1Execute(r ApiGetChannelSubscriptionsAlt1Request) ([]Channel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Channel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Channel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsEssentialsAPIService.GetChannelSubscriptionsAlt1")
@@ -911,23 +907,23 @@ func (a *ChannelsEssentialsAPIService) GetChannelSubscriptionsAlt1Execute(r ApiG
 }
 
 type ApiGetChannelsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsEssentialsAPI
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	query      *string
-	sort       *string
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetChannelsRequest) Direction(direction string) ApiGetChannelsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;featured&#x60; - Return featured channels.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;featured&#x60; - Return featured channels. 
 func (r ApiGetChannelsRequest) Filter(filter string) ApiGetChannelsRequest {
 	r.filter = &filter
 	return r
@@ -951,7 +947,7 @@ func (r ApiGetChannelsRequest) Query(query string) ApiGetChannelsRequest {
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;default&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;relevant&#x60; - Sort the results by relevance. This option is available for search queries only.  * &#x60;videos&#x60; - Sort the results by number of videos.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by creation date.  * &#x60;default&#x60; - Sort the results by creation date.  * &#x60;followers&#x60; - Sort the results by number of followers.  * &#x60;relevant&#x60; - Sort the results by relevance. This option is available for search queries only.  * &#x60;videos&#x60; - Sort the results by number of videos. 
 func (r ApiGetChannelsRequest) Sort(sort string) ApiGetChannelsRequest {
 	r.sort = &sort
 	return r
@@ -966,25 +962,24 @@ GetChannels Get all channels
 
 This method returns all available channels.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetChannelsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetChannelsRequest
 */
 func (a *ChannelsEssentialsAPIService) GetChannels(ctx context.Context) ApiGetChannelsRequest {
 	return ApiGetChannelsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Channel
+//  @return []Channel
 func (a *ChannelsEssentialsAPIService) GetChannelsExecute(r ApiGetChannelsRequest) ([]Channel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Channel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Channel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsEssentialsAPIService.GetChannels")
@@ -1062,8 +1057,8 @@ func (a *ChannelsEssentialsAPIService) GetChannelsExecute(r ApiGetChannelsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

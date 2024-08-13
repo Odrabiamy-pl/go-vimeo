@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type OnDemandPurchasesAndRentalsAPI interface {
 
 	/*
-		CheckIfVodWasPurchasedAlt1 Check if a user has made a purchase or rental from an On Demand page
+	CheckIfVodWasPurchasedAlt1 Check if a user has made a purchase or rental from an On Demand page
 
-		This method determines whether the authenticated user has made a purchase or rental from the specified On Demand page.
+	This method determines whether the authenticated user has made a purchase or rental from the specified On Demand page.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param ondemandId The ID of the On Demand page.
-		@return ApiCheckIfVodWasPurchasedAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param ondemandId The ID of the On Demand page.
+	@return ApiCheckIfVodWasPurchasedAlt1Request
 	*/
 	CheckIfVodWasPurchasedAlt1(ctx context.Context, ondemandId float32) ApiCheckIfVodWasPurchasedAlt1Request
 
@@ -37,13 +38,13 @@ type OnDemandPurchasesAndRentalsAPI interface {
 	CheckIfVodWasPurchasedAlt1Execute(r ApiCheckIfVodWasPurchasedAlt1Request) (*OnDemandPage, *http.Response, error)
 
 	/*
-		GetVodPurchases Get all of the user's On Demand purchases and rentals
+	GetVodPurchases Get all of the user's On Demand purchases and rentals
 
-		This method returns every purchase and rental that the authenticated user has made across all On Demand pages.
+	This method returns every purchase and rental that the authenticated user has made across all On Demand pages.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param userId The ID of the user.
-		@return ApiGetVodPurchasesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The ID of the user.
+	@return ApiGetVodPurchasesRequest
 	*/
 	GetVodPurchases(ctx context.Context, userId int32) ApiGetVodPurchasesRequest
 
@@ -52,12 +53,12 @@ type OnDemandPurchasesAndRentalsAPI interface {
 	GetVodPurchasesExecute(r ApiGetVodPurchasesRequest) ([]OnDemandPage, *http.Response, error)
 
 	/*
-		GetVodPurchasesAlt1 Get all of the user's On Demand purchases and rentals
+	GetVodPurchasesAlt1 Get all of the user's On Demand purchases and rentals
 
-		This method returns every purchase and rental that the authenticated user has made across all On Demand pages.
+	This method returns every purchase and rental that the authenticated user has made across all On Demand pages.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetVodPurchasesAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetVodPurchasesAlt1Request
 	*/
 	GetVodPurchasesAlt1(ctx context.Context) ApiGetVodPurchasesAlt1Request
 
@@ -70,7 +71,7 @@ type OnDemandPurchasesAndRentalsAPI interface {
 type OnDemandPurchasesAndRentalsAPIService service
 
 type ApiCheckIfVodWasPurchasedAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandPurchasesAndRentalsAPI
 	ondemandId float32
 }
@@ -84,27 +85,26 @@ CheckIfVodWasPurchasedAlt1 Check if a user has made a purchase or rental from an
 
 This method determines whether the authenticated user has made a purchase or rental from the specified On Demand page.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param ondemandId The ID of the On Demand page.
-	@return ApiCheckIfVodWasPurchasedAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ondemandId The ID of the On Demand page.
+ @return ApiCheckIfVodWasPurchasedAlt1Request
 */
 func (a *OnDemandPurchasesAndRentalsAPIService) CheckIfVodWasPurchasedAlt1(ctx context.Context, ondemandId float32) ApiCheckIfVodWasPurchasedAlt1Request {
 	return ApiCheckIfVodWasPurchasedAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		ondemandId: ondemandId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OnDemandPage
+//  @return OnDemandPage
 func (a *OnDemandPurchasesAndRentalsAPIService) CheckIfVodWasPurchasedAlt1Execute(r ApiCheckIfVodWasPurchasedAlt1Request) (*OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OnDemandPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPurchasesAndRentalsAPIService.CheckIfVodWasPurchasedAlt1")
@@ -165,8 +165,8 @@ func (a *OnDemandPurchasesAndRentalsAPIService) CheckIfVodWasPurchasedAlt1Execut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -176,8 +176,8 @@ func (a *OnDemandPurchasesAndRentalsAPIService) CheckIfVodWasPurchasedAlt1Execut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -195,23 +195,23 @@ func (a *OnDemandPurchasesAndRentalsAPIService) CheckIfVodWasPurchasedAlt1Execut
 }
 
 type ApiGetVodPurchasesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandPurchasesAndRentalsAPI
-	userId     int32
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	sort       *string
+	userId int32
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetVodPurchasesRequest) Direction(direction string) ApiGetVodPurchasesRequest {
 	r.direction = &direction
 	return r
 }
 
-// The type of the On Demand video to filter on.  Option descriptions:  * &#x60;all&#x60; - Filter by all video types.  * &#x60;expiring_soon&#x60; - Filter by videos that expire soon.  * &#x60;film&#x60; - Filter by film.  * &#x60;important&#x60; - Filter by pages that are about to expire.  * &#x60;purchased&#x60; - Filter by purchased videos.  * &#x60;rented&#x60; - Filter by rented videos.  * &#x60;series&#x60; - Filter by series.  * &#x60;subscription&#x60; - Filter by video subscription.  * &#x60;unwatched&#x60; - Filter by unwatched videos.  * &#x60;watched&#x60; - Filter by watched videos.
+// The type of the On Demand video to filter on.  Option descriptions:  * &#x60;all&#x60; - Filter by all video types.  * &#x60;expiring_soon&#x60; - Filter by videos that expire soon.  * &#x60;film&#x60; - Filter by film.  * &#x60;important&#x60; - Filter by pages that are about to expire.  * &#x60;purchased&#x60; - Filter by purchased videos.  * &#x60;rented&#x60; - Filter by rented videos.  * &#x60;series&#x60; - Filter by series.  * &#x60;subscription&#x60; - Filter by video subscription.  * &#x60;unwatched&#x60; - Filter by unwatched videos.  * &#x60;watched&#x60; - Filter by watched videos. 
 func (r ApiGetVodPurchasesRequest) Filter(filter string) ApiGetVodPurchasesRequest {
 	r.filter = &filter
 	return r
@@ -229,7 +229,7 @@ func (r ApiGetVodPurchasesRequest) PerPage(perPage float32) ApiGetVodPurchasesRe
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added video.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by video name.  * &#x60;purchase_time&#x60; - Sort the results by time of video purchase.  * &#x60;rating&#x60; - Sort the results by content rating.  * &#x60;release_date&#x60; - Sort the results by video release date.
+// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added video.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by video name.  * &#x60;purchase_time&#x60; - Sort the results by time of video purchase.  * &#x60;rating&#x60; - Sort the results by content rating.  * &#x60;release_date&#x60; - Sort the results by video release date. 
 func (r ApiGetVodPurchasesRequest) Sort(sort string) ApiGetVodPurchasesRequest {
 	r.sort = &sort
 	return r
@@ -244,27 +244,26 @@ GetVodPurchases Get all of the user's On Demand purchases and rentals
 
 This method returns every purchase and rental that the authenticated user has made across all On Demand pages.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The ID of the user.
-	@return ApiGetVodPurchasesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The ID of the user.
+ @return ApiGetVodPurchasesRequest
 */
 func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchases(ctx context.Context, userId int32) ApiGetVodPurchasesRequest {
 	return ApiGetVodPurchasesRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OnDemandPage
+//  @return []OnDemandPage
 func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchasesExecute(r ApiGetVodPurchasesRequest) ([]OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OnDemandPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPurchasesAndRentalsAPIService.GetVodPurchases")
@@ -340,8 +339,8 @@ func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchasesExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -359,22 +358,22 @@ func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchasesExecute(r ApiGetV
 }
 
 type ApiGetVodPurchasesAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OnDemandPurchasesAndRentalsAPI
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	sort       *string
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetVodPurchasesAlt1Request) Direction(direction string) ApiGetVodPurchasesAlt1Request {
 	r.direction = &direction
 	return r
 }
 
-// The type of the On Demand video to filter on.  Option descriptions:  * &#x60;all&#x60; - Filter by all video types.  * &#x60;expiring_soon&#x60; - Filter by videos that expire soon.  * &#x60;film&#x60; - Filter by film.  * &#x60;important&#x60; - Filter by pages that are about to expire.  * &#x60;purchased&#x60; - Filter by purchased videos.  * &#x60;rented&#x60; - Filter by rented videos.  * &#x60;series&#x60; - Filter by series.  * &#x60;subscription&#x60; - Filter by video subscription.  * &#x60;unwatched&#x60; - Filter by unwatched videos.  * &#x60;watched&#x60; - Filter by watched videos.
+// The type of the On Demand video to filter on.  Option descriptions:  * &#x60;all&#x60; - Filter by all video types.  * &#x60;expiring_soon&#x60; - Filter by videos that expire soon.  * &#x60;film&#x60; - Filter by film.  * &#x60;important&#x60; - Filter by pages that are about to expire.  * &#x60;purchased&#x60; - Filter by purchased videos.  * &#x60;rented&#x60; - Filter by rented videos.  * &#x60;series&#x60; - Filter by series.  * &#x60;subscription&#x60; - Filter by video subscription.  * &#x60;unwatched&#x60; - Filter by unwatched videos.  * &#x60;watched&#x60; - Filter by watched videos. 
 func (r ApiGetVodPurchasesAlt1Request) Filter(filter string) ApiGetVodPurchasesAlt1Request {
 	r.filter = &filter
 	return r
@@ -392,7 +391,7 @@ func (r ApiGetVodPurchasesAlt1Request) PerPage(perPage float32) ApiGetVodPurchas
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added video.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by video name.  * &#x60;purchase_time&#x60; - Sort the results by time of video purchase.  * &#x60;rating&#x60; - Sort the results by content rating.  * &#x60;release_date&#x60; - Sort the results by video release date.
+// The way to sort the results.  Option descriptions:  * &#x60;added&#x60; - Sort the results by most recently added video.  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;name&#x60; - Sort the results by video name.  * &#x60;purchase_time&#x60; - Sort the results by time of video purchase.  * &#x60;rating&#x60; - Sort the results by content rating.  * &#x60;release_date&#x60; - Sort the results by video release date. 
 func (r ApiGetVodPurchasesAlt1Request) Sort(sort string) ApiGetVodPurchasesAlt1Request {
 	r.sort = &sort
 	return r
@@ -407,25 +406,24 @@ GetVodPurchasesAlt1 Get all of the user's On Demand purchases and rentals
 
 This method returns every purchase and rental that the authenticated user has made across all On Demand pages.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetVodPurchasesAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetVodPurchasesAlt1Request
 */
 func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchasesAlt1(ctx context.Context) ApiGetVodPurchasesAlt1Request {
 	return ApiGetVodPurchasesAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OnDemandPage
+//  @return []OnDemandPage
 func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchasesAlt1Execute(r ApiGetVodPurchasesAlt1Request) ([]OnDemandPage, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OnDemandPage
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OnDemandPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OnDemandPurchasesAndRentalsAPIService.GetVodPurchasesAlt1")
@@ -500,8 +498,8 @@ func (a *OnDemandPurchasesAndRentalsAPIService) GetVodPurchasesAlt1Execute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

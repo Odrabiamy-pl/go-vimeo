@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type ChannelsTagsAPI interface {
 
 	/*
-		AddChannelTag Add a specific tag to a channel
+	AddChannelTag Add a specific tag to a channel
 
-		This method adds a single tag to the specified channel. The authenticated user must be the owner of the channel.
+	This method adds a single tag to the specified channel. The authenticated user must be the owner of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param word The word to use as the tag.
-		@return ApiAddChannelTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param word The word to use as the tag.
+	@return ApiAddChannelTagRequest
 	*/
 	AddChannelTag(ctx context.Context, channelId float32, word string) ApiAddChannelTagRequest
 
@@ -37,13 +38,13 @@ type ChannelsTagsAPI interface {
 	AddChannelTagExecute(r ApiAddChannelTagRequest) (*http.Response, error)
 
 	/*
-		AddTagsToChannel Add a list of tags to a channel
+	AddTagsToChannel Add a list of tags to a channel
 
-		This method adds multiple tags to the specified channel. Include the tags as a JSON array in the body of the request using the **tag** field, like this: `[{ "tag": "funny" }, { "tag": "concert" }]`. The authenticated user must be the owner of the channel. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
+	This method adds multiple tags to the specified channel. Include the tags as a JSON array in the body of the request using the **tag** field, like this: `[{ "tag": "funny" }, { "tag": "concert" }]`. The authenticated user must be the owner of the channel. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiAddTagsToChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiAddTagsToChannelRequest
 	*/
 	AddTagsToChannel(ctx context.Context, channelId float32) ApiAddTagsToChannelRequest
 
@@ -52,14 +53,14 @@ type ChannelsTagsAPI interface {
 	AddTagsToChannelExecute(r ApiAddTagsToChannelRequest) ([]Tag, *http.Response, error)
 
 	/*
-		CheckIfChannelHasTag Check if a tag has been added to a channel
+	CheckIfChannelHasTag Check if a tag has been added to a channel
 
-		This method determines whether a tag has been added to the specified channel.
+	This method determines whether a tag has been added to the specified channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param word The word to use as the tag.
-		@return ApiCheckIfChannelHasTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param word The word to use as the tag.
+	@return ApiCheckIfChannelHasTagRequest
 	*/
 	CheckIfChannelHasTag(ctx context.Context, channelId float32, word string) ApiCheckIfChannelHasTagRequest
 
@@ -67,14 +68,14 @@ type ChannelsTagsAPI interface {
 	CheckIfChannelHasTagExecute(r ApiCheckIfChannelHasTagRequest) (*http.Response, error)
 
 	/*
-		DeleteTagFromChannel Remove a tag from a channel
+	DeleteTagFromChannel Remove a tag from a channel
 
-		This method removes a single tag from the specified channel. The authenticated user must be the owner of the channel.
+	This method removes a single tag from the specified channel. The authenticated user must be the owner of the channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@param word The word to use as the tag.
-		@return ApiDeleteTagFromChannelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@param word The word to use as the tag.
+	@return ApiDeleteTagFromChannelRequest
 	*/
 	DeleteTagFromChannel(ctx context.Context, channelId float32, word string) ApiDeleteTagFromChannelRequest
 
@@ -82,13 +83,13 @@ type ChannelsTagsAPI interface {
 	DeleteTagFromChannelExecute(r ApiDeleteTagFromChannelRequest) (*http.Response, error)
 
 	/*
-		GetChannelTags Get all the tags that have been added to a channel
+	GetChannelTags Get all the tags that have been added to a channel
 
-		This method returns every tag that has been added to the specified channel.
+	This method returns every tag that has been added to the specified channel.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param channelId The ID of the channel.
-		@return ApiGetChannelTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channelId The ID of the channel.
+	@return ApiGetChannelTagsRequest
 	*/
 	GetChannelTags(ctx context.Context, channelId float32) ApiGetChannelTagsRequest
 
@@ -101,10 +102,10 @@ type ChannelsTagsAPI interface {
 type ChannelsTagsAPIService service
 
 type ApiAddChannelTagRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsTagsAPI
-	channelId  float32
-	word       string
+	channelId float32
+	word string
 }
 
 func (r ApiAddChannelTagRequest) Execute() (*http.Response, error) {
@@ -116,26 +117,26 @@ AddChannelTag Add a specific tag to a channel
 
 This method adds a single tag to the specified channel. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param word The word to use as the tag.
-	@return ApiAddChannelTagRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param word The word to use as the tag.
+ @return ApiAddChannelTagRequest
 */
 func (a *ChannelsTagsAPIService) AddChannelTag(ctx context.Context, channelId float32, word string) ApiAddChannelTagRequest {
 	return ApiAddChannelTagRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		word:       word,
+		ctx: ctx,
+		channelId: channelId,
+		word: word,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsTagsAPIService) AddChannelTagExecute(r ApiAddChannelTagRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsTagsAPIService.AddChannelTag")
@@ -197,8 +198,8 @@ func (a *ChannelsTagsAPIService) AddChannelTagExecute(r ApiAddChannelTagRequest)
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -208,8 +209,8 @@ func (a *ChannelsTagsAPIService) AddChannelTagExecute(r ApiAddChannelTagRequest)
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -219,8 +220,8 @@ func (a *ChannelsTagsAPIService) AddChannelTagExecute(r ApiAddChannelTagRequest)
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -229,9 +230,9 @@ func (a *ChannelsTagsAPIService) AddChannelTagExecute(r ApiAddChannelTagRequest)
 }
 
 type ApiAddTagsToChannelRequest struct {
-	ctx                     context.Context
-	ApiService              ChannelsTagsAPI
-	channelId               float32
+	ctx context.Context
+	ApiService ChannelsTagsAPI
+	channelId float32
 	addTagsToChannelRequest *AddTagsToChannelRequest
 }
 
@@ -249,27 +250,26 @@ AddTagsToChannel Add a list of tags to a channel
 
 This method adds multiple tags to the specified channel. Include the tags as a JSON array in the body of the request using the **tag** field, like this: `[{ "tag": "funny" }, { "tag": "concert" }]`. The authenticated user must be the owner of the channel. For more information on batch requests like this one, see [Using Common Formats and Parameters](https://developer.vimeo.com/api/common-formats#working-with-batch-requests).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiAddTagsToChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiAddTagsToChannelRequest
 */
 func (a *ChannelsTagsAPIService) AddTagsToChannel(ctx context.Context, channelId float32) ApiAddTagsToChannelRequest {
 	return ApiAddTagsToChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Tag
+//  @return []Tag
 func (a *ChannelsTagsAPIService) AddTagsToChannelExecute(r ApiAddTagsToChannelRequest) ([]Tag, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Tag
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Tag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsTagsAPIService.AddTagsToChannel")
@@ -335,8 +335,8 @@ func (a *ChannelsTagsAPIService) AddTagsToChannelExecute(r ApiAddTagsToChannelRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -346,8 +346,8 @@ func (a *ChannelsTagsAPIService) AddTagsToChannelExecute(r ApiAddTagsToChannelRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -357,8 +357,8 @@ func (a *ChannelsTagsAPIService) AddTagsToChannelExecute(r ApiAddTagsToChannelRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -376,10 +376,10 @@ func (a *ChannelsTagsAPIService) AddTagsToChannelExecute(r ApiAddTagsToChannelRe
 }
 
 type ApiCheckIfChannelHasTagRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsTagsAPI
-	channelId  float32
-	word       string
+	channelId float32
+	word string
 }
 
 func (r ApiCheckIfChannelHasTagRequest) Execute() (*http.Response, error) {
@@ -391,26 +391,26 @@ CheckIfChannelHasTag Check if a tag has been added to a channel
 
 This method determines whether a tag has been added to the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param word The word to use as the tag.
-	@return ApiCheckIfChannelHasTagRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param word The word to use as the tag.
+ @return ApiCheckIfChannelHasTagRequest
 */
 func (a *ChannelsTagsAPIService) CheckIfChannelHasTag(ctx context.Context, channelId float32, word string) ApiCheckIfChannelHasTagRequest {
 	return ApiCheckIfChannelHasTagRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		word:       word,
+		ctx: ctx,
+		channelId: channelId,
+		word: word,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsTagsAPIService) CheckIfChannelHasTagExecute(r ApiCheckIfChannelHasTagRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsTagsAPIService.CheckIfChannelHasTag")
@@ -472,8 +472,8 @@ func (a *ChannelsTagsAPIService) CheckIfChannelHasTagExecute(r ApiCheckIfChannel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -483,8 +483,8 @@ func (a *ChannelsTagsAPIService) CheckIfChannelHasTagExecute(r ApiCheckIfChannel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -493,10 +493,10 @@ func (a *ChannelsTagsAPIService) CheckIfChannelHasTagExecute(r ApiCheckIfChannel
 }
 
 type ApiDeleteTagFromChannelRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsTagsAPI
-	channelId  float32
-	word       string
+	channelId float32
+	word string
 }
 
 func (r ApiDeleteTagFromChannelRequest) Execute() (*http.Response, error) {
@@ -508,26 +508,26 @@ DeleteTagFromChannel Remove a tag from a channel
 
 This method removes a single tag from the specified channel. The authenticated user must be the owner of the channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@param word The word to use as the tag.
-	@return ApiDeleteTagFromChannelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @param word The word to use as the tag.
+ @return ApiDeleteTagFromChannelRequest
 */
 func (a *ChannelsTagsAPIService) DeleteTagFromChannel(ctx context.Context, channelId float32, word string) ApiDeleteTagFromChannelRequest {
 	return ApiDeleteTagFromChannelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
-		word:       word,
+		ctx: ctx,
+		channelId: channelId,
+		word: word,
 	}
 }
 
 // Execute executes the request
 func (a *ChannelsTagsAPIService) DeleteTagFromChannelExecute(r ApiDeleteTagFromChannelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsTagsAPIService.DeleteTagFromChannel")
@@ -589,8 +589,8 @@ func (a *ChannelsTagsAPIService) DeleteTagFromChannelExecute(r ApiDeleteTagFromC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -600,8 +600,8 @@ func (a *ChannelsTagsAPIService) DeleteTagFromChannelExecute(r ApiDeleteTagFromC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -611,8 +611,8 @@ func (a *ChannelsTagsAPIService) DeleteTagFromChannelExecute(r ApiDeleteTagFromC
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -621,9 +621,9 @@ func (a *ChannelsTagsAPIService) DeleteTagFromChannelExecute(r ApiDeleteTagFromC
 }
 
 type ApiGetChannelTagsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ChannelsTagsAPI
-	channelId  float32
+	channelId float32
 }
 
 func (r ApiGetChannelTagsRequest) Execute() ([]Tag, *http.Response, error) {
@@ -635,27 +635,26 @@ GetChannelTags Get all the tags that have been added to a channel
 
 This method returns every tag that has been added to the specified channel.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param channelId The ID of the channel.
-	@return ApiGetChannelTagsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channelId The ID of the channel.
+ @return ApiGetChannelTagsRequest
 */
 func (a *ChannelsTagsAPIService) GetChannelTags(ctx context.Context, channelId float32) ApiGetChannelTagsRequest {
 	return ApiGetChannelTagsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		channelId:  channelId,
+		ctx: ctx,
+		channelId: channelId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Tag
+//  @return []Tag
 func (a *ChannelsTagsAPIService) GetChannelTagsExecute(r ApiGetChannelTagsRequest) ([]Tag, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Tag
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Tag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelsTagsAPIService.GetChannelTags")
@@ -716,8 +715,8 @@ func (a *ChannelsTagsAPIService) GetChannelTagsExecute(r ApiGetChannelTagsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

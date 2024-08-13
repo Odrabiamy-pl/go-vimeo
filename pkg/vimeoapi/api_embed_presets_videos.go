@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type EmbedPresetsVideosAPI interface {
 
 	/*
-		AddVideoEmbedPreset Add an embed preset to a video
+	AddVideoEmbedPreset Add an embed preset to a video
 
-		This method adds an embed preset to the specified video. The authenticated user must either be the owner of the video or a team user with the contributor or admin role.
+	This method adds an embed preset to the specified video. The authenticated user must either be the owner of the video or a team user with the contributor or admin role.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param presetId The ID of the embed preset.
-		@param videoId The ID of the video.
-		@return ApiAddVideoEmbedPresetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the embed preset.
+	@param videoId The ID of the video.
+	@return ApiAddVideoEmbedPresetRequest
 	*/
 	AddVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiAddVideoEmbedPresetRequest
 
@@ -37,14 +38,14 @@ type EmbedPresetsVideosAPI interface {
 	AddVideoEmbedPresetExecute(r ApiAddVideoEmbedPresetRequest) (*http.Response, error)
 
 	/*
-		DeleteVideoEmbedPreset Remove an embed preset from a video
+	DeleteVideoEmbedPreset Remove an embed preset from a video
 
-		This method removes the specified embed preset from a video. The authenticated user must either be the owner of the video or a team user with the contributor or admin role.
+	This method removes the specified embed preset from a video. The authenticated user must either be the owner of the video or a team user with the contributor or admin role.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param presetId The ID of the embed preset.
-		@param videoId The ID of the video.
-		@return ApiDeleteVideoEmbedPresetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the embed preset.
+	@param videoId The ID of the video.
+	@return ApiDeleteVideoEmbedPresetRequest
 	*/
 	DeleteVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiDeleteVideoEmbedPresetRequest
 
@@ -52,14 +53,14 @@ type EmbedPresetsVideosAPI interface {
 	DeleteVideoEmbedPresetExecute(r ApiDeleteVideoEmbedPresetRequest) (*http.Response, error)
 
 	/*
-		GetEmbedPresetVideos Get all the videos that have a specific embed preset
+	GetEmbedPresetVideos Get all the videos that have a specific embed preset
 
-		This method returns every video to which the specified embed preset has been added. The authenticated user must be the owner of videos.
+	This method returns every video to which the specified embed preset has been added. The authenticated user must be the owner of videos.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param presetId The ID of the embed preset.
-		@param userId The ID of the user.
-		@return ApiGetEmbedPresetVideosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the embed preset.
+	@param userId The ID of the user.
+	@return ApiGetEmbedPresetVideosRequest
 	*/
 	GetEmbedPresetVideos(ctx context.Context, presetId float32, userId int32) ApiGetEmbedPresetVideosRequest
 
@@ -68,13 +69,13 @@ type EmbedPresetsVideosAPI interface {
 	GetEmbedPresetVideosExecute(r ApiGetEmbedPresetVideosRequest) ([]Video, *http.Response, error)
 
 	/*
-		GetEmbedPresetVideosAlt1 Get all the videos that have a specific embed preset
+	GetEmbedPresetVideosAlt1 Get all the videos that have a specific embed preset
 
-		This method returns every video to which the specified embed preset has been added. The authenticated user must be the owner of videos.
+	This method returns every video to which the specified embed preset has been added. The authenticated user must be the owner of videos.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param presetId The ID of the embed preset.
-		@return ApiGetEmbedPresetVideosAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the embed preset.
+	@return ApiGetEmbedPresetVideosAlt1Request
 	*/
 	GetEmbedPresetVideosAlt1(ctx context.Context, presetId float32) ApiGetEmbedPresetVideosAlt1Request
 
@@ -83,14 +84,14 @@ type EmbedPresetsVideosAPI interface {
 	GetEmbedPresetVideosAlt1Execute(r ApiGetEmbedPresetVideosAlt1Request) ([]Video, *http.Response, error)
 
 	/*
-		GetVideoEmbedPreset Check if an embed preset has been added to a video
+	GetVideoEmbedPreset Check if an embed preset has been added to a video
 
-		This method determines whether a video has the specified embed preset.
+	This method determines whether a video has the specified embed preset.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param presetId The ID of the embed preset.
-		@param videoId The ID of the video.
-		@return ApiGetVideoEmbedPresetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param presetId The ID of the embed preset.
+	@param videoId The ID of the video.
+	@return ApiGetVideoEmbedPresetRequest
 	*/
 	GetVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiGetVideoEmbedPresetRequest
 
@@ -102,10 +103,10 @@ type EmbedPresetsVideosAPI interface {
 type EmbedPresetsVideosAPIService service
 
 type ApiAddVideoEmbedPresetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
-	presetId   float32
-	videoId    int32
+	presetId float32
+	videoId int32
 }
 
 func (r ApiAddVideoEmbedPresetRequest) Execute() (*http.Response, error) {
@@ -117,26 +118,26 @@ AddVideoEmbedPreset Add an embed preset to a video
 
 This method adds an embed preset to the specified video. The authenticated user must either be the owner of the video or a team user with the contributor or admin role.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the embed preset.
-	@param videoId The ID of the video.
-	@return ApiAddVideoEmbedPresetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param presetId The ID of the embed preset.
+ @param videoId The ID of the video.
+ @return ApiAddVideoEmbedPresetRequest
 */
 func (a *EmbedPresetsVideosAPIService) AddVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiAddVideoEmbedPresetRequest {
 	return ApiAddVideoEmbedPresetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		presetId:   presetId,
-		videoId:    videoId,
+		ctx: ctx,
+		presetId: presetId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *EmbedPresetsVideosAPIService) AddVideoEmbedPresetExecute(r ApiAddVideoEmbedPresetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsVideosAPIService.AddVideoEmbedPreset")
@@ -198,10 +199,10 @@ func (a *EmbedPresetsVideosAPIService) AddVideoEmbedPresetExecute(r ApiAddVideoE
 }
 
 type ApiDeleteVideoEmbedPresetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
-	presetId   float32
-	videoId    int32
+	presetId float32
+	videoId int32
 }
 
 func (r ApiDeleteVideoEmbedPresetRequest) Execute() (*http.Response, error) {
@@ -213,26 +214,26 @@ DeleteVideoEmbedPreset Remove an embed preset from a video
 
 This method removes the specified embed preset from a video. The authenticated user must either be the owner of the video or a team user with the contributor or admin role.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the embed preset.
-	@param videoId The ID of the video.
-	@return ApiDeleteVideoEmbedPresetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param presetId The ID of the embed preset.
+ @param videoId The ID of the video.
+ @return ApiDeleteVideoEmbedPresetRequest
 */
 func (a *EmbedPresetsVideosAPIService) DeleteVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiDeleteVideoEmbedPresetRequest {
 	return ApiDeleteVideoEmbedPresetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		presetId:   presetId,
-		videoId:    videoId,
+		ctx: ctx,
+		presetId: presetId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *EmbedPresetsVideosAPIService) DeleteVideoEmbedPresetExecute(r ApiDeleteVideoEmbedPresetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsVideosAPIService.DeleteVideoEmbedPreset")
@@ -294,8 +295,8 @@ func (a *EmbedPresetsVideosAPIService) DeleteVideoEmbedPresetExecute(r ApiDelete
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -304,12 +305,12 @@ func (a *EmbedPresetsVideosAPIService) DeleteVideoEmbedPresetExecute(r ApiDelete
 }
 
 type ApiGetEmbedPresetVideosRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
-	presetId   float32
-	userId     int32
-	page       *float32
-	perPage    *float32
+	presetId float32
+	userId int32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -333,29 +334,28 @@ GetEmbedPresetVideos Get all the videos that have a specific embed preset
 
 This method returns every video to which the specified embed preset has been added. The authenticated user must be the owner of videos.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the embed preset.
-	@param userId The ID of the user.
-	@return ApiGetEmbedPresetVideosRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param presetId The ID of the embed preset.
+ @param userId The ID of the user.
+ @return ApiGetEmbedPresetVideosRequest
 */
 func (a *EmbedPresetsVideosAPIService) GetEmbedPresetVideos(ctx context.Context, presetId float32, userId int32) ApiGetEmbedPresetVideosRequest {
 	return ApiGetEmbedPresetVideosRequest{
 		ApiService: a,
-		ctx:        ctx,
-		presetId:   presetId,
-		userId:     userId,
+		ctx: ctx,
+		presetId: presetId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *EmbedPresetsVideosAPIService) GetEmbedPresetVideosExecute(r ApiGetEmbedPresetVideosRequest) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsVideosAPIService.GetEmbedPresetVideos")
@@ -432,11 +432,11 @@ func (a *EmbedPresetsVideosAPIService) GetEmbedPresetVideosExecute(r ApiGetEmbed
 }
 
 type ApiGetEmbedPresetVideosAlt1Request struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
-	presetId   float32
-	page       *float32
-	perPage    *float32
+	presetId float32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -460,27 +460,26 @@ GetEmbedPresetVideosAlt1 Get all the videos that have a specific embed preset
 
 This method returns every video to which the specified embed preset has been added. The authenticated user must be the owner of videos.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the embed preset.
-	@return ApiGetEmbedPresetVideosAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param presetId The ID of the embed preset.
+ @return ApiGetEmbedPresetVideosAlt1Request
 */
 func (a *EmbedPresetsVideosAPIService) GetEmbedPresetVideosAlt1(ctx context.Context, presetId float32) ApiGetEmbedPresetVideosAlt1Request {
 	return ApiGetEmbedPresetVideosAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		presetId:   presetId,
+		ctx: ctx,
+		presetId: presetId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Video
+//  @return []Video
 func (a *EmbedPresetsVideosAPIService) GetEmbedPresetVideosAlt1Execute(r ApiGetEmbedPresetVideosAlt1Request) ([]Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Video
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsVideosAPIService.GetEmbedPresetVideosAlt1")
@@ -556,10 +555,10 @@ func (a *EmbedPresetsVideosAPIService) GetEmbedPresetVideosAlt1Execute(r ApiGetE
 }
 
 type ApiGetVideoEmbedPresetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService EmbedPresetsVideosAPI
-	presetId   float32
-	videoId    int32
+	presetId float32
+	videoId int32
 }
 
 func (r ApiGetVideoEmbedPresetRequest) Execute() (*http.Response, error) {
@@ -571,26 +570,26 @@ GetVideoEmbedPreset Check if an embed preset has been added to a video
 
 This method determines whether a video has the specified embed preset.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param presetId The ID of the embed preset.
-	@param videoId The ID of the video.
-	@return ApiGetVideoEmbedPresetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param presetId The ID of the embed preset.
+ @param videoId The ID of the video.
+ @return ApiGetVideoEmbedPresetRequest
 */
 func (a *EmbedPresetsVideosAPIService) GetVideoEmbedPreset(ctx context.Context, presetId float32, videoId int32) ApiGetVideoEmbedPresetRequest {
 	return ApiGetVideoEmbedPresetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		presetId:   presetId,
-		videoId:    videoId,
+		ctx: ctx,
+		presetId: presetId,
+		videoId: videoId,
 	}
 }
 
 // Execute executes the request
 func (a *EmbedPresetsVideosAPIService) GetVideoEmbedPresetExecute(r ApiGetVideoEmbedPresetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EmbedPresetsVideosAPIService.GetVideoEmbedPreset")
@@ -652,8 +651,8 @@ func (a *EmbedPresetsVideosAPIService) GetVideoEmbedPresetExecute(r ApiGetVideoE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

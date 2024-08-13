@@ -20,11 +20,11 @@ var _ MappedNullable = &OnDemandPageMetadataConnectionsMetadataConnections{}
 // OnDemandPageMetadataConnectionsMetadataConnections struct for OnDemandPageMetadataConnectionsMetadataConnections
 type OnDemandPageMetadataConnectionsMetadataConnections struct {
 	Comments OnDemandPageMetadataConnectionsMetadataConnectionsComments `json:"comments"`
-	Genres   OnDemandPageMetadataConnectionsMetadataConnectionsGenres   `json:"genres"`
-	Likes    OnDemandPageMetadataConnectionsMetadataConnectionsLikes    `json:"likes"`
+	Genres OnDemandPageMetadataConnectionsMetadataConnectionsGenres `json:"genres"`
+	Likes OnDemandPageMetadataConnectionsMetadataConnectionsLikes `json:"likes"`
 	Pictures OnDemandPageMetadataConnectionsMetadataConnectionsPictures `json:"pictures"`
-	Seasons  OnDemandPageMetadataConnectionsMetadataConnectionsSeasons  `json:"seasons"`
-	Videos   OnDemandPageMetadataConnectionsMetadataConnectionsVideos   `json:"videos"`
+	Seasons OnDemandPageMetadataConnectionsMetadataConnectionsSeasons `json:"seasons"`
+	Videos OnDemandPageMetadataConnectionsMetadataConnectionsVideos `json:"videos"`
 }
 
 // NewOnDemandPageMetadataConnectionsMetadataConnections instantiates a new OnDemandPageMetadataConnectionsMetadataConnections object
@@ -195,7 +195,7 @@ func (o *OnDemandPageMetadataConnectionsMetadataConnections) SetVideos(v OnDeman
 }
 
 func (o OnDemandPageMetadataConnectionsMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -248,3 +248,5 @@ func (v *NullableOnDemandPageMetadataConnectionsMetadataConnections) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

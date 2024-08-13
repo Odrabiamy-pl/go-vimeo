@@ -19,19 +19,20 @@ import (
 	"strings"
 )
 
+
 type ShowcasesCustomShowcaseThumbnailsAPI interface {
 
 	/*
-			CreateShowcaseCustomThumb Add a custom thumbnail to a showcase
+	CreateShowcaseCustomThumb Add a custom thumbnail to a showcase
 
-			This method adds an uploaded image file as a custom thumbnail for the specified showcase. The image doesn't need to be a still from a showcase video, unlike with the [standard thumbnail method](https://developer.vimeo.com/api/reference/albums#set_video_as_album_thumbnail). The authenticated user must be the owner of the showcase.
+	This method adds an uploaded image file as a custom thumbnail for the specified showcase. The image doesn't need to be a still from a showcase video, unlike with the [standard thumbnail method](https://developer.vimeo.com/api/reference/albums#set_video_as_album_thumbnail). The authenticated user must be the owner of the showcase.
 
-		For information on how to upload the thumbnail, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide, and follow the same steps.
+For information on how to upload the thumbnail, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide, and follow the same steps.
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param albumId The ID of the showcase.
-			@param userId The ID of the user.
-			@return ApiCreateShowcaseCustomThumbRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiCreateShowcaseCustomThumbRequest
 	*/
 	CreateShowcaseCustomThumb(ctx context.Context, albumId float32, userId int32) ApiCreateShowcaseCustomThumbRequest
 
@@ -40,15 +41,15 @@ type ShowcasesCustomShowcaseThumbnailsAPI interface {
 	CreateShowcaseCustomThumbExecute(r ApiCreateShowcaseCustomThumbRequest) (*Picture, *http.Response, error)
 
 	/*
-		DeleteShowcaseCustomThumbnail Delete a custom showcase thumbnail
+	DeleteShowcaseCustomThumbnail Delete a custom showcase thumbnail
 
-		This method deletes the specified custom thumbnail from its showcase. The authenticated user must be the owner of the showcase.
+	This method deletes the specified custom thumbnail from its showcase. The authenticated user must be the owner of the showcase.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param albumId The ID of the showcase.
-		@param thumbnailId The ID of the custom thumbnail.
-		@param userId The ID of the user.
-		@return ApiDeleteShowcaseCustomThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param thumbnailId The ID of the custom thumbnail.
+	@param userId The ID of the user.
+	@return ApiDeleteShowcaseCustomThumbnailRequest
 	*/
 	DeleteShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiDeleteShowcaseCustomThumbnailRequest
 
@@ -56,15 +57,15 @@ type ShowcasesCustomShowcaseThumbnailsAPI interface {
 	DeleteShowcaseCustomThumbnailExecute(r ApiDeleteShowcaseCustomThumbnailRequest) (*http.Response, error)
 
 	/*
-		GetShowcaseCustomThumbnail Get a specific custom showcase thumbnail
+	GetShowcaseCustomThumbnail Get a specific custom showcase thumbnail
 
-		This method returns a single custom thumbnail of the specified showcase. The authenticated user must be the owner of the showcase.
+	This method returns a single custom thumbnail of the specified showcase. The authenticated user must be the owner of the showcase.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param albumId The ID of the showcase.
-		@param thumbnailId The ID of the custom thumbnail.
-		@param userId The ID of the user.
-		@return ApiGetShowcaseCustomThumbnailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param thumbnailId The ID of the custom thumbnail.
+	@param userId The ID of the user.
+	@return ApiGetShowcaseCustomThumbnailRequest
 	*/
 	GetShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiGetShowcaseCustomThumbnailRequest
 
@@ -73,14 +74,14 @@ type ShowcasesCustomShowcaseThumbnailsAPI interface {
 	GetShowcaseCustomThumbnailExecute(r ApiGetShowcaseCustomThumbnailRequest) (*Picture, *http.Response, error)
 
 	/*
-		GetShowcaseCustomThumbs Get all the custom thumbnails of a showcase
+	GetShowcaseCustomThumbs Get all the custom thumbnails of a showcase
 
-		This method returns every custom thumbnail of the specified showcase. The authenticated user must be the owner of the showcase.
+	This method returns every custom thumbnail of the specified showcase. The authenticated user must be the owner of the showcase.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param albumId The ID of the showcase.
-		@param userId The ID of the user.
-		@return ApiGetShowcaseCustomThumbsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param userId The ID of the user.
+	@return ApiGetShowcaseCustomThumbsRequest
 	*/
 	GetShowcaseCustomThumbs(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseCustomThumbsRequest
 
@@ -89,17 +90,17 @@ type ShowcasesCustomShowcaseThumbnailsAPI interface {
 	GetShowcaseCustomThumbsExecute(r ApiGetShowcaseCustomThumbsRequest) ([]Picture, *http.Response, error)
 
 	/*
-			ReplaceShowcaseCustomThumb Replace a custom showcase thumbnail
+	ReplaceShowcaseCustomThumb Replace a custom showcase thumbnail
 
-			This method replaces the specified custom showcase thumbnail with a new image file. The authenticated user must be the owner of the showcase.
+	This method replaces the specified custom showcase thumbnail with a new image file. The authenticated user must be the owner of the showcase.
 
-		For information on how to upload the thumbnail, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
+For information on how to upload the thumbnail, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param albumId The ID of the showcase.
-			@param thumbnailId The ID of the custom thumbnail.
-			@param userId The ID of the user.
-			@return ApiReplaceShowcaseCustomThumbRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param albumId The ID of the showcase.
+	@param thumbnailId The ID of the custom thumbnail.
+	@param userId The ID of the user.
+	@return ApiReplaceShowcaseCustomThumbRequest
 	*/
 	ReplaceShowcaseCustomThumb(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiReplaceShowcaseCustomThumbRequest
 
@@ -112,10 +113,10 @@ type ShowcasesCustomShowcaseThumbnailsAPI interface {
 type ShowcasesCustomShowcaseThumbnailsAPIService service
 
 type ApiCreateShowcaseCustomThumbRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ShowcasesCustomShowcaseThumbnailsAPI
-	albumId    float32
-	userId     int32
+	albumId float32
+	userId int32
 }
 
 func (r ApiCreateShowcaseCustomThumbRequest) Execute() (*Picture, *http.Response, error) {
@@ -129,29 +130,28 @@ This method adds an uploaded image file as a custom thumbnail for the specified 
 
 For information on how to upload the thumbnail, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide, and follow the same steps.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiCreateShowcaseCustomThumbRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param userId The ID of the user.
+ @return ApiCreateShowcaseCustomThumbRequest
 */
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) CreateShowcaseCustomThumb(ctx context.Context, albumId float32, userId int32) ApiCreateShowcaseCustomThumbRequest {
 	return ApiCreateShowcaseCustomThumbRequest{
 		ApiService: a,
-		ctx:        ctx,
-		albumId:    albumId,
-		userId:     userId,
+		ctx: ctx,
+		albumId: albumId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) CreateShowcaseCustomThumbExecute(r ApiCreateShowcaseCustomThumbRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseThumbnailsAPIService.CreateShowcaseCustomThumb")
@@ -213,8 +213,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) CreateShowcaseCustomThumbE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -224,8 +224,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) CreateShowcaseCustomThumbE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -243,11 +243,11 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) CreateShowcaseCustomThumbE
 }
 
 type ApiDeleteShowcaseCustomThumbnailRequest struct {
-	ctx         context.Context
-	ApiService  ShowcasesCustomShowcaseThumbnailsAPI
-	albumId     float32
+	ctx context.Context
+	ApiService ShowcasesCustomShowcaseThumbnailsAPI
+	albumId float32
 	thumbnailId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiDeleteShowcaseCustomThumbnailRequest) Execute() (*http.Response, error) {
@@ -259,28 +259,28 @@ DeleteShowcaseCustomThumbnail Delete a custom showcase thumbnail
 
 This method deletes the specified custom thumbnail from its showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param thumbnailId The ID of the custom thumbnail.
-	@param userId The ID of the user.
-	@return ApiDeleteShowcaseCustomThumbnailRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param thumbnailId The ID of the custom thumbnail.
+ @param userId The ID of the user.
+ @return ApiDeleteShowcaseCustomThumbnailRequest
 */
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) DeleteShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiDeleteShowcaseCustomThumbnailRequest {
 	return ApiDeleteShowcaseCustomThumbnailRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		albumId:     albumId,
+		ApiService: a,
+		ctx: ctx,
+		albumId: albumId,
 		thumbnailId: thumbnailId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) DeleteShowcaseCustomThumbnailExecute(r ApiDeleteShowcaseCustomThumbnailRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseThumbnailsAPIService.DeleteShowcaseCustomThumbnail")
@@ -343,8 +343,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) DeleteShowcaseCustomThumbn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -354,8 +354,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) DeleteShowcaseCustomThumbn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -364,11 +364,11 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) DeleteShowcaseCustomThumbn
 }
 
 type ApiGetShowcaseCustomThumbnailRequest struct {
-	ctx         context.Context
-	ApiService  ShowcasesCustomShowcaseThumbnailsAPI
-	albumId     float32
+	ctx context.Context
+	ApiService ShowcasesCustomShowcaseThumbnailsAPI
+	albumId float32
 	thumbnailId float32
-	userId      int32
+	userId int32
 }
 
 func (r ApiGetShowcaseCustomThumbnailRequest) Execute() (*Picture, *http.Response, error) {
@@ -380,31 +380,30 @@ GetShowcaseCustomThumbnail Get a specific custom showcase thumbnail
 
 This method returns a single custom thumbnail of the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param thumbnailId The ID of the custom thumbnail.
-	@param userId The ID of the user.
-	@return ApiGetShowcaseCustomThumbnailRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param thumbnailId The ID of the custom thumbnail.
+ @param userId The ID of the user.
+ @return ApiGetShowcaseCustomThumbnailRequest
 */
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbnail(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiGetShowcaseCustomThumbnailRequest {
 	return ApiGetShowcaseCustomThumbnailRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		albumId:     albumId,
+		ApiService: a,
+		ctx: ctx,
+		albumId: albumId,
 		thumbnailId: thumbnailId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbnailExecute(r ApiGetShowcaseCustomThumbnailRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseThumbnailsAPIService.GetShowcaseCustomThumbnail")
@@ -467,8 +466,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbnail
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -478,8 +477,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbnail
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -497,12 +496,12 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbnail
 }
 
 type ApiGetShowcaseCustomThumbsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ShowcasesCustomShowcaseThumbnailsAPI
-	albumId    float32
-	userId     int32
-	page       *float32
-	perPage    *float32
+	albumId float32
+	userId int32
+	page *float32
+	perPage *float32
 }
 
 // The page number of the results to show.
@@ -526,29 +525,28 @@ GetShowcaseCustomThumbs Get all the custom thumbnails of a showcase
 
 This method returns every custom thumbnail of the specified showcase. The authenticated user must be the owner of the showcase.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param userId The ID of the user.
-	@return ApiGetShowcaseCustomThumbsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param userId The ID of the user.
+ @return ApiGetShowcaseCustomThumbsRequest
 */
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbs(ctx context.Context, albumId float32, userId int32) ApiGetShowcaseCustomThumbsRequest {
 	return ApiGetShowcaseCustomThumbsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		albumId:    albumId,
-		userId:     userId,
+		ctx: ctx,
+		albumId: albumId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Picture
+//  @return []Picture
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbsExecute(r ApiGetShowcaseCustomThumbsRequest) ([]Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Picture
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseThumbnailsAPIService.GetShowcaseCustomThumbs")
@@ -616,8 +614,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -627,8 +625,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -646,11 +644,11 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) GetShowcaseCustomThumbsExe
 }
 
 type ApiReplaceShowcaseCustomThumbRequest struct {
-	ctx                               context.Context
-	ApiService                        ShowcasesCustomShowcaseThumbnailsAPI
-	albumId                           float32
-	thumbnailId                       float32
-	userId                            int32
+	ctx context.Context
+	ApiService ShowcasesCustomShowcaseThumbnailsAPI
+	albumId float32
+	thumbnailId float32
+	userId int32
 	replaceShowcaseCustomThumbRequest *ReplaceShowcaseCustomThumbRequest
 }
 
@@ -670,31 +668,30 @@ This method replaces the specified custom showcase thumbnail with a new image fi
 
 For information on how to upload the thumbnail, see our [Working with Thumbnail Uploads](https://developer.vimeo.com/api/upload/thumbnails) guide.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param albumId The ID of the showcase.
-	@param thumbnailId The ID of the custom thumbnail.
-	@param userId The ID of the user.
-	@return ApiReplaceShowcaseCustomThumbRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param albumId The ID of the showcase.
+ @param thumbnailId The ID of the custom thumbnail.
+ @param userId The ID of the user.
+ @return ApiReplaceShowcaseCustomThumbRequest
 */
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) ReplaceShowcaseCustomThumb(ctx context.Context, albumId float32, thumbnailId float32, userId int32) ApiReplaceShowcaseCustomThumbRequest {
 	return ApiReplaceShowcaseCustomThumbRequest{
-		ApiService:  a,
-		ctx:         ctx,
-		albumId:     albumId,
+		ApiService: a,
+		ctx: ctx,
+		albumId: albumId,
 		thumbnailId: thumbnailId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Picture
+//  @return Picture
 func (a *ShowcasesCustomShowcaseThumbnailsAPIService) ReplaceShowcaseCustomThumbExecute(r ApiReplaceShowcaseCustomThumbRequest) (*Picture, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Picture
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Picture
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShowcasesCustomShowcaseThumbnailsAPIService.ReplaceShowcaseCustomThumb")
@@ -759,8 +756,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) ReplaceShowcaseCustomThumb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -770,8 +767,8 @@ func (a *ShowcasesCustomShowcaseThumbnailsAPIService) ReplaceShowcaseCustomThumb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -22,13 +22,13 @@ type SubscriptionPlans struct {
 	Currency SubscriptionPlansCurrency `json:"currency"`
 	Discount SubscriptionPlansDiscount `json:"discount"`
 	// The SKU of the plan.
-	Id       float32                   `json:"id"`
+	Id float32 `json:"id"`
 	Metadata SubscriptionPlansMetadata `json:"metadata"`
 	// The name of the plan.
-	Name      string                     `json:"name"`
-	Price     SubscriptionPlansPrice     `json:"price"`
+	Name string `json:"name"`
+	Price SubscriptionPlansPrice `json:"price"`
 	Promotion SubscriptionPlansPromotion `json:"promotion"`
-	// The plan type.  Option descriptions:  * `advanced` - The plan type is Vimeo Advanced.  * `basic` - The plan type is Vimeo Basic.  * `business` - The plan type is Vimeo Business.  * `enterprise` - The plan type is Vimeo Enterprise.  * `free` - The plan type is Vimeo Free.  * `livePremium` - The plan type is Vimeo Premium.  * `ott` - The plan type is Vimeo OTT.  * `plus` - The plan type is Vimeo Plus.  * `pro` - The plan type is Vimeo Pro.  * `proUnlimited` - The plan type is Vimeo Pro Unlimited.  * `standard` - The plan type is Vimeo Standard.  * `starter` - The plan type is Vimeo Starter.
+	// The plan type.  Option descriptions:  * `advanced` - The plan type is Vimeo Advanced.  * `basic` - The plan type is Vimeo Basic.  * `business` - The plan type is Vimeo Business.  * `enterprise` - The plan type is Vimeo Enterprise.  * `free` - The plan type is Vimeo Free.  * `livePremium` - The plan type is Vimeo Premium.  * `ott` - The plan type is Vimeo OTT.  * `plus` - The plan type is Vimeo Plus.  * `pro` - The plan type is Vimeo Pro.  * `proUnlimited` - The plan type is Vimeo Pro Unlimited.  * `standard` - The plan type is Vimeo Standard.  * `starter` - The plan type is Vimeo Starter. 
 	Tier string `json:"tier"`
 	// The URI of the plan.
 	Uri string `json:"uri"`
@@ -277,7 +277,7 @@ func (o *SubscriptionPlans) SetUri(v string) {
 }
 
 func (o SubscriptionPlans) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -333,3 +333,5 @@ func (v *NullableSubscriptionPlans) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

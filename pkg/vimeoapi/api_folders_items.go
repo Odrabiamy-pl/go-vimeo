@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type FoldersItemsAPI interface {
 
 	/*
-		DeleteFolderItemsAlt1 Remove items from a folder
+	DeleteFolderItemsAlt1 Remove items from a folder
 
-		This method removes all items from the specified folder.
+	This method removes all items from the specified folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@return ApiDeleteFolderItemsAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@return ApiDeleteFolderItemsAlt1Request
 	*/
 	DeleteFolderItemsAlt1(ctx context.Context, projectId float32) ApiDeleteFolderItemsAlt1Request
 
@@ -36,13 +37,13 @@ type FoldersItemsAPI interface {
 	DeleteFolderItemsAlt1Execute(r ApiDeleteFolderItemsAlt1Request) (*http.Response, error)
 
 	/*
-		GetFolderItems Get all the items in a folder
+	GetFolderItems Get all the items in a folder
 
-		This method returns every item that belongs to the specified folder.
+	This method returns every item that belongs to the specified folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@return ApiGetFolderItemsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@return ApiGetFolderItemsRequest
 	*/
 	GetFolderItems(ctx context.Context, projectId float32) ApiGetFolderItemsRequest
 
@@ -50,14 +51,14 @@ type FoldersItemsAPI interface {
 	GetFolderItemsExecute(r ApiGetFolderItemsRequest) (*http.Response, error)
 
 	/*
-		GetUserFolderItems Get all the items in a folder
+	GetUserFolderItems Get all the items in a folder
 
-		This method returns every item that belongs to the specified folder.
+	This method returns every item that belongs to the specified folder.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param projectId The ID of the folder.
-		@param userId The ID of the user.
-		@return ApiGetUserFolderItemsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param projectId The ID of the folder.
+	@param userId The ID of the user.
+	@return ApiGetUserFolderItemsRequest
 	*/
 	GetUserFolderItems(ctx context.Context, projectId float32, userId int32) ApiGetUserFolderItemsRequest
 
@@ -69,10 +70,10 @@ type FoldersItemsAPI interface {
 type FoldersItemsAPIService service
 
 type ApiDeleteFolderItemsAlt1Request struct {
-	ctx               context.Context
-	ApiService        FoldersItemsAPI
-	projectId         float32
-	uris              *string
+	ctx context.Context
+	ApiService FoldersItemsAPI
+	projectId float32
+	uris *string
 	shouldDeleteItems *bool
 }
 
@@ -97,24 +98,24 @@ DeleteFolderItemsAlt1 Remove items from a folder
 
 This method removes all items from the specified folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@return ApiDeleteFolderItemsAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @return ApiDeleteFolderItemsAlt1Request
 */
 func (a *FoldersItemsAPIService) DeleteFolderItemsAlt1(ctx context.Context, projectId float32) ApiDeleteFolderItemsAlt1Request {
 	return ApiDeleteFolderItemsAlt1Request{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
+		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersItemsAPIService) DeleteFolderItemsAlt1Execute(r ApiDeleteFolderItemsAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersItemsAPIService.DeleteFolderItemsAlt1")
@@ -182,8 +183,8 @@ func (a *FoldersItemsAPIService) DeleteFolderItemsAlt1Execute(r ApiDeleteFolderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -193,8 +194,8 @@ func (a *FoldersItemsAPIService) DeleteFolderItemsAlt1Execute(r ApiDeleteFolderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -204,8 +205,8 @@ func (a *FoldersItemsAPIService) DeleteFolderItemsAlt1Execute(r ApiDeleteFolderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -214,23 +215,23 @@ func (a *FoldersItemsAPIService) DeleteFolderItemsAlt1Execute(r ApiDeleteFolderI
 }
 
 type ApiGetFolderItemsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService FoldersItemsAPI
-	projectId  float32
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	sort       *string
+	projectId float32
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetFolderItemsRequest) Direction(direction string) ApiGetFolderItemsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;folder&#x60; - Filter the results by folder.  * &#x60;live_event&#x60; - Filter the results by event.  * &#x60;video&#x60; - Filter the results by video.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;folder&#x60; - Filter the results by folder.  * &#x60;live_event&#x60; - Filter the results by event.  * &#x60;video&#x60; - Filter the results by video. 
 func (r ApiGetFolderItemsRequest) Filter(filter string) ApiGetFolderItemsRequest {
 	r.filter = &filter
 	return r
@@ -248,7 +249,7 @@ func (r ApiGetFolderItemsRequest) PerPage(perPage float32) ApiGetFolderItemsRequ
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;duration&#x60; - Sort the results by duration. Items without a duration, namely events and folders, are grouped by type in ascending alphabetical order, with events first.  * &#x60;last_user_action_event_date&#x60; - Sort the results by the date of the last user action.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;duration&#x60; - Sort the results by duration. Items without a duration, namely events and folders, are grouped by type in ascending alphabetical order, with events first.  * &#x60;last_user_action_event_date&#x60; - Sort the results by the date of the last user action. 
 func (r ApiGetFolderItemsRequest) Sort(sort string) ApiGetFolderItemsRequest {
 	r.sort = &sort
 	return r
@@ -263,24 +264,24 @@ GetFolderItems Get all the items in a folder
 
 This method returns every item that belongs to the specified folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@return ApiGetFolderItemsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @return ApiGetFolderItemsRequest
 */
 func (a *FoldersItemsAPIService) GetFolderItems(ctx context.Context, projectId float32) ApiGetFolderItemsRequest {
 	return ApiGetFolderItemsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
+		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersItemsAPIService) GetFolderItemsExecute(r ApiGetFolderItemsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersItemsAPIService.GetFolderItems")
@@ -356,24 +357,24 @@ func (a *FoldersItemsAPIService) GetFolderItemsExecute(r ApiGetFolderItemsReques
 }
 
 type ApiGetUserFolderItemsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService FoldersItemsAPI
-	projectId  float32
-	userId     int32
-	direction  *string
-	filter     *string
-	page       *float32
-	perPage    *float32
-	sort       *string
+	projectId float32
+	userId int32
+	direction *string
+	filter *string
+	page *float32
+	perPage *float32
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetUserFolderItemsRequest) Direction(direction string) ApiGetUserFolderItemsRequest {
 	r.direction = &direction
 	return r
 }
 
-// The attribute by which to filter the results.  Option descriptions:  * &#x60;folder&#x60; - Filter the results by folder.  * &#x60;live_event&#x60; - Filter the results by event.  * &#x60;video&#x60; - Filter the results by video.
+// The attribute by which to filter the results.  Option descriptions:  * &#x60;folder&#x60; - Filter the results by folder.  * &#x60;live_event&#x60; - Filter the results by event.  * &#x60;video&#x60; - Filter the results by video. 
 func (r ApiGetUserFolderItemsRequest) Filter(filter string) ApiGetUserFolderItemsRequest {
 	r.filter = &filter
 	return r
@@ -391,7 +392,7 @@ func (r ApiGetUserFolderItemsRequest) PerPage(perPage float32) ApiGetUserFolderI
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;duration&#x60; - Sort the results by duration. Items without a duration, namely events and folders, are grouped by type in ascending alphabetical order, with events first.  * &#x60;last_user_action_event_date&#x60; - Sort the results by the date of the last user action.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;default&#x60; - Use the default sort order.  * &#x60;duration&#x60; - Sort the results by duration. Items without a duration, namely events and folders, are grouped by type in ascending alphabetical order, with events first.  * &#x60;last_user_action_event_date&#x60; - Sort the results by the date of the last user action. 
 func (r ApiGetUserFolderItemsRequest) Sort(sort string) ApiGetUserFolderItemsRequest {
 	r.sort = &sort
 	return r
@@ -406,26 +407,26 @@ GetUserFolderItems Get all the items in a folder
 
 This method returns every item that belongs to the specified folder.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param projectId The ID of the folder.
-	@param userId The ID of the user.
-	@return ApiGetUserFolderItemsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId The ID of the folder.
+ @param userId The ID of the user.
+ @return ApiGetUserFolderItemsRequest
 */
 func (a *FoldersItemsAPIService) GetUserFolderItems(ctx context.Context, projectId float32, userId int32) ApiGetUserFolderItemsRequest {
 	return ApiGetUserFolderItemsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		projectId:  projectId,
-		userId:     userId,
+		ctx: ctx,
+		projectId: projectId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *FoldersItemsAPIService) GetUserFolderItemsExecute(r ApiGetUserFolderItemsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FoldersItemsAPIService.GetUserFolderItems")

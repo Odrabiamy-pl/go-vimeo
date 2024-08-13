@@ -20,8 +20,8 @@ var _ MappedNullable = &ChannelMetadataConnections{}
 // ChannelMetadataConnections A collection of information that is connected to this resource.
 type ChannelMetadataConnections struct {
 	PrivacyUsers ChannelMetadataConnectionsPrivacyUsers `json:"privacy_users"`
-	Users        ChannelMetadataConnectionsUsers        `json:"users"`
-	Videos       ChannelMetadataConnectionsVideos       `json:"videos"`
+	Users ChannelMetadataConnectionsUsers `json:"users"`
+	Videos ChannelMetadataConnectionsVideos `json:"videos"`
 }
 
 // NewChannelMetadataConnections instantiates a new ChannelMetadataConnections object
@@ -117,7 +117,7 @@ func (o *ChannelMetadataConnections) SetVideos(v ChannelMetadataConnectionsVideo
 }
 
 func (o ChannelMetadataConnections) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -167,3 +167,5 @@ func (v *NullableChannelMetadataConnections) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

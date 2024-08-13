@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type CategoriesGroupsAPI interface {
 
 	/*
-		GetCategoryGroups Get all the groups in a category
+	GetCategoryGroups Get all the groups in a category
 
-		This method returns every group that belongs to the specified category.
+	This method returns every group that belongs to the specified category.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param category The name of the category.
-		@return ApiGetCategoryGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param category The name of the category.
+	@return ApiGetCategoryGroupsRequest
 	*/
 	GetCategoryGroups(ctx context.Context, category string) ApiGetCategoryGroupsRequest
 
@@ -41,17 +42,17 @@ type CategoriesGroupsAPI interface {
 type CategoriesGroupsAPIService service
 
 type ApiGetCategoryGroupsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService CategoriesGroupsAPI
-	category   string
-	direction  *string
-	page       *float32
-	perPage    *float32
-	query      *string
-	sort       *string
+	category string
+	direction *string
+	page *float32
+	perPage *float32
+	query *string
+	sort *string
 }
 
-// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order.
+// The sort direction of the results.  Option descriptions:  * &#x60;asc&#x60; - Sort the results in ascending order.  * &#x60;desc&#x60; - Sort the results in descending order. 
 func (r ApiGetCategoryGroupsRequest) Direction(direction string) ApiGetCategoryGroupsRequest {
 	r.direction = &direction
 	return r
@@ -75,7 +76,7 @@ func (r ApiGetCategoryGroupsRequest) Query(query string) ApiGetCategoryGroupsReq
 	return r
 }
 
-// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;members&#x60; - Sort the results by number of members.  * &#x60;videos&#x60; - Sort the results by number of videos.
+// The way to sort the results.  Option descriptions:  * &#x60;alphabetical&#x60; - Sort the results alphabetically.  * &#x60;date&#x60; - Sort the results by date.  * &#x60;members&#x60; - Sort the results by number of members.  * &#x60;videos&#x60; - Sort the results by number of videos. 
 func (r ApiGetCategoryGroupsRequest) Sort(sort string) ApiGetCategoryGroupsRequest {
 	r.sort = &sort
 	return r
@@ -90,27 +91,26 @@ GetCategoryGroups Get all the groups in a category
 
 This method returns every group that belongs to the specified category.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param category The name of the category.
-	@return ApiGetCategoryGroupsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param category The name of the category.
+ @return ApiGetCategoryGroupsRequest
 */
 func (a *CategoriesGroupsAPIService) GetCategoryGroups(ctx context.Context, category string) ApiGetCategoryGroupsRequest {
 	return ApiGetCategoryGroupsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		category:   category,
+		ctx: ctx,
+		category: category,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Group
+//  @return []Group
 func (a *CategoriesGroupsAPIService) GetCategoryGroupsExecute(r ApiGetCategoryGroupsRequest) ([]Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Group
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CategoriesGroupsAPIService.GetCategoryGroups")
@@ -186,8 +186,8 @@ func (a *CategoriesGroupsAPIService) GetCategoryGroupsExecute(r ApiGetCategoryGr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

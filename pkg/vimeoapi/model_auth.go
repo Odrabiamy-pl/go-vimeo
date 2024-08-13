@@ -21,16 +21,16 @@ var _ MappedNullable = &Auth{}
 type Auth struct {
 	// The access token string.
 	AccessToken string `json:"access_token"`
-	App         ApiApp `json:"app"`
+	App ApiApp `json:"app"`
 	// The token's expiration date.
 	ExpiresOn *string `json:"expires_on,omitempty"`
 	// The refresh token string. The Vimeo API doesn't currently support refresh tokens, but we plan to add this support in the future.
 	RefreshToken *string `json:"refresh_token,omitempty"`
 	// The scope or scopes that the token supports.
 	Scope string `json:"scope"`
-	// The token type.  Option descriptions:  * `bearer` - The token is of the `bearer` type.
+	// The token type.  Option descriptions:  * `bearer` - The token is of the `bearer` type. 
 	TokenType string `json:"token_type"`
-	User      *User  `json:"user,omitempty"`
+	User *User `json:"user,omitempty"`
 }
 
 // NewAuth instantiates a new Auth object
@@ -247,7 +247,7 @@ func (o *Auth) SetUser(v User) {
 }
 
 func (o Auth) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -307,3 +307,5 @@ func (v *NullableAuth) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type LiveEventActivationAPI interface {
 
 	/*
-		ActivateLiveEvent Activate a live event
+	ActivateLiveEvent Activate a live event
 
-		This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
+	This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiActivateLiveEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiActivateLiveEventRequest
 	*/
 	ActivateLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiActivateLiveEventRequest
 
@@ -38,13 +39,13 @@ type LiveEventActivationAPI interface {
 	ActivateLiveEventExecute(r ApiActivateLiveEventRequest) (*Video, *http.Response, error)
 
 	/*
-		ActivateLiveEventAlt1 Activate a live event
+	ActivateLiveEventAlt1 Activate a live event
 
-		This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
+	This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiActivateLiveEventAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiActivateLiveEventAlt1Request
 	*/
 	ActivateLiveEventAlt1(ctx context.Context, liveEventId float32) ApiActivateLiveEventAlt1Request
 
@@ -53,13 +54,13 @@ type LiveEventActivationAPI interface {
 	ActivateLiveEventAlt1Execute(r ApiActivateLiveEventAlt1Request) (*Video, *http.Response, error)
 
 	/*
-		ActivateLiveEventAlt2 Activate a live event
+	ActivateLiveEventAlt2 Activate a live event
 
-		This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
+	This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiActivateLiveEventAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiActivateLiveEventAlt2Request
 	*/
 	ActivateLiveEventAlt2(ctx context.Context, liveEventId float32) ApiActivateLiveEventAlt2Request
 
@@ -72,10 +73,10 @@ type LiveEventActivationAPI interface {
 type LiveEventActivationAPIService service
 
 type ApiActivateLiveEventRequest struct {
-	ctx                          context.Context
-	ApiService                   LiveEventActivationAPI
-	liveEventId                  float32
-	userId                       int32
+	ctx context.Context
+	ApiService LiveEventActivationAPI
+	liveEventId float32
+	userId int32
 	activateLiveEventAlt1Request *ActivateLiveEventAlt1Request
 }
 
@@ -93,29 +94,28 @@ ActivateLiveEvent Activate a live event
 
 This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiActivateLiveEventRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiActivateLiveEventRequest
 */
 func (a *LiveEventActivationAPIService) ActivateLiveEvent(ctx context.Context, liveEventId float32, userId int32) ApiActivateLiveEventRequest {
 	return ApiActivateLiveEventRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventActivationAPIService) ActivateLiveEventExecute(r ApiActivateLiveEventRequest) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventActivationAPIService.ActivateLiveEvent")
@@ -179,8 +179,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventExecute(r ApiActivateLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -190,8 +190,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventExecute(r ApiActivateLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -201,8 +201,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventExecute(r ApiActivateLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -212,8 +212,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventExecute(r ApiActivateLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -223,8 +223,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventExecute(r ApiActivateLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -234,8 +234,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventExecute(r ApiActivateLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -253,9 +253,9 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventExecute(r ApiActivateLi
 }
 
 type ApiActivateLiveEventAlt1Request struct {
-	ctx                          context.Context
-	ApiService                   LiveEventActivationAPI
-	liveEventId                  float32
+	ctx context.Context
+	ApiService LiveEventActivationAPI
+	liveEventId float32
 	activateLiveEventAlt1Request *ActivateLiveEventAlt1Request
 }
 
@@ -273,27 +273,26 @@ ActivateLiveEventAlt1 Activate a live event
 
 This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiActivateLiveEventAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiActivateLiveEventAlt1Request
 */
 func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1(ctx context.Context, liveEventId float32) ApiActivateLiveEventAlt1Request {
 	return ApiActivateLiveEventAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1Execute(r ApiActivateLiveEventAlt1Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventActivationAPIService.ActivateLiveEventAlt1")
@@ -356,8 +355,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -367,8 +366,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -378,8 +377,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -389,8 +388,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -400,8 +399,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -411,8 +410,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -430,9 +429,9 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt1Execute(r ApiActiva
 }
 
 type ApiActivateLiveEventAlt2Request struct {
-	ctx                          context.Context
-	ApiService                   LiveEventActivationAPI
-	liveEventId                  float32
+	ctx context.Context
+	ApiService LiveEventActivationAPI
+	liveEventId float32
 	activateLiveEventAlt1Request *ActivateLiveEventAlt1Request
 }
 
@@ -450,27 +449,26 @@ ActivateLiveEventAlt2 Activate a live event
 
 This method creates the necessary RTMP links for the specified event. Begin streaming to these links to trigger the event on Vimeo. The authenticated user must be the owner of the event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiActivateLiveEventAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiActivateLiveEventAlt2Request
 */
 func (a *LiveEventActivationAPIService) ActivateLiveEventAlt2(ctx context.Context, liveEventId float32) ApiActivateLiveEventAlt2Request {
 	return ApiActivateLiveEventAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return Video
+//  @return Video
 func (a *LiveEventActivationAPIService) ActivateLiveEventAlt2Execute(r ApiActivateLiveEventAlt2Request) (*Video, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Video
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Video
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventActivationAPIService.ActivateLiveEventAlt2")
@@ -533,8 +531,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt2Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -544,8 +542,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt2Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -555,8 +553,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt2Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -566,8 +564,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt2Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -577,8 +575,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt2Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -588,8 +586,8 @@ func (a *LiveEventActivationAPIService) ActivateLiveEventAlt2Execute(r ApiActiva
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

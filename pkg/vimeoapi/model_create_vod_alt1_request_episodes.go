@@ -19,7 +19,7 @@ var _ MappedNullable = &CreateVodAlt1RequestEpisodes{}
 
 // CreateVodAlt1RequestEpisodes struct for CreateVodAlt1RequestEpisodes
 type CreateVodAlt1RequestEpisodes struct {
-	Buy  *CreateVodAlt1RequestEpisodesBuy  `json:"buy,omitempty"`
+	Buy *CreateVodAlt1RequestEpisodesBuy `json:"buy,omitempty"`
 	Rent *CreateVodAlt1RequestEpisodesRent `json:"rent,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *CreateVodAlt1RequestEpisodes) SetRent(v CreateVodAlt1RequestEpisodesRen
 }
 
 func (o CreateVodAlt1RequestEpisodes) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableCreateVodAlt1RequestEpisodes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

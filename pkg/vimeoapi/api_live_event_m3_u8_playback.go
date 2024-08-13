@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type LiveEventM3U8PlaybackAPI interface {
 
 	/*
-		GetLiveEventM3u8Playback Get an M3U8 playback URL for a live event
+	GetLiveEventM3u8Playback Get an M3U8 playback URL for a live event
 
-		This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
+	This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiGetLiveEventM3u8PlaybackRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiGetLiveEventM3u8PlaybackRequest
 	*/
 	GetLiveEventM3u8Playback(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventM3u8PlaybackRequest
 
@@ -37,13 +38,13 @@ type LiveEventM3U8PlaybackAPI interface {
 	GetLiveEventM3u8PlaybackExecute(r ApiGetLiveEventM3u8PlaybackRequest) (*http.Response, error)
 
 	/*
-		GetLiveEventM3u8PlaybackAlt1 Get an M3U8 playback URL for a live event
+	GetLiveEventM3u8PlaybackAlt1 Get an M3U8 playback URL for a live event
 
-		This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
+	This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiGetLiveEventM3u8PlaybackAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiGetLiveEventM3u8PlaybackAlt1Request
 	*/
 	GetLiveEventM3u8PlaybackAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventM3u8PlaybackAlt1Request
 
@@ -55,11 +56,11 @@ type LiveEventM3U8PlaybackAPI interface {
 type LiveEventM3U8PlaybackAPIService service
 
 type ApiGetLiveEventM3u8PlaybackRequest struct {
-	ctx         context.Context
-	ApiService  LiveEventM3U8PlaybackAPI
+	ctx context.Context
+	ApiService LiveEventM3U8PlaybackAPI
 	liveEventId float32
-	userId      int32
-	maxFpsFhd   *float32
+	userId int32
+	maxFpsFhd *float32
 }
 
 // The requested maximum frames per second.
@@ -77,26 +78,26 @@ GetLiveEventM3u8Playback Get an M3U8 playback URL for a live event
 
 This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiGetLiveEventM3u8PlaybackRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiGetLiveEventM3u8PlaybackRequest
 */
 func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8Playback(ctx context.Context, liveEventId float32, userId int32) ApiGetLiveEventM3u8PlaybackRequest {
 	return ApiGetLiveEventM3u8PlaybackRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackExecute(r ApiGetLiveEventM3u8PlaybackRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventM3U8PlaybackAPIService.GetLiveEventM3u8Playback")
@@ -161,8 +162,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -172,8 +173,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -183,8 +184,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -194,8 +195,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -205,8 +206,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -216,8 +217,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -226,10 +227,10 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackExecute(r ApiG
 }
 
 type ApiGetLiveEventM3u8PlaybackAlt1Request struct {
-	ctx         context.Context
-	ApiService  LiveEventM3U8PlaybackAPI
+	ctx context.Context
+	ApiService LiveEventM3U8PlaybackAPI
 	liveEventId float32
-	maxFpsFhd   *float32
+	maxFpsFhd *float32
 }
 
 // The requested maximum frames per second.
@@ -247,14 +248,14 @@ GetLiveEventM3u8PlaybackAlt1 Get an M3U8 playback URL for a live event
 
 This method returns an M3U8 playback URL for the specified event stream. You should use this endpoint only in conjunction with our recommended procedure for playing events via HLS. For more information, see our [HLS guide](https://developer.vimeo.com/api/live/playback).
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiGetLiveEventM3u8PlaybackAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiGetLiveEventM3u8PlaybackAlt1Request
 */
 func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1(ctx context.Context, liveEventId float32) ApiGetLiveEventM3u8PlaybackAlt1Request {
 	return ApiGetLiveEventM3u8PlaybackAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
@@ -262,9 +263,9 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1(ctx conte
 // Execute executes the request
 func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1Execute(r ApiGetLiveEventM3u8PlaybackAlt1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventM3U8PlaybackAPIService.GetLiveEventM3u8PlaybackAlt1")
@@ -328,8 +329,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -339,8 +340,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -350,8 +351,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -361,8 +362,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -372,8 +373,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -383,8 +384,8 @@ func (a *LiveEventM3U8PlaybackAPIService) GetLiveEventM3u8PlaybackAlt1Execute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

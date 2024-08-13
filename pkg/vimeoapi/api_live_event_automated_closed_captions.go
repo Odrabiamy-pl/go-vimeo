@@ -19,17 +19,18 @@ import (
 	"strings"
 )
 
+
 type LiveEventAutomatedClosedCaptionsAPI interface {
 
 	/*
-		EditLiveEventAutoCc Edit the automated closed captions preference of a live event
+	EditLiveEventAutoCc Edit the automated closed captions preference of a live event
 
-		This method edits the automated closed captions preference for the specified event.
+	This method edits the automated closed captions preference for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@param userId The ID of the user.
-		@return ApiEditLiveEventAutoCcRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@param userId The ID of the user.
+	@return ApiEditLiveEventAutoCcRequest
 	*/
 	EditLiveEventAutoCc(ctx context.Context, liveEventId float32, userId int32) ApiEditLiveEventAutoCcRequest
 
@@ -38,13 +39,13 @@ type LiveEventAutomatedClosedCaptionsAPI interface {
 	EditLiveEventAutoCcExecute(r ApiEditLiveEventAutoCcRequest) (*LiveEventAutomatedClosedCaptions, *http.Response, error)
 
 	/*
-		EditLiveEventAutoCcAlt1 Edit the automated closed captions preference of a live event
+	EditLiveEventAutoCcAlt1 Edit the automated closed captions preference of a live event
 
-		This method edits the automated closed captions preference for the specified event.
+	This method edits the automated closed captions preference for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiEditLiveEventAutoCcAlt1Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiEditLiveEventAutoCcAlt1Request
 	*/
 	EditLiveEventAutoCcAlt1(ctx context.Context, liveEventId float32) ApiEditLiveEventAutoCcAlt1Request
 
@@ -53,13 +54,13 @@ type LiveEventAutomatedClosedCaptionsAPI interface {
 	EditLiveEventAutoCcAlt1Execute(r ApiEditLiveEventAutoCcAlt1Request) (*LiveEventAutomatedClosedCaptions, *http.Response, error)
 
 	/*
-		EditLiveEventAutoCcAlt2 Edit the automated closed captions preference of a live event
+	EditLiveEventAutoCcAlt2 Edit the automated closed captions preference of a live event
 
-		This method edits the automated closed captions preference for the specified event.
+	This method edits the automated closed captions preference for the specified event.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param liveEventId The ID of the event.
-		@return ApiEditLiveEventAutoCcAlt2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param liveEventId The ID of the event.
+	@return ApiEditLiveEventAutoCcAlt2Request
 	*/
 	EditLiveEventAutoCcAlt2(ctx context.Context, liveEventId float32) ApiEditLiveEventAutoCcAlt2Request
 
@@ -72,10 +73,10 @@ type LiveEventAutomatedClosedCaptionsAPI interface {
 type LiveEventAutomatedClosedCaptionsAPIService service
 
 type ApiEditLiveEventAutoCcRequest struct {
-	ctx                            context.Context
-	ApiService                     LiveEventAutomatedClosedCaptionsAPI
-	liveEventId                    float32
-	userId                         int32
+	ctx context.Context
+	ApiService LiveEventAutomatedClosedCaptionsAPI
+	liveEventId float32
+	userId int32
 	editLiveEventAutoCcAlt1Request *EditLiveEventAutoCcAlt1Request
 }
 
@@ -93,29 +94,28 @@ EditLiveEventAutoCc Edit the automated closed captions preference of a live even
 
 This method edits the automated closed captions preference for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@param userId The ID of the user.
-	@return ApiEditLiveEventAutoCcRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @param userId The ID of the user.
+ @return ApiEditLiveEventAutoCcRequest
 */
 func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCc(ctx context.Context, liveEventId float32, userId int32) ApiEditLiveEventAutoCcRequest {
 	return ApiEditLiveEventAutoCcRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
-		userId:      userId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventAutomatedClosedCaptions
+//  @return LiveEventAutomatedClosedCaptions
 func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcExecute(r ApiEditLiveEventAutoCcRequest) (*LiveEventAutomatedClosedCaptions, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventAutomatedClosedCaptions
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventAutomatedClosedCaptions
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventAutomatedClosedCaptionsAPIService.EditLiveEventAutoCc")
@@ -182,8 +182,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -193,8 +193,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -204,8 +204,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -223,9 +223,9 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcExecute(
 }
 
 type ApiEditLiveEventAutoCcAlt1Request struct {
-	ctx                            context.Context
-	ApiService                     LiveEventAutomatedClosedCaptionsAPI
-	liveEventId                    float32
+	ctx context.Context
+	ApiService LiveEventAutomatedClosedCaptionsAPI
+	liveEventId float32
 	editLiveEventAutoCcAlt1Request *EditLiveEventAutoCcAlt1Request
 }
 
@@ -243,27 +243,26 @@ EditLiveEventAutoCcAlt1 Edit the automated closed captions preference of a live 
 
 This method edits the automated closed captions preference for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiEditLiveEventAutoCcAlt1Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiEditLiveEventAutoCcAlt1Request
 */
 func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt1(ctx context.Context, liveEventId float32) ApiEditLiveEventAutoCcAlt1Request {
 	return ApiEditLiveEventAutoCcAlt1Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventAutomatedClosedCaptions
+//  @return LiveEventAutomatedClosedCaptions
 func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt1Execute(r ApiEditLiveEventAutoCcAlt1Request) (*LiveEventAutomatedClosedCaptions, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventAutomatedClosedCaptions
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventAutomatedClosedCaptions
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventAutomatedClosedCaptionsAPIService.EditLiveEventAutoCcAlt1")
@@ -329,8 +328,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt1Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -340,8 +339,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt1Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -351,8 +350,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt1Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -370,9 +369,9 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt1Exec
 }
 
 type ApiEditLiveEventAutoCcAlt2Request struct {
-	ctx                            context.Context
-	ApiService                     LiveEventAutomatedClosedCaptionsAPI
-	liveEventId                    float32
+	ctx context.Context
+	ApiService LiveEventAutomatedClosedCaptionsAPI
+	liveEventId float32
 	editLiveEventAutoCcAlt1Request *EditLiveEventAutoCcAlt1Request
 }
 
@@ -390,27 +389,26 @@ EditLiveEventAutoCcAlt2 Edit the automated closed captions preference of a live 
 
 This method edits the automated closed captions preference for the specified event.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param liveEventId The ID of the event.
-	@return ApiEditLiveEventAutoCcAlt2Request
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param liveEventId The ID of the event.
+ @return ApiEditLiveEventAutoCcAlt2Request
 */
 func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt2(ctx context.Context, liveEventId float32) ApiEditLiveEventAutoCcAlt2Request {
 	return ApiEditLiveEventAutoCcAlt2Request{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		liveEventId: liveEventId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return LiveEventAutomatedClosedCaptions
+//  @return LiveEventAutomatedClosedCaptions
 func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt2Execute(r ApiEditLiveEventAutoCcAlt2Request) (*LiveEventAutomatedClosedCaptions, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *LiveEventAutomatedClosedCaptions
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LiveEventAutomatedClosedCaptions
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LiveEventAutomatedClosedCaptionsAPIService.EditLiveEventAutoCcAlt2")
@@ -476,8 +474,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -487,8 +485,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -498,8 +496,8 @@ func (a *LiveEventAutomatedClosedCaptionsAPIService) EditLiveEventAutoCcAlt2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
