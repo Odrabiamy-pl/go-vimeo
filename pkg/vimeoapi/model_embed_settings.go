@@ -38,7 +38,6 @@ type EmbedSettings struct {
 	// The first player color, which controls the color of the progress bar, buttons, and more.
 	Color string `json:"color"`
 	Colors EmbedSettingsColors `json:"colors"`
-	EmailCaptureForm EmailCaptureForm `json:"email_capture_form"`
 	EndScreen EmbedSettingsEndScreen `json:"end_screen"`
 	// Whether the embedded player should display the event schedule.
 	EventSchedule bool `json:"event_schedule"`
@@ -75,7 +74,7 @@ type EmbedSettings struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEmbedSettings(airplay bool, audioTracks bool, autopip bool, badges EmbedSettingsBadges, buttons EmbedSettingsButtons, cards []EmbedSettingsCardsInner, chapters bool, chromecast bool, closedCaptions bool, color string, colors EmbedSettingsColors, emailCaptureForm EmailCaptureForm, endScreen EmbedSettingsEndScreen, eventSchedule bool, hasCards bool, interactive bool, logos EmbedSettingsLogos, outroType string, pip bool, playButton EmbedSettingsPlayButton, playbar bool, qualitySelector bool, showTimezone bool, speed bool, title EmbedSettingsTitle, transcript bool, volume bool) *EmbedSettings {
+func NewEmbedSettings(airplay bool, audioTracks bool, autopip bool, badges EmbedSettingsBadges, buttons EmbedSettingsButtons, cards []EmbedSettingsCardsInner, chapters bool, chromecast bool, closedCaptions bool, color string, colors EmbedSettingsColors, endScreen EmbedSettingsEndScreen, eventSchedule bool, hasCards bool, interactive bool, logos EmbedSettingsLogos, outroType string, pip bool, playButton EmbedSettingsPlayButton, playbar bool, qualitySelector bool, showTimezone bool, speed bool, title EmbedSettingsTitle, transcript bool, volume bool) *EmbedSettings {
 	this := EmbedSettings{}
 	this.Airplay = airplay
 	this.AudioTracks = audioTracks
@@ -88,7 +87,6 @@ func NewEmbedSettings(airplay bool, audioTracks bool, autopip bool, badges Embed
 	this.ClosedCaptions = closedCaptions
 	this.Color = color
 	this.Colors = colors
-	this.EmailCaptureForm = emailCaptureForm
 	this.EndScreen = endScreen
 	this.EventSchedule = eventSchedule
 	this.HasCards = hasCards
@@ -377,30 +375,6 @@ func (o *EmbedSettings) GetColorsOk() (*EmbedSettingsColors, bool) {
 // SetColors sets field value
 func (o *EmbedSettings) SetColors(v EmbedSettingsColors) {
 	o.Colors = v
-}
-
-// GetEmailCaptureForm returns the EmailCaptureForm field value
-func (o *EmbedSettings) GetEmailCaptureForm() EmailCaptureForm {
-	if o == nil {
-		var ret EmailCaptureForm
-		return ret
-	}
-
-	return o.EmailCaptureForm
-}
-
-// GetEmailCaptureFormOk returns a tuple with the EmailCaptureForm field value
-// and a boolean to check if the value has been set.
-func (o *EmbedSettings) GetEmailCaptureFormOk() (*EmailCaptureForm, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EmailCaptureForm, true
-}
-
-// SetEmailCaptureForm sets field value
-func (o *EmbedSettings) SetEmailCaptureForm(v EmailCaptureForm) {
-	o.EmailCaptureForm = v
 }
 
 // GetEndScreen returns the EndScreen field value
@@ -848,7 +822,6 @@ func (o EmbedSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize["closed_captions"] = o.ClosedCaptions
 	toSerialize["color"] = o.Color
 	toSerialize["colors"] = o.Colors
-	toSerialize["email_capture_form"] = o.EmailCaptureForm
 	toSerialize["end_screen"] = o.EndScreen
 	toSerialize["event_schedule"] = o.EventSchedule
 	toSerialize["has_cards"] = o.HasCards
